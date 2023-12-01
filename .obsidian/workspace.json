@@ -13,24 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "es/ess.md",
+                "file": "es/如果你说 如果.md",
                 "mode": "source",
                 "source": false
               }
             }
-          },
-          {
-            "id": "63b19ff727b44842",
-            "type": "leaf",
-            "state": {
-              "type": "release-notes",
-              "state": {
-                "currentVersion": "1.4.16"
-              }
-            }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -96,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "es/ess.md",
+                "file": "es/如果你说 如果.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -113,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "es/ess.md",
+                "file": "es/如果你说 如果.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -136,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "es/ess.md"
+                "file": "es/如果你说 如果.md"
               }
             }
           }
@@ -157,8 +146,14 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "63b19ff727b44842",
+  "active": "f78e7e00e34201a9",
   "lastOpenFiles": [
+    "Pasted image 20231201205447.png",
+    "().md",
+    "es/如果你说 如果.md",
+    "es/ess.md",
+    "md/AdvancedAndroid/组件化/Android-DI从入门到放弃.md",
+    "md/AdvancedAndroid/组件化/组件化思路.md",
     "md/AndroidFrameworkTutorial/参考资料.md",
     "md/AndroidFrameworkTutorial/README.md",
     "md/AndroidFrameworkTutorial/LICENSE",
@@ -190,12 +185,6 @@
     "md/AndroidFrameworkTutorial/3.学穿Binder篇/005. Binder 驱动情景分析之 ServiceManager 启动过程.md",
     "md/AndroidFrameworkTutorial/3.学穿Binder篇/024. Binder 面试题解析.md",
     "md/AndroidFrameworkTutorial/3.学穿Binder篇/023. Binder 疑难案例分析2.md",
-    "md/AndroidFrameworkTutorial/3.学穿Binder篇/021. Binder 死亡通知机制分析.md",
-    "md/AndroidFrameworkTutorial/3.学穿Binder篇/022. Binder 疑难案例分析1.md",
-    "md/AndroidFrameworkTutorial/3.学穿Binder篇/020. Binder 应用层数据结构 Parcel 实现分析.md",
-    "md/AndroidFrameworkTutorial/3.学穿Binder篇/019. Binder 系统源码演进.md",
-    "md/AndroidFrameworkTutorial/3.学穿Binder篇/018. AIDL 中的 in，out，inout 分析.md",
-    "md/AndroidFrameworkTutorial/3.学穿Binder篇/017. Binder 多线程分析.md",
     "md/资料/音视频/资料/上课资料/img/试简介视频编码技术？ - 知乎_files/v2-d0289dc0a46fc5b15b3363ffa78cf6c7.png",
     "md/资料/音视频/资料/上课资料/img/试简介视频编码技术？ - 知乎_files/v2-cdd8832425f01dc956f9ccd5b9ad02f4_250x0.jpg",
     "md/资料/音视频/资料/上课资料/img/试简介视频编码技术？ - 知乎_files/v2-aa067e3dce549042c45b8e096e69a145_250x0.jpg",
