@@ -1,0 +1,101 @@
+{
+  "main": {
+    "id": "018751506b579570",
+    "type": "split",
+    "children": [
+      {
+        "id": "08bdf7669a9f8072",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "Context.md",
+            "mode": "preview"
+          }
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "6deb94acd05c9056",
+    "type": "split",
+    "children": [
+      {
+        "id": "b017c5a8a28d6e0c",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "da0b4cfe7157ab2c",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "9ad66bca0c598e12",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "3f56f67cf6b10346",
+    "type": "split",
+    "children": [
+      {
+        "id": "74ecf6ad58077f4b",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "cf80b2e0c9138849",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Context.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "active": "08bdf7669a9f8072",
+  "lastOpenFiles": [
+    "Context.md",
+    "Compose.md",
+    "BookPageView.md",
+    "AWS.md",
+    "Async.md",
+    "android_1.md",
+    "android system architecture.md",
+    "androidStart.md",
+    "ActivityShow.md"
+  ]
+}

@@ -1,0 +1,1295 @@
+# Copyright (C) 2012 The Android Open Source Project
+#
+# IMPORTANT: Do not create world writable files or directories.
+# This is a common source of Android security bugs.
+#
+
+import /init.environ.rc
+import /init.usb.rc
+import /init.${ro.hardware}.rc
+import /vendor/etc/init/hw/init.${ro.hardware}.rc
+import /init.usb.configfs.rc
+import /init.${ro.zygote}.rc
+
+on early-init
+    # Set init and its forked children's oom_adj.
+    write /proc/1/oom_score_adj -1000
+
+    # Disable sysrq from keyboard
+    write /proc/sys/kernel/sysrq 0
+
+    # Set the security context of /adb_keys if present.
+    restorecon /adb_keys
+
+    # Set the security context of /postinstall if present.
+    restorecon /postinstall
+
+    # Mount cgroup mount point for cpu accounting
+    mount cgroup none /acct nodev noexec nosuid cpuacct
+    mkdir /acct/uid
+
+    # root memory control cgroup, used by lmkd
+    mkdir /dev/memcg 0700 root system
+    mount cgroup none /dev/memcg nodev noexec nosuid memory
+    # app mem cgroups, used by activity manager, lmkd and zygote
+    mkdir /dev/memcg/apps/ 0755 system system
+    # cgroup for system_server and surfaceflinger
+    mkdir /dev/memcg/system 0550 system system
+
+    start ueventd
+
+on init
+    sysclktz 0
+
+    # Mix device-specific information into the entropy pool
+    copy /proc/cmdline /dev/urandom
+    copy /default.prop /dev/urandom
+
+    symlink /system/bin /bin
+    symlink /system/etc /etc
+
+    # Backward compatibility.
+    symlink /sys/kernel/debug /d
+
+    # Link /vendor to /system/vendor for devices without a vendor partition.
+    symlink /system/vendor /vendor
+
+    # Create energy-aware scheduler tuning nodes
+    mkdir /dev/stune
+    mount cgroup none /dev/stune nodev noexec nosuid schedtune
+    mkdir /dev/stune/foreground
+    mkdir /dev/stune/background
+    mkdir /dev/stune/top-app
+    mkdir /dev/stune/rt
+    chown system system /dev/stune
+    chown system system /dev/stune/foreground
+    chown system system /dev/stune/background
+    chown system system /dev/stune/top-app
+    chown system system /dev/stune/rt
+    chown system system /dev/stune/tasks
+    chown system system /dev/stune/foreground/tasks
+    chown system system /dev/stune/background/tasks
+    chown system system /dev/stune/top-app/tasks
+    chown system system /dev/stune/rt/tasks
+    chmod 0664 /dev/stune/tasks
+    chmod 0664 /dev/stune/foreground/tasks
+    chmod 0664 /dev/stune/background/tasks
+    chmod 0664 /dev/stune/top-app/tasks
+    chmod 0664 /dev/stune/rt/tasks
+
+    restorecon_recursive /mnt
+
+    mount configfs none /config nodev noexec nosuid
+    chmod 0770 /config/sdcardfs
+    chown system package_info /config/sdcardfs
+
+    mkdir /mnt/secure 0700 root root
+    mkdir /mnt/secure/asec 0700 root root
+    mkdir /mnt/asec 0755 root system
+    mkdir /mnt/obb 0755 root system
+    mkdir /mnt/media_rw 0750 root media_rw
+    mkdir /mnt/user 0755 root root
+    mkdir /mnt/user/0 0755 root root
+    mkdir /mnt/expand 0771 system system
+    mkdir /mnt/appfuse 0711 root root
+
+    # Storage views to support runtime permissions
+    mkdir /mnt/runtime 0700 root root
+    mkdir /mnt/runtime/default 0755 root root
+    mkdir /mnt/runtime/default/self 0755 root root
+    mkdir /mnt/runtime/read 0755 root root
+    mkdir /mnt/runtime/read/self 0755 root root
+    mkdir /mnt/runtime/write 0755 root root
+    mkdir /mnt/runtime/write/self 0755 root root
+
+    # Symlink to keep legacy apps working in multi-user world
+    symlink /storage/self/primary /sdcard
+    symlink /storage/self/primary /mnt/sdcard
+    symlink /mnt/user/0/primary /mnt/runtime/default/self/primary
+
+    write /proc/sys/kernel/panic_on_oops 1
+#ifdef VENDOR_EDIT //fangpan@oppo.com 2015-11-16 enable the kernel hung task detect feature
+    write /proc/sys/kernel/hung_task_timeout_secs 60
+#endif
+    write /proc/cpu/alignment 4
+
+    # scheduler tunables
+    # Disable auto-scaling of scheduler tunables with hotplug. The tunables
+    # will vary across devices in unpredictable ways if allowed to scale with
+    # cpu cores.
+    write /proc/sys/kernel/sched_tunable_scaling 0
+    write /proc/sys/kernel/sched_latency_ns 10000000
+    write /proc/sys/kernel/sched_wakeup_granularity_ns 2000000
+    write /proc/sys/kernel/sched_child_runs_first 0
+
+    write /proc/sys/kernel/randomize_va_space 2
+    write /proc/sys/vm/mmap_min_addr 32768
+    write /proc/sys/net/ipv4/ping_group_range "0 2147483647"
+    write /proc/sys/net/unix/max_dgram_qlen 600
+    write /proc/sys/kernel/sched_rt_runtime_us 950000
+    write /proc/sys/kernel/sched_rt_period_us 1000000
+
+    # Assign reasonable ceiling values for socket rcv/snd buffers.
+    # These should almost always be overridden by the target per the
+    # the corresponding technology maximums.
+    write /proc/sys/net/core/rmem_max  262144
+    write /proc/sys/net/core/wmem_max  262144
+
+    # reflect fwmark from incoming packets onto generated replies
+    write /proc/sys/net/ipv4/fwmark_reflect 1
+    write /proc/sys/net/ipv6/fwmark_reflect 1
+
+    # set fwmark on accepted sockets
+    write /proc/sys/net/ipv4/tcp_fwmark_accept 1
+
+    # disable icmp redirects
+    write /proc/sys/net/ipv4/conf/all/accept_redirects 0
+    write /proc/sys/net/ipv6/conf/all/accept_redirects 0
+
+    # /proc/net/fib_trie leaks interface IP addresses
+    chmod 0400 /proc/net/fib_trie
+
+    # Create cgroup mount points for process groups
+    mkdir /dev/cpuctl
+    mount cgroup none /dev/cpuctl nodev noexec nosuid cpu
+    chown system system /dev/cpuctl
+    chown system system /dev/cpuctl/tasks
+    chmod 0666 /dev/cpuctl/tasks
+    write /dev/cpuctl/cpu.rt_period_us 1000000
+    write /dev/cpuctl/cpu.rt_runtime_us 950000
+
+    # sets up initial cpusets for ActivityManager
+    mkdir /dev/cpuset
+    mount cpuset none /dev/cpuset nodev noexec nosuid
+
+    # this ensures that the cpusets are present and usable, but the device's
+    # init.rc must actually set the correct cpus
+    mkdir /dev/cpuset/foreground
+    copy /dev/cpuset/cpus /dev/cpuset/foreground/cpus
+    copy /dev/cpuset/mems /dev/cpuset/foreground/mems
+    mkdir /dev/cpuset/background
+    copy /dev/cpuset/cpus /dev/cpuset/background/cpus
+    copy /dev/cpuset/mems /dev/cpuset/background/mems
+
+    # system-background is for system tasks that should only run on
+    # little cores, not on bigs
+    # to be used only by init, so don't change system-bg permissions
+    mkdir /dev/cpuset/system-background
+    copy /dev/cpuset/cpus /dev/cpuset/system-background/cpus
+    copy /dev/cpuset/mems /dev/cpuset/system-background/mems
+
+    # restricted is for system tasks that are being throttled
+    # due to screen off.
+    mkdir /dev/cpuset/restricted
+    copy /dev/cpuset/cpus /dev/cpuset/restricted/cpus
+    copy /dev/cpuset/mems /dev/cpuset/restricted/mems
+
+    mkdir /dev/cpuset/top-app
+    copy /dev/cpuset/cpus /dev/cpuset/top-app/cpus
+    copy /dev/cpuset/mems /dev/cpuset/top-app/mems
+
+    # change permissions for all cpusets we'll touch at runtime
+    chown system system /dev/cpuset
+    chown system system /dev/cpuset/foreground
+    chown system system /dev/cpuset/background
+    chown system system /dev/cpuset/system-background
+    chown system system /dev/cpuset/top-app
+    chown system system /dev/cpuset/restricted
+    chown system system /dev/cpuset/tasks
+    chown system system /dev/cpuset/foreground/tasks
+    chown system system /dev/cpuset/background/tasks
+    chown system system /dev/cpuset/system-background/tasks
+    chown system system /dev/cpuset/top-app/tasks
+    chown system system /dev/cpuset/restricted/tasks
+
+    # set system-background to 0775 so SurfaceFlinger can touch it
+    chmod 0775 /dev/cpuset/system-background
+
+    chmod 0664 /dev/cpuset/foreground/cpus
+
+    chmod 0664 /dev/cpuset/foreground/tasks
+    chmod 0664 /dev/cpuset/background/tasks
+    chmod 0664 /dev/cpuset/system-background/tasks
+    chmod 0664 /dev/cpuset/top-app/tasks
+    chmod 0664 /dev/cpuset/restricted/tasks
+    chmod 0664 /dev/cpuset/tasks
+
+
+    # qtaguid will limit access to specific data based on group memberships.
+    #   net_bw_acct grants impersonation of socket owners.
+    #   net_bw_stats grants access to other apps' detailed tagged-socket stats.
+    chown root net_bw_acct /proc/net/xt_qtaguid/ctrl
+    chown root net_bw_stats /proc/net/xt_qtaguid/stats
+
+#ifdef VENDOR_EDIT
+#Jiemin.Zhu@PSW.Android.SdardFs, 2017/12/12, Add for sdcardfs delete dcim record
+    chown root system /proc/fs/sdcardfs/skipd_delete
+    chmod 0664 /proc/fs/sdcardfs/skipd_delete
+    chown root system /sys/module/sdcardfs/parameters/skipd_enable
+    chmod 0664 /sys/module/sdcardfs/parameters/skipd_enable
+    chown root system /sys/module/sdcardfs/parameters/extra_enable
+    chmod 0664 /sys/module/sdcardfs/parameters/extra_enable
+#endif /* VENDOR_EDIT */
+
+    # Allow everybody to read the xt_qtaguid resource tracking misc dev.
+    # This is needed by any process that uses socket tagging.
+    chmod 0644 /dev/xt_qtaguid
+
+    mkdir /dev/cg2_bpf
+    mount cgroup2 cg2_bpf /dev/cg2_bpf nodev noexec nosuid
+    chown root root /dev/cg2_bpf
+    chmod 0600 /dev/cg2_bpf
+    mount bpf bpf /sys/fs/bpf nodev noexec nosuid
+
+    # Create location for fs_mgr to store abbreviated output from filesystem
+    # checker programs.
+    mkdir /dev/fscklogs 0770 root system
+
+    # pstore/ramoops previous console log
+    mount pstore pstore /sys/fs/pstore nodev noexec nosuid
+    chown system log /sys/fs/pstore/console-ramoops
+    chmod 0440 /sys/fs/pstore/console-ramoops
+    chown system log /sys/fs/pstore/console-ramoops-0
+    chmod 0440 /sys/fs/pstore/console-ramoops-0
+    chown system log /sys/fs/pstore/pmsg-ramoops-0
+    chmod 0440 /sys/fs/pstore/pmsg-ramoops-0
+
+    # enable armv8_deprecated instruction hooks
+    write /proc/sys/abi/swp 1
+
+#ifdef VENDOR_EDIT
+#PengNan@BSP.CHG.Basic,2018/02/26, add for charger update fastchg firmware
+    chown system system /proc/fastchg_fw_update
+#endif
+#PengNan@BSP.CHG.Basic,2018/02/26, add for charger update fastchg firmware
+    chown system system /proc/charger_critical_log
+#endif
+    # Linux's execveat() syscall may construct paths containing /dev/fd
+    # expecting it to point to /proc/self/fd
+    symlink /proc/self/fd /dev/fd
+
+    export DOWNLOAD_CACHE /data/cache
+
+    # set RLIMIT_NICE to allow priorities from 19 to -20
+    setrlimit nice 40 40
+
+    # Allow up to 32K FDs per process
+    setrlimit nofile 32768 32768
+
+    # This allows the ledtrig-transient properties to be created here so
+    # that they can be chown'd to system:system later on boot
+    write /sys/class/leds/vibrator/trigger "transient"
+
+#ifdef VENDOR_EDIT
+#Yongzhi.Zhang@PSW.MM.AudioDriver.feature.1209435, 2018/01/03, add for KTV
+    chmod 0660 /dev/ktvdevw
+    chown root audio /dev/ktvdevw
+#Yongzhi.Zhang@PSW.MM.AudioDriver.feature, 2018/09/12, add for dbmdx soundtrigger
+    chown media media /dev/dbmdx-0
+    chown media media /dev/dbmdx-1
+    chmod 0770 /dev/dbmdx-0
+    chmod 0770 /dev/dbmdx-1
+#Yongzhi.Zhang@PSW.MM.AudioDriver.FTM, 2018/12/12, add for dspg test command
+    chown media media /dev/dbmdx_reboot_dev
+    chown media media /dev/dbmdx_valoadamodel_dev
+    chmod 0770 /dev/dbmdx_reboot_dev
+    chmod 0770 /dev/dbmdx_valoadamodel_dev
+#endif /* VENDOR_EDIT*/
+
+#ifdef VENDOR_EDIT
+# gyx@bsp.drv add for tp
+    chown system system /proc/touchpanel/oppo_tp_limit_enable
+    chown system system /proc/touchpanel/oppo_tp_limit_area
+    chown system system /proc/touchpanel/oppo_tp_direction
+    chown system system /proc/touchpanel/oppo_tp_limit_whitelist
+    chown system system /proc/touchpanel/tp_fw_update
+#endif
+
+# Healthd can trigger a full boot from charger mode by signaling this
+# property when the power button is held.
+on property:sys.boot_from_charger_mode=1
+    class_stop charger
+    trigger late-init
+
+on load_persist_props_action
+    load_persist_props
+    start logd
+    start logd-reinit
+
+# Indicate to fw loaders that the relevant mounts are up.
+on firmware_mounts_complete
+    rm /dev/.booting
+
+# Mount filesystems and start core system services.
+on late-init
+    trigger early-fs
+
+    # Mount fstab in init.{$device}.rc by mount_all command. Optional parameter
+    # '--early' can be specified to skip entries with 'latemount'.
+    # /system and /vendor must be mounted by the end of the fs stage,
+    # while /data is optional.
+    trigger fs
+    trigger post-fs
+
+    # Mount fstab in init.{$device}.rc by mount_all with '--late' parameter
+    # to only mount entries with 'latemount'. This is needed if '--early' is
+    # specified in the previous mount_all command on the fs stage.
+    # With /system mounted and properties form /system + /factory available,
+    # some services can be started.
+    trigger late-fs
+
+    # Now we can mount /data. File encryption requires keymaster to decrypt
+    # /data, which in turn can only be loaded when system properties are present.
+    trigger post-fs-data
+
+    # Now we can start zygote for devices with file based encryption
+    trigger zygote-start
+
+    # Load persist properties and override properties (if enabled) from /data.
+    trigger load_persist_props_action
+
+    # Remove a file to wake up anything waiting for firmware.
+    trigger firmware_mounts_complete
+
+    trigger early-boot
+    trigger boot
+
+on post-fs
+    # Load properties from
+    #     /system/build.prop,
+    #     /odm/build.prop,
+    #     /vendor/build.prop and
+    #     /factory/factory.prop
+    load_system_props
+    # start essential services
+    start logd
+    start servicemanager
+    start hwservicemanager
+    start vndservicemanager
+
+    # Once everything is setup, no need to modify /.
+    # The bind+ro combination avoids modifying any other mount flags.
+    mount rootfs rootfs / remount bind ro
+    # Mount shared so changes propagate into child namespaces
+    mount rootfs rootfs / shared rec
+    # Mount default storage into root namespace
+    mount none /mnt/runtime/default /storage bind rec
+    mount none none /storage slave rec
+
+    # Make sure /sys/kernel/debug (if present) is labeled properly
+    # Note that tracefs may be mounted under debug, so we need to cross filesystems
+    restorecon --recursive --cross-filesystems /sys/kernel/debug
+
+    # We chown/chmod /cache again so because mount is run as root + defaults
+    chown system cache /cache
+    chmod 0770 /cache
+    # We restorecon /cache in case the cache partition has been reset.
+    restorecon_recursive /cache
+
+    # Create /cache/recovery in case it's not there. It'll also fix the odd
+    # permissions if created by the recovery system.
+    mkdir /cache/recovery 0770 system cache
+
+    # Backup/restore mechanism uses the cache partition
+    mkdir /cache/backup_stage 0700 system system
+    mkdir /cache/backup 0700 system system
+
+    #change permissions on vmallocinfo so we can grab it from bugreports
+    chown root log /proc/vmallocinfo
+    chmod 0440 /proc/vmallocinfo
+
+    chown root log /proc/slabinfo
+    chmod 0440 /proc/slabinfo
+
+    #change permissions on kmsg & sysrq-trigger so bugreports can grab kthread stacks
+    chown root system /proc/kmsg
+    chmod 0440 /proc/kmsg
+    chown root system /proc/sysrq-trigger
+    chmod 0220 /proc/sysrq-trigger
+    chown system log /proc/last_kmsg
+    chmod 0440 /proc/last_kmsg
+
+    #ifdef VENDOR_EDIT
+    #wen.luo@PSW.BSP.Kernel.Stability, 2019/1/4, Add selinux shutdown hang detect
+    #Liang.Zhang@TECH.Storage.Stability.OPPO_SHUTDOWN_DETECT, 2019/04/28, Add for shutdown detect
+    chown root system /proc/shutdown_detect
+    #endif /*VENDOR_EDIT*/
+
+    # make the selinux kernel policy world-readable
+    chmod 0444 /sys/fs/selinux/policy
+
+    # create the lost+found directories, so as to enforce our permissions
+    mkdir /cache/lost+found 0770 root root
+
+    restorecon_recursive /metadata
+    mkdir /metadata/vold
+    chmod 0700 /metadata/vold
+
+#ifdef VENDOR_EDIT
+#Jianrong.Zheng@PSW.AD.EngineeringMode.0, 2019/04/30, Add for load customize product info property
+    load_customize_product_info_props
+#endif/*VENDOR_EDIT*/
+
+on late-fs
+    # Ensure that tracefs has the correct permissions.
+    # This does not work correctly if it is called in post-fs.
+    chmod 0755 /sys/kernel/debug/tracing
+
+    # HALs required before storage encryption can get unlocked (FBE/FDE)
+    class_start early_hal
+
+on post-fs-data
+    # We chown/chmod /data again so because mount is run as root + defaults
+    chown system system /data
+    chmod 0771 /data
+    # We restorecon /data in case the userdata partition has been reset.
+    restorecon /data
+
+    # Make sure we have the device encryption key.
+    start vold
+    installkey /data
+
+
+    # Start bootcharting as soon as possible after the data partition is
+    # mounted to collect more data.
+    mkdir /data/bootchart 0755 shell shell
+    bootchart start
+
+    # Avoid predictable entropy pool. Carry over entropy from previous boot.
+    copy /data/system/entropy.dat /dev/urandom
+
+    # create basic filesystem structure
+    mkdir /data/misc 01771 system misc
+    mkdir /data/misc/recovery 0770 system log
+    copy /data/misc/recovery/ro.build.fingerprint /data/misc/recovery/ro.build.fingerprint.1
+    chmod 0440 /data/misc/recovery/ro.build.fingerprint.1
+    chown system log /data/misc/recovery/ro.build.fingerprint.1
+    write /data/misc/recovery/ro.build.fingerprint ${ro.build.fingerprint}
+    chmod 0440 /data/misc/recovery/ro.build.fingerprint
+    chown system log /data/misc/recovery/ro.build.fingerprint
+    mkdir /data/misc/recovery/proc 0770 system log
+    copy /data/misc/recovery/proc/version /data/misc/recovery/proc/version.1
+    chmod 0440 /data/misc/recovery/proc/version.1
+    chown system log /data/misc/recovery/proc/version.1
+    copy /proc/version /data/misc/recovery/proc/version
+    chmod 0440 /data/misc/recovery/proc/version
+    chown system log /data/misc/recovery/proc/version
+    mkdir /data/misc/bluedroid 02770 bluetooth bluetooth
+    # Fix the access permissions and group ownership for 'bt_config.conf'
+    chmod 0660 /data/misc/bluedroid/bt_config.conf
+    chown bluetooth bluetooth /data/misc/bluedroid/bt_config.conf
+    mkdir /data/misc/bluetooth 0770 bluetooth bluetooth
+    mkdir /data/misc/bluetooth/logs 0770 bluetooth bluetooth
+    mkdir /data/misc/keystore 0700 keystore keystore
+    mkdir /data/misc/gatekeeper 0700 system system
+    mkdir /data/misc/keychain 0771 system system
+    mkdir /data/misc/net 0750 root shell
+    mkdir /data/misc/radio 0770 system radio
+    mkdir /data/misc/sms 0770 system radio
+    mkdir /data/misc/carrierid 0770 system radio
+    mkdir /data/misc/apns 0770 system radio
+    mkdir /data/misc/zoneinfo 0775 system system
+    mkdir /data/misc/network_watchlist 0774 system system
+    mkdir /data/misc/textclassifier 0771 system system
+    mkdir /data/misc/vpn 0770 system vpn
+    mkdir /data/misc/shared_relro 0771 shared_relro shared_relro
+    mkdir /data/misc/systemkeys 0700 system system
+    mkdir /data/misc/wifi 0770 wifi wifi
+    mkdir /data/misc/wifi/sockets 0770 wifi wifi
+    mkdir /data/misc/wifi/wpa_supplicant 0770 wifi wifi
+    mkdir /data/misc/ethernet 0770 system system
+    mkdir /data/misc/dhcp 0770 dhcp dhcp
+    mkdir /data/misc/user 0771 root root
+    mkdir /data/misc/perfprofd 0775 root root
+    # give system access to wpa_supplicant.conf for backup and restore
+    chmod 0660 /data/misc/wifi/wpa_supplicant.conf
+    mkdir /data/local 0751 root root
+    mkdir /data/misc/media 0700 media media
+    mkdir /data/misc/audioserver 0700 audioserver audioserver
+    mkdir /data/misc/cameraserver 0700 cameraserver cameraserver
+    mkdir /data/misc/vold 0700 root root
+    mkdir /data/misc/boottrace 0771 system shell
+    mkdir /data/misc/update_engine 0700 root root
+    mkdir /data/misc/update_engine_log 02750 root log
+    mkdir /data/misc/trace 0700 root root
+    # create location to store surface and window trace files
+    mkdir /data/misc/wmtrace 0700 system system
+    # profile file layout
+    mkdir /data/misc/profiles 0771 system system
+    mkdir /data/misc/profiles/cur 0771 system system
+    mkdir /data/misc/profiles/ref 0771 system system
+    mkdir /data/misc/profman 0770 system shell
+    mkdir /data/misc/gcov 0770 root root
+
+    mkdir /data/vendor 0771 root root
+    mkdir /data/vendor_ce 0771 root root
+    mkdir /data/vendor_de 0771 root root
+    mkdir /data/vendor/hardware 0771 root root
+
+    # For security reasons, /data/local/tmp should always be empty.
+    # Do not place files or directories in /data/local/tmp
+    mkdir /data/local/tmp 0771 shell shell
+    mkdir /data/local/traces 0777 shell shell
+    mkdir /data/data 0771 system system
+    mkdir /data/app-private 0771 system system
+    mkdir /data/app-ephemeral 0771 system system
+    mkdir /data/app-asec 0700 root root
+    mkdir /data/app-lib 0771 system system
+    mkdir /data/app 0771 system system
+    mkdir /data/property 0700 root root
+    mkdir /data/tombstones 0771 system system
+    mkdir /data/vendor/tombstones 0771 root root
+    mkdir /data/vendor/tombstones/wifi 0771 wifi wifi
+
+    # create dalvik-cache, so as to enforce our permissions
+    mkdir /data/dalvik-cache 0771 root root
+    # create the A/B OTA directory, so as to enforce our permissions
+    mkdir /data/ota 0771 root root
+
+    # create the OTA package directory. It will be accessed by GmsCore (cache
+    # group), update_engine and update_verifier.
+    mkdir /data/ota_package 0770 system cache
+
+    # create resource-cache and double-check the perms
+    mkdir /data/resource-cache 0771 system system
+    chown system system /data/resource-cache
+    chmod 0771 /data/resource-cache
+
+    # create the lost+found directories, so as to enforce our permissions
+    mkdir /data/lost+found 0770 root root
+
+    # create directory for DRM plug-ins - give drm the read/write access to
+    # the following directory.
+    mkdir /data/drm 0770 drm drm
+
+    # create directory for MediaDrm plug-ins - give drm the read/write access to
+    # the following directory.
+    mkdir /data/mediadrm 0770 mediadrm mediadrm
+
+    mkdir /data/anr 0775 system system
+
+    # NFC: create data/nfc for nv storage
+    mkdir /data/nfc 0770 nfc nfc
+    mkdir /data/nfc/param 0770 nfc nfc
+
+    # Create all remaining /data root dirs so that they are made through init
+    # and get proper encryption policy installed
+    mkdir /data/backup 0700 system system
+    mkdir /data/ss 0700 system system
+
+    mkdir /data/system 0775 system system
+    mkdir /data/system/heapdump 0700 system system
+    mkdir /data/system/users 0775 system system
+
+    mkdir /data/system_de 0770 system system
+    mkdir /data/system_ce 0770 system system
+
+    mkdir /data/misc_de 01771 system misc
+    mkdir /data/misc_ce 01771 system misc
+
+    mkdir /data/user 0711 system system
+
+    #ifdef VENDOR_EDIT
+    mkdir /data/vendor/dolby 0770 media media
+    #endif /*VENDOR_EDIT*/
+
+    #ifdef VENDOR_EDIT
+    #Yongzhi.Zhang@PSW.MM.AudioDriver.feature.1209435, 2018/01/03, add for KTV
+    mkdir /data/system/audio 0775 media media
+    #endif /* VENDOR_EDIT */
+    mkdir /data/user_de 0711 system system
+    symlink /data/data /data/user/0
+
+    mkdir /data/media 0770 media_rw media_rw
+    mkdir /data/media/obb 0770 media_rw media_rw
+
+    mkdir /data/cache 0770 system cache
+    mkdir /data/cache/recovery 0770 system cache
+    mkdir /data/cache/backup_stage 0700 system system
+    mkdir /data/cache/backup 0700 system system
+
+    init_user0
+
+    #ifdef VENDOR_EDIT
+    #Likuan.Ren@PSW.AD.Package.GoogleResource, 2016/09/06, Add for inner google resources
+    mkdir /data/gr 0771 system system
+    chown system system /data/gr/138e8af41c2a62b4c06adf65577772419.gr
+    chown system system /data/gr/290aa18407779e8f44cb57733d3b5ea23.gr
+    chown system system /data/gr/3b64e23f2e4cdf5b109c52f30b37cdcb5.gr
+    chown system system /data/gr/4f20989b475c563b80c11b18a5c02b457.gr
+    chown system system /data/gr/5010a28878517c105a60f155f0c6f5c56.gr
+    chown system system /data/gr/6f8acd492101e6b11f5eadcc188566ae1.gr
+    chown system system /data/gr/77963b7a931377ad4ab5ad6a9cd718aar.gr
+    #endif
+    #ifdef COLOROS_EDIT
+    #ZhiYong.Lin@Plf.Framework,2017.10.27:add for coloros app to access the system data file. etc
+    mkdir /data/oppo 0775 system system
+    mkdir /data/oppo/coloros 0777 system system
+    #ZhiYong.Lin@Plf.Framework,2017.11.3:add for app to access the data file. etc
+    mkdir /data/oppo/common 0777 system system
+    #endif /* COLOROS_EDIT */
+
+#ifdef VENDOR_EDIT
+#Tong.Han@PSW.Bsp.Tp, 2018/1/31, add for fw_update
+    mkdir /data/oppo/fw_update 0771 system system
+#endif /* VENDOR_EDIT */
+
+    #ifdef COLOROS_EDIT
+    #Bin.Wang@Plf.Framework,2017.12.13:add for coloros app to reserve data while clear data in recovery
+    mkdir /data/format_unclear 0775 system system
+    chmod 0775 /data/format_unclear
+    #endif /* COLOROS_EDIT */
+    #ifdef /* COLOROS_EDIT */
+    #JiFeng.Tan@ROM.SDK.Font, 2018-09-12 : Add for webview flipfont
+    mkdir /data/format_unclear/font 0777 system system
+    chmod 0777 /data/format_unclear/font
+    symlink /system/fonts/Roboto-Thin.ttf /data/format_unclear/font/ColorOSUI-Thin.ttf
+    symlink /system/fonts/Roboto-ThinItalic.ttf /data/format_unclear/font/ColorOSUI-ThinItalic.ttf
+    symlink /system/fonts/Roboto-Light.ttf /data/format_unclear/font/ColorOSUI-Light.ttf
+    symlink /system/fonts/Roboto-LightItalic.ttf /data/format_unclear/font/ColorOSUI-LightItalic.ttf
+    symlink /system/fonts/Roboto-Regular.ttf /data/format_unclear/font/ColorOSUI-Regular.ttf
+    symlink /system/fonts/Roboto-Italic.ttf /data/format_unclear/font/ColorOSUI-Italic.ttf
+    symlink /system/fonts/Roboto-Medium.ttf /data/format_unclear/font/ColorOSUI-Medium.ttf
+    symlink /system/fonts/Roboto-MediumItalic.ttf /data/format_unclear/font/ColorOSUI-MediumItalic.ttf
+    symlink /system/fonts/Roboto-Black.ttf /data/format_unclear/font/ColorOSUI-Black.ttf
+    symlink /system/fonts/Roboto-BlackItalic.ttf /data/format_unclear/font/ColorOSUI-BlackItalic.ttf
+    symlink /system/fonts/Roboto-Bold.ttf /data/format_unclear/font/ColorOSUI-Bold.ttf
+    symlink /system/fonts/Roboto-BoldItalic.ttf /data/format_unclear/font/ColorOSUI-BoldItalic.ttf
+    symlink /system/fonts/MyanmarZg.ttf /data/format_unclear/font/MyanmarZg.ttf
+
+    mkdir /data/system/font 0777 system system
+    chmod 0777 /data/system/font
+    symlink /system/fonts/Roboto-Thin.ttf /data/system/font/ColorOSUI-Thin.ttf
+    symlink /system/fonts/Roboto-ThinItalic.ttf /data/system/font/ColorOSUI-ThinItalic.ttf
+    symlink /system/fonts/Roboto-Light.ttf /data/system/font/ColorOSUI-Light.ttf
+    symlink /system/fonts/Roboto-LightItalic.ttf /data/system/font/ColorOSUI-LightItalic.ttf
+    symlink /system/fonts/Roboto-Regular.ttf /data/system/font/ColorOSUI-Regular.ttf
+    symlink /system/fonts/Roboto-Italic.ttf /data/system/font/ColorOSUI-Italic.ttf
+    symlink /system/fonts/Roboto-Medium.ttf /data/system/font/ColorOSUI-Medium.ttf
+    symlink /system/fonts/Roboto-MediumItalic.ttf /data/system/font/ColorOSUI-MediumItalic.ttf
+    symlink /system/fonts/Roboto-Black.ttf /data/system/font/ColorOSUI-Black.ttf
+    symlink /system/fonts/Roboto-BlackItalic.ttf /data/system/font/ColorOSUI-BlackItalic.ttf
+    symlink /system/fonts/Roboto-Bold.ttf /data/system/font/ColorOSUI-Bold.ttf
+    symlink /system/fonts/Roboto-BoldItalic.ttf /data/system/font/ColorOSUI-BoldItalic.ttf
+    symlink /system/fonts/MyanmarZg.ttf /data/system/font/MyanmarZg.ttf
+    #endif /* COLOROS_EDIT */
+
+    #wurun.zhou@Apps.Theme, 2011/11/02, add for oppo rom theme
+    mkdir /data/theme 0777 system system
+    chmod 0777 /data/theme
+
+    #used for themespace store to judge whether need themespace lib.
+    setprop is_can_remove_themespacelib 1
+    #endif /* COLOROS_EDIT */
+
+    #CaiYi@ROM.Framework.RUS, 2019/01/24, Add for rus boot res file
+    chmod 0777 /data/format_unclear/prerom_tempres
+    chmod 0666 /data/format_unclear/prerom_tempres/temp_res
+    #endif /* COLOROS_EDIT */
+
+    #ifdef VENDOR_EDIT
+    #Peng.Zhong@PSW.AD.Input.1149733, 2017/11/08, Add for input dynamically log in Android O.
+    mkdir /data/logswitch 0777 system system
+    #endif /* VENDOR_EDIT */
+
+    #ifdef VENDOR_EDIT
+    #MaShaolong@Apps.Inputmethod, 2018/02/03, Add for Gboard
+    chmod 0777 /data/etc/GBoard
+    chmod 0777 /data/etc/GBoard/themes
+    chown system system /data/etc/GBoard
+    #endif
+#ifdef VENDOR__EDIT
+#Jiemin.Zhu@PSW.Android.SELinux, 2017/12/12, create recycle for DCIM before restorecon
+    mkdir /data/.recycle 0770 media_rw media_rw
+#Jiemin.Zhu@PSW.Android.SELinux, 2018/08/06, Add for skip /data/oppo_lib for chcon exec_type
+    mkdir /data/oppo_lib 0777 root root
+#endif /* VENDOR_EDIT */
+
+    #ifdef VENDOR_EDIT
+    #Canjie.zheng@PSW.AD.OppoDebug.LogKit.1080426, 2017/10/27, Add for oppo logkit
+    mkdir /data/oppo/log 0777 system system
+    mkdir /data/oppo/log/DCS 0777 system system
+    mkdir /data/oppo/log/DCS/de 0777 system system
+    mkdir /data/oppo/log/DCS/en 0777 system system
+    mkdir /data/oppo/log/DCS/en/eap 0777 system system
+    mkdir /data/oppo/log/DCS/tmp 0777 system system
+    mkdir /data/oppo/log/DCS/de/AEE_DB 0777 system system
+    mkdir /data/oppo/log/DCS/en/AEE_DB 0777 system system
+    mkdir /data/oppo/log/DCS/en/dropbox 0777 system system
+    mkdir /data/oppo/log/DCS/de/junk_logs 0777 system system
+    mkdir /data/oppo/log/DCS/junk_logs_tmp 0777 system system
+    mkdir /data/oppo/log/DCS/en/junk_logs 0777 system system
+    mkdir /data/oppo/log/DCS/de/network_logs 0777 system system
+    mkdir /data/oppo/log/DCS/de/network_logs/stp_dump 0777 system system
+    mkdir /data/oppo/log/DCS/de/network_logs/NET_LOG 0777 system system
+    mkdir /data/oppo/log/DCS/en/network_logs 0777 system system
+    mkdir /data/oppo/log/DCS/en/network_logs/NET_LOG 0777 system system
+    mkdir /data/oppo/log/DCS/en/network_logs/stp_dump 0777 system system
+    mkdir /data/oppo/log/DCS/de/modem_logs 0777 system system
+    mkdir /data/oppo/log/DCS/de/modem_logs/log 0777 system system
+    mkdir /data/oppo/log/DCS/de/modem_logs/ramdump 0777 system system
+    mkdir /data/oppo/log/DCS/en/modem_logs 0777 system system
+    mkdir /data/oppo/log/DCS/en/modem_logs/ramdump 0777 system system
+    mkdir /data/oppo/log/DCS/en/modem_logs/log 0777 system system
+    mkdir /data/oppo/log/DCS/de/mem_exception_log 0777 system system
+    mkdir /data/oppo/log/DCS/en/mem_exception_log 0777 system system
+    mkdir /data/oppo/log/DCS/de/quality_log 0777 system system
+    mkdir /data/oppo/log/DCS/en/quality_log 0777 system system
+    #endif /* VENDOR_EDIT */
+    #ifdef VENDOR_EDIT
+    #Linjie.Xu@PSW.AD,2017.10.27:add for coloros app to access the system data file. etc
+    mkdir /data/oppo/psw/ 0764 system system
+    mkdir /data/oppo/log/DCS/en/dcs 0777 system system
+    mkdir /data/oppo/psw/thermal 0764 system system
+    mkdir /data/oppo/log/DCS/de/thermal 0777 system system
+    mkdir /data/oppo/log/DCS/en/thermal 0777 system system
+    #endif /* VENDOR_EDIT */
+
+    #ifdef COLOROS_EDIT
+    #Min.Wang@ROM.Framework, 2019/06/10, Add for oppo heapdump
+    mkdir /data/oppo/heapdump/ 0700 system system
+    #endif /* COLOROS_EDIT */
+
+    #ifdef VENDOR_EDIT
+    #Shixing.Ke@PSW.CN.WiFi.Connect.1065680,2019/01/23
+    mkdir /data/oppo/log/DCS/en/dcs/netlog 0777 system system
+    #endif /* VENDOR_EDIT */
+
+    #ifdef VENDOR_EDIT
+    #Laixin@PSW.CN.WiFi.Basic.Switch.1069763, 2019/01/14
+    #Add for: wifi switch log
+    mkdir /data/oppo/log/DCS/de/network_logs/wifiSwitch 0777 system system
+    mkdir /data/oppo/log/DCS/en/network_logs/wifiSwitch 0777 system system
+    #endif /* VENDOR_EDIT */
+
+    #ifdef VENDOR_EDIT
+    #Kun.Hu@PSW.TECH.RELIABILTY, 2019/03/07, add for project phoenix(hang oppo)
+    mkdir /data/oppo/log/DCS/en/hang_oppo 0777 system system
+
+    #Liang.Zhang@TECH.Storage.Stability.OPPO_SHUTDOWN_DETECT, 2019/04/28, Add for shutdown detect
+    mkdir /data/oppo/log/DCS/en/shutdown 0777 system system
+    #endif  /* VENDOR_EDIT */
+
+    #ifdef VENDOR_EDIT
+    #Deliang.Peng@PSW.MultiMedia.Display.Service.Feature.DPS, 2018/02/09, Add for Rom update timely.
+    mkdir /data/oppo/multimedia 0775 system system
+    #endif /* VENDOR_EDIT */
+    #ifdef VENDOR_EDIT
+    #Added by Tangtao@Cam.Drv, 2017/09/18 for thirdparty setting
+    mkdir /data/.camera 0777 system system
+    chmod 0777 /data/.camera
+    #endif
+
+    #ifdef VENDOR_EDIT
+    # Kun.Hu@PSW.TECH.RELIABILTY, 2018/11/15, add for project phoenix(hang oppo)
+    write /proc/phoenix "SET_BOOTSTAGE@NATIVE_INIT_COMMAND_RESTORECON_DATA_START"
+    #endif  /* VENDOR_EDIT */
+    # Set SELinux security contexts on upgrade or policy update.
+    restorecon --recursive --skip-ce /data
+    #ifdef VENDOR_EDIT
+    # Kun.Hu@PSW.TECH.RELIABILTY, 2018/11/15, add for project phoenix(hang oppo)
+    write /proc/phoenix "SET_BOOTSTAGE@NATIVE_INIT_COMMAND_RESTORECON_DATA_END"
+    #endif  /* VENDOR_EDIT */
+
+    # Check any timezone data in /data is newer than the copy in /system, delete if not.
+    exec - system system -- /system/bin/tzdatacheck /system/usr/share/zoneinfo /data/misc/zoneinfo
+
+    # If there is no post-fs-data action in the init.<device>.rc file, you
+    # must uncomment this line, otherwise encrypted filesystems
+    # won't work.
+    # Set indication (checked by vold) that we have finished this action
+    #setprop vold.post_fs_data_done 1
+
+# It is recommended to put unnecessary data/ initialization from post-fs-data
+# to start-zygote in device's init.rc to unblock zygote start.
+on zygote-start && property:ro.crypto.state=unencrypted
+    #ifdef VENDOR_EDIT
+    # Kun.Hu@PSW.TECH.RELIABILTY, 2018/11/15, add for project phoenix(hang oppo)
+    write /proc/phoenix "SET_BOOTSTAGE@NATIVE_INIT_TRIGGER_POST_FS_DATA"
+    #endif  /* VENDOR_EDIT */
+    # A/B update verifier that marks a successful boot.
+    exec_start update_verifier_nonencrypted
+    start netd
+    start zygote
+    start zygote_secondary
+    #ifdef COLOROS_EDIT
+    #jizhengkang@ROM.Framework, 2019.01.25: modify for app move to data
+    mount ext4 loop@/data/extra.img /extra ro
+    #endif /* COLOROS_EDIT */
+
+on zygote-start && property:ro.crypto.state=unsupported
+    # A/B update verifier that marks a successful boot.
+    exec_start update_verifier_nonencrypted
+    start netd
+    start zygote
+    start zygote_secondary
+    #ifdef COLOROS_EDIT
+    #jizhengkang@ROM.Framework, 2019.01.25: modify for app move to data
+    mount ext4 loop@/data/extra.img /extra ro
+    #endif /* COLOROS_EDIT */
+
+on zygote-start && property:ro.crypto.state=encrypted && property:ro.crypto.type=file
+    # A/B update verifier that marks a successful boot.
+    exec_start update_verifier_nonencrypted
+    start netd
+    start zygote
+    start zygote_secondary
+    #ifdef COLOROS_EDIT
+    #jizhengkang@ROM.Framework, 2019.01.25: modify for app move to data
+    mount ext4 loop@/data/extra.img /extra ro
+    #endif /* COLOROS_EDIT */
+    #ifdef VENDOR_EDIT
+    #Xuefeng.Peng@PSW.AD.Storage.1596362, 2018/11/30, add for FBE
+    start bspFwUpdate
+    #endif/*VENDOR_EDIT*/
+
+on boot
+    # basic network init
+    ifup lo
+    hostname localhost
+    domainname localdomain
+
+    # IPsec SA default expiration length
+    write /proc/sys/net/core/xfrm_acq_expires 3600
+#ifdef VENDOR_EDIT
+#Xiaojun.Lv@PSW.MM.AudioDriver.HAL, 2018/7/13, add for MTK tfa kernel driver
+    write /proc/tfa98xx/oppo_tfa98xx_fw_update 1
+    chown system system /proc/tfa98xx/oppo_tfa98xx_fw_update
+    chmod 0660 /dev/i2c0_tfa9890
+    chown audiosever audio /dev/i2c0_tfa9890
+#endif /* VENDOR_EDIT */
+#ifdef VENDOR_EDIT
+#Qiao.Hu@EXP.BSP.CHG.basic,2017/12/20 Add for current limit while calling
+    chmod  0666 /sys/class/power_supply/battery/call_mode
+#endif  /* VENDOR_EDIT */
+    # Memory management.  Basic kernel parameters, and allow the high
+    # level system server to be able to adjust the kernel OOM driver
+    # parameters to match how it is managing things.
+    write /proc/sys/vm/overcommit_memory 1
+    write /proc/sys/vm/min_free_order_shift 4
+    chown root system /sys/module/lowmemorykiller/parameters/adj
+    chmod 0664 /sys/module/lowmemorykiller/parameters/adj
+    chown root system /sys/module/lowmemorykiller/parameters/minfree
+    chmod 0664 /sys/module/lowmemorykiller/parameters/minfree
+
+    # Tweak background writeout
+    write /proc/sys/vm/dirty_expire_centisecs 200
+    write /proc/sys/vm/dirty_background_ratio  5
+
+    # Permissions for System Server and daemons.
+    chown radio system /sys/android_power/state
+    chown radio system /sys/android_power/request_state
+    chown radio system /sys/android_power/acquire_full_wake_lock
+    chown radio system /sys/android_power/acquire_partial_wake_lock
+    chown radio system /sys/android_power/release_wake_lock
+    chown system system /sys/power/autosleep
+    chown system system /sys/power/state
+    chown system system /sys/power/wakeup_count
+    chown radio wakelock /sys/power/wake_lock
+    chown radio wakelock /sys/power/wake_unlock
+    chmod 0660 /sys/power/state
+    chmod 0660 /sys/power/wake_lock
+    chmod 0660 /sys/power/wake_unlock
+
+    #ifdef VENDOR_EDIT
+    #Yunqing.Zeng@BSP.Power.Basic 2018/01/11 add for backup of netstat before sleep
+    chown system system /proc/net/xt_qtaguid/stats_oppobackup
+    chmod 0660 /proc/net/xt_qtaguid/stats_oppobackup
+    #endif VENDOR_EDIT
+
+    chown system system /sys/devices/system/cpu/cpufreq/interactive/timer_rate
+    chmod 0660 /sys/devices/system/cpu/cpufreq/interactive/timer_rate
+    chown system system /sys/devices/system/cpu/cpufreq/interactive/timer_slack
+    chmod 0660 /sys/devices/system/cpu/cpufreq/interactive/timer_slack
+    chown system system /sys/devices/system/cpu/cpufreq/interactive/min_sample_time
+    chmod 0660 /sys/devices/system/cpu/cpufreq/interactive/min_sample_time
+    chown system system /sys/devices/system/cpu/cpufreq/interactive/hispeed_freq
+    chmod 0660 /sys/devices/system/cpu/cpufreq/interactive/hispeed_freq
+    chown system system /sys/devices/system/cpu/cpufreq/interactive/target_loads
+    chmod 0660 /sys/devices/system/cpu/cpufreq/interactive/target_loads
+    chown system system /sys/devices/system/cpu/cpufreq/interactive/go_hispeed_load
+    chmod 0660 /sys/devices/system/cpu/cpufreq/interactive/go_hispeed_load
+    chown system system /sys/devices/system/cpu/cpufreq/interactive/above_hispeed_delay
+    chmod 0660 /sys/devices/system/cpu/cpufreq/interactive/above_hispeed_delay
+    chown system system /sys/devices/system/cpu/cpufreq/interactive/boost
+    chmod 0660 /sys/devices/system/cpu/cpufreq/interactive/boost
+    chown system system /sys/devices/system/cpu/cpufreq/interactive/boostpulse
+    chown system system /sys/devices/system/cpu/cpufreq/interactive/input_boost
+    chmod 0660 /sys/devices/system/cpu/cpufreq/interactive/input_boost
+    chown system system /sys/devices/system/cpu/cpufreq/interactive/boostpulse_duration
+    chmod 0660 /sys/devices/system/cpu/cpufreq/interactive/boostpulse_duration
+    chown system system /sys/devices/system/cpu/cpufreq/interactive/io_is_busy
+    chmod 0660 /sys/devices/system/cpu/cpufreq/interactive/io_is_busy
+
+    # Assume SMP uses shared cpufreq policy for all CPUs
+    chown system system /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
+    chmod 0660 /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
+
+    chown system system /sys/class/leds/vibrator/trigger
+    chown system system /sys/class/leds/vibrator/activate
+    chown system system /sys/class/leds/vibrator/brightness
+    chown system system /sys/class/leds/vibrator/duration
+    chown system system /sys/class/leds/vibrator/state
+    chown system system /sys/class/timed_output/vibrator/enable
+    chown system system /sys/class/leds/keyboard-backlight/brightness
+    chown system system /sys/class/leds/lcd-backlight/brightness
+    chown system system /sys/class/leds/button-backlight/brightness
+    chown system system /sys/class/leds/jogball-backlight/brightness
+    chown system system /sys/class/leds/red/brightness
+    chown system system /sys/class/leds/green/brightness
+    chown system system /sys/class/leds/blue/brightness
+    chown system system /sys/class/leds/red/device/grpfreq
+    chown system system /sys/class/leds/red/device/grppwm
+    chown system system /sys/class/leds/red/device/blink
+    chown system system /sys/module/sco/parameters/disable_esco
+    chown system system /sys/kernel/ipv4/tcp_wmem_min
+    chown system system /sys/kernel/ipv4/tcp_wmem_def
+    chown system system /sys/kernel/ipv4/tcp_wmem_max
+    chown system system /sys/kernel/ipv4/tcp_rmem_min
+    chown system system /sys/kernel/ipv4/tcp_rmem_def
+    chown system system /sys/kernel/ipv4/tcp_rmem_max
+    chown root radio /proc/cmdline
+#ifdef VENDOR_EDIT
+#Qiao.Hu@BSP.BaseDrv.CHG.Basic, 2017/12/14, Add for ship mode
+    chown system system /sys/class/power_supply/battery/ship_mode
+#endif /* VENDOR_EDIT */
+#ifdef VENDOR_EDIT
+#tongfeng.huang@PSW.BSP.CHG.Basic, 2018/02/05,  Add for short_c_batt
+    chown system system /sys/class/power_supply/battery/short_c_batt_in_idle
+    chown system system /sys/class/power_supply/battery/short_c_batt_update_change
+    chown system system /sys/class/power_supply/battery/short_c_hw_feature
+    chown system system /sys/class/power_supply/battery/short_ic_volt_thresh
+    chown system system /sys/class/power_supply/battery/short_ic_otp_status
+    chown system system /sys/class/power_supply/battery/short_c_batt_limit_chg
+    chown system system /sys/class/power_supply/battery/short_c_batt_limit_rechg
+    #Liangxiang.Liu@AD.Power.PowerMonitor, 2018/02/08, Add for wakeup_stastisc reset
+    chown system system /sys/kernel/wakeup_reasons/wakeup_stastisc_reset
+    chown system system /sys/kernel/wakelock_profiler/active_max
+    chown system system /sys/kernel/wakelock_profiler/kernel_time
+    chown system system /sys/class/power_supply/usb/typec_sbu_voltage
+#endif /* VENDOR_EDIT */
+    #ifdef VENDOR_EDIT
+    #Xianheng.Meng@AD.Power.Breathing, 2015/12/14 Add for oppo breath light
+    chown system system /sys/class/leds/white/brightness
+    chown system system /sys/class/leds/white/device/grpfreq
+    chown system system /sys/class/leds/white/device/grppwm
+    chown system system /sys/class/leds/white/device/blink
+    #endif /* VENDOR_EDIT */
+    #ifdef VENDOR_EDIT
+    #Bin.Li@BSP.Fingerprint.Secure 2019/05/24, Add for  oppo breath light
+    chown system system /sys/class/leds/led1/brightness
+    chown system system /sys/class/leds/led1/device/grpfreq
+    chown system system /sys/class/leds/led1/device/grppwm
+    chown system system /sys/class/leds/led1/device/blink
+    chown system system /sys/class/leds/led1/device/color
+    chown system system /sys/class/leds/led2/brightness
+    chown system system /sys/class/leds/led2/device/grpfreq
+    chown system system /sys/class/leds/led2/device/grppwm
+    chown system system /sys/class/leds/led2/device/blink
+    chown system system /sys/class/leds/led2/device/color
+    #endif /* VENDOR_EDIT */
+
+
+#ifdef VENDOR_EDIT
+#tongfeng.Huang@PSW.BSP.CHG.Basic, 2019/04/22, Add for tbatt power off
+	chown system system /proc/tbatt_pwroff
+#endif VENDOR_EDIT
+
+#ifdef VENDOR_EDIT
+#Jianchao.Shi@PSW.BSP.CHG.Basic, 2019/04/26, sjc Add for Add for WD info
+	chown system system /sys/class/power_supply/usb/water_detect_feature
+#endif VENDOR_EDIT
+
+    # Define default initial receive window size in segments.
+    setprop net.tcp.default_init_rwnd 60
+
+    # Start standard binderized HAL daemons
+    class_start hal
+
+    class_start core
+
+on nonencrypted
+    class_start main
+    class_start late_start
+
+on property:sys.init_log_level=*
+    loglevel ${sys.init_log_level}
+
+on charger
+    class_start charger
+#ifdef VENDOR_EDIT
+#Jianchao.Shi@PSW.BSP.CHG.Basic, 2018/04/25, sjc Add for charging cmcc feature
+on property:ro.vendor.charging_current_limit=true
+    write /proc/charging_limit_current 500
+on property:ro.vendor.charging_time_limit=false
+    write /proc/charging_limit_time -1
+#endif VENDOR_EDIT
+on property:vold.decrypt=trigger_reset_main
+    class_reset main
+
+on property:vold.decrypt=trigger_load_persist_props
+    load_persist_props
+    start logd
+    start logd-reinit
+
+on property:vold.decrypt=trigger_post_fs_data
+    #ifdef VENDOR_EDIT
+    # Kun.Hu@PSW.TECH.RELIABILTY, 2018/11/15, add for project phoenix(hang oppo)
+    write /proc/phoenix "SET_BOOTSTAGE@NATIVE_INIT_TRIGGER_POST_FS_DATA"
+    #endif  /* VENDOR_EDIT */
+    trigger post-fs-data
+    trigger zygote-start
+
+on property:vold.decrypt=trigger_restart_min_framework
+    # A/B update verifier that marks a successful boot.
+    exec_start update_verifier
+    class_start main
+    #ifdef VENDOR_EDIT
+    #Xuefeng.Peng@PSW.AD.Storage.DiskEncryption.2020572, 2019/05/16, Add for full disk encryption can reset the phone when trigger_restart_min_framework
+    start zygote
+    start zygote_secondary
+    #endif/*VENDOR_EDIT*/
+    #ifdef COLOROS_EDIT
+    #jizhengkang@ROM.Framework, 2019.01.25: modify for app move to data
+    mount ext4 loop@/data/extra/extra.img /extra ro
+    #endif /* COLOROS_EDIT */
+
+on property:vold.decrypt=trigger_restart_framework
+    # A/B update verifier that marks a successful boot.
+    exec_start update_verifier
+    class_start main
+    class_start late_start
+    setprop service.bootanim.exit 0
+    start bootanim
+    #ifdef COLOROS_EDIT
+    #jizhengkang@ROM.Framework, 2019.01.25: modify for app move to data
+    mount ext4 loop@/data/extra/extra.img /extra ro
+    #endif /* COLOROS_EDIT */
+
+on property:vold.decrypt=trigger_shutdown_framework
+    class_reset late_start
+    class_reset main
+
+on property:sys.boot_completed=1
+    bootchart stop
+
+# system server cannot write to /proc/sys files,
+# and chown/chmod does not work for /proc/sys/ entries.
+# So proxy writes through init.
+on property:sys.sysctl.extra_free_kbytes=*
+    write /proc/sys/vm/extra_free_kbytes ${sys.sysctl.extra_free_kbytes}
+
+# "tcp_default_init_rwnd" Is too long!
+on property:sys.sysctl.tcp_def_init_rwnd=*
+    write /proc/sys/net/ipv4/tcp_default_init_rwnd ${sys.sysctl.tcp_def_init_rwnd}
+
+on property:security.perf_harden=0
+    write /proc/sys/kernel/perf_event_paranoid 1
+
+on property:security.perf_harden=1
+    write /proc/sys/kernel/perf_event_paranoid 3
+
+# on shutdown
+# In device's init.rc, this trigger can be used to do device-specific actions
+# before shutdown. e.g disable watchdog and mask error handling
+
+## Daemon processes to be run by init.
+##
+#ifdef VENDOR_EDIT
+#Tong.Han@Bsp.Group.Tp,2017-12-16,Add interface to get proper fw
+service bspFwUpdate /system/bin/bspFwUpdate
+    class main
+    user system
+    group system
+    disabled
+    oneshot
+#endif /* VENDOR_EDIT */
+
+service ueventd /sbin/ueventd
+    class core
+    critical
+    seclabel u:r:ueventd:s0
+    shutdown critical
+
+service console /system/bin/sh
+    class core
+    console
+    disabled
+    user shell
+    group shell log readproc
+    seclabel u:r:shell:s0
+    setenv HOSTNAME console
+
+on property:ro.debuggable=1
+    # Give writes to anyone for the trace folder on debug builds.
+    # The folder is used to store method traces.
+    chmod 0773 /data/misc/trace
+    # Give reads to anyone for the window trace folder on debug builds.
+    chmod 0775 /data/misc/wmtrace
+    start console
+
+service flash_recovery /system/bin/install-recovery.sh
+    class main
+    oneshot
+
+#ifdef VENDOR_EDIT
+#Jiwei.Wang@PSW.AD.OppoFeature.Customize.1084763, 2017/06/26, Add for customize version to control sdcard
+on property:persist.sys.exStorage_support=1
+    write /sys/class/mmc_host/mmc0/exStorage_support 1
+
+on property:persist.sys.exStorage_support=0
+    write /sys/class/mmc_host/mmc0/exStorage_support 0
+#endif /* VENDOR_EDIT */
+
+#ifdef VENDOR_EDIT
+#Runsheng.Pei@PSW.AD.OppoFeature.UsageRecord.1140185, 2014/07/22, Add to provide a function
+service ousage /system/bin/ousage
+    class main
+    user system
+    group system
+#endif /* VENDOR_EDIT */
+
+#ifdef COLOROS_EDIT
+#ZhiYong.Lin@Plf.Framework : Add for RUtils
+#Zequan.Wang@PSW.AD.Ota.810195, 2017/03/11, Modify for bug 810195
+service rutilsdaemon /system/bin/rutilsdaemon
+    #class main
+    class late_start
+    user root
+    disabled
+
+on property:oppo.service.rutils.enable=1
+    start rutilsdaemon
+
+on property:oppo.service.rutils.enable=0
+    stop rutilsdaemon
+
+#ZhiYong.Lin@Plf.Framework : Add for backuprestore
+service backuprestore /system/bin/br_app_data_service
+    class main
+    socket backuprestore stream 0660 root media_rw
+    user root
+    disabled
+
+on property:oppo.service.br.enable=1
+    start backuprestore
+
+on property:oppo.service.br.enable=0
+    stop backuprestore
+#endif /* COLOROS_EDIT */
+#ifdef COLOROS_EDIT
+#chaochun.shuai@Plf.Framework : add for protect data 2015/07/02
+service datafree /system/bin/datafree
+    class main
+    oneshot
+
+on property:oppo.service.datafree.enable=1
+    start datafree
+
+on property:oppo.service.datafree.enable=0
+    stop datafree
+#endif /* COLOROS_EDIT */
+
+#ifdef COLOROS_EDIT
+#shuaiqi.Li@ROM.Framework.OTA, 2017/11/11, add for move odex file to data
+service odexmove /system/bin/odexmove
+        class main
+        user root
+        disabled
+
+on property:oppo.service.odexmove.enable=1
+    start odexmove
+
+on property:oppo.service.odexmove.enable=0
+    stop odexmove
+#endif /* COLOROS_EDIT */
+
+#ifdef VENDOR_EDIT
+#Wenzhen.Lin@PSW.AD.OppoDebug.AssertTip.1122089, 2015/11/09, Add for oppo Assert
+service oppoasserttip /system/bin/asserttip
+   class core
+   user system
+   disabled
+
+on property:persist.sys.assert.state=true
+    start oppoasserttip
+
+#Canjie.Zheng@PSW.AD.OppoDebug.CriticalLog.1067207, 2016/01/07, Add for critical log.
+service criticallog /system/bin/criticallog
+   class main
+   user system
+   seclabel u:r:rutilsdaemon:s0
+   group system
+
+#Yongxing.Chen@PSW.MM.Display.Graphics.Feature.1148914, 2019/01/13, Add for gift
+service oppogift /system/bin/oppogift
+   class main
+   user system
+   group system
+#endif
+
+#Peng.Zhong@PSW.AD.Input.Motor.1589153, 2018/10/10, Add for motor control
+service motorcontrol /system/bin/motorcontrol
+    class main
+    user system
+    group system
+
+#Siting.Mo@AD.OppoDebug.LogKit.1058619, 2017/08/03, Add for dynamic log
+on property:debug.MB.running=1
+    start dumpLog_on
+
+service dumpLog_on  /system/bin/sh /dumplog.sh "Log_on"
+    class main
+    user root
+    disabled
+    oneshot
+    seclabel u:r:dumpLog_on:s0
+
+on property:debug.MB.running=0
+    start dumpLog_off
+
+service dumpLog_off /system/bin/sh /dumplog.sh "Log_off"
+    class main
+    user root
+    disabled
+    oneshot
+    seclabel u:r:dumpLog_off:s0
+
+#endif /* VENDOR_EDIT */
+
+#ifdef VENDOR_EDIT
+#Haoran.Zhang@PSW.AD.BuildConfig.0, 2016/09/22, Add for protect xkit
+on init
+   export XKIT /system/xbin/xkit_10
+#endif
+
+#ifdef VENDOR_EDIT
+#Dedong.Wei@PSW.NW.SIM.824170, 2016/11/12,Add for exp lock
+service exp_lock /vendor/bin/exp_lock
+    class core
+    user root
+    group root
+    oneshot
+    seclabel u:r:rutilsdaemon:s0
+#endif /* VENDOR_EDIT */
+
+#ifdef COLOROS_EDIT
+#Bing.Du@Plf.Framework, 2017/8/14, Add for log limit, observe property change to logd process.
+on property:sys.usb.config=*
+    start logd
+    start logd-reconfig
+on property:persist.sys.assert.panic=*
+    start logd
+    start logd-reconfig
+on property:sys.loglimit.enabled=*
+    start logd
+    start logd-reconfig
+#endif/* COLOROS_EDIT */
+
+#ifdef VENDOR_EDIT
+#Zhibin.Wu@PSW.AD.Stability.Crash.1613473, 2018/11/01, Add for mtk sensor hal
+#MTK change sensor-hal to class main for delay start.
+#As AOSP design, it is under class hal and need restart when hwsm onrestart.
+on property:init.svc.hwservicemanager=restarting
+    restart sensors-hal-1-0
+#endif /* VENDOR_EDIT */
