@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/androidSource/6 android之Log日志.md",
+                "file": "es/周报.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "md/androidSource/6 android之Log日志.md",
+                "file": "es/周报.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "md/androidSource/6 android之Log日志.md",
+                "file": "es/周报.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "md/androidSource/6 android之Log日志.md"
+                "file": "es/周报.md"
               }
             }
           }
@@ -149,8 +149,9 @@
   },
   "active": "f78e7e00e34201a9",
   "lastOpenFiles": [
+    "md/androidSource/6 android之Log日志.md",
     "md/androidSource/1  android项目构建流程.md",
-    "es/如果你说 如果.md",
+    "es/周报.md",
     "es/ess.md",
     "Pasted image 20231201205447.png",
     "().md",
@@ -186,7 +187,6 @@
     "md/AndroidFrameworkTutorial/3.学穿Binder篇/参考资料.md",
     "md/AndroidFrameworkTutorial/3.学穿Binder篇/005. Binder 驱动情景分析之 ServiceManager 启动过程.md",
     "md/AndroidFrameworkTutorial/3.学穿Binder篇/024. Binder 面试题解析.md",
-    "md/AndroidFrameworkTutorial/3.学穿Binder篇/023. Binder 疑难案例分析2.md",
     "md/资料/音视频/资料/上课资料/img/试简介视频编码技术？ - 知乎_files/v2-d0289dc0a46fc5b15b3363ffa78cf6c7.png",
     "md/资料/音视频/资料/上课资料/img/试简介视频编码技术？ - 知乎_files/v2-cdd8832425f01dc956f9ccd5b9ad02f4_250x0.jpg",
     "md/资料/音视频/资料/上课资料/img/试简介视频编码技术？ - 知乎_files/v2-aa067e3dce549042c45b8e096e69a145_250x0.jpg",
