@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "es/如果你说 如果.md",
+                "file": "md/androidSource/6 android之Log日志.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "es/如果你说 如果.md",
+                "file": "md/androidSource/6 android之Log日志.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "es/如果你说 如果.md",
+                "file": "md/androidSource/6 android之Log日志.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "es/如果你说 如果.md"
+                "file": "md/androidSource/6 android之Log日志.md"
               }
             }
           }
@@ -143,15 +143,17 @@
       "canvas:新建白板": false,
       "daily-notes:打开/创建今天的日记": false,
       "templates:插入模板": false,
-      "command-palette:打开命令面板": false
+      "command-palette:打开命令面板": false,
+      "markdown-importer:打开 Markdown 格式转换器": false
     }
   },
   "active": "f78e7e00e34201a9",
   "lastOpenFiles": [
-    "().md",
+    "md/androidSource/1  android项目构建流程.md",
     "es/如果你说 如果.md",
-    "Pasted image 20231201205447.png",
     "es/ess.md",
+    "Pasted image 20231201205447.png",
+    "().md",
     "md/AdvancedAndroid/组件化/Android-DI从入门到放弃.md",
     "md/AdvancedAndroid/组件化/组件化思路.md",
     "md/AndroidFrameworkTutorial/参考资料.md",
