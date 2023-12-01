@@ -8,7 +8,7 @@
         "type": "tabs",
         "children": [
           {
-            "id": "8852bc53887ed2cd",
+            "id": "d95558215f704000",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -138,9 +138,10 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "8852bc53887ed2cd",
+  "active": "d95558215f704000",
   "lastOpenFiles": [
-    "obsidian",
-    "未命名.md"
+    "未命名 1.md",
+    "未命名.md",
+    "obsidian"
   ]
 }
