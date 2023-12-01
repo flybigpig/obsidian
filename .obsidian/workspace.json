@@ -11,14 +11,11 @@
             "id": "d95558215f704000",
             "type": "leaf",
             "state": {
-              "type": "canvas",
+              "type": "markdown",
               "state": {
-                "file": "未命名.canvas",
-                "viewState": {
-                  "x": 0,
-                  "y": 0,
-                  "zoom": 0
-                }
+                "file": "esss/2023-12-01.md",
+                "mode": "source",
+                "source": false
               }
             }
           }
@@ -88,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "未命名.canvas",
+                "file": "esss/2023-12-01.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -105,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "未命名.canvas",
+                "file": "esss/2023-12-01.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -128,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "未命名.canvas"
+                "file": "esss/2023-12-01.md"
               }
             }
           }
@@ -151,10 +148,11 @@
   },
   "active": "d95558215f704000",
   "lastOpenFiles": [
-    "2023-12-01.md",
-    "未命名.canvas",
-    "未命名.md",
-    "未命名 1.md",
+    "esss",
+    "esss/未命名.md",
+    "esss/未命名.canvas",
+    "esss/未命名 1.md",
+    "esss/2023-12-01.md",
     "obsidian"
   ]
 }
