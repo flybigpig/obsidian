@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "esss/2023-12-01.md",
+                "file": "未命名.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "esss/2023-12-01.md",
+                "file": "未命名.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "esss/2023-12-01.md",
+                "file": "未命名.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "esss/2023-12-01.md"
+                "file": "未命名.md"
               }
             }
           }
@@ -146,13 +146,13 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "d95558215f704000",
+  "active": "69a1d297d078579c",
   "lastOpenFiles": [
+    "2023-12-01.md",
     "esss",
-    "esss/未命名.md",
-    "esss/未命名.canvas",
-    "esss/未命名 1.md",
-    "esss/2023-12-01.md",
+    "未命名.md",
+    "未命名.canvas",
+    "未命名 1.md",
     "obsidian"
   ]
 }
