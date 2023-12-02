@@ -11,11 +11,14 @@
             "id": "f78e7e00e34201a9",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "canvas",
               "state": {
-                "file": "es/周报.md",
-                "mode": "source",
-                "source": false
+                "file": "es/未命名.canvas",
+                "viewState": {
+                  "x": 0,
+                  "y": 0,
+                  "zoom": 0
+                }
               }
             }
           }
@@ -85,7 +88,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "es/周报.md",
+                "file": "es/未命名.canvas",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +105,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "es/周报.md",
+                "file": "es/未命名.canvas",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +128,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "es/周报.md"
+                "file": "es/未命名.canvas"
               }
             }
           }
@@ -144,13 +147,15 @@
       "daily-notes:打开/创建今天的日记": false,
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
-      "markdown-importer:打开 Markdown 格式转换器": false
+      "markdown-importer:打开 Markdown 格式转换器": false,
+      "obsidian-full-calendar:Open Full Calendar": false
     }
   },
   "active": "f78e7e00e34201a9",
   "lastOpenFiles": [
-    "es/ess.md",
     "es/周报.md",
+    "es/未命名.canvas",
+    "es/ess.md",
     "pic/IMG_8347.png",
     "pic",
     "Pasted image 20231201205447.png",
