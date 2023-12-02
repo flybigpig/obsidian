@@ -4,15 +4,19 @@
     "type": "split",
     "children": [
       {
-        "id": "45b9b6604716606c",
+        "id": "9e8ae814709b45ca",
         "type": "tabs",
         "children": [
           {
-            "id": "f78e7e00e34201a9",
+            "id": "ed1507311d215855",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "es/未命名.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
         ]
@@ -81,6 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "es/未命名.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -97,6 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "es/未命名.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -118,7 +124,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "es/未命名.md"
+              }
             }
           }
         ],
@@ -141,11 +149,11 @@
       "obsidian-full-calendar:Open Full Calendar": false
     }
   },
-  "active": "f78e7e00e34201a9",
+  "active": "ed1507311d215855",
   "lastOpenFiles": [
-    "es/未命名.md",
     "es/ess.md",
     "es/周报.md",
+    "es/未命名.md",
     "未命名.canvas",
     "es/未命名.canvas",
     "pic/IMG_8347.png",
