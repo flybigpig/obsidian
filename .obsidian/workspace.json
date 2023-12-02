@@ -149,11 +149,13 @@
   },
   "active": "f78e7e00e34201a9",
   "lastOpenFiles": [
+    "es/ess.md",
+    "es/周报.md",
+    "pic/IMG_8347.png",
+    "pic",
+    "Pasted image 20231201205447.png",
     "md/androidSource/6 android之Log日志.md",
     "md/androidSource/1  android项目构建流程.md",
-    "es/周报.md",
-    "es/ess.md",
-    "Pasted image 20231201205447.png",
     "().md",
     "md/AdvancedAndroid/组件化/Android-DI从入门到放弃.md",
     "md/AdvancedAndroid/组件化/组件化思路.md",
@@ -174,7 +176,6 @@
     "md/AndroidFrameworkTutorial/视频课程讲稿/001.AOSP 极速上手课程讲稿.md",
     "md/AndroidFrameworkTutorial/视频课程讲稿",
     "md/AndroidFrameworkTutorial/4.Hal与硬件服务/src/HelloModule/hello_module.c",
-    "md/AndroidFrameworkTutorial/4.Hal与硬件服务/src/HelloModule",
     "md/AndroidFrameworkTutorial/4.Hal与硬件服务/4. Hal 层接口之直通模式.md",
     "md/AndroidFrameworkTutorial/4.Hal与硬件服务/3.Hal 层添加访问 linux 驱动的接口.md",
     "md/AndroidFrameworkTutorial/4.Hal与硬件服务/2.Linux驱动开发入门.md",
@@ -186,7 +187,6 @@
     "md/AndroidFrameworkTutorial/3.学穿Binder篇/如何深入掌握 Android 系统开发的拦路虎 Binder.md",
     "md/AndroidFrameworkTutorial/3.学穿Binder篇/参考资料.md",
     "md/AndroidFrameworkTutorial/3.学穿Binder篇/005. Binder 驱动情景分析之 ServiceManager 启动过程.md",
-    "md/AndroidFrameworkTutorial/3.学穿Binder篇/024. Binder 面试题解析.md",
     "md/资料/音视频/资料/上课资料/img/试简介视频编码技术？ - 知乎_files/v2-d0289dc0a46fc5b15b3363ffa78cf6c7.png",
     "md/资料/音视频/资料/上课资料/img/试简介视频编码技术？ - 知乎_files/v2-cdd8832425f01dc956f9ccd5b9ad02f4_250x0.jpg",
     "md/资料/音视频/资料/上课资料/img/试简介视频编码技术？ - 知乎_files/v2-aa067e3dce549042c45b8e096e69a145_250x0.jpg",
@@ -194,7 +194,6 @@
     "md/资料/音视频/资料/上课资料/img/试简介视频编码技术？ - 知乎_files/v2-57588d4e954afceb2c67a55a3d57a051_xs.jpg",
     "md/资料/音视频/资料/上课资料/img/试简介视频编码技术？ - 知乎_files/v2-478f2cfaf629eaa856a946e8a12c2cdb_250x250.jpeg",
     "md/资料/音视频/资料/上课资料/img/试简介视频编码技术？ - 知乎_files/v2-213598158238e2f826fc6098370301a7_540x450.jpeg",
-    "md/资料/音视频/资料/上课资料/img/试简介视频编码技术？ - 知乎_files/sidebar-download-qrcode.7caef4dd.png",
     "未命名.canvas"
   ]
 }
