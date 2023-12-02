@@ -11,12 +11,8 @@
             "id": "f78e7e00e34201a9",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "es/未命名.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "graph",
+              "state": {}
             }
           }
         ]
@@ -85,7 +81,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "es/未命名.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +97,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "es/未命名.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -124,9 +118,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "es/未命名.md"
-              }
+              "state": {}
             }
           }
         ],
@@ -151,8 +143,8 @@
   },
   "active": "f78e7e00e34201a9",
   "lastOpenFiles": [
-    "es/ess.md",
     "es/未命名.md",
+    "es/ess.md",
     "es/周报.md",
     "未命名.canvas",
     "es/未命名.canvas",
