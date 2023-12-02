@@ -11,14 +11,11 @@
             "id": "f78e7e00e34201a9",
             "type": "leaf",
             "state": {
-              "type": "canvas",
+              "type": "markdown",
               "state": {
-                "file": "es/未命名.canvas",
-                "viewState": {
-                  "x": 0,
-                  "y": 0,
-                  "zoom": 0
-                }
+                "file": "es/未命名.md",
+                "mode": "source",
+                "source": false
               }
             }
           }
@@ -88,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "es/未命名.canvas",
+                "file": "es/未命名.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -105,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "es/未命名.canvas",
+                "file": "es/未命名.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -128,11 +125,12 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "es/未命名.canvas"
+                "file": "es/未命名.md"
               }
             }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
@@ -153,9 +151,11 @@
   },
   "active": "f78e7e00e34201a9",
   "lastOpenFiles": [
-    "es/周报.md",
-    "es/未命名.canvas",
     "es/ess.md",
+    "es/未命名.md",
+    "es/周报.md",
+    "未命名.canvas",
+    "es/未命名.canvas",
     "pic/IMG_8347.png",
     "pic",
     "Pasted image 20231201205447.png",
@@ -198,7 +198,6 @@
     "md/资料/音视频/资料/上课资料/img/试简介视频编码技术？ - 知乎_files/v2-646034f95d7ee18e2a2798a38e689f03_250x0.jpg",
     "md/资料/音视频/资料/上课资料/img/试简介视频编码技术？ - 知乎_files/v2-57588d4e954afceb2c67a55a3d57a051_xs.jpg",
     "md/资料/音视频/资料/上课资料/img/试简介视频编码技术？ - 知乎_files/v2-478f2cfaf629eaa856a946e8a12c2cdb_250x250.jpeg",
-    "md/资料/音视频/资料/上课资料/img/试简介视频编码技术？ - 知乎_files/v2-213598158238e2f826fc6098370301a7_540x450.jpeg",
-    "未命名.canvas"
+    "md/资料/音视频/资料/上课资料/img/试简介视频编码技术？ - 知乎_files/v2-213598158238e2f826fc6098370301a7_540x450.jpeg"
   ]
 }
