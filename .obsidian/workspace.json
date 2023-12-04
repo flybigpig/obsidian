@@ -14,7 +14,7 @@
               "type": "markdown",
               "state": {
                 "file": "yto/waiting.md",
-                "mode": "source",
+                "mode": "preview",
                 "source": false
               }
             }
@@ -151,9 +151,9 @@
   },
   "active": "29ca301492e473e5",
   "lastOpenFiles": [
+    "yto/kotlin.md",
     "yto/kotlin_dialog.md",
     "yto/waiting.md",
-    "yto/kotlin.md",
     "2023-12-04.md",
     "arkts",
     "Excalidraw/Drawing 2023-12-04 09.30.37.excalidraw.md",
