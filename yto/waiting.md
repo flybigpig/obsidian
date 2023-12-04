@@ -427,3 +427,38 @@
   
 </LinearLayout>
 ```
+
+```
+<LinearLayout  
+    android:layout_width="match_parent"  
+    android:layout_height="40dp"  
+    android:background="@color/white"  
+    android:gravity="center_vertical">  
+  
+    <ImageView        android:layout_width="wrap_content"  
+        android:layout_height="wrap_content"  
+        android:src="@drawable/blue_bar" />  
+  
+    <TextView        android:layout_width="0dp"  
+        android:layout_height="wrap_content"  
+        android:layout_weight="1"  
+        android:text="基础属性"  
+        android:textColor="@color/black"  
+        android:textSize="@dimen/size_sp16"  
+        android:textStyle="bold" />  
+  
+  
+    <TextView        android:id="@+id/tv_attribute_toggle1"  
+        android:layout_width="60dp"  
+        android:layout_height="30dp"  
+        android:layout_marginRight="10dp"  
+        android:background="@drawable/bg_toggle"  
+        android:gravity="center"  
+        android:text="收起"  
+        android:textColor="@color/colorPrimary"  
+        android:textSize="14sp"  
+        android:textStyle="bold" />  
+  
+  
+</LinearLayout>
+```
