@@ -13,8 +13,8 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "yto/waiting.md",
-                "mode": "preview",
+                "file": "android/ExpandList.md",
+                "mode": "source",
                 "source": false
               }
             }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "yto/waiting.md",
+                "file": "android/ExpandList.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "yto/waiting.md",
+                "file": "android/ExpandList.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "yto/waiting.md"
+                "file": "android/ExpandList.md"
               }
             }
           }
@@ -151,9 +151,10 @@
   },
   "active": "29ca301492e473e5",
   "lastOpenFiles": [
+    "android",
     "yto/kotlin.md",
     "yto/kotlin_dialog.md",
-    "yto/waiting.md",
+    "android/ExpandList.md",
     "2023-12-04.md",
     "arkts",
     "Excalidraw/Drawing 2023-12-04 09.30.37.excalidraw.md",
@@ -188,7 +189,6 @@
     "md/AndroidFrameworkTutorial/3.学穿Binder篇/视频课程讲稿/000.Binder 专题导学 —— 如何深入掌握 Binder.md",
     "md/AndroidFrameworkTutorial/3.学穿Binder篇/ppt与思维导图/学穿 Binder.png",
     "md/AndroidFrameworkTutorial/3.学穿Binder篇/如何深入掌握 Android 系统开发的拦路虎 Binder.md",
-    "md/AndroidFrameworkTutorial/3.学穿Binder篇/参考资料.md",
     "md/资料/音视频/资料/上课资料/img/试简介视频编码技术？ - 知乎_files/v2-d0289dc0a46fc5b15b3363ffa78cf6c7.png",
     "md/资料/音视频/资料/上课资料/img/试简介视频编码技术？ - 知乎_files/v2-cdd8832425f01dc956f9ccd5b9ad02f4_250x0.jpg",
     "md/资料/音视频/资料/上课资料/img/试简介视频编码技术？ - 知乎_files/v2-aa067e3dce549042c45b8e096e69a145_250x0.jpg",
