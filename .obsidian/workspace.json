@@ -13,13 +13,26 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "es/周报.md",
+                "file": "yto/kotlin.md",
+                "mode": "preview",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "2cb2294e6bd1743d",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "yto/kotlin.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -85,14 +98,14 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "es/周报.md",
+                "file": "yto/kotlin.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
                 "showSearch": false,
                 "searchQuery": "",
                 "backlinkCollapsed": false,
-                "unlinkedCollapsed": true
+                "unlinkedCollapsed": false
               }
             }
           },
@@ -102,7 +115,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "es/周报.md",
+                "file": "yto/kotlin.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +138,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "es/周报.md"
+                "file": "yto/kotlin.md"
               }
             }
           }
@@ -149,12 +162,17 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "f78e7e00e34201a9",
+  "active": "2cb2294e6bd1743d",
   "lastOpenFiles": [
+    "yto/kotlin_dialog.md",
+    "Excalidraw/Drawing 2023-12-04 09.30.37.excalidraw.md",
+    "Excalidraw/Drawing 2023-12-04 09.38.25.excalidraw.md",
+    "yto/kotlin.md",
+    "Excalidraw",
+    "yto",
+    "es/未命名.md",
     "es/ess.md",
     "es/周报.md",
-    "es/未命名.md",
-    "drawing/Drawing 2023-12-04 09.30.37.excalidraw.md",
     "drawing",
     "pic/IMG_8347.png",
     "pic",
@@ -167,13 +185,11 @@
     "md/AndroidFrameworkTutorial/视频课程讲稿/添加可执行程序.pptx",
     "md/AndroidFrameworkTutorial/视频课程讲稿/添加Product.sai2",
     "md/AndroidFrameworkTutorial/视频课程讲稿/添加Product.pptx",
-    "md/AndroidFrameworkTutorial/视频课程讲稿/AOSP极速上手.pptx",
     "md/AndroidFrameworkTutorial/视频课程讲稿/006.使用 Android Studio 开发系统 App讲稿.md",
     "md/AndroidFrameworkTutorial/视频课程讲稿/004.AOSP添加可执行程序讲稿.md",
     "md/AndroidFrameworkTutorial/视频课程讲稿/003.添加Prouduct 讲稿.md",
     "md/AndroidFrameworkTutorial/视频课程讲稿/002.系统开发工具推荐讲稿.md",
     "md/AndroidFrameworkTutorial/视频课程讲稿/001.AOSP 极速上手课程讲稿.md",
-    "md/AndroidFrameworkTutorial/视频课程讲稿",
     "md/AndroidFrameworkTutorial/4.Hal与硬件服务/4. Hal 层接口之直通模式.md",
     "md/AndroidFrameworkTutorial/4.Hal与硬件服务/3.Hal 层添加访问 linux 驱动的接口.md",
     "md/AndroidFrameworkTutorial/4.Hal与硬件服务/2.Linux驱动开发入门.md",
@@ -186,8 +202,6 @@
     "md/AndroidFrameworkTutorial/3.学穿Binder篇/参考资料.md",
     "md/AndroidFrameworkTutorial/3.学穿Binder篇/005. Binder 驱动情景分析之 ServiceManager 启动过程.md",
     "md/AndroidFrameworkTutorial/3.学穿Binder篇/024. Binder 面试题解析.md",
-    "md/AndroidFrameworkTutorial/3.学穿Binder篇/023. Binder 疑难案例分析2.md",
-    "md/AndroidFrameworkTutorial/3.学穿Binder篇/021. Binder 死亡通知机制分析.md",
     "md/资料/音视频/资料/上课资料/img/试简介视频编码技术？ - 知乎_files/v2-d0289dc0a46fc5b15b3363ffa78cf6c7.png",
     "md/资料/音视频/资料/上课资料/img/试简介视频编码技术？ - 知乎_files/v2-cdd8832425f01dc956f9ccd5b9ad02f4_250x0.jpg",
     "md/资料/音视频/资料/上课资料/img/试简介视频编码技术？ - 知乎_files/v2-aa067e3dce549042c45b8e096e69a145_250x0.jpg",
