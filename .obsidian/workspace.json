@@ -13,8 +13,8 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "yto/kotlin.md",
-                "mode": "source",
+                "file": "md/掘金/【Android Framework】ActivityManagerService(二) (含视频) - 掘金.md",
+                "mode": "preview",
                 "source": false
               }
             }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "yto/kotlin.md",
+                "file": "md/掘金/【Android Framework】ActivityManagerService(二) (含视频) - 掘金.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "yto/kotlin.md",
+                "file": "md/掘金/【Android Framework】ActivityManagerService(二) (含视频) - 掘金.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "yto/kotlin.md"
+                "file": "md/掘金/【Android Framework】ActivityManagerService(二) (含视频) - 掘金.md"
               }
             }
           }
@@ -149,11 +149,15 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "69a1d297d078579c",
+  "active": "3932b3334e084a98",
   "lastOpenFiles": [
-    "android/ExpandList.md",
-    "android",
+    "md/掘金/【Android FrameWork】第一个启动的程序--init (含视频) - 掘金.md",
+    "md/AndroidFrameworkTutorial/4.Hal与硬件服务/2.Linux驱动开发入门.md",
+    "md/AndroidFrameworkTutorial/4.Hal与硬件服务/1.Kernel 下载与编译.md",
     "yto/kotlin.md",
+    "android/ExpandList.md",
+    "pic/IMG_8347.png",
+    "android",
     "yto/kotlin_dialog.md",
     "2023-12-04.md",
     "arkts",
@@ -165,7 +169,6 @@
     "es/ess.md",
     "es/周报.md",
     "drawing",
-    "pic/IMG_8347.png",
     "pic",
     "md/AndroidFrameworkTutorial/参考资料.md",
     "md/AndroidFrameworkTutorial/README.md",
@@ -181,8 +184,6 @@
     "md/AndroidFrameworkTutorial/视频课程讲稿/001.AOSP 极速上手课程讲稿.md",
     "md/AndroidFrameworkTutorial/4.Hal与硬件服务/4. Hal 层接口之直通模式.md",
     "md/AndroidFrameworkTutorial/4.Hal与硬件服务/3.Hal 层添加访问 linux 驱动的接口.md",
-    "md/AndroidFrameworkTutorial/4.Hal与硬件服务/2.Linux驱动开发入门.md",
-    "md/AndroidFrameworkTutorial/4.Hal与硬件服务/1.Kernel 下载与编译.md",
     "md/AndroidFrameworkTutorial/3.学穿Binder篇/源码/BinderCDemo/README.md",
     "md/AndroidFrameworkTutorial/3.学穿Binder篇/源码/BinderCppDemo/README.md",
     "md/AndroidFrameworkTutorial/3.学穿Binder篇/视频课程讲稿/000.Binder 专题导学 —— 如何深入掌握 Binder.md",
