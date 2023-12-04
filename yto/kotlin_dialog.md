@@ -27,3 +27,7 @@ fun showSpan(v: TextView, list: ArrayList<String>, onClick: (pos: Int) -> Unit) 
 }
 ```
 
+
+```
+asdasddasd 
+```
