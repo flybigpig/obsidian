@@ -4,19 +4,15 @@
     "type": "split",
     "children": [
       {
-        "id": "4b506955e9d0498b",
+        "id": "2d53a3bc8bc4695d",
         "type": "tabs",
         "children": [
           {
-            "id": "29ca301492e473e5",
+            "id": "3932b3334e084a98",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "android/ExpandList.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -85,7 +81,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "android/ExpandList.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +97,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "android/ExpandList.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -124,9 +118,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "android/ExpandList.md"
-              }
+              "state": {}
             }
           }
         ]
@@ -149,12 +141,12 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "29ca301492e473e5",
+  "active": "3932b3334e084a98",
   "lastOpenFiles": [
+    "android/ExpandList.md",
     "android",
     "yto/kotlin.md",
     "yto/kotlin_dialog.md",
-    "android/ExpandList.md",
     "2023-12-04.md",
     "arkts",
     "Excalidraw/Drawing 2023-12-04 09.30.37.excalidraw.md",
@@ -174,7 +166,6 @@
     "md/AndroidFrameworkTutorial/视频课程讲稿/系统开发工具推荐.pptx",
     "md/AndroidFrameworkTutorial/视频课程讲稿/添加系统App源码.pptx",
     "md/AndroidFrameworkTutorial/视频课程讲稿/添加可执行程序.pptx",
-    "md/AndroidFrameworkTutorial/视频课程讲稿/添加Product.sai2",
     "md/AndroidFrameworkTutorial/视频课程讲稿/006.使用 Android Studio 开发系统 App讲稿.md",
     "md/AndroidFrameworkTutorial/视频课程讲稿/004.AOSP添加可执行程序讲稿.md",
     "md/AndroidFrameworkTutorial/视频课程讲稿/003.添加Prouduct 讲稿.md",
