@@ -65,8 +65,7 @@ class MyExpandAdapter(context: Context, headData: ArrayList<String>, listData: A
     }  
   
     override fun getGroupView(groupPosition: Int, isExpanded: Boolean, convertView: View?, parent: ViewGroup?): View {  
-        //获取文本  
-        //获取文本  
+        //获取文本     
         val text: String = head[groupPosition]  
         if (convertView == null) {  
             val layoutInflater: LayoutInflater = LayoutInflater.from(ctx)  //使用这个来载入界面  
