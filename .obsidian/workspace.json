@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "yto/MyExpandAdapter.md",
+                "file": "hm/hm.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "yto/MyExpandAdapter.md",
+                "file": "hm/hm.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "yto/MyExpandAdapter.md",
+                "file": "hm/hm.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "yto/MyExpandAdapter.md"
+                "file": "hm/hm.md"
               }
             }
           }
@@ -151,8 +151,11 @@
   },
   "active": "cd50f21403df1196",
   "lastOpenFiles": [
-    "yto/未命名.md",
     "yto/MyExpandAdapter.md",
+    "hm/hm.md",
+    "hm",
+    "Excalidraw/Drawing 2023-12-11 17.11.52.excalidraw.md",
+    "yto/未命名.md",
     "yto/商品档案.md",
     "yto/kotlin -get.md",
     "yto/kotlin_dialog.md",
@@ -181,13 +184,10 @@
     "md/AndroidFrameworkTutorial/视频课程讲稿/添加系统 App 源码讲稿.md",
     "md/AndroidFrameworkTutorial/视频课程讲稿/系统开发工具推荐.pptx",
     "md/AndroidFrameworkTutorial/视频课程讲稿/添加系统App源码.pptx",
-    "md/AndroidFrameworkTutorial/视频课程讲稿/添加可执行程序.pptx",
     "md/AndroidFrameworkTutorial/视频课程讲稿/006.使用 Android Studio 开发系统 App讲稿.md",
     "md/AndroidFrameworkTutorial/视频课程讲稿/004.AOSP添加可执行程序讲稿.md",
     "md/AndroidFrameworkTutorial/视频课程讲稿/003.添加Prouduct 讲稿.md",
     "md/AndroidFrameworkTutorial/视频课程讲稿/002.系统开发工具推荐讲稿.md",
-    "md/AndroidFrameworkTutorial/视频课程讲稿/001.AOSP 极速上手课程讲稿.md",
-    "md/AndroidFrameworkTutorial/4.Hal与硬件服务/4. Hal 层接口之直通模式.md",
     "md/AndroidFrameworkTutorial/3.学穿Binder篇/ppt与思维导图/学穿 Binder.png",
     "md/资料/音视频/资料/上课资料/img/试简介视频编码技术？ - 知乎_files/v2-d0289dc0a46fc5b15b3363ffa78cf6c7.png",
     "md/资料/音视频/资料/上课资料/img/试简介视频编码技术？ - 知乎_files/v2-cdd8832425f01dc956f9ccd5b9ad02f4_250x0.jpg",
