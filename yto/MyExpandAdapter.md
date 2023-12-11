@@ -1,19 +1,6 @@
 ```
 package com.yto.pda.cwms.ui.adapter  
   
-import android.content.Context  
-import android.text.TextUtils  
-import android.util.Log  
-import android.view.LayoutInflater  
-import android.view.View  
-import android.view.ViewGroup  
-import android.widget.BaseExpandableListAdapter  
-import android.widget.LinearLayout  
-import android.widget.Switch  
-import android.widget.TextView  
-import com.yto.pda.cwms.R  
-import com.yto.pda.cwms.data.model.bean.ExpandItemBean  
-import com.yto.pda.cwms.data.model.bean.ReceiveTaskItem  
   
   
 class MyExpandAdapter(context: Context, headData: ArrayList<String>, listData: ArrayList<ArrayList<ExpandItemBean>>) :  
