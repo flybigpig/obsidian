@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "hm/hm.md",
+                "file": "else/git 报错.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "hm/hm.md",
+                "file": "else/git 报错.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "hm/hm.md",
+                "file": "else/git 报错.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "hm/hm.md"
+                "file": "else/git 报错.md"
               }
             }
           }
@@ -150,9 +150,10 @@
   },
   "active": "716798c3073adc97",
   "lastOpenFiles": [
+    "hm/hm.md",
+    "else/git 报错.md",
     "md/Ubuntu22.04安装、配置、美化、软件安装、配置开发环境_ubuntu安装星火应用商店-CSDN博客.md",
     "conflict-files-obsidian-git.md",
-    "hm/hm.md",
     "android/ExpandList.md",
     "else/Ubuntu20.04换源教程、解决主机与虚拟机之间进行文本复制粘贴问题_ubuntu 换源-CSDN博客.md",
     "else/could not read Username for ‘httpse.coding.net‘ No such file or directory-CSDN博客.md",
@@ -185,7 +186,6 @@
     "md/AndroidFrameworkTutorial/参考资料.md",
     "md/AndroidFrameworkTutorial/README.md",
     "md/AndroidFrameworkTutorial/LICENSE",
-    "md/AndroidFrameworkTutorial/视频课程讲稿/添加系统 App 源码讲稿.md",
     "md/AndroidFrameworkTutorial/视频课程讲稿/系统开发工具推荐.pptx",
     "md/AndroidFrameworkTutorial/3.学穿Binder篇/ppt与思维导图/学穿 Binder.png",
     "md/资料/音视频/资料/上课资料/img/试简介视频编码技术？ - 知乎_files/v2-d0289dc0a46fc5b15b3363ffa78cf6c7.png",
