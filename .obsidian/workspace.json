@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "else/git 报错.md",
+                "file": "else/Ubuntu20.04换源教程、解决主机与虚拟机之间进行文本复制粘贴问题_ubuntu 换源-CSDN博客.md",
                 "mode": "source",
                 "source": false
               }
@@ -69,7 +69,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 391.5
   },
   "right": {
     "id": "26d12336df268f7c",
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "else/git 报错.md",
+                "file": "else/Ubuntu20.04换源教程、解决主机与虚拟机之间进行文本复制粘贴问题_ubuntu 换源-CSDN博客.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "else/git 报错.md",
+                "file": "else/Ubuntu20.04换源教程、解决主机与虚拟机之间进行文本复制粘贴问题_ubuntu 换源-CSDN博客.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "else/git 报错.md"
+                "file": "else/Ubuntu20.04换源教程、解决主机与虚拟机之间进行文本复制粘贴问题_ubuntu 换源-CSDN博客.md"
               }
             }
           }
@@ -145,11 +145,16 @@
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
       "markdown-importer:打开 Markdown 格式转换器": false,
-      "obsidian-full-calendar:Open Full Calendar": false
+      "obsidian-full-calendar:Open Full Calendar": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
   "active": "716798c3073adc97",
   "lastOpenFiles": [
+    "Excalidraw/Drawing 2023-12-04 09.30.37.excalidraw.md",
+    "Excalidraw/Drawing 2023-12-11 17.11.52.excalidraw.md",
+    "Excalidraw/Drawing 2023-12-04 09.38.25.excalidraw.md",
+    "Excalidraw/未命名.canvas",
     "hm/hm.md",
     "else/git 报错.md",
     "md/Ubuntu22.04安装、配置、美化、软件安装、配置开发环境_ubuntu安装星火应用商店-CSDN博客.md",
@@ -157,9 +162,6 @@
     "android/ExpandList.md",
     "else/Ubuntu20.04换源教程、解决主机与虚拟机之间进行文本复制粘贴问题_ubuntu 换源-CSDN博客.md",
     "else/could not read Username for ‘httpse.coding.net‘ No such file or directory-CSDN博客.md",
-    "Excalidraw/Drawing 2023-12-04 09.30.37.excalidraw.md",
-    "Excalidraw/Drawing 2023-12-11 17.11.52.excalidraw.md",
-    "Excalidraw/Drawing 2023-12-04 09.38.25.excalidraw.md",
     "yto/MyExpandAdapter.md",
     "yto/kotlin_dialog.md",
     "yto/kotlin.md",
@@ -184,7 +186,6 @@
     "drawing",
     "pic",
     "md/AndroidFrameworkTutorial/参考资料.md",
-    "md/AndroidFrameworkTutorial/README.md",
     "md/AndroidFrameworkTutorial/LICENSE",
     "md/AndroidFrameworkTutorial/视频课程讲稿/系统开发工具推荐.pptx",
     "md/AndroidFrameworkTutorial/3.学穿Binder篇/ppt与思维导图/学穿 Binder.png",
