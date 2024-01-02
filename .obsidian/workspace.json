@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "cf1ce817d8eeb286",
+        "id": "caf1d45426196e72",
         "type": "tabs",
         "children": [
           {
-            "id": "cd50f21403df1196",
+            "id": "716798c3073adc97",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/Ubuntu22.04安装、配置、美化、软件安装、配置开发环境_ubuntu安装星火应用商店-CSDN博客.md",
+                "file": "hm/hm.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "md/Ubuntu22.04安装、配置、美化、软件安装、配置开发环境_ubuntu安装星火应用商店-CSDN博客.md",
+                "file": "hm/hm.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "md/Ubuntu22.04安装、配置、美化、软件安装、配置开发环境_ubuntu安装星火应用商店-CSDN博客.md",
+                "file": "hm/hm.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "md/Ubuntu22.04安装、配置、美化、软件安装、配置开发环境_ubuntu安装星火应用商店-CSDN博客.md"
+                "file": "hm/hm.md"
               }
             }
           }
@@ -148,33 +148,33 @@
       "obsidian-full-calendar:Open Full Calendar": false
     }
   },
-  "active": "cd50f21403df1196",
+  "active": "716798c3073adc97",
   "lastOpenFiles": [
+    "md/Ubuntu22.04安装、配置、美化、软件安装、配置开发环境_ubuntu安装星火应用商店-CSDN博客.md",
+    "conflict-files-obsidian-git.md",
     "hm/hm.md",
-    "else/could not read Username for ‘httpse.coding.net‘ No such file or directory-CSDN博客.md",
+    "android/ExpandList.md",
     "else/Ubuntu20.04换源教程、解决主机与虚拟机之间进行文本复制粘贴问题_ubuntu 换源-CSDN博客.md",
-    "hm/could not read Username for ‘httpse.coding.net‘ No such file or directory-CSDN博客.md",
-    "else",
-    "hm/Ubuntu20.04换源教程、解决主机与虚拟机之间进行文本复制粘贴问题_ubuntu 换源-CSDN博客.md",
-    "yto/MyExpandAdapter.md",
-    "hm",
+    "else/could not read Username for ‘httpse.coding.net‘ No such file or directory-CSDN博客.md",
+    "Excalidraw/Drawing 2023-12-04 09.30.37.excalidraw.md",
     "Excalidraw/Drawing 2023-12-11 17.11.52.excalidraw.md",
-    "yto/未命名.md",
-    "yto/商品档案.md",
-    "yto/kotlin -get.md",
+    "Excalidraw/Drawing 2023-12-04 09.38.25.excalidraw.md",
+    "yto/MyExpandAdapter.md",
     "yto/kotlin_dialog.md",
     "yto/kotlin.md",
+    "yto/商品档案.md",
+    "else",
+    "hm",
+    "yto/未命名.md",
+    "yto/kotlin -get.md",
     "md/掘金/【Android Framework】ActivityManagerService(二) (含视频) - 掘金.md",
     "md/掘金/【Android FrameWork】第一个启动的程序--init (含视频) - 掘金.md",
     "md/AndroidFrameworkTutorial/4.Hal与硬件服务/2.Linux驱动开发入门.md",
     "md/AndroidFrameworkTutorial/4.Hal与硬件服务/1.Kernel 下载与编译.md",
-    "android/ExpandList.md",
     "pic/IMG_8347.png",
     "android",
     "2023-12-04.md",
     "arkts",
-    "Excalidraw/Drawing 2023-12-04 09.30.37.excalidraw.md",
-    "Excalidraw/Drawing 2023-12-04 09.38.25.excalidraw.md",
     "Excalidraw",
     "yto",
     "es/未命名.md",
