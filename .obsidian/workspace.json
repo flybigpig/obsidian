@@ -11,8 +11,12 @@
             "id": "489d30ad0bb2ae98",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "else/未命名.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
         ]
@@ -81,6 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "else/未命名.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -97,6 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "else/未命名.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -118,7 +124,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "else/未命名.md"
+              }
             }
           }
         ]
@@ -141,8 +149,13 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "69a1d297d078579c",
+  "active": "489d30ad0bb2ae98",
   "lastOpenFiles": [
+    "android/Activity启动流程_activity的启动过程-CSDN博客.md",
+    "else/未命名.md",
+    "android/ExpandList.md",
+    "android/Activity启动流程.md",
+    "md/androidSource/14 activity启动流程.md",
     "Excalidraw/Drawing 2023-12-04 09.30.37.excalidraw.md",
     "else/Ubuntu20.04换源教程、解决主机与虚拟机之间进行文本复制粘贴问题_ubuntu 换源-CSDN博客.md",
     "Excalidraw/Drawing 2023-12-11 17.11.52.excalidraw.md",
@@ -152,7 +165,6 @@
     "else/git 报错.md",
     "md/Ubuntu22.04安装、配置、美化、软件安装、配置开发环境_ubuntu安装星火应用商店-CSDN博客.md",
     "conflict-files-obsidian-git.md",
-    "android/ExpandList.md",
     "else/could not read Username for ‘httpse.coding.net‘ No such file or directory-CSDN博客.md",
     "yto/MyExpandAdapter.md",
     "yto/kotlin_dialog.md",
@@ -173,11 +185,8 @@
     "Excalidraw",
     "yto",
     "es/未命名.md",
-    "es/ess.md",
-    "es/周报.md",
     "drawing",
     "pic",
-    "md/AndroidFrameworkTutorial/参考资料.md",
     "md/AndroidFrameworkTutorial/LICENSE",
     "md/AndroidFrameworkTutorial/视频课程讲稿/系统开发工具推荐.pptx",
     "md/AndroidFrameworkTutorial/3.学穿Binder篇/ppt与思维导图/学穿 Binder.png",
