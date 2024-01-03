@@ -4,19 +4,15 @@
     "type": "split",
     "children": [
       {
-        "id": "caf1d45426196e72",
+        "id": "13f70bfedc12feb4",
         "type": "tabs",
         "children": [
           {
-            "id": "716798c3073adc97",
+            "id": "489d30ad0bb2ae98",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "else/Ubuntu20.04换源教程、解决主机与虚拟机之间进行文本复制粘贴问题_ubuntu 换源-CSDN博客.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -85,7 +81,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "else/Ubuntu20.04换源教程、解决主机与虚拟机之间进行文本复制粘贴问题_ubuntu 换源-CSDN博客.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +97,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "else/Ubuntu20.04换源教程、解决主机与虚拟机之间进行文本复制粘贴问题_ubuntu 换源-CSDN博客.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -124,9 +118,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "else/Ubuntu20.04换源教程、解决主机与虚拟机之间进行文本复制粘贴问题_ubuntu 换源-CSDN博客.md"
-              }
+              "state": {}
             }
           }
         ]
@@ -149,9 +141,10 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "716798c3073adc97",
+  "active": "69a1d297d078579c",
   "lastOpenFiles": [
     "Excalidraw/Drawing 2023-12-04 09.30.37.excalidraw.md",
+    "else/Ubuntu20.04换源教程、解决主机与虚拟机之间进行文本复制粘贴问题_ubuntu 换源-CSDN博客.md",
     "Excalidraw/Drawing 2023-12-11 17.11.52.excalidraw.md",
     "Excalidraw/Drawing 2023-12-04 09.38.25.excalidraw.md",
     "Excalidraw/未命名.canvas",
@@ -160,7 +153,6 @@
     "md/Ubuntu22.04安装、配置、美化、软件安装、配置开发环境_ubuntu安装星火应用商店-CSDN博客.md",
     "conflict-files-obsidian-git.md",
     "android/ExpandList.md",
-    "else/Ubuntu20.04换源教程、解决主机与虚拟机之间进行文本复制粘贴问题_ubuntu 换源-CSDN博客.md",
     "else/could not read Username for ‘httpse.coding.net‘ No such file or directory-CSDN博客.md",
     "yto/MyExpandAdapter.md",
     "yto/kotlin_dialog.md",
