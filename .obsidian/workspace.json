@@ -25,8 +25,8 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "android/从源码角度看Context.md",
-                "mode": "preview",
+                "file": "android/Activity启动流程.md",
+                "mode": "source",
                 "source": false
               }
             }
@@ -98,7 +98,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "android/从源码角度看Context.md",
+                "file": "android/Activity启动流程.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +115,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "android/从源码角度看Context.md",
+                "file": "android/Activity启动流程.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -138,7 +138,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "android/从源码角度看Context.md"
+                "file": "android/Activity启动流程.md"
               }
             }
           }
@@ -164,11 +164,13 @@
   },
   "active": "35c6abe51b0324e4",
   "lastOpenFiles": [
-    "android/从源码角度看Context.pdf",
-    "android/从源码角度看Context.md",
-    "else/csdn保存.md",
-    "android/Activity启动流程_activity的启动过程-CSDN博客.md",
     "android/ExpandList.md",
+    "android/Activity启动流程.md",
+    "android/从源码角度看Context.md",
+    "android/安卓Watchdog 机制.md",
+    "android/安卓Watchdog 机制.md",
+    "android/从源码角度看Context.pdf",
+    "else/csdn保存.md",
     "android/Activity启动流程.md",
     "md/androidSource/14 activity启动流程.md",
     "Excalidraw/Drawing 2023-12-04 09.30.37.excalidraw.md",
@@ -192,7 +194,6 @@
     "md/掘金/【Android Framework】ActivityManagerService(二) (含视频) - 掘金.md",
     "md/掘金/【Android FrameWork】第一个启动的程序--init (含视频) - 掘金.md",
     "md/AndroidFrameworkTutorial/4.Hal与硬件服务/2.Linux驱动开发入门.md",
-    "md/AndroidFrameworkTutorial/4.Hal与硬件服务/1.Kernel 下载与编译.md",
     "pic/IMG_8347.png",
     "android",
     "arkts",
