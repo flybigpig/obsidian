@@ -18,8 +18,21 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "35c6abe51b0324e4",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "android/从源码角度看Context.md",
+                "mode": "preview",
+                "source": false
+              }
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -85,7 +98,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "else/csdn保存.md",
+                "file": "android/从源码角度看Context.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +115,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "else/csdn保存.md",
+                "file": "android/从源码角度看Context.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +138,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "else/csdn保存.md"
+                "file": "android/从源码角度看Context.md"
               }
             }
           }
@@ -149,9 +162,10 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "489d30ad0bb2ae98",
+  "active": "35c6abe51b0324e4",
   "lastOpenFiles": [
     "android/从源码角度看Context.pdf",
+    "android/从源码角度看Context.md",
     "else/csdn保存.md",
     "android/Activity启动流程_activity的启动过程-CSDN博客.md",
     "android/ExpandList.md",
@@ -181,7 +195,6 @@
     "md/AndroidFrameworkTutorial/4.Hal与硬件服务/1.Kernel 下载与编译.md",
     "pic/IMG_8347.png",
     "android",
-    "2023-12-04.md",
     "arkts",
     "Excalidraw",
     "yto",
