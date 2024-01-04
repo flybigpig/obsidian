@@ -25,7 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "android/Binder线程池.md",
+                "file": "android/异常处理 - Native 层的崩溃捕获机制及实现 - 掘金.md",
                 "mode": "source",
                 "source": false
               }
@@ -98,7 +98,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "android/Binder线程池.md",
+                "file": "android/异常处理 - Native 层的崩溃捕获机制及实现 - 掘金.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +115,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "android/Binder线程池.md",
+                "file": "android/异常处理 - Native 层的崩溃捕获机制及实现 - 掘金.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -138,7 +138,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "android/Binder线程池.md"
+                "file": "android/异常处理 - Native 层的崩溃捕获机制及实现 - 掘金.md"
               }
             }
           }
@@ -164,11 +164,12 @@
   },
   "active": "35c6abe51b0324e4",
   "lastOpenFiles": [
+    "android/从源码角度看Context.md",
+    "android/安卓Watchdog 机制.md",
+    "android/Binder机制3.pdf",
     "android/Activity启动流程.md",
     "android/Binder线程池.md",
-    "android/安卓Watchdog 机制.md",
     "android/ExpandList.md",
-    "android/从源码角度看Context.md",
     "android/从源码角度看Context.pdf",
     "else/csdn保存.md",
     "md/androidSource/14 activity启动流程.md",
@@ -200,7 +201,6 @@
     "yto",
     "drawing",
     "pic",
-    "md/AndroidFrameworkTutorial/LICENSE",
     "md/AndroidFrameworkTutorial/3.学穿Binder篇/ppt与思维导图/学穿 Binder.png",
     "md/资料/音视频/资料/上课资料/img/试简介视频编码技术？ - 知乎_files/v2-d0289dc0a46fc5b15b3363ffa78cf6c7.png",
     "md/资料/音视频/资料/上课资料/img/试简介视频编码技术？ - 知乎_files/v2-cdd8832425f01dc956f9ccd5b9ad02f4_250x0.jpg",
