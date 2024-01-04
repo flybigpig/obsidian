@@ -25,8 +25,8 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "android/安卓Watchdog 机制.md",
-                "mode": "preview",
+                "file": "android/Binder线程池.md",
+                "mode": "source",
                 "source": false
               }
             }
@@ -98,7 +98,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "android/安卓Watchdog 机制.md",
+                "file": "android/Binder线程池.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +115,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "android/安卓Watchdog 机制.md",
+                "file": "android/Binder线程池.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -138,7 +138,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "android/安卓Watchdog 机制.md"
+                "file": "android/Binder线程池.md"
               }
             }
           }
@@ -165,10 +165,10 @@
   "active": "35c6abe51b0324e4",
   "lastOpenFiles": [
     "android/Activity启动流程.md",
+    "android/Binder线程池.md",
+    "android/安卓Watchdog 机制.md",
     "android/ExpandList.md",
     "android/从源码角度看Context.md",
-    "android/安卓Watchdog 机制.md",
-    "android/安卓Watchdog 机制.md",
     "android/从源码角度看Context.pdf",
     "else/csdn保存.md",
     "md/androidSource/14 activity启动流程.md",
