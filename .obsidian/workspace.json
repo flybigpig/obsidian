@@ -25,7 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "android/Binder中的数据结构.md",
+                "file": "android/【Android Framework】ContentProvider(含视频) - 掘金.md",
                 "mode": "source",
                 "source": false
               }
@@ -98,7 +98,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "android/Binder中的数据结构.md",
+                "file": "android/【Android Framework】ContentProvider(含视频) - 掘金.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +115,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "android/Binder中的数据结构.md",
+                "file": "android/【Android Framework】ContentProvider(含视频) - 掘金.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -138,7 +138,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "android/Binder中的数据结构.md"
+                "file": "android/【Android Framework】ContentProvider(含视频) - 掘金.md"
               }
             }
           }
@@ -164,8 +164,20 @@
   },
   "active": "35c6abe51b0324e4",
   "lastOpenFiles": [
-    "android/异常处理 - Native 层的崩溃捕获机制及实现 - 掘金.md",
     "android/Binder中的数据结构.md",
+    "android/【Android FrameWork】Zygote (含视频) - 掘金.md",
+    "android/【Android FrameWork】SystemServer (含视频) - 掘金.md",
+    "android/【Android FrameWork】ServiceManager(一) (含视频) - 掘金.md",
+    "android/【Android FrameWork】ServiceManager （二） (含视频) - 掘金.md",
+    "android/【Android Framework】Service (含视频) - 掘金.md",
+    "android/【Android Framework】Launcher3 (含视频) - 掘金.md",
+    "android/【Android Framework】InputManagerService - 掘金.md",
+    "android/【Android Framework】ContentProvider(含视频) - 掘金.md",
+    "android/【Android Framework】Broadcast(含视频) - 掘金.md",
+    "android/【Android Framework】ActivityManagerService(一) (含视频) - 掘金.md",
+    "android/【Android Framework】ActivityManagerService(二) (含视频) - 掘金.md",
+    "android/【Android FrameWork】第一个启动的程序--init (含视频) - 掘金.md",
+    "android/异常处理 - Native 层的崩溃捕获机制及实现 - 掘金.md",
     "android/从源码角度看Context.md",
     "android/安卓Watchdog 机制.md",
     "android/Binder机制3.pdf",
@@ -181,20 +193,8 @@
     "Excalidraw/Drawing 2023-12-04 09.38.25.excalidraw.md",
     "Excalidraw/未命名.canvas",
     "hm/hm.md",
-    "else/git 报错.md",
-    "md/Ubuntu22.04安装、配置、美化、软件安装、配置开发环境_ubuntu安装星火应用商店-CSDN博客.md",
-    "conflict-files-obsidian-git.md",
-    "else/could not read Username for ‘httpse.coding.net‘ No such file or directory-CSDN博客.md",
-    "yto/MyExpandAdapter.md",
-    "yto/kotlin_dialog.md",
-    "yto/kotlin.md",
-    "yto/商品档案.md",
     "else",
     "hm",
-    "yto/未命名.md",
-    "yto/kotlin -get.md",
-    "md/掘金/【Android Framework】ActivityManagerService(二) (含视频) - 掘金.md",
-    "md/掘金/【Android FrameWork】第一个启动的程序--init (含视频) - 掘金.md",
     "pic/IMG_8347.png",
     "android",
     "arkts",
