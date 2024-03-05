@@ -25,8 +25,8 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "android/【Android Framework】ContentProvider(含视频) - 掘金.md",
-                "mode": "source",
+                "file": "md/掘金/【Android FrameWork】第一个启动的程序--init (含视频) - 掘金.md",
+                "mode": "preview",
                 "source": false
               }
             }
@@ -98,7 +98,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "android/【Android Framework】ContentProvider(含视频) - 掘金.md",
+                "file": "md/掘金/【Android FrameWork】第一个启动的程序--init (含视频) - 掘金.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +115,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "android/【Android Framework】ContentProvider(含视频) - 掘金.md",
+                "file": "md/掘金/【Android FrameWork】第一个启动的程序--init (含视频) - 掘金.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -138,7 +138,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "android/【Android Framework】ContentProvider(含视频) - 掘金.md"
+                "file": "md/掘金/【Android FrameWork】第一个启动的程序--init (含视频) - 掘金.md"
               }
             }
           }
@@ -164,6 +164,8 @@
   },
   "active": "35c6abe51b0324e4",
   "lastOpenFiles": [
+    "md/个人/inputManagerService.md",
+    "android/【Android Framework】ContentProvider(含视频) - 掘金.md",
     "android/Binder中的数据结构.md",
     "android/【Android FrameWork】Zygote (含视频) - 掘金.md",
     "android/【Android FrameWork】SystemServer (含视频) - 掘金.md",
@@ -172,7 +174,6 @@
     "android/【Android Framework】Service (含视频) - 掘金.md",
     "android/【Android Framework】Launcher3 (含视频) - 掘金.md",
     "android/【Android Framework】InputManagerService - 掘金.md",
-    "android/【Android Framework】ContentProvider(含视频) - 掘金.md",
     "android/【Android Framework】Broadcast(含视频) - 掘金.md",
     "android/【Android Framework】ActivityManagerService(一) (含视频) - 掘金.md",
     "android/【Android Framework】ActivityManagerService(二) (含视频) - 掘金.md",
@@ -192,7 +193,6 @@
     "Excalidraw/Drawing 2023-12-11 17.11.52.excalidraw.md",
     "Excalidraw/Drawing 2023-12-04 09.38.25.excalidraw.md",
     "Excalidraw/未命名.canvas",
-    "hm/hm.md",
     "else",
     "hm",
     "pic/IMG_8347.png",
