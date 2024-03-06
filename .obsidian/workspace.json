@@ -25,7 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "else/could not read Username for ‘httpse.coding.net‘ No such file or directory-CSDN博客.md",
+                "file": "drives/smodule.md",
                 "mode": "source",
                 "source": false
               }
@@ -98,7 +98,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "else/could not read Username for ‘httpse.coding.net‘ No such file or directory-CSDN博客.md",
+                "file": "drives/smodule.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +115,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "else/could not read Username for ‘httpse.coding.net‘ No such file or directory-CSDN博客.md",
+                "file": "drives/smodule.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -138,7 +138,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "else/could not read Username for ‘httpse.coding.net‘ No such file or directory-CSDN博客.md"
+                "file": "drives/smodule.md"
               }
             }
           }
@@ -162,8 +162,13 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "35c6abe51b0324e4",
+  "active": "69a1d297d078579c",
   "lastOpenFiles": [
+    "md/个人/inputManagerService.md",
+    "pic/IMG_8347.png",
+    "drives/smodule.md",
+    "drives/Ubuntu编写简单驱动测试程序 - 知乎.md",
+    "else/could not read Username for ‘httpse.coding.net‘ No such file or directory-CSDN博客.md",
     "else/csdn保存.md",
     "else/git 报错.md",
     "else/Ubuntu20.04换源教程、解决主机与虚拟机之间进行文本复制粘贴问题_ubuntu 换源-CSDN博客.md",
@@ -188,14 +193,9 @@
     "android/Binder线程池.md",
     "android/ExpandList.md",
     "android/从源码角度看Context.pdf",
-    "md/androidSource/14 activity启动流程.md",
-    "Excalidraw/Drawing 2023-12-04 09.30.37.excalidraw.md",
-    "Excalidraw/Drawing 2023-12-11 17.11.52.excalidraw.md",
-    "Excalidraw/Drawing 2023-12-04 09.38.25.excalidraw.md",
     "Excalidraw/未命名.canvas",
     "else",
     "hm",
-    "pic/IMG_8347.png",
     "android",
     "arkts",
     "Excalidraw",
