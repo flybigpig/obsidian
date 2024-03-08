@@ -49,26 +49,14 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "else/csdn保存.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "558e49b810b65132",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "yto/conflict-files-obsidian-git.md",
+                "file": "conflict-files-obsidian-git.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -134,7 +122,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "yto/conflict-files-obsidian-git.md",
+                "file": "drives/smodule.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -151,7 +139,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "yto/conflict-files-obsidian-git.md",
+                "file": "drives/smodule.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -174,7 +162,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "yto/conflict-files-obsidian-git.md"
+                "file": "drives/smodule.md"
               }
             }
           }
@@ -198,31 +186,33 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "69a1d297d078579c",
+  "active": "7368824475a9ec9e",
   "lastOpenFiles": [
+    "conflict-files-obsidian-git.md",
+    "yto/conflict-files-obsidian-git.md",
+    "drives/module_extern/use_scull.c",
+    "drives/module_extern/scull.h",
+    "drives/module_extern/scull.c",
+    "drives/module_extern/Makefile",
+    "drives/module_extern",
+    "drives/gcc_12.md",
+    "drives/drives_test/use_scull.c",
+    "drives/drives_test/scull.h",
+    "drives/drives_test/scull.c",
+    "drives/drives_test/Makefile",
+    "drives/drives_test",
     "yto/MyExpandAdapter.md",
     "yto/kotlin - get.md",
     "yto/kotlin_dialog.md",
     "yto/kotlin.md",
     "yto/商品档案.md",
     "yto/未命名.md",
-    "yto/conflict-files-obsidian-git.md",
     "else/csdn保存.md",
     "else/git 报错.md",
     "else/could not read Username for ‘httpse.coding.net‘ No such file or directory-CSDN博客.md",
     "hm/hm.md",
     "drives/smodule.md",
     "md/掘金/【Android FrameWork】第一个启动的程序--init (含视频) - 掘金.md",
-    "drives/hello/virhello_test.o",
-    "drives/hello/virhello_test.c",
-    "drives/hello/virhello.ko",
-    "drives/hello/virhello.mod.o",
-    "drives/hello/virhello_test",
-    "drives/hello/virhello.o",
-    "drives/hello/virhello.mod.c",
-    "drives/hello/virhello.mod",
-    "drives/hello/virhello.c",
-    "drives/hello/modules.order",
     "drives/Ubuntu编写简单驱动测试程序 - 知乎.md",
     "md/个人/inputManagerService.md",
     "android/【Android Framework】ContentProvider(含视频) - 掘金.md",
@@ -234,8 +224,6 @@
     "android/【Android Framework】Service (含视频) - 掘金.md",
     "android/【Android Framework】Launcher3 (含视频) - 掘金.md",
     "android/【Android Framework】InputManagerService - 掘金.md",
-    "android/【Android Framework】Broadcast(含视频) - 掘金.md",
-    "android/【Android Framework】ActivityManagerService(一) (含视频) - 掘金.md",
     "Excalidraw/未命名.canvas",
     "pic/IMG_8347.png",
     "md/AndroidFrameworkTutorial/3.学穿Binder篇/ppt与思维导图/学穿 Binder.png",
