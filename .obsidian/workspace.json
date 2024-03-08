@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "411143251a67fada",
+        "id": "9d51d7da96fd448f",
         "type": "tabs",
         "children": [
           {
-            "id": "dbbc62e0872e456f",
+            "id": "c8c5322881f4c10f",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -141,12 +141,12 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "dbbc62e0872e456f",
+  "active": "c8c5322881f4c10f",
   "lastOpenFiles": [
+    "yto/conflict-files-obsidian-git.md",
     "conflict-files-obsidian-git.md",
     "else/git 报错.md",
     "else/未命名.md",
-    "yto/conflict-files-obsidian-git.md",
     "else/csdn保存.md",
     "drives/smodule.md",
     "drives/Ubuntu编写简单驱动测试程序 - 知乎.md",
