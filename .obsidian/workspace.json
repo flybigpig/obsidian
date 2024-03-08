@@ -30,9 +30,45 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "7368824475a9ec9e",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "drives/smodule.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "fd9d1ff90d55821f",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "else/csdn保存.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "558e49b810b65132",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "yto/conflict-files-obsidian-git.md",
+                "mode": "source",
+                "source": false
+              }
+            }
           }
         ],
-        "currentTab": 1
+        "currentTab": 4
       }
     ],
     "direction": "vertical"
@@ -98,7 +134,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "md/掘金/【Android FrameWork】第一个启动的程序--init (含视频) - 掘金.md",
+                "file": "yto/conflict-files-obsidian-git.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +151,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "md/掘金/【Android FrameWork】第一个启动的程序--init (含视频) - 掘金.md",
+                "file": "yto/conflict-files-obsidian-git.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -138,7 +174,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "md/掘金/【Android FrameWork】第一个启动的程序--init (含视频) - 掘金.md"
+                "file": "yto/conflict-files-obsidian-git.md"
               }
             }
           }
@@ -162,8 +198,32 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "35c6abe51b0324e4",
+  "active": "69a1d297d078579c",
   "lastOpenFiles": [
+    "yto/MyExpandAdapter.md",
+    "yto/kotlin - get.md",
+    "yto/kotlin_dialog.md",
+    "yto/kotlin.md",
+    "yto/商品档案.md",
+    "yto/未命名.md",
+    "yto/conflict-files-obsidian-git.md",
+    "else/csdn保存.md",
+    "else/git 报错.md",
+    "else/could not read Username for ‘httpse.coding.net‘ No such file or directory-CSDN博客.md",
+    "hm/hm.md",
+    "drives/smodule.md",
+    "md/掘金/【Android FrameWork】第一个启动的程序--init (含视频) - 掘金.md",
+    "drives/hello/virhello_test.o",
+    "drives/hello/virhello_test.c",
+    "drives/hello/virhello.ko",
+    "drives/hello/virhello.mod.o",
+    "drives/hello/virhello_test",
+    "drives/hello/virhello.o",
+    "drives/hello/virhello.mod.c",
+    "drives/hello/virhello.mod",
+    "drives/hello/virhello.c",
+    "drives/hello/modules.order",
+    "drives/Ubuntu编写简单驱动测试程序 - 知乎.md",
     "md/个人/inputManagerService.md",
     "android/【Android Framework】ContentProvider(含视频) - 掘金.md",
     "android/Binder中的数据结构.md",
@@ -176,32 +236,8 @@
     "android/【Android Framework】InputManagerService - 掘金.md",
     "android/【Android Framework】Broadcast(含视频) - 掘金.md",
     "android/【Android Framework】ActivityManagerService(一) (含视频) - 掘金.md",
-    "android/【Android Framework】ActivityManagerService(二) (含视频) - 掘金.md",
-    "android/【Android FrameWork】第一个启动的程序--init (含视频) - 掘金.md",
-    "android/异常处理 - Native 层的崩溃捕获机制及实现 - 掘金.md",
-    "android/从源码角度看Context.md",
-    "android/安卓Watchdog 机制.md",
-    "android/Binder机制3.pdf",
-    "android/Activity启动流程.md",
-    "android/Binder线程池.md",
-    "android/ExpandList.md",
-    "android/从源码角度看Context.pdf",
-    "else/csdn保存.md",
-    "md/androidSource/14 activity启动流程.md",
-    "Excalidraw/Drawing 2023-12-04 09.30.37.excalidraw.md",
-    "else/Ubuntu20.04换源教程、解决主机与虚拟机之间进行文本复制粘贴问题_ubuntu 换源-CSDN博客.md",
-    "Excalidraw/Drawing 2023-12-11 17.11.52.excalidraw.md",
-    "Excalidraw/Drawing 2023-12-04 09.38.25.excalidraw.md",
     "Excalidraw/未命名.canvas",
-    "else",
-    "hm",
     "pic/IMG_8347.png",
-    "android",
-    "arkts",
-    "Excalidraw",
-    "yto",
-    "drawing",
-    "pic",
     "md/AndroidFrameworkTutorial/3.学穿Binder篇/ppt与思维导图/学穿 Binder.png",
     "md/资料/音视频/资料/上课资料/img/试简介视频编码技术？ - 知乎_files/v2-d0289dc0a46fc5b15b3363ffa78cf6c7.png",
     "md/资料/音视频/资料/上课资料/img/试简介视频编码技术？ - 知乎_files/v2-cdd8832425f01dc956f9ccd5b9ad02f4_250x0.jpg",

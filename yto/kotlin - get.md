@@ -1,5 +1,5 @@
 ```
-package com.yto.pda.cwms.data.model.bean  
+
   
 import android.text.TextUtils  
   

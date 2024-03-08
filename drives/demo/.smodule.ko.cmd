@@ -1,0 +1,1 @@
+cmd_/home/fly/fly/drives/demo/smodule.ko := ld -r -m elf_x86_64 -z noexecstack --build-id=sha1  -T scripts/module.lds -o /home/fly/fly/drives/demo/smodule.ko /home/fly/fly/drives/demo/smodule.o /home/fly/fly/drives/demo/smodule.mod.o;  true
