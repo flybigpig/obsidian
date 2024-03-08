@@ -1,76 +1,35 @@
 {
   "main": {
-    "id": "d4c6145d631ce205",
+    "id": "f5ca6fba64ea6c09",
     "type": "split",
     "children": [
       {
-        "id": "13f70bfedc12feb4",
+        "id": "411143251a67fada",
         "type": "tabs",
         "children": [
           {
-            "id": "489d30ad0bb2ae98",
+            "id": "dbbc62e0872e456f",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "else/csdn保存.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "35c6abe51b0324e4",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "md/掘金/【Android FrameWork】第一个启动的程序--init (含视频) - 掘金.md",
-                "mode": "preview",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "7368824475a9ec9e",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "drives/smodule.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "fd9d1ff90d55821f",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "conflict-files-obsidian-git.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
   },
   "left": {
-    "id": "f854b69d0a21c5c5",
+    "id": "daca91cb0d90bbad",
     "type": "split",
     "children": [
       {
-        "id": "557bf99a76d81869",
+        "id": "e349523ca05ed481",
         "type": "tabs",
         "children": [
           {
-            "id": "69a1d297d078579c",
+            "id": "fa4657deb406b728",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -80,7 +39,7 @@
             }
           },
           {
-            "id": "81925a3c4d57b33b",
+            "id": "8e2685d6beb88fb4",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -95,7 +54,7 @@
             }
           },
           {
-            "id": "cfeb0eb70ecf24a5",
+            "id": "5cd60648e8066551",
             "type": "leaf",
             "state": {
               "type": "bookmarks",
@@ -106,47 +65,45 @@
       }
     ],
     "direction": "horizontal",
-    "width": 391.5
+    "width": 300
   },
   "right": {
-    "id": "26d12336df268f7c",
+    "id": "9529d323d9cfa4b3",
     "type": "split",
     "children": [
       {
-        "id": "1b69075c7bd2d838",
+        "id": "ffcdebad0b15c8a4",
         "type": "tabs",
         "children": [
           {
-            "id": "ebe28e44077d67f5",
+            "id": "c5a24a5fb2bad599",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
-                "file": "drives/smodule.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
                 "showSearch": false,
                 "searchQuery": "",
                 "backlinkCollapsed": false,
-                "unlinkedCollapsed": false
+                "unlinkedCollapsed": true
               }
             }
           },
           {
-            "id": "e22aa4da3a26a9b1",
+            "id": "df1e44bf4286f77a",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "drives/smodule.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
             }
           },
           {
-            "id": "1014f5dafa20aace",
+            "id": "aaa618f7d0ec346e",
             "type": "leaf",
             "state": {
               "type": "tag",
@@ -157,13 +114,11 @@
             }
           },
           {
-            "id": "6b474de840886a26",
+            "id": "9c3898f8c049b5d3",
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "drives/smodule.md"
-              }
+              "state": {}
             }
           }
         ]
@@ -175,6 +130,7 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "obsidian-full-calendar:Open Full Calendar": false,
       "switcher:打开快速切换": false,
       "graph:查看关系图谱": false,
       "canvas:新建白板": false,
@@ -182,59 +138,19 @@
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
       "markdown-importer:打开 Markdown 格式转换器": false,
-      "obsidian-full-calendar:Open Full Calendar": false,
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "7368824475a9ec9e",
+  "active": "dbbc62e0872e456f",
   "lastOpenFiles": [
     "conflict-files-obsidian-git.md",
-    "yto/conflict-files-obsidian-git.md",
-    "drives/module_extern/use_scull.c",
-    "drives/module_extern/scull.h",
-    "drives/module_extern/scull.c",
-    "drives/module_extern/Makefile",
-    "drives/module_extern",
-    "drives/gcc_12.md",
-    "drives/drives_test/use_scull.c",
-    "drives/drives_test/scull.h",
-    "drives/drives_test/scull.c",
-    "drives/drives_test/Makefile",
-    "drives/drives_test",
-    "yto/MyExpandAdapter.md",
-    "yto/kotlin - get.md",
-    "yto/kotlin_dialog.md",
-    "yto/kotlin.md",
-    "yto/商品档案.md",
-    "yto/未命名.md",
-    "else/csdn保存.md",
     "else/git 报错.md",
-    "else/could not read Username for ‘httpse.coding.net‘ No such file or directory-CSDN博客.md",
-    "hm/hm.md",
+    "else/未命名.md",
+    "yto/conflict-files-obsidian-git.md",
+    "else/csdn保存.md",
     "drives/smodule.md",
-    "md/掘金/【Android FrameWork】第一个启动的程序--init (含视频) - 掘金.md",
     "drives/Ubuntu编写简单驱动测试程序 - 知乎.md",
-    "md/个人/inputManagerService.md",
-    "android/【Android Framework】ContentProvider(含视频) - 掘金.md",
-    "android/Binder中的数据结构.md",
-    "android/【Android FrameWork】Zygote (含视频) - 掘金.md",
-    "android/【Android FrameWork】SystemServer (含视频) - 掘金.md",
-    "android/【Android FrameWork】ServiceManager(一) (含视频) - 掘金.md",
-    "android/【Android FrameWork】ServiceManager （二） (含视频) - 掘金.md",
-    "android/【Android Framework】Service (含视频) - 掘金.md",
-    "android/【Android Framework】Launcher3 (含视频) - 掘金.md",
-    "android/【Android Framework】InputManagerService - 掘金.md",
-    "Excalidraw/未命名.canvas",
-    "pic/IMG_8347.png",
-    "md/AndroidFrameworkTutorial/3.学穿Binder篇/ppt与思维导图/学穿 Binder.png",
-    "md/资料/音视频/资料/上课资料/img/试简介视频编码技术？ - 知乎_files/v2-d0289dc0a46fc5b15b3363ffa78cf6c7.png",
-    "md/资料/音视频/资料/上课资料/img/试简介视频编码技术？ - 知乎_files/v2-cdd8832425f01dc956f9ccd5b9ad02f4_250x0.jpg",
-    "md/资料/音视频/资料/上课资料/img/试简介视频编码技术？ - 知乎_files/v2-aa067e3dce549042c45b8e096e69a145_250x0.jpg",
-    "md/资料/音视频/资料/上课资料/img/试简介视频编码技术？ - 知乎_files/v2-646034f95d7ee18e2a2798a38e689f03_250x0.jpg",
-    "md/资料/音视频/资料/上课资料/img/试简介视频编码技术？ - 知乎_files/v2-57588d4e954afceb2c67a55a3d57a051_xs.jpg",
-    "md/资料/音视频/资料/上课资料/img/试简介视频编码技术？ - 知乎_files/v2-478f2cfaf629eaa856a946e8a12c2cdb_250x250.jpeg",
-    "md/资料/音视频/资料/上课资料/img/试简介视频编码技术？ - 知乎_files/v2-213598158238e2f826fc6098370301a7_540x450.jpeg",
-    "md/资料/音视频/资料/上课资料/img/试简介视频编码技术？ - 知乎_files/sidebar-download-qrcode.7caef4dd.png",
-    "未命名.canvas"
+    "drives/gcc_12.md",
+    "yto/MyExpandAdapter.md"
   ]
 }
