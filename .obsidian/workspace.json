@@ -4,19 +4,15 @@
     "type": "split",
     "children": [
       {
-        "id": "9d51d7da96fd448f",
+        "id": "2fa5dc001222386a",
         "type": "tabs",
         "children": [
           {
-            "id": "c8c5322881f4c10f",
+            "id": "afab83756930a812",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "hm/hm next.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -85,7 +81,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "hm/hm next.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +97,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "hm/hm next.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -124,9 +118,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "hm/hm next.md"
-              }
+              "state": {}
             }
           }
         ]
@@ -149,15 +141,23 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "c8c5322881f4c10f",
+  "active": "afab83756930a812",
   "lastOpenFiles": [
+    "Excalidraw/Drawing 2023-12-04 09.38.25.excalidraw.md",
+    "Excalidraw/Drawing 2024-04-22 14.48.53.excalidraw.md",
+    "Excalidraw/Drawing 2023-12-11 17.11.52.excalidraw.md",
+    "Excalidraw/Drawing 2023-12-04 09.30.37.excalidraw.md",
+    "Excalidraw/未命名.canvas",
+    "android/安卓Watchdog 机制.md",
+    "android/【Android FrameWork】Zygote (含视频) - 掘金.md",
+    "drives/Ubuntu编写简单驱动测试程序 - 知乎.md",
+    "drives/smodule.md",
+    "hm/hm next.md",
     "yto/conflict-files-obsidian-git.md",
     "conflict-files-obsidian-git.md",
     "else/git 报错.md",
     "else/未命名.md",
     "else/csdn保存.md",
-    "drives/smodule.md",
-    "drives/Ubuntu编写简单驱动测试程序 - 知乎.md",
     "drives/gcc_12.md",
     "yto/MyExpandAdapter.md"
   ]
