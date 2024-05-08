@@ -11,11 +11,26 @@
             "id": "afab83756930a812",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "hm/hm next.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "bb4ca30a5b8b6103",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.5.12"
+              }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -81,6 +96,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "hm/hm next.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -97,6 +113,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "hm/hm next.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -118,7 +135,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "hm/hm next.md"
+              }
             }
           }
         ]
@@ -141,8 +160,20 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "afab83756930a812",
+  "active": "bb4ca30a5b8b6103",
   "lastOpenFiles": [
+    "md/androidSource/6 android之Log日志.md",
+    "md/md/android_1.md",
+    "md/md/Binder.md",
+    "md/md/androidStart.md",
+    "md/md/Async.md",
+    "md/Ubuntu22.04安装、配置、美化、软件安装、配置开发环境_ubuntu安装星火应用商店-CSDN博客.md",
+    "pic/IMG_8347.png",
+    "yto/kotlin.md",
+    "yto/kotlin - get.md",
+    "yto/kotlin_dialog.md",
+    "yto/MyExpandAdapter.md",
+    "yto/未命名.md",
     "Excalidraw/Drawing 2023-12-04 09.38.25.excalidraw.md",
     "Excalidraw/Drawing 2024-04-22 14.48.53.excalidraw.md",
     "Excalidraw/Drawing 2023-12-11 17.11.52.excalidraw.md",
@@ -158,7 +189,6 @@
     "else/git 报错.md",
     "else/未命名.md",
     "else/csdn保存.md",
-    "drives/gcc_12.md",
-    "yto/MyExpandAdapter.md"
+    "drives/gcc_12.md"
   ]
 }
