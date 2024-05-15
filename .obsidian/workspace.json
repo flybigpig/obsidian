@@ -11,9 +11,11 @@
             "id": "5ae0318e624afe19",
             "type": "leaf",
             "state": {
-              "type": "excalidraw",
+              "type": "markdown",
               "state": {
-                "file": "Excalidraw/Drawing 2023-12-04 09.30.37.excalidraw.md"
+                "file": "hm/UI开发（ArkTS声明式开发范式）概述.md",
+                "mode": "source",
+                "source": false
               }
             }
           }
@@ -83,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Excalidraw/Drawing 2023-12-04 09.30.37.excalidraw.md",
+                "file": "hm/UI开发（ArkTS声明式开发范式）概述.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -100,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Excalidraw/Drawing 2023-12-04 09.30.37.excalidraw.md",
+                "file": "hm/UI开发（ArkTS声明式开发范式）概述.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -123,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Excalidraw/Drawing 2023-12-04 09.30.37.excalidraw.md"
+                "file": "hm/UI开发（ArkTS声明式开发范式）概述.md"
               }
             }
           },
@@ -157,14 +159,17 @@
   },
   "active": "5ae0318e624afe19",
   "lastOpenFiles": [
-    "Excalidraw/未命名.canvas",
+    "android/安卓Watchdog 机制.md",
+    "else/Ubuntu20.04换源教程、解决主机与虚拟机之间进行文本复制粘贴问题_ubuntu 换源-CSDN博客.md",
+    "else/git 报错.md",
+    "else/csdn保存.md",
     "Excalidraw/Drawing 2023-12-04 09.30.37.excalidraw.md",
+    "Excalidraw/未命名.canvas",
     "android/【Android Framework】ActivityManagerService(二) (含视频) - 掘金.md",
     "android/【Android FrameWork】第一个启动的程序--init (含视频) - 掘金.md",
-    "hm/hm next.md",
+    "hm/UI开发（ArkTS声明式开发范式）概述.md",
     "md/AdvancedAndroid/performance/booster框架分析/booster分析-线程优化&性能检测.md",
     "2024-05-08.md",
-    "android/安卓Watchdog 机制.md",
     "android/【Android FrameWork】Zygote (含视频) - 掘金.md",
     "android/Binder中的数据结构.md",
     "md/androidSource/6 android之Log日志.md",
@@ -181,8 +186,6 @@
     "yto/未命名.md",
     "Excalidraw/Drawing 2023-12-04 09.38.25.excalidraw.md",
     "Excalidraw/Drawing 2024-04-22 14.48.53.excalidraw.md",
-    "Excalidraw/Drawing 2023-12-11 17.11.52.excalidraw.md",
-    "drives/Ubuntu编写简单驱动测试程序 - 知乎.md",
-    "drives/smodule.md"
+    "Excalidraw/Drawing 2023-12-11 17.11.52.excalidraw.md"
   ]
 }
