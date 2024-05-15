@@ -11,11 +11,9 @@
             "id": "5ae0318e624afe19",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "excalidraw",
               "state": {
-                "file": "android/【Android Framework】ActivityManagerService(二) (含视频) - 掘金.md",
-                "mode": "preview",
-                "source": false
+                "file": "Excalidraw/Drawing 2023-12-04 09.30.37.excalidraw.md"
               }
             }
           }
@@ -85,7 +83,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "android/【Android Framework】ActivityManagerService(二) (含视频) - 掘金.md",
+                "file": "Excalidraw/Drawing 2023-12-04 09.30.37.excalidraw.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +100,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "android/【Android Framework】ActivityManagerService(二) (含视频) - 掘金.md",
+                "file": "Excalidraw/Drawing 2023-12-04 09.30.37.excalidraw.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +123,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "android/【Android Framework】ActivityManagerService(二) (含视频) - 掘金.md"
+                "file": "Excalidraw/Drawing 2023-12-04 09.30.37.excalidraw.md"
               }
             }
           },
@@ -159,10 +157,12 @@
   },
   "active": "5ae0318e624afe19",
   "lastOpenFiles": [
+    "Excalidraw/未命名.canvas",
+    "Excalidraw/Drawing 2023-12-04 09.30.37.excalidraw.md",
+    "android/【Android Framework】ActivityManagerService(二) (含视频) - 掘金.md",
     "android/【Android FrameWork】第一个启动的程序--init (含视频) - 掘金.md",
     "hm/hm next.md",
     "md/AdvancedAndroid/performance/booster框架分析/booster分析-线程优化&性能检测.md",
-    "Excalidraw/未命名.canvas",
     "2024-05-08.md",
     "android/安卓Watchdog 机制.md",
     "android/【Android FrameWork】Zygote (含视频) - 掘金.md",
@@ -182,10 +182,7 @@
     "Excalidraw/Drawing 2023-12-04 09.38.25.excalidraw.md",
     "Excalidraw/Drawing 2024-04-22 14.48.53.excalidraw.md",
     "Excalidraw/Drawing 2023-12-11 17.11.52.excalidraw.md",
-    "Excalidraw/Drawing 2023-12-04 09.30.37.excalidraw.md",
     "drives/Ubuntu编写简单驱动测试程序 - 知乎.md",
-    "drives/smodule.md",
-    "yto/conflict-files-obsidian-git.md",
-    "conflict-files-obsidian-git.md"
+    "drives/smodule.md"
   ]
 }
