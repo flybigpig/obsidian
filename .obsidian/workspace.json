@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "hm/Title.md",
+                "file": "hm/Swiper.md",
                 "mode": "preview",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "hm/Title.md",
+                "file": "hm/Swiper.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "hm/Title.md",
+                "file": "hm/Swiper.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "hm/Title.md"
+                "file": "hm/Swiper.md"
               }
             }
           },
@@ -159,8 +159,10 @@
   },
   "active": "5ae0318e624afe19",
   "lastOpenFiles": [
-    "hm/UI开发（ArkTS声明式开发范式）概述.md",
     "hm/Title.md",
+    "hm/Swiper.md",
+    "README.md",
+    "hm/UI开发（ArkTS声明式开发范式）概述.md",
     "md/AdvancedAndroid/performance/rabbit/Choreographer工作逻辑总结.md",
     "md/AdvancedAndroid/performance/rabbit/应用卡顿监控.md",
     "md/资料/Binder文章/Binder面试系列00-binder爱情例子.md",
@@ -190,8 +192,6 @@
     "md/md/android_1.md",
     "md/md/Binder.md",
     "md/md/androidStart.md",
-    "md/md/Async.md",
-    "md/Ubuntu22.04安装、配置、美化、软件安装、配置开发环境_ubuntu安装星火应用商店-CSDN博客.md",
     "pic/IMG_8347.png"
   ]
 }
