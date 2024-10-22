@@ -13,8 +13,8 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "README.md",
-                "mode": "source",
+                "file": "hm/UI开发（ArkTS声明式开发范式）概述.md",
+                "mode": "preview",
                 "source": false
               }
             }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "README.md",
+                "file": "hm/UI开发（ArkTS声明式开发范式）概述.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "README.md",
+                "file": "hm/UI开发（ArkTS声明式开发范式）概述.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "README.md"
+                "file": "hm/UI开发（ArkTS声明式开发范式）概述.md"
               }
             }
           },
@@ -159,7 +159,14 @@
   },
   "active": "da8dcede0940a9ea",
   "lastOpenFiles": [
+    "hm/Title.md",
+    "Excalidraw/Drawing 2024-04-22 14.48.53.excalidraw.md",
+    "Excalidraw/Drawing 2023-12-11 17.11.52.excalidraw.md",
+    "Excalidraw/Drawing 2023-12-04 09.38.25.excalidraw.md",
+    "Excalidraw/Drawing 2023-12-04 09.30.37.excalidraw.md",
+    "md/个人/2024-09-13.md",
     "md/个人/2024-09-05.md",
+    "README.md",
     "else/could not read Username for ‘httpse.coding.net‘ No such file or directory-CSDN博客.md",
     "hm/Swiper.md",
     "pic/IMG_8347.png",
@@ -171,8 +178,6 @@
     "else/Ubuntu20.04换源教程、解决主机与虚拟机之间进行文本复制粘贴问题_ubuntu 换源-CSDN博客.md",
     "else/git 报错.md",
     "md/资料/inputManagerService.md",
-    "hm/Title.md",
-    "README.md",
     "hm/UI开发（ArkTS声明式开发范式）概述.md",
     "md/AdvancedAndroid/performance/rabbit/Choreographer工作逻辑总结.md",
     "md/AdvancedAndroid/performance/rabbit/应用卡顿监控.md",
@@ -186,12 +191,7 @@
     "md/资料/OpenGl学习/Opengl基础2.md",
     "md/资料/架构/架构导读与设计原则.md",
     "android/安卓Watchdog 机制.md",
-    "Excalidraw/Drawing 2023-12-04 09.30.37.excalidraw.md",
     "Excalidraw/未命名.canvas",
-    "android/【Android Framework】ActivityManagerService(二) (含视频) - 掘金.md",
-    "android/【Android FrameWork】第一个启动的程序--init (含视频) - 掘金.md",
-    "md/AdvancedAndroid/performance/booster框架分析/booster分析-线程优化&性能检测.md",
-    "2024-05-08.md",
-    "android/【Android FrameWork】Zygote (含视频) - 掘金.md"
+    "android/【Android Framework】ActivityManagerService(二) (含视频) - 掘金.md"
   ]
 }
