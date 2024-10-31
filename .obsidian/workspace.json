@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/个人/C++ 指针.md",
+                "file": "md/androidSource/2 android异步消息机制.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "md/个人/C++ 指针.md",
+                "file": "md/androidSource/2 android异步消息机制.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "md/个人/C++ 指针.md",
+                "file": "md/androidSource/2 android异步消息机制.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "md/个人/C++ 指针.md"
+                "file": "md/androidSource/2 android异步消息机制.md"
               }
             }
           },
@@ -159,11 +159,17 @@
   },
   "active": "da8dcede0940a9ea",
   "lastOpenFiles": [
-    "md/md/android_1.md",
-    "md/个人/C++ 指针.md",
-    "md/md/ActivityShow.md",
-    "md/Ubuntu22.04安装、配置、美化、软件安装、配置开发环境_ubuntu安装星火应用商店-CSDN博客.md",
+    "md/androidSource/1  android项目构建流程.md",
+    "md/androidSource/androidSourceMd/GitHub - yipianfengye_androidSource_ android framework层源码解析，不定时更新哈_files/search-key-slash.svg",
     "md/个人/java -stream.md",
+    "else/csdn保存.md",
+    "else/git 报错.md",
+    "else/Ubuntu20.04换源教程、解决主机与虚拟机之间进行文本复制粘贴问题_ubuntu 换源-CSDN博客.md",
+    "else/could not read Username for ‘httpse.coding.net‘ No such file or directory-CSDN博客.md",
+    "md/Ubuntu22.04安装、配置、美化、软件安装、配置开发环境_ubuntu安装星火应用商店-CSDN博客.md",
+    "md/个人/C++ 指针.md",
+    "md/md/android_1.md",
+    "md/md/ActivityShow.md",
     "hm/UI开发（ArkTS声明式开发范式）概述.md",
     "hm/Title.md",
     "Excalidraw/Drawing 2024-04-22 14.48.53.excalidraw.md",
@@ -173,19 +179,14 @@
     "md/个人/2024-09-13.md",
     "md/个人/2024-09-05.md",
     "README.md",
-    "else/could not read Username for ‘httpse.coding.net‘ No such file or directory-CSDN博客.md",
     "hm/Swiper.md",
     "pic/IMG_8347.png",
     "yto/MyExpandAdapter.md",
     "yto/kotlin - get.md",
     "yto/kotlin.md",
     "yto/未命名.md",
-    "else/csdn保存.md",
-    "else/Ubuntu20.04换源教程、解决主机与虚拟机之间进行文本复制粘贴问题_ubuntu 换源-CSDN博客.md",
-    "else/git 报错.md",
     "md/资料/inputManagerService.md",
     "md/AdvancedAndroid/performance/rabbit/Choreographer工作逻辑总结.md",
-    "md/AdvancedAndroid/performance/rabbit/应用卡顿监控.md",
     "md/资料/Binder文章/14(3).png",
     "md/资料/Binder文章/12(2).png",
     "md/资料/Binder文章/11(2).png",

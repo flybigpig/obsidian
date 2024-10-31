@@ -81,7 +81,7 @@ int main() {
     increment(&x); // 传递 x 的地址
     // x 现在是 6
     return 0;
-}
+}pgit
 ```
 
 ### 指针的注意事项
