@@ -26,9 +26,21 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "43a34e3dc0bd08e3",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "conflict-files-obsidian-git.md",
+                "mode": "source",
+                "source": false
+              }
+            }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -94,7 +106,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "android/ExpandList.md",
+                "file": "conflict-files-obsidian-git.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -111,7 +123,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "android/ExpandList.md",
+                "file": "conflict-files-obsidian-git.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -134,7 +146,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "android/ExpandList.md"
+                "file": "conflict-files-obsidian-git.md"
               }
             }
           }
@@ -159,48 +171,49 @@
       "obsidian-full-calendar:Open Full Calendar": false
     }
   },
-  "active": "15d80cb44730d955",
+  "active": "43a34e3dc0bd08e3",
   "lastOpenFiles": [
-    "yto/商品档案.md",
-    "yto/kotlin_dialog.md",
-    "yto/kotlin.md",
-    "yto",
     "android/ExpandList.md",
-    "android",
-    "Excalidraw/Drawing 2023-12-04 09.38.25.excalidraw.md",
-    "Excalidraw/Drawing 2023-12-04 09.30.37.excalidraw.md",
-    "Excalidraw",
-    "es/未命名.md",
-    "es/周报.md",
-    "es/ess.md",
-    "es/2023-12-02 fds.md",
-    "es/2023-12-02 ee.md",
+    "conflict-files-obsidian-git.md",
+    "yto/未命名.md",
+    "yto/kotlin - get.md",
+    "yto/MyExpandAdapter.md",
+    "md/资料/inputManagerService.md",
+    "md/个人/json to Map.md",
+    "md/个人/java -stream.md",
+    "md/个人/C++ 指针.md",
+    "md/个人/2024-10-31.md",
+    "md/个人/2024-09-13.md",
+    "md/个人/2024-09-05.md",
+    "md/个人",
+    "md/Ubuntu22.04安装、配置、美化、软件安装、配置开发环境_ubuntu安装星火应用商店-CSDN博客.md",
+    "hm/UI开发（ArkTS声明式开发范式）概述.md",
+    "hm/Title.md",
+    "hm/Swiper.md",
+    "hm",
+    "else/Ubuntu20.04换源教程、解决主机与虚拟机之间进行文本复制粘贴问题_ubuntu 换源-CSDN博客.md",
+    "else/git 报错.md",
+    "else/csdn保存.md",
+    "else/could not read Username for ‘httpse.coding.net‘ No such file or directory-CSDN博客.md",
+    "else",
+    "drives/module_extern/use_scull.c",
+    "drives/module_extern/scull.h",
+    "drives/module_extern/scull.c",
+    "drives/module_extern/Makefile",
+    "drives/hello/virhello_test.o",
+    "drives/hello/virhello_test",
+    "drives/hello/virhello_test.c",
+    "drives/Ubuntu编写简单驱动测试程序 - 知乎.md",
+    "drives/smodule.md",
+    "drives/gcc_12.md",
+    "android/Binder线程池.md",
+    "android/Binder中的数据结构.md",
+    "android/Activity启动流程.md",
+    "Excalidraw/未命名.canvas",
     "未命名.canvas",
     "es/未命名.canvas",
     "pic/IMG_8347.png",
-    "pic",
     "Pasted image 20231201205447.png",
-    "md/androidSource/6 android之Log日志.md",
-    "md/androidSource/1  android项目构建流程.md",
-    "().md",
-    "md/AdvancedAndroid/组件化/Android-DI从入门到放弃.md",
-    "md/AdvancedAndroid/组件化/组件化思路.md",
-    "md/AndroidFrameworkTutorial/参考资料.md",
-    "md/AndroidFrameworkTutorial/README.md",
-    "md/AndroidFrameworkTutorial/LICENSE",
-    "md/AndroidFrameworkTutorial/视频课程讲稿/添加系统 App 源码讲稿.md",
-    "md/AndroidFrameworkTutorial/视频课程讲稿/系统开发工具推荐.pptx",
-    "md/AndroidFrameworkTutorial/视频课程讲稿/添加系统App源码.pptx",
-    "md/AndroidFrameworkTutorial/视频课程讲稿/添加可执行程序.pptx",
-    "md/AndroidFrameworkTutorial/视频课程讲稿/添加Product.sai2",
-    "md/AndroidFrameworkTutorial/视频课程讲稿/添加Product.pptx",
-    "md/AndroidFrameworkTutorial/视频课程讲稿/006.使用 Android Studio 开发系统 App讲稿.md",
-    "md/AndroidFrameworkTutorial/视频课程讲稿/004.AOSP添加可执行程序讲稿.md",
-    "md/AndroidFrameworkTutorial/视频课程讲稿/003.添加Prouduct 讲稿.md",
-    "md/AndroidFrameworkTutorial/视频课程讲稿/002.系统开发工具推荐讲稿.md",
-    "md/AndroidFrameworkTutorial/视频课程讲稿/001.AOSP 极速上手课程讲稿.md",
-    "md/AndroidFrameworkTutorial/4.Hal与硬件服务/4. Hal 层接口之直通模式.md",
-    "md/AndroidFrameworkTutorial/4.Hal与硬件服务/3.Hal 层添加访问 linux 驱动的接口.md",
     "md/AndroidFrameworkTutorial/3.学穿Binder篇/ppt与思维导图/学穿 Binder.png",
     "md/资料/音视频/资料/上课资料/img/试简介视频编码技术？ - 知乎_files/v2-d0289dc0a46fc5b15b3363ffa78cf6c7.png",
     "md/资料/音视频/资料/上课资料/img/试简介视频编码技术？ - 知乎_files/v2-cdd8832425f01dc956f9ccd5b9ad02f4_250x0.jpg",

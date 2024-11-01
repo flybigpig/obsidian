@@ -1,6 +1,8 @@
 [
-  "obsidian-git",
   "editing-toolbar",
   "obsidian-full-calendar",
-  "obsidian-excalidraw-plugin"
+  "quickadd",
+  "obsidian-git",
+  "obsidian-excalidraw-plugin",
+  "calendar"
 ]
