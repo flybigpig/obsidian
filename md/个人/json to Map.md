@@ -153,3 +153,14 @@ public class JsonMap {
   
     }
 ```
+
+```
+map.map {  
+    var item = PackedRecordData()  
+    item.label = it.key.toString()  
+    val listType = object : TypeToken<List<PackedRecordData.DataBean>>() {}.type  
+    var value: ArrayList<PackedRecordData.DataBean> = Gson().fromJson(it.value.toString(), listType)  
+    item.value = value  
+    list.add(item)  
+}
+```
