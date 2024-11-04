@@ -1,6 +1,6 @@
 ## 回顾
 
-Android系统中，第一个启动的是init进程，通过解析init.rc文件启动对应的service。Zygote就是由init启动起来的。Zygote作为应用的孵化器，所有的应用程序都是由他创建而来的。Zygote是C/S架构的，当他被fork出来之后会创建Java虚拟机，注册JNI环境 注册完成之后调用`ZygoteInit.Main`进入Java层。在`ZygoteInit.Main`中会创建`ZygoteServerSocket`,`forkSystemServer`以及循环等待客户端的请求，当请求到来之后会调用`processOneCommand`fork子进程和设置子进程的信息(创建ProcessState 初始化binder startThreadPoll)，之后根据客户端请求的startClass 通过反射找到Main函数，并执行，这样Zygote整体的流程 和 处理请求就结束了。上次我们没有分析SystemServer，现在我们就来看看SystemServer。
+[[Android]]系统中，第一个启动的是init进程，通过解析init.rc文件启动对应的service。Zygote就是由init启动起来的。Zygote作为应用的孵化器，所有的应用程序都是由他创建而来的。Zygote是C/S架构的，当他被fork出来之后会创建Java虚拟机，注册JNI环境 注册完成之后调用`ZygoteInit.Main`进入Java层。在`ZygoteInit.Main`中会创建`ZygoteServerSocket`,`forkSystemServer`以及循环等待客户端的请求，当请求到来之后会调用`processOneCommand`fork子进程和设置子进程的信息(创建ProcessState 初始化binder startThreadPoll)，之后根据客户端请求的startClass 通过反射找到Main函数，并执行，这样Zygote整体的流程 和 处理请求就结束了。上次我们没有分析SystemServer，现在我们就来看看SystemServer。
 
 ## 介绍
 
