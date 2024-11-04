@@ -1,70 +1,53 @@
 {
   "main": {
-    "id": "d4c6145d631ce205",
+    "id": "f5ca6fba64ea6c09",
     "type": "split",
     "children": [
       {
-        "id": "9e8ae814709b45ca",
+        "id": "f94b4143fc7dc41e",
         "type": "tabs",
         "children": [
           {
-            "id": "1a41491fb806095b",
-            "type": "leaf",
-            "state": {
-              "type": "full-calendar-view",
-              "state": {}
-            }
-          },
-          {
-            "id": "15d80cb44730d955",
+            "id": "a064a6cbbf5e1971",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "android/ExpandList.md",
+                "file": "md/个人/C++类.md",
                 "mode": "source",
                 "source": false
-              }
-            }
-          },
-          {
-            "id": "43a34e3dc0bd08e3",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "conflict-files-obsidian-git.md",
-                "mode": "source",
-                "source": false
-              }
+              },
+              "icon": "lucide-file",
+              "title": "C++类"
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
   },
   "left": {
-    "id": "f854b69d0a21c5c5",
+    "id": "daca91cb0d90bbad",
     "type": "split",
     "children": [
       {
-        "id": "557bf99a76d81869",
+        "id": "e349523ca05ed481",
         "type": "tabs",
         "children": [
           {
-            "id": "69a1d297d078579c",
+            "id": "fa4657deb406b728",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical"
-              }
+              },
+              "icon": "lucide-folder-closed",
+              "title": "文件列表"
             }
           },
           {
-            "id": "81925a3c4d57b33b",
+            "id": "8e2685d6beb88fb4",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -75,92 +58,113 @@
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical"
-              }
+              },
+              "icon": "lucide-search",
+              "title": "搜索"
             }
           },
           {
-            "id": "cfeb0eb70ecf24a5",
+            "id": "5cd60648e8066551",
             "type": "leaf",
             "state": {
               "type": "bookmarks",
-              "state": {}
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "书签"
             }
           }
         ]
       }
     ],
     "direction": "horizontal",
-    "width": 220.5
+    "width": 300
   },
   "right": {
-    "id": "26d12336df268f7c",
+    "id": "9529d323d9cfa4b3",
     "type": "split",
     "children": [
       {
-        "id": "1b69075c7bd2d838",
+        "id": "ffcdebad0b15c8a4",
         "type": "tabs",
         "children": [
           {
-            "id": "ebe28e44077d67f5",
+            "id": "c5a24a5fb2bad599",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
-                "file": "conflict-files-obsidian-git.md",
+                "file": "md/个人/C++类.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
                 "showSearch": false,
                 "searchQuery": "",
                 "backlinkCollapsed": false,
-                "unlinkedCollapsed": true
-              }
+                "unlinkedCollapsed": false
+              },
+              "icon": "links-coming-in",
+              "title": "C++类 的反向链接列表"
             }
           },
           {
-            "id": "e22aa4da3a26a9b1",
+            "id": "df1e44bf4286f77a",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "conflict-files-obsidian-git.md",
+                "file": "md/个人/C++类.md",
                 "linksCollapsed": false,
-                "unlinkedCollapsed": true
-              }
+                "unlinkedCollapsed": false
+              },
+              "icon": "links-going-out",
+              "title": "C++类 的出链列表"
             }
           },
           {
-            "id": "1014f5dafa20aace",
+            "id": "aaa618f7d0ec346e",
             "type": "leaf",
             "state": {
               "type": "tag",
               "state": {
                 "sortOrder": "frequency",
-                "useHierarchy": true
-              }
+                "useHierarchy": false
+              },
+              "icon": "lucide-tags",
+              "title": "标签"
             }
           },
           {
-            "id": "6b474de840886a26",
+            "id": "9c3898f8c049b5d3",
             "type": "leaf",
             "state": {
               "type": "outline",
               "state": {
-                "file": "conflict-files-obsidian-git.md"
-              }
+                "file": "md/个人/C++类.md"
+              },
+              "icon": "lucide-list",
+              "title": "C++类 的大纲"
+            }
+          },
+          {
+            "id": "e1fb42b04afdc3ae",
+            "type": "leaf",
+            "state": {
+              "type": "calendar",
+              "state": {},
+              "icon": "calendar-with-checkmark",
+              "title": "Calendar"
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
-      "obsidian-excalidraw-plugin:新建绘图文件": false,
+      "obsidian-full-calendar:Open Full Calendar": false,
       "switcher:打开快速切换": false,
       "graph:查看关系图谱": false,
       "canvas:新建白板": false,
@@ -168,59 +172,45 @@
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
       "markdown-importer:打开 Markdown 格式转换器": false,
-      "obsidian-full-calendar:Open Full Calendar": false
+      "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "43a34e3dc0bd08e3",
+  "active": "a064a6cbbf5e1971",
   "lastOpenFiles": [
-    "android/ExpandList.md",
-    "conflict-files-obsidian-git.md",
-    "yto/未命名.md",
-    "yto/kotlin - get.md",
-    "yto/MyExpandAdapter.md",
-    "md/资料/inputManagerService.md",
+    "md/个人/1213.md",
+    "md/个人/C++类.md",
+    "md/个人/2024-09-13.md",
+    "md/个人/C++ 指针.md",
     "md/个人/json to Map.md",
     "md/个人/java -stream.md",
-    "md/个人/C++ 指针.md",
     "md/个人/2024-10-31.md",
-    "md/个人/2024-09-13.md",
     "md/个人/2024-09-05.md",
-    "md/个人",
-    "md/Ubuntu22.04安装、配置、美化、软件安装、配置开发环境_ubuntu安装星火应用商店-CSDN博客.md",
-    "hm/UI开发（ArkTS声明式开发范式）概述.md",
+    "md/资料/美颜/1asd.md",
+    "2024-11-04.md",
     "hm/Title.md",
     "hm/Swiper.md",
-    "hm",
-    "else/Ubuntu20.04换源教程、解决主机与虚拟机之间进行文本复制粘贴问题_ubuntu 换源-CSDN博客.md",
-    "else/git 报错.md",
-    "else/csdn保存.md",
-    "else/could not read Username for ‘httpse.coding.net‘ No such file or directory-CSDN博客.md",
-    "else",
-    "drives/module_extern/use_scull.c",
-    "drives/module_extern/scull.h",
-    "drives/module_extern/scull.c",
-    "drives/module_extern/Makefile",
-    "drives/hello/virhello_test.o",
-    "drives/hello/virhello_test",
-    "drives/hello/virhello_test.c",
-    "drives/Ubuntu编写简单驱动测试程序 - 知乎.md",
-    "drives/smodule.md",
-    "drives/gcc_12.md",
-    "android/Binder线程池.md",
-    "android/Binder中的数据结构.md",
-    "android/Activity启动流程.md",
-    "Excalidraw/未命名.canvas",
-    "未命名.canvas",
-    "es/未命名.canvas",
+    "hm/UI开发（ArkTS声明式开发范式）概述.md",
+    "md/Ubuntu22.04安装、配置、美化、软件安装、配置开发环境_ubuntu安装星火应用商店-CSDN博客.md",
     "pic/IMG_8347.png",
-    "Pasted image 20231201205447.png",
-    "md/AndroidFrameworkTutorial/3.学穿Binder篇/ppt与思维导图/学穿 Binder.png",
-    "md/资料/音视频/资料/上课资料/img/试简介视频编码技术？ - 知乎_files/v2-d0289dc0a46fc5b15b3363ffa78cf6c7.png",
-    "md/资料/音视频/资料/上课资料/img/试简介视频编码技术？ - 知乎_files/v2-cdd8832425f01dc956f9ccd5b9ad02f4_250x0.jpg",
-    "md/资料/音视频/资料/上课资料/img/试简介视频编码技术？ - 知乎_files/v2-aa067e3dce549042c45b8e096e69a145_250x0.jpg",
-    "md/资料/音视频/资料/上课资料/img/试简介视频编码技术？ - 知乎_files/v2-646034f95d7ee18e2a2798a38e689f03_250x0.jpg",
-    "md/资料/音视频/资料/上课资料/img/试简介视频编码技术？ - 知乎_files/v2-57588d4e954afceb2c67a55a3d57a051_xs.jpg",
-    "md/资料/音视频/资料/上课资料/img/试简介视频编码技术？ - 知乎_files/v2-478f2cfaf629eaa856a946e8a12c2cdb_250x250.jpeg",
-    "md/资料/音视频/资料/上课资料/img/试简介视频编码技术？ - 知乎_files/v2-213598158238e2f826fc6098370301a7_540x450.jpeg"
+    "Excalidraw/未命名.canvas",
+    "md/AdvancedAndroid/plugin/VirtualApk/插件Activity的启动.md",
+    "md/androidSource/3 android异步任务AsyncTask.md",
+    "md/androidSource/2 android异步消息机制.md",
+    "md/androidSource/1  android项目构建流程.md",
+    "md/androidSource/androidSourceMd/GitHub - yipianfengye_androidSource_ android framework层源码解析，不定时更新哈_files/search-key-slash.svg",
+    "else/csdn保存.md",
+    "else/git 报错.md",
+    "else/Ubuntu20.04换源教程、解决主机与虚拟机之间进行文本复制粘贴问题_ubuntu 换源-CSDN博客.md",
+    "else/could not read Username for ‘httpse.coding.net‘ No such file or directory-CSDN博客.md",
+    "md/md/android_1.md",
+    "md/md/ActivityShow.md",
+    "Excalidraw/Drawing 2024-04-22 14.48.53.excalidraw.md",
+    "Excalidraw/Drawing 2023-12-11 17.11.52.excalidraw.md",
+    "md/资料/Binder文章/14(3).png",
+    "md/资料/Binder文章/12(2).png",
+    "md/资料/Binder文章/11(2).png",
+    "md/资料/Binder文章/2(2).jpg",
+    "md/资料/Binder文章/3.png",
+    "md/资料/Binder文章/4(1).png"
   ]
 }
