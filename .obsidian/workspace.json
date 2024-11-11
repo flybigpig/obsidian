@@ -20,8 +20,21 @@
               "icon": "lucide-file",
               "title": "harmony-人脸"
             }
+          },
+          {
+            "id": "3a36d2cf66e21370",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.7.5"
+              },
+              "icon": "lucide-file",
+              "title": "Release Notes 1.7.5"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -73,7 +86,8 @@
               "title": "书签"
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "horizontal",
@@ -175,7 +189,7 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "a064a6cbbf5e1971",
+  "active": "3a36d2cf66e21370",
   "lastOpenFiles": [
     "md/掘金/【Android FrameWork】Zygote (含视频) - 掘金.md",
     "md/个人/harmony-人脸.md",
