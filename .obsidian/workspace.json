@@ -11,30 +11,13 @@
             "id": "a064a6cbbf5e1971",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "md/个人/harmony-人脸.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "harmony-人脸"
-            }
-          },
-          {
-            "id": "3a36d2cf66e21370",
-            "type": "leaf",
-            "state": {
-              "type": "release-notes",
-              "state": {
-                "currentVersion": "1.7.5"
-              },
-              "icon": "lucide-file",
-              "title": "Release Notes 1.7.5"
+              "title": "新标签页"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -65,7 +48,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "tag:#excalidraw",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -86,8 +69,7 @@
               "title": "书签"
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "horizontal",
@@ -126,12 +108,11 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "md/个人/harmony-人脸.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               },
               "icon": "links-going-out",
-              "title": "harmony-人脸 的出链列表"
+              "title": "出链"
             }
           },
           {
@@ -153,10 +134,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "md/掘金/【Android FrameWork】Zygote (含视频) - 掘金.md"
+                "file": "md/个人/2024-09-05.md"
               },
               "icon": "lucide-list",
-              "title": "【Android FrameWork】Zygote (含视频) - 掘金 的大纲"
+              "title": "2024-09-05 的大纲"
             }
           },
           {
@@ -186,13 +167,17 @@
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
       "markdown-importer:打开 Markdown 格式转换器": false,
+      "obsidian-git:Open Git source control": false,
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "3a36d2cf66e21370",
+  "active": "a064a6cbbf5e1971",
   "lastOpenFiles": [
-    "md/掘金/【Android FrameWork】Zygote (含视频) - 掘金.md",
+    "md/个人/2024-09-13.md",
+    "md/个人/2024-09-05.md",
+    "md/个人/2024-10-31.md",
     "md/个人/harmony-人脸.md",
+    "md/掘金/【Android FrameWork】Zygote (含视频) - 掘金.md",
     "md/md/android.md",
     "md/掘金/【Android FrameWork】SystemServer (含视频) - 掘金.md",
     "md/掘金/【Android FrameWork】第一个启动的程序--init (含视频) - 掘金.md",
@@ -200,10 +185,7 @@
     "md/个人/java -stream.md",
     "md/个人/C++类.md",
     "md/个人/1213.md",
-    "md/个人/2024-09-13.md",
     "md/个人/C++ 指针.md",
-    "md/个人/2024-10-31.md",
-    "md/个人/2024-09-05.md",
     "md/资料/美颜/1asd.md",
     "2024-11-04.md",
     "hm/Title.md",
