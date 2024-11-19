@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/个人/Windows 11：3 种方法轻松绕过 TPM、CPU 和安全启动检测.md",
+                "file": "md/个人/C++类.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Windows 11：3 种方法轻松绕过 TPM、CPU 和安全启动检测"
+              "title": "C++类"
             }
           }
         ]
@@ -139,10 +139,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "md/个人/Windows 11：3 种方法轻松绕过 TPM、CPU 和安全启动检测.md"
+                "file": "md/个人/C++类.md"
               },
               "icon": "lucide-list",
-              "title": "Windows 11：3 种方法轻松绕过 TPM、CPU 和安全启动检测 的大纲"
+              "title": "C++类 的大纲"
             }
           },
           {
@@ -172,11 +172,15 @@
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
       "markdown-importer:打开 Markdown 格式转换器": false,
-      "obsidian-git:Open Git source control": false
+      "obsidian-git:Open Git source control": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "9c3898f8c049b5d3",
+  "active": "a064a6cbbf5e1971",
   "lastOpenFiles": [
+    "md/个人/C++ 指针.md",
+    "md/个人/C++类.md",
+    "md/个人/class 和 struct.md",
     "md/个人/Windows 11：3 种方法轻松绕过 TPM、CPU 和安全启动检测.md",
     "md/个人/2024-09-13.md",
     "md/个人/2024-09-05.md",
@@ -188,9 +192,7 @@
     "md/掘金/【Android FrameWork】第一个启动的程序--init (含视频) - 掘金.md",
     "md/个人/json to Map.md",
     "md/个人/java -stream.md",
-    "md/个人/C++类.md",
     "md/个人/1213.md",
-    "md/个人/C++ 指针.md",
     "md/资料/美颜/1asd.md",
     "2024-11-04.md",
     "hm/Title.md",
@@ -205,7 +207,6 @@
     "md/androidSource/1  android项目构建流程.md",
     "md/androidSource/androidSourceMd/GitHub - yipianfengye_androidSource_ android framework层源码解析，不定时更新哈_files/search-key-slash.svg",
     "else/csdn保存.md",
-    "else/git 报错.md",
     "md/资料/Binder文章/14(3).png",
     "md/资料/Binder文章/12(2).png",
     "md/资料/Binder文章/11(2).png",
