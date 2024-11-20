@@ -175,8 +175,9 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "a064a6cbbf5e1971",
+  "active": "fa4657deb406b728",
   "lastOpenFiles": [
+    "md/Qt",
     "md/个人/Windows 11：3 种方法轻松绕过 TPM、CPU 和安全启动检测.md",
     "md/个人/析构函数.md",
     "md/个人/C++类.md",
@@ -204,7 +205,6 @@
     "md/AdvancedAndroid/plugin/VirtualApk/插件Activity的启动.md",
     "md/androidSource/3 android异步任务AsyncTask.md",
     "md/androidSource/2 android异步消息机制.md",
-    "md/androidSource/1  android项目构建流程.md",
     "md/androidSource/androidSourceMd/GitHub - yipianfengye_androidSource_ android framework层源码解析，不定时更新哈_files/search-key-slash.svg",
     "md/资料/Binder文章/14(3).png",
     "md/资料/Binder文章/12(2).png",
