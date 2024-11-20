@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "hm/TitleBar.md",
+                "file": "drives/gcc_12.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "TitleBar"
+              "title": "gcc_12"
             }
           }
         ]
@@ -139,10 +139,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "hm/TitleBar.md"
+                "file": "drives/gcc_12.md"
               },
               "icon": "lucide-list",
-              "title": "TitleBar 的大纲"
+              "title": "gcc_12 的大纲"
             }
           },
           {
@@ -176,11 +176,20 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "a064a6cbbf5e1971",
+  "active": "fa4657deb406b728",
   "lastOpenFiles": [
+    "else/Ubuntu20.04换源教程、解决主机与虚拟机之间进行文本复制粘贴问题_ubuntu 换源-CSDN博客.md",
+    "else/git 报错.md",
+    "else/csdn保存.md",
+    "else/could not read Username for ‘httpse.coding.net‘ No such file or directory-CSDN博客.md",
+    "Excalidraw/Drawing 2024-04-22 14.48.53.excalidraw.md",
+    "Excalidraw/Drawing 2023-12-11 17.11.52.excalidraw.md",
+    "Excalidraw/Drawing 2023-12-04 09.38.25.excalidraw.md",
+    "Excalidraw/Drawing 2023-12-04 09.30.37.excalidraw.md",
+    "Excalidraw/未命名.canvas",
+    "hm/TitleBar.md",
     "hm/UI开发（ArkTS声明式开发范式）概述.md",
     "md/个人/析构函数.md",
-    "hm/TitleBar.md",
     "2024-11-04.md",
     "README.md",
     "md/Ubuntu22.04安装、配置、美化、软件安装、配置开发环境_ubuntu安装星火应用商店-CSDN博客.md",
@@ -197,16 +206,7 @@
     "md/md/android.md",
     "md/掘金/【Android FrameWork】SystemServer (含视频) - 掘金.md",
     "md/掘金/【Android FrameWork】第一个启动的程序--init (含视频) - 掘金.md",
-    "md/个人/json to Map.md",
-    "md/个人/java -stream.md",
-    "md/个人/1213.md",
-    "md/资料/美颜/1asd.md",
-    "hm/Swiper.md",
     "pic/IMG_8347.png",
-    "Excalidraw/未命名.canvas",
-    "md/AdvancedAndroid/plugin/VirtualApk/插件Activity的启动.md",
-    "md/androidSource/3 android异步任务AsyncTask.md",
-    "md/androidSource/2 android异步消息机制.md",
     "md/androidSource/androidSourceMd/GitHub - yipianfengye_androidSource_ android framework层源码解析，不定时更新哈_files/search-key-slash.svg",
     "md/资料/Binder文章/14(3).png",
     "md/资料/Binder文章/12(2).png",
