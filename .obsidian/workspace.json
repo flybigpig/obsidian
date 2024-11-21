@@ -172,13 +172,17 @@
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
       "markdown-importer:打开 Markdown 格式转换器": false,
-      "obsidian-git:Open Git source control": false
+      "obsidian-git:Open Git source control": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
   "active": "a064a6cbbf5e1971",
   "lastOpenFiles": [
-    "md/个人/析构函数.md",
+    "md/个人/C++11、C++14、C++17、C++20新特性.md",
+    "md/个人/C++11.md",
     "md/个人/C++ 20.md",
+    "md/个人/C++14.md",
+    "md/个人/析构函数.md",
     "md/个人/C++ 指针.md",
     "drives/gcc_12.md",
     "else/Ubuntu20.04换源教程、解决主机与虚拟机之间进行文本复制粘贴问题_ubuntu 换源-CSDN博客.md",
@@ -202,9 +206,6 @@
     "md/个人/2024-09-13.md",
     "md/个人/2024-09-05.md",
     "md/个人/2024-10-31.md",
-    "md/个人/harmony-人脸.md",
-    "md/掘金/【Android FrameWork】Zygote (含视频) - 掘金.md",
-    "md/md/android.md",
     "pic/IMG_8347.png",
     "md/androidSource/androidSourceMd/GitHub - yipianfengye_androidSource_ android framework层源码解析，不定时更新哈_files/search-key-slash.svg",
     "md/资料/Binder文章/14(3).png",
