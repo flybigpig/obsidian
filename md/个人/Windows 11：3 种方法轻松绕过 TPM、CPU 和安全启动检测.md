@@ -102,3 +102,5 @@ HKEY_LOCAL_MACHINE\SYSTEM\Setup
 安装时绕过 Windows 11 硬件检测
 
 5关闭注册表编辑器和命令提示符，按照正常流程继续安装 Windows 11 系统。
+
+

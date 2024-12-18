@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "f94b4143fc7dc41e",
+        "id": "ad870263b3617525",
         "type": "tabs",
         "children": [
           {
-            "id": "a064a6cbbf5e1971",
+            "id": "cf98cbbaa82e7e5a",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/个人/C++ 20.md",
-                "mode": "source",
+                "file": "yto/kotlin_dialog.md",
+                "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "C++ 20"
+              "title": "kotlin_dialog"
             }
           }
         ]
@@ -139,10 +139,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "md/个人/C++ 20.md"
+                "file": "yto/kotlin_dialog.md"
               },
               "icon": "lucide-list",
-              "title": "C++ 20 的大纲"
+              "title": "kotlin_dialog 的大纲"
             }
           },
           {
@@ -154,9 +154,19 @@
               "icon": "calendar-with-checkmark",
               "title": "Calendar"
             }
+          },
+          {
+            "id": "f84ce6d2fe2622cd",
+            "type": "leaf",
+            "state": {
+              "type": "git-view",
+              "state": {},
+              "icon": "git-pull-request",
+              "title": "Source Control"
+            }
           }
         ],
-        "currentTab": 3
+        "currentTab": 5
       }
     ],
     "direction": "horizontal",
@@ -175,13 +185,25 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "a064a6cbbf5e1971",
+  "active": "f84ce6d2fe2622cd",
   "lastOpenFiles": [
+    "yto/kotlin - get.md",
+    "yto/kotlin.md",
+    "yto/未命名.md",
+    "md/Ubuntu22.04安装、配置、美化、软件安装、配置开发环境_ubuntu安装星火应用商店-CSDN博客.md",
+    "md/md/ActivityShow.md",
+    "md/androidSource/18 Activity布局绘制流程.md",
+    "md/androidSource/6 android之Log日志.md",
+    "md/androidSource/3 android异步任务AsyncTask.md",
+    "md/androidSource/1  android项目构建流程.md",
+    "md/androidSource/2 android异步消息机制.md",
+    "md/个人/Windows 11：3 种方法轻松绕过 TPM、CPU 和安全启动检测.md",
+    "md/个人/harmony-人脸.md",
+    "md/个人/析构函数.md",
+    "md/个人/C++ 20.md",
     "md/个人/C++11、C++14、C++17、C++20新特性.md",
     "md/个人/C++11.md",
-    "md/个人/C++ 20.md",
     "md/个人/C++14.md",
-    "md/个人/析构函数.md",
     "md/个人/C++ 指针.md",
     "drives/gcc_12.md",
     "else/Ubuntu20.04换源教程、解决主机与虚拟机之间进行文本复制粘贴问题_ubuntu 换源-CSDN博客.md",
@@ -191,20 +213,8 @@
     "Excalidraw/Drawing 2024-04-22 14.48.53.excalidraw.md",
     "Excalidraw/Drawing 2023-12-11 17.11.52.excalidraw.md",
     "Excalidraw/Drawing 2023-12-04 09.38.25.excalidraw.md",
-    "Excalidraw/Drawing 2023-12-04 09.30.37.excalidraw.md",
     "Excalidraw/未命名.canvas",
-    "hm/TitleBar.md",
-    "hm/UI开发（ArkTS声明式开发范式）概述.md",
-    "2024-11-04.md",
-    "README.md",
-    "md/Ubuntu22.04安装、配置、美化、软件安装、配置开发环境_ubuntu安装星火应用商店-CSDN博客.md",
     "md/Rust",
-    "md/个人/Windows 11：3 种方法轻松绕过 TPM、CPU 和安全启动检测.md",
-    "md/个人/C++类.md",
-    "md/个人/class 和 struct.md",
-    "md/个人/2024-09-13.md",
-    "md/个人/2024-09-05.md",
-    "md/个人/2024-10-31.md",
     "pic/IMG_8347.png",
     "md/androidSource/androidSourceMd/GitHub - yipianfengye_androidSource_ android framework层源码解析，不定时更新哈_files/search-key-slash.svg",
     "md/资料/Binder文章/14(3).png",
