@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/个人/Define a JavaScript Bridge in Native Code.md",
-                "mode": "source",
+                "file": "md/个人/recycleview滑动到item置顶位置.md",
+                "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Define a JavaScript Bridge in Native Code"
+              "title": "recycleview滑动到item置顶位置"
             }
           }
         ]
@@ -189,8 +189,9 @@
   },
   "active": "64d5415461546f95",
   "lastOpenFiles": [
-    "md/个人/解答图片中的问题 - 豆包.md",
     "md/个人/Define a JavaScript Bridge in Native Code.md",
+    "md/个人/recycleview滑动到item置顶位置.md",
+    "md/个人/解答图片中的问题 - 豆包.md",
     "yto/kotlin_dialog.md",
     "yto/kotlin - get.md",
     "yto/kotlin.md",
@@ -214,7 +215,6 @@
     "else/Ubuntu20.04换源教程、解决主机与虚拟机之间进行文本复制粘贴问题_ubuntu 换源-CSDN博客.md",
     "else/git 报错.md",
     "else/csdn保存.md",
-    "else/could not read Username for ‘httpse.coding.net‘ No such file or directory-CSDN博客.md",
     "Excalidraw/未命名.canvas",
     "md/Rust",
     "pic/IMG_8347.png",
