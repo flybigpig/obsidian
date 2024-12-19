@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/个人/开机优化.md",
-                "mode": "source",
+                "file": "md/Ubuntu22.04安装、配置、美化、软件安装、配置开发环境_ubuntu安装星火应用商店-CSDN博客.md",
+                "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "开机优化"
+              "title": "Ubuntu22.04安装、配置、美化、软件安装、配置开发环境_ubuntu安装星火应用商店-CSDN博客"
             }
           }
         ]
@@ -183,18 +183,24 @@
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
       "markdown-importer:打开 Markdown 格式转换器": false,
-      "obsidian-git:Open Git source control": false
+      "obsidian-git:Open Git source control": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
   "active": "85803fa72ecaf1a4",
   "lastOpenFiles": [
-    "md/个人/GPT40-mini.md",
+    "md/AndroidFrameworkTutorial/1.基础篇/001.Ubuntu 使用快速入门.md",
+    "hm/TitleBar.md",
+    "hm/Swiper.md",
+    "hm/UI开发（ArkTS声明式开发范式）概述.md",
+    "md/个人/解答图片中的问题 - 豆包.md",
     "md/个人/开机优化.md",
+    "md/个人/Android Boot Optimization Techniques · GitHub Copilot.md",
+    "md/个人/GPT40-mini.md",
     "md/个人/Recycleview滑动到item置顶位置.md",
     "md/个人/json to Map.md",
     "md/个人/C++类.md",
     "md/AdvancedAndroid/未命名.md",
-    "md/个人/解答图片中的问题 - 豆包.md",
     "yto/kotlin_dialog.md",
     "yto/kotlin - get.md",
     "yto/kotlin.md",
@@ -209,11 +215,6 @@
     "md/个人/Windows 11：3 种方法轻松绕过 TPM、CPU 和安全启动检测.md",
     "md/个人/harmony-人脸.md",
     "md/个人/析构函数.md",
-    "md/个人/C++ 20.md",
-    "md/个人/C++11、C++14、C++17、C++20新特性.md",
-    "md/个人/C++11.md",
-    "md/个人/C++14.md",
-    "md/个人/C++ 指针.md",
     "Excalidraw/未命名.canvas",
     "md/Rust",
     "pic/IMG_8347.png",
