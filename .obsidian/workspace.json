@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/个人/C++基础介绍 - 豆包.md",
-                "mode": "preview",
+                "file": "md/个人/init.rc解析-腾讯云开发者社区-腾讯云.md",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "C++基础介绍 - 豆包"
+              "title": "init.rc解析-腾讯云开发者社区-腾讯云"
             }
           }
         ]
@@ -170,8 +170,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -189,8 +188,15 @@
   },
   "active": "85803fa72ecaf1a4",
   "lastOpenFiles": [
-    "md/个人/json to Map.md",
+    "md/个人/init.rc.md",
+    "md/个人/C++11.md",
+    "md/个人/GPT40-mini.md",
+    "md/个人/harmony-人脸.md",
+    "md/个人/init 1.rc",
+    "md/个人/init.rc",
+    "md/个人/init.rc解析-腾讯云开发者社区-腾讯云.md",
     "md/个人/C++基础介绍 - 豆包.md",
+    "md/个人/json to Map.md",
     "md/个人/RecyclerView 滚动置顶 - 豆包.md",
     "md/AndroidFrameworkTutorial/3.学穿Binder篇/002. Binder 程序示例之C语言篇.md",
     "md/AndroidFrameworkTutorial/2.AOSP上手指南/013.如何阅读系统源码——Java篇.md",
@@ -208,13 +214,7 @@
     "md/个人/解答图片中的问题 - 豆包.md",
     "md/个人/开机优化.md",
     "md/个人/Android Boot Optimization Techniques · GitHub Copilot.md",
-    "md/个人/GPT40-mini.md",
     "md/个人/Recycleview滑动到item置顶位置.md",
-    "md/个人/C++类.md",
-    "md/AdvancedAndroid/未命名.md",
-    "yto/kotlin_dialog.md",
-    "yto/kotlin - get.md",
-    "yto/kotlin.md",
     "Excalidraw/未命名.canvas",
     "md/Rust",
     "pic/IMG_8347.png",
