@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/Ubuntu22.04安装、配置、美化、软件安装、配置开发环境_ubuntu安装星火应用商店-CSDN博客.md",
+                "file": "md/个人/C++基础介绍 - 豆包.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Ubuntu22.04安装、配置、美化、软件安装、配置开发环境_ubuntu安装星火应用商店-CSDN博客"
+              "title": "C++基础介绍 - 豆包"
             }
           }
         ]
@@ -189,7 +189,19 @@
   },
   "active": "85803fa72ecaf1a4",
   "lastOpenFiles": [
+    "md/个人/json to Map.md",
+    "md/个人/C++基础介绍 - 豆包.md",
+    "md/个人/RecyclerView 滚动置顶 - 豆包.md",
+    "md/AndroidFrameworkTutorial/3.学穿Binder篇/002. Binder 程序示例之C语言篇.md",
+    "md/AndroidFrameworkTutorial/2.AOSP上手指南/013.如何阅读系统源码——Java篇.md",
+    "md/AndroidFrameworkTutorial/2.AOSP上手指南/012.如何阅读系统源码——C C++篇.md",
+    "md/AndroidFrameworkTutorial/2.AOSP上手指南/010.添加开机自启动 Shell 脚本.md",
+    "md/AndroidFrameworkTutorial/2.AOSP上手指南/002.系统开发工具推荐.md",
+    "md/AndroidFrameworkTutorial/1.基础篇/003.Android 平台如何编译执行 C C++ 可执行程序.md",
     "md/AndroidFrameworkTutorial/1.基础篇/001.Ubuntu 使用快速入门.md",
+    "md/AndroidFrameworkTutorial/1.基础篇/002.Make 构建工具入门.md",
+    "md/AndroidFrameworkTutorial/1.基础篇/005.Linux Shell 脚本编程入门2——脚本自动化基础.md",
+    "md/Ubuntu22.04安装、配置、美化、软件安装、配置开发环境_ubuntu安装星火应用商店-CSDN博客.md",
     "hm/TitleBar.md",
     "hm/Swiper.md",
     "hm/UI开发（ArkTS声明式开发范式）概述.md",
@@ -198,23 +210,11 @@
     "md/个人/Android Boot Optimization Techniques · GitHub Copilot.md",
     "md/个人/GPT40-mini.md",
     "md/个人/Recycleview滑动到item置顶位置.md",
-    "md/个人/json to Map.md",
     "md/个人/C++类.md",
     "md/AdvancedAndroid/未命名.md",
     "yto/kotlin_dialog.md",
     "yto/kotlin - get.md",
     "yto/kotlin.md",
-    "yto/未命名.md",
-    "md/Ubuntu22.04安装、配置、美化、软件安装、配置开发环境_ubuntu安装星火应用商店-CSDN博客.md",
-    "md/md/ActivityShow.md",
-    "md/androidSource/18 Activity布局绘制流程.md",
-    "md/androidSource/6 android之Log日志.md",
-    "md/androidSource/3 android异步任务AsyncTask.md",
-    "md/androidSource/1  android项目构建流程.md",
-    "md/androidSource/2 android异步消息机制.md",
-    "md/个人/Windows 11：3 种方法轻松绕过 TPM、CPU 和安全启动检测.md",
-    "md/个人/harmony-人脸.md",
-    "md/个人/析构函数.md",
     "Excalidraw/未命名.canvas",
     "md/Rust",
     "pic/IMG_8347.png",
