@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/framework系统/Android系统启动——8 附录2：相关守护进程简介-腾讯云开发者社区-腾讯云.md",
-                "mode": "preview",
+                "file": "md/个人/Android Boot Optimization Techniques · GitHub Copilot.md",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Android系统启动——8 附录2：相关守护进程简介-腾讯云开发者社区-腾讯云"
+              "title": "Android Boot Optimization Techniques · GitHub Copilot"
             }
           }
         ]
@@ -188,6 +188,14 @@
   },
   "active": "85803fa72ecaf1a4",
   "lastOpenFiles": [
+    "yto/kotlin - get.md",
+    "yto/kotlin.md",
+    "2024-11-04.md",
+    "README.md",
+    "pic/Pasted image 20241219162312.png",
+    "md/vue/ref - reactive.md",
+    "md/framework系统/Android系统启动——8 附录2：相关守护进程简介-腾讯云开发者社区-腾讯云.md",
+    "md/vue",
     "md/JVM/Java虚拟机基础——1Java的内存模型-腾讯云开发者社区-腾讯云.md",
     "md/JVM/Java虚拟机基础——4内存回收机制-腾讯云开发者社区-腾讯云.md",
     "md/JVM/Java虚拟机基础——3类加载机制-腾讯云开发者社区-腾讯云.md",
@@ -195,13 +203,11 @@
     "md/framework系统/Android系统启动——3 init.rc解析-腾讯云开发者社区-腾讯云.md",
     "md/JVM",
     "md/framework系统/Android启动流程——1序言、bootloader引导与Linux启动-腾讯云开发者社区-腾讯云.md",
-    "md/framework系统/Android系统启动——8 附录2：相关守护进程简介-腾讯云开发者社区-腾讯云.md",
     "md/framework系统/Android系统启动——7附录1：Android属性系统-腾讯云开发者社区-腾讯云.md",
     "md/framework系统/Android系统启动——5 zyogte进程(Java篇)-腾讯云开发者社区-腾讯云 (1).md",
     "md/framework系统/Android系统启动——6 SystemServer启动-腾讯云开发者社区-腾讯云.md",
     "md/framework系统/Android系统启动——4 zyogte进程 (C篇)-腾讯云开发者社区-腾讯云.md",
     "md/framework系统/Android系统启动——5 zyogte进程(Java篇)-腾讯云开发者社区-腾讯云.md",
-    "Pasted image 20241219162312.png",
     "md/framework系统",
     "md/个人/init.rc.md",
     "md/个人/C++11.md",
@@ -214,11 +220,6 @@
     "md/个人/RecyclerView 滚动置顶 - 豆包.md",
     "md/AndroidFrameworkTutorial/3.学穿Binder篇/002. Binder 程序示例之C语言篇.md",
     "md/AndroidFrameworkTutorial/2.AOSP上手指南/013.如何阅读系统源码——Java篇.md",
-    "md/AndroidFrameworkTutorial/2.AOSP上手指南/012.如何阅读系统源码——C C++篇.md",
-    "md/AndroidFrameworkTutorial/2.AOSP上手指南/010.添加开机自启动 Shell 脚本.md",
-    "md/AndroidFrameworkTutorial/2.AOSP上手指南/002.系统开发工具推荐.md",
-    "md/AndroidFrameworkTutorial/1.基础篇/003.Android 平台如何编译执行 C C++ 可执行程序.md",
-    "md/AndroidFrameworkTutorial/1.基础篇/001.Ubuntu 使用快速入门.md",
     "Excalidraw/未命名.canvas",
     "md/Rust",
     "pic/IMG_8347.png",
