@@ -1,3 +1,4 @@
+### Define a JavaScript Bridge in Native Code
 GPT-4o mini
 
 In Vue 3, using a JSBridge typically involves communication between the JavaScript environment (Vue 3 app) and a native platform (like Android or iOS). A JSBridge allows for invoking native code (such as Java, Swift, or Objective-C) from JavaScript and vice versa. This is common in hybrid apps or webviews embedded in native mobile applications.

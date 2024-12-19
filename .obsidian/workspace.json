@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/个人/recycleview滑动到item置顶位置.md",
-                "mode": "preview",
+                "file": "md/个人/GPT40-mini.md",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "recycleview滑动到item置顶位置"
+              "title": "GPT40-mini"
             }
           }
         ]
@@ -189,9 +189,9 @@
   },
   "active": "64d5415461546f95",
   "lastOpenFiles": [
-    "md/个人/Define a JavaScript Bridge in Native Code.md",
-    "md/个人/recycleview滑动到item置顶位置.md",
     "md/个人/解答图片中的问题 - 豆包.md",
+    "md/个人/recycleview滑动到item置顶位置.md",
+    "md/个人/GPT40-mini.md",
     "yto/kotlin_dialog.md",
     "yto/kotlin - get.md",
     "yto/kotlin.md",
