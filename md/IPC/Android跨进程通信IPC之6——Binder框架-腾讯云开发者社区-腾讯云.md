@@ -389,18 +389,19 @@ Binder写操作的数据时格式同样也是(命令+数据)。这时候命令�
 Binder读出数据.png
 
 Binder读操作消息ID
-|消息|含义|参数(arg)|
-|---|---|---|
-|BR_ERROR|发生内部错误(如内存分配失败)|----|
-|BR_OK BR_NOOP|操作完成|----|
-|BR_SPAWN_LOOPER|该消息用于接受方线程池管理。当驱动发现接收方所有线程都处于忙碌状态且线程池中的线程总数没有超过BINDER_SET_MAX_THREADS设置的最大线程时，向接收方发送该命令要求创建更多的线程以备接受数据。|-----|
-|BR_TRANSCATION BR_REPLY|这两条消息分别对应发送方的 BC_TRANSACTION 和BC_REPLY，表示当前接受的数据是请求还是回复|binder_transaction_data|
-|BR_ACQUIRE_RESULT BR_ATTEMPT_ACQUIRE BR_FINISHED|尚未实现|-----|
-|BR_DEAD_REPLY|交互过程中如果发现对方进程或线程已经死亡则返回该消息|-----|
-|BR_TRANSACTION_COMPLETE|发送方通过BC_TRRANSACTION或BC_REPLY发送完一个数据包后，都能收到该消息作为成功发送的反馈。这和BR_REPLY不一样，是驱动告知发送方已经发送成功，而不是Server端返回数据。所以不管同步还是异步交互接收方都能获得本消息。|-----|
-|BR_INCREFS BR_ACQUIRE BR_RFLEASE BR_DECREFS|这组消息用于管理强/弱指针的引用计数。只有提供Binder实体的进程才能收到这组消息|void *ptr : Binder实体在用户空间中的指针 void **cookie：与该实体相关的附加数据|
-|BR_DEAD_BINDER BR_CLEAR_DEATH_NOTIFICATION_DONE|向获得Binder引用的进程发送Binder实体死亡通知书：收到死亡通知书的进程接下来会返回 BC_DEAD_BINDER_DONE 确认|void *cookie 在使用BC_REQUEST_DEATH_NOTIFICATION注册死亡通知时的附加参数|
-|BR_FAILED_REPLY|如果发送非法引用号则返回该消息|-----|
+
+| 消息                                               | 含义                                                                                                                          | 参数(arg)                                                   |
+| ------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------- |
+| BR_ERROR                                         | 发生内部错误(如内存分配失败)                                                                                                             | ----                                                      |
+| BR_OK BR_NOOP                                    | 操作完成                                                                                                                        | ----                                                      |
+| BR_SPAWN_LOOPER                                  | 该消息用于接受方线程池管理。当驱动发现接收方所有线程都处于忙碌状态且线程池中的线程总数没有超过BINDER_SET_MAX_THREADS设置的最大线程时，向接收方发送该命令要求创建更多的线程以备接受数据。                     | -----                                                     |
+| BR_TRANSCATION BR_REPLY                          | 这两条消息分别对应发送方的 BC_TRANSACTION 和BC_REPLY，表示当前接受的数据是请求还是回复                                                                     | binder_transaction_data                                   |
+| BR_ACQUIRE_RESULT BR_ATTEMPT_ACQUIRE BR_FINISHED | 尚未实现                                                                                                                        | -----                                                     |
+| BR_DEAD_REPLY                                    | 交互过程中如果发现对方进程或线程已经死亡则返回该消息                                                                                                  | -----                                                     |
+| BR_TRANSACTION_COMPLETE                          | 发送方通过BC_TRRANSACTION或BC_REPLY发送完一个数据包后，都能收到该消息作为成功发送的反馈。这和BR_REPLY不一样，是驱动告知发送方已经发送成功，而不是Server端返回数据。所以不管同步还是异步交互接收方都能获得本消息。 | -----                                                     |
+| BR_INCREFS BR_ACQUIRE BR_RFLEASE BR_DECREFS      | 这组消息用于管理强/弱指针的引用计数。只有提供Binder实体的进程才能收到这组消息                                                                                  | void *ptr : Binder实体在用户空间中的指针 void **cookie：与该实体相关的附加数据   |
+| BR_DEAD_BINDER BR_CLEAR_DEATH_NOTIFICATION_DONE  | 向获得Binder引用的进程发送Binder实体死亡通知书：收到死亡通知书的进程接下来会返回 BC_DEAD_BINDER_DONE 确认                                                       | void *cookie 在使用BC_REQUEST_DEATH_NOTIFICATION注册死亡通知时的附加参数 |
+| BR_FAILED_REPLY                                  | 如果发送非法引用号则返回该消息                                                                                                             | -----                                                     |
 
 和写数据一样，其中最重要的消息是BR\_TRANSACTION或BR\_REPLY，表明收到一个格式为binder\_transaction\_data的请求数据包(BR\_TRANSACTION或返回数据包(BR\_REPLY))
 
@@ -412,98 +413,15 @@ Binder读操作消息ID
 
 Binder数据包.png
 
-|  |  |
-| --- | --- |
-| 
-union{ size\_t handle; void \*ptr;} target；
-
-
-
- | 
-
-对于发送数据包的一方，该成员指明发送目的地。由于目的地是远端，所以在这里填入的是对Binder实体的引用，存放在target.handle中。如前述，Binder的引用在代码中也叫句柄(handle)。 当数据包到达接收方时，驱动已将该成员修改成Binder实体，即指向 Binder对象内存的指针，使用target.ptr来获取。该指针是接受方在将Binder实体传输给其他进程时提交给驱动的，驱动程序能够自动将发送方填入的引用转换成接收方的Binder对象的指针，故接收方可以直接将其当对象指针来使用(通常是将其reinpterpret\_cast相应类)
-
-
-
- |
-| 
-
-void \*cookie；
-
-
-
- | 
-
-发送方忽略该成员；接收方收到数据包时，该成员存放的是创建Binder实体时由该接收方自定义的任意数值，做为与Binder指针相关的额外信息存放在驱动中。驱动基本上不关心该成员
-
-
-
- |
-| 
-
-unsigned int code ;
-
-
-
- | 
-
-该成员存放收发双方约定的命令码，驱动完全不关心该成员的内容。通常是Server端的定义的公共接口函数的编号
-
-
-
- |
-| 
-
-unsigned int code;
-
-
-
- | 
-
-与交互相关的标志位，其中最重要的是TF\_ONE\_WAY位。如果该位置上表明这次交互是异步的，Server端不会返回任何数据。驱动利用该位决定是否构建与返回有关的数据结构。另外一位TF\_ACCEPT\_FDS是处于安全考虑，如果发起请求的一方不希望在收到回复中接收文件的Binder可以将位置上。因为收到一个文件形式的Binder会自动为接收方打开一个文件，使用该位可以防止打开文件过多
-
-
-
- |
-| 
-
-pid\_t send\_pid uid\_t sender\_euid
-
-
-
- | 
-
-该成员存放发送方的进程ID和用户ID，由驱动负责填入，接收方可以读取该成员获取发送方的身份。
-
-
-
- |
-| 
-
-size\_t data\_size
-
-
-
- | 
-
-驱动一般情况下不关心data.buffer里存放了什么数据。但如果有Binder在其中传输则需要将其对应data.buffer的偏移位置指出来让驱动知道。有可能存在多个Binder同时在数据中传递，所以须用数组表示所有偏移位置。本成员表示该数组的大小。
-
-
-
- |
-| 
-
-union{ struct{ const void \*buffer; const void \* offset; } ptr; uint8\_t buf\[8\];} data;
-
-
-
- | 
-
-data.buffer存放要发送或接收到的数据；data.offsets指向Binder偏移位置数组，该数组可以位于data.buffer中，也可以在另外的内存空间中，并无限制。buf\[8\]是为了无论保证32位还是64位平台，成员data的大小都是8字节。
-
-
-
- |
+|成员|含义|
+|---|---|
+|union{ size_t handle; void *ptr;} target；|对于发送数据包的一方，该成员指明发送目的地。由于目的地是远端，所以在这里填入的是对Binder实体的引用，存放在target.handle中。如前述，Binder的引用在代码中也叫句柄(handle)。 当数据包到达接收方时，驱动已将该成员修改成Binder实体，即指向 Binder对象内存的指针，使用target.ptr来获取。该指针是接受方在将Binder实体传输给其他进程时提交给驱动的，驱动程序能够自动将发送方填入的引用转换成接收方的Binder对象的指针，故接收方可以直接将其当对象指针来使用(通常是将其reinpterpret_cast相应类)|
+|void *cookie；|发送方忽略该成员；接收方收到数据包时，该成员存放的是创建Binder实体时由该接收方自定义的任意数值，做为与Binder指针相关的额外信息存放在驱动中。驱动基本上不关心该成员|
+|unsigned int code ;|该成员存放收发双方约定的命令码，驱动完全不关心该成员的内容。通常是Server端的定义的公共接口函数的编号|
+|unsigned int code;|与交互相关的标志位，其中最重要的是TF_ONE_WAY位。如果该位置上表明这次交互是异步的，Server端不会返回任何数据。驱动利用该位决定是否构建与返回有关的数据结构。另外一位TF_ACCEPT_FDS是处于安全考虑，如果发起请求的一方不希望在收到回复中接收文件的Binder可以将位置上。因为收到一个文件形式的Binder会自动为接收方打开一个文件，使用该位可以防止打开文件过多|
+|pid_t send_pid uid_t sender_euid|该成员存放发送方的进程ID和用户ID，由驱动负责填入，接收方可以读取该成员获取发送方的身份。|
+|size_t data_size|驱动一般情况下不关心data.buffer里存放了什么数据。但如果有Binder在其中传输则需要将其对应data.buffer的偏移位置指出来让驱动知道。有可能存在多个Binder同时在数据中传递，所以须用数组表示所有偏移位置。本成员表示该数组的大小。|
+|union{ struct{ const void *buffer; const void * offset; } ptr; uint8_t buf[8];} data;|data.buffer存放要发送或接收到的数据；data.offsets指向Binder偏移位置数组，该数组可以位于data.buffer中，也可以在另外的内存空间中，并无限制。buf[8]是为了无论保证32位还是64位平台，成员data的大小都是8字节。|
 
 > PS:这里有必要强调一下offsets\_size和data.offsets两个成员，这是Binder通信有别于其他IPC的地方。就像前面说说的，Binder采用面向对象的设计思想，一个Binder实体可以发送给其他进程从而建立许多跨进程的引用；另外这些引用也可以在进程之间传递，就像java将一个引用赋值给另外一个引用一样。为Binder在不同进程中创建引用必须有驱动参与，由驱动在内核创建并注册相关的数据结构后接收方才能使用该引用。而且这些引用可以是强类型的，需要驱动为其维护引用计数。然后这些跨进程传递的Binder混杂在应用程序发送的数据包里，数据格式由用户定义，如果不把他们一一标记出来告知驱动，驱动将无法从数据中将他们提取出来。于是就是使用数组data.offsets存放用户数据中每个Binder相对于data.buffer的偏移量，用offersets\_size表示这个数组的大小。驱动在发送数据包时会根据data.offsets和offset\_size将散落于data.buffer中的Binder找出来并一一为它们创建相关的数据结构。
 
