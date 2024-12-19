@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/IPC/Android跨进程通信IPC之13——Binder总结-腾讯云开发者社区-腾讯云.md",
+                "file": "md/IPC/Android跨进程通信IPC之2——Bionic-腾讯云开发者社区-腾讯云.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Android跨进程通信IPC之13——Binder总结-腾讯云开发者社区-腾讯云"
+              "title": "Android跨进程通信IPC之2——Bionic-腾讯云开发者社区-腾讯云"
             }
           }
         ]
@@ -188,6 +188,8 @@
   },
   "active": "7d8fa1905a89a5d7",
   "lastOpenFiles": [
+    "md/IPC/Android跨进程通信IPC之1——Linux基础-腾讯云开发者社区-腾讯云.md",
+    "md/IPC/Android跨进程通信IPC之13——Binder总结-腾讯云开发者社区-腾讯云.md",
     "md/IPC/android跨进程通信IPC之12——Binder的补充-腾讯云开发者社区-腾讯云.md",
     "md/IPC/Android跨进程通信IPC之11——AIDL-腾讯云开发者社区-腾讯云.md",
     "md/IPC/Android跨进程通信IPC之10——Binder之Framework层Java篇-腾讯云开发者社区-腾讯云.md",
@@ -195,13 +197,11 @@
     "md/IPC/Android跨进程通信IPC之9——Binder之Framework层C++篇1-腾讯云开发者社区-腾讯云.md",
     "md/IPC/Android跨进程通信IPC之8——Binder驱动-腾讯云开发者社区-腾讯云.md",
     "md/IPC/Android跨进程通信IPC之6——Binder框架-腾讯云开发者社区-腾讯云.md",
-    "md/IPC/Android跨进程通信IPC之13——Binder总结-腾讯云开发者社区-腾讯云.md",
     "md/IPC/Android跨进程通信IPC之7——Binder相关结构体简介-腾讯云开发者社区-腾讯云.md",
     "md/IPC/Android跨进程通信IPC之5——Binder的三大接口-腾讯云开发者社区-腾讯云.md",
     "md/IPC/Android跨进程通信IPC之4——AndroidIPC基础2-腾讯云开发者社区-腾讯云.md",
     "md/IPC/Android跨进程通信IPC之4——AndroidIPC基础1-腾讯云开发者社区-腾讯云.md",
     "md/IPC/Android跨进程通信IPC之3——关于JNI的那些事-腾讯云开发者社区-腾讯云.md",
-    "md/IPC/Android跨进程通信IPC之1——Linux基础-腾讯云开发者社区-腾讯云.md",
     "md/IPC/Android跨进程通信IPC之2——Bionic-腾讯云开发者社区-腾讯云.md",
     "md/framework系统/Android Handler机制11之Handler机制总结-腾讯云开发者社区-腾讯云.md",
     "md/IPC",
