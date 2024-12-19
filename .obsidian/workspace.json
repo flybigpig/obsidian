@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/个人/init.rc解析-腾讯云开发者社区-腾讯云.md",
-                "mode": "source",
+                "file": "md/framework系统/Android系统启动——3 init.rc解析-腾讯云开发者社区-腾讯云.md",
+                "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "init.rc解析-腾讯云开发者社区-腾讯云"
+              "title": "Android系统启动——3 init.rc解析-腾讯云开发者社区-腾讯云"
             }
           }
         ]
@@ -188,13 +188,22 @@
   },
   "active": "85803fa72ecaf1a4",
   "lastOpenFiles": [
+    "md/framework系统/Android启动流程——1序言、bootloader引导与Linux启动-腾讯云开发者社区-腾讯云.md",
+    "md/framework系统/Android系统启动——8 附录2：相关守护进程简介-腾讯云开发者社区-腾讯云.md",
+    "md/framework系统/Android系统启动——7附录1：Android属性系统-腾讯云开发者社区-腾讯云.md",
+    "md/framework系统/Android系统启动——5 zyogte进程(Java篇)-腾讯云开发者社区-腾讯云 (1).md",
+    "md/framework系统/Android系统启动——6 SystemServer启动-腾讯云开发者社区-腾讯云.md",
+    "md/framework系统/Android系统启动——4 zyogte进程 (C篇)-腾讯云开发者社区-腾讯云.md",
+    "md/framework系统/Android系统启动——5 zyogte进程(Java篇)-腾讯云开发者社区-腾讯云.md",
+    "md/framework系统/Android系统启动——3 init.rc解析-腾讯云开发者社区-腾讯云.md",
+    "Pasted image 20241219162312.png",
+    "md/framework系统",
     "md/个人/init.rc.md",
     "md/个人/C++11.md",
     "md/个人/GPT40-mini.md",
     "md/个人/harmony-人脸.md",
     "md/个人/init 1.rc",
     "md/个人/init.rc",
-    "md/个人/init.rc解析-腾讯云开发者社区-腾讯云.md",
     "md/个人/C++基础介绍 - 豆包.md",
     "md/个人/json to Map.md",
     "md/个人/RecyclerView 滚动置顶 - 豆包.md",
@@ -209,12 +218,6 @@
     "md/AndroidFrameworkTutorial/1.基础篇/005.Linux Shell 脚本编程入门2——脚本自动化基础.md",
     "md/Ubuntu22.04安装、配置、美化、软件安装、配置开发环境_ubuntu安装星火应用商店-CSDN博客.md",
     "hm/TitleBar.md",
-    "hm/Swiper.md",
-    "hm/UI开发（ArkTS声明式开发范式）概述.md",
-    "md/个人/解答图片中的问题 - 豆包.md",
-    "md/个人/开机优化.md",
-    "md/个人/Android Boot Optimization Techniques · GitHub Copilot.md",
-    "md/个人/Recycleview滑动到item置顶位置.md",
     "Excalidraw/未命名.canvas",
     "md/Rust",
     "pic/IMG_8347.png",

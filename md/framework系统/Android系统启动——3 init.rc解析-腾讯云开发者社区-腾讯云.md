@@ -137,6 +137,8 @@ default: 意味着disabled=false，oneshot=false，critical=false。
 
 [init.rc地址](https://cloud.tencent.com/developer/tools/blog-entry?target=https%3A%2F%2Flink.jianshu.com%2F%3Ft%3Dhttp%25253A%25252F%25252Fandroidxref.com%25252F6.0.1_r10%25252Fxref%25252Fsystem%25252Fcore%25252Frootdir%25252Finit.rc&objectId=1199504&objectType=1&isNewArticle=undefined)
 
+[[md/个人/init.rc|init.rc]]
+
 ```
 # Copyright (C) 2012 The Android Open Source Project
 #
