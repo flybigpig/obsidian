@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/个人/Recycleview滑动到item置顶位置.md",
+                "file": "md/个人/开机优化.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Recycleview滑动到item置顶位置"
+              "title": "开机优化"
             }
           }
         ]
@@ -183,17 +183,19 @@
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
       "markdown-importer:打开 Markdown 格式转换器": false,
-      "obsidian-git:Open Git source control": false
+      "obsidian-git:Open Git source control": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
   "active": "85803fa72ecaf1a4",
   "lastOpenFiles": [
+    "md/个人/GPT40-mini.md",
+    "md/个人/开机优化.md",
+    "md/个人/Recycleview滑动到item置顶位置.md",
     "md/个人/json to Map.md",
     "md/个人/C++类.md",
-    "md/个人/GPT40-mini.md",
     "md/AdvancedAndroid/未命名.md",
     "md/个人/解答图片中的问题 - 豆包.md",
-    "md/个人/Recycleview滑动到item置顶位置.md",
     "yto/kotlin_dialog.md",
     "yto/kotlin - get.md",
     "yto/kotlin.md",
@@ -213,7 +215,6 @@
     "md/个人/C++11.md",
     "md/个人/C++14.md",
     "md/个人/C++ 指针.md",
-    "drives/gcc_12.md",
     "Excalidraw/未命名.canvas",
     "md/Rust",
     "pic/IMG_8347.png",
