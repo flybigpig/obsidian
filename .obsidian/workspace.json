@@ -93,7 +93,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "md/掘金/【Android FrameWork】Zygote (含视频) - 掘金.md",
+                "file": "md/个人/硬件抽象层（HAL）的代码示例.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +103,7 @@
                 "unlinkedCollapsed": false
               },
               "icon": "links-coming-in",
-              "title": "【Android FrameWork】Zygote (含视频) - 掘金 的反向链接列表"
+              "title": "硬件抽象层（HAL）的代码示例 的反向链接列表"
             }
           },
           {
@@ -112,12 +112,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "md/个人/Windows 11：3 种方法轻松绕过 TPM、CPU 和安全启动检测.md",
+                "file": "md/个人/硬件抽象层（HAL）的代码示例.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               },
               "icon": "links-going-out",
-              "title": "Windows 11：3 种方法轻松绕过 TPM、CPU 和安全启动检测 的出链列表"
+              "title": "硬件抽象层（HAL）的代码示例 的出链列表"
             }
           },
           {
@@ -139,10 +139,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "yto/kotlin_dialog.md"
+                "file": "md/个人/硬件抽象层（HAL）的代码示例.md"
               },
               "icon": "lucide-list",
-              "title": "kotlin_dialog 的大纲"
+              "title": "硬件抽象层（HAL）的代码示例 的大纲"
             }
           },
           {
@@ -186,10 +186,11 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "d536f2ba8302f3fa",
+  "active": "f84ce6d2fe2622cd",
   "lastOpenFiles": [
-    "md/个人/init.rc.md",
+    "md/个人/Android Binder机制(二) Binder中的数据结构  skywang.md",
     "md/个人/硬件抽象层（HAL）的代码示例.md",
+    "md/个人/init.rc.md",
     "md/个人/java -stream.md",
     "md/个人/解答图片中的问题 - 豆包.md",
     "md/个人/Binder驱动的核心数据结构.md",
@@ -199,7 +200,6 @@
     "md/ahaoframework.tech/Launcher.md",
     "md/ahaoframework.tech/Android14 AMS 剖析—— Activity 启动分析之整体流程  Android Framework.md",
     "Pasted image 20241220132244.png",
-    "md/个人/Android Binder机制(二) Binder中的数据结构  skywang.md",
     "md/ahaoframework.tech",
     "md/android/Binder中的数据结构.md",
     "md/个人/Makefile.md",
