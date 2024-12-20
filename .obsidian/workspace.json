@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/个人/Android Binder机制(二) Binder中的数据结构  skywang.md",
+                "file": "md/ahaoframework.tech/Launcher.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Android Binder机制(二) Binder中的数据结构  skywang"
+              "title": "Launcher"
             }
           }
         ]
@@ -188,8 +188,12 @@
   },
   "active": "d536f2ba8302f3fa",
   "lastOpenFiles": [
-    "md/android/Binder中的数据结构.md",
+    "md/ahaoframework.tech/Android14 AMS 剖析—— Activity 启动分析之整体流程  Android Framework.md",
+    "md/ahaoframework.tech/Launcher.md",
+    "Pasted image 20241220132244.png",
     "md/个人/Android Binder机制(二) Binder中的数据结构  skywang.md",
+    "md/ahaoframework.tech",
+    "md/android/Binder中的数据结构.md",
     "md/个人/Binder驱动的核心数据结构.md",
     "md/个人/Makefile.md",
     "md/个人/Typora.md",
@@ -221,8 +225,6 @@
     "md/掘金Framework/【Android FrameWork】第一个启动的程序--init (含视频) - 掘金.md",
     "md/android/【Android Framework】Broadcast(含视频) - 掘金.md",
     "md/android/【Android Framework】ActivityManagerService(二) (含视频) - 掘金.md",
-    "md/android/【Android FrameWork】第一个启动的程序--init (含视频) - 掘金.md",
-    "else/Ubuntu20.04换源教程、解决主机与虚拟机之间进行文本复制粘贴问题_ubuntu 换源-CSDN博客.md",
     "md/C++",
     "md/IPC",
     "pic/Pasted image 20241219162312.png",
@@ -230,11 +232,9 @@
     "Excalidraw/未命名.canvas",
     "Excalidraw/未命名 1.canvas",
     "md/vue",
-    "md/JVM",
     "md/androidSource/androidSourceMd/GitHub - yipianfengye_androidSource_ android framework层源码解析，不定时更新哈_files/search-key-slash.svg",
     "md/资料/Binder文章/14(3).png",
     "md/资料/Binder文章/12(2).png",
-    "md/资料/Binder文章/11(2).png",
-    "md/资料/Binder文章/2(2).jpg"
+    "md/资料/Binder文章/11(2).png"
   ]
 }
