@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/个人/硬件抽象层（HAL）的代码示例.md",
+                "file": "md/个人/GPT40-mini.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "硬件抽象层（HAL）的代码示例"
+              "title": "GPT40-mini"
             }
           }
         ]
@@ -93,7 +93,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "md/个人/硬件抽象层（HAL）的代码示例.md",
+                "file": "md/个人/GPT40-mini.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +103,7 @@
                 "unlinkedCollapsed": false
               },
               "icon": "links-coming-in",
-              "title": "硬件抽象层（HAL）的代码示例 的反向链接列表"
+              "title": "GPT40-mini 的反向链接列表"
             }
           },
           {
@@ -112,12 +112,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "md/个人/硬件抽象层（HAL）的代码示例.md",
+                "file": "md/个人/GPT40-mini.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               },
               "icon": "links-going-out",
-              "title": "硬件抽象层（HAL）的代码示例 的出链列表"
+              "title": "GPT40-mini 的出链列表"
             }
           },
           {
@@ -139,10 +139,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "md/个人/硬件抽象层（HAL）的代码示例.md"
+                "file": "md/个人/GPT40-mini.md"
               },
               "icon": "lucide-list",
-              "title": "硬件抽象层（HAL）的代码示例 的大纲"
+              "title": "GPT40-mini 的大纲"
             }
           },
           {
@@ -186,10 +186,10 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "f84ce6d2fe2622cd",
+  "active": "d536f2ba8302f3fa",
   "lastOpenFiles": [
-    "md/个人/Android Binder机制(二) Binder中的数据结构  skywang.md",
     "md/个人/硬件抽象层（HAL）的代码示例.md",
+    "md/个人/Android Binder机制(二) Binder中的数据结构  skywang.md",
     "md/个人/init.rc.md",
     "md/个人/java -stream.md",
     "md/个人/解答图片中的问题 - 豆包.md",
