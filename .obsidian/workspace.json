@@ -8,17 +8,17 @@
         "type": "tabs",
         "children": [
           {
-            "id": "7d8fa1905a89a5d7",
+            "id": "d536f2ba8302f3fa",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/IPC/Android跨进程通信IPC之2——Bionic-腾讯云开发者社区-腾讯云.md",
+                "file": "md/个人/json to Map.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Android跨进程通信IPC之2——Bionic-腾讯云开发者社区-腾讯云"
+              "title": "json to Map"
             }
           }
         ]
@@ -73,8 +73,7 @@
               "title": "书签"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -183,11 +182,27 @@
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
       "markdown-importer:打开 Markdown 格式转换器": false,
-      "obsidian-git:Open Git source control": false
+      "obsidian-git:Open Git source control": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "8e2685d6beb88fb4",
+  "active": "d536f2ba8302f3fa",
   "lastOpenFiles": [
+    "md/个人/Makefile.md",
+    "md/C++/C++11、C++14、C++17、C++20新特性.md",
+    "md/C++/C++11.md",
+    "md/C++/C++ 20.md",
+    "md/C++/析构函数.md",
+    "md/C++/class 和 struct.md",
+    "md/C++/C++ 指针.md",
+    "md/C++",
+    "md/个人/解答图片中的问题 - 豆包.md",
+    "else/csdn保存.md",
+    "else/could not read Username for ‘httpse.coding.net‘ No such file or directory-CSDN博客.md",
+    "drives/smodule.md",
+    "drives/gcc_12.md",
+    "android/【Android FrameWork】第一个启动的程序--init (含视频) - 掘金.md",
+    "md/IPC/Android跨进程通信IPC之2——Bionic-腾讯云开发者社区-腾讯云.md",
     "md/IPC/Android跨进程通信IPC之1——Linux基础-腾讯云开发者社区-腾讯云.md",
     "md/IPC/Android跨进程通信IPC之13——Binder总结-腾讯云开发者社区-腾讯云.md",
     "md/IPC/android跨进程通信IPC之12——Binder的补充-腾讯云开发者社区-腾讯云.md",
@@ -200,25 +215,11 @@
     "md/IPC/Android跨进程通信IPC之7——Binder相关结构体简介-腾讯云开发者社区-腾讯云.md",
     "md/IPC/Android跨进程通信IPC之5——Binder的三大接口-腾讯云开发者社区-腾讯云.md",
     "md/IPC/Android跨进程通信IPC之4——AndroidIPC基础2-腾讯云开发者社区-腾讯云.md",
-    "md/IPC/Android跨进程通信IPC之4——AndroidIPC基础1-腾讯云开发者社区-腾讯云.md",
-    "md/IPC/Android跨进程通信IPC之3——关于JNI的那些事-腾讯云开发者社区-腾讯云.md",
-    "md/IPC/Android跨进程通信IPC之2——Bionic-腾讯云开发者社区-腾讯云.md",
-    "md/framework系统/Android Handler机制11之Handler机制总结-腾讯云开发者社区-腾讯云.md",
     "md/IPC",
-    "md/framework系统/Android Handler机制2之ThreadLocal-腾讯云开发者社区-腾讯云.md",
-    "md/framework系统/Android Handler机制8之消息的取出与消息的其他操作-腾讯云开发者社区-腾讯云.md",
-    "md/framework系统/Android Handler机制7之消息发送-腾讯云开发者社区-腾讯云.md",
-    "md/framework系统/Android Handler机制6之MessageQueue简介-腾讯云开发者社区-腾讯云.md",
-    "md/framework系统/Android Handler机制5之Message简介与消息对象对象池-腾讯云开发者社区-腾讯云.md",
-    "md/androidSource/1  android项目构建流程.md",
-    "md/Ubuntu22.04安装、配置、美化、软件安装、配置开发环境_ubuntu安装星火应用商店-CSDN博客.md",
     "pic/Pasted image 20241219162312.png",
     "pic/IMG_8347.png",
-    "Excalidraw/Drawing 2024-12-19 16.45.50.excalidraw.md",
     "Excalidraw/未命名.canvas",
     "Excalidraw/未命名 1.canvas",
-    "Excalidraw/Drawing 2023-12-04 09.38.25.excalidraw.md",
-    "Excalidraw/Drawing 2023-12-04 09.30.37.excalidraw.md",
     "md/vue",
     "md/JVM",
     "md/framework系统",
