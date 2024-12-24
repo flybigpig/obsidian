@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/个人/Android Framework system_server进程启动_startapexservices-CSDN博客.md",
-                "mode": "source",
+                "file": "md/个人/Android10.0系统启动之Launcher(桌面)启动流程-Android取经之路 - yooooooo - 博客园.md",
+                "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Android Framework system_server进程启动_startapexservices-CSDN博客"
+              "title": "Android10.0系统启动之Launcher(桌面)启动流程-Android取经之路 - yooooooo - 博客园"
             }
           }
         ]
@@ -195,15 +195,19 @@
       "obsidian-git:Open Git source control": false,
       "obsidian-textgenerator-plugin:Generate Text!": false,
       "obsidian-textgenerator-plugin:Text Generator: Templates Packages Manager": false,
-      "copilot:Open Copilot Chat": false
+      "copilot:Open Copilot Chat": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
   "active": "23d0e1d4dcd0475f",
   "lastOpenFiles": [
-    "md/个人/阿豪.md",
-    "md/个人/Android Framework system_server进程启动_startapexservices-CSDN博客.md",
-    "md/个人/Zygote.md",
+    "md/个人/Android init进程 - yooooooo - 博客园.md",
     "md/个人/androidStart 1.md",
+    "md/androidSource/7 android之LruCache.md",
+    "md/个人/Android10.0系统启动之Launcher(桌面)启动流程-Android取经之路 - yooooooo - 博客园.md",
+    "md/个人/Android Framework system_server进程启动_startapexservices-CSDN博客.md",
+    "md/个人/阿豪.md",
+    "md/个人/Zygote.md",
     "md/md/androidStart.md",
     "md/md/Android_MaNiu.md",
     "md/md/android_1.md",
@@ -223,9 +227,6 @@
     "textgenerator/templates/dalle/artBanksy.md",
     "textgenerator/templates/dalle/artAnime.md",
     "textgenerator/templates/dalle/art3D.md",
-    "yto/kotlin_dialog.md",
-    "yto/kotlin - get.md",
-    "yto/kotlin.md",
     "textgenerator/templates/default",
     "textgenerator/templates/dalle",
     "textgenerator/templates",
