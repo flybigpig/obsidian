@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/个人/Android Binder机制(二) Binder中的数据结构  skywang.md",
+                "file": "md/个人/json to Map.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Android Binder机制(二) Binder中的数据结构  skywang"
+              "title": "json to Map"
             }
           }
         ]
@@ -199,10 +199,12 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "f84ce6d2fe2622cd",
+  "active": "23d0e1d4dcd0475f",
   "lastOpenFiles": [
-    "md/个人/未命名.md",
+    "md/个人/java -stream.md",
+    "md/个人/init.rc.md",
     "md/个人/Android Binder机制(二) Binder中的数据结构  skywang.md",
+    "md/个人/未命名.md",
     "md/个人/Binder驱动的核心数据结构.md",
     "md/个人/asd.md",
     "textgenerator/templates/dalle/artCartoon.md",
@@ -225,9 +227,7 @@
     "textgenerator/templates/default/getEmailPos.md",
     "textgenerator/templates/default/getEmailNeg.md",
     "textgenerator/templates/default/simplify.md",
-    "textgenerator/templates/default/getTitles.md",
     "textgenerator/templates/default",
-    "textgenerator/templates/dalle/sitNature.md",
     "textgenerator/templates/dalle",
     "textgenerator/templates",
     "textgenerator",
