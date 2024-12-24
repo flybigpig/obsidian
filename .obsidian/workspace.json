@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/个人/androidStart 1.md",
-                "mode": "source",
+                "file": "md/个人/Zygote.md",
+                "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "androidStart 1"
+              "title": "Zygote"
             }
           }
         ]
@@ -195,14 +195,14 @@
       "obsidian-git:Open Git source control": false,
       "obsidian-textgenerator-plugin:Generate Text!": false,
       "obsidian-textgenerator-plugin:Text Generator: Templates Packages Manager": false,
-      "copilot:Open Copilot Chat": false,
-      "obsidian-excalidraw-plugin:新建绘图文件": false
+      "copilot:Open Copilot Chat": false
     }
   },
   "active": "23d0e1d4dcd0475f",
   "lastOpenFiles": [
-    "md/md/androidStart.md",
     "md/个人/androidStart 1.md",
+    "md/个人/Zygote.md",
+    "md/md/androidStart.md",
     "md/md/Android_MaNiu.md",
     "md/md/android_1.md",
     "md/md/android system architecture.md",
@@ -214,7 +214,6 @@
     "md/个人/java -stream.md",
     "md/个人/init.rc.md",
     "md/个人/Android Binder机制(二) Binder中的数据结构  skywang.md",
-    "md/个人/未命名.md",
     "md/个人/Binder驱动的核心数据结构.md",
     "md/个人/asd.md",
     "textgenerator/templates/dalle/artCartoon.md",
