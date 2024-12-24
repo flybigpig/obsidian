@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/md/android.md",
+                "file": "md/md/androidStart.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "android"
+              "title": "androidStart"
             }
           }
         ]
@@ -201,6 +201,10 @@
   },
   "active": "23d0e1d4dcd0475f",
   "lastOpenFiles": [
+    "md/md/Android_MaNiu.md",
+    "md/md/android_1.md",
+    "md/md/android system architecture.md",
+    "md/md/android.md",
     "md/md/ActivityShow.md",
     "md/vue/ref - reactive.md",
     "md/Ubuntu22.04安装、配置、美化、软件安装、配置开发环境_ubuntu安装星火应用商店-CSDN博客.md",
@@ -223,10 +227,6 @@
     "md/个人/阿豪.md",
     "textgenerator/templates/default/getParagraph.md",
     "textgenerator/templates/default/rewrite.md",
-    "textgenerator/templates/default/getTags.md",
-    "textgenerator/templates/default/summarizeLarge.md",
-    "textgenerator/templates/default/getIdeas.md",
-    "textgenerator/templates/default/summarize.md",
     "textgenerator/templates/default",
     "textgenerator/templates/dalle",
     "textgenerator/templates",

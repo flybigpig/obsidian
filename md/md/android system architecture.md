@@ -1,6 +1,2 @@
-# android system architecture
-
-#### mvp
-
 
 
