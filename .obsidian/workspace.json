@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/个人/json to Map.md",
+                "file": "md/vue/ref - reactive.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "json to Map"
+              "title": "ref - reactive"
             }
           }
         ]
@@ -201,6 +201,8 @@
   },
   "active": "23d0e1d4dcd0475f",
   "lastOpenFiles": [
+    "md/Ubuntu22.04安装、配置、美化、软件安装、配置开发环境_ubuntu安装星火应用商店-CSDN博客.md",
+    "md/个人/json to Map.md",
     "md/个人/java -stream.md",
     "md/个人/init.rc.md",
     "md/个人/Android Binder机制(二) Binder中的数据结构  skywang.md",
@@ -225,8 +227,6 @@
     "textgenerator/templates/default/summarize.md",
     "textgenerator/templates/default/getOutline.md",
     "textgenerator/templates/default/getEmailPos.md",
-    "textgenerator/templates/default/getEmailNeg.md",
-    "textgenerator/templates/default/simplify.md",
     "textgenerator/templates/default",
     "textgenerator/templates/dalle",
     "textgenerator/templates",
