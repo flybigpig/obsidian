@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/个人/Zygote.md",
-                "mode": "preview",
+                "file": "md/个人/Android Framework system_server进程启动_startapexservices-CSDN博客.md",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Zygote"
+              "title": "Android Framework system_server进程启动_startapexservices-CSDN博客"
             }
           }
         ]
@@ -195,13 +195,16 @@
       "obsidian-git:Open Git source control": false,
       "obsidian-textgenerator-plugin:Generate Text!": false,
       "obsidian-textgenerator-plugin:Text Generator: Templates Packages Manager": false,
-      "copilot:Open Copilot Chat": false
+      "copilot:Open Copilot Chat": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
   "active": "23d0e1d4dcd0475f",
   "lastOpenFiles": [
-    "md/个人/androidStart 1.md",
+    "md/个人/阿豪.md",
+    "md/个人/Android Framework system_server进程启动_startapexservices-CSDN博客.md",
     "md/个人/Zygote.md",
+    "md/个人/androidStart 1.md",
     "md/md/androidStart.md",
     "md/md/Android_MaNiu.md",
     "md/md/android_1.md",
@@ -224,8 +227,6 @@
     "yto/kotlin_dialog.md",
     "yto/kotlin - get.md",
     "yto/kotlin.md",
-    "yto/侧滑.md",
-    "md/个人/阿豪.md",
     "textgenerator/templates/default",
     "textgenerator/templates/dalle",
     "textgenerator/templates",
