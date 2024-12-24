@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/md/androidStart.md",
-                "mode": "preview",
+                "file": "md/个人/androidStart 1.md",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "androidStart"
+              "title": "androidStart 1"
             }
           }
         ]
@@ -201,6 +201,8 @@
   },
   "active": "23d0e1d4dcd0475f",
   "lastOpenFiles": [
+    "md/md/androidStart.md",
+    "md/个人/androidStart 1.md",
     "md/md/Android_MaNiu.md",
     "md/md/android_1.md",
     "md/md/android system architecture.md",
@@ -225,8 +227,6 @@
     "yto/kotlin.md",
     "yto/侧滑.md",
     "md/个人/阿豪.md",
-    "textgenerator/templates/default/getParagraph.md",
-    "textgenerator/templates/default/rewrite.md",
     "textgenerator/templates/default",
     "textgenerator/templates/dalle",
     "textgenerator/templates",
