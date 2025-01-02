@@ -185,7 +185,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 302.5
+    "width": 378.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -203,6 +203,8 @@
   },
   "active": "d4a35041727a6f9a",
   "lastOpenFiles": [
+    "else/csdn保存.md",
+    "else/could not read Username for ‘httpse.coding.net‘ No such file or directory-CSDN博客.md",
     "写给应用开发的+Android+Framework+教程(1).pdf",
     "conflict-files-obsidian-git.md",
     "md/GPT/未命名.md",
@@ -225,8 +227,6 @@
     "drives/gcc_12.md",
     "else/Ubuntu20.04换源教程、解决主机与虚拟机之间进行文本复制粘贴问题_ubuntu 换源-CSDN博客.md",
     "else/git 报错.md",
-    "else/csdn保存.md",
-    "else/could not read Username for ‘httpse.coding.net‘ No such file or directory-CSDN博客.md",
     "hm/UI开发（ArkTS声明式开发范式）概述.md",
     "hm/Swiper.md",
     "hm/TitleBar.md",
