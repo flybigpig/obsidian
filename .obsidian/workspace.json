@@ -20,8 +20,21 @@
               "icon": "lucide-file",
               "title": "未命名"
             }
+          },
+          {
+            "id": "d4a35041727a6f9a",
+            "type": "leaf",
+            "state": {
+              "type": "pdf",
+              "state": {
+                "file": "写给应用开发的+Android+Framework+教程(1).pdf"
+              },
+              "icon": "lucide-file-text",
+              "title": "写给应用开发的+Android+Framework+教程(1)"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -182,13 +195,16 @@
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
       "markdown-importer:打开 Markdown 格式转换器": false,
-      "obsidian-git:Open Git source control": false
+      "obsidian-git:Open Git source control": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "86e68dfdb20b5698",
+  "active": "d4a35041727a6f9a",
   "lastOpenFiles": [
-    "md/个人/阿豪.md",
+    "conflict-files-obsidian-git.md",
     "写给应用开发的+Android+Framework+教程(1).pdf",
+    "md/GPT/未命名.md",
+    "md/个人/阿豪.md",
     "pic/Pasted image 20241219162312.png",
     "pic/IMG_8347.png",
     "yto/MyExpandAdapter.md",
@@ -213,10 +229,7 @@
     "hm/Swiper.md",
     "hm/TitleBar.md",
     "md/豆包回答/Input管理.md",
-    "md/豆包回答/解答图片中的问题 - 豆包.md",
     "Pasted image 20241220132244.png",
-    "README.md",
-    "md/GPT/未命名.md",
     "md/GPT",
     "md/豆包回答",
     "textgenerator/templates/default",

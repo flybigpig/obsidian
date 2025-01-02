@@ -9,6 +9,9 @@ git出现fatal: could not read Username for ‘https://git.xxx.com‘: Device no
 
 例子：改前：http://\[git地址\]  例子：https://gitee.com/username/projectNamet.git
 
+
+https://gitee.com/github-30883884/obsidian.git
+
 改后：http://username@\[git地址\]  例子:https://username@gitee.com/username/projectNamet.git
 
 然后push代码输入用户名密码,也可以在链接中带入密码
@@ -18,3 +21,9 @@ https://username:password@gitee.com/username/projectNamet.git
 如果密码中有@特殊字符 可以使用%40[转义](https://so.csdn.net/so/search?q=%E8%BD%AC%E4%B9%89&spm=1001.2101.3001.7020)代替
 
 https://username@gitee.com/username/projectNamet.git
+
+
+
+取用下地址
+
+https://294722929%40qq.com:qq154074@gitee.com/github-30883884/obsidian.git
