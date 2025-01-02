@@ -25,7 +25,7 @@ https://username@gitee.com/username/projectNamet.git
 
 https://294722929@qq.com:qq154074@gitee.com/flybigpig/obsidian.git
 
-https://294722929%40qq.com:qq154074@gitee.com/flybigpig/obsidian.git
+https://294722929%40qq.com:qq154074@gitee.com/294722929%40qq.com/obsidian.git
 
 flybigpig
 ## [obsidian](https://gitee.com/github-30883884/obsidian "obsidian")[](https://gitee.com/github-30883884/obsidian/recomm_self "自荐")asd
