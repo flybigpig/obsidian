@@ -22,8 +22,3 @@ https://username:password@gitee.com/username/projectNamet.git
 
 https://username@gitee.com/username/projectNamet.git
 
-
-
-取用下地址
-
-https://294722929%40qq.com:qq154074@gitee.com/github-30883884/obsidian.git
