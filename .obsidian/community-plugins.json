@@ -1,11 +1,9 @@
 [
-  "editing-toolbar",
   "obsidian-full-calendar",
   "quickadd",
   "obsidian-git",
   "obsidian-excalidraw-plugin",
   "calendar",
   "obsidian-admonition",
-  "obsidian-textgenerator-plugin",
-  "copilot"
+  "editing-toolbar"
 ]
