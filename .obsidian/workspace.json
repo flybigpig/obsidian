@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/个人/Input管理.md",
+                "file": "md/豆包回答/Input管理.md",
                 "mode": "source",
                 "source": false
               },
@@ -139,20 +139,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "md/个人/GPT40-mini.md"
+                "file": "md/豆包回答/Input管理.md"
               },
               "icon": "lucide-list",
-              "title": "GPT40-mini 的大纲"
-            }
-          },
-          {
-            "id": "e1fb42b04afdc3ae",
-            "type": "leaf",
-            "state": {
-              "type": "calendar",
-              "state": {},
-              "icon": "calendar-with-checkmark",
-              "title": "Calendar"
+              "title": "Input管理 的大纲"
             }
           },
           {
@@ -166,6 +156,16 @@
             }
           },
           {
+            "id": "e1fb42b04afdc3ae",
+            "type": "leaf",
+            "state": {
+              "type": "calendar",
+              "state": {},
+              "icon": "calendar-with-checkmark",
+              "title": "Calendar"
+            }
+          },
+          {
             "id": "7f8f85d5feed858c",
             "type": "leaf",
             "state": {
@@ -176,11 +176,11 @@
             }
           }
         ],
-        "currentTab": 5
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
-    "width": 227.5
+    "width": 302.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -201,9 +201,20 @@
   },
   "active": "86e68dfdb20b5698",
   "lastOpenFiles": [
-    "md/豆包回答",
+    "md/豆包回答/解答图片中的问题 - 豆包.md",
+    "md/个人/Android Boot Optimization Techniques · GitHub Copilot.md",
+    "md/个人/Android Binder机制(二) Binder中的数据结构  skywang.md",
+    "md/个人/Android Framework system_server进程启动_startapexservices-CSDN博客.md",
+    "md/个人/Android init进程 - yooooooo - 博客园.md",
+    "md/个人/Android10.0系统启动之Launcher(桌面)启动流程-Android取经之路 - yooooooo - 博客园.md",
+    "md/个人/Binder驱动的核心数据结构.md",
+    "md/个人/GPT40-mini.md",
     "md/个人/windows-gitlab.md",
-    "md/个人/Input管理.md",
+    "md/个人/Windows 11：3 种方法轻松绕过 TPM、CPU 和安全启动检测.md",
+    "md/个人/Makefile.md",
+    "md/个人/Recycleview滑动到item置顶位置.md",
+    "md/豆包回答/Input管理.md",
+    "md/豆包回答",
     "md/androidSource/10 Launcher启动流程.md",
     "md/framework系统/Android Handler机制2之ThreadLocal-腾讯云开发者社区-腾讯云.md",
     "md/framework系统/Android Handler机制8之消息的取出与消息的其他操作-腾讯云开发者社区-腾讯云.md",
@@ -214,19 +225,9 @@
     "md/framework系统/Android启动流程——1序言、bootloader引导与Linux启动-腾讯云开发者社区-腾讯云.md",
     "md/framework系统/Android10-1 源码编译相关问题.md",
     "md/framework系统/Android10-2 系统进程Zygote启动.md",
-    "md/个人/Android10.0系统启动之Launcher(桌面)启动流程-Android取经之路 - yooooooo - 博客园.md",
     "md/个人/Android10 launcher启动流程_android10 launcher启动过程-CSDN博客.md",
     "md/个人/Android14 AMS 剖析—— Activity 启动分析之整体流程  Android Framework.md",
-    "md/个人/Android init进程 - yooooooo - 博客园.md",
     "md/个人/androidStart 1.md",
-    "md/androidSource/7 android之LruCache.md",
-    "md/个人/Android Framework system_server进程启动_startapexservices-CSDN博客.md",
-    "md/个人/阿豪.md",
-    "md/个人/Zygote.md",
-    "md/md/androidStart.md",
-    "md/md/Android_MaNiu.md",
-    "md/md/android_1.md",
-    "md/md/android system architecture.md",
     "textgenerator/templates/default",
     "textgenerator/templates/dalle",
     "textgenerator/templates",
