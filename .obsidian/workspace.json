@@ -25,12 +25,14 @@
             "id": "d4a35041727a6f9a",
             "type": "leaf",
             "state": {
-              "type": "pdf",
+              "type": "markdown",
               "state": {
-                "file": "写给应用开发的+Android+Framework+教程(1).pdf"
+                "file": "else/could not read Username for ‘httpse.coding.net‘ No such file or directory-CSDN博客.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-file-text",
-              "title": "写给应用开发的+Android+Framework+教程(1)"
+              "icon": "lucide-file",
+              "title": "could not read Username for ‘httpse.coding.net‘ No such file or directory-CSDN博客"
             }
           }
         ],
@@ -201,8 +203,8 @@
   },
   "active": "d4a35041727a6f9a",
   "lastOpenFiles": [
-    "conflict-files-obsidian-git.md",
     "写给应用开发的+Android+Framework+教程(1).pdf",
+    "conflict-files-obsidian-git.md",
     "md/GPT/未命名.md",
     "md/个人/阿豪.md",
     "pic/Pasted image 20241219162312.png",
