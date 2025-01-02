@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/个人/阿豪.md",
+                "file": "md/GPT/未命名.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "阿豪"
+              "title": "未命名"
             }
           }
         ]
@@ -139,10 +139,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "md/个人/阿豪.md"
+                "file": "md/GPT/未命名.md"
               },
               "icon": "lucide-list",
-              "title": "阿豪 的大纲"
+              "title": "未命名 的大纲"
             }
           },
           {
@@ -191,6 +191,7 @@
   },
   "active": "86e68dfdb20b5698",
   "lastOpenFiles": [
+    "md/个人/阿豪.md",
     "写给应用开发的+Android+Framework+教程(1).pdf",
     "pic/Pasted image 20241219162312.png",
     "pic/IMG_8347.png",
@@ -229,7 +230,6 @@
     "md/ahaoframework.tech",
     "md/资料/ffmpeg/资料/FFmpeg预习资料3(1).pdf",
     "md/资料/ffmpeg/资料/FFmpeg预习资料2(1).pdf",
-    "md/资料/ffmpeg/资料/FFmpeg预习资料1(1).pdf",
     "md/资料/美颜/meiyan.jpg",
     "md/资料/美颜/meiyan2.jpg",
     "md/资料/美颜/美颜.jpg",
