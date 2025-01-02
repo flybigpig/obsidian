@@ -35,4 +35,4 @@ flybigpig
 
 
 asd
-[https://flybigpig@gitee.com/flybigpig/obsidian.git]
+[https://flybigpig:qq154074@gitee.com/flybigpig/obsidian.git]
