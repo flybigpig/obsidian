@@ -31,4 +31,6 @@ flybigpig
 ## [obsidian](https://gitee.com/github-30883884/obsidian "obsidian")[](https://gitee.com/github-30883884/obsidian/recomm_self "自荐")asd
 
 
-asda
+
+
+[https://flybigpig@gitee.com/flybigpig/obsidian.git]
