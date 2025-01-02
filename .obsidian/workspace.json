@@ -195,8 +195,7 @@
       "obsidian-git:Open Git source control": false,
       "obsidian-textgenerator-plugin:Generate Text!": false,
       "obsidian-textgenerator-plugin:Text Generator: Templates Packages Manager": false,
-      "copilot:Open Copilot Chat": false,
-      "obsidian-excalidraw-plugin:新建绘图文件": false
+      "copilot:Open Copilot Chat": false
     }
   },
   "active": "86e68dfdb20b5698",
