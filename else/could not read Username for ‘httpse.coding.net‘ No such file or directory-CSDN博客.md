@@ -27,5 +27,6 @@ https://294722929@qq.com:qq154074@gitee.com/flybigpig/obsidian.git
 
 https://294722929%40qq.com:qq154074@gitee.com/github-30883884/obsidian.git
 
+取用下地址
 
 https://294722929%40qq.com:qq154074@gitee.com/github-30883884/obsidian.git
