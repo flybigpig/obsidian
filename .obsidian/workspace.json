@@ -14,7 +14,7 @@
               "type": "markdown",
               "state": {
                 "file": "md/豆包回答/Input管理.md",
-                "mode": "source",
+                "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
@@ -202,6 +202,7 @@
   "active": "86e68dfdb20b5698",
   "lastOpenFiles": [
     "md/豆包回答/解答图片中的问题 - 豆包.md",
+    "md/豆包回答/Input管理.md",
     "md/个人/Android Boot Optimization Techniques · GitHub Copilot.md",
     "md/个人/Android Binder机制(二) Binder中的数据结构  skywang.md",
     "md/个人/Android Framework system_server进程启动_startapexservices-CSDN博客.md",
@@ -213,7 +214,6 @@
     "md/个人/Windows 11：3 种方法轻松绕过 TPM、CPU 和安全启动检测.md",
     "md/个人/Makefile.md",
     "md/个人/Recycleview滑动到item置顶位置.md",
-    "md/豆包回答/Input管理.md",
     "md/豆包回答",
     "md/androidSource/10 Launcher启动流程.md",
     "md/framework系统/Android Handler机制2之ThreadLocal-腾讯云开发者社区-腾讯云.md",
