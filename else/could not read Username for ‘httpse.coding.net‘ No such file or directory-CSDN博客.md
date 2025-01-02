@@ -21,5 +21,3 @@ https://username:password@gitee.com/username/projectNamet.git
 如果密码中有@特殊字符 可以使用%40[转义](https://so.csdn.net/so/search?q=%E8%BD%AC%E4%B9%89&spm=1001.2101.3001.7020)代替
 
 https://username@gitee.com/username/projectNamet.git
-
-asd
