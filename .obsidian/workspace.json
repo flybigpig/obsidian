@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/豆包回答/Input管理.md",
+                "file": "md/framework系统/Android系统启动——3 init.rc解析-腾讯云开发者社区-腾讯云.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Input管理"
+              "title": "Android系统启动——3 init.rc解析-腾讯云开发者社区-腾讯云"
             }
           }
         ]
@@ -139,10 +139,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "md/豆包回答/Input管理.md"
+                "file": "md/framework系统/Android系统启动——3 init.rc解析-腾讯云开发者社区-腾讯云.md"
               },
               "icon": "lucide-list",
-              "title": "Input管理 的大纲"
+              "title": "Android系统启动——3 init.rc解析-腾讯云开发者社区-腾讯云 的大纲"
             }
           },
           {
@@ -201,8 +201,14 @@
   },
   "active": "86e68dfdb20b5698",
   "lastOpenFiles": [
-    "md/豆包回答/解答图片中的问题 - 豆包.md",
+    "md/framework系统/Android启动流程——1序言、bootloader引导与Linux启动-腾讯云开发者社区-腾讯云.md",
+    "md/framework系统/Android Handler机制2之ThreadLocal-腾讯云开发者社区-腾讯云.md",
+    "md/IPC/Android跨进程通信IPC之1——Linux基础-腾讯云开发者社区-腾讯云.md",
+    "md/JVM/Java虚拟机基础——3类加载机制-腾讯云开发者社区-腾讯云.md",
+    "md/JVM/Java虚拟机基础——2JVM运行时数据区-腾讯云开发者社区-腾讯云.md",
+    "md/JVM/Java虚拟机基础——1Java的内存模型-腾讯云开发者社区-腾讯云.md",
     "md/豆包回答/Input管理.md",
+    "md/豆包回答/解答图片中的问题 - 豆包.md",
     "md/个人/Android Boot Optimization Techniques · GitHub Copilot.md",
     "md/个人/Android Binder机制(二) Binder中的数据结构  skywang.md",
     "md/个人/Android Framework system_server进程启动_startapexservices-CSDN博客.md",
@@ -216,18 +222,12 @@
     "md/个人/Recycleview滑动到item置顶位置.md",
     "md/豆包回答",
     "md/androidSource/10 Launcher启动流程.md",
-    "md/framework系统/Android Handler机制2之ThreadLocal-腾讯云开发者社区-腾讯云.md",
     "md/framework系统/Android Handler机制8之消息的取出与消息的其他操作-腾讯云开发者社区-腾讯云.md",
     "md/framework系统/Android系统启动——6 SystemServer启动-腾讯云开发者社区-腾讯云.md",
     "md/framework系统/Android系统启动——5 zyogte进程(Java篇)-腾讯云开发者社区-腾讯云 (1).md",
     "md/framework系统/Android系统启动——4 zyogte进程 (C篇)-腾讯云开发者社区-腾讯云.md",
     "md/framework系统/Android系统启动——3 init.rc解析-腾讯云开发者社区-腾讯云.md",
-    "md/framework系统/Android启动流程——1序言、bootloader引导与Linux启动-腾讯云开发者社区-腾讯云.md",
     "md/framework系统/Android10-1 源码编译相关问题.md",
-    "md/framework系统/Android10-2 系统进程Zygote启动.md",
-    "md/个人/Android10 launcher启动流程_android10 launcher启动过程-CSDN博客.md",
-    "md/个人/Android14 AMS 剖析—— Activity 启动分析之整体流程  Android Framework.md",
-    "md/个人/androidStart 1.md",
     "textgenerator/templates/default",
     "textgenerator/templates/dalle",
     "textgenerator/templates",
