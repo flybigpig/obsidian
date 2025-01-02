@@ -11,14 +11,10 @@
             "id": "86e68dfdb20b5698",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "md/GPT/未命名.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "未命名"
+              "title": "新标签页"
             }
           }
         ]
@@ -138,11 +134,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "md/GPT/未命名.md"
-              },
+              "state": {},
               "icon": "lucide-list",
-              "title": "未命名 的大纲"
+              "title": "大纲"
             }
           },
           {
@@ -201,8 +195,26 @@
   },
   "active": "86e68dfdb20b5698",
   "lastOpenFiles": [
-    "md/framework系统/Android系统启动——3 init.rc解析-腾讯云开发者社区-腾讯云.md",
+    "textgenerator/templates/dalle/artDeco.md",
+    "textgenerator/templates/dalle/artClaymation.md",
+    "textgenerator/templates/dalle/artBauhaus.md",
+    "textgenerator/templates/dalle/artAnime.md",
+    "textgenerator/templates/dalle/art3D.md",
+    "yto/侧滑.md",
+    "drives/gcc_12.md",
+    "else/Ubuntu20.04换源教程、解决主机与虚拟机之间进行文本复制粘贴问题_ubuntu 换源-CSDN博客.md",
+    "else/git 报错.md",
+    "else/csdn保存.md",
+    "else/could not read Username for ‘httpse.coding.net‘ No such file or directory-CSDN博客.md",
+    "hm/UI开发（ArkTS声明式开发范式）概述.md",
+    "hm/Swiper.md",
+    "hm/TitleBar.md",
+    "md/豆包回答/Input管理.md",
+    "md/豆包回答/解答图片中的问题 - 豆包.md",
+    "Pasted image 20241220132244.png",
+    "README.md",
     "md/GPT/未命名.md",
+    "md/framework系统/Android系统启动——3 init.rc解析-腾讯云开发者社区-腾讯云.md",
     "md/GPT",
     "md/framework系统/Android启动流程——1序言、bootloader引导与Linux启动-腾讯云开发者社区-腾讯云.md",
     "md/framework系统/Android Handler机制2之ThreadLocal-腾讯云开发者社区-腾讯云.md",
@@ -210,30 +222,12 @@
     "md/JVM/Java虚拟机基础——3类加载机制-腾讯云开发者社区-腾讯云.md",
     "md/JVM/Java虚拟机基础——2JVM运行时数据区-腾讯云开发者社区-腾讯云.md",
     "md/JVM/Java虚拟机基础——1Java的内存模型-腾讯云开发者社区-腾讯云.md",
-    "md/豆包回答/Input管理.md",
-    "md/豆包回答/解答图片中的问题 - 豆包.md",
     "md/个人/Android Boot Optimization Techniques · GitHub Copilot.md",
-    "md/个人/Android Binder机制(二) Binder中的数据结构  skywang.md",
-    "md/个人/Android Framework system_server进程启动_startapexservices-CSDN博客.md",
-    "md/个人/Android init进程 - yooooooo - 博客园.md",
-    "md/个人/Android10.0系统启动之Launcher(桌面)启动流程-Android取经之路 - yooooooo - 博客园.md",
-    "md/个人/Binder驱动的核心数据结构.md",
-    "md/个人/GPT40-mini.md",
-    "md/个人/windows-gitlab.md",
-    "md/个人/Windows 11：3 种方法轻松绕过 TPM、CPU 和安全启动检测.md",
-    "md/个人/Makefile.md",
-    "md/个人/Recycleview滑动到item置顶位置.md",
     "md/豆包回答",
-    "md/androidSource/10 Launcher启动流程.md",
-    "md/framework系统/Android Handler机制8之消息的取出与消息的其他操作-腾讯云开发者社区-腾讯云.md",
-    "md/framework系统/Android系统启动——6 SystemServer启动-腾讯云开发者社区-腾讯云.md",
-    "md/framework系统/Android系统启动——5 zyogte进程(Java篇)-腾讯云开发者社区-腾讯云 (1).md",
-    "md/framework系统/Android系统启动——4 zyogte进程 (C篇)-腾讯云开发者社区-腾讯云.md",
     "textgenerator/templates/default",
     "textgenerator/templates/dalle",
     "textgenerator/templates",
     "textgenerator",
-    "Pasted image 20241220132244.png",
     "md/ahaoframework.tech",
     "md/资料/ffmpeg/资料/FFmpeg预习资料3(1).pdf",
     "md/资料/ffmpeg/资料/FFmpeg预习资料2(1).pdf",
