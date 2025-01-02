@@ -18,3 +18,9 @@ https://username:password@gitee.com/username/projectNamet.git
 如果密码中有@特殊字符 可以使用%40[转义](https://so.csdn.net/so/search?q=%E8%BD%AC%E4%B9%89&spm=1001.2101.3001.7020)代替
 
 https://username@gitee.com/username/projectNamet.git
+
+
+https://294722929@qq.com:qq154074@gitee.com/flybigpig/obsidian.git
+
+flybigpig
+## [obsidian](https://gitee.com/github-30883884/obsidian "obsidian")[](https://gitee.com/github-30883884/obsidian/recomm_self "自荐")
