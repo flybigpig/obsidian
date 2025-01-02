@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/framework系统/Android系统启动——3 init.rc解析-腾讯云开发者社区-腾讯云.md",
-                "mode": "preview",
+                "file": "md/GPT/未命名.md",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Android系统启动——3 init.rc解析-腾讯云开发者社区-腾讯云"
+              "title": "未命名"
             }
           }
         ]
@@ -139,10 +139,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "md/framework系统/Android系统启动——3 init.rc解析-腾讯云开发者社区-腾讯云.md"
+                "file": "md/GPT/未命名.md"
               },
               "icon": "lucide-list",
-              "title": "Android系统启动——3 init.rc解析-腾讯云开发者社区-腾讯云 的大纲"
+              "title": "未命名 的大纲"
             }
           },
           {
@@ -201,6 +201,9 @@
   },
   "active": "86e68dfdb20b5698",
   "lastOpenFiles": [
+    "md/framework系统/Android系统启动——3 init.rc解析-腾讯云开发者社区-腾讯云.md",
+    "md/GPT/未命名.md",
+    "md/GPT",
     "md/framework系统/Android启动流程——1序言、bootloader引导与Linux启动-腾讯云开发者社区-腾讯云.md",
     "md/framework系统/Android Handler机制2之ThreadLocal-腾讯云开发者社区-腾讯云.md",
     "md/IPC/Android跨进程通信IPC之1——Linux基础-腾讯云开发者社区-腾讯云.md",
@@ -226,8 +229,6 @@
     "md/framework系统/Android系统启动——6 SystemServer启动-腾讯云开发者社区-腾讯云.md",
     "md/framework系统/Android系统启动——5 zyogte进程(Java篇)-腾讯云开发者社区-腾讯云 (1).md",
     "md/framework系统/Android系统启动——4 zyogte进程 (C篇)-腾讯云开发者社区-腾讯云.md",
-    "md/framework系统/Android系统启动——3 init.rc解析-腾讯云开发者社区-腾讯云.md",
-    "md/framework系统/Android10-1 源码编译相关问题.md",
     "textgenerator/templates/default",
     "textgenerator/templates/dalle",
     "textgenerator/templates",
@@ -237,7 +238,6 @@
     "md/资料/ffmpeg/资料/FFmpeg预习资料3(1).pdf",
     "md/资料/ffmpeg/资料/FFmpeg预习资料2(1).pdf",
     "md/资料/ffmpeg/资料/FFmpeg预习资料1(1).pdf",
-    "md/资料/ffmpeg/资料/详解Clang最新版下的NDK交叉编译，Cmake编译机制详解/CameraX预习资料.pdf",
     "md/资料/美颜/meiyan.jpg",
     "md/资料/美颜/meiyan2.jpg",
     "md/资料/美颜/美颜.jpg",
