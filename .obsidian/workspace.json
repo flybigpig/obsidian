@@ -27,7 +27,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "yto/ListAdapter.md",
+                "file": "md/个人/ListAdapter.md",
                 "mode": "preview",
                 "source": false
               },
@@ -201,10 +201,12 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "86ab74dfe3fe014d",
+  "active": "fa4657deb406b728",
   "lastOpenFiles": [
+    "yto/kotlin_dialog.md",
+    "md/个人/ListAdapter.md",
+    "yto/MyExpandAdapter.md",
     "yto/侧滑.md",
-    "yto/ListAdapter.md",
     "else/Ubuntu20.04换源教程、解决主机与虚拟机之间进行文本复制粘贴问题_ubuntu 换源-CSDN博客.md",
     "else/git 报错.md",
     "else/csdn保存.md",
@@ -218,8 +220,6 @@
     "md/个人/阿豪.md",
     "pic/Pasted image 20241219162312.png",
     "pic/IMG_8347.png",
-    "yto/MyExpandAdapter.md",
-    "yto/kotlin_dialog.md",
     "yto/kotlin - get.md",
     "yto/kotlin.md",
     "md/AdvancedAndroid/extra/life-clean介绍.md",
