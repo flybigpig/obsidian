@@ -22,6 +22,18 @@
             }
           },
           {
+            "id": "392289b451e2e782",
+            "type": "leaf",
+            "state": {
+              "type": "pdf",
+              "state": {
+                "file": "写给应用开发的+Android+Framework+教程(1).pdf"
+              },
+              "icon": "lucide-file-text",
+              "title": "写给应用开发的+Android+Framework+教程(1)"
+            }
+          },
+          {
             "id": "48372ac76b5c42b2",
             "type": "leaf",
             "state": {
@@ -31,7 +43,8 @@
               "title": "新标签页"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -149,10 +162,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "md/努比亚/Android画面显示流程分析(3).md"
+                "file": "写给应用开发的+Android+Framework+教程(1).pdf"
               },
               "icon": "lucide-list",
-              "title": "Android画面显示流程分析(3) 的大纲"
+              "title": "写给应用开发的+Android+Framework+教程(1) 的大纲"
             }
           },
           {
@@ -196,15 +209,17 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "7f161ac130709764",
+  "active": "392289b451e2e782",
   "lastOpenFiles": [
-    "md/努比亚/Android应用启动全流程分析（源码深度剖析）.md",
+    "Pasted image 20250106162059.png",
+    "写给应用开发的+Android+Framework+教程(1).pdf",
     "md/努比亚/Android画面显示流程分析(3).md",
+    "Pasted image 20241220132244.png",
+    "md/努比亚/Android应用启动全流程分析（源码深度剖析）.md",
     "md/努比亚/Android画面显示流程分析(2).md",
     "md/努比亚/Android画面显示流程分析(1).md",
     "pic/Pasted image 20241219162312.png",
     "pic/IMG_8347.png",
-    "Pasted image 20250106162059.png",
     "md/努比亚",
     "yto/ListAdapter.md",
     "md/个人/ListAdapter.md",
@@ -217,8 +232,6 @@
     "else/could not read Username for ‘httpse.coding.net‘ No such file or directory-CSDN博客.md",
     "2024-11-04.md",
     "README.md",
-    "Pasted image 20241220132244.png",
-    "写给应用开发的+Android+Framework+教程(1).pdf",
     "conflict-files-obsidian-git.md",
     "md/GPT/未命名.md",
     "md/个人/阿豪.md",
@@ -229,7 +242,6 @@
     "Excalidraw/Drawing 2025-01-02 16.04.22.excalidraw.md",
     "textgenerator/templates/dalle/artDeco.md",
     "textgenerator/templates/dalle/artClaymation.md",
-    "textgenerator/templates/dalle/artBauhaus.md",
     "md/GPT",
     "md/豆包回答",
     "textgenerator/templates/default",
