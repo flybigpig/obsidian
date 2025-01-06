@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/努比亚/未命名.md",
-                "mode": "source",
+                "file": "md/努比亚/Android应用启动全流程分析（源码深度剖析）.md",
+                "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "未命名"
+              "title": "Android应用启动全流程分析（源码深度剖析）"
             }
           }
         ]
@@ -139,10 +139,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "md/GPT/未命名.md"
+                "file": "md/努比亚/Android应用启动全流程分析（源码深度剖析）.md"
               },
               "icon": "lucide-list",
-              "title": "未命名 的大纲"
+              "title": "Android应用启动全流程分析（源码深度剖析） 的大纲"
             }
           },
           {
@@ -186,9 +186,9 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "da990d77b3d2e484",
+  "active": "f84ce6d2fe2622cd",
   "lastOpenFiles": [
-    "md/努比亚/未命名.md",
+    "md/努比亚/Android应用启动全流程分析（源码深度剖析）.md",
     "md/努比亚",
     "yto/ListAdapter.md",
     "md/个人/ListAdapter.md",
