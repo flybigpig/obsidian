@@ -25,7 +25,7 @@ DRM主要由如下部分组成：
 
 在高通平台上其中部分模块所处位置见下图：
 
-![](//upload-images.jianshu.io/upload_images/26874665-710256063273a099.png?imageMogr2/auto-orient/strip|imageView2/2/w/670/format/webp)
+![](https://upload-images.jianshu.io/upload_images/26874665-710256063273a099.png?imageMogr2/auto-orient/strip|imageView2/2/w/670/format/webp)
 
 image-20210915104207418.png
 
@@ -178,7 +178,7 @@ static drmModeRes *res = NULL;
 
   
 
-![](//upload-images.jianshu.io/upload_images/26874665-33f463b655b32880.png?imageMogr2/auto-orient/strip|imageView2/2/w/793/format/webp)
+![](https://upload-images.jianshu.io/upload_images/26874665-33f463b655b32880.png?imageMogr2/auto-orient/strip|imageView2/2/w/793/format/webp)
 
 image-20210915175702338.png
 
@@ -190,7 +190,7 @@ image-20210915175702338.png
 
   
 
-![](//upload-images.jianshu.io/upload_images/26874665-a98a3ecf047e6dd4.png?imageMogr2/auto-orient/strip|imageView2/2/w/1200/format/webp)
+![](https://upload-images.jianshu.io/upload_images/26874665-a98a3ecf047e6dd4.png?imageMogr2/auto-orient/strip|imageView2/2/w/1200/format/webp)
 
 image-20210916102456850.png
 
@@ -198,7 +198,7 @@ image-20210916102456850.png
 
   
 
-![](//upload-images.jianshu.io/upload_images/26874665-141e8bca64c47ab5.png?imageMogr2/auto-orient/strip|imageView2/2/w/1185/format/webp)
+![](https://upload-images.jianshu.io/upload_images/26874665-141e8bca64c47ab5.png?imageMogr2/auto-orient/strip|imageView2/2/w/1185/format/webp)
 
 image-20210915204636105.png
 
@@ -208,7 +208,7 @@ HWC Service负责将SurfaceFlinger送来的图层做合成，形成最终的画�
 
 HWC Service的代码位置在 hardware/qcom/display, HWC Service使用libdrm提交帧数据的地方我们可以在systrace上观察到：
 
-![](//upload-images.jianshu.io/upload_images/26874665-458af151c808a23e.png?imageMogr2/auto-orient/strip|imageView2/2/w/1200/format/webp)
+![](https://upload-images.jianshu.io/upload_images/26874665-458af151c808a23e.png?imageMogr2/auto-orient/strip|imageView2/2/w/1200/format/webp)
 
 image-20210915202625562.png
 
@@ -277,7 +277,7 @@ drmModeAtomicCommit的ioctl会触发msm_atomic_commit_dispatch，然后通知dis
 
 complete_commit函数，这个过程见下图：
 
-![](//upload-images.jianshu.io/upload_images/26874665-7f830fb48d7758fc.png?imageMogr2/auto-orient/strip|imageView2/2/w/1200/format/webp)
+![](https://upload-images.jianshu.io/upload_images/26874665-7f830fb48d7758fc.png?imageMogr2/auto-orient/strip|imageView2/2/w/1200/format/webp)
 
 image-20210916094646924.png
 

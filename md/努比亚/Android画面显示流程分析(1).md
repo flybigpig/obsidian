@@ -56,17 +56,17 @@ _努比亚技术团队原创内容，转载请务必注明出处。_
 
 **MIPI**(Mobile Industry Processor Interface)是2003年由ARM, Nokia, ST ,TI等公司成立的一个联盟，目的是把手机内部的接口如摄像头、显示屏接口、射频/基带接口等标准化，从而减少手机设计的复杂程度和增加设计灵活性。MIPI联盟下面有不同的WorkGroup，分别定义了一系列的手机内部接口标准，比如摄像头接口**CSI**、显示接口**DSI**、射频接口DigRF、麦克风/喇叭接口SLIMbus等。统一接口标准的好处是手机厂商根据需要可以从市面上灵活选择不同的芯片和模组，更改设计和功能时更加快捷方便。  
 
-![](//upload-images.jianshu.io/upload_images/26874665-28066b6e4c400cda.png?imageMogr2/auto-orient/strip|imageView2/2/w/678/format/webp)
+![](https://upload-images.jianshu.io/upload_images/26874665-28066b6e4c400cda.png?imageMogr2/auto-orient/strip|imageView2/2/w/678/format/webp)
 
 display_lcdinterfaces.png
 
-![](//upload-images.jianshu.io/upload_images/26874665-837d4a877ceb8eeb.png?imageMogr2/auto-orient/strip|imageView2/2/w/700/format/webp)
+![](https://upload-images.jianshu.io/upload_images/26874665-837d4a877ceb8eeb.png?imageMogr2/auto-orient/strip|imageView2/2/w/700/format/webp)
 
 display_dsi.png
 
 目前手机屏幕和SOC间多使用MIPI接口来传输屏幕数据，其实物如下图所示，图中的条状芯片就是负责更新显示屏的显示内容的芯片DDIC, 它一边通过mipi协议和SOC通信，一边把获取到的显示数据写入到显示存储器GRAM内， 屏幕(Panel)通过不停扫描GRAM来不停更新液晶显示点的颜色，实现画面的更新。
 
-![](//upload-images.jianshu.io/upload_images/26874665-54a55f0afefdaece.png?imageMogr2/auto-orient/strip|imageView2/2/w/810/format/webp)
+![](https://upload-images.jianshu.io/upload_images/26874665-54a55f0afefdaece.png?imageMogr2/auto-orient/strip|imageView2/2/w/810/format/webp)
 
 displaydsi.png
 
@@ -76,13 +76,13 @@ displaydsi.png
 
   
 
-![](//upload-images.jianshu.io/upload_images/26874665-df87bef2d7b25aef.png?imageMogr2/auto-orient/strip|imageView2/2/w/399/format/webp)
+![](https://upload-images.jianshu.io/upload_images/26874665-df87bef2d7b25aef.png?imageMogr2/auto-orient/strip|imageView2/2/w/399/format/webp)
 
 image-20210903204315892.png
 
 在一个典型的Android显示系统中，一般包括SOC、DDIC、Panel三个部分， SOC负责绘画与多图层的合成，把合成好的数据通过硬件接口按某种协议传输给DDIC，然后DDIC负责把buffer里的数据呈现到Panel上。如下图所示为高通平台上的画面更新简单示意图，首先CPU或GPU负责绘画，画出的多个layer交由MDP进行合成，合成的数据通过mipi协议和DSI总线传输给DDIC, DDIC将数据存到GRAM内（非video屏）， Panel不断scanGRAM来显示内容。
 
-![](//upload-images.jianshu.io/upload_images/26874665-6cd5e5d5e0e40ec3.png?imageMogr2/auto-orient/strip|imageView2/2/w/571/format/webp)
+![](https://upload-images.jianshu.io/upload_images/26874665-6cd5e5d5e0e40ec3.png?imageMogr2/auto-orient/strip|imageView2/2/w/571/format/webp)
 
 image-20210903202111863.png
 
@@ -98,7 +98,7 @@ image-20210903202111863.png
 **HSW**：水平同步信号的低电平(非有效电平)持续时间  
 **HFP**：行同步信号的后肩，ENABLE的下降沿到水平同步信号的下升沿的间隔 如下图所示
 
-![](//upload-images.jianshu.io/upload_images/26874665-060a07b81de205f9.png?imageMogr2/auto-orient/strip|imageView2/2/w/1200/format/webp)
+![](https://upload-images.jianshu.io/upload_images/26874665-060a07b81de205f9.png?imageMogr2/auto-orient/strip|imageView2/2/w/1200/format/webp)
 
 image-20210906101156688.png
 
@@ -111,19 +111,19 @@ image-20210906101156688.png
 **VFP**:帧同步信号的后肩  
 **VPROCH**: 被称为消隐区，它是指 VSW+VBP+VFP , 这个时间段内Panel不更新像素点的颜色
 
-![](//upload-images.jianshu.io/upload_images/26874665-53b0c94da78ce7d3.png?imageMogr2/auto-orient/strip|imageView2/2/w/1200/format/webp)
+![](https://upload-images.jianshu.io/upload_images/26874665-53b0c94da78ce7d3.png?imageMogr2/auto-orient/strip|imageView2/2/w/1200/format/webp)
 
 image-20210906105428975.png
 
 在一个Vsync周期内是由多个Hsync周期组成的，其个数就是屏幕在Y方向的像素点个数，也就是屏幕上有多少行像素点， 每个Hsync周期内传输一行内所有像素点的数据。通常屏厂给的spec文档还会给出类似下面这样的图，但都是表达一个意思，数据是以行为单位写入的，Hsync是协调行和行之间的同步信号，多个行依次写入构成一帧数据，帧和帧数据之间由Vsync信号来同步协调。
 
-![](//upload-images.jianshu.io/upload_images/26874665-f9d216e7da74ed1b.png?imageMogr2/auto-orient/strip|imageView2/2/w/779/format/webp)
+![](https://upload-images.jianshu.io/upload_images/26874665-f9d216e7da74ed1b.png?imageMogr2/auto-orient/strip|imageView2/2/w/779/format/webp)
 
 image-20210903204542586.png
 
 当多帧画面依次输出到屏幕的时候我们就可以看到运动的画面了，通常这个速度到达每秒60帧时人眼就已经感觉画面很流畅了。下图演示了在vsync和hsync同步下两帧画面间的切换时序，以及消隐区(VPorch)在其中的位置关系。在消隐区结束（或开始）时DDIC会向SOC发出一个中断信号，这个信号称为TE信号， SOC这边就是通过该中断信号来判断上一帧数据是否已被DDIC读走，进而决定是否可以将buffer写入下一帧数据。
 
-![](//upload-images.jianshu.io/upload_images/26874665-000308cc3105069f.png?imageMogr2/auto-orient/strip|imageView2/2/w/848/format/webp)
+![](https://upload-images.jianshu.io/upload_images/26874665-000308cc3105069f.png?imageMogr2/auto-orient/strip|imageView2/2/w/848/format/webp)
 
 image-20210914145139687.png
 
@@ -141,7 +141,7 @@ image-20210914154226941.png
 
 为讨论方便我们这里先把DSI write记作写， 把Disp Scan记作读， 正常情况下，我们会将读速度调到和写速度差不多，由于写是在进入vporch时就开始了，而读的动作是离开vproch时，所以在读和写的这场“百米跑”竞赛中总是写跑在前面，这样保证读始终读到的是同一帧画面的数据，这个过程如下面图1所示。
 
-![](//upload-images.jianshu.io/upload_images/26874665-85fcbf461f9d7d99.png?imageMogr2/auto-orient/strip|imageView2/2/w/1200/format/webp)
+![](https://upload-images.jianshu.io/upload_images/26874665-85fcbf461f9d7d99.png?imageMogr2/auto-orient/strip|imageView2/2/w/1200/format/webp)
 
 image.png
 
@@ -224,7 +224,7 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
 
 下面的图中发现画面是颜色渐变的，这是因为通过高速摄影机是画面再次感光形成的影像，由于物理世界中光线是有衍射及曝光时长因素的，所以最终在高速摄影机留下的图中是颜色渐变的。
 
-![](//upload-images.jianshu.io/upload_images/26874665-2fc2099d84f4d721.png?imageMogr2/auto-orient/strip|imageView2/2/w/1200/format/webp)
+![](https://upload-images.jianshu.io/upload_images/26874665-2fc2099d84f4d721.png?imageMogr2/auto-orient/strip|imageView2/2/w/1200/format/webp)
 
 image-20210904121328054.png
 

@@ -180,7 +180,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 302.5
+    "width": 303.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -198,10 +198,10 @@
   },
   "active": "7f161ac130709764",
   "lastOpenFiles": [
-    "md/努比亚/Android画面显示流程分析(2).md",
-    "md/努比亚/Android画面显示流程分析(3).md",
-    "md/努比亚/Android画面显示流程分析(1).md",
     "md/努比亚/Android应用启动全流程分析（源码深度剖析）.md",
+    "md/努比亚/Android画面显示流程分析(3).md",
+    "md/努比亚/Android画面显示流程分析(2).md",
+    "md/努比亚/Android画面显示流程分析(1).md",
     "pic/Pasted image 20241219162312.png",
     "pic/IMG_8347.png",
     "Pasted image 20250106162059.png",
