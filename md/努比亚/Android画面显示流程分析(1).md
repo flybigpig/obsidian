@@ -9,7 +9,8 @@ _努比亚技术团队原创内容，转载请务必注明出处。_
 目录截图：
 
   
-![[Pasted image 20250106162059.png]]
+
+![](https://upload-images.jianshu.io/upload_images/26874665-9e15dfe73974f58d.png?imageMogr2/auto-orient/strip|imageView2/2/w/933/format/webp)
 
 企业微信截图_16324493913554.png
 

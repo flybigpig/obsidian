@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "f8f227450833475e",
+        "id": "0f73a79525c55ecb",
         "type": "tabs",
         "children": [
           {
-            "id": "da990d77b3d2e484",
+            "id": "7f161ac130709764",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -186,11 +186,13 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "da990d77b3d2e484",
+  "active": "7f161ac130709764",
   "lastOpenFiles": [
-    "Pasted image 20250106162059.png",
-    "md/努比亚/Android画面显示流程分析(1).md",
     "md/努比亚/Android应用启动全流程分析（源码深度剖析）.md",
+    "pic/Pasted image 20241219162312.png",
+    "pic/IMG_8347.png",
+    "md/努比亚/Android画面显示流程分析(1).md",
+    "Pasted image 20250106162059.png",
     "md/努比亚",
     "yto/ListAdapter.md",
     "md/个人/ListAdapter.md",
@@ -208,8 +210,6 @@
     "conflict-files-obsidian-git.md",
     "md/GPT/未命名.md",
     "md/个人/阿豪.md",
-    "pic/Pasted image 20241219162312.png",
-    "pic/IMG_8347.png",
     "yto/kotlin - get.md",
     "yto/kotlin.md",
     "md/AdvancedAndroid/extra/life-clean介绍.md",
