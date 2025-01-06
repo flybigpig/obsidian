@@ -226,6 +226,8 @@ int main()
 
 在上面的例子中我们看到了opengl&egl库对帧缓冲区buffer的使用方式，首先和8.1的示例中一样从三大件中获取的帧缓冲区操作接口，只是这里我们不再直接使用该接口，而是把Surface对象给到EGL库，由EGL库去使用它，我们使用opengl 的api来间接操作帧缓冲区buffer，这些操作包括申请新的BufferQueue slot和提交绘制好的BufferQueue slot.
 
+asd
+
 ### 本章小结
 
 本章我们通过三个示例程序了解了下display部分给应用层设计的接口，了解到了通过三大件可以拿到帧缓冲区buffer, 之后应用如何作画就是应用层的事情了，应用可以选择不使用图形库，也可以选择图形库让cpu来作画，也可以使用像opengl&egl这样的库来指挥GPU来作画。
