@@ -11,10 +11,14 @@
             "id": "da990d77b3d2e484",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "md/努比亚/未命名.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "新标签页"
+              "title": "未命名"
             }
           }
         ]
@@ -184,6 +188,8 @@
   },
   "active": "da990d77b3d2e484",
   "lastOpenFiles": [
+    "md/努比亚/未命名.md",
+    "md/努比亚",
     "yto/ListAdapter.md",
     "md/个人/ListAdapter.md",
     "yto/kotlin_dialog.md",
@@ -213,7 +219,6 @@
     "textgenerator/templates/dalle/artAnime.md",
     "textgenerator/templates/dalle/art3D.md",
     "drives/gcc_12.md",
-    "hm/UI开发（ArkTS声明式开发范式）概述.md",
     "md/GPT",
     "md/豆包回答",
     "textgenerator/templates/default",
@@ -222,7 +227,6 @@
     "textgenerator",
     "md/ahaoframework.tech",
     "md/资料/ffmpeg/资料/FFmpeg预习资料3(1).pdf",
-    "md/资料/ffmpeg/资料/FFmpeg预习资料2(1).pdf",
     "md/资料/美颜/meiyan.jpg",
     "md/资料/美颜/meiyan2.jpg",
     "md/资料/美颜/美颜.jpg",
