@@ -13,12 +13,22 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/努比亚/Android画面显示流程分析(1).md",
+                "file": "md/努比亚/Android画面显示流程分析(3).md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Android画面显示流程分析(1)"
+              "title": "Android画面显示流程分析(3)"
+            }
+          },
+          {
+            "id": "48372ac76b5c42b2",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "新标签页"
             }
           }
         ]
@@ -139,10 +149,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "md/努比亚/Android画面显示流程分析(1).md"
+                "file": "md/努比亚/Android画面显示流程分析(3).md"
               },
               "icon": "lucide-list",
-              "title": "Android画面显示流程分析(1) 的大纲"
+              "title": "Android画面显示流程分析(3) 的大纲"
             }
           },
           {
@@ -188,10 +198,12 @@
   },
   "active": "7f161ac130709764",
   "lastOpenFiles": [
+    "md/努比亚/Android画面显示流程分析(2).md",
+    "md/努比亚/Android画面显示流程分析(3).md",
+    "md/努比亚/Android画面显示流程分析(1).md",
     "md/努比亚/Android应用启动全流程分析（源码深度剖析）.md",
     "pic/Pasted image 20241219162312.png",
     "pic/IMG_8347.png",
-    "md/努比亚/Android画面显示流程分析(1).md",
     "Pasted image 20250106162059.png",
     "md/努比亚",
     "yto/ListAdapter.md",
@@ -218,7 +230,6 @@
     "textgenerator/templates/dalle/artDeco.md",
     "textgenerator/templates/dalle/artClaymation.md",
     "textgenerator/templates/dalle/artBauhaus.md",
-    "textgenerator/templates/dalle/artAnime.md",
     "md/GPT",
     "md/豆包回答",
     "textgenerator/templates/default",
