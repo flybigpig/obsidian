@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/努比亚/Android卡顿掉帧问题分析之实战篇.md",
-                "mode": "source",
+                "file": "md/努比亚/Android 权限控制机制.md",
+                "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Android卡顿掉帧问题分析之实战篇"
+              "title": "Android 权限控制机制"
             }
           }
         ]
@@ -139,10 +139,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "md/努比亚/Android卡顿掉帧问题分析之实战篇.md"
+                "file": "md/努比亚/Android 权限控制机制.md"
               },
               "icon": "lucide-list",
-              "title": "Android卡顿掉帧问题分析之实战篇 的大纲"
+              "title": "Android 权限控制机制 的大纲"
             }
           },
           {
@@ -188,8 +188,14 @@
   },
   "active": "e13c2fd1b314c581",
   "lastOpenFiles": [
-    "md/努比亚/Android应用启动全流程分析（源码深度剖析）.md",
+    "md/努比亚/Android开机全解析.md",
+    "md/努比亚/Android 权限控制机制.md",
+    "md/努比亚/SurfaceFlinger模块-VSYNC研究.md",
+    "md/努比亚/SurfaceFlinger模块.md",
+    "md/努比亚/解析Binder框架.md",
+    "md/努比亚/WindowManagerService本地窗口动画.md",
     "md/努比亚/Android卡顿掉帧问题分析之实战篇.md",
+    "md/努比亚/Android应用启动全流程分析（源码深度剖析）.md",
     "md/努比亚/Android卡顿掉帧问题分析之工具篇.md",
     "md/努比亚/Android卡顿掉帧问题分析之原理篇.md",
     "md/努比亚/Android Input输入事件处理流程分享（1）.md",
@@ -214,12 +220,6 @@
     "yto/MyExpandAdapter.md",
     "yto/侧滑.md",
     "else/Ubuntu20.04换源教程、解决主机与虚拟机之间进行文本复制粘贴问题_ubuntu 换源-CSDN博客.md",
-    "else/git 报错.md",
-    "else/csdn保存.md",
-    "else/could not read Username for ‘httpse.coding.net‘ No such file or directory-CSDN博客.md",
-    "2024-11-04.md",
-    "README.md",
-    "conflict-files-obsidian-git.md",
     "md/GPT",
     "md/豆包回答",
     "textgenerator/templates/default",
