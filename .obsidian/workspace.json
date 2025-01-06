@@ -27,7 +27,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/个人/ListAdapter.md",
+                "file": "yto/ListAdapter.md",
                 "mode": "preview",
                 "source": false
               },
@@ -201,10 +201,11 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "fa4657deb406b728",
+  "active": "86ab74dfe3fe014d",
   "lastOpenFiles": [
-    "yto/kotlin_dialog.md",
     "md/个人/ListAdapter.md",
+    "yto/ListAdapter.md",
+    "yto/kotlin_dialog.md",
     "yto/MyExpandAdapter.md",
     "yto/侧滑.md",
     "else/Ubuntu20.04换源教程、解决主机与虚拟机之间进行文本复制粘贴问题_ubuntu 换源-CSDN博客.md",
@@ -232,7 +233,6 @@
     "textgenerator/templates/dalle/art3D.md",
     "drives/gcc_12.md",
     "hm/UI开发（ArkTS声明式开发范式）概述.md",
-    "hm/Swiper.md",
     "md/GPT",
     "md/豆包回答",
     "textgenerator/templates/default",
