@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/努比亚/Android画面显示流程分析(4).md",
+                "file": "md/努比亚/Android画面显示流程分析(5).md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Android画面显示流程分析(4)"
+              "title": "Android画面显示流程分析(5)"
             }
           }
         ]
@@ -139,10 +139,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "md/努比亚/Android画面显示流程分析(4).md"
+                "file": "md/努比亚/Android画面显示流程分析(5).md"
               },
               "icon": "lucide-list",
-              "title": "Android画面显示流程分析(4) 的大纲"
+              "title": "Android画面显示流程分析(5) 的大纲"
             }
           },
           {
@@ -189,6 +189,7 @@
   "active": "251cc86965716901",
   "lastOpenFiles": [
     "md/努比亚/Android画面显示流程分析(1).md",
+    "md/努比亚/Android画面显示流程分析(5).md",
     "md/努比亚/Android画面显示流程分析(4).md",
     "写给应用开发的+Android+Framework+教程(1).pdf",
     "Pasted image 20250106162059.png",
@@ -219,7 +220,6 @@
     "md/AdvancedAndroid/README.md",
     "Excalidraw/Drawing 2025-01-02 16.04.22.excalidraw.md",
     "textgenerator/templates/dalle/artDeco.md",
-    "textgenerator/templates/dalle/artClaymation.md",
     "md/GPT",
     "md/豆包回答",
     "textgenerator/templates/default",
