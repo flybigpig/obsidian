@@ -383,6 +383,10 @@ private int processKeyEvent(QueuedInputEvent q) {
 }
 ```
 
+
+
+![[Pasted image 20250107161706.png]]
+
 #### DecorView处理事件
 
 mView在ViewRootImpl的setView方法中被赋值，被赋值的对象便是DecorView的实例，而在ViewPostImeInputStage的onPressess方法中会将key事件通过dispatchKeyEvent方法传递到DecorView中。
