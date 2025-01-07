@@ -639,6 +639,183 @@ void InputDispatcher::dispatchOnce() {
     int timeoutMillis = toMillisecondTimeoutDelay(currentTime, nextWakeupTime);
     mLooper->pollOnce(timeoutMillis);
 }
+// 分发事件
+void InputDispatcher::dispatchOnceInnerLocked(nsecs_t& nextWakeupTime) {
+    nsecs_t currentTime = now();
+
+    // Reset the key repeat timer whenever normal dispatch is suspended while the
+    // device is in a non-interactive state.  This is to ensure that we abort a key
+    // repeat if the device is just coming out of sleep.
+    if (!mDispatchEnabled) {
+        resetKeyRepeatLocked();
+    }
+
+    // If dispatching is frozen, do not process timeouts or try to deliver any new events.
+    if (mDispatchFrozen) {
+        if (DEBUG_FOCUS) {
+            ALOGD("Dispatch frozen.  Waiting some more.");
+        }
+        return;
+    }
+
+    // Ready to start a new event.
+    // If we don't already have a pending event, go grab one.
+    if (!mPendingEvent) {
+        if (mInboundQueue.empty()) {
+            // Synthesize a key repeat if appropriate.
+            if (mKeyRepeatState.lastKeyEntry) {
+                if (currentTime >= mKeyRepeatState.nextRepeatTime) {
+                    mPendingEvent = synthesizeKeyRepeatLocked(currentTime);
+                } else {
+                    nextWakeupTime = std::min(nextWakeupTime, mKeyRepeatState.nextRepeatTime);
+                }
+            }
+
+            // Nothing to do if there is no pending event.
+            if (!mPendingEvent) {
+                return;
+            }
+        } else {
+            // Inbound queue has at least one entry.
+            mPendingEvent = mInboundQueue.front();
+            mInboundQueue.pop_front();
+            traceInboundQueueLengthLocked();
+        }
+
+        // Poke user activity for this event.
+        if (mPendingEvent->policyFlags & POLICY_FLAG_PASS_TO_USER) {
+            pokeUserActivityLocked(*mPendingEvent);
+        }
+    }
+
+    // Now we have an event to dispatch.
+    // All events are eventually dequeued and processed this way, even if we intend to drop them.
+    ALOG_ASSERT(mPendingEvent != nullptr);
+    bool done = false;
+    DropReason dropReason = DropReason::NOT_DROPPED;
+    if (!(mPendingEvent->policyFlags & POLICY_FLAG_PASS_TO_USER)) {
+        dropReason = DropReason::POLICY;
+    } else if (!mDispatchEnabled) {
+        dropReason = DropReason::DISABLED;
+    }
+
+    if (mNextUnblockedEvent == mPendingEvent) {
+        mNextUnblockedEvent = nullptr;
+    }
+
+    switch (mPendingEvent->type) {
+        case EventEntry::Type::DEVICE_RESET: {
+            const DeviceResetEntry& typedEntry =
+                    static_cast<const DeviceResetEntry&>(*mPendingEvent);
+            done = dispatchDeviceResetLocked(currentTime, typedEntry);
+            dropReason = DropReason::NOT_DROPPED; // device resets are never dropped
+            break;
+        }
+
+        case EventEntry::Type::FOCUS: {
+            std::shared_ptr<const FocusEntry> typedEntry =
+                    std::static_pointer_cast<const FocusEntry>(mPendingEvent);
+            dispatchFocusLocked(currentTime, typedEntry);
+            done = true;
+            dropReason = DropReason::NOT_DROPPED; // focus events are never dropped
+            break;
+        }
+
+        case EventEntry::Type::TOUCH_MODE_CHANGED: {
+            const auto typedEntry = std::static_pointer_cast<const TouchModeEntry>(mPendingEvent);
+            dispatchTouchModeChangeLocked(currentTime, typedEntry);
+            done = true;
+            dropReason = DropReason::NOT_DROPPED; // touch mode events are never dropped
+            break;
+        }
+
+        case EventEntry::Type::POINTER_CAPTURE_CHANGED: {
+            const auto typedEntry =
+                    std::static_pointer_cast<const PointerCaptureChangedEntry>(mPendingEvent);
+            dispatchPointerCaptureChangedLocked(currentTime, typedEntry, dropReason);
+            done = true;
+            break;
+        }
+
+        case EventEntry::Type::DRAG: {
+            std::shared_ptr<const DragEntry> typedEntry =
+                    std::static_pointer_cast<const DragEntry>(mPendingEvent);
+            dispatchDragLocked(currentTime, typedEntry);
+            done = true;
+            break;
+        }
+
+        case EventEntry::Type::KEY: {
+            std::shared_ptr<const KeyEntry> keyEntry =
+                    std::static_pointer_cast<const KeyEntry>(mPendingEvent);
+            if (dropReason == DropReason::NOT_DROPPED && isStaleEvent(currentTime, *keyEntry)) {
+                dropReason = DropReason::STALE;
+            }
+            if (dropReason == DropReason::NOT_DROPPED && mNextUnblockedEvent) {
+                dropReason = DropReason::BLOCKED;
+            }
+            done = dispatchKeyLocked(currentTime, keyEntry, &dropReason, nextWakeupTime);
+            break;
+        }
+
+        case EventEntry::Type::MOTION: {
+            std::shared_ptr<const MotionEntry> motionEntry =
+                    std::static_pointer_cast<const MotionEntry>(mPendingEvent);
+            if (dropReason == DropReason::NOT_DROPPED && isStaleEvent(currentTime, *motionEntry)) {
+                // The event is stale. However, only drop stale events if there isn't an ongoing
+                // gesture. That would allow us to complete the processing of the current stroke.
+                const auto touchStateIt = mTouchStatesByDisplay.find(motionEntry->displayId);
+                if (touchStateIt != mTouchStatesByDisplay.end()) {
+                    const TouchState& touchState = touchStateIt->second;
+                    if (!touchState.hasTouchingPointers(motionEntry->deviceId) &&
+                        !touchState.hasHoveringPointers(motionEntry->deviceId)) {
+                        dropReason = DropReason::STALE;
+                    }
+                }
+            }
+            if (dropReason == DropReason::NOT_DROPPED && mNextUnblockedEvent) {
+                if (!isFromSource(motionEntry->source, AINPUT_SOURCE_CLASS_POINTER)) {
+                    // Only drop events that are focus-dispatched.
+                    dropReason = DropReason::BLOCKED;
+                }
+            }
+            done = dispatchMotionLocked(currentTime, motionEntry, &dropReason, nextWakeupTime);
+            break;
+        }
+
+        case EventEntry::Type::SENSOR: {
+            std::shared_ptr<const SensorEntry> sensorEntry =
+                    std::static_pointer_cast<const SensorEntry>(mPendingEvent);
+
+            //  Sensor timestamps use SYSTEM_TIME_BOOTTIME time base, so we can't use
+            // 'currentTime' here, get SYSTEM_TIME_BOOTTIME instead.
+            nsecs_t bootTime = systemTime(SYSTEM_TIME_BOOTTIME);
+            if (dropReason == DropReason::NOT_DROPPED && isStaleEvent(bootTime, *sensorEntry)) {
+                dropReason = DropReason::STALE;
+            }
+            dispatchSensorLocked(currentTime, sensorEntry, &dropReason, nextWakeupTime);
+            done = true;
+            break;
+        }
+    }
+
+    if (done) {
+        if (dropReason != DropReason::NOT_DROPPED) {
+            dropInboundEventLocked(*mPendingEvent, dropReason);
+        }
+        mLastDropReason = dropReason;
+
+        if (mTracer) {
+            if (auto& traceTracker = getTraceTracker(*mPendingEvent); traceTracker != nullptr) {
+                mTracer->eventProcessingComplete(*traceTracker, currentTime);
+            }
+        }
+
+        releasePendingEventLocked();
+        nextWakeupTime = LLONG_MIN; // force next poll to wake up immediately
+    }
+}
+
 ```
 
 
