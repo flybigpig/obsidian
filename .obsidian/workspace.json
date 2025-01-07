@@ -14,7 +14,7 @@
               "type": "markdown",
               "state": {
                 "file": "md/豆包回答/deepseek input.md",
-                "mode": "preview",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
@@ -189,10 +189,10 @@
   "active": "e13c2fd1b314c581",
   "lastOpenFiles": [
     "md/豆包回答/DeepSeek -  Android INPUT.md",
+    "md/豆包回答/deepseek input.md",
     "md/个人/Android Wifi断开问题分析和802.11原因码_assoc rsp 0x001e-CSDN博客.md",
     "md/个人/Android init进程 - yooooooo - 博客园.md",
     "md/个人/Android wifi断开.md",
-    "md/豆包回答/deepseek input.md",
     "md/豆包回答/Input管理.md",
     "md/豆包回答/Activity Finish 流程讲解.md",
     "md/努比亚/Android 权限控制机制.md",
