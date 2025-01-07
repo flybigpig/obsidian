@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/努比亚/Android Input输入事件处理流程分享（1）.md",
-                "mode": "source",
+                "file": "md/努比亚/View 系列 —— 小白也能看懂的 DecorViewView 是树形结构，一组 View 的集合就是 ViewGro - 掘金.md",
+                "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Android Input输入事件处理流程分享（1）"
+              "title": "View 系列 —— 小白也能看懂的 DecorViewView 是树形结构，一组 View 的集合就是 ViewGro - 掘金"
             }
           }
         ]
@@ -186,11 +186,12 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "f84ce6d2fe2622cd",
+  "active": "e13c2fd1b314c581",
   "lastOpenFiles": [
+    "md/努比亚/Android Input输入事件处理流程分享（1）.md",
+    "md/努比亚/View 系列 —— 小白也能看懂的 DecorViewView 是树形结构，一组 View 的集合就是 ViewGro - 掘金.md",
     "pic/Pasted image 20250107161706.png",
     "pic/Pasted image 20241219162312.png",
-    "md/努比亚/Android Input输入事件处理流程分享（1）.md",
     "md/豆包回答/deepseek input.md",
     "md/豆包回答/管道通信.md",
     "md/豆包回答/DeepSeek -  Android INPUT.md",
