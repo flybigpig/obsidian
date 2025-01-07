@@ -475,95 +475,86 @@ notificationService.sendNotification("This is a notification");
 
 
 ```
+status_t InputReader::start() {
+    if (mThread) {
+        return ALREADY_EXISTS;
+    }
+    mThread = std::make_unique<InputThread>(
+            "InputReader", [this]() { loopOnce(); }, [this]() { mEventHub->wake(); });
+    return OK;
+}
+
+status_t InputReader::stop() {
+    if (mThread && mThread->isCallingThread()) {
+        ALOGE("InputReader cannot be stopped from its own thread!");
+        return INVALID_OPERATION;
+    }
+    mThread.reset();
+    return OK;
+}
+
 void InputReader::loopOnce() {
-
     int32_t oldGeneration;
-
     int32_t timeoutMillis;
-
+    // Copy some state so that we can access it outside the lock later.
     bool inputDevicesChanged = false;
-
     std::vector<InputDeviceInfo> inputDevices;
-
+    std::list<NotifyArgs> notifyArgs;
     { // acquire lock
-
-        AutoMutex _l(mLock);
+        std::scoped_lock _l(mLock);
 
         oldGeneration = mGeneration;
-
         timeoutMillis = -1;
 
-        uint32_t changes = mConfigurationChangesToRefresh;
-
-        if (changes) {
-
-            mConfigurationChangesToRefresh = 0;
-
+        auto changes = mConfigurationChangesToRefresh;
+        if (changes.any()) {
+            mConfigurationChangesToRefresh.clear();
             timeoutMillis = 0;
-
             refreshConfigurationLocked(changes);
-
         } else if (mNextTimeout != LLONG_MAX) {
-
             nsecs_t now = systemTime(SYSTEM_TIME_MONOTONIC);
-
             timeoutMillis = toMillisecondTimeoutDelay(now, mNextTimeout);
-
         }
-
     } // release lock
 
-    size_t count = mEventHub->getEvents(timeoutMillis, mEventBuffer, EVENT_BUFFER_SIZE);
+    std::vector<RawEvent> events = mEventHub->getEvents(timeoutMillis);
 
     { // acquire lock
+        std::scoped_lock _l(mLock);
+        mReaderIsAliveCondition.notify_all();
 
-        AutoMutex _l(mLock);
-
-        mReaderIsAliveCondition.broadcast();
-
-        if (count) {
-
-            processEventsLocked(mEventBuffer, count);
-
+        if (!events.empty()) {
+            mPendingArgs += processEventsLocked(events.data(), events.size());
         }
 
         if (mNextTimeout != LLONG_MAX) {
-
             nsecs_t now = systemTime(SYSTEM_TIME_MONOTONIC);
-
             if (now >= mNextTimeout) {
-
-#if DEBUG_RAW_EVENTS
-
-                ALOGD("Timeout expired, latency=%0.3fms", (now - mNextTimeout) * 0.000001f);
-
-#endif
-
+                if (debugRawEvents()) {
+                    ALOGD("Timeout expired, latency=%0.3fms", (now - mNextTimeout) * 0.000001f);
+                }
                 mNextTimeout = LLONG_MAX;
-
-                timeoutExpiredLocked(now);
-
+                mPendingArgs += timeoutExpiredLocked(now);
             }
-
         }
 
         if (oldGeneration != mGeneration) {
+            // Reset global meta state because it depends on connected input devices.
+            updateGlobalMetaStateLocked();
 
             inputDevicesChanged = true;
-
-            getInputDevicesLocked(inputDevices);
-
+            inputDevices = getInputDevicesLocked();
+            mPendingArgs.emplace_back(
+                    NotifyInputDevicesChangedArgs{mContext.getNextId(), inputDevices});
         }
 
+        std::swap(notifyArgs, mPendingArgs);
+
+        // Keep track of the last used device
+        for (const NotifyArgs& args : notifyArgs) {
+            mLastUsedDeviceId = getDeviceIdOfNewGesture(args).value_or(mLastUsedDeviceId);
+        }
     } // release lock
-
-    // Send out a message that the describes the changed input devices.
-
-    if (inputDevicesChanged) {
-
-        mPolicy->notifyInputDevicesChanged(inputDevices);
-
-    }
 
     // Flush queued events out to the listener.
     // This must happen outside of the lock because the listener could potentially call
@@ -572,11 +563,86 @@ void InputReader::loopOnce() {
     // resulting in a deadlock.  This situation is actually quite plausible because the
     // listener is actually the input dispatcher, which calls into the window manager,
     // which occasionally calls into the input reader.
+    for (const NotifyArgs& args : notifyArgs) {
+        mNextListener.notify(args);
+    }
 
-    mQueuedListener->flush();
+    // Notify the policy that input devices have changed.
+    // This must be done after flushing events down the listener chain to ensure that the rest of
+    // the listeners are synchronized with the changes before the policy reacts to them.
+    if (inputDevicesChanged) {
+        mPolicy->notifyInputDevicesChanged(inputDevices);
+    }
 
+    // Notify the policy of the start of every new stylus gesture.
+    for (const auto& args : notifyArgs) {
+        const auto* motionArgs = std::get_if<NotifyMotionArgs>(&args);
+        if (motionArgs != nullptr && isStylusPointerGestureStart(*motionArgs)) {
+            mPolicy->notifyStylusGestureStarted(motionArgs->deviceId, motionArgs->eventTime);
+        }
+    }
 }
 ```
+
+
+```
+status_t InputDispatcher::start() {
+    if (mThread) {
+        return ALREADY_EXISTS;
+    }
+    mThread = std::make_unique<InputThread>(
+            "InputDispatcher", [this]() { dispatchOnce(); }, [this]() { mLooper->wake(); });
+    return OK;
+}
+
+status_t InputDispatcher::stop() {
+    if (mThread && mThread->isCallingThread()) {
+        ALOGE("InputDispatcher cannot be stopped from its own thread!");
+        return INVALID_OPERATION;
+    }
+    mThread.reset();
+    return OK;
+}
+
+void InputDispatcher::dispatchOnce() {
+    nsecs_t nextWakeupTime = LLONG_MAX;
+    { // acquire lock
+        std::scoped_lock _l(mLock);
+        mDispatcherIsAlive.notify_all();
+
+        // Run a dispatch loop if there are no pending commands.
+        // The dispatch loop might enqueue commands to run afterwards.
+        if (!haveCommandsLocked()) {
+            dispatchOnceInnerLocked(/*byref*/ nextWakeupTime);
+        }
+
+        // Run all pending commands if there are any.
+        // If any commands were run then force the next poll to wake up immediately.
+        if (runCommandsLockedInterruptable()) {
+            nextWakeupTime = LLONG_MIN;
+        }
+
+        // If we are still waiting for ack on some events,
+        // we might have to wake up earlier to check if an app is anr'ing.
+        const nsecs_t nextAnrCheck = processAnrsLocked();
+        nextWakeupTime = std::min(nextWakeupTime, nextAnrCheck);
+
+        // We are about to enter an infinitely long sleep, because we have no commands or
+        // pending or queued events
+        if (nextWakeupTime == LLONG_MAX) {
+            mDispatcherEnteredIdle.notify_all();
+        }
+    } // release lock
+
+    // Wait for callback or timeout or wake.  (make sure we round up, not down)
+    nsecs_t currentTime = now();
+    int timeoutMillis = toMillisecondTimeoutDelay(currentTime, nextWakeupTime);
+    mLooper->pollOnce(timeoutMillis);
+}
+```
+
+
+
 
 将队列中的事件刷新到监听器。  
 这必须在锁之外进行，因为监听器可能会回调到输入读取器的方法，例如 getScanCodeState，或者在另一个线程上被阻塞，该线程同样在等待获取输入读取器的锁，从而导致死锁。这种情况实际上是很有可能发生的，因为监听器实际上是输入调度器，它会调用窗口管理器，而窗口管理器偶尔也会调用输入读取器。
