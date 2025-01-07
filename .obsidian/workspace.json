@@ -112,12 +112,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "md/个人/GPT40-mini.md",
+                "file": "md/豆包回答/deepseek input.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               },
               "icon": "links-going-out",
-              "title": "GPT40-mini 的出链列表"
+              "title": "deepseek input 的出链列表"
             }
           },
           {
@@ -186,7 +186,7 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "e13c2fd1b314c581",
+  "active": "f84ce6d2fe2622cd",
   "lastOpenFiles": [
     "md/豆包回答/管道通信.md",
     "md/豆包回答/deepseek input.md",
