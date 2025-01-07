@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/努比亚/InputConsumer.md",
-                "mode": "preview",
+                "file": "md/努比亚/InputChannel.md",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "InputConsumer"
+              "title": "InputChannel"
             }
           }
         ]
@@ -188,8 +188,9 @@
   },
   "active": "e13c2fd1b314c581",
   "lastOpenFiles": [
-    "md/努比亚/View 系列 —— 小白也能看懂的 DecorViewView 是树形结构，一组 View 的集合就是 ViewGro - 掘金.md",
     "md/努比亚/InputConsumer.md",
+    "md/努比亚/InputChannel.md",
+    "md/努比亚/View 系列 —— 小白也能看懂的 DecorViewView 是树形结构，一组 View 的集合就是 ViewGro - 掘金.md",
     "md/努比亚/Android Input输入事件处理流程分享（1）.md",
     "pic/Pasted image 20250107161706.png",
     "pic/Pasted image 20241219162312.png",
@@ -215,7 +216,6 @@
     "md/努比亚/Android Input输入事件处理流程分享（3）.md",
     "md/努比亚/Android Input输入事件处理流程分享（2）.md",
     "else/其他.md",
-    "md/努比亚/Android画面显示流程分析(5).md",
     "写给应用开发的+Android+Framework+教程(1).pdf",
     "Pasted image 20250106162059.png",
     "Pasted image 20241220132244.png",
