@@ -165,7 +165,11 @@ void SurfaceFlinger::init()
 
 SurfaceFlinger类的成员函数init的实现很简单，它分别获得系统中两个名称为"debug.sf.showupdates"和"debug.sf.showbackground"的属性的值，并且分别保存在SurfaceFlinger类的成员变量mDebugRegion和mDebugBackground中。这两个成员变量是与调试相关的，我们不关心。
 
-这一步执行完成之后，返回到前面的Step 4中，即BinderService类的静态成员函数publish中，这时候在前面的Step 5中所创建的一个SurfaceFlinger实例就会被注册到Service Manager中，这是通过调用Service Manager的Binder代理对象的成员函数addService来实现的。由于Service Manager的Binder代理对象的成员函数addService的第二个参数是一个类型为IBinder的强指针引用。从前面[Android系统的智能指针（轻量级指针、强指针和弱指针）的实现原理分析](https://www.androidos.net.cn/redirecturl.do?url=http%3A//blog.csdn.net/luoshengyang/article/details/6786239)一文可以知道，当一个对象第一次被一个强指针引用时，那么这个对象的成员函数onFirstRef就会被调用。因此，接下来前面所创建的SurfaceFlinger实例的成员函数onFirstRef就会被调用，以便可以继续执行初始化操作。
+这一步执行完成之后，返回到前面的Step 4中，即BinderService类的静态成员函数publish中，这时候在前面的Step 5中所创建的一个SurfaceFlinger实例就会被注册到Service Manager中，这是通过调用Service Manager的Binder代理对象的成员函数addService来实现的。
+
+**由于Service Manager的Binder代理对象的成员函数addService的第二个参数是一个类型为IBinder的强指针引用。从前面[Android系统的智能指针（轻量级指针、强指针和弱指针）的实现原理分析](https://www.androidos.net.cn/redirecturl.do?url=http%3A//blog.csdn.net/luoshengyang/article/details/6786239)一文可以知道，当一个对象第一次被一个强指针引用时，那么这个对象的成员函数onFirstRef就会被调用。**
+
+因此，接下来前面所创建的SurfaceFlinger实例的成员函数onFirstRef就会被调用，以便可以继续执行初始化操作。
 
 Step 7. SurfaceFlinger.onFirstRef
 
