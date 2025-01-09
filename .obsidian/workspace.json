@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/个人/Learning.md",
+                "file": "md/SurfaceFlinger/显示图形系统分析之SurfaceFlinger启动流程显示图形系统中，避不开的SurfaceFlinger非常重要，对于 - 掘金.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Learning"
+              "title": "显示图形系统分析之SurfaceFlinger启动流程显示图形系统中，避不开的SurfaceFlinger非常重要，对于 - 掘金"
             }
           },
           {
@@ -198,8 +198,9 @@
   },
   "active": "e13c2fd1b314c581",
   "lastOpenFiles": [
-    "md/SurfaceFlinger/Android Systrace 基础知识 - SurfaceFlinger 解读 · Android Performance.md",
     "md/个人/Learning.md",
+    "md/SurfaceFlinger/显示图形系统分析之SurfaceFlinger启动流程显示图形系统中，避不开的SurfaceFlinger非常重要，对于 - 掘金.md",
+    "md/SurfaceFlinger/Android Systrace 基础知识 - SurfaceFlinger 解读 · Android Performance.md",
     "md/SurfaceFlinger/Android Systrace 基础知识 - SystemServer 解读 · Android Performance.md",
     "md/SurfaceFlinger/Android Systrace 基础知识 -- Why 60 fps ？ · Android Performance.md",
     "md/SurfaceFlinger/Android Systrace 基础知识 -- 分析 Systrace 预备知识 · Android Performance.md",
@@ -229,7 +230,6 @@
     "md/豆包回答/deepseek input.md",
     "md/豆包回答/管道通信.md",
     "md/豆包回答/DeepSeek -  Android INPUT.md",
-    "md/个人/Android Wifi断开问题分析和802.11原因码_assoc rsp 0x001e-CSDN博客.md",
     "写给应用开发的+Android+Framework+教程(1).pdf",
     "Pasted image 20250106162059.png",
     "Pasted image 20241220132244.png",
