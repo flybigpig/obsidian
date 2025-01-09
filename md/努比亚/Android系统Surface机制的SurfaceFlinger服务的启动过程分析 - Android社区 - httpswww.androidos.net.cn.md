@@ -4,6 +4,7 @@
 
 从前面[Android系统进程Zygote启动过程的源代码分析](https://www.androidos.net.cn/redirecturl.do?url=http%3A//blog.csdn.net/luoshengyang/article/details/6768304)一文可以知道，System进程是由Zygote进程启动的，并且是以Java层的SystemServer类的静态成员函数main为入口函数的。因此，接下来我们就从SystemServer类的静态成员函数main开始，分析SurfaceFlinger服务的启动过程，如图1所示。
 
+
 ![](https://oss-cn-hangzhou.aliyuncs.com/codingsky/cdn/codingsky/upload/img/blog/0e55300d7a687e03aba84a8661d52fc6.jpg)
 
 图1 SurfaceFlinger服务的启动过程
@@ -327,3 +328,40 @@ status_t SurfaceFlinger::readyToRun()
 第三件事情是调用函数property\_set来设置系统中名称为"ctl.start"的属性，即将它的值设置为"bootanim"。从前面[Android系统的开机画面显示过程分析](https://www.androidos.net.cn/redirecturl.do?url=http%3A//blog.csdn.net/luoshengyang/article/details/7691321)一文可以知道，ctl.start是Android系统的一个控制属性，当它的值等于""bootanim"的时候，就表示要启动Android系统的开机动画。从这里就可以看出，当我们看到Android系统的开机动画时，就说明Android系统的SurfaceFlinger服务已经启动起来了。
 
 至此，我们就分析完成SurfaceFlinger服务的启动过程中了。在分析过程中，有两个比较重要的知识点：第一个知识点是系统主显示屏的创建和初始化过程，第二个知识点是UI渲染线程的执行过程。在接下来的第一篇文章中，我们将详细分析第一个知识点。在分析第一个知识点的过程中，会涉及到SurfaceFlinger服务的控制台事件监控线程的创建过程，因此，结合Step 2提到的Binder线程，以及Step 7提到的UI渲染线程，我们将在接下来的第二篇文章中，综合描述SurfaceFlinger服务的线程协作模型。有了前面的基础知识之后，在接下来的第三篇文章中，我们就将详细分析第二个知识点。敬请关注！
+
+---
+
+启动servicemanager 时 就会重新启动surfaceflinger
+```
+service servicemanager /system/bin/servicemanager  
+    class core animation  
+    user system  
+    group system readproc  
+    critical  
+    onrestart restart healthd  
+    onrestart restart zygote  
+    onrestart restart audioserver  
+    onrestart restart media  
+    onrestart restart surfaceflinger  
+    onrestart restart inputflinger  
+    onrestart restart drm  
+    onrestart restart cameraserver  
+    onrestart restart keystore  
+    onrestart restart gatekeeperd  
+    onrestart restart thermalservice  
+    writepid /dev/cpuset/system-background/tasks  
+    shutdown critical
+```
+
+启动surfaceflinger
+```
+service surfaceflinger /system/bin/surfaceflinger  
+    class core animation  
+    user system  
+    group graphics drmrpc readproc  
+    onrestart restart zygote  
+    writepid /dev/stune/foreground/tasks  
+    socket pdx/system/vr/display/client     stream 0666 system graphics u:object_r:pdx_display_client_endpoint_socket:s0  
+    socket pdx/system/vr/display/manager    stream 0666 system graphics u:object_r:pdx_display_manager_endpoint_socket:s0  
+    socket pdx/system/vr/display/vsync      stream 0666 system graphics u:object_r:pdx_display_vsync_endpoint_socket:s0
+```
