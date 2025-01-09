@@ -331,28 +331,6 @@ status_t SurfaceFlinger::readyToRun()
 
 ---
 
-启动servicemanager 时 就会重新启动surfaceflinger
-```
-service servicemanager /system/bin/servicemanager  
-    class core animation  
-    user system  
-    group system readproc  
-    critical  
-    onrestart restart healthd  
-    onrestart restart zygote  
-    onrestart restart audioserver  
-    onrestart restart media  
-    onrestart restart surfaceflinger  
-    onrestart restart inputflinger  
-    onrestart restart drm  
-    onrestart restart cameraserver  
-    onrestart restart keystore  
-    onrestart restart gatekeeperd  
-    onrestart restart thermalservice  
-    writepid /dev/cpuset/system-background/tasks  
-    shutdown critical
-```
-
 启动surfaceflinger
 ```
 service surfaceflinger /system/bin/surfaceflinger  
