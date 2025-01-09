@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/努比亚/InputChannel.md",
+                "file": "md/SurfaceFlinger/显示图形系统分析之SurfaceFlinger启动流程显示图形系统中，避不开的SurfaceFlinger非常重要，对于 - 掘金 1.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "InputChannel"
+              "title": "显示图形系统分析之SurfaceFlinger启动流程显示图形系统中，避不开的SurfaceFlinger非常重要，对于 - 掘金 1"
             }
           }
         ]
@@ -182,11 +182,15 @@
       "command-palette:打开命令面板": false,
       "markdown-importer:打开 Markdown 格式转换器": false,
       "obsidian-full-calendar:Open Full Calendar": false,
-      "obsidian-git:Open Git source control": false
+      "obsidian-git:Open Git source control": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
   "active": "07b37a590dd061e8",
   "lastOpenFiles": [
+    "md/SurfaceFlinger/显示图形系统分析之SurfaceFlinger启动流程显示图形系统中，避不开的SurfaceFlinger非常重要，对于 - 掘金.md",
+    "md/SurfaceFlinger/显示图形系统分析之SurfaceFlinger启动流程显示图形系统中，避不开的SurfaceFlinger非常重要，对于 - 掘金 1.md",
+    "md/努比亚/InputChannel.md",
     "md/努比亚/SurfaceFlinger模块.md",
     "md/努比亚/Android系统Surface机制的SurfaceFlinger服务的启动过程分析 - Android社区 - httpswww.androidos.net.cn.md",
     "md/努比亚/Android开机全解析.md",
@@ -213,9 +217,6 @@
     "md/SurfaceFlinger/Android Systrace 基础知识 -- Systrace 简介 · Android Performance.md",
     "md/SurfaceFlinger/Android Systrace 基础知识 -- 分析 Systrace 预备知识 · Android Performance.md",
     "md/SurfaceFlinger/Android Systrace 基础知识 - SystemServer 解读 · Android Performance.md",
-    "md/SurfaceFlinger/Android Systrace 基础知识 - SurfaceFlinger 解读 · Android Performance.md",
-    "md/AndroidFrameworkTutorial/1.基础篇/JNI 编程上手指南/012.JNI编程上手指南之多线程.md",
-    "md/SurfaceFlinger/显示图形系统分析之SurfaceFlinger启动流程显示图形系统中，避不开的SurfaceFlinger非常重要，对于 - 掘金.md",
     "pic/Pasted image 20250109162539.png",
     "pic/Pasted image 20250109162526.png",
     "pic/Pasted image 20250109162510.png",
