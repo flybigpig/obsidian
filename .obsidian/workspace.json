@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/SurfaceFlinger/Android Systrace 基础知识 - SurfaceFlinger 解读 · Android Performance.md",
-                "mode": "preview",
+                "file": "md/个人/Learning.md",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Android Systrace 基础知识 - SurfaceFlinger 解读 · Android Performance"
+              "title": "Learning"
             }
           },
           {
@@ -192,15 +192,17 @@
       "command-palette:打开命令面板": false,
       "markdown-importer:打开 Markdown 格式转换器": false,
       "obsidian-full-calendar:Open Full Calendar": false,
-      "obsidian-git:Open Git source control": false
+      "obsidian-git:Open Git source control": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "f84ce6d2fe2622cd",
+  "active": "e13c2fd1b314c581",
   "lastOpenFiles": [
+    "md/SurfaceFlinger/Android Systrace 基础知识 - SurfaceFlinger 解读 · Android Performance.md",
+    "md/个人/Learning.md",
     "md/SurfaceFlinger/Android Systrace 基础知识 - SystemServer 解读 · Android Performance.md",
     "md/SurfaceFlinger/Android Systrace 基础知识 -- Why 60 fps ？ · Android Performance.md",
     "md/SurfaceFlinger/Android Systrace 基础知识 -- 分析 Systrace 预备知识 · Android Performance.md",
-    "md/SurfaceFlinger/Android Systrace 基础知识 - SurfaceFlinger 解读 · Android Performance.md",
     "md/SurfaceFlinger/Android Systrace 基础知识 -- Systrace 简介 · Android Performance.md",
     "md/SurfaceFlinger",
     "md/努比亚/Android画面显示流程分析(2).md",
@@ -228,7 +230,6 @@
     "md/豆包回答/管道通信.md",
     "md/豆包回答/DeepSeek -  Android INPUT.md",
     "md/个人/Android Wifi断开问题分析和802.11原因码_assoc rsp 0x001e-CSDN博客.md",
-    "md/个人/Android init进程 - yooooooo - 博客园.md",
     "写给应用开发的+Android+Framework+教程(1).pdf",
     "Pasted image 20250106162059.png",
     "Pasted image 20241220132244.png",
