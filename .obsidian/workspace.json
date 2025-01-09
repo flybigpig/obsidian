@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/努比亚/surfaceflinger 工作流程分析_surfaceflinger 销毁layer-CSDN博客.md",
-                "mode": "source",
+                "file": "md/努比亚/Android系统Surface机制的SurfaceFlinger服务的启动过程分析 - Android社区 - httpswww.androidos.net.cn.md",
+                "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "surfaceflinger 工作流程分析_surfaceflinger 销毁layer-CSDN博客"
+              "title": "Android系统Surface机制的SurfaceFlinger服务的启动过程分析 - Android社区 - httpswww.androidos.net.cn"
             }
           },
           {
@@ -198,8 +198,11 @@
   },
   "active": "e13c2fd1b314c581",
   "lastOpenFiles": [
-    "md/努比亚/Android系统Surface机制的SurfaceFlinger服务的启动过程分析 - Android社区 - httpswww.androidos.net.cn.md",
     "md/努比亚/surfaceflinger 工作流程分析_surfaceflinger 销毁layer-CSDN博客.md",
+    "Pasted image 20250109142016.png",
+    "Pasted image 20250109142002.png",
+    "Pasted image 20250109141941.png",
+    "md/努比亚/Android系统Surface机制的SurfaceFlinger服务的启动过程分析 - Android社区 - httpswww.androidos.net.cn.md",
     "md/努比亚/SurfaceFlinger模块.md",
     "md/努比亚/SurfaceFlinger模块-VSYNC研究.md",
     "md/努比亚/SurfaceFlinger启动过程分析（一）、（二）、（三）、（四）【转】_surfacefligner启动在zygote之前吗-CSDN博客.md",
@@ -225,7 +228,6 @@
     "md/豆包回答/Activity Finish 流程讲解.md",
     "md/努比亚/Android 权限控制机制.md",
     "md/努比亚/Android开机全解析.md",
-    "md/努比亚/WindowManagerService本地窗口动画.md",
     "写给应用开发的+Android+Framework+教程(1).pdf",
     "Pasted image 20250106162059.png",
     "Pasted image 20241220132244.png",
@@ -241,10 +243,7 @@
     "md/资料/ffmpeg/资料/FFmpeg预习资料3(1).pdf",
     "md/资料/美颜/meiyan.jpg",
     "md/资料/美颜/meiyan2.jpg",
-    "md/资料/美颜/美颜.jpg",
     "Excalidraw/未命名.canvas",
-    "Excalidraw/未命名 1.canvas",
-    "md/androidSource/androidSourceMd/GitHub - yipianfengye_androidSource_ android framework层源码解析，不定时更新哈_files/search-key-slash.svg",
-    "md/资料/Binder文章/14(3).png"
+    "Excalidraw/未命名 1.canvas"
   ]
 }
