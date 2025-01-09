@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/努比亚/InputChannel.md",
-                "mode": "source",
+                "file": "md/努比亚/Android显示系统SurfaceFlinger详解 超级干货-CSDN博客.md",
+                "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "InputChannel"
+              "title": "Android显示系统SurfaceFlinger详解 超级干货-CSDN博客"
             }
           }
         ]
@@ -182,13 +182,15 @@
       "command-palette:打开命令面板": false,
       "markdown-importer:打开 Markdown 格式转换器": false,
       "obsidian-full-calendar:Open Full Calendar": false,
-      "obsidian-git:Open Git source control": false
+      "obsidian-git:Open Git source control": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
   "active": "e13c2fd1b314c581",
   "lastOpenFiles": [
-    "2024-11-04.md",
     "md/努比亚/InputChannel.md",
+    "md/努比亚/Android显示系统SurfaceFlinger详解 超级干货-CSDN博客.md",
+    "2024-11-04.md",
     "md/努比亚/InputConsumer.md",
     "md/努比亚/View 系列 —— 小白也能看懂的 DecorViewView 是树形结构，一组 View 的集合就是 ViewGro - 掘金.md",
     "md/努比亚/Android Input输入事件处理流程分享（1）.md",
@@ -214,7 +216,6 @@
     "md/努比亚/Android卡顿掉帧问题分析之原理篇.md",
     "md/努比亚/Android S原生系统内存泄露问题案例.md",
     "md/努比亚/Android Input输入事件处理流程分享（3）.md",
-    "md/努比亚/Android Input输入事件处理流程分享（2）.md",
     "写给应用开发的+Android+Framework+教程(1).pdf",
     "Pasted image 20250106162059.png",
     "Pasted image 20241220132244.png",
