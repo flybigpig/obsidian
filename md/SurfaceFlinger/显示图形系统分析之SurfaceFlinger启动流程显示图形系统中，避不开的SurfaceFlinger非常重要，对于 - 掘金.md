@@ -102,88 +102,11 @@ SurfaceFlinger::SurfaceFlinger(Factory& factory, SkipInitializationTag)
         mEmulatedDisplayDensity(getDensityFromProperty("qemu.sf.lcd_density", false)) {}
 ```
 
-BnSurfaceComposer
-
-+onTransact(uint32\_t, const Parcel&, Parcel\*, uint32\_t)
-
-SurfaceFlinger
-
-\-Scheduler:mScheduler
-
-\-VSyncModulator:mVSyncModulator
-
-\-MessageQueue:mEventQueue
-
-\-CompositionEngine:mCompositionEngine
-
-\-ConnectionHandle:mAppConnectionHandle
-
-\-ConnectionHandle:mSfConnectionHandle
-
-\-createLayer()
-
-\-onTransact(uint32\_t, const Parcel&, Parcel\*, uint32\_t)
-
-BnInterface
-
-ISurfaceComposer
-
-BpInterface
-
-BpSurfaceComposer
-
-IInterface
+![[Pasted image 20250109162510.png]]
 
 从上述SurfaceFlinger的类图和构造函数中可以看到，在SurfaceFlinger类的父类是BnSurfaceComposer，它与BpSurfaceComposer之间实现了Binder机制的IPC跨进程通信， 而在SurfaceFlinger指针对象的初始化过程中，通过的DefaultFactory对象MessageQueue指针对象，MessageQueue指针对象用作管理消息的接收、分发和处理。
 
-MessageQueue
-
-#SurfaceFlinger：mFlinger
-
-#Looper:mLooper
-
-#EventThreadConnection:mEvents
-
-#BitTube:mEventTube
-
-#Handler:mHandler
-
-#cb\_eventReceiver(int, int, void\*)
-
-#eventReceiver(int fd, int events)
-
-+init(const sp& flinger)
-
-+setEventConnection(const sp&)
-
-+waitMessage()
-
-+postMessage(sp&&)
-
-+invalidate()
-
-+refresh()
-
-Handler
-
-#MessageQueue&:mQueue
-
-#int32\_t:mEventMask
-
-+handleMessage(const Message&)
-
-+dispatchRefresh()
-
-+dispatchInvalidate(nsecs\_t)
-
-Task
-
-#handleMessage(const Message&)
-
-MessageHandler
-
-+handleMessage(const Message&)
-
+![[Pasted image 20250109162526.png]]
 SurfaceFlinger的初始化，由于这边初始化的是一个SurfaceFlinger强指针对象，因此在初始化的时候会调用其onFirstRef函数，因此
 
 ```
@@ -307,23 +230,7 @@ void HWComposer::setConfiguration(HWC2::ComposerCallback* callback, int32_t sequ
 }
 ```
 
-HWComposer
-
-\-HWC2::Composer : mComposer
-
-+getComposer()
-
-+loadCapabilities()
-
-+loadLayerMetadataSupport()
-
-+allocatePhysicalDisplay()
-
-+setConfiguration(HWC2::ComposerCallback\* callback, int32\_t sequenceId)
-
-Composer
-
-+registerCallback(const sp& callback)
+![[Pasted image 20250109162539.png]]
 
 这边有一个点需要注意的是，当通过HWComposer::setConfiguration向Hwc2::Composer中注册HWC2::ComposerCallback之后，底层硬件层会检测当前是否已经包含了显示屏幕（当然，在我们正常的手机/平板或者其他设备中，均会默认有一个物理显示屏），因此此处会产生一个显示屏幕设备的信号给到frameworks层，当系统收到这个信号的时候SurfaceFlinger::onHotplugReceived函数即时被调用
 

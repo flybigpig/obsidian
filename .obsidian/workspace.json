@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "caf555afad7b9c70",
+        "id": "d8786182e661d708",
         "type": "tabs",
         "children": [
           {
-            "id": "e13c2fd1b314c581",
+            "id": "073ee703c3b33673",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -19,16 +19,6 @@
               },
               "icon": "lucide-file",
               "title": "显示图形系统分析之SurfaceFlinger启动流程显示图形系统中，避不开的SurfaceFlinger非常重要，对于 - 掘金"
-            }
-          },
-          {
-            "id": "070bd3d6d87a2dc9",
-            "type": "leaf",
-            "state": {
-              "type": "empty",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "新标签页"
             }
           }
         ]
@@ -196,10 +186,16 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "e13c2fd1b314c581",
+  "active": "073ee703c3b33673",
   "lastOpenFiles": [
-    "md/个人/Learning.md",
+    "pic/Pasted image 20250109162539.png",
     "md/SurfaceFlinger/显示图形系统分析之SurfaceFlinger启动流程显示图形系统中，避不开的SurfaceFlinger非常重要，对于 - 掘金.md",
+    "pic/Pasted image 20250109162526.png",
+    "pic/Pasted image 20250109162510.png",
+    "Pasted image 20250109141941.png",
+    "Pasted image 20250109142016.png",
+    "Pasted image 20250109142002.png",
+    "md/个人/Learning.md",
     "md/SurfaceFlinger/Android Systrace 基础知识 - SurfaceFlinger 解读 · Android Performance.md",
     "md/SurfaceFlinger/Android Systrace 基础知识 - SystemServer 解读 · Android Performance.md",
     "md/SurfaceFlinger/Android Systrace 基础知识 -- Why 60 fps ？ · Android Performance.md",
@@ -210,9 +206,6 @@
     "md/努比亚/SurfaceFlinger模块-VSYNC研究.md",
     "md/努比亚/Android系统Surface机制的SurfaceFlinger服务的启动过程分析 - Android社区 - httpswww.androidos.net.cn.md",
     "md/努比亚/surfaceflinger 工作流程分析_surfaceflinger 销毁layer-CSDN博客.md",
-    "Pasted image 20250109142016.png",
-    "Pasted image 20250109142002.png",
-    "Pasted image 20250109141941.png",
     "md/努比亚/SurfaceFlinger模块.md",
     "md/努比亚/SurfaceFlinger启动过程分析（一）、（二）、（三）、（四）【转】_surfacefligner启动在zygote之前吗-CSDN博客.md",
     "md/努比亚/解析Binder框架.md",
@@ -229,11 +222,9 @@
     "pic/Pasted image 20241219162312.png",
     "md/豆包回答/deepseek input.md",
     "md/豆包回答/管道通信.md",
-    "md/豆包回答/DeepSeek -  Android INPUT.md",
     "写给应用开发的+Android+Framework+教程(1).pdf",
     "Pasted image 20250106162059.png",
     "Pasted image 20241220132244.png",
-    "pic/IMG_8347.png",
     "md/努比亚",
     "md/GPT",
     "md/豆包回答",
@@ -242,8 +233,6 @@
     "textgenerator/templates",
     "textgenerator",
     "md/ahaoframework.tech",
-    "md/资料/美颜/meiyan.jpg",
-    "md/资料/美颜/meiyan2.jpg",
     "Excalidraw/未命名.canvas",
     "Excalidraw/未命名 1.canvas"
   ]
