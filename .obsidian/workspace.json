@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/努比亚/Android Systrace 基础知识 - SurfaceFlinger 解读 · Android Performance.md",
+                "file": "md/SurfaceFlinger/Android Systrace 基础知识 - SurfaceFlinger 解读 · Android Performance.md",
                 "mode": "preview",
                 "source": false
               },
@@ -196,10 +196,11 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "e13c2fd1b314c581",
+  "active": "fa4657deb406b728",
   "lastOpenFiles": [
+    "md/SurfaceFlinger",
     "md/努比亚/Android画面显示流程分析(2).md",
-    "md/努比亚/Android Systrace 基础知识 - SurfaceFlinger 解读 · Android Performance.md",
+    "md/SurfaceFlinger/Android Systrace 基础知识 - SurfaceFlinger 解读 · Android Performance.md",
     "md/努比亚/SurfaceFlinger模块-VSYNC研究.md",
     "md/努比亚/Android系统Surface机制的SurfaceFlinger服务的启动过程分析 - Android社区 - httpswww.androidos.net.cn.md",
     "md/努比亚/surfaceflinger 工作流程分析_surfaceflinger 销毁layer-CSDN博客.md",
@@ -228,7 +229,6 @@
     "md/个人/Android wifi断开.md",
     "md/豆包回答/Input管理.md",
     "md/豆包回答/Activity Finish 流程讲解.md",
-    "md/努比亚/Android 权限控制机制.md",
     "写给应用开发的+Android+Framework+教程(1).pdf",
     "Pasted image 20250106162059.png",
     "Pasted image 20241220132244.png",
