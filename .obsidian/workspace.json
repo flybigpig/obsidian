@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/个人/杂谈.md",
+                "file": "md/SurfaceFlinger/Android Systrace 基础知识 -- Systrace 简介 · Android Performance.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "杂谈"
+              "title": "Android Systrace 基础知识 -- Systrace 简介 · Android Performance"
             }
           },
           {
@@ -198,10 +198,13 @@
   },
   "active": "81d9a1c5083bb444",
   "lastOpenFiles": [
+    "md/SurfaceFlinger/Android Systrace 基础知识 -- 分析 Systrace 预备知识 · Android Performance.md",
+    "md/SurfaceFlinger/Android Systrace 基础知识 - SurfaceFlinger 解读 · Android Performance.md",
+    "md/SurfaceFlinger/Android Systrace 基础知识 -- Why 60 fps ？ · Android Performance.md",
+    "md/个人/杂谈.md",
     "pic/c1f08381-5bf9-488d-b45c-86edf7160912.png",
     "pic/Pasted image 20250109162539.png",
     "pic/Pasted image 20250113093852.png",
-    "md/个人/杂谈.md",
     "Pasted image 20250113093848.png",
     "md/SurfaceFlinger/显示图形系统分析之SurfaceFlinger启动流程显示图形系统中，避不开的SurfaceFlinger非常重要，对于 - 掘金 1.md",
     "md/SurfaceFlinger/显示图形系统分析之SurfaceFlinger启动流程显示图形系统中，避不开的SurfaceFlinger非常重要，对于 - 掘金.md",
@@ -228,13 +231,10 @@
     "md/努比亚/Android卡顿掉帧问题分析之实战篇.md",
     "md/努比亚/Android Input输入事件处理流程分享（3）.md",
     "md/努比亚/Android Input输入事件处理流程分享（2）.md",
-    "md/努比亚/Android Input输入事件处理流程分享（1）.md",
-    "md/SurfaceFlinger/Android Systrace 基础知识 -- Systrace 简介 · Android Performance.md",
     "pic/Pasted image 20250109162526.png",
     "pic/Pasted image 20250109162510.png",
     "md/SurfaceFlinger",
     "pic/Pasted image 20250107161706.png",
-    "pic/Pasted image 20241219162312.png",
     "写给应用开发的+Android+Framework+教程(1).pdf",
     "md/努比亚",
     "md/GPT",
