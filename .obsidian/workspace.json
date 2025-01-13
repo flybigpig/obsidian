@@ -198,6 +198,8 @@
   },
   "active": "81d9a1c5083bb444",
   "lastOpenFiles": [
+    "md/个人/基本功  一文讲清多线程和多线程同步.md",
+    "md/SurfaceFlinger/Android Systrace 基础知识 -- Systrace 简介 · Android Performance.md",
     "md/SurfaceFlinger/Android Systrace 基础知识 -- 分析 Systrace 预备知识 · Android Performance.md",
     "md/SurfaceFlinger/Android Systrace 基础知识 - SurfaceFlinger 解读 · Android Performance.md",
     "md/SurfaceFlinger/Android Systrace 基础知识 -- Why 60 fps ？ · Android Performance.md",
@@ -229,8 +231,6 @@
     "md/努比亚/Android应用启动全流程分析（源码深度剖析）.md",
     "md/努比亚/InputConsumer.md",
     "md/努比亚/Android卡顿掉帧问题分析之实战篇.md",
-    "md/努比亚/Android Input输入事件处理流程分享（3）.md",
-    "md/努比亚/Android Input输入事件处理流程分享（2）.md",
     "pic/Pasted image 20250109162526.png",
     "pic/Pasted image 20250109162510.png",
     "md/SurfaceFlinger",
