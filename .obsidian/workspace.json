@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/个人/Fragment 新特性  Fragment Result API 使用以及源码分析 - 知乎.md",
-                "mode": "source",
+                "file": "md/个人/彻底掌握 Android14 Vsync 原理.md",
+                "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Fragment 新特性  Fragment Result API 使用以及源码分析 - 知乎"
+              "title": "彻底掌握 Android14 Vsync 原理"
             }
           },
           {
@@ -192,13 +192,15 @@
       "command-palette:打开命令面板": false,
       "markdown-importer:打开 Markdown 格式转换器": false,
       "obsidian-full-calendar:Open Full Calendar": false,
-      "obsidian-git:Open Git source control": false
+      "obsidian-git:Open Git source control": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
   "active": "81d9a1c5083bb444",
   "lastOpenFiles": [
-    "md/SurfaceFlinger/Android Systrace 基础知识 -- Systrace 简介 · Android Performance.md",
     "md/个人/Fragment 新特性  Fragment Result API 使用以及源码分析 - 知乎.md",
+    "md/个人/彻底掌握 Android14 Vsync 原理.md",
+    "md/SurfaceFlinger/Android Systrace 基础知识 -- Systrace 简介 · Android Performance.md",
     "md/个人/基本功  一文讲清多线程和多线程同步.md",
     "md/SurfaceFlinger/Android Systrace 基础知识 -- 分析 Systrace 预备知识 · Android Performance.md",
     "md/SurfaceFlinger/Android Systrace 基础知识 - SurfaceFlinger 解读 · Android Performance.md",
@@ -229,7 +231,6 @@
     "Pasted image 20250109142002.png",
     "Pasted image 20250109141941.png",
     "md/努比亚/Android应用启动全流程分析（源码深度剖析）.md",
-    "md/努比亚/InputConsumer.md",
     "pic/Pasted image 20250109162526.png",
     "pic/Pasted image 20250109162510.png",
     "md/SurfaceFlinger",
