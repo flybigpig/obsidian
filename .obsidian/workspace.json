@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/努比亚/Android画面显示流程分析(5).md",
+                "file": "hexo/hello-world.md",
                 "mode": "source",
-                "source": false
+                "source": true
               },
               "icon": "lucide-file",
-              "title": "Android画面显示流程分析(5)"
+              "title": "hello-world"
             }
           }
         ]
@@ -182,11 +182,17 @@
       "command-palette:打开命令面板": false,
       "markdown-importer:打开 Markdown 格式转换器": false,
       "obsidian-full-calendar:Open Full Calendar": false,
-      "obsidian-git:Open Git source control": false
+      "obsidian-git:Open Git source control": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "663411fe4f8541ef",
+  "active": "fa4657deb406b728",
   "lastOpenFiles": [
+    "hexo/《把彷徨写出情节来》.md",
+    "hexo/hello-world.md",
+    "md/个人/harmony-人脸.md",
+    "hexo",
+    "md/努比亚/Android画面显示流程分析(5).md",
     "md/AdvancedAndroid/README.md",
     "md/个人/Handler-sendMessageAtTime.md",
     "pic/e73ad7f6d928a1b67f9f2c08ab9bc1f.png",
@@ -215,14 +221,10 @@
     "md/努比亚/Android系统Surface机制的SurfaceFlinger服务的启动过程分析 - Android社区 - httpswww.androidos.net.cn.md",
     "md/努比亚/Android开机全解析.md",
     "md/努比亚/Android卡顿掉帧问题分析之原理篇.md",
-    "md/努比亚/Android画面显示流程分析(5).md",
     "md/努比亚/Android画面显示流程分析(2).md",
     "md/努比亚/Android画面显示流程分析(1).md",
     "md/努比亚/Android 权限控制机制.md",
     "md/努比亚/解析Binder框架.md",
-    "md/努比亚/WindowManagerService本地窗口动画.md",
-    "md/努比亚/View 系列 —— 小白也能看懂的 DecorViewView 是树形结构，一组 View 的集合就是 ViewGro - 掘金.md",
-    "md/努比亚/SurfaceFlinger模块-VSYNC研究.md",
     "Pasted image 20250109142016.png",
     "md/SurfaceFlinger",
     "md/努比亚",
@@ -232,7 +234,6 @@
     "textgenerator/templates/dalle",
     "textgenerator/templates",
     "textgenerator",
-    "md/ahaoframework.tech",
     "Excalidraw/未命名.canvas",
     "Excalidraw/未命名 1.canvas"
   ]
