@@ -1,8 +1,7 @@
 ---
-title: 文章分类
+title: 第一个启动的程序--init
 date: 2022-01-07 22:53:43
-type: "categories"
-layout: "categories"
+tags:
 ---
 
 ## 前言

@@ -4,31 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "3c4abe629a508d01",
+        "id": "3277a6f5ddc73fe9",
         "type": "tabs",
         "children": [
           {
-            "id": "663411fe4f8541ef",
+            "id": "61d0a91d2767f5b0",
             "type": "leaf",
             "state": {
-              "type": "image",
+              "type": "markdown",
               "state": {
-                "file": "pic/c1f08381-5bf9-488d-b45c-86edf7160912.png"
+                "file": "md/android/【Android FrameWork】第一个启动的程序--init (含视频) - 掘金.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-image",
-              "title": "c1f08381-5bf9-488d-b45c-86edf7160912"
-            }
-          },
-          {
-            "id": "59361dc872e77954",
-            "type": "leaf",
-            "state": {
-              "type": "image",
-              "state": {
-                "file": "pic/c1f08381-5bf9-488d-b45c-86edf7160912.png"
-              },
-              "icon": "lucide-image",
-              "title": "c1f08381-5bf9-488d-b45c-86edf7160912"
+              "icon": "lucide-file",
+              "title": "【Android FrameWork】第一个启动的程序--init (含视频) - 掘金"
             }
           }
         ]
@@ -196,10 +186,12 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "fa4657deb406b728",
+  "active": "61d0a91d2767f5b0",
   "lastOpenFiles": [
-    "md/个人/杂谈.md",
+    "md/android/Binder中的数据结构.md",
+    "md/android/ExpandList.md",
     "pic/c1f08381-5bf9-488d-b45c-86edf7160912.png",
+    "md/个人/杂谈.md",
     "md/个人/彻底掌握 Android14 Vsync 原理.md",
     "md/个人/阿豪.md",
     "md/android/【Android FrameWork】第一个启动的程序--init (含视频) - 掘金.md",
@@ -230,7 +222,6 @@
     "md/SurfaceFlinger/Android Systrace 基础知识 -- Systrace 简介 · Android Performance.md",
     "md/个人/基本功  一文讲清多线程和多线程同步.md",
     "md/SurfaceFlinger/Android Systrace 基础知识 -- 分析 Systrace 预备知识 · Android Performance.md",
-    "md/SurfaceFlinger/Android Systrace 基础知识 - SurfaceFlinger 解读 · Android Performance.md",
     "pic/Pasted image 20250109162539.png",
     "pic/Pasted image 20250113093852.png",
     "Pasted image 20250113093848.png",
