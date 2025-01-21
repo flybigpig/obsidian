@@ -1,3 +1,6 @@
+---
+title: 彻底掌握 Android14 Vsync 原理
+---
 ## Android14 Vsync 部分变化较大，本文梳理了其主要要点。
 
 核心要点：

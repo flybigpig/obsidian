@@ -11,14 +11,24 @@
             "id": "663411fe4f8541ef",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "image",
               "state": {
-                "file": "md/个人/阿豪.md",
-                "mode": "source",
-                "source": false
+                "file": "pic/c1f08381-5bf9-488d-b45c-86edf7160912.png"
               },
-              "icon": "lucide-file",
-              "title": "阿豪"
+              "icon": "lucide-image",
+              "title": "c1f08381-5bf9-488d-b45c-86edf7160912"
+            }
+          },
+          {
+            "id": "59361dc872e77954",
+            "type": "leaf",
+            "state": {
+              "type": "image",
+              "state": {
+                "file": "pic/c1f08381-5bf9-488d-b45c-86edf7160912.png"
+              },
+              "icon": "lucide-image",
+              "title": "c1f08381-5bf9-488d-b45c-86edf7160912"
             }
           }
         ]
@@ -186,14 +196,17 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "663411fe4f8541ef",
+  "active": "fa4657deb406b728",
   "lastOpenFiles": [
+    "md/个人/杂谈.md",
+    "pic/c1f08381-5bf9-488d-b45c-86edf7160912.png",
+    "md/个人/彻底掌握 Android14 Vsync 原理.md",
+    "md/个人/阿豪.md",
     "md/android/【Android FrameWork】第一个启动的程序--init (含视频) - 掘金.md",
     "md/个人/init.rc.md",
     "md/个人/Android10.0系统启动之Launcher(桌面)启动流程-Android取经之路 - yooooooo - 博客园.md",
     "md/个人/Android Wifi断开问题分析和802.11原因码_assoc rsp 0x001e-CSDN博客.md",
     "md/个人/androidStart 1.md",
-    "md/个人/阿豪.md",
     "md/个人/Windows 11：3 种方法轻松绕过 TPM、CPU 和安全启动检测.md",
     "md/个人/Typora.md",
     "md/个人/Zygote.md",
@@ -203,7 +216,6 @@
     "md/个人/Fragment 新特性  Fragment Result API 使用以及源码分析 - 知乎.md",
     "md/个人/GPT40-mini.md",
     "md/个人/开机优化.md",
-    "md/个人/彻底掌握 Android14 Vsync 原理.md",
     "hexo/hello-world.md",
     "hexo/《把彷徨写出情节来》.md",
     "hexo",
@@ -219,9 +231,6 @@
     "md/个人/基本功  一文讲清多线程和多线程同步.md",
     "md/SurfaceFlinger/Android Systrace 基础知识 -- 分析 Systrace 预备知识 · Android Performance.md",
     "md/SurfaceFlinger/Android Systrace 基础知识 - SurfaceFlinger 解读 · Android Performance.md",
-    "md/SurfaceFlinger/Android Systrace 基础知识 -- Why 60 fps ？ · Android Performance.md",
-    "md/个人/杂谈.md",
-    "pic/c1f08381-5bf9-488d-b45c-86edf7160912.png",
     "pic/Pasted image 20250109162539.png",
     "pic/Pasted image 20250113093852.png",
     "Pasted image 20250113093848.png",
