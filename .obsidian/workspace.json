@@ -182,11 +182,13 @@
       "command-palette:打开命令面板": false,
       "markdown-importer:打开 Markdown 格式转换器": false,
       "obsidian-full-calendar:Open Full Calendar": false,
-      "obsidian-git:Open Git source control": false
+      "obsidian-git:Open Git source control": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "61d0a91d2767f5b0",
+  "active": "fa4657deb406b728",
   "lastOpenFiles": [
+    "md/个人/hexo博客插入音视频-腾讯云开发者社区-腾讯云.md",
     "md/AdvancedAndroid/组件化/Android-DI从入门到放弃.md",
     "md/AdvancedAndroid/组件化/组件化思路.md",
     "md/android/Activity启动流程.md",
@@ -213,7 +215,6 @@
     "md/个人/GPT40-mini.md",
     "md/个人/开机优化.md",
     "hexo/hello-world.md",
-    "hexo/《把彷徨写出情节来》.md",
     "hexo",
     "pic/e73ad7f6d928a1b67f9f2c08ab9bc1f.png",
     "pic/6b5710bda24ee1fd270ddd2da769d63.png",
