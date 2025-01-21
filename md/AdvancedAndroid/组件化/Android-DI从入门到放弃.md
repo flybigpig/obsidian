@@ -1,3 +1,8 @@
+---
+tags:
+  - DI
+  - Android
+---
 
 - [依赖注入 : Dependency Injection，DI](#依赖注入--dependency-injectiondi)
     - [什么是依赖?](#什么是依赖)
