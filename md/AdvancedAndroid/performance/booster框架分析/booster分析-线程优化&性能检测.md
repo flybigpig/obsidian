@@ -1,3 +1,6 @@
+---
+title: booster分析
+---
 - [多线程优化 [booster-transform-thread](https://github.com/didi/booster/tree/master/booster-transform-thread)](#多线程优化-booster-transform-threadhttpsgithubcomdidiboostertreemasterbooster-transform-thread)
     - [给线程设置名称，便于代码追踪和bug修复](#给线程设置名称便于代码追踪和bug修复)
     - [设置线程池的 `allowCoreThreadTimeOut(true)`](#设置线程池的-allowcorethreadtimeouttrue)

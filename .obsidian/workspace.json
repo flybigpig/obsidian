@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/AdvancedAndroid/组件化/Android-DI从入门到放弃.md",
+                "file": "md/AdvancedAndroid/performance/booster框架分析/booster分析-线程优化&性能检测.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Android-DI从入门到放弃"
+              "title": "booster分析-线程优化&性能检测"
             }
           }
         ]
@@ -188,8 +188,8 @@
   },
   "active": "61d0a91d2767f5b0",
   "lastOpenFiles": [
-    "md/AdvancedAndroid/组件化/组件化思路.md",
     "md/AdvancedAndroid/组件化/Android-DI从入门到放弃.md",
+    "md/AdvancedAndroid/组件化/组件化思路.md",
     "md/android/Activity启动流程.md",
     "md/android/异常处理 - Native 层的崩溃捕获机制及实现 - 掘金.md",
     "md/android/【Android Framework】ActivityManagerService(一) (含视频) - 掘金.md",
