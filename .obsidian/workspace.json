@@ -11,14 +11,10 @@
             "id": "663411fe4f8541ef",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "hexo/hello-world.md",
-                "mode": "source",
-                "source": true
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "hello-world"
+              "title": "新标签页"
             }
           }
         ]
@@ -186,10 +182,10 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "fa4657deb406b728",
+  "active": "663411fe4f8541ef",
   "lastOpenFiles": [
-    "hexo/《把彷徨写出情节来》.md",
     "hexo/hello-world.md",
+    "hexo/《把彷徨写出情节来》.md",
     "md/个人/harmony-人脸.md",
     "hexo",
     "md/努比亚/Android画面显示流程分析(5).md",
