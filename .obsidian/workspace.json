@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/豆包回答/deepseek input.md",
+                "file": "md/豆包回答/Input管理.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "deepseek input"
+              "title": "Input管理"
             }
           }
         ]
@@ -189,6 +189,7 @@
   },
   "active": "61d0a91d2767f5b0",
   "lastOpenFiles": [
+    "md/豆包回答/deepseek input.md",
     "md/豆包回答/管道通信.md",
     "md/个人/阿豪.md",
     "README.md",
@@ -215,7 +216,6 @@
     "md/个人/Zygote.md",
     "md/个人/Handler-sendMessageAtTime.md",
     "md/个人/Android init进程 - yooooooo - 博客园.md",
-    "md/个人/harmony-人脸.md",
     "hexo",
     "pic/e73ad7f6d928a1b67f9f2c08ab9bc1f.png",
     "pic/6b5710bda24ee1fd270ddd2da769d63.png",
