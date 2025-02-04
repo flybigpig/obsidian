@@ -1,4 +1,4 @@
-
+1
 ## inputreader是如何通知inputDispatch启动的?
 
 在 Android 的输入子系统中，`InputReader` 和 `InputDispatcher` 是两个核心组件，它们共同协作来处理输入事件。`InputReader` 负责从硬件设备读取原始输入事件并将其转换为 Android 输入事件，而 `InputDispatcher` 负责将这些事件分发给目标应用程序窗口。
