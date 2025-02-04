@@ -14,7 +14,7 @@
       "tag": "Doubao",
       "vendor": "Doubao",
       "options": {
-        "apiKey": "",
+        "apiKey": "e93ecb62-6e1f-437d-858b-d6f7584affbb",
         "baseURL": "https://ark.cn-beijing.volces.com/api/v3/chat/completions",
         "model": "",
         "parameters": {}
