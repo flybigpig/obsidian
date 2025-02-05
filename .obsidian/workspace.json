@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/个人/hexo博客插入音视频-腾讯云开发者社区-腾讯云.md",
+                "file": "md/个人/阿豪.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "hexo博客插入音视频-腾讯云开发者社区-腾讯云"
+              "title": "阿豪"
             }
           }
         ]
@@ -186,11 +186,11 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "fa4657deb406b728",
+  "active": "61d0a91d2767f5b0",
   "lastOpenFiles": [
-    "md/豆包回答/asd.md",
-    "md/AdvancedAndroid/performance/booster框架分析/booster分析-线程优化&性能检测.md",
     "md/个人/hexo博客插入音视频-腾讯云开发者社区-腾讯云.md",
+    "md/DeepSeek/asd.md",
+    "md/AdvancedAndroid/performance/booster框架分析/booster分析-线程优化&性能检测.md",
     "md/AdvancedAndroid/组件化/Android-DI从入门到放弃.md",
     "md/AdvancedAndroid/组件化/组件化思路.md",
     "md/android/Activity启动流程.md",
@@ -229,7 +229,7 @@
     "md/SurfaceFlinger",
     "md/努比亚",
     "md/GPT",
-    "md/豆包回答",
+    "md/DeepSeek",
     "textgenerator/templates/default",
     "textgenerator/templates/dalle",
     "textgenerator/templates",
