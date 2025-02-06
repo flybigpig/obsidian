@@ -20,8 +20,21 @@
               "icon": "lucide-file",
               "title": "解析Binder框架"
             }
+          },
+          {
+            "id": "c29f893598a4b2a5",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.8.4"
+              },
+              "icon": "lucide-book-up",
+              "title": "Release Notes 1.8.4"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -40,7 +53,8 @@
             "state": {
               "type": "file-explorer",
               "state": {
-                "sortOrder": "alphabetical"
+                "sortOrder": "alphabetical",
+                "autoReveal": false
               },
               "icon": "lucide-folder-closed",
               "title": "文件列表"
@@ -182,11 +196,10 @@
       "command-palette:打开命令面板": false,
       "markdown-importer:打开 Markdown 格式转换器": false,
       "obsidian-full-calendar:Open Full Calendar": false,
-      "obsidian-git:Open Git source control": false,
-      "obsidian-excalidraw-plugin:新建绘图文件": false
+      "obsidian-git:Open Git source control": false
     }
   },
-  "active": "61d0a91d2767f5b0",
+  "active": "c29f893598a4b2a5",
   "lastOpenFiles": [
     "写给应用开发的+Android+Framework+教程(1).pdf",
     "md/个人/阿豪.md",
