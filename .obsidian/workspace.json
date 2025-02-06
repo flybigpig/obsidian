@@ -25,12 +25,14 @@
             "id": "c29f893598a4b2a5",
             "type": "leaf",
             "state": {
-              "type": "release-notes",
+              "type": "markdown",
               "state": {
-                "currentVersion": "1.8.4"
+                "file": "md/DeepSeek/asd.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-book-up",
-              "title": "Release Notes 1.8.4"
+              "icon": "lucide-file",
+              "title": "asd"
             }
           }
         ],
@@ -196,13 +198,14 @@
       "command-palette:打开命令面板": false,
       "markdown-importer:打开 Markdown 格式转换器": false,
       "obsidian-full-calendar:Open Full Calendar": false,
-      "obsidian-git:Open Git source control": false
+      "obsidian-git:Open Git source control": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
   "active": "c29f893598a4b2a5",
   "lastOpenFiles": [
-    "写给应用开发的+Android+Framework+教程(1).pdf",
     "md/个人/阿豪.md",
+    "写给应用开发的+Android+Framework+教程(1).pdf",
     "md/个人/hexo博客插入音视频-腾讯云开发者社区-腾讯云.md",
     "md/DeepSeek/asd.md",
     "md/AdvancedAndroid/performance/booster框架分析/booster分析-线程优化&性能检测.md",

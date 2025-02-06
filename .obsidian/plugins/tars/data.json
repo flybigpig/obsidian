@@ -4,19 +4,9 @@
       "tag": "DeepSeek",
       "vendor": "DeepSeek",
       "options": {
-        "apiKey": "",
+        "apiKey": "sk-yfoqcjmwgepwodalmxbjreubkboxrgqqrmfpkyhpmahzmeif",
         "baseURL": "https://api.deepseek.com",
         "model": "deepseek-chat",
-        "parameters": {}
-      }
-    },
-    {
-      "tag": "Doubao",
-      "vendor": "Doubao",
-      "options": {
-        "apiKey": "e93ecb62-6e1f-437d-858b-d6f7584affbb",
-        "baseURL": "https://ark.cn-beijing.volces.com/api/v3/chat/completions",
-        "model": "",
         "parameters": {}
       }
     }
