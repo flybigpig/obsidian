@@ -4,19 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "3277a6f5ddc73fe9",
+        "id": "e4541b569d5db251",
         "type": "tabs",
         "children": [
           {
-            "id": "c29f893598a4b2a5",
+            "id": "b190b9220a1a6172",
             "type": "leaf",
             "state": {
-              "type": "pdf",
-              "state": {
-                "file": "写给应用开发的+Android+Framework+教程(1).pdf"
-              },
-              "icon": "lucide-file-text",
-              "title": "写给应用开发的+Android+Framework+教程(1)"
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "新标签页"
             }
           }
         ]
@@ -188,11 +186,11 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "f84ce6d2fe2622cd",
+  "active": "b190b9220a1a6172",
   "lastOpenFiles": [
+    "写给应用开发的+Android+Framework+教程(1).pdf",
     "md/DeepSeek/asd.md",
     "md/个人/阿豪.md",
-    "写给应用开发的+Android+Framework+教程(1).pdf",
     "md/个人/hexo博客插入音视频-腾讯云开发者社区-腾讯云.md",
     "md/AdvancedAndroid/performance/booster框架分析/booster分析-线程优化&性能检测.md",
     "md/AdvancedAndroid/组件化/Android-DI从入门到放弃.md",
