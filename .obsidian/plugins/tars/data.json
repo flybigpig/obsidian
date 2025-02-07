@@ -1,16 +1,5 @@
 {
-  "providers": [
-    {
-      "tag": "DeepSeek",
-      "vendor": "DeepSeek",
-      "options": {
-        "apiKey": "sk-yfoqcjmwgepwodalmxbjreubkboxrgqqrmfpkyhpmahzmeif",
-        "baseURL": "https://api.deepseek.com",
-        "model": "deepseek-chat",
-        "parameters": {}
-      }
-    }
-  ],
+  "providers": [],
   "systemTags": [
     "System",
     "系统"
