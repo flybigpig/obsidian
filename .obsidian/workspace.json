@@ -4,19 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "1c920fe5ca37b8fc",
+        "id": "94ecffb0d64f36e2",
         "type": "tabs",
         "children": [
           {
-            "id": "4f727778ac61c699",
+            "id": "e87ced2bff9f2a36",
             "type": "leaf",
             "state": {
-              "type": "pdf",
+              "type": "markdown",
               "state": {
-                "file": "写给应用开发的+Android+Framework+教程(1).pdf"
+                "file": "yto/侧滑.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-file-text",
-              "title": "写给应用开发的+Android+Framework+教程(1)"
+              "icon": "lucide-file",
+              "title": "侧滑"
             }
           }
         ]
@@ -186,11 +188,13 @@
       "command-palette:打开命令面板": false,
       "markdown-importer:打开 Markdown 格式转换器": false,
       "obsidian-full-calendar:Open Full Calendar": false,
-      "obsidian-git:Open Git source control": false
+      "obsidian-git:Open Git source control": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "4f727778ac61c699",
+  "active": "e87ced2bff9f2a36",
   "lastOpenFiles": [
+    "写给应用开发的+Android+Framework+教程(1).pdf",
     "md/Android请求注册服务过程源码分析_android servicemanager.addservice流程-CSDN博客.md",
     "md/Android IPC数据在内核空间中的发送过程分析_安卓系统内核发短信流程-CSDN博客.md",
     "md/Android 数据Parcel序列化过程源码分析_writeinterfacetoken-CSDN博客.md",
@@ -216,8 +220,6 @@
     "md/DeepSeek/管道通信.md",
     "md/DeepSeek/解答图片中的问题 - 豆包.md",
     "md/DeepSeek/Input管理.md",
-    "md/DeepSeek/asd.md",
-    "写给应用开发的+Android+Framework+教程(1).pdf",
     "pic/c1f08381-5bf9-488d-b45c-86edf7160912.png",
     "hexo",
     "pic/e73ad7f6d928a1b67f9f2c08ab9bc1f.png",
