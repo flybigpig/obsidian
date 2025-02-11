@@ -26,7 +26,7 @@ Java层服务注册过程
 
 通过ServiceManager类的addService()函数来注册某个服务，addService函数的实现如下：
 
-```
+```java
 public static void addService(String name, IBinder service) {
 	try {
 		getIServiceManager().addService(name, service, false);
