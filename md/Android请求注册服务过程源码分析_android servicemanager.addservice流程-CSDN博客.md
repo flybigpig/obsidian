@@ -176,7 +176,7 @@ ProcessState == handle_entry * ProcessState == lookupHandleLocked(int32_t handle
 
 ![](https://i-blog.csdnimg.cn/blog_migrate/6efefbc811e53bc8df27fbbaaf7f66e9.png)
 
-  
+
 在ProcessState的成员变量mHandleToObject中存储了进程所使用的BpBinder，Handle值是BpBinder所对应的handle\_entry在表mHandleToObject中的索引。
 
 查找过程实质上就是从mHandleToObject向量中查找相应句柄的Binder代理对象。
@@ -410,16 +410,18 @@ sp < IServiceManager > defaultServiceManager() {
 
 通过interface_cast<IServiceManager>(ProcessState::self()->getContextObject(NULL))获取servicemanager代理对象的引用，通过以下三个步骤来实现：
 
-1) ProcessState::self() 得到ProcessState实例对象；
+1) `ProcessState::self() 得到ProcessState实例对象；`
 
-2) ProcessState->getContextObject(NULL) 得到BpBinder对象；
+2) `ProcessState->getContextObject(NULL) 得到BpBinder对象；`
 
-3) interface_cast<IServiceManager>(const sp<IBinder>& obj) 使用BpBinder对象来创建服务代理对象BpXXX；
+3) `interface_cast<IServiceManager>(const sp<IBinder>& obj) 使用BpBinder对象来创建服务代理对象BpXXX；`
 
 前面两个步骤ProcessState::self()->getContextObject(NULL)已经在前面详细介绍了，它返回一个BpBinder(0)对象实例。因此：
 
-gDefaultServiceManager = interface_cast<IServiceManager>(BpBinder(0));
+`gDefaultServiceManager = interface_cast<IServiceManager>(BpBinder(0));`
 interface_cast是一个模版函数
+
+``````
 frameworks\base\include\binder\IInterface.h
 
 template<typename INTERFACE>
@@ -428,10 +430,13 @@ inline sp<INTERFACE> interface_cast(const sp<IBinder>& obj)
 　　return INTERFACE::asInterface(obj);
 　　//return IServiceManager::asInterface(obj);
 }
+``````
+
 因此interface_cast函数的实现实际上是调用相应接口的asInterface函数来完成的，对于IServiceManager接口即调用IServiceManager::asInterface(obj)
 
 通过宏DECLARE_META_INTERFACE声明了ServiceManager的接口函数
 
+```
 DECLARE_META_INTERFACE(ServiceManager);
 DECLARE_META_INTERFACE 的定义：
 
@@ -442,15 +447,30 @@ DECLARE_META_INTERFACE 的定义：
     virtual const android::String16& getInterfaceDescriptor() const;      \
     I##INTERFACE();                                          \
 　　virtual ~I##INTERFACE();                                   \
+```
+
+
+
+
+
 因此对于ServiceManager的接口函数声明如下：
 
+```
 static const android::String16 descriptor;                         
 static android::sp<IServiceManager> asInterface(const android::sp<android::IBinder>& obj);              
 virtual const android::String16& getInterfaceDescriptor() const;      
 IServiceManager();                                          
 virtual ~IServiceManager();  
+
+```
+
+
+
+
+
 通过宏IMPLEMENT_META_INTERFACE定义ServiceManager的接口函数实现
 
+```
 IMPLEMENT_META_INTERFACE(ServiceManager, "android.os.IServiceManager");
 IMPLEMENT_META_INTERFACE的定义：
 
@@ -476,8 +496,15 @@ IMPLEMENT_META_INTERFACE的定义：
     }                                                         \
     I##INTERFACE::I##INTERFACE() { }                         \
     I##INTERFACE::~I##INTERFACE() { }                        \
+```
+
+
+
+
+
 对于ServiceManager的接口函数实现如下：
 
+```
 const android::String16 IServiceManager::descriptor(NAME);       
 const android::String16&                                     
 		IServiceManager::getInterfaceDescriptor() const {        
@@ -497,32 +524,59 @@ android::sp<IServiceManager> IServiceManager::asInterface(
 }                                                        
 IServiceManager::IServiceManager() { }                        
 IServiceManager::~IServiceManager() { }                       
+
  
- 
- 
+```
+
+
+
+
+
 Obj是BpBinder对象，BpBinder继承IBinder类，在子类BpBinder中并未重写父类的queryLocalInterface接口函数，因此obj->queryLocalInterface() 实际上是调用父类IBinder的queryLocalInterface()函数，在IBinder类中：
 
+```
 sp<IInterface>  IBinder::queryLocalInterface(const String16& descriptor)
 {
     return NULL;
 }
+```
+
+
+
+
+
 因此通过调用 IServiceManager::asInterface()函数即可创建ServiceManager的代理对象BpServiceManager = new BpServiceManager(new BpBinder(0))，BpServiceManager的构造实际上是对通信层的封装，为上层屏蔽进程间通信的细节。
 
 BpServiceManager的构造过程：
 
+```
 BpServiceManager(const sp<IBinder>& impl): BpInterface<IServiceManager>(impl)
 {
 }
+```
+
+
+
 BpServiceManager的构造过程中并未做任何实现，在构造BpServiceManager对象之前，必须先构造父类对象BpInterface，BpInterface的构造函数采用了模板函数实现：
 
+```
 template<typename INTERFACE>
 inline BpInterface<INTERFACE>::BpInterface(const sp<IBinder>& remote): BpRefBase(remote)
 {
 }
+```
+
+
+
+
+
+
+
 由于BpInterface 同时继承于BpRefBase及相应的接口，如IServiceManager，因此在构造BpInterface 的过程中必先构造其父类对象：
 
 对于父类BpRefBase的构造过程如下：
 
+```
 BpRefBase::BpRefBase(const sp<IBinder>& o): mRemote(o.get()), mRefs(NULL), mState(0)
 {
     extendObjectLifetime(OBJECT_LIFETIME_WEAK);
@@ -531,11 +585,19 @@ BpRefBase::BpRefBase(const sp<IBinder>& o): mRemote(o.get()), mRefs(NULL), mStat
         mRefs = mRemote->createWeak(this);  // Held for our entire lifetime.
     }
 }
+```
+
+
+
+
+
 最终把ServiceManger对应的BpBinder(0)赋给了mRemote，在客户端向ServiceManager发送请求过程中，首先通过ServiceManager的代理对象BpServiceManager来包装数据，接着调用BpBinder将数据发送给服务端ServiceManager。
 
 
 
-BpServiceManager服务注册过程
+#### BpServiceManager服务注册过程
+
+```
 virtual status_t addService(const String16& name, const sp<IBinder>& service,
 		bool allowIsolated)
 {
@@ -549,8 +611,10 @@ virtual status_t addService(const String16& name, const sp<IBinder>& service,
 	status_t err = remote()->transact(ADD_SERVICE_TRANSACTION, data, &reply);
 	return err == NO_ERROR ? reply.readExceptionCode() : err;
 }
+```
 函数首先将要发送的数据打包在parcel对象中，然后调用BpBinder对象来发送数据。
 
+```
 status_t BpBinder::transact(uint32_t code, const Parcel& data, Parcel* reply, uint32_t flags)
 {
     // Once a binder has died, it will never come back to life.
@@ -562,11 +626,18 @@ status_t BpBinder::transact(uint32_t code, const Parcel& data, Parcel* reply, ui
     }
     return DEAD_OBJECT;
 }
+```
+
+
+
+
+
+
 
 
 在这里和Java层的服务注册过程殊途同归了，都是通过IPCThreadState类来和Binder驱动交换，将IPC数据发送给ServiceManger进程。本文分析了用户空间中Binder通信架构设计及IPC数据的封装过程，在接下来的Android IPC数据在内核空间中的发送过程分析将进入Binder驱动分析IPC数据的传输过程。
 ————————————————
 
                             版权声明：本文为博主原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接和本声明。
-                        
+
 原文链接：https://blog.csdn.net/yangwen123/article/details/9075171
