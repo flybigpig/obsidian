@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/资料/ffmpeg/资料/FFmpeg编译常见问题(1).md",
+                "file": "md/个人/阿豪.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "FFmpeg编译常见问题(1)"
+              "title": "阿豪"
             }
           }
         ]
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "md/资料/ffmpeg/资料/FFmpeg编译常见问题(1).md",
+                "file": "md/个人/阿豪.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "FFmpeg编译常见问题(1) 的大纲"
+              "title": "阿豪 的大纲"
             }
           },
           {
@@ -194,6 +194,10 @@
   },
   "active": "20e98a38202ef27f",
   "lastOpenFiles": [
+    "md/个人/彻底掌握 Android14 Vsync 原理.md",
+    "md/个人/详解DiffUtils、Myers算法和 Jetpack Compose详细地介绍Android中基于Mayers算法的 - 掘金.md",
+    "md/个人/杂谈.md",
+    "md/资料/ffmpeg/资料/FFmpeg编译常见问题(1).md",
     "md/资料/ffmpeg/资料/音频资料/资料.md",
     "md/个人/Android IPC数据在内核空间中的发送过程分析.md",
     "md/个人/Android 数据Parcel序列化过程源码分析.md",
@@ -207,7 +211,6 @@
     "md/DeepSeek/Input管理.md",
     "md/DeepSeek/asd.md",
     "md/framework系统/Android Handler机制2之ThreadLocal-腾讯云开发者社区-腾讯云.md",
-    "md/个人/详解DiffUtils、Myers算法和 Jetpack Compose详细地介绍Android中基于Mayers算法的 - 掘金.md",
     "md/个人/开机优化.md",
     "md/个人/Binder驱动的核心数据结构.md",
     "md/android/Binder中的数据结构.md",
@@ -217,9 +220,6 @@
     "md/努比亚/解析Binder框架.md",
     "md/AndroidFrameworkTutorial/3.学穿Binder篇/007. Binder 驱动情景分析之服务注册过程.md",
     "md/AndroidFrameworkTutorial/3.学穿Binder篇/005. Binder 驱动情景分析之 ServiceManager 启动过程.md",
-    "md/AndroidFrameworkTutorial/3.学穿Binder篇/003. Binder 服务注册过程情景分析之C语言篇.md",
-    "md/AndroidFrameworkTutorial/3.学穿Binder篇/002. Binder 程序示例之C语言篇.md",
-    "md/掘金Framework/【Android FrameWork】ServiceManager(一) (含视频) - 掘金.md",
     "写给应用开发的+Android+Framework+教程(1).pdf",
     "pic/c1f08381-5bf9-488d-b45c-86edf7160912.png",
     "hexo",
