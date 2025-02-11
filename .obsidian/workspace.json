@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/DeepSeek/asd.md",
-                "mode": "source",
+                "file": "md/个人/详解DiffUtils、Myers算法和 Jetpack Compose详细地介绍Android中基于Mayers算法的 - 掘金.md",
+                "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "asd"
+              "title": "详解DiffUtils、Myers算法和 Jetpack Compose详细地介绍Android中基于Mayers算法的 - 掘金"
             }
           }
         ]
@@ -186,13 +186,15 @@
       "command-palette:打开命令面板": false,
       "markdown-importer:打开 Markdown 格式转换器": false,
       "obsidian-full-calendar:Open Full Calendar": false,
-      "obsidian-git:Open Git source control": false
+      "obsidian-git:Open Git source control": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
   "active": "b190b9220a1a6172",
   "lastOpenFiles": [
-    "写给应用开发的+Android+Framework+教程(1).pdf",
     "md/DeepSeek/asd.md",
+    "md/个人/详解DiffUtils、Myers算法和 Jetpack Compose详细地介绍Android中基于Mayers算法的 - 掘金.md",
+    "写给应用开发的+Android+Framework+教程(1).pdf",
     "md/个人/阿豪.md",
     "md/个人/hexo博客插入音视频-腾讯云开发者社区-腾讯云.md",
     "md/AdvancedAndroid/performance/booster框架分析/booster分析-线程优化&性能检测.md",
