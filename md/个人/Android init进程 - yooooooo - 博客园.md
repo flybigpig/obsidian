@@ -47,7 +47,7 @@ root           166     1 10817360  1916 do_sys_poll         0 S init  # 这个�
 
 在Android中执行的init是/init
 
-```
+```c
 /// @kernel_common/init/main.c
 static int run_init_process(const char *init_filename)
 {
@@ -76,7 +76,7 @@ main执行分为几个阶段：
 -   selinux\_setup 执行selinux的初始化
 -   SecondStage 挂载其他文件系统，启动属性服务，执行boot流程等，主要逻辑都在这里实现
 
-```
+```c
 /// @system/core/init/main.cpp
 int main(int argc, char** argv) {
 [[if]] __has_feature(address_sanitizer)
@@ -114,7 +114,7 @@ int main(int argc, char** argv) {
 
 第一阶段初始化
 
-```
+```c
 /// @system/core/init/first_stage_init.cpp
 int FirstStageMain(int argc, char** argv) {
     if (REBOOT_BOOTLOADER_ON_PANIC) {// 设置panic处理器
@@ -342,7 +342,7 @@ int FirstStageMain(int argc, char** argv) {
 
 init信号处理器，调试版本当init crash，默认重启到 bootLoader
 
-```
+```c
 void InstallRebootSignalHandlers() {
     // Instead of panic'ing the kernel as is the default behavior when init crashes,
     // we prefer to reboot to bootloader on development builds, as this will prevent
@@ -383,7 +383,7 @@ void InstallRebootSignalHandlers() {
 
 默认执行重启的 init\_fatal\_reboot\_target 的值是 bootloader
 
-```
+```c
 /// @system/core/init/reboot_utils.cpp
 static std::string init_fatal_reboot_target = "bootloader";
 
@@ -428,7 +428,7 @@ void __attribute__((noreturn)) InitFatalReboot(int signal_number) {
 
 这里探究一下，在这个first stage挂载了那些分区
 
-```
+```c
 /// @system/core/init/first_stage_mount.cpp
 // Mounts partitions specified by fstab in device tree.
 bool DoFirstStageMount(bool create_devices) {
@@ -455,7 +455,7 @@ bool DoFirstStageMount(bool create_devices) {
 
 #### FirstStageMount::DoFirstStageMount
 
-```
+```c
 /// @system/core/init/first_stage_mount.cpp
 bool FirstStageMount::DoFirstStageMount() {
 // 判断 fstab和逻辑分区存在
@@ -473,7 +473,7 @@ bool FirstStageMount::DoFirstStageMount() {
 
 #### FirstStageMount::MountPartitions
 
-```
+```c
 bool FirstStageMount::MountPartitions() {
  // 挂载 /system
     if (!TrySwitchSystemAsRoot()) return false;
@@ -529,7 +529,7 @@ bool FirstStageMount::MountPartitions() {
 
 从上面分析可知，挂载的信息存储在fstab\_ 里面，它是在FirstStageMount::Create函数中读取的
 
-```
+```c
 Result<std==unique_ptr<FirstStageMount>> FirstStageMount==Create() {
     auto fstab = ReadFirstStageFstab(); // 此处读取 fstab
     if (!fstab.ok()) {
@@ -546,7 +546,7 @@ Result<std==unique_ptr<FirstStageMount>> FirstStageMount==Create() {
 
 #### ReadFirstStageFstab
 
-```
+```c
 /// @system/core/init/first_stage_mount.cpp
 static Result<Fstab> ReadFirstStageFstab() {
     Fstab fstab;
@@ -567,7 +567,7 @@ static Result<Fstab> ReadFirstStageFstab() {
 
 ##### ReadFstabFromDt
 
-```
+```c
 /// @system/core/fs_mgr/fs_mgr_fstab.cpp
 std::string ReadFstabFromDt() {
     if (!is_dt_compatible() || !IsDtFstabCompatible()) {
@@ -593,7 +593,7 @@ std::string ReadFstabFromDt() {
 
 ##### ReadDefaultFstab
 
-```
+```c
 /// @system/core/fs_mgr/fs_mgr_fstab.cpp
 // Loads the fstab file and combines with fstab entries passed in from device tree.
 bool ReadDefaultFstab(Fstab* fstab) {
@@ -624,7 +624,7 @@ bool ReadDefaultFstab(Fstab* fstab) {
 
 看看GetFstabPath实现，决定从哪读取fstab
 
-```
+```c
 // Return the path to the fstab file.  There may be multiple fstab files; the
 // one that is returned will be the first that exists of fstab.<fstab_suffix>,
 // fstab.<hardware>, and fstab.<hardware.platform>.  The fstab is searched for
@@ -657,7 +657,7 @@ std::string GetFstabPath() {
 
 查看 /vendor/etc/fstab.ranchu , 看其中相关分区信息, 比如 /system、/data
 
-```
+```c
 $ cat /vendor/etc/fstab.ranchu
 # Android fstab file.
 #<dev>  <mnt_point> <type>  <mnt_flags options> <fs_mgr_flags>
@@ -675,7 +675,7 @@ dev/block/zram0 none swap  defaults zramsize=75%
 
 初始化 selinux 阶段
 
-```
+```c
 /// @system/core/init/selinux.cpp
 // The SELinux setup process is carefully orchestrated around snapuserd. Policy
 // must be loaded off dynamic partitions, and during an OTA, those partitions
@@ -760,7 +760,7 @@ int SetupSelinux(char** argv) {
 
 第二阶段执行
 
-```
+```c
 /// system/core/init/init.cpp
 int SecondStageMain(int argc, char** argv) {
     if (REBOOT_BOOTLOADER_ON_PANIC) {
@@ -939,7 +939,7 @@ auto pending_functions = epoll.Wait(epoll_timeout); // 等待到新消息到来�
 
 ### PropertyInit
 
-```
+```c
 void PropertyInit() {
     selinux_callback cb;
     cb.func_audit = PropertyAuditCallback;
@@ -975,7 +975,7 @@ void PropertyInit() {
 
 启动系统服务，建立与init之间通信socket，以及设置属性监听
 
-```
+```c
 /// @system/core/init/property_service.cpp
 void StartPropertyService(int* epoll_socket) {
     InitPropertySet("ro.property_service.version", "2");
@@ -1009,7 +1009,7 @@ void StartPropertyService(int* epoll_socket) {
 
 加载并解析 init rc 脚本
 
-```
+```c
 static void LoadBootScripts(ActionManager& action_manager, ServiceList& service_list) {
     Parser parser = CreateParser(action_manager, service_list);
 
@@ -1046,7 +1046,7 @@ static void LoadBootScripts(ActionManager& action_manager, ServiceList& service_
     调用QueueEventTrigger插入事件触发器
     
 
-```
+```c
 // 添加相关action，会同时添加到 事件队列 和 action队列
 am.QueueBuiltinAction(SetupCgroupsAction, "SetupCgroups");
 am.QueueBuiltinAction(SetKptrRestrictAction, "SetKptrRestrict");
@@ -1082,7 +1082,7 @@ am.QueueBuiltinAction(queue_property_triggers_action, "queue_property_triggers")
 
 如下是 init 主循环，负责处理相关事件。
 
-```
+```c
 int SecondStageMain(int argc, char** argv) {
 ...
 // Restore prio before main loop
@@ -1188,7 +1188,7 @@ return 0;
 
 #### late-init
 
-```
+```c
 # Mount filesystems and start core system services.
 on late-init
     trigger early-fs// 启动 vold
@@ -1227,7 +1227,7 @@ on late-init
 
 trigger 会触发调用do\_trigger，向事件队列添加相关触发器，之后会依次取出相关事件执行对应的action
 
-```
+```c
 /// @system/core/init/builtins.cpp
 static Result<void> do_trigger(const BuiltinArguments& args) {
     ActionManager::GetInstance().QueueEventTrigger(args[1]);
@@ -1245,7 +1245,7 @@ void ActionManager==QueueEventTrigger(const std==string& trigger) {
 
 这个触发器是在 late-init 触发器之后加入事件队列的，早于late-init的action中添加的触发器，比如early-fs。该触发器对应的action是queue\_property\_triggers\_action
 
-```
+```c
 /// @system/core/init/init.cpp
 static Result<void> queue_property_triggers_action(const BuiltinArguments& args) {
 // 添加一个enable_property_trigger，将触发init使能处理属性事件。 从时序来看，将晚于 boot trigger 执行
@@ -1264,7 +1264,7 @@ static Result<void> property_enable_triggers_action(const BuiltinArguments& args
 
 将所有属性匹配的action添加到队列。
 
-```
+```c
 /// @system/core/init/action_manager.cpp
 void ActionManager::QueueAllPropertyActions() {
     QueuePropertyChange("", "");
@@ -1280,7 +1280,7 @@ on property:persist.traced_perf.enable=1
 
 zygote-start触发器是用来启动zygote和相关进程的，整个action的执行会依赖加密状态来执行，这些encrypted状态是在执行 mount\_all 操作中设置的。可以看到，依次启动了statsd、netd和zygote等进程，zygote的启动会建立系统服务system\_server进程的创建。
 
-```
+```c
 on zygote-start && property:ro.crypto.state=encrypted && property:ro.crypto.type=file
     wait_for_prop odsign.verification.done 1
     # A/B update verifier that marks a successful boot.
@@ -1295,7 +1295,7 @@ on zygote-start && property:ro.crypto.state=encrypted && property:ro.crypto.type
 
 触发boot事件
 
-```
+```c
 on boot
 ...
 # Update dm-verity state and set partition.*.verified properties.
