@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/DeepSeek/DeepSeek -  Android INPUT.md",
-                "mode": "preview",
+                "file": "md/DeepSeek/实战场景可以应用到 Android Framework.md",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "DeepSeek -  Android INPUT"
+              "title": "实战场景可以应用到 Android Framework"
             }
           }
         ]
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "md/DeepSeek/DeepSeek -  Android INPUT.md",
+                "file": "md/DeepSeek/实战场景可以应用到 Android Framework.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "DeepSeek -  Android INPUT 的大纲"
+              "title": "实战场景可以应用到 Android Framework 的大纲"
             }
           },
           {
@@ -194,10 +194,13 @@
   },
   "active": "f84ce6d2fe2622cd",
   "lastOpenFiles": [
-    "md/DeepSeek/Activity Finish 流程讲解.md",
-    "md/DeepSeek/解答图片中的问题 - 豆包.md",
-    "md/DeepSeek/asd.md",
+    "md/DeepSeek/DeepSeek -  Android INPUT.md",
+    "md/DeepSeek/实战场景可以应用到 Android Framework.md",
     "md/DeepSeek/管道通信.md",
+    "md/DeepSeek/解答图片中的问题 - 豆包.md",
+    "md/DeepSeek/Input管理.md",
+    "md/DeepSeek/Activity Finish 流程讲解.md",
+    "md/DeepSeek/asd.md",
     "md/framework系统/Android Handler机制2之ThreadLocal-腾讯云开发者社区-腾讯云.md",
     "md/个人/Android Binder通信数据结构介绍_不同传输类型下binder的结构-CSDN博客.md",
     "md/个人/详解DiffUtils、Myers算法和 Jetpack Compose详细地介绍Android中基于Mayers算法的 - 掘金.md",
@@ -217,9 +220,6 @@
     "md/个人/Fragment 新特性  Fragment Result API 使用以及源码分析 - 知乎.md",
     "md/个人/GPT40-mini.md",
     "md/个人/Handler-sendMessageAtTime.md",
-    "md/个人/harmony-人脸.md",
-    "md/个人/硬件抽象层（HAL）的代码示例.md",
-    "md/个人/androidStart 1.md",
     "写给应用开发的+Android+Framework+教程(1).pdf",
     "pic/c1f08381-5bf9-488d-b45c-86edf7160912.png",
     "hexo",
