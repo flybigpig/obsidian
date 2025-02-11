@@ -3,7 +3,7 @@
 
 在客户进程向服务进程发送IPC数据时，通常都是先将数据打包在Parcel对象中，然后通过内核空间发送到服务进程中。在[[Android请求注册服务过程源码分析]]中分别从Java和C++层分析了服务注册过程的数据流程，[[Android IPC数据在内核空间中的发送过程分析]]介绍了IPC数据在内核空间的交互过程。客户进程在将IPC数据打包到Parcel对象前，会首先获取一个Parcel对象，类似我们去邮局寄信件，首先需要从邮局获取信封，然后将信件装入到信封中，填写上收件人地址等就可以将信件发送出去。在Android的IPC通信中，Parcel对象就相当于信封，需要注册的服务相当于要邮寄的信件，handle就相当于收件人地址...
 
-```
+```java
 public void addService(String name, IBinder service, boolean allowIsolated)
 		throws RemoteException {
 	//获取Parcel对象
@@ -27,7 +27,7 @@ Zygote进程启动过程的源代码分析中介绍了在Zygote进程启动时�
 REG_JNI(register_android_os_Parcel)
 Parcel类的JNI注册函数实现：
 
-```
+```c
 int register_android_os_Parcel(JNIEnv* env)
 {
     jclass clazz;
@@ -51,7 +51,7 @@ gParcelOffsets是C++中的静态类变量，在Zygote启动时通过JNI方法来
 获取Parcel对象
 通过Parcel类的静态成员函数obtain来获取一个Parcel对象实例
 
-```
+```java
 frameworks\base\core\java\android\os\Parcel.java
 
 public static Parcel obtain() {
@@ -81,7 +81,7 @@ private static final Parcel[] sHolderPool = new Parcel[POOL_SIZE];
 ```
 函数obtain首先从该Parcel对象池中查找不为空的Parcel对象，如果没有找到，就创建一个新的Parcel对象，并且传递参数0.
 
-```
+```c
 private Parcel(int nativePtr) {
 	if (DEBUG_RECYCLE) {
 		mStack = new RuntimeException();
@@ -91,7 +91,7 @@ private Parcel(int nativePtr) {
 ```
 构造了Parcel对象后，调用init()函数来初始化该对象
 
-```
+```c
 private void init(int nativePtr) {
 	if (nativePtr != 0) {
 		mNativePtr = nativePtr;
@@ -104,7 +104,7 @@ private void init(int nativePtr) {
 ```
 如果传进来的参数不为0，就将参数保存到mNativePtr变量中，该变量保存的是Java层Parcel对应的C++层Parcel对象的地址，同时设置mOwnsNativeParcelObject为false，表示该Java层Parcel对象现在还没有关联上C++层的Parcel对象。因为此时传进来的参数为0，因此函数将调用nativeCreate()函数来创建一个C++层的Parcel对象，并将该对象的地址保存在mNativePtr变量中，设置mOwnsNativeParcelObject为true，表示该Parcel对象已经关联了C++的Parcel对象。nativeCreate()函数是一个本地函数，其实现如下：
 
-```
+```c
 static jint android_os_Parcel_create(JNIEnv* env, jclass clazz)
 {
     Parcel* parcel = new Parcel();
@@ -113,7 +113,7 @@ static jint android_os_Parcel_create(JNIEnv* env, jclass clazz)
 ```
 这个函数很简单，就是构造一个Parcel对象，并将给对象的地址返回到Java层。
 
-```
+```c
 Parcel::Parcel()
 {
     initState();
