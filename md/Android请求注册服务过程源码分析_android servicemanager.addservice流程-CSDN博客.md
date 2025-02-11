@@ -2,6 +2,7 @@
 
 CameraService服务的注册过程包括五个步骤：
 
+```
 1）客户进程向ServiceManager进程发送IPC服务注册信息；
 
 2）ServiceManager进程接收客户进程发送过来的IPC数据；
@@ -11,6 +12,7 @@ CameraService服务的注册过程包括五个步骤：
 4）ServiceManager向客户进程发送IPC返回信息；
 
 5）客户进程接收ServiceManager进程发送过来的IPC数据；
+```
 
 本文主要分析客户端进程是如何向ServiceManager进程发送IPC服务注册信息的。服务分为Java服务和本地服务两种，因此服务注册也存在两种方式：Java层服务注册和C++层服务注册。
 
@@ -93,7 +95,9 @@ static jobject android_os_BinderInternal_getContextObject(JNIEnv * env, jobject 
 
 构造ProcessState对象实例
 
+```
 frameworks\\base\\libs\\binder\\ProcessState.cpp  
+```
 采用单例模式为客户端进程创建ProcessState对象：
 
 ```c++
@@ -315,13 +319,14 @@ ServiceManagerProxy实现的代理作用就是将数据的处理与数据的传�
 
 在ServiceManagerProxy对象构造过程中，将BinderProxy对象直接赋给了ServiceManagerProxy的成员变量mRemote了，因此上面调用的transact函数调用的是BinderProxy类的transact函数：
 
-```
+```c++
 public native boolean transact(int code, Parcel data, Parcel reply,int flags) throws RemoteException;
 ```
 
 这是一个本地函数，其对于的JNI实现函数为：
 
 ```c++
+
 static jboolean android_os_BinderProxy_transact(JNIEnv * env, jobject obj, jint code, jobject dataObj, jobject replyObj, jint flags) {
     if (dataObj == NULL) {
         jniThrowNullPointerException(env, NULL);
@@ -396,6 +401,7 @@ static status_t publish(bool allowIsolated = false) {
 #### BpServiceManager对象获取过程
 
 ```c++
+
 sp < IServiceManager > defaultServiceManager() {
     if (gDefaultServiceManager != NULL) return gDefaultServiceManager;
     {
@@ -410,18 +416,23 @@ sp < IServiceManager > defaultServiceManager() {
 
 通过interface_cast<IServiceManager>(ProcessState::self()->getContextObject(NULL))获取servicemanager代理对象的引用，通过以下三个步骤来实现：
 
-1) `ProcessState::self() 得到ProcessState实例对象；`
+```
+1) ProcessState::self() 得到ProcessState实例对象；
 
-2) `ProcessState->getContextObject(NULL) 得到BpBinder对象；`
+2) ProcessState->getContextObject(NULL) 得到BpBinder对象
 
-3) `interface_cast<IServiceManager>(const sp<IBinder>& obj) 使用BpBinder对象来创建服务代理对象BpXXX；`
+3) interface_cast<IServiceManager>(const sp<IBinder>& obj) 使用BpBinder对象来创建服务代理对象BpXXX；
+```
 
 前面两个步骤ProcessState::self()->getContextObject(NULL)已经在前面详细介绍了，它返回一个BpBinder(0)对象实例。因此：
 
-`gDefaultServiceManager = interface_cast<IServiceManager>(BpBinder(0));`
+```
+gDefaultServiceManager = interface_cast<IServiceManager>(BpBinder(0));
+```
+
 interface_cast是一个模版函数
 
-``````
+``````c++
 frameworks\base\include\binder\IInterface.h
 
 template<typename INTERFACE>
@@ -436,7 +447,7 @@ inline sp<INTERFACE> interface_cast(const sp<IBinder>& obj)
 
 通过宏DECLARE_META_INTERFACE声明了ServiceManager的接口函数
 
-```
+```c++
 DECLARE_META_INTERFACE(ServiceManager);
 DECLARE_META_INTERFACE 的定义：
 
@@ -455,7 +466,7 @@ DECLARE_META_INTERFACE 的定义：
 
 因此对于ServiceManager的接口函数声明如下：
 
-```
+```c++
 static const android::String16 descriptor;                         
 static android::sp<IServiceManager> asInterface(const android::sp<android::IBinder>& obj);              
 virtual const android::String16& getInterfaceDescriptor() const;      
@@ -470,7 +481,7 @@ virtual ~IServiceManager();
 
 通过宏IMPLEMENT_META_INTERFACE定义ServiceManager的接口函数实现
 
-```
+```c++
 IMPLEMENT_META_INTERFACE(ServiceManager, "android.os.IServiceManager");
 IMPLEMENT_META_INTERFACE的定义：
 
@@ -504,7 +515,7 @@ IMPLEMENT_META_INTERFACE的定义：
 
 对于ServiceManager的接口函数实现如下：
 
-```
+```c++
 const android::String16 IServiceManager::descriptor(NAME);       
 const android::String16&                                     
 		IServiceManager::getInterfaceDescriptor() const {        
@@ -534,7 +545,7 @@ IServiceManager::~IServiceManager() { }
 
 Obj是BpBinder对象，BpBinder继承IBinder类，在子类BpBinder中并未重写父类的queryLocalInterface接口函数，因此obj->queryLocalInterface() 实际上是调用父类IBinder的queryLocalInterface()函数，在IBinder类中：
 
-```
+```c++
 sp<IInterface>  IBinder::queryLocalInterface(const String16& descriptor)
 {
     return NULL;
@@ -549,7 +560,7 @@ sp<IInterface>  IBinder::queryLocalInterface(const String16& descriptor)
 
 BpServiceManager的构造过程：
 
-```
+```c++
 BpServiceManager(const sp<IBinder>& impl): BpInterface<IServiceManager>(impl)
 {
 }
@@ -559,7 +570,7 @@ BpServiceManager(const sp<IBinder>& impl): BpInterface<IServiceManager>(impl)
 
 BpServiceManager的构造过程中并未做任何实现，在构造BpServiceManager对象之前，必须先构造父类对象BpInterface，BpInterface的构造函数采用了模板函数实现：
 
-```
+```c++
 template<typename INTERFACE>
 inline BpInterface<INTERFACE>::BpInterface(const sp<IBinder>& remote): BpRefBase(remote)
 {
@@ -576,7 +587,7 @@ inline BpInterface<INTERFACE>::BpInterface(const sp<IBinder>& remote): BpRefBase
 
 对于父类BpRefBase的构造过程如下：
 
-```
+```c++
 BpRefBase::BpRefBase(const sp<IBinder>& o): mRemote(o.get()), mRefs(NULL), mState(0)
 {
     extendObjectLifetime(OBJECT_LIFETIME_WEAK);
@@ -597,7 +608,7 @@ BpRefBase::BpRefBase(const sp<IBinder>& o): mRemote(o.get()), mRefs(NULL), mStat
 
 #### BpServiceManager服务注册过程
 
-```
+```c++
 virtual status_t addService(const String16& name, const sp<IBinder>& service,
 		bool allowIsolated)
 {

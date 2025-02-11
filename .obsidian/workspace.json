@@ -194,8 +194,8 @@
   },
   "active": "4f727778ac61c699",
   "lastOpenFiles": [
-    "md/Android请求注册服务过程源码分析_android servicemanager.addservice流程-CSDN博客.md",
     "md/Android IPC数据在内核空间中的发送过程分析_安卓系统内核发短信流程-CSDN博客.md",
+    "md/Android请求注册服务过程源码分析_android servicemanager.addservice流程-CSDN博客.md",
     "md/Android 数据Parcel序列化过程源码分析_writeinterfacetoken-CSDN博客.md",
     "md/个人/Android 数据Parcel序列化过程源码分析.md",
     "md/个人/Android Binder通信数据结构介绍_不同传输类型下binder的结构-CSDN博客.md",
