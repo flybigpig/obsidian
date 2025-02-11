@@ -11,14 +11,12 @@
             "id": "4f727778ac61c699",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "pdf",
               "state": {
-                "file": "md/Android请求注册服务过程源码分析_android servicemanager.addservice流程-CSDN博客.md",
-                "mode": "preview",
-                "source": false
+                "file": "写给应用开发的+Android+Framework+教程(1).pdf"
               },
-              "icon": "lucide-file",
-              "title": "Android请求注册服务过程源码分析_android servicemanager.addservice流程-CSDN博客"
+              "icon": "lucide-file-text",
+              "title": "写给应用开发的+Android+Framework+教程(1)"
             }
           }
         ]
@@ -142,13 +140,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "md/Android请求注册服务过程源码分析_android servicemanager.addservice流程-CSDN博客.md",
+                "file": "写给应用开发的+Android+Framework+教程(1).pdf",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Android请求注册服务过程源码分析_android servicemanager.addservice流程-CSDN博客 的大纲"
+              "title": "写给应用开发的+Android+Framework+教程(1) 的大纲"
             }
           },
           {
@@ -188,15 +186,14 @@
       "command-palette:打开命令面板": false,
       "markdown-importer:打开 Markdown 格式转换器": false,
       "obsidian-full-calendar:Open Full Calendar": false,
-      "obsidian-git:Open Git source control": false,
-      "obsidian-excalidraw-plugin:新建绘图文件": false
+      "obsidian-git:Open Git source control": false
     }
   },
   "active": "4f727778ac61c699",
   "lastOpenFiles": [
+    "md/Android请求注册服务过程源码分析_android servicemanager.addservice流程-CSDN博客.md",
     "md/Android IPC数据在内核空间中的发送过程分析_安卓系统内核发短信流程-CSDN博客.md",
     "md/Android 数据Parcel序列化过程源码分析_writeinterfacetoken-CSDN博客.md",
-    "md/Android请求注册服务过程源码分析_android servicemanager.addservice流程-CSDN博客.md",
     "md/AdvancedAndroid/组件化/Android-DI从入门到放弃.md",
     "md/个人/Android 数据Parcel序列化过程源码分析.md",
     "md/个人/Android Binder通信数据结构介绍_不同传输类型下binder的结构-CSDN博客.md",
