@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/个人/Android IPC数据在内核空间中的发送过程分析.md",
+                "file": "md/资料/ffmpeg/资料/FFmpeg编译常见问题(1).md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Android IPC数据在内核空间中的发送过程分析"
+              "title": "FFmpeg编译常见问题(1)"
             }
           }
         ]
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "md/个人/Android IPC数据在内核空间中的发送过程分析.md",
+                "file": "md/资料/ffmpeg/资料/FFmpeg编译常见问题(1).md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Android IPC数据在内核空间中的发送过程分析 的大纲"
+              "title": "FFmpeg编译常见问题(1) 的大纲"
             }
           },
           {
@@ -194,10 +194,11 @@
   },
   "active": "20e98a38202ef27f",
   "lastOpenFiles": [
+    "md/资料/ffmpeg/资料/音频资料/资料.md",
+    "md/个人/Android IPC数据在内核空间中的发送过程分析.md",
     "md/个人/Android 数据Parcel序列化过程源码分析.md",
     "md/个人/Android请求注册服务过程源码分析.md",
     "md/个人/Android Binder通信数据结构介绍_不同传输类型下binder的结构-CSDN博客.md",
-    "md/个人/Android IPC数据在内核空间中的发送过程分析.md",
     "md/DeepSeek/实战场景可以应用到 Android Framework.md",
     "md/DeepSeek/Activity Finish 流程讲解.md",
     "md/DeepSeek/DeepSeek -  Android INPUT.md",
@@ -219,7 +220,6 @@
     "md/AndroidFrameworkTutorial/3.学穿Binder篇/003. Binder 服务注册过程情景分析之C语言篇.md",
     "md/AndroidFrameworkTutorial/3.学穿Binder篇/002. Binder 程序示例之C语言篇.md",
     "md/掘金Framework/【Android FrameWork】ServiceManager(一) (含视频) - 掘金.md",
-    "md/android/【Android FrameWork】ServiceManager(一) (含视频) - 掘金.md",
     "写给应用开发的+Android+Framework+教程(1).pdf",
     "pic/c1f08381-5bf9-488d-b45c-86edf7160912.png",
     "hexo",
