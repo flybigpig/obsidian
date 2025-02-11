@@ -11,10 +11,14 @@
             "id": "8cf6c5d8dcc7c750",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "关系图谱"
+              "type": "markdown",
+              "state": {
+                "file": "2025-02-11.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "2025-02-11"
             }
           }
         ]
@@ -70,8 +74,7 @@
               "title": "书签"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -187,8 +190,9 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "8cf6c5d8dcc7c750",
+  "active": "fa4657deb406b728",
   "lastOpenFiles": [
+    "2025-02-11.md",
     "md/AdvancedAndroid/README.md",
     "md/个人/Android Binder机制(二) Binder中的数据结构  skywang.md",
     "md/努比亚/解析Binder框架.md",
@@ -215,7 +219,6 @@
     "md/AdvancedAndroid/组件化/组件化思路.md",
     "md/android/Activity启动流程.md",
     "md/android/异常处理 - Native 层的崩溃捕获机制及实现 - 掘金.md",
-    "md/android/【Android Framework】ActivityManagerService(一) (含视频) - 掘金.md",
     "pic/c1f08381-5bf9-488d-b45c-86edf7160912.png",
     "hexo",
     "pic/e73ad7f6d928a1b67f9f2c08ab9bc1f.png",
