@@ -1,4 +1,15 @@
+---
+tags:
+  - Binder
+  - Android
+  - framework
+---
+
+
+
 ### Binder通信进程描述——binder\_proc
+
+
 
 结构体binder\_proc用来描述一个正在使用Binder进程间通信机制的进程。当一个进程调用函数open打开/dev/binder设备文件时，Binder驱动程序就会为该进程创建一个binder\_proc结构体，并且保存在全局的binder\_procs链表中。
 
