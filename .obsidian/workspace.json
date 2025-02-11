@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "99ab0e5346781b5b",
+        "id": "10d88f6c96ce2cb5",
         "type": "tabs",
         "children": [
           {
-            "id": "27f6a87508f8a8ed",
+            "id": "14bd4a751615e9b5",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -183,7 +183,7 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "27f6a87508f8a8ed",
+  "active": "14bd4a751615e9b5",
   "lastOpenFiles": [
     "md/豆包回答/asd.md",
     "md/豆包回答/Input管理.md",
