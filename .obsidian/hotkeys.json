@@ -1,1 +1,10 @@
-{}
+{
+  "obsidian-format-code:format-prettier-GraphQL": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "Q"
+    }
+  ]
+}

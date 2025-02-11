@@ -3,7 +3,7 @@
 ### 客户进程向ServiceManager进程发送IPC服务注册信息
 
 ```
-status_t BpBinder==transact(uint32_t code, const Parcel& data, Parcel* reply, uint32_t flags){if (mAlive) {status_t status = IPCThreadState==self()->transact(mHandle, code, data, reply, flags);if (status == DEAD_OBJECT) mAlive = 0;return status;    }return DEAD_OBJECT;}
+status_t BpBinder::transact(uint32_t code, const Parcel& data, Parcel* reply, uint32_t flags){if (mAlive) {status_t status = IPCThreadState::self()->transact(mHandle, code, data, reply, flags);if (status == DEAD_OBJECT) mAlive = 0;return status;    }return DEAD_OBJECT;}
 ```
 
 由于CameraService服务是向ServiceManager注册，因此将使用ServiceManager的BpBinder来传输Binder数据，由于ServiceManager对应的Handle值为0，因此在这里的mHandle = 0，BpBinder直接调用IPCThreadState来完成数据的传输：
