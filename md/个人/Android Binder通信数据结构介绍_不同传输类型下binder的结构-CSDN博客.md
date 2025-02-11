@@ -13,7 +13,7 @@ tags:
 
 结构体binder\_proc用来描述一个正在使用Binder进程间通信机制的进程。当一个进程调用函数open打开/dev/binder设备文件时，Binder驱动程序就会为该进程创建一个binder\_proc结构体，并且保存在全局的binder\_procs链表中。
 
-```
+```c++
 struct binder_proc {
 	//挂载在全局binder_procs链表中的节点。
 	struct hlist_node proc_node;
@@ -82,7 +82,7 @@ struct binder_proc {
 
 binder\_thread用来描述Binder线程池中的一个线程
 
-```
+```c
 struct binder_thread {
 	//指向该binder线程的宿主进程
 	struct binder_proc *proc;
@@ -108,7 +108,7 @@ struct binder_thread {
 
 成员变量proc指向该binder线程的宿主进程，成员变量rb\_node用于挂载该binder线程到宿主进程的threads红黑树上，looper保存了该线程的运行状态，线程运行状态包括：
 
-```
+```c
 enum {
 	BINDER_LOOPER_STATE_REGISTERED  = 0x01,
 	BINDER_LOOPER_STATE_ENTERED     = 0x02,
@@ -127,7 +127,7 @@ binder\_node用来描述一个Binder实体对象，每个Service组件在Binder�
 
 ![](https://i-blog.csdnimg.cn/blog_migrate/018b9af73f538916b6251ff07d4f90f3.png)
 
-```
+```c
 struct binder_node {
 	//调试id
 	int debug_id;
@@ -171,7 +171,7 @@ struct binder_node {
 
 ### Binder引用对象——binder\_ref
 
-```
+```c
 struct binder_ref {
 	//调试id
 	int debug_id;
@@ -200,7 +200,7 @@ binder\_ref用来描述一个Binder引用对象，每一个client在Binder驱动
 
 ### 内核缓存区描述符——binder\_buffer
 
-```
+```c
 struct binder_buffer {
 	//binder_proc成员变量buffers链表中的节点
 	struct list_head entry; 
@@ -233,7 +233,7 @@ binder\_buffer用来描述一个内核缓冲区，用来在进程间传输数据
 
 ### 进程通信事务——binder\_transaction
 
-```
+```c
 struct binder_transaction {
 	//调试id
 	int debug_id;
@@ -270,7 +270,7 @@ binder\_transaction用来描述进程间通信过程。need\_reply用来区分�
 
 ### 进程通信数据——binder\_transaction\_data
 
-```
+```c
 struct binder_transaction_data {
 	//用来描述目标Binder实体对象或者目标Binder引用对象
 	union {
