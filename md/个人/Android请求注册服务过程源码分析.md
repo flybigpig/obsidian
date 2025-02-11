@@ -38,7 +38,7 @@ public static void addService(String name, IBinder service) {
 通过getIServiceManager()获取ServiceManager的代理对ServiceManagerProxy，并调用代理对象的addService函数来注册服务。
 
 获取代理对象ServiceManagerProxy
-```
+```java
 private static IServiceManager getIServiceManager() {
 	if (sServiceManager != null) {
 		return sServiceManager;
