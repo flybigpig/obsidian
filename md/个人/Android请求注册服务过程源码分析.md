@@ -3,6 +3,8 @@ tags:
   - Binder
 ---
 
+### Android请求注册服务过程源码分析
+
 在ServiceManager 进程启动源码分析中详细介绍了ServiceManager进程是如何启动，如何成为Android系统的服务大管家。客户端在请求服务前，必须将服务注册到ServiceManger中，这样客户端在请求服务的时候，才能够查找到指定的服务。本文开始将以CameraService服务的注册为例来介绍服务注册的整个过程。
 
 CameraService服务的注册过程包括五个步骤：
@@ -585,6 +587,7 @@ BpRefBase::BpRefBase(const sp<IBinder>& o): mRemote(o.get()), mRefs(NULL), mStat
 
 
 BpServiceManager服务注册过程
+```
 virtual status_t addService(const String16& name, const sp<IBinder>& service,
 		bool allowIsolated)
 {
@@ -598,8 +601,10 @@ virtual status_t addService(const String16& name, const sp<IBinder>& service,
 	status_t err = remote()->transact(ADD_SERVICE_TRANSACTION, data, &reply);
 	return err == NO_ERROR ? reply.readExceptionCode() : err;
 }
+```
 函数首先将要发送的数据打包在parcel对象中，然后调用BpBinder对象来发送数据。
 
+```
 status_t BpBinder::transact(uint32_t code, const Parcel& data, Parcel* reply, uint32_t flags)
 {
     // Once a binder has died, it will never come back to life.
@@ -611,6 +616,7 @@ status_t BpBinder::transact(uint32_t code, const Parcel& data, Parcel* reply, ui
     }
     return DEAD_OBJECT;
 }
+```
 
 
 在这里和Java层的服务注册过程殊途同归了，都是通过IPCThreadState类来和Binder驱动交换，将IPC数据发送给ServiceManger进程。本文分析了用户空间中Binder通信架构设计及IPC数据的封装过程，在接下来的Android IPC数据在内核空间中的发送过程分析将进入Binder驱动分析IPC数据的传输过程。
