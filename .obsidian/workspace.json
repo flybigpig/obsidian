@@ -4,20 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "3277a6f5ddc73fe9",
+        "id": "99ab0e5346781b5b",
         "type": "tabs",
         "children": [
           {
-            "id": "61d0a91d2767f5b0",
+            "id": "27f6a87508f8a8ed",
             "type": "leaf",
             "state": {
-              "type": "diff-view",
-              "state": {
-                "file": ".obsidian/workspace.json",
-                "staged": false
-              },
-              "icon": "git-pull-request",
-              "title": "Diff View (workspace.json)"
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "新标签页"
             }
           }
         ]
@@ -182,10 +179,11 @@
       "command-palette:打开命令面板": false,
       "markdown-importer:打开 Markdown 格式转换器": false,
       "obsidian-full-calendar:Open Full Calendar": false,
-      "obsidian-git:Open Git source control": false
+      "obsidian-git:Open Git source control": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "61d0a91d2767f5b0",
+  "active": "27f6a87508f8a8ed",
   "lastOpenFiles": [
     "md/豆包回答/asd.md",
     "md/豆包回答/Input管理.md",
