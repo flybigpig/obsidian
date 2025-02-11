@@ -67,13 +67,10 @@ tags:
 
 
 ### 修改系统服务
-	1.asda
-	asd
-		### ad
-	
 
-> 除了 `PowerManagerService`，Android 系统中还有许多其他常见且重要的系统服务可以进行修改
-### 1. ActivityManagerService（AMS）
+除了 `PowerManagerService`，Android 系统中还有许多其他常见且重要的系统服务可以进行修改，以下为你详细介绍：
+
+#### 1. ActivityManagerService（AMS）
 
 - **作用**：`ActivityManagerService` 是 Android 系统中最核心的服务之一，主要负责管理应用程序的活动（Activity）、服务（Service）、广播接收器（Broadcast Receiver）等组件的生命周期和调度。
 - **可修改场景**
@@ -82,7 +79,7 @@ tags:
     - **多任务管理定制**：调整多任务列表的显示逻辑、切换动画效果，或者实现自定义的多任务管理规则，如限制同时运行的应用数量。
     
 
-### 2. WindowManagerService（WMS）
+#### 2. WindowManagerService（WMS）
 
 - **作用**：`WindowManagerService` 负责管理窗口的显示、布局和交互，包括系统窗口（如状态栏、导航栏）和应用窗口。
 - **可修改场景**
@@ -91,7 +88,7 @@ tags:
     - **窗口层级管理**：调整窗口的显示层级，实现一些特殊的窗口叠加效果，或者优化窗口的显示顺序。
     
 
-### 3. PackageManagerService（PMS）
+#### 3. PackageManagerService（PMS）
 
 - **作用**：`PackageManagerService` 负责应用程序的安装、卸载、更新和查询等操作，同时管理应用的权限和组件信息。
 - **可修改场景**
@@ -100,7 +97,7 @@ tags:
     - **权限管理增强**：在应用安装或运行时，对权限的授予和管理进行更严格的控制，如根据应用的使用场景动态授予权限。
     
 
-### 4. NotificationManagerService
+#### 4. NotificationManagerService
 
 - **作用**：`NotificationManagerService` 用于管理系统和应用的通知，包括通知的显示、隐藏、分类和优先级等。
 - **可修改场景**
@@ -108,7 +105,7 @@ tags:
     - **通知样式定制**：修改通知的显示样式，如添加自定义的布局、图标或动画效果，提升通知的可视化效果。
     - **通知过滤规则定制**：实现自定义的通知过滤机制，根据通知的来源、内容或优先级等条件，决定是否显示通知。
     
-### 5. InputManagerService（IMS）
+#### 5. InputManagerService（IMS）
 
 - **作用**：`InputManagerService` 负责处理系统的输入事件，包括触摸、按键、手势等输入操作，并将这些事件分发给相应的应用程序。
 - **可修改场景**
@@ -117,7 +114,7 @@ tags:
     - **自定义输入手势**：添加自定义的输入手势识别功能，例如通过特定的手势触发系统的某些操作。
     
 
-### 6. BatteryService
+#### 6. BatteryService
 
 - **作用**：`BatteryService` 用于监测电池的状态，包括电量、充电状态、电池温度等信息，并向系统和应用程序提供这些信息。
 - **可修改场景**
