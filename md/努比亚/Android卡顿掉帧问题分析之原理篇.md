@@ -931,7 +931,7 @@ void CompositionEngine::present(CompositionRefreshArgs& args) {
 }
 
 /*frameworks/native/services/surfaceflinger/CompositionEngine/src/Output.cpp*/
-void Output::present(const compositionengine::CompositionRefreshArgs& refreshArgs) {
+void Output==present(const compositionengine==CompositionRefreshArgs& refreshArgs) {
     ATRACE_CALL();
     ......
     updateAndWriteCompositionState(refreshArgs);//告知HWC service有哪些layer要参与合成
@@ -955,7 +955,7 @@ status_t HWComposer::presentAndGetReleaseFences(DisplayId displayId) {
     ......
     auto error = hwcDisplay->present(&displayData.lastPresentFence);//送去HWC service合成
     ......
-    std::unordered_map<HWC2::Layer*, sp<Fence>> releaseFences;
+    std==unordered_map<HWC2==Layer*, sp<Fence>> releaseFences;
     error = hwcDisplay->getReleaseFences(&releaseFences);
     RETURN_IF_HWC_ERROR_FOR("getReleaseFences", error, displayId, UNKNOWN_ERROR);
 

@@ -646,8 +646,8 @@ PS：通过上面代码，我们知道system\_server进程的参数信息为uid=
 ```
 30    /**
 31     * Called by the zygote prior to every fork. Each call to {@code preFork}
-32     * is followed by a matching call to {@link #postForkChild(int, String)} on the child
-33     * process and {@link #postForkCommon()} on both the parent and the child
+32     * is followed by a matching call to {@link [[postForkChild]](int, String)} on the child
+33     * process and {@link [[postForkCommon]]()} on both the parent and the child
 34     * process. {@code postForkCommon} is called after {@code postForkChild} in
 35     * the child process.
 36     */
@@ -1172,9 +1172,9 @@ fork()的主要工作是寻找空闲的进程号pid，然后从父进程拷贝�
 149  EnableDebugFeatures(debug_flags);
 150
 151  // Update tracing.
-152  if (Trace::GetMethodTracingMode() != TracingMode::kTracingInactive) {
-153    Trace::TraceOutputMode output_mode = Trace::GetOutputMode();
-154    Trace::TraceMode trace_mode = Trace::GetMode();
+152  if (Trace==GetMethodTracingMode() != TracingMode==kTracingInactive) {
+153    Trace==TraceOutputMode output_mode = Trace==GetOutputMode();
+154    Trace==TraceMode trace_mode = Trace==GetMode();
 155    size_t buffer_size = Trace::GetBufferSize();
 156
 157    // Just drop it.
@@ -1182,7 +1182,7 @@ fork()的主要工作是寻找空闲的进程号pid，然后从父进程拷贝�
 159
 160    // Only restart if it was streaming mode.
 161    // TODO: Expose buffer size, so we can also do file mode.
-162    if (output_mode == Trace::TraceOutputMode::kStreaming) {
+162    if (output_mode == Trace==TraceOutputMode==kStreaming) {
 163      const char* proc_name_cutils = get_process_name();
 164      std::string proc_name;
 165      if (proc_name_cutils != nullptr) {
@@ -1218,13 +1218,13 @@ fork()的主要工作是寻找空闲的进程号pid，然后从父进程拷贝�
 195  if (instruction_set != nullptr) {
 196    ScopedUtfChars isa_string(env, instruction_set);
 197    InstructionSet isa = GetInstructionSetFromString(isa_string.c_str());
-198    Runtime::NativeBridgeAction action = Runtime::NativeBridgeAction::kUnload;
+198    Runtime==NativeBridgeAction action = Runtime==NativeBridgeAction::kUnload;
 199    if (isa != kNone && isa != kRuntimeISA) {
-200      action = Runtime::NativeBridgeAction::kInitialize;
+200      action = Runtime==NativeBridgeAction==kInitialize;
 201    }
 202    Runtime::Current()->DidForkFromZygote(env, action, isa_string.c_str());
 203  } else {
-204    Runtime::Current()->DidForkFromZygote(env, Runtime::NativeBridgeAction::kUnload, nullptr);
+204    Runtime==Current()->DidForkFromZygote(env, Runtime==NativeBridgeAction::kUnload, nullptr);
 205  }
 206}
 ```
@@ -1759,7 +1759,7 @@ ok上面两个初始化的行为全部讲解完毕，现在来看下applicationI
 319            return;
 320        }
 321
-322        // The end of of the RuntimeInit event (see #zygoteInit).
+322        // The end of of the RuntimeInit event (see [[zygoteInit]]).
 323        Trace.traceEnd(Trace.TRACE_TAG_ACTIVITY_MANAGER);
 324
 325        // Remaining arguments are passed to the start class's static main

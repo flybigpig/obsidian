@@ -46,11 +46,11 @@ java native是通过函数指针和jni 层建立关系
 
 
     // jni头文件 
-    #include <jni.h>
+    [[include]] <jni.h>
      
-    #include <cassert>
-    #include <cstdlib>
-    #include <iostream>
+    [[include]] <cassert>
+    [[include]] <cstdlib>
+    [[include]] <iostream>
     using namespace std;
      
      

@@ -404,7 +404,7 @@ Did not finish.png
 在自定义事件的开头和结尾分别调用 `ATrace_beginSection()` 和 `ATrace_endSection()`，看看谷歌官方给出的用法示例：
 
 ```cpp
- #include <android/trace.h>
+ [[include]] <android/trace.h>
     
  char *customEventName = new char[32];
  sprintf(customEventName, "User tapped %s button", buttonName);
@@ -443,8 +443,8 @@ trace tag.png
 - **跟踪整个函数**：在检测调用堆栈或函数计时时，您可能会发现跟踪整个函数非常有用。使用 `ATRACE_CALL()` 或`ATRACE_NAME()`宏可以更轻松地设置此类跟踪。相关用法简化代码示例如下：
 
 ```cpp
-#define ATRACE_TAG ATRACE_TAG_ALWAYS // 表示一直会打开，如果是ATRACE_TAG_GRAPHICS，则需要在使用脚本抓systrace时参数加上gfx才能看到
-#include <utils/Trace.h>
+[[define]] ATRACE_TAG ATRACE_TAG_ALWAYS // 表示一直会打开，如果是ATRACE_TAG_GRAPHICS，则需要在使用脚本抓systrace时参数加上gfx才能看到
+[[include]] <utils/Trace.h>
 void myExpensiveFunction() {
     ATRACE_CALL(); // or ATRACE_NAME(“myExpensiveFunction”);
     // 想要跟踪的代码逻辑
@@ -463,8 +463,8 @@ libutils.png
     
 
 ```cpp
-#define ATRACE_TAG ATRACE_TAG_ALWAYS // 表示一直会打开，如果是ATRACE_TAG_GRAPHICS，则需要在使用脚本抓systrace时参数加上gfx才能看到
-#include <cutils/trace.h>
+[[define]] ATRACE_TAG ATRACE_TAG_ALWAYS // 表示一直会打开，如果是ATRACE_TAG_GRAPHICS，则需要在使用脚本抓systrace时参数加上gfx才能看到
+[[include]] <cutils/trace.h>
 void myExpensiveFunction() {
     ATRACE_BEGIN(“TEST”); // 字符串可以自定义
     // 想要跟踪的代码逻辑
@@ -567,32 +567,32 @@ libcutils.png
     ```csharp
     一、切换到trace目录：
        adb shell
-       #cd sys/kernel/debug/tracing/
+       [[cd]] sys/kernel/debug/tracing/
        
     二、关闭ftrace:
-       #echo 0 >tracing_on
+       [[echo]] 0 >tracing_on
        
     三、清空ftrace内容：
-       #echo >trace
+       [[echo]] >trace
        
     四、开启需要ftrace追踪的kernel event事件：
-       #echo 1 >events/power/enable
+       [[echo]] 1 >events/power/enable
        
     五、开启ftrace:
-       #echo 1 >tracing_on  
+       [[echo]] 1 >tracing_on  
        
     六、用户操作手机设备
     
     七、关闭ftrace
-        #echo 0 >tracing_on
+        [[echo]] 0 >tracing_on
         
     八、导出操作过程的ftrace
-        #cat trace
+        [[cat]] trace
         
     ftrace跟踪到的trace文件格式内容如下所示：  
     # tracer: nop
     #
-    # entries-in-buffer/entries-written: 176698/383721   #P:8
+    # entries-in-buffer/entries-written: 176698/383721   [[P]]:8
     #
     #                                _-----=> irqs-off
     #                               / _----=> need-resched
@@ -676,7 +676,7 @@ function_trace.png
     ```php
     # tracer: nop
     #
-    # entries-in-buffer/entries-written: 1259321/1259321   #P:8
+    # entries-in-buffer/entries-written: 1259321/1259321   [[P]]:8
     #
     #                                _-----=> irqs-off
     #                               / _----=> need-resched
@@ -703,13 +703,13 @@ function_trace.png
     打开跟踪`sched_switch`的`trace event`:
     
     ```bash
-    #echo 1 > /sys/kernel/tracing/events/sched/sched_switch/enable
+    [[echo]] 1 > /sys/kernel/tracing/events/sched/sched_switch/enable
     ```
     
     如果需要跟踪所有关于调度的`trace event:`
     
     ```bash
-    #echo 1 > /sys/kernel/tracing/events/sched/enable
+    [[echo]] 1 > /sys/kernel/tracing/events/sched/enable
     ```
     
 - **`trace marker`功能**：

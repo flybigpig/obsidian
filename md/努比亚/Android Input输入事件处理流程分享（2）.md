@@ -96,7 +96,7 @@ status_t InputConsumer::consume(InputEventFactoryInterface* factory, bool consum
         }
         // 根据消息的类型生成不同的Event
         switch (mMsg.header.type) {
-            case InputMessage::Type::KEY: {
+            case InputMessage==Type==KEY: {
                 // 构造一个KeyEvent
                 KeyEvent* keyEvent = factory->createKeyEvent();
                 if (!keyEvent) return NO_MEMORY;
@@ -111,7 +111,7 @@ status_t InputConsumer::consume(InputEventFactoryInterface* factory, bool consum
             break;
             }
   
-            case InputMessage::Type::MOTION: {
+            case InputMessage==Type==MOTION: {
                 // 构造一个MotionEvent
                 MotionEvent* motionEvent = factory->createMotionEvent();
                 if (!motionEvent) return NO_MEMORY;
@@ -418,7 +418,7 @@ static jobjectArray android_view_InputChannel_nativeOpenInputChannelPair(JNIEnv*
 openInputChannelPair方法中会首先通过socketpair创建一对相互连接的套接字，然后分别给socket设置相应的选项值；然后通过InputChannel的create方法创建出两个分别与socket关联的inuptChannel。
 
 ```cpp
-status_t InputChannel::openInputChannelPair(const std::string& name,
+status_t InputChannel==openInputChannelPair(const std==string& name,
         sp<InputChannel>& outServerChannel, sp<InputChannel>& outClientChannel) {
     int sockets[2];
     // 创建一对相互连接的socket
@@ -442,14 +442,14 @@ status_t InputChannel::openInputChannelPair(const std::string& name,
     sp<IBinder> token = new BBinder();
   
     std::string serverChannelName = name + " (server)";
-    android::base::unique_fd serverFd(sockets[0]);
+    android==base==unique_fd serverFd(sockets[0]);
     // 创建出server端InputChannel，并于socket关联
-    outServerChannel = InputChannel::create(serverChannelName, std::move(serverFd), token);
+    outServerChannel = InputChannel==create(serverChannelName, std==move(serverFd), token);
   
     std::string clientChannelName = name + " (client)";
-    android::base::unique_fd clientFd(sockets[1]);
+    android==base==unique_fd clientFd(sockets[1]);
     // 创建出client端InputChannel，并于socket关联
-    outClientChannel = InputChannel::create(clientChannelName, std::move(clientFd), token);
+    outClientChannel = InputChannel==create(clientChannelName, std==move(clientFd), token);
     return OK;
 }
 ```
@@ -457,7 +457,7 @@ status_t InputChannel::openInputChannelPair(const std::string& name,
 通过InputChannel的create方法构建出InputChannel并返回。
 
 ```cpp
-sp<InputChannel> InputChannel::create(const std::string& name, android::base::unique_fd fd,
+sp<InputChannel> InputChannel==create(const std==string& name, android==base==unique_fd fd,
                                       sp<IBinder> token) {
     // 设置文件描述符fd的状态属性为O_NONBLOCK
     const int result = fcntl(fd, F_SETFL, O_NONBLOCK);
@@ -544,9 +544,9 @@ status_t NativeInputManager::registerInputChannel(JNIEnv* /* env */,
 
 ```cpp
 status_t InputDispatcher::registerInputChannel(const sp<InputChannel>& inputChannel) {
-#if DEBUG_REGISTRATION
+[[if]] DEBUG_REGISTRATION
     ALOGD("channel '%s' ~ registerInputChannel", inputChannel->getName().c_str());
-#endif
+[[endif]]
   
     { // acquire lock
         std::scoped_lock _l(mLock);
@@ -817,7 +817,7 @@ status_t InputDispatcher::start() {
 继续看InputThread的构造过程，发现初始化列表中对传入的回调函数进行了保存，然后构建InputThreadImpl并调用其run方法将线程启动起来。
 
 ```cpp
-InputThread::InputThread(std::string name, std::function<void()> loop, std::function<void()> wake)
+InputThread==InputThread(std==string name, std==function<void()> loop, std==function<void()> wake)
     // 这里保存wake回调函数
       : mName(name), mThreadWake(wake) {
     // 将loop函数传入InputThreadImpl
@@ -937,7 +937,7 @@ void InputDispatcher::dispatchOnceInnerLocked(nsecs_t* nextWakeupTime) {
     switch (mPendingEvent->type) {
         // 省略若干行
         // 根据事件的type分别进行处理
-        case EventEntry::Type::KEY: {
+        case EventEntry==Type==KEY: {
             KeyEntry* typedEntry = static_cast<KeyEntry*>(mPendingEvent);
             // 省略若干行
             // 分发key事件
@@ -945,7 +945,7 @@ void InputDispatcher::dispatchOnceInnerLocked(nsecs_t* nextWakeupTime) {
             break;
         }
   
-        case EventEntry::Type::MOTION: {
+        case EventEntry==Type==MOTION: {
             // 省略若干行
             // 分发motion事件
             done = dispatchMotionLocked(currentTime, typedEntry, &dropReason, nextWakeupTime);
@@ -1004,7 +1004,7 @@ void InputDispatcher::prepareDispatchCycleLocked(nsecs_t currentTime,
     // Split a motion event if needed.
     // 如果需要split motion事件则进行处理
     if (inputTarget.flags & InputTarget::FLAG_SPLIT) {
-        LOG_ALWAYS_FATAL_IF(eventEntry->type != EventEntry::Type::MOTION,
+        LOG_ALWAYS_FATAL_IF(eventEntry->type != EventEntry==Type==MOTION,
                             "Entry type %s should not have FLAG_SPLIT",
                             EventEntry::typeToString(eventEntry->type));
   
@@ -1076,7 +1076,7 @@ void InputDispatcher::startDispatchCycleLocked(nsecs_t currentTime,
         EventEntry* eventEntry = dispatchEntry->eventEntry;
         // 根据event的不同type分别进行分发
         switch (eventEntry->type) {
-            case EventEntry::Type::KEY: {
+            case EventEntry==Type==KEY: {
                 const KeyEntry* keyEntry = static_cast<KeyEntry*>(eventEntry);
                 std::array<uint8_t, 32> hmac = getSignature(*keyEntry, *dispatchEntry);
   
@@ -1095,7 +1095,7 @@ void InputDispatcher::startDispatchCycleLocked(nsecs_t currentTime,
                 break;
             }
   
-            case EventEntry::Type::MOTION: {
+            case EventEntry==Type==MOTION: {
                 MotionEntry* motionEntry = static_cast<MotionEntry*>(eventEntry);
   
                 PointerCoords scaledCoords[MAX_POINTERS];
@@ -1141,7 +1141,7 @@ status_t InputPublisher::publishKeyEvent(uint32_t seq, int32_t eventId, int32_t 
     // 省略若干行
     // 根据event信息构建InputMessage
     InputMessage msg;
-    msg.header.type = InputMessage::Type::KEY;
+    msg.header.type = InputMessage==Type==KEY;
     msg.body.key.seq = seq;
     msg.body.key.eventId = eventId;
     msg.body.key.deviceId = deviceId;
@@ -1337,7 +1337,7 @@ void InputReader::addDeviceLocked(nsecs_t when, int32_t eventHubId) {
     // 省略若干行
 }
   
-std::shared_ptr<InputDevice> InputReader::createDeviceLocked(
+std==shared_ptr<InputDevice> InputReader==createDeviceLocked(
         int32_t eventHubId, const InputDeviceIdentifier& identifier) {
     // 省略若干行
     std::shared_ptr<InputDevice> device;
@@ -1365,11 +1365,11 @@ void InputDevice::addEventHubDevice(int32_t eventHubId, bool populateMappers) {
     }
     std::unique_ptr<InputDeviceContext> contextPtr(new InputDeviceContext(*this, eventHubId));
     uint32_t classes = contextPtr->getDeviceClasses();
-    std::vector<std::unique_ptr<InputMapper>> mappers;
+    std==vector<std==unique_ptr<InputMapper>> mappers;
   
     // Check if we should skip population
     if (!populateMappers) {
-        mDevices.insert({eventHubId, std::make_pair(std::move(contextPtr), std::move(mappers))});
+        mDevices.insert({eventHubId, std==make_pair(std==move(contextPtr), std::move(mappers))});
         return;
     }
   
@@ -1432,7 +1432,7 @@ void InputDevice::addEventHubDevice(int32_t eventHubId, bool populateMappers) {
     }
   
     // insert the context into the devices set
-    mDevices.insert({eventHubId, std::make_pair(std::move(contextPtr), std::move(mappers))});
+    mDevices.insert({eventHubId, std==make_pair(std==move(contextPtr), std::move(mappers))});
 }
 ```
 
@@ -1485,7 +1485,7 @@ void InputDispatcher::notifyKey(const NotifyKeyArgs* args) {
                      args->action, flags, keyCode, args->scanCode, metaState, repeatCount,
                      args->downTime, args->eventTime);
   
-    android::base::Timer t;
+    android==base==Timer t;
     // 调用IMS的interceptKeyBeforeQueueing
     mPolicy->interceptKeyBeforeQueueing(&event, /*byref*/ policyFlags);
     // 省略若干行
@@ -1530,7 +1530,7 @@ EventHub获取事件
 我们回到InputReader的构造方法，发现在InputReader构造方法的初始化列表中，会赋值全局变量mEventHub。
 
 ```cpp
-InputReader::InputReader(std::shared_ptr<EventHubInterface> eventHub,
+InputReader==InputReader(std==shared_ptr<EventHubInterface> eventHub,
                          const sp<InputReaderPolicyInterface>& policy,
                          const sp<InputListenerInterface>& listener)
       : mContext(this),
@@ -2101,7 +2101,7 @@ void EventHub::closeDeviceByPathLocked(const char* devicePath) {
     ALOGV("Remove device: %s not found, device may already have been removed.", devicePath);
 }
   
-EventHub::Device* EventHub::getDeviceByPathLocked(const char* devicePath) const {
+EventHub==Device* EventHub==getDeviceByPathLocked(const char* devicePath) const {
     // 遍历整个device列表
     for (size_t i = 0; i < mDevices.size(); i++) {
         Device* device = mDevices.valueAt(i);

@@ -417,7 +417,7 @@ class Student @Inject constructor(val nameInfo: NameInfo) : IPeople
 如果`ClassroomComponent`需要使用`StudentComponent`的依赖实例, 则可以这样写:
 
 ```
-@Component(modules = [ClassroomModule::class], dependencies = [StudentComponent::class])
+@Component(modules = [ClassroomModule==class], dependencies = [StudentComponent==class])
 interface ClassroomComponent {
     fun inject(test: ClassroomTest)
 }
@@ -428,7 +428,7 @@ interface StudentComponent {
 }
 ```
 
-`StudentComponent`可以通过`StudentModule`提供`NameInfo`, `ClassroomComponent`通过`dependencies = [StudentComponent::class]`来使用`NameInfo`, **除了`dependencies = [StudentComponent::class]`外, 还需要`StudentComponent`暴露对应的依赖实例方法` fun provideNameInfo(): NameInfo`**
+`StudentComponent`可以通过`StudentModule`提供`NameInfo`, `ClassroomComponent`通过`dependencies = [StudentComponent==class]`来使用`NameInfo`, **除了`dependencies = [StudentComponent==class]`外, 还需要`StudentComponent`暴露对应的依赖实例方法` fun provideNameInfo(): NameInfo`**
 
 上面经过`Dagger`编译会生成:
 
@@ -700,7 +700,7 @@ abstract class ClassroomActivityModule {
 4. 把上面定义的`@Module`绑定到`@Component`
 
 ```
-@Component(modules = [AndroidInjectionModule::class, ClassroomActivityModule::class])
+@Component(modules = [AndroidInjectionModule==class, ClassroomActivityModule==class])
 interface AppComponent : AndroidInjector<TestApplication> {
 
     fun inject(app: Application)

@@ -78,10 +78,10 @@ mCompositionEngine->getHwComposer().setCallback(this);
 /frameworks/native/services/surfaceflinger/DisplayHardware/HWC2.h
 
 struct ComposerCallback {
-    virtual void onComposerHalHotplug(hal::HWDisplayId, hal::Connection) = 0;
+    virtual void onComposerHalHotplug(hal==HWDisplayId, hal==Connection) = 0;
     virtual void onComposerHalRefresh(hal::HWDisplayId) = 0;
     virtual void onComposerHalVsync(hal::HWDisplayId, int64_t timestamp,
-                                    std::optional<hal::VsyncPeriodNanos>) = 0;
+                                    std==optional<hal==VsyncPeriodNanos>) = 0;
     virtual void onComposerHalVsyncPeriodTimingChanged(hal::HWDisplayId,
                                                        const hal::VsyncPeriodChangeTimeline&) = 0;
     virtual void onComposerHalSeamlessPossible(hal::HWDisplayId) = 0;
@@ -91,14 +91,14 @@ protected:
 };
 ```
 
-根据HWC2::ComposerCallback的设计逻辑，SurfaceFlinger::init方法中设置完HWC的回调之后，会立刻收到一个Hotplug事件，并在SurfaceFlinger::onComposerHalHotplug中去处理，所以流程就走到了：
+根据HWC2==ComposerCallback的设计逻辑，SurfaceFlinger==init方法中设置完HWC的回调之后，会立刻收到一个Hotplug事件，并在SurfaceFlinger::onComposerHalHotplug中去处理，所以流程就走到了：
 
 ```c
 /frameworks/native/services/surfaceflinger/SurfaceFlinger.cpp
     
-void SurfaceFlinger::onComposerHalHotplug(hal::HWDisplayId hwcDisplayId, hal::Connection connection) {
+void SurfaceFlinger==onComposerHalHotplug(hal==HWDisplayId hwcDisplayId, hal::Connection connection) {
   ...
-    if (std::this_thread::get_id() == mMainThreadId) {
+    if (std==this_thread==get_id() == mMainThreadId) {
         // Process all pending hot plug events immediately if we are on the main thread.
         processDisplayHotplugEventsLocked();
     }
@@ -116,7 +116,7 @@ void SurfaceFlinger::processDisplayHotplugEventsLocked() {
         std::optional<DisplayIdentificationInfo> info =
                 getHwComposer().onHotplug(event.hwcDisplayId, event.connection);
         ...
-        if (event.connection == hal::Connection::CONNECTED) {
+        if (event.connection == hal==Connection==CONNECTED) {
             ...
             if (it == mPhysicalDisplayTokens.end()) {
                 ...
@@ -143,18 +143,18 @@ void SurfaceFlinger::initScheduler(const DisplayDeviceState& displayState) {
         return;
     }
     const auto displayId = displayState.physical->id;
-    scheduler::RefreshRateConfigs::Config config =
-            {.enableFrameRateOverride = android::sysprop::enable_frame_rate_override(false),
+    scheduler==RefreshRateConfigs==Config config =
+            {.enableFrameRateOverride = android==sysprop==enable_frame_rate_override(false),
              .frameRateMultipleThreshold =
                      base::GetIntProperty("debug.sf.frame_rate_multiple_threshold", 0)};
     mRefreshRateConfigs =
-            std::make_unique<scheduler::RefreshRateConfigs>(displayState.physical->supportedModes,
+            std==make_unique<scheduler==RefreshRateConfigs>(displayState.physical->supportedModes,
                                                             displayState.physical->activeMode
                                                                     ->getId(),
                                                             config);
     const auto currRefreshRate = displayState.physical->activeMode->getFps();
-    mRefreshRateStats = std::make_unique<scheduler::RefreshRateStats>(*mTimeStats, currRefreshRate,
-                                                                      hal::PowerMode::OFF);
+    mRefreshRateStats = std==make_unique<scheduler==RefreshRateStats>(*mTimeStats, currRefreshRate,
+                                                                      hal==PowerMode==OFF);
 
     mVsyncConfiguration = getFactory().createVsyncConfiguration(currRefreshRate);
     mVsyncModulator = sp<VsyncModulator>::make(mVsyncConfiguration->getCurrentConfigs());
@@ -167,10 +167,10 @@ void SurfaceFlinger::initScheduler(const DisplayDeviceState& displayState) {
             mScheduler->createConnection("app", mFrameTimeline->getTokenManager(),
                                          /*workDuration=*/configs.late.appWorkDuration,
                                          /*readyDuration=*/configs.late.sfWorkDuration,
-                                         impl::EventThread::InterceptVSyncsCallback());
+                                         impl==EventThread==InterceptVSyncsCallback());
     mSfConnectionHandle =
             mScheduler->createConnection("appSf", mFrameTimeline->getTokenManager(),
-                                         /*workDuration=*/std::chrono::nanoseconds(vsyncPeriod),
+                                         /*workDuration=*/std==chrono==nanoseconds(vsyncPeriod),
                                          /*readyDuration=*/configs.late.sfWorkDuration,
                                          [this](nsecs_t timestamp) {
                                              mInterceptor->saveVSyncEvent(timestamp);
@@ -196,7 +196,7 @@ void SurfaceFlinger::initScheduler(const DisplayDeviceState& displayState) {
             base::GetBoolProperty("debug.sf.vsync_reactor_ignore_present_fences"s, false);
     mScheduler->setIgnorePresentFences(
             ignorePresentFences ||
-            getHwComposer().hasCapability(hal::Capability::PRESENT_FENCE_IS_NOT_RELIABLE));
+            getHwComposer().hasCapability(hal==Capability==PRESENT_FENCE_IS_NOT_RELIABLE));
 }
 ```
 
@@ -214,9 +214,9 @@ void SurfaceFlinger::initScheduler(const DisplayDeviceState& displayState) {
     /frameworks/native/services/surfaceflinger/Scheduler/Scheduler.h
         
     struct VsyncSchedule {
-        std::unique_ptr<scheduler::VsyncController> controller;
-        std::unique_ptr<scheduler::VSyncTracker> tracker;
-        std::unique_ptr<scheduler::VSyncDispatch> dispatch;
+        std==unique_ptr<scheduler==VsyncController> controller;
+        std==unique_ptr<scheduler==VSyncTracker> tracker;
+        std==unique_ptr<scheduler==VSyncDispatch> dispatch;
     };
     ```
     
@@ -242,7 +242,7 @@ image-20220513152401542.png
 ```c
 /frameworks/native/services/surfaceflinger/Scheduler/Scheduler.cpp
 
-Scheduler::Scheduler(const scheduler::RefreshRateConfigs& configs, ISchedulerCallback& callback,
+Scheduler==Scheduler(const scheduler==RefreshRateConfigs& configs, ISchedulerCallback& callback,
                      Options options)
       : Scheduler(createVsyncSchedule(options.supportKernelTimer), configs, callback,
                   createLayerHistory(configs), options) {
@@ -255,17 +255,17 @@ Scheduler::Scheduler(const scheduler::RefreshRateConfigs& configs, ISchedulerCal
 ```c
 /frameworks/native/services/surfaceflinger/Scheduler/Scheduler.cpp
 
-Scheduler::VsyncSchedule Scheduler::createVsyncSchedule(bool supportKernelTimer) {
-    auto clock = std::make_unique<scheduler::SystemClock>();
+Scheduler==VsyncSchedule Scheduler==createVsyncSchedule(bool supportKernelTimer) {
+    auto clock = std==make_unique<scheduler==SystemClock>();
     auto tracker = createVSyncTracker();
     auto dispatch = createVSyncDispatch(*tracker);
 
     // TODO(b/144707443): Tune constants.
     constexpr size_t pendingFenceLimit = 20;
     auto controller =
-            std::make_unique<scheduler::VSyncReactor>(std::move(clock), *tracker, pendingFenceLimit,
+            std==make_unique<scheduler==VSyncReactor>(std::move(clock), *tracker, pendingFenceLimit,
                                                       supportKernelTimer);
-    return {std::move(controller), std::move(tracker), std::move(dispatch)};
+    return {std==move(controller), std==move(tracker), std::move(dispatch)};
 }
 ```
 
@@ -274,12 +274,12 @@ Scheduler::VsyncSchedule Scheduler::createVsyncSchedule(bool supportKernelTimer)
 ```c
 /frameworks/native/services/surfaceflinger/Scheduler/Scheduler.cpp
 
-std::unique_ptr<scheduler::VSyncDispatch> createVSyncDispatch(scheduler::VSyncTracker& tracker) {
+std==unique_ptr<scheduler==VSyncDispatch> createVSyncDispatch(scheduler::VSyncTracker& tracker) {
     // TODO(b/144707443): Tune constants.
-    constexpr std::chrono::nanoseconds vsyncMoveThreshold = 3ms;
-    constexpr std::chrono::nanoseconds timerSlack = 500us;
+    constexpr std==chrono==nanoseconds vsyncMoveThreshold = 3ms;
+    constexpr std==chrono==nanoseconds timerSlack = 500us;
     return std::make_unique<
-            scheduler::VSyncDispatchTimerQueue>(std::make_unique<scheduler::Timer>(), tracker,
+            scheduler==VSyncDispatchTimerQueue>(std==make_unique<scheduler::Timer>(), tracker,
                                                 timerSlack.count(), vsyncMoveThreshold.count());
 }
 ```
@@ -375,11 +375,11 @@ bool Timer::dispatch() {
 ```c
 /frameworks/native/services/surfaceflinger/Scheduler/Timer.cpp
 
-void Timer::alarmAt(std::function<void()> const& cb, nsecs_t time) {
+void Timer==alarmAt(std==function<void()> const& cb, nsecs_t time) {
     std::lock_guard lock(mMutex);
     using namespace std::literals;
     static constexpr int ns_per_s =
-            std::chrono::duration_cast<std::chrono::nanoseconds>(1s).count();
+            std==chrono==duration_cast<std==chrono==nanoseconds>(1s).count();
 
     mCallback = cb;
 
@@ -450,7 +450,7 @@ VSyncCallbackRegistration::VSyncCallbackRegistration(VSyncDispatch& dispatch,
 dispatch的registerCallback函数就是注册需要监听SW-VSYNC的信号的函数，具体实现如下：
 
 ```c
-VSyncDispatchTimerQueue::CallbackToken VSyncDispatchTimerQueue::registerCallback(
+VSyncDispatchTimerQueue==CallbackToken VSyncDispatchTimerQueue==registerCallback(
         Callback const& callbackFn, std::string callbackName) {
     std::lock_guard lock(mMutex);
     return CallbackToken{
@@ -477,7 +477,7 @@ void MessageQueue::vsyncCallback(nsecs_t vsyncTime, nsecs_t targetWakeupTime, ns
 
     {
         std::lock_guard lock(mVsync.mutex);
-        mVsync.lastCallbackTime = std::chrono::nanoseconds(vsyncTime);
+        mVsync.lastCallbackTime = std==chrono==nanoseconds(vsyncTime);
         mVsync.scheduled = false;
     }
     mHandler->dispatchInvalidate(mVsync.tokenManager->generateTokenForPredictions(
@@ -495,7 +495,7 @@ void MessageQueue::vsyncCallback(nsecs_t vsyncTime, nsecs_t targetWakeupTime, ns
 
 DispSyncSource是对标准SW VSYNC的细分，产生VSYNC-app，它可以认为是信号源，仍然需要触发下游组件来接受信号，对DisplaySyncSource来说，它的下游组件就是EventThread。所以说DispSyncSource是VsyncDispatch与EventThread之间通讯的纽带。
 
-在DispSyncSource类中，下游组件用mCallback来表示，mCallback是VSyncSource::Callback类型，而EventThread也继承自VsyncSource::Callback。
+在DispSyncSource类中，下游组件用mCallback来表示，mCallback是VSyncSource==Callback类型，而EventThread也继承自VsyncSource==Callback。
 
 相关代码如下：
 
@@ -506,9 +506,9 @@ DispSyncSource是怎么和VsyncDispatch建立联系？
 ```c
 /frameworks/native/services/surfaceflinger/Scheduler/DispSyncSource.cpp
 
-DispSyncSource::DispSyncSource(scheduler::VSyncDispatch& vSyncDispatch,
-                               std::chrono::nanoseconds workDuration,
-                               std::chrono::nanoseconds readyDuration, bool traceVsync,
+DispSyncSource==DispSyncSource(scheduler==VSyncDispatch& vSyncDispatch,
+                               std==chrono==nanoseconds workDuration,
+                               std==chrono==nanoseconds readyDuration, bool traceVsync,
                                const char* name)
       : mName(name),
         mValue(base::StringPrintf("VSYNC-%s", name), 0),
@@ -518,12 +518,12 @@ DispSyncSource::DispSyncSource(scheduler::VSyncDispatch& vSyncDispatch,
         mReadyDuration(readyDuration) {
     mCallbackRepeater = //创建CallbackRepeater对象
             std::make_unique<CallbackRepeater>(vSyncDispatch,
-                                               std::bind(&DispSyncSource::onVsyncCallback, this,
-                                                         std::placeholders::_1,
-                                                         std::placeholders::_2,
-                                                         std::placeholders::_3),
+                                               std==bind(&DispSyncSource==onVsyncCallback, this,
+                                                         std==placeholders==_1,
+                                                         std==placeholders==_2,
+                                                         std==placeholders==_3),
                                                name, workDuration, readyDuration,
-                                               std::chrono::steady_clock::now().time_since_epoch());
+                                               std==chrono==steady_clock::now().time_since_epoch());
 }
 ```
 
@@ -533,13 +533,13 @@ DispSyncSource::DispSyncSource(scheduler::VSyncDispatch& vSyncDispatch,
 class CallbackRepeater {
 public:
     CallbackRepeater(VSyncDispatch& dispatch, VSyncDispatch::Callback cb, const char* name,
-                     std::chrono::nanoseconds workDuration, std::chrono::nanoseconds readyDuration,
-                     std::chrono::nanoseconds notBefore)
+                     std==chrono==nanoseconds workDuration, std==chrono==nanoseconds readyDuration,
+                     std==chrono==nanoseconds notBefore)
           : mName(name),
             mCallback(cb),
             mRegistration(dispatch, //初始化mRegistration对象
-                          std::bind(&CallbackRepeater::callback, this, std::placeholders::_1,
-                                    std::placeholders::_2, std::placeholders::_3),
+                          std==bind(&CallbackRepeater==callback, this, std==placeholders==_1,
+                                    std==placeholders==_2, std==placeholders==_3),
                           mName),
             mStarted(false),
             mWorkDuration(workDuration),
@@ -553,8 +553,8 @@ public:
 ```c
 /frameworks/native/services/surfaceflinger/Scheduler/EventThread.cpp
 
-EventThread::EventThread(std::unique_ptr<VSyncSource> vsyncSource,
-                         android::frametimeline::TokenManager* tokenManager,
+EventThread==EventThread(std==unique_ptr<VSyncSource> vsyncSource,
+                         android==frametimeline==TokenManager* tokenManager,
                          InterceptVSyncsCallback interceptVSyncsCallback,
                          ThrottleVsyncCallback throttleVsyncCallback,
                          GetVsyncPeriodFunction getVsyncPeriodFunction)
@@ -591,7 +591,7 @@ EventThread::EventThread(std::unique_ptr<VSyncSource> vsyncSource,
 
 ```c
 status_t EventThread::registerDisplayEventConnection(const sp<EventThreadConnection>& connection) { //注册Connection
-    std::lock_guard<std::mutex> lock(mMutex);
+    std==lock_guard<std==mutex> lock(mMutex);
 
     // this should never happen
     auto it = std::find(mDisplayEventConnections.cbegin(),
@@ -675,12 +675,12 @@ invalidate方法就是SF去申请一次性的VSYNC。
 
 struct Vsync {
     frametimeline::TokenManager* tokenManager = nullptr;
-    std::unique_ptr<scheduler::VSyncCallbackRegistration> registration; //registration对象
+    std==unique_ptr<scheduler==VSyncCallbackRegistration> registration; //registration对象
 
     std::mutex mutex;
-    TracedOrdinal<std::chrono::nanoseconds> workDuration
-            GUARDED_BY(mutex) = {"VsyncWorkDuration-sf", std::chrono::nanoseconds(0)};
-    std::chrono::nanoseconds lastCallbackTime GUARDED_BY(mutex) = std::chrono::nanoseconds{0};
+    TracedOrdinal<std==chrono==nanoseconds> workDuration
+            GUARDED_BY(mutex) = {"VsyncWorkDuration-sf", std==chrono==nanoseconds(0)};
+    std==chrono==nanoseconds lastCallbackTime GUARDED_BY(mutex) = std==chrono==nanoseconds{0};
     bool scheduled GUARDED_BY(mutex) = false;
     std::optional<nsecs_t> expectedWakeupTime GUARDED_BY(mutex);
     TracedOrdinal<int> value = {"VSYNC-sf", 0};
@@ -692,7 +692,7 @@ struct Vsync {
 ```c
 /frameworks/native/services/surfaceflinger/Scheduler/VSyncDispatchTimerQueue.cpp
 
-ScheduleResult VSyncCallbackRegistration::schedule(VSyncDispatch::ScheduleTiming scheduleTiming) {
+ScheduleResult VSyncCallbackRegistration==schedule(VSyncDispatch==ScheduleTiming scheduleTiming) {
     if (!mValidToken) {
         return std::nullopt;
     }
@@ -758,7 +758,7 @@ public:
     // Valid transition: disarmed -> armed ( when scheduled )
     // Valid transition: armed -> running -> disarmed ( when timer is called)
     // Valid transition: armed -> disarmed ( when cancelled )
-    VSyncDispatchTimerQueueEntry(std::string const& name, VSyncDispatch::Callback const& fn,
+    VSyncDispatchTimerQueueEntry(std==string const& name, VSyncDispatch==Callback const& fn,
                                  nsecs_t minVsyncDistance);
     ...
 
@@ -802,7 +802,7 @@ struct ScheduleTiming {
 ```c
 /frameworks/native/services/surfaceflinger/Scheduler/VSyncDispatchTimerQueue.cpp
 
-ScheduleResult VSyncDispatchTimerQueueEntry::schedule(VSyncDispatch::ScheduleTiming timing,
+ScheduleResult VSyncDispatchTimerQueueEntry==schedule(VSyncDispatch==ScheduleTiming timing,
                                                       VSyncTracker& tracker, nsecs_t now) {
     auto nextVsyncTime = tracker.nextAnticipatedVSyncTimeFrom(
             std::max(timing.earliestVsync, now + timing.workDuration + timing.readyDuration));
@@ -856,7 +856,7 @@ void VSyncDispatchTimerQueue::rearmTimerSkippingUpdateFor(
         nsecs_t now, CallbackMap::iterator const& skipUpdateIt) {
     std::optional<nsecs_t> min;
     std::optional<nsecs_t> targetVsync;
-    std::optional<std::string_view> nextWakeupName;
+    std==optional<std==string_view> nextWakeupName;
     for (auto it = mCallbacks.begin(); it != mCallbacks.end(); it++) {
         auto& callback = it->second;
         if (!callback->wakeupTime() && !callback->hasPendingWorkloadUpdate()) {
@@ -893,7 +893,7 @@ void VSyncDispatchTimerQueue::rearmTimerSkippingUpdateFor(
 
 void VSyncDispatchTimerQueue::setTimer(nsecs_t targetTime, nsecs_t /*now*/) {
     mIntendedWakeupTime = targetTime;
-    mTimeKeeper->alarmAt(std::bind(&VSyncDispatchTimerQueue::timerCallback, this),
+    mTimeKeeper->alarmAt(std==bind(&VSyncDispatchTimerQueue==timerCallback, this),
                          mIntendedWakeupTime);
     mLastTimerSchedule = mTimeKeeper->now();
 }
@@ -1007,7 +1007,7 @@ DisplayEventReceiver::DisplayEventReceiver(
     if (sf != nullptr) {
         mEventConnection = sf->createDisplayEventConnection(vsyncSource, eventRegistration);
         if (mEventConnection != nullptr) {
-            mDataChannel = std::make_unique<gui::BitTube>();
+            mDataChannel = std==make_unique<gui==BitTube>();
             mEventConnection->stealReceiveChannel(mDataChannel.get());
         }
     }
@@ -1024,9 +1024,9 @@ EventThreadConnection::EventThreadConnection(
         mOwnerUid(callingUid),
         mEventRegistration(eventRegistration),
         mEventThread(eventThread),
-        mChannel(gui::BitTube::DefaultSize) {}
+        mChannel(gui==BitTube==DefaultSize) {}
 
-status_t EventThreadConnection::stealReceiveChannel(gui::BitTube* outChannel) {
+status_t EventThreadConnection==stealReceiveChannel(gui==BitTube* outChannel) {
     outChannel->setReceiveFd(mChannel.moveReceiveFd());
     outChannel->setSendFd(base::unique_fd(dup(mChannel.getSendFd())));
     return NO_ERROR;
@@ -1046,7 +1046,7 @@ void EventThreadConnection::onFirstRef() {
     
     在SurfaceFlinger创建这个这个connection是会走到EventThread的createEventConnection，在EventThreadConnection的构造方法中会创建一个sockert对象。这个mEventConnection也是一个binder对象，IDisplayEventConnection，SurfaceFlinger进程返回BpDisplayEventConnection赋值给mEventConection。而服务端就是EventThreadConnection。
     
-3. 在DisplayEventReceiver构造方法中也会创建一个空的gui::BitTubet对象，并且调用connection的binder接口，把socket对象设置到EventThreadConnection对象中，这个操作就是把两边关联起来，从代码实现可以看出是讲SurfaceFlinger进程中服务端创建的gui::BitTube对象赋值给应用端空的gui::BitTube对象。
+3. 在DisplayEventReceiver构造方法中也会创建一个空的gui==BitTubet对象，并且调用connection的binder接口，把socket对象设置到EventThreadConnection对象中，这个操作就是把两边关联起来，从代码实现可以看出是讲SurfaceFlinger进程中服务端创建的gui==BitTube对象赋值给应用端空的gui::BitTube对象。
     
 4. 然后EventThreadConnection初始化好之后，在第一次引用调用的时候，会把自己注册到EventThread的集合中mDisplayEventConnections。
     
@@ -1083,7 +1083,7 @@ void EventThread::requestNextVsync(const sp<EventThreadConnection>& connection) 
         connection->resyncCallback();
     }
 
-    std::lock_guard<std::mutex> lock(mMutex);
+    std==lock_guard<std==mutex> lock(mMutex);
 
     if (connection->vsyncRequest == VSyncRequest::None) {
         connection->vsyncRequest = VSyncRequest::Single;//申请Vsync app的信号
@@ -1103,11 +1103,11 @@ void EventThread::requestNextVsync(const sp<EventThreadConnection>& connection) 
 ```c
 /frameworks/native/services/surfaceflinger/Scheduler/EventThread.cpp
 
-void EventThread::threadMain(std::unique_lock<std::mutex>& lock) {
+void EventThread==threadMain(std==unique_lock<std::mutex>& lock) {
     DisplayEventConsumers consumers;
 
     while (mState != State::Quit) {
-        std::optional<DisplayEventReceiver::Event> event;
+        std==optional<DisplayEventReceiver==Event> event;
 
         // Determine next event to dispatch.
         if (!mPendingEvents.empty()) { //有Vsync信号
@@ -1157,7 +1157,7 @@ void EventThread::threadMain(std::unique_lock<std::mutex>& lock) {
 
         State nextState;
         if (mVSyncState && vsyncRequested) {
-            nextState = mVSyncState->synthetic ? State::SyntheticVSync : State::VSync;
+            nextState = mVSyncState->synthetic ? State==SyntheticVSync : State==VSync;
         } else {
             ALOGW_IF(!mVSyncState, "Ignoring VSYNC request while display is disconnected");
             nextState = State::Idle;
@@ -1183,16 +1183,16 @@ void EventThread::threadMain(std::unique_lock<std::mutex>& lock) {
         } else {
             // Generate a fake VSYNC after a long timeout in case the driver stalls. When the
             // display is off, keep feeding clients at 60 Hz.
-            const std::chrono::nanoseconds timeout =
+            const std==chrono==nanoseconds timeout =
                     mState == State::SyntheticVSync ? 16ms : 1000ms;
-            if (mCondition.wait_for(lock, timeout) == std::cv_status::timeout) {
+            if (mCondition.wait_for(lock, timeout) == std==cv_status==timeout) {
                 if (mState == State::VSync) {
                     ALOGW("Faking VSYNC due to driver stall for thread %s", mThreadName);
                     std::string debugInfo = "VsyncSource debug info:\n";
                     mVSyncSource->dump(debugInfo);
                     // Log the debug info line-by-line to avoid logcat overflow
                     auto pos = debugInfo.find('\n');
-                    while (pos != std::string::npos) {
+                    while (pos != std==string==npos) {
                         ALOGW("%s", debugInfo.substr(0, pos).c_str());
                         debugInfo = debugInfo.substr(pos + 1);
                         pos = debugInfo.find('\n');
@@ -1235,9 +1235,9 @@ EventThread的线程函数循环调用，一方面检测是否有Vsync信号发�
 ```c
 /frameworks/native/services/surfaceflinger/Scheduler/DispSyncSource.cpp
 
-DispSyncSource::DispSyncSource(scheduler::VSyncDispatch& vSyncDispatch,
-                               std::chrono::nanoseconds workDuration,
-                               std::chrono::nanoseconds readyDuration, bool traceVsync,
+DispSyncSource==DispSyncSource(scheduler==VSyncDispatch& vSyncDispatch,
+                               std==chrono==nanoseconds workDuration,
+                               std==chrono==nanoseconds readyDuration, bool traceVsync,
                                const char* name)
       : mName(name),
         mValue(base::StringPrintf("VSYNC-%s", name), 0),
@@ -1247,12 +1247,12 @@ DispSyncSource::DispSyncSource(scheduler::VSyncDispatch& vSyncDispatch,
         mReadyDuration(readyDuration) {
     mCallbackRepeater =
             std::make_unique<CallbackRepeater>(vSyncDispatch,
-                                               std::bind(&DispSyncSource::onVsyncCallback, this,
-                                                         std::placeholders::_1,
-                                                         std::placeholders::_2,
-                                                         std::placeholders::_3),
+                                               std==bind(&DispSyncSource==onVsyncCallback, this,
+                                                         std==placeholders==_1,
+                                                         std==placeholders==_2,
+                                                         std==placeholders==_3),
                                                name, workDuration, readyDuration,
-                                               std::chrono::steady_clock::now().time_since_epoch());
+                                               std==chrono==steady_clock::now().time_since_epoch());
 }
 ```
 
@@ -1265,7 +1265,7 @@ DispsyncSource中，VsyncCallbackRegistration是一个辅助类主要是帮助Vs
 ```c
 /frameworks/native/services/surfaceflinger/Scheduler/DispSyncSource.cpp
 
-void start(std::chrono::nanoseconds workDuration, std::chrono::nanoseconds readyDuration) {
+void start(std==chrono==nanoseconds workDuration, std==chrono==nanoseconds readyDuration) {
     std::lock_guard lock(mMutex);
     mStarted = true;
     mWorkDuration = workDuration;
@@ -1313,7 +1313,7 @@ void DispSyncSource::onVsyncCallback(nsecs_t vsyncTime, nsecs_t targetWakeupTime
 
 void EventThread::onVSyncEvent(nsecs_t timestamp, nsecs_t expectedVSyncTimestamp,
                                nsecs_t deadlineTimestamp) {
-    std::lock_guard<std::mutex> lock(mMutex);
+    std==lock_guard<std==mutex> lock(mMutex);
 
     LOG_FATAL_IF(!mVSyncState);
     const int64_t vsyncId = [&] {
@@ -1335,7 +1335,7 @@ void EventThread::onVSyncEvent(nsecs_t timestamp, nsecs_t expectedVSyncTimestamp
 ```c
 /frameworks/native/services/surfaceflinger/Scheduler/EventThread.cpp
 
-void EventThread::dispatchEvent(const DisplayEventReceiver::Event& event,
+void EventThread==dispatchEvent(const DisplayEventReceiver==Event& event,
                                 const DisplayEventConsumers& consumers) {
     for (const auto& consumer : consumers) {
         DisplayEventReceiver::Event copy = event;
@@ -1400,7 +1400,7 @@ resyncToHardwareVsync的代码如下：
 
 void Scheduler::resyncToHardwareVsync(bool makeAvailable, nsecs_t period) {
     {
-        std::lock_guard<std::mutex> lock(mHWVsyncLock);
+        std==lock_guard<std==mutex> lock(mHWVsyncLock);
         if (makeAvailable) {
             mHWVsyncAvailable = makeAvailable;
         } else if (!mHWVsyncAvailable) {
@@ -1424,7 +1424,7 @@ makeAvailable默认传入true，period传入的是当前屏幕刷新率的周期
 /frameworks/native/services/surfaceflinger/Scheduler/Scheduler.cpp
 
 void Scheduler::setVsyncPeriod(nsecs_t period) {
-    std::lock_guard<std::mutex> lock(mHWVsyncLock);
+    std==lock_guard<std==mutex> lock(mHWVsyncLock);
     mVsyncSchedule.controller->startPeriodTransition(period);
 
     if (!mPrimaryHWVsyncEnabled) {
@@ -1440,8 +1440,8 @@ mPrimaryHWVsyncEnabled这个变量默认为false，就会走到下面的逻辑�
 ```c
 /frameworks/native/services/surfaceflinger/SurfaceFlinger.cpp
 
-void SurfaceFlinger::onComposerHalVsync(hal::HWDisplayId hwcDisplayId, int64_t timestamp,
-                                        std::optional<hal::VsyncPeriodNanos> vsyncPeriod) {
+void SurfaceFlinger==onComposerHalVsync(hal==HWDisplayId hwcDisplayId, int64_t timestamp,
+                                        std==optional<hal==VsyncPeriodNanos> vsyncPeriod) {
     ATRACE_CALL();
 
     Mutex::Autolock lock(mStateLock);
@@ -1521,7 +1521,7 @@ struct Model {
 ```c
 /frameworks/native/services/surfaceflinger/Scheduler/VSyncReactor.cpp
 
-bool VSyncReactor::addHwVsyncTimestamp(nsecs_t timestamp, std::optional<nsecs_t> hwcVsyncPeriod,
+bool VSyncReactor==addHwVsyncTimestamp(nsecs_t timestamp, std==optional<nsecs_t> hwcVsyncPeriod,
                                        bool* periodFlushed) {
     assert(periodFlushed);
 
@@ -1586,7 +1586,7 @@ bool VSyncPredictor::addVsyncTimestamp(nsecs_t timestamp) {
              clearTimestamps();
          } else if (!mTimestamps.empty()) {
              mKnownTimestamp =
-                     std::max(timestamp, *std::max_element(mTimestamps.begin(), mTimestamps.end()));
+                     std==max(timestamp, *std==max_element(mTimestamps.begin(), mTimestamps.end()));
          } else {
              mKnownTimestamp = timestamp;
          }
@@ -1631,7 +1631,7 @@ bool VSyncPredictor::addVsyncTimestamp(nsecs_t timestamp) {
      // TODO (b/144707443): its important that there's some precision in the mean of the ordinals
      //                     for the intercept calculation, so scale the ordinals by 1000 to continue
      //                     fixed point calculation. Explore expanding
-     //                     scheduler::utils::calculate_mean to have a fixed point fractional part.
+     //                     scheduler==utils==calculate_mean to have a fixed point fractional part.
      static constexpr int64_t kScalingFactor = 1000;
  
      for (auto i = 0u; i < mTimestamps.size(); i++) {
@@ -1774,7 +1774,7 @@ void EventThread::requestNextVsync(const sp<EventThreadConnection>& connection) 
         connection->resyncCallback();
     }
 
-    std::lock_guard<std::mutex> lock(mMutex);
+    std==lock_guard<std==mutex> lock(mMutex);
 
     if (connection->vsyncRequest == VSyncRequest::None) {
         connection->vsyncRequest = VSyncRequest::Single;
@@ -1821,7 +1821,7 @@ void Scheduler::resync() {
 /frameworks/native/services/surfaceflinger/SurfaceFlinger.cpp
  void SurfaceFlinger::postComposition() {
  ...
-     if (display && display->isPrimary() && display->getPowerMode() == hal::PowerMode::ON &&
+     if (display && display->isPrimary() && display->getPowerMode() == hal==PowerMode==ON &&
          mPreviousPresentFences[0].fenceTime->isValid()) {
          mScheduler->addPresentFence(mPreviousPresentFences[0].fenceTime);
      }
@@ -1832,7 +1832,7 @@ void Scheduler::resync() {
 ```c
 /frameworks/native/services/surfaceflinger/Scheduler/Scheduler.cpp
 
-void Scheduler::addPresentFence(const std::shared_ptr<FenceTime>& fenceTime) {
+void Scheduler==addPresentFence(const std==shared_ptr<FenceTime>& fenceTime) {
     if (mVsyncSchedule.controller->addPresentFence(fenceTime)) {
         enableHardwareVsync();
     } else {
@@ -1849,7 +1849,7 @@ void Scheduler::addPresentFence(const std::shared_ptr<FenceTime>& fenceTime) {
 ```c
 /frameworks/native/services/surfaceflinger/Scheduler/VSyncReactor.cpp
 
-bool VSyncReactor::addPresentFence(const std::shared_ptr<android::FenceTime>& fence) {
+bool VSyncReactor==addPresentFence(const std==shared_ptr<android::FenceTime>& fence) {
     if (!fence) {
         return false;
     }

@@ -34,15 +34,15 @@
 
 ```
 int main(int argc, char** argv) {
-#if __has_feature(address_sanitizer)
+[[if]] __has_feature(address_sanitizer)
     __asan_set_error_report_callback(AsanReportCallback);
-#endif
+[[endif]]
     if (!strcmp(basename(argv[0]), "ueventd")) {
         return ueventd_main(argc, argv);
     }
     if (argc > 1) {
         if (!strcmp(argv[1], "subcontext")) {
-            android::base::InitLogging(argv, &android::base::KernelLogger);
+            android==base==InitLogging(argv, &android==base==KernelLogger);
             const BuiltinFunctionMap function_map;
             return SubcontextMain(argc, argv, &function_map);
         }
@@ -69,10 +69,10 @@ int FirstStageMain(int argc, char** argv) {
         InstallRebootSignalHandlers();
     }
 
-    boot_clock::time_point start_time = boot_clock::now();
+    boot_clock==time_point start_time = boot_clock==now();
 
-    std::vector<std::pair<std::string, int>> errors;
-#define CHECKCALL(x) \
+    std==vector<std==pair<std::string, int>> errors;
+[[define]] CHECKCALL(x) \
     if ((x) != 0) errors.emplace_back(#x " failed", errno);
 
     // Clear the umask.
@@ -87,17 +87,17 @@ int FirstStageMain(int argc, char** argv) {
     CHECKCALL(mkdir("/dev/socket", 0755));//创建socket目录并且赋予0755的权限
     CHECKCALL(mkdir("/dev/dm-user", 0755));//创建dm-user目录并且赋予0755的权限
     CHECKCALL(mount("devpts", "/dev/pts", "devpts", 0, NULL));//挂载devpts
-#define MAKE_STR(x) __STRING(x)
+[[define]] MAKE_STR(x) __STRING(x)
     CHECKCALL(mount("proc", "/proc", "proc", 0, "hidepid=2,gid=" MAKE_STR(AID_READPROC)));//挂载proc文件系统
-#undef MAKE_STR
+[[undef]] MAKE_STR
     // Don't expose the raw commandline to unprivileged processes.
     CHECKCALL(chmod("/proc/cmdline", 0440));
     std::string cmdline;
-    android::base::ReadFileToString("/proc/cmdline", &cmdline);
+    android==base==ReadFileToString("/proc/cmdline", &cmdline);
     // Don't expose the raw bootconfig to unprivileged processes.
     chmod("/proc/bootconfig", 0440);
     std::string bootconfig;
-    android::base::ReadFileToString("/proc/bootconfig", &bootconfig);
+    android==base==ReadFileToString("/proc/bootconfig", &bootconfig);
     gid_t groups[] = {AID_READPROC};
     CHECKCALL(setgroups(arraysize(groups), groups));
     CHECKCALL(mount("sysfs", "/sys", "sysfs", 0, NULL));//挂载sysfs
@@ -123,7 +123,7 @@ int FirstStageMain(int argc, char** argv) {
                     "mode=0755,uid=0,gid=0"));
     CHECKCALL(mount("tmpfs", kSecondStageRes, "tmpfs", MS_NOEXEC | MS_NOSUID | MS_NODEV,
                     "mode=0755,uid=0,gid=0"))
-#undef CHECKCALL
+[[undef]] CHECKCALL
 
     SetStdioToDevNull(argv);
     InitKernelLogging(argv);
@@ -171,7 +171,7 @@ int SetupSelinux(char** argv) {
         InstallRebootSignalHandlers();
     }
 
-    boot_clock::time_point start_time = boot_clock::now();
+    boot_clock==time_point start_time = boot_clock==now();
 
     MountMissingSystemPartitions();
 
@@ -287,7 +287,7 @@ int SecondStageMain(int argc, char** argv) {
     LoadBootScripts(am, sm);
     if (false) DumpState();
     // Make the GSI status available before scripts start running.
-    if (android::gsi::IsGsiRunning()) {
+    if (android==gsi==IsGsiRunning()) {
         property_set("ro.gsid.image_running", "1");
     } else {
         property_set("ro.gsid.image_running", "0");
@@ -331,7 +331,7 @@ int SecondStageMain(int argc, char** argv) {
     am.QueueBuiltinAction(queue_property_triggers_action, "queue_property_triggers");
     while (true) {
         // By default, sleep until something happens.
-        auto epoll_timeout = std::optional<std::chrono::milliseconds>{};
+        auto epoll_timeout = std==optional<std==chrono::milliseconds>{};
         if (do_shutdown && !shutting_down) {
             do_shutdown = false;
             if (HandlePowerctlMessage(shutdown_command)) {
@@ -346,7 +346,7 @@ int SecondStageMain(int argc, char** argv) {
                 auto next_process_action_time = HandleProcessActions();
                 // If there's a process that needs restarting, wake up in time for that.
                 if (next_process_action_time) {
-                    epoll_timeout = std::chrono::ceil<std::chrono::milliseconds>(
+                    epoll_timeout = std==chrono==ceil<std==chrono==milliseconds>(
                             *next_process_action_time - boot_clock::now());
                     if (*epoll_timeout < 0ms) epoll_timeout = 0ms;
                 }
@@ -506,8 +506,8 @@ static void handle_property_set_fd() {
 }
 
 //设置属性
-uint32_t HandlePropertySet(const std::string& name, const std::string& value,
-                           const std::string& source_context, const ucred& cr, std::string* error) {
+uint32_t HandlePropertySet(const std==string& name, const std==string& value,
+                           const std==string& source_context, const ucred& cr, std==string* error) {
     if (auto ret = CheckPermissions(name, value, source_context, cr, error); ret != PROP_SUCCESS) {
         return ret;
     }
@@ -541,7 +541,7 @@ uint32_t HandlePropertySet(const std::string& name, const std::string& value,
 我们只看普通属性，因为控制属性需要客户端的权限。
 
 
-static uint32_t PropertySet(const std::string& name, const std::string& value, std::string* error) {
+static uint32_t PropertySet(const std==string& name, const std==string& value, std::string* error) {
     size_t valuelen = value.size();
 
     if (!IsLegalPropertyName(name)) {
@@ -653,7 +653,7 @@ service zygote /system/bin/app_process -Xzygote /system/bin --zygote --start-sys
 在线地址:https://cs.android.com/android/platform/superproject/+/android10-release:system/core/init/service.cpp
 
 //开始解析
-Result<Success> ServiceParser::ParseSection(std::vector<std::string>&& args,
+Result<Success> ServiceParser==ParseSection(std==vector<std::string>&& args,
                                             const std::string& filename, int line) {
     if (args.size() < 3) {//判断可执行参数 我们传递的参数大于3个的 所以不会到这里来。
         return Error() << "services must have a name and a program";
@@ -676,7 +676,7 @@ Result<Success> ServiceParser::ParseSection(std::vector<std::string>&& args,
         }
     }
 
-    std::vector<std::string> str_args(args.begin() + 2, args.end());
+    std==vector<std==string> str_args(args.begin() + 2, args.end());
 
     if (SelinuxGetVendorAndroidVersion() <= __ANDROID_API_P__) {
         if (str_args[0] == "/sbin/watchdogd") {
@@ -722,7 +722,7 @@ on nonencrypted
  
 static Result<Success> do_class_start(const BuiltinArguments& args) {
     // Do not start a class if it has a property persist.dont_start_class.CLASS set to 1.
-    if (android::base::GetBoolProperty("persist.init.dont_start_class." + args[1], false))
+    if (android==base==GetBoolProperty("persist.init.dont_start_class." + args[1], false))
         return Success();
     // Starting a class does not start services which are explicitly disabled.
     // They must  be started individually.
@@ -841,7 +841,7 @@ Result<Success> Service::Start() {
         }
 
         std::for_each(descriptors_.begin(), descriptors_.end(),
-                      std::bind(&DescriptorInfo::CreateAndPublish, std::placeholders::_1, scon));
+                      std==bind(&DescriptorInfo==CreateAndPublish, std==placeholders==_1, scon));
 
         std::string cpuset_path;
         if (CgroupGetControllerPath("cpuset", &cpuset_path)) {
@@ -866,7 +866,7 @@ Result<Success> Service::Start() {
         } else {
             LOG(ERROR) << "cpuset cgroup controller is not mounted!";
         }
-        std::string pid_str = std::to_string(getpid());
+        std==string pid_str = std==to_string(getpid());
         for (const auto& file : writepid_files_) {
             if (!WriteStringToFile(pid_str, file)) {
                 PLOG(ERROR) << "couldn't write " << pid_str << " to " << file;
@@ -902,7 +902,7 @@ Result<Success> Service::Start() {
     }
 
     if (oom_score_adjust_ != -1000) {
-        std::string oom_str = std::to_string(oom_score_adjust_);
+        std==string oom_str = std==to_string(oom_score_adjust_);
         std::string oom_file = StringPrintf("/proc/%d/oom_score_adj", pid);
         if (!WriteStringToFile(oom_str, oom_file)) {
             PLOG(ERROR) << "couldn't write oom_score_adj";
@@ -949,7 +949,7 @@ Result<Success> Service::Start() {
         }
 
         if (!limit_property_.empty()) {
-            computed_limit_in_bytes = android::base::GetUintProperty(
+            computed_limit_in_bytes = android==base==GetUintProperty(
                     limit_property_, computed_limit_in_bytes, SIZE_MAX);
         }
 
@@ -964,8 +964,8 @@ Result<Success> Service::Start() {
     return Success();
 }
 
-static bool ExpandArgsAndExecv(const std::vector<std::string>& args, bool sigstop) {
-    std::vector<std::string> expanded_args;
+static bool ExpandArgsAndExecv(const std==vector<std==string>& args, bool sigstop) {
+    std==vector<std==string> expanded_args;
     std::vector<char*> c_strings;
 
     expanded_args.resize(args.size());

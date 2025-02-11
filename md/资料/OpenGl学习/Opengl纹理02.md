@@ -195,7 +195,7 @@ if (data)
     glGenerateMipmap(GL_TEXTURE_2D);
 }
 else{
-   std::cout << "Failed to load texture" << std::endl;
+   std==cout << "Failed to load texture" << std==endl;
 }
 // 生成了纹理和相应的多级渐远纹理后，释放图像的内存是一个很好的习惯。
 stbi_image_free(data);
@@ -224,7 +224,7 @@ float vertices[] = {
 
 
 ```glsl
-#version 330 core
+[[version]] 330 core
 layout  (location = 0) in vec3 aPos;
 layout  (location = 1) in vec3 aColor;
 layout  (location = 2) in vec2 aTexCoord;
@@ -245,7 +245,7 @@ void main()
 
 
 ```glsl
-#version 330 core
+[[version]] 330 core
 out vec4 FragColor;
 in vec3 ourColor;
 in vec2 TexCoord;
@@ -296,7 +296,7 @@ glBindTexture(GL_TEXTURE_2D, texutre);
 
 
 ```glsl
-#version 330 core
+[[version]] 330 core
 ...
 
 uniform sampler2D texture1;

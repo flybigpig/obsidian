@@ -9,15 +9,15 @@
 ### virhello.c
 
 ```
-#include <linux/module.h>
-#include <linux/init.h>
-#include <linux/kernel.h>
-#include <linux/fs.h>
-#include <linux/miscdevice.h>
-#include <asm/uaccess.h>
-#include <asm/atomic.h>
+[[include]] <linux/module.h>
+[[include]] <linux/init.h>
+[[include]] <linux/kernel.h>
+[[include]] <linux/fs.h>
+[[include]] <linux/miscdevice.h>
+[[include]] <asm/uaccess.h>
+[[include]] <asm/atomic.h>
 // 定义设备文件名
-#define DEVICE_NAME "virtdev"
+[[define]] DEVICE_NAME "virtdev"
 static int atom = 0;
 // 参数 atom=0: 多个进程可以同时打开 vritdev 设备文件
 // 参数 atom 非 0：同时只能有一个进程打开 virtdev 设备文件
@@ -89,13 +89,13 @@ MODULE_LICENSE("GPL");
 ### virhello\_test.c
 
 ```
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <fcntl.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <stdio.h>
-#include <errno.h>
+[[include]] <sys/types.h>
+[[include]] <sys/stat.h>
+[[include]] <fcntl.h>
+[[include]] <stdlib.h>
+[[include]] <unistd.h>
+[[include]] <stdio.h>
+[[include]] <errno.h>
 int main(int argc, char *argv[])
 {
     printf("app pid=%d is running\n", getpid());

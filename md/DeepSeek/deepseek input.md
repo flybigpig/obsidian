@@ -704,7 +704,7 @@ void InputDispatcher::dispatchOnceInnerLocked(nsecs_t& nextWakeupTime) {
     }
 
     switch (mPendingEvent->type) {
-        case EventEntry::Type::DEVICE_RESET: {
+        case EventEntry==Type==DEVICE_RESET: {
             const DeviceResetEntry& typedEntry =
                     static_cast<const DeviceResetEntry&>(*mPendingEvent);
             done = dispatchDeviceResetLocked(currentTime, typedEntry);
@@ -712,7 +712,7 @@ void InputDispatcher::dispatchOnceInnerLocked(nsecs_t& nextWakeupTime) {
             break;
         }
 
-        case EventEntry::Type::FOCUS: {
+        case EventEntry==Type==FOCUS: {
             std::shared_ptr<const FocusEntry> typedEntry =
                     std::static_pointer_cast<const FocusEntry>(mPendingEvent);
             dispatchFocusLocked(currentTime, typedEntry);
@@ -721,7 +721,7 @@ void InputDispatcher::dispatchOnceInnerLocked(nsecs_t& nextWakeupTime) {
             break;
         }
 
-        case EventEntry::Type::TOUCH_MODE_CHANGED: {
+        case EventEntry==Type==TOUCH_MODE_CHANGED: {
             const auto typedEntry = std::static_pointer_cast<const TouchModeEntry>(mPendingEvent);
             dispatchTouchModeChangeLocked(currentTime, typedEntry);
             done = true;
@@ -729,7 +729,7 @@ void InputDispatcher::dispatchOnceInnerLocked(nsecs_t& nextWakeupTime) {
             break;
         }
 
-        case EventEntry::Type::POINTER_CAPTURE_CHANGED: {
+        case EventEntry==Type==POINTER_CAPTURE_CHANGED: {
             const auto typedEntry =
                     std::static_pointer_cast<const PointerCaptureChangedEntry>(mPendingEvent);
             dispatchPointerCaptureChangedLocked(currentTime, typedEntry, dropReason);
@@ -737,7 +737,7 @@ void InputDispatcher::dispatchOnceInnerLocked(nsecs_t& nextWakeupTime) {
             break;
         }
 
-        case EventEntry::Type::DRAG: {
+        case EventEntry==Type==DRAG: {
             std::shared_ptr<const DragEntry> typedEntry =
                     std::static_pointer_cast<const DragEntry>(mPendingEvent);
             dispatchDragLocked(currentTime, typedEntry);
@@ -745,7 +745,7 @@ void InputDispatcher::dispatchOnceInnerLocked(nsecs_t& nextWakeupTime) {
             break;
         }
 
-        case EventEntry::Type::KEY: {
+        case EventEntry==Type==KEY: {
             std::shared_ptr<const KeyEntry> keyEntry =
                     std::static_pointer_cast<const KeyEntry>(mPendingEvent);
             if (dropReason == DropReason::NOT_DROPPED && isStaleEvent(currentTime, *keyEntry)) {
@@ -758,7 +758,7 @@ void InputDispatcher::dispatchOnceInnerLocked(nsecs_t& nextWakeupTime) {
             break;
         }
 
-        case EventEntry::Type::MOTION: {
+        case EventEntry==Type==MOTION: {
             std::shared_ptr<const MotionEntry> motionEntry =
                     std::static_pointer_cast<const MotionEntry>(mPendingEvent);
             if (dropReason == DropReason::NOT_DROPPED && isStaleEvent(currentTime, *motionEntry)) {
@@ -783,7 +783,7 @@ void InputDispatcher::dispatchOnceInnerLocked(nsecs_t& nextWakeupTime) {
             break;
         }
 
-        case EventEntry::Type::SENSOR: {
+        case EventEntry==Type==SENSOR: {
             std::shared_ptr<const SensorEntry> sensorEntry =
                     std::static_pointer_cast<const SensorEntry>(mPendingEvent);
 

@@ -45,11 +45,11 @@ public interface IInterface
  * remotable object.  Do not implement this interface directly, instead
  * extend from {@link Binder}.
  * 
- * <p>The key IBinder API is {@link #transact transact()} matched by
+ * <p>The key IBinder API is {@link [[transact]] transact()} matched by
  * {@link Binder#onTransact Binder.onTransact()}.  These
  * methods allow you to send a call to an IBinder object and receive a
  * call coming in to a Binder object, respectively.  This transaction API
- * is synchronous, such that a call to {@link #transact transact()} does not
+ * is synchronous, such that a call to {@link [[transact]] transact()} does not
  * return until the target has returned from
  * {@link Binder#onTransact Binder.onTransact()}; this is the
  * expected behavior when calling an object that exists in the local
@@ -89,12 +89,12 @@ public interface IInterface
  * <p>When working with remote objects, you often want to find out when they
  * are no longer valid.  There are three ways this can be determined:
  * <ul>
- * <li> The {@link #transact transact()} method will throw a
+ * <li> The {@link [[transact]] transact()} method will throw a
  * {@link RemoteException} exception if you try to call it on an IBinder
  * whose process no longer exists.
- * <li> The {@link #pingBinder()} method can be called, and will return false
+ * <li> The {@link [[pingBinder]]()} method can be called, and will return false
  * if the remote process no longer exists.
- * <li> The {@link #linkToDeath linkToDeath()} method can be used to register
+ * <li> The {@link [[linkToDeath]] linkToDeath()} method can be used to register
  * a {@link DeathRecipient} with the IBinder, which will be called when its
  * containing process goes away.
  * </ul>
@@ -190,7 +190,7 @@ public interface IBinder {
     int SYSPROPS_TRANSACTION = ('_'<<24)|('S'<<16)|('P'<<8)|'R';
 
     /**
-     * Flag to {@link #transact}: this is a one-way call, meaning that the
+     * Flag to {@link [[transact]]}: this is a one-way call, meaning that the
      * caller returns immediately, without waiting for a result from the
      * callee. Applies only if the caller and callee are in different
      * processes.
@@ -256,7 +256,7 @@ public interface IBinder {
     public void dump(FileDescriptor fd, String[] args) throws RemoteException;
 
     /**
-     * Like {@link #dump(FileDescriptor, String[])} but always executes
+     * Like {@link [[dump]](FileDescriptor, String[])} but always executes
      * asynchronously.  If the object is local, a new thread is created
      * to perform the dump.
      *
@@ -283,15 +283,15 @@ public interface IBinder {
      * Perform a generic operation with the object.
      * 
      * @param code The action to perform.  This should
-     * be a number between {@link #FIRST_CALL_TRANSACTION} and
-     * {@link #LAST_CALL_TRANSACTION}.
+     * be a number between {@link [[FIRST_CALL_TRANSACTION]]} and
+     * {@link [[LAST_CALL_TRANSACTION]]}.
      * @param data Marshalled data to send to the target.  Must not be null.
      * If you are not sending any data, you must create an empty Parcel
      * that is given here.
      * @param reply Marshalled data to be received from the target.  May be
      * null if you are not interested in the return value.
      * @param flags Additional operation flags.  Either 0 for a normal
-     * RPC, or {@link #FLAG_ONEWAY} for a one-way RPC.
+     * RPC, or {@link [[FLAG_ONEWAY]]} for a one-way RPC.
      */
     public boolean transact(int code, Parcel data, Parcel reply, int flags)
         throws RemoteException;
@@ -300,7 +300,7 @@ public interface IBinder {
      * Interface for receiving a callback when the process hosting an IBinder
      * has gone away.
      * 
-     * @see #linkToDeath
+     * @see [[linkToDeath]]
      */
     public interface DeathRecipient {
         public void binderDied();
@@ -320,7 +320,7 @@ public interface IBinder {
      * @throws RemoteException if the target IBinder's
      * process has already died.
      * 
-     * @see #unlinkToDeath
+     * @see [[unlinkToDeath]]
      */
     public void linkToDeath(DeathRecipient recipient, int flags)
             throws RemoteException;
@@ -399,7 +399,7 @@ public interface IBinder {
 
 ```
     /**
-     * Like {@link #dump(FileDescriptor, String[])} but always executes
+     * Like {@link [[dump]](FileDescriptor, String[])} but always executes
      * asynchronously.  If the object is local, a new thread is created
      * to perform the dump.
      *
@@ -450,15 +450,15 @@ public interface IBinder {
      * Perform a generic operation with the object.
      * 
      * @param code The action to perform.  This should
-     * be a number between {@link #FIRST_CALL_TRANSACTION} and
-     * {@link #LAST_CALL_TRANSACTION}.
+     * be a number between {@link [[FIRST_CALL_TRANSACTION]]} and
+     * {@link [[LAST_CALL_TRANSACTION]]}.
      * @param data Marshalled data to send to the target.  Must not be null.
      * If you are not sending any data, you must create an empty Parcel
      * that is given here.
      * @param reply Marshalled data to be received from the target.  May be
      * null if you are not interested in the return value.
      * @param flags Additional operation flags.  Either 0 for a normal
-     * RPC, or {@link #FLAG_ONEWAY} for a one-way RPC.
+     * RPC, or {@link [[FLAG_ONEWAY]]} for a one-way RPC.
      */
     public boolean transact(int code, Parcel data, Parcel reply, int flags)
         throws RemoteException;
@@ -490,7 +490,7 @@ public interface IBinder {
      * @throws RemoteException if the target IBinder's
      * process has already died.
      * 
-     * @see #unlinkToDeath
+     * @see [[unlinkToDeath]]
      */
     public void linkToDeath(DeathRecipient recipient, int flags)
             throws RemoteException;
@@ -538,7 +538,7 @@ public interface IBinder {
      * Interface for receiving a callback when the process hosting an IBinder
      * has gone away.
      * 
-     * @see #linkToDeath
+     * @see [[linkToDeath]]
      */
     public interface DeathRecipient {
         public void binderDied();
@@ -706,7 +706,7 @@ public class Binder implements IBinder {
     /**
      * Return the UserHandle assigned to the process that sent you the
      * current transaction that is being processed.  This is the user
-     * of the caller.  It is distinct from {@link #getCallingUid()} in that a
+     * of the caller.  It is distinct from {@link [[getCallingUid]]()} in that a
      * particular user will have multiple distinct apps running under it each
      * with their own uid.  If the current thread is not currently executing an
      * incoming transaction, then its own UserHandle is returned.
@@ -733,27 +733,27 @@ public class Binder implements IBinder {
      *  //最后一句话我实在是翻译不好
      * @return Returns an opaque token that can be used to restore the
      * original calling identity by passing it to
-     * {@link #restoreCallingIdentity(long)}.
+     * {@link [[restoreCallingIdentity]](long)}.
      *
      *  返回一个不透明的token，通过restoreCallingIdentity(long)这个方法
      *  可以恢复原始呼叫的身份标识
-     * @see #getCallingPid()
-     * @see #getCallingUid()
-     * @see #restoreCallingIdentity(long)
+     * @see [[getCallingPid]]()
+     * @see [[getCallingUid]]()
+     * @see [[restoreCallingIdentity]](long)
      */
     public static final native long clearCallingIdentity();
 
     /**
      * Restore the identity of the incoming IPC on the current thread
      * back to a previously identity that was returned by {@link
-     * #clearCallingIdentity}.
+     * [[clearCallingIdentity]]}.
      *  恢复之前当前线程上的传入IPC的身份标识。这个身份标识是由
      *  clearCallingIdentity()方法改变的
      * @param token The opaque token that was previously returned by
-     * {@link #clearCallingIdentity}.
-     * token 参数是  以前由{@link #clearCallingIdentity}返回的 tocken
+     * {@link [[clearCallingIdentity]]}.
+     * token 参数是  以前由{@link [[clearCallingIdentity]]}返回的 tocken
      *
-     * @see #clearCallingIdentity
+     * @see [[clearCallingIdentity]]
      */
     public static final native void restoreCallingIdentity(long token);
 
@@ -778,7 +778,7 @@ public class Binder implements IBinder {
     /**
      * Gets the current native thread-local StrictMode policy mask.
      * 获取当前native 的StrictMode策略掩码
-     * @see #setThreadStrictModePolicy
+     * @see [[setThreadStrictModePolicy]]
      * @hide
      */
     public static final native int getThreadStrictModePolicy();
@@ -959,7 +959,7 @@ public class Binder implements IBinder {
 
     /**
      * Implemented to call the more convenient version
-     * {@link #dump(FileDescriptor, PrintWriter, String[])}.
+     * {@link [[dump]](FileDescriptor, PrintWriter, String[])}.
      */
     public void dump(FileDescriptor fd, String[] args) {
         FileOutputStream fout = new FileOutputStream(fd);
@@ -997,7 +997,7 @@ public class Binder implements IBinder {
     }
 
     /**
-     * Like {@link #dump(FileDescriptor, String[])}, but ensures the target
+     * Like {@link [[dump]](FileDescriptor, String[])}, but ensures the target
      * executes asynchronously.
      */
     public void dumpAsync(final FileDescriptor fd, final String[] args) {
@@ -1041,7 +1041,7 @@ public class Binder implements IBinder {
     }
 
     /**
-     * Handle a call to {@link #shellCommand}.  The default implementation simply prints
+     * Handle a call to {@link [[shellCommand]]}.  The default implementation simply prints
      * an error message.  Override and replace with your own.
      * <p class="caution">Note: no permission checking is done before calling this method; you must
      * apply any security checks as appropriate for the command being executed.

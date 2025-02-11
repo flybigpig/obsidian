@@ -568,7 +568,7 @@ public class CameraTextureRenderer implements ITextureRenderer {
 ## 顶点着色器
 
 ```java
-#version 300 es
+[[version]] 300 es
 layout (location = 0) in vec4 aPosition;
 layout (location = 1) in vec4 aTextureCoord;
 //纹理矩阵
@@ -584,9 +584,9 @@ void main() {
 ## 片段着色器
 
 ```java
-#version 300 es
+[[version]] 300 es
 //外部纹理
-#extension GL_OES_EGL_image_external_essl3 : require
+[[extension]] GL_OES_EGL_image_external_essl3 : require
 precision mediump float;
 uniform samplerExternalOES uTextureSampler;
 in vec2 vTextureCoord;

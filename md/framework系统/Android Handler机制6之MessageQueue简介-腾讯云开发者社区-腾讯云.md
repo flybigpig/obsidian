@@ -172,7 +172,7 @@ static jlong android_os_MessageQueue_nativeInit(JNIEnv* env, jclass clazz) {
      * Add a new {@link IdleHandler} to this message queue.  This may be
      * removed automatically for you by returning false from
      * {@link IdleHandler#queueIdle IdleHandler.queueIdle()} when it is
-     * invoked, or explicitly removing it with {@link #removeIdleHandler}.
+     * invoked, or explicitly removing it with {@link [[removeIdleHandler]]}.
      *
      * <p>This method is safe to call from any thread.
      *
@@ -208,7 +208,7 @@ static jlong android_os_MessageQueue_nativeInit(JNIEnv* env, jclass clazz) {
 ```
     /**
      * Remove an {@link IdleHandler} from the queue that was previously added
-     * with {@link #addIdleHandler}.  If the given object is not currently
+     * with {@link [[addIdleHandler]]}.  If the given object is not currently
      * in the idle list, nothing is done.
      *
      * <p>This method is safe to call from any thread.
@@ -267,7 +267,7 @@ static jlong android_os_MessageQueue_nativeInit(JNIEnv* env, jclass clazz) {
      * Message processing occurs as usual until the message queue encounters the
      * synchronization barrier that has been posted.  When the barrier is encountered,
      * later synchronous messages in the queue are stalled (prevented from being executed)
-     * until the barrier is released by calling {@link #removeSyncBarrier} and specifying
+     * until the barrier is released by calling {@link [[removeSyncBarrier]]} and specifying
      * the token that identifies the synchronization barrier.
      *
      * This method is used to immediately postpone execution of all subsequently posted
@@ -275,12 +275,12 @@ static jlong android_os_MessageQueue_nativeInit(JNIEnv* env, jclass clazz) {
      * Asynchronous messages (see {@link Message#isAsynchronous} are exempt from the barrier
      * and continue to be processed as usual.
      *
-     * This call must be always matched by a call to {@link #removeSyncBarrier} with
+     * This call must be always matched by a call to {@link [[removeSyncBarrier]]} with
      * the same token to ensure that the message queue resumes normal operation.
      * Otherwise the application will probably hang!
      *
      * @return A token that uniquely identifies the barrier.  This token must be
-     * passed to {@link #removeSyncBarrier} to release the barrier.
+     * passed to {@link [[removeSyncBarrier]]} to release the barrier.
      *
      * @hide
      */
@@ -389,7 +389,7 @@ ps:蓝色的为Message、红色的为Barrier
      * Removes a synchronization barrier.
      *
      * @param token The synchronization barrier token that was returned by
-     * {@link #postSyncBarrier}.
+     * {@link [[postSyncBarrier]]}.
      *
      * @throws IllegalStateException if the barrier was not found.
      *

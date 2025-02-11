@@ -57,7 +57,7 @@ static int open_driver(const char *driver)
         }
 
 // &#x8BBE;&#x7F6E;&#x6700;&#x5927;&#x7684;&#x7EBF;&#x7A0B;&#x6570;&#x91CF;&#x4E3A;&#xFF1A;15
-// #define DEFAULT_MAX_BINDER_THREADS 15
+// [[define]] DEFAULT_MAX_BINDER_THREADS 15
         size_t maxThreads = DEFAULT_MAX_BINDER_THREADS;
 
 // &#x4E0E;binder &#x9A71;&#x52A8;&#x4EA4;&#x4E92;&#xFF0C;&#x8BBE;&#x7F6E;&#x9A71;&#x52A8;&#x7684;&#x7EBF;&#x7A0B;&#x6570;&#x91CF;&#x4E3A; 15&#x4E2A;
@@ -196,17 +196,17 @@ String8 ProcessState::makeBinderThreadName() {
 PoolThread 继承了 Thread：
 
 ```
-28  #include <utils androidthreads.h>
+28  [[include]] <utils androidthreads.h>
 29
-30  #ifdef __cplusplus
-31  #include <utils condition.h>
-32  #include <utils errors.h>
-33  #include <utils mutex.h>
-34  #include <utils rwlock.h>
-35  #include <utils thread.h>
-36  #endif
+30  [[ifdef]] __cplusplus
+31  [[include]] <utils condition.h>
+32  [[include]] <utils errors.h>
+33  [[include]] <utils mutex.h>
+34  [[include]] <utils rwlock.h>
+35  [[include]] <utils thread.h>
+36  [[endif]]
 37
-38  #endif // _LIBS_UTILS_THREADS_H</utils></utils></utils></utils></utils></utils>
+38  [[endif]] // _LIBS_UTILS_THREADS_H</utils></utils></utils></utils></utils></utils>
 ```
 
 ```
@@ -250,10 +250,10 @@ int Thread::_threadLoop(void* user)
     wp<thread> weak(strong);
     self->mHoldSelf.clear();
 
-#if defined(__ANDROID__)
+[[if]] defined(__ANDROID__)
     // this is very useful for debugging with gdb
     self->mTid = gettid();
-#endif
+[[endif]]
 
     bool first = true;
 
@@ -466,7 +466,7 @@ status_t IPCThreadState::talkWithDriver(bool doReceive)
     status_t err;
     do {
 
-#if defined(__ANDROID__)
+[[if]] defined(__ANDROID__)
 
 // 与binder 驱动交互
         if (ioctl(mProcess->mDriverFD, BINDER_WRITE_READ, &bwr) >= 0)

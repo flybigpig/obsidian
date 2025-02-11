@@ -54,7 +54,7 @@ public SimpleRenderer() {
 #### 顶点着色器
 
 ```java
-#version 300 es  // 版本
+[[version]] 300 es  // 版本
 layout (location = 0) in vec4 vPosition;
 void main() {
      gl_Position  = vPosition;
@@ -74,7 +74,7 @@ void main() {
 #### 片段着色器
 
 ```java
-#version 300 es
+[[version]] 300 es
 precision mediump float;
 out vec4 fragColor;
 void main() {

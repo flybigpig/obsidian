@@ -1083,7 +1083,7 @@ PS: mOwner是个函数指针。 其实这个方法写的不是很好，那么多
 
 > 承接上文，这里应该走分支分支三，分支三很简单，主要是调用malloc()方法分配一块(mDataSize+size(val))\*3/2大小的内存，然后让mData指向该内存，并且将这里可以归纳一下，growData()方法只是分配了一内存。
 
-根据返回值，又回到了Parcel::writeAligned(T val)中，由于返回值是NO\_ERROR，所以就走到了**goto restart\_write** ,这样就又到了Parcel::writeAligned(T val) 分支二中
+根据返回值，又回到了Parcel==writeAligned(T val)中，由于返回值是NO\_ERROR，所以就走到了**goto restart\_write** ,这样就又到了Parcel==writeAligned(T val) 分支二中
 
 ###### (7) Parcel::writeAligned(T val)函数 分支二
 
@@ -1202,7 +1202,7 @@ T Parcel::readAligned() const {
 
 其实内部是有调用了Parcel::readAligned(T \*pArg)函数
 
-> 注意：Parcel::readAligned(T \*pArg)和 Parcel::readAligned()的区别，一个是有入参的，一个是无入参的。
+> 注意：Parcel==readAligned(T \*pArg)和 Parcel==readAligned()的区别，一个是有入参的，一个是无入参的。
 
 ###### (5) readAligned<int32\_t>() 函数
 

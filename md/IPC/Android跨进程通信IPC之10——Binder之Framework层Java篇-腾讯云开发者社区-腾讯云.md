@@ -228,7 +228,7 @@ static jint android_os_Binder_getCallingPid(JNIEnv* env, jobject clazz)
 
 ###### 2、C++层代码调用Java代码
 
-上面看到了Java端代码是如何调用libbinder中的C++方法的。那么相反的方向是如何调用的？关键，libbinder中的\*\* BBinder::onTransacts \*\*是如何能能够调用到Java中的Binder:: onTransact的？
+上面看到了Java端代码是如何调用libbinder中的C++方法的。那么相反的方向是如何调用的？关键，libbinder中的\*\* BBinder==onTransacts \*\*是如何能能够调用到Java中的Binder== onTransact的？
 
 这段逻辑就是android\_util\_Binder.cpp中JavaBBinder::onTransact中处理的了。JavaBBinder是BBinder的子类，其类的结构如下：
 
@@ -270,7 +270,7 @@ jboolean res = env->CallBooleanMethod(mObject, gBinderOffsets.mExecTransact,
 
 而JNIEnv.callBooleanMethod这个方法是由虚拟机实现的。即：虚拟机提供native方法来调用一个Java Object上方法。
 
-###### 这样，就在C++层的JavaBBinder::onTransact中调用了Java层 Binder::execTransact方法。而在Binder::execTransact方法中，又调用了自身的onTransact方法，由此保证整个过程串联起来。
+###### 这样，就在C++层的JavaBBinder==onTransact中调用了Java层 Binder==execTransact方法。而在Binder::execTransact方法中，又调用了自身的onTransact方法，由此保证整个过程串联起来。
 
 ### 二、初始化
 
@@ -320,9 +320,9 @@ static const RegJNIRec gRegJNI[] = {
     static int register_jni_procs(const RegJNIRec array[], size_t count, JNIEnv*env) {
         for (size_t i = 0; i < count; i++) {
             if (array[i].mProc(env) < 0) {
-                #ifndef NDEBUG
+                [[ifndef]] NDEBUG
                 ALOGD("----------!!! %s failed to load\n", array[i].mName);
-                #endif
+                [[endif]]
                 return -1;
             }
         }
@@ -335,18 +335,18 @@ static const RegJNIRec gRegJNI[] = {
 ###### 1.3 RegJNIRec数据结构
 
 ```
-#ifdef NDEBUG
-    #define REG_JNI(name)      { name }
+[[ifdef]] NDEBUG
+    [[define]] REG_JNI(name)      { name }
    struct RegJNIRec {
                 int (*mProc)(JNIEnv*);
             };
-#else
-    #define REG_JNI(name)      { name, #name }
+[[else]]
+    [[define]] REG_JNI(name)      { name, [[name]] }
     struct RegJNIRec {
               int (*mProc)(JNIEnv*);
               const char* mName;
             };
-#endif
+[[endif]]
 ```
 
 所以这里最终调用了register\_android\_os\_Binder()函数，下面说说register\_android\_os\_Binder过程。
@@ -626,7 +626,7 @@ static jobject android_os_BinderInternal_getContextObject(JNIEnv* env, jobject c
 }
 ```
 
-看到上面的代码 大家有没有熟悉的感觉，前面讲过了：对于ProcessState::self() -> getContextObject() 对于ProcessState::self()->getContextObject()可以理解为new BpBinder(0)，那就剩下 **javaObjectForIBinder(env, b)** 那我们就来看下这个函数
+看到上面的代码 大家有没有熟悉的感觉，前面讲过了：对于ProcessState==self() -> getContextObject() 对于ProcessState==self()->getContextObject()可以理解为new BpBinder(0)，那就剩下 **javaObjectForIBinder(env, b)** 那我们就来看下这个函数
 
 ###### 1.2、javaObjectForIBinder()函数
 
@@ -1055,15 +1055,15 @@ ServiceManagerProxy的addService()中的mRemote.transact(ADD\_SERVICE\_TRANSACTI
      * Perform a generic operation with the object.
      * 
      * @param code The action to perform.  This should
-     * be a number between {@link #FIRST_CALL_TRANSACTION} and
-     * {@link #LAST_CALL_TRANSACTION}.
+     * be a number between {@link [[FIRST_CALL_TRANSACTION]]} and
+     * {@link [[LAST_CALL_TRANSACTION]]}.
      * @param data Marshalled data to send to the target.  Must not be null.
      * If you are not sending any data, you must create an empty Parcel
      * that is given here.
      * @param reply Marshalled data to be received from the target.  May be
      * null if you are not interested in the return value.
      * @param flags Additional operation flags.  Either 0 for a normal
-     * RPC, or {@link #FLAG_ONEWAY} for a one-way RPC.
+     * RPC, or {@link [[FLAG_ONEWAY]]} for a one-way RPC.
      */
     public boolean transact(int code, Parcel data, Parcel reply, int flags)
         throws RemoteException;

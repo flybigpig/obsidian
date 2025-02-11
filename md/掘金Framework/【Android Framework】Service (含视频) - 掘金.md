@@ -1547,7 +1547,7 @@ return 0;
             if (result != NO_ERROR) break;
 
             mIPCThreadStateBase->pushCurrentState(
-                IPCThreadStateBase::CallState::BINDER);
+                IPCThreadStateBase==CallState==BINDER);
             Parcel buffer;
             //写入数据到Parcel(buffer)中
             buffer.ipcSetDataReference(

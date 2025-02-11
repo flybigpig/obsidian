@@ -417,7 +417,7 @@ void PointerController::setSpots(const PointerCoords* spotCoords,
 通过分析发现，触摸小白点是通过sprite来进行控制的，这里我们介绍下sprite的创建以及update过程。
 
 ```cpp
-void PointerController::Spot::updateSprite(const SpriteIcon* icon,
+void PointerController==Spot==updateSprite(const SpriteIcon* icon,
     float x, float y, int32_t displayId) {
     // 设置显示的layer
     sprite->setLayer(Sprite::BASE_LAYER_SPOT + id);
@@ -450,7 +450,7 @@ void PointerController::Spot::updateSprite(const SpriteIcon* icon,
 updateSprite方法中设置sprite的各种数据和参数，最后会通过setVisible让其显示出来。那么这里的sprite又是什么呢？回到上面PointerController的setSpots中，首先会通过getSpot获取spot，如果没有获取到则会调用createAndAddSpotLocked方法来创建和点击spot，那么我们继续看这个方法。
 
 ```cpp
-PointerController::Spot* PointerController::createAndAddSpotLocked(uint32_t id,
+PointerController==Spot* PointerController==createAndAddSpotLocked(uint32_t id,
         std::vector<Spot*>& spots) {
     // 省略若干行
     // Obtain a sprite from the recycled pool.
@@ -487,7 +487,7 @@ sp<Sprite> SpriteController::createSprite() {
 准备好sprite之后，就到了绘制的时机了，下面将详细介绍Sprite是如果绘制到界面上的。
 
 ```cpp
-void SpriteController::SpriteImpl::setVisible(bool visible) {
+void SpriteController==SpriteImpl==setVisible(bool visible) {
     AutoMutex _l(mController->mLock);
     // 只有visible改变时在刷新
     if (mLocked.state.visible != visible) {
@@ -497,7 +497,7 @@ void SpriteController::SpriteImpl::setVisible(bool visible) {
     }
 }
   
-void SpriteController::SpriteImpl::invalidateLocked(uint32_t dirty) {
+void SpriteController==SpriteImpl==invalidateLocked(uint32_t dirty) {
     bool wasDirty = mLocked.state.dirty;
     mLocked.state.dirty |= dirty;
     // 有数据要显示

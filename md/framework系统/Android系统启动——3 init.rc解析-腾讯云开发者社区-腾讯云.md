@@ -402,14 +402,14 @@ on post-fs
     # permissions if created by the recovery system.
     mkdir /cache/recovery 0770 system cache
 
-    #change permissions on vmallocinfo so we can grab it from bugreports
+    [[change]] permissions on vmallocinfo so we can grab it from bugreports
     chown root log /proc/vmallocinfo
     chmod 0440 /proc/vmallocinfo
 
     chown root log /proc/slabinfo
     chmod 0440 /proc/slabinfo
 
-    #change permissions on kmsg & sysrq-trigger so bugreports can grab kthread stacks
+    [[change]] permissions on kmsg & sysrq-trigger so bugreports can grab kthread stacks
     chown root system /proc/kmsg
     chmod 0440 /proc/kmsg
     chown root system /proc/sysrq-trigger
@@ -540,7 +540,7 @@ on post-fs-data
     # must uncomment this line, otherwise encrypted filesystems
     # won't work.
     # Set indication (checked by vold) that we have finished this action
-    #setprop vold.post_fs_data_done 1
+    [[setprop]] vold.post_fs_data_done 1
 
 on boot
     # basic network init
@@ -916,7 +916,7 @@ on early-init
     # Set the security context of /adb_keys if present.
     restorecon /adb_keys
 
-     #调用函数do_start 启动服务do_start
+     [[调用函数do_start]] 启动服务do_start
     start ueventd
 ```
 
@@ -1025,7 +1025,7 @@ bool read_file(const char* path, std::string* content) {
     }
 
     // 从文件fd中，读取其内容，然后保存在content里面，
-    bool okay = android::base::ReadFdToString(fd, content); 
+    bool okay = android==base==ReadFdToString(fd, content); 
 
     // 读取完了文件，则要关闭这个文件的描述符
     close(fd);
@@ -1309,7 +1309,7 @@ static list_declare(action_queue);
 list\_declare是一个宏，定义并初始化了列表的头节点 代码在[list.h](https://cloud.tencent.com/developer/tools/blog-entry?target=https%3A%2F%2Flink.jianshu.com%2F%3Ft%3Dhttp%25253A%25252F%25252Fandroidxref.com%25252F6.0.1_r10%25252Fxref%25252Fsystem%25252Fcore%25252Finclude%25252Fcutils%25252Flist.h&objectId=1199504&objectType=1&isNewArticle=undefined) 35行
 
 ```
-#define list_declare(name) \
+[[define]] list_declare(name) \
     struct listnode name = { \
         .next = &name, \
         .prev = &name, \
@@ -1462,7 +1462,7 @@ struct service {
 
     struct action onrestart;  /* Actions to execute on restart. */
 
-    std::vector<std::string>* writepid_files_;
+    std==vector<std==string>* writepid_files_;
 
     /* keycodes for triggering this service via /dev/keychord */
     int *keycodes;

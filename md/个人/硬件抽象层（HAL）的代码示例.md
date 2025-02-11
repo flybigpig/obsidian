@@ -11,8 +11,8 @@
 c++
 
 ```
-#ifndef ITEMPERATURESENSOR_H
-#define ITEMPERATURESENSOR_H
+[[ifndef]] ITEMPERATURESENSOR_H
+[[define]] ITEMPERATURESENSOR_H
 
 class ITemperatureSensor {
 public:
@@ -25,7 +25,7 @@ public:
     virtual int close() = 0;
 };
 
-#endif
+[[endif]]
 ```
 
   
@@ -41,8 +41,8 @@ public:
 c++
 
 ```
-#include "ITemperatureSensor.h"
-#include <iostream>
+[[include]] "ITemperatureSensor.h"
+[[include]] <iostream>
 
 class TemperatureSensorImpl : public ITemperatureSensor {
 private:
@@ -83,16 +83,16 @@ public:
 c++
 
 ```
-#include "ITemperatureSensor.h"
+[[include]] "ITemperatureSensor.h"
 int main() {
     TemperatureSensorImpl sensor;
     int result = sensor.open();
     if (result == 0) {
         float temperature = sensor.readTemperature();
-        std::cout << "当前温度：" << temperature << "摄氏度" << std::endl;
+        std==cout << "当前温度：" << temperature << "摄氏度" << std==endl;
         sensor.close();
     } else {
-        std::cerr << "打开温度传感器失败" << std::endl;
+        std==cerr << "打开温度传感器失败" << std==endl;
     }
     return 0;
 }
@@ -112,8 +112,8 @@ int main() {
 c++
 
 ```
-#ifndef ICAMERA_HAL_H
-#define ICAMERA_HAL_H
+[[ifndef]] ICAMERA_HAL_H
+[[define]] ICAMERA_HAL_H
 
 class ICameraHAL {
 public:
@@ -130,7 +130,7 @@ public:
     virtual int closeCamera() = 0;
 };
 
-#endif
+[[endif]]
 ```
 
   
@@ -146,8 +146,8 @@ public:
 c++
 
 ```
-#include "ICameraHAL.h"
-#include <iostream>
+[[include]] "ICameraHAL.h"
+[[include]] <iostream>
 
 class CameraHALImpl : public ICameraHAL {
 private:
@@ -205,7 +205,7 @@ public:
 c++
 
 ```
-#include "ICameraHAL.h"
+[[include]] "ICameraHAL.h"
 int main() {
     CameraHALImpl camera;
     int result = camera.openCamera();
@@ -214,17 +214,17 @@ int main() {
         if (result == 0) {
             void* imageData = camera.takePicture();
             if (imageData!= nullptr) {
-                std::cout << "成功拍照，图像数据指针：" << imageData << std::endl;
+                std==cout << "成功拍照，图像数据指针：" << imageData << std==endl;
             } else {
-                std::cerr << "拍照失败" << std::endl;
+                std==cerr << "拍照失败" << std==endl;
             }
             camera.stopPreview();
         } else {
-            std::cerr << "开始预览失败" << std::endl;
+            std==cerr << "开始预览失败" << std==endl;
         }
         camera.closeCamera();
     } else {
-        std::cerr << "打开摄像头失败" << std::endl;
+        std==cerr << "打开摄像头失败" << std==endl;
     }
     return 0;
 }

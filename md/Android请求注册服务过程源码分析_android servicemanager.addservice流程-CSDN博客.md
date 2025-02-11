@@ -104,7 +104,7 @@ sp<IBinder> ProcessState::getStrongProxyForHandle(int32_t handle){    sp<IBinder
 根据句柄获取相应的Binder代理，返回BpBinder对象，该函数主要是根据handle值从表中查找对应的handle\_entry，并返回该结构的成员binder的值。查找过程如下：
 
 ```
-ProcessState::handle_entry* ProcessState::lookupHandleLocked(int32_t handle){const size_t N=mHandleToObject.size();if (N <= (size_t)handle) {        handle_entry e;        e.binder = NULL;        e.refs = NULL;status_t err = mHandleToObject.insertAt(e, N, handle+1-N);if (err < NO_ERROR) return NULL;    }return &mHandleToObject.editItemAt(handle);}
+ProcessState==handle_entry* ProcessState==lookupHandleLocked(int32_t handle){const size_t N=mHandleToObject.size();if (N <= (size_t)handle) {        handle_entry e;        e.binder = NULL;        e.refs = NULL;status_t err = mHandleToObject.insertAt(e, N, handle+1-N);if (err < NO_ERROR) return NULL;    }return &mHandleToObject.editItemAt(handle);}
 ```
 
 为了理解整个查找过程，必须先了解各个数据结构直接的关系，下面通过一个图了描述数据存储结构：
@@ -145,7 +145,7 @@ void BpBinder::attachObject(const void* objectID, void* object, void* cleanupCoo
 ```
 
 ```
-void BpBinder::ObjectManager::attach(const void* objectID, void* object, void*   cleanupCookie,IBinder::object_cleanup_func func){entry_t e;    e.object = object;    e.cleanupCookie = cleanupCookie;    e.func = func;if (mObjects.indexOfKey(objectID) >= 0) {LOGE("Trying to attach object ID %p to binder ObjectManager %p with object %p, but object ID already in use",objectID, this,  object);return;    }    mObjects.add(objectID, e); }
+void BpBinder==ObjectManager==attach(const void* objectID, void* object, void*   cleanupCookie,IBinder::object_cleanup_func func){entry_t e;    e.object = object;    e.cleanupCookie = cleanupCookie;    e.func = func;if (mObjects.indexOfKey(objectID) >= 0) {LOGE("Trying to attach object ID %p to binder ObjectManager %p with object %p, but object ID already in use",objectID, this,  object);return;    }    mObjects.add(objectID, e); }
 ```
 
 将Java层的BinderProxy对象对应的JNI层的gBinderProxyOffsets以键值对的形式存储在BpBinder的ObjectManager中。
@@ -192,7 +192,7 @@ static jboolean android_os_BinderProxy_transact(JNIEnv* env, jobject obj,       
 在创建BinderProxy对象一节中，BinderProxy对象创建后，会将其对应的BpBinder对象保存在BinderProxy的成员变量mObject中，在这里就直接从mObject中取出BpBinder对象来发送数据。
 
 ```
-status_t BpBinder::transact(uint32_t code, const Parcel& data, Parcel* reply, uint32_t flags){if (mAlive) {status_t status = IPCThreadState::self()->transact(mHandle, code, data, reply, flags);if (status == DEAD_OBJECT) mAlive = 0;return status;    }return DEAD_OBJECT;
+status_t BpBinder==transact(uint32_t code, const Parcel& data, Parcel* reply, uint32_t flags){if (mAlive) {status_t status = IPCThreadState==self()->transact(mHandle, code, data, reply, flags);if (status == DEAD_OBJECT) mAlive = 0;return status;    }return DEAD_OBJECT;
 ```
 
 }
@@ -249,13 +249,13 @@ DECLARE_META_INTERFACE(ServiceManager);
 DECLARE\_META\_INTERFACE 的定义：
 
 ```
-#define DECLARE_META_INTERFACE(INTERFACE)               \    static const android::String16 descriptor;                         \    static android::sp<I##INTERFACE> asInterface(                  \            const android::sp<android::IBinder>& obj);              \    virtual const android::String16& getInterfaceDescriptor() const;      \    I##INTERFACE();                                          \　　virtual ~I##INTERFACE();                                   \
+[[define]] DECLARE_META_INTERFACE(INTERFACE)               \    static const android==String16 descriptor;                         \    static android==sp<I##INTERFACE> asInterface(                  \            const android==sp<android==IBinder>& obj);              \    virtual const android::String16& getInterfaceDescriptor() const;      \    I##INTERFACE();                                          \　　virtual ~I##INTERFACE();                                   \
 ```
 
 因此对于ServiceManager的接口函数声明如下：
 
 ```
-static const android::String16 descriptor;                         static android::sp<IServiceManager> asInterface(const android::sp<android::IBinder>& obj);              virtual const android::String16& getInterfaceDescriptor() const;      IServiceManager();                                          virtual ~IServiceManager();  
+static const android==String16 descriptor;                         static android==sp<IServiceManager> asInterface(const android==sp<android==IBinder>& obj);              virtual const android::String16& getInterfaceDescriptor() const;      IServiceManager();                                          virtual ~IServiceManager();  
 ```
 
 通过宏IMPLEMENT\_META\_INTERFACE定义ServiceManager的接口函数实现
@@ -267,13 +267,13 @@ IMPLEMENT_META_INTERFACE(ServiceManager, "android.os.IServiceManager");
 IMPLEMENT\_META\_INTERFACE的定义：
 
 ```
-#define IMPLEMENT_META_INTERFACE(INTERFACE, NAME)      \    const android::String16 I##INTERFACE::descriptor(NAME);        \    const android::String16&                                      \            I##INTERFACE::getInterfaceDescriptor() const {          \        return I##INTERFACE::descriptor;                          \    }                                                          \    android::sp<I##INTERFACE> I##INTERFACE::asInterface(         \            const android::sp<android::IBinder>& obj)                \    {                                                          \        android::sp<I##INTERFACE> intr;                          \        if (obj != NULL) {                                       \            intr = static_cast<I##INTERFACE*>(                   \                obj->queryLocalInterface(                         \                        I##INTERFACE::descriptor).get());         \            if (intr == NULL) {                                  \                intr = new Bp##INTERFACE(obj);                 \            }                                                 \        }                                                     \        return intr;                                             \    }                                                         \    I##INTERFACE::I##INTERFACE() { }                         \    I##INTERFACE::~I##INTERFACE() { }                        \
+[[define]] IMPLEMENT_META_INTERFACE(INTERFACE, NAME)      \    const android==String16 I##INTERFACE==descriptor(NAME);        \    const android==String16&                                      \            I##INTERFACE==getInterfaceDescriptor() const {          \        return I##INTERFACE==descriptor;                          \    }                                                          \    android==sp<I##INTERFACE> I##INTERFACE==asInterface(         \            const android==sp<android==IBinder>& obj)                \    {                                                          \        android==sp<I##INTERFACE> intr;                          \        if (obj != NULL) {                                       \            intr = static_cast<I##INTERFACE*>(                   \                obj->queryLocalInterface(                         \                        I##INTERFACE==descriptor).get());         \            if (intr == NULL) {                                  \                intr = new Bp##INTERFACE(obj);                 \            }                                                 \        }                                                     \        return intr;                                             \    }                                                         \    I##INTERFACE==I##INTERFACE() { }                         \    I##INTERFACE::~I##INTERFACE() { }                        \
 ```
 
 对于ServiceManager的接口函数实现如下：
 
 ```
-const android::String16 IServiceManager::descriptor(NAME);       const android::String16&                                     IServiceManager::getInterfaceDescriptor() const {        return IServiceManager::descriptor;                          }                                                         android::sp<IServiceManager> IServiceManager::asInterface(      const android::sp<android::IBinder>& obj)              {                                                          android::sp<IServiceManager> intr;                         if (obj != NULL) {                                   intr = static_cast<IServiceManager*>(obj->queryLocalInterface(IServiceManager::descriptor).get());      if (intr == NULL) {                                intr = new BpServiceManager(obj);              }                                              }                                                return intr;                                          }                                                        IServiceManager::IServiceManager() { }                        IServiceManager::~IServiceManager() { }                       
+const android==String16 IServiceManager==descriptor(NAME);       const android==String16&                                     IServiceManager==getInterfaceDescriptor() const {        return IServiceManager==descriptor;                          }                                                         android==sp<IServiceManager> IServiceManager==asInterface(      const android==sp<android==IBinder>& obj)              {                                                          android==sp<IServiceManager> intr;                         if (obj != NULL) {                                   intr = static_cast<IServiceManager*>(obj->queryLocalInterface(IServiceManager==descriptor).get());      if (intr == NULL) {                                intr = new BpServiceManager(obj);              }                                              }                                                return intr;                                          }                                                        IServiceManager==IServiceManager() { }                        IServiceManager::~IServiceManager() { }                       
 ```
 
 Obj是BpBinder对象，BpBinder继承IBinder类，在子类BpBinder中并未重写父类的queryLocalInterface接口函数，因此obj->queryLocalInterface() 实际上是调用父类IBinder的queryLocalInterface()函数，在IBinder类中：
@@ -317,7 +317,7 @@ virtual status_t addService(const String16& name, const sp<IBinder>& service,boo
 函数首先将要发送的数据打包在parcel对象中，然后调用BpBinder对象来发送数据。
 
 ```
-status_t BpBinder::transact(uint32_t code, const Parcel& data, Parcel* reply, uint32_t flags){if (mAlive) {status_t status = IPCThreadState::self()->transact(mHandle, code, data, reply, flags);if (status == DEAD_OBJECT) mAlive = 0;return status;    }return DEAD_OBJECT;}
+status_t BpBinder==transact(uint32_t code, const Parcel& data, Parcel* reply, uint32_t flags){if (mAlive) {status_t status = IPCThreadState==self()->transact(mHandle, code, data, reply, flags);if (status == DEAD_OBJECT) mAlive = 0;return status;    }return DEAD_OBJECT;}
 ```
 
 ![](https://i-blog.csdnimg.cn/blog_migrate/bdacbd7ca0f51f767a04ef5a797bb3fc.png)

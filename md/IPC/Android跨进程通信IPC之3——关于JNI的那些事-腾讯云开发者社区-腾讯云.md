@@ -207,9 +207,9 @@ startReg()函数里面调用了register\_jni\_procs()函数，这个函数是真
     static int register_jni_procs(const RegJNIRec array[], size_t count, JNIEnv*env) {
         for (size_t i = 0; i < count; i++) {
             if (array[i].mProc(env) < 0) {
-            #ifndef NDEBUG
+            [[ifndef]] NDEBUG
                 ALOGD("----------!!! %s failed to load\n", array[i].mName)
-            #endif
+            [[endif]]
                 return -1;
             }
         }
@@ -372,18 +372,18 @@ gRegJNI数组，有138个成员变量，定义在**AndroidRuntime.cpp**中，该
 ###### 3、REG\_JNI 宏定义
 
 ```
-#ifdef NDEBUG
-    #define REG_JNI(name)      { name }
+[[ifdef]] NDEBUG
+    [[define]] REG_JNI(name)      { name }
     struct RegJNIRec {
         int (*mProc)(JNIEnv*);
     };
-#else
-    #define REG_JNI(name)      { name, #name }
+[[else]]
+    [[define]] REG_JNI(name)      { name, [[name]] }
     struct RegJNIRec {
         int (*mProc)(JNIEnv*);
         const char* mName;
     };
-#endif
+[[endif]]
 ```
 
 > 其中 **mProc**，就等价于调用其参数名所指向的函数，例如 **REG\_JNI(register\_com\_android\_internal\_os\_RuntimeInit).mProc** 也就是指进入 **register\_com\_android\_internal\_os\_RuntimeInit**的方法，以此为例，看下面的代码

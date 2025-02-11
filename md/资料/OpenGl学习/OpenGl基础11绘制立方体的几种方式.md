@@ -111,7 +111,7 @@ public class LineCubeRenderer implements GLSurfaceView.Renderer {
 }
 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788
 顶点着色器
-#version 300 es
+[[version]] 300 es
 layout (location = 0) in vec4 vPosition;
 out vec4 vColor;
 void main() {
@@ -121,7 +121,7 @@ void main() {
 }
 12345678
 片段着色器
-#version 300 es
+[[version]] 300 es
 precision mediump float;
 in vec4 vColor;
 out vec4 fragColor;

@@ -161,9 +161,9 @@ setmode PSR_F_BIT | PSR_I_BIT | SVC_MODE, r9 @设置SVC模式关中断
 THUMB( it   eq )             @ force fixup-able long branch encoding
       beq __error_a                   @ 机器码不匹配，转__error_a并打印错误信息
       bl    __vet_atags
-#ifdef CONFIG_SMP_ON_UP    @ 如果是多核处理器进行相应设置
+[[ifdef]] CONFIG_SMP_ON_UP    @ 如果是多核处理器进行相应设置
       bl    __fixup_smp
-#endif
+[[endif]]
       bl    __create_page_tables  @最后开始创建页表
 ```
 

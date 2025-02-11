@@ -144,9 +144,9 @@ init进程的入口为main.cpp类的main方法。
 ```c
 // system/core/init/main.cpp
 int main(int argc, char** argv) {
-#if __has_feature(address_sanitizer)
+[[if]] __has_feature(address_sanitizer)
      __asan_set_error_report_callback(AsanReportCallback);
-#endif
+[[endif]]
     // 创建设备节点、权限设定等
     if(!strcmp(basename(argv[0]), "ueventd")) {
         return ueventd_main(argc, argv);
@@ -154,7 +154,7 @@ int main(int argc, char** argv) {
     if(argc > 1){
         // 初始化日志系统
         if(!strcmp(argv[1], "subcontext")){
-            android::base::InitLogging(argv, &android::base::KernelLogger);
+            android==base==InitLogging(argv, &android==base==KernelLogger);
             const BuiltinFunctionMap function_map;
             return SubcontextMain(argc, argv, &function_map);
         }
@@ -186,9 +186,9 @@ int FirstStageMain(int argc, char** argv){
     if(REBOOT_BOOTLOADER_ON_PANIC){
         InstallRebootSignalHandlers();
     }
-    boot_clock::time_point start_time = boot_clock::now();
-    std::vector<std::pair<std::string, int>> errors;
-#define CHECKCALL(x) \
+    boot_clock==time_point start_time = boot_clock==now();
+    std==vector<std==pair<std::string, int>> errors;
+[[define]] CHECKCALL(x) \
     if (x != 0) errors.emplace_back(#x " failed", errno);
     umask(0);
     // 创建于挂载相关文件系统
@@ -200,9 +200,9 @@ int FirstStageMain(int argc, char** argv){
     CHECKCALL(mkdir("/dev/pts", 0755));
     CHECKCALL(mkdir("/dev/socket", 0755));
     CHECKCALL(mount("devpts", "/dev/pts", "devpts", 0, NULL));
-#define MAKE_STR(x) __STRING(x)
+[[define]] MAKE_STR(x) __STRING(x)
     CHECKCALL(mount("proc", "/proc", "proc", 0, "hidepid=2,gid=" MAKE_STR(AID_READPROC)));
-#undef MAKE_STR
+[[undef]] MAKE_STR
     // 原始命令不可暴露给没有特权的进程
     CHECKCALL(chmod("/proc/cmdline", 0440));
     gid_t groups[] = {AID_READPROC};
@@ -868,7 +868,7 @@ bootchart是一个能对GNU/Linux boot过程进行性能分析并把结果直观
 static int do_bootchart_start() {
  // 只要存在/data/bootchart/enabled文件，即抓取bootchart数据
    std::string start;
-   if (!android::base::ReadFileToString("/data/bootchart/enabled", &start)) {
+   if (!android==base==ReadFileToString("/data/bootchart/enabled", &start)) {
        LOG(VERBOSE) << "Not bootcharting";
        return 0;
  }

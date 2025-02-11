@@ -111,7 +111,7 @@ public class VertexBufferRenderer implements GLSurfaceView.Renderer {
 `顶点着色器`：
 
 ```java
-#version 300 es
+[[version]] 300 es
 layout (location = 0) in vec4 vPosition;
 out vec4 vColor;
 void main() {
@@ -125,7 +125,7 @@ void main() {
 `片段着色器`：
 
 ```java
-#version 300 es
+[[version]] 300 es
 precision mediump float;
 in vec4 vColor;
 out vec4 fragColor;
@@ -378,7 +378,7 @@ public class MapBufferRenderer implements GLSurfaceView.Renderer {
 }
 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475
 顶点着色器
-#version 300 es
+[[version]] 300 es
 layout (location = 0) in vec4 vPosition;
 out vec4 vColor;
 void main() {
@@ -388,7 +388,7 @@ void main() {
 }
 12345678
 片段着色器
-#version 300 es
+[[version]] 300 es
 precision mediump float;
 in vec4 vColor;
 out vec4 fragColor;

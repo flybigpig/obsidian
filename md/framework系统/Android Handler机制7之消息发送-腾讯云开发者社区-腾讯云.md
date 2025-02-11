@@ -42,7 +42,7 @@ send方案.png
 ```
     /**
      * Pushes a message onto the end of the message queue after all pending messages
-     * before the current time. It will be received in {@link #handleMessage},
+     * before the current time. It will be received in {@link [[handleMessage]]},
      * in the thread attached to this handler.
      *  
      * @return Returns true if the message was successfully placed in to the 
@@ -69,7 +69,7 @@ send方案.png
     /**
      * Enqueue a message into the message queue after all pending messages
      * before (current time + delayMillis). You will receive it in
-     * {@link #handleMessage}, in the thread attached to this handler.
+     * {@link [[handleMessage]]}, in the thread attached to this handler.
      *  
      * @return Returns true if the message was successfully placed in to the 
      *         message queue.  Returns false on failure, usually because the
@@ -104,7 +104,7 @@ send方案.png
      * before the absolute time (in milliseconds) <var>uptimeMillis</var>.
      * <b>The time-base is {@link android.os.SystemClock#uptimeMillis}.</b>
      * Time spent in deep sleep will add an additional delay to execution.
-     * You will receive it in {@link #handleMessage}, in the thread attached
+     * You will receive it in {@link [[handleMessage]]}, in the thread attached
      * to this handler.
      * 
      * @param uptimeMillis The absolute time at which the message should be
@@ -280,7 +280,7 @@ send方案.png
     /**
      * Enqueue a message at the front of the message queue, to be processed on
      * the next iteration of the message loop.  You will receive it in
-     * {@link #handleMessage}, in the thread attached to this handler.
+     * {@link [[handleMessage]]}, in the thread attached to this handler.
      * <b>This method is only for use in very special circumstances -- it
      * can easily starve the message queue, cause ordering problems, or have
      * other unexpected side-effects.</b>
@@ -339,7 +339,7 @@ send方案.png
     /**
      * Sends a Message containing only the what value, to be delivered
      * after the specified amount of time elapses.
-     * @see #sendMessageDelayed(android.os.Message, long) 
+     * @see [[sendMessageDelayed]](android.os.Message, long) 
      * 
      * @return Returns true if the message was successfully placed in to the 
      *         message queue.  Returns false on failure, usually because the
@@ -372,7 +372,7 @@ sendMessageDelayed(Message,long) 这个方法上面有讲解过，这里就不�
     /**
      * Sends a Message containing only the what value, to be delivered 
      * at a specific time.
-     * @see #sendMessageAtTime(android.os.Message, long)
+     * @see [[sendMessageAtTime]](android.os.Message, long)
      *  
      * @return Returns true if the message was successfully placed in to the 
      *         message queue.  Returns false on failure, usually because the

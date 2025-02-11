@@ -135,11 +135,11 @@ target_link_libraries(native-color
 
 ```java
 
-#include <jni.h>
-#include <EGL/egl.h>
-#include <GLES3/gl3.h>
+[[include]] <jni.h>
+[[include]] <EGL/egl.h>
+[[include]] <GLES3/gl3.h>
 
-#include "native_color.h"
+[[include]] "native_color.h"
 
 /**
  * 动态注册

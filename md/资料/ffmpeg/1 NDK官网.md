@@ -94,7 +94,7 @@ make install
 echo "The Compilation of FFmpeg for $CPU is completed"
 }
 
-#armv8-a
+[[armv8-a]]
 ARCH=arm64
 CPU=armv8-a
 # r21版本的ndk中所有的编译器都在/ndk/21.3.6528147/toolchains/llvm/prebuilt/darwin-x86_64/目录下（clang）
@@ -102,7 +102,7 @@ CC=$TOOLCHAIN/bin/aarch64-linux-android$API-clang
 CXX=$TOOLCHAIN/bin/aarch64-linux-android$API-clang++
 # NDK头文件环境
 SYSROOT=$TOOLCHAIN/sysroot
-#ASM 路径， 同上必须是llvm 目录下的 asm
+[[ASM]] 路径， 同上必须是llvm 目录下的 asm
 ASM=$SYSROOT/usr/include/aarch64-linux-android
 CROSS_PREFIX=$TOOLCHAIN/bin/aarch64-linux-android-
 # so输出路径
@@ -117,39 +117,39 @@ build_android
 # x86_64 -> x86_64 -> x86_64-linux-android-
 
 # CPU架构
-#armv7-a
+[[armv7-a]]
 ARCH=arm
 CPU=armv7-a
 CC=$TOOLCHAIN/bin/armv7a-linux-androideabi$API-clang
 CXX=$TOOLCHAIN/bin/armv7a-linux-androideabi$API-clang++
 SYSROOT=$TOOLCHAIN/sysroot
-#ASM 路径， 同上必须是llvm 目录下的 asm
+[[ASM]] 路径， 同上必须是llvm 目录下的 asm
 ASM=$SYSROOT/usr/include/arm-linux-androideabi
 CROSS_PREFIX=$TOOLCHAIN/bin/arm-linux-androideabi-
 PREFIX=$(pwd)/android/$CPU
 OPTIMIZE_CFLAGS="-mfloat-abi=softfp -mfpu=vfp -marm -march=$CPU "
 build_android
 
-#x86
+[[x86]]
 ARCH=x86
 CPU=x86
 CC=$TOOLCHAIN/bin/i686-linux-android$API-clang
 CXX=$TOOLCHAIN/bin/i686-linux-android$API-clang++
 SYSROOT=$TOOLCHAIN/sysroot
-#ASM 路径， 同上必须是llvm 目录下的 asm
+[[ASM]] 路径， 同上必须是llvm 目录下的 asm
 ASM=$SYSROOT/usr/include/i686-linux-android
 CROSS_PREFIX=$TOOLCHAIN/bin/i686-linux-android-
 PREFIX=$(pwd)/android/$CPU
 OPTIMIZE_CFLAGS="-march=i686 -mtune=intel -mssse3 -mfpmath=sse -m32"
 build_android
 
-#x86_64
+[[x86_64]]
 ARCH=x86_64
 CPU=x86-64
 CC=$TOOLCHAIN/bin/x86_64-linux-android$API-clang
 CXX=$TOOLCHAIN/bin/x86_64-linux-android$API-clang++
 SYSROOT=$TOOLCHAIN/sysroot
-#ASM 路径， 同上必须是llvm 目录下的 asm
+[[ASM]] 路径， 同上必须是llvm 目录下的 asm
 ASM=$SYSROOT/usr/include/x86_64-linux-android
 CROSS_PREFIX=$TOOLCHAIN/bin/x86_64-linux-android-
 PREFIX=$(pwd)/android/$CPU

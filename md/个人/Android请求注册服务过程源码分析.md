@@ -114,7 +114,7 @@ ProcessState::ProcessState()
     , mThreadPoolSeq(1)
 {
     if (mDriverFD >= 0) {
-#if !defined(HAVE_WIN32_IPC)
+[[if]] !defined(HAVE_WIN32_IPC)
         // mmap the binder, providing a chunk of virtual address space to receive transactions.
         mVMStart = mmap(0, BINDER_VM_SIZE, PROT_READ, MAP_PRIVATE | MAP_NORESERVE, mDriverFD, 0);
         if (mVMStart == MAP_FAILED) {
@@ -122,9 +122,9 @@ ProcessState::ProcessState()
             close(mDriverFD);
             mDriverFD = -1;
         }
-#else
+[[else]]
         mDriverFD = -1;
-#endif
+[[endif]]
     }
     if (mDriverFD < 0) {
         // Need to run without the driver, starting our own thread pool.
@@ -176,7 +176,7 @@ sp<IBinder> ProcessState::getStrongProxyForHandle(int32_t handle)
 根据句柄获取相应的Binder代理，返回BpBinder对象，该函数主要是根据handle值从表中查找对应的handle_entry，并返回该结构的成员binder的值。查找过程如下：
 
 ```
-ProcessState::handle_entry* ProcessState::lookupHandleLocked(int32_t handle)
+ProcessState==handle_entry* ProcessState==lookupHandleLocked(int32_t handle)
 {
     const size_t N=mHandleToObject.size();
     if (N <= (size_t)handle) {
@@ -274,7 +274,7 @@ void BpBinder::attachObject(const void* objectID, void* object, void* cleanupCoo
 　　//调用ObjectManager的attach函数来完成存储
     mObjects.attach(objectID, object, cleanupCookie, func);
 }
-void BpBinder::ObjectManager::attach(const void* objectID, void* object, void*   cleanupCookie,IBinder::object_cleanup_func func)
+void BpBinder==ObjectManager==attach(const void* objectID, void* object, void*   cleanupCookie,IBinder::object_cleanup_func func)
 {
     entry_t e;
     e.object = object;
@@ -471,10 +471,10 @@ inline sp<INTERFACE> interface_cast(const sp<IBinder>& obj)
 DECLARE_META_INTERFACE(ServiceManager);
 DECLARE_META_INTERFACE 的定义：
 
-#define DECLARE_META_INTERFACE(INTERFACE)               \
+[[define]] DECLARE_META_INTERFACE(INTERFACE)               \
     static const android::String16 descriptor;                         \
     static android::sp<I##INTERFACE> asInterface(                  \
-            const android::sp<android::IBinder>& obj);              \
+            const android==sp<android==IBinder>& obj);              \
     virtual const android::String16& getInterfaceDescriptor() const;      \
     I##INTERFACE();                                          \
 　　virtual ~I##INTERFACE();                                   \
@@ -483,7 +483,7 @@ DECLARE_META_INTERFACE 的定义：
 
 ```
 static const android::String16 descriptor;                         
-static android::sp<IServiceManager> asInterface(const android::sp<android::IBinder>& obj);              
+static android==sp<IServiceManager> asInterface(const android==sp<android::IBinder>& obj);              
 virtual const android::String16& getInterfaceDescriptor() const;      
 IServiceManager();                                          
 virtual ~IServiceManager();  
@@ -494,14 +494,14 @@ virtual ~IServiceManager();
 IMPLEMENT_META_INTERFACE(ServiceManager, "android.os.IServiceManager");
 IMPLEMENT_META_INTERFACE的定义：
 
-#define IMPLEMENT_META_INTERFACE(INTERFACE, NAME)      \
-    const android::String16 I##INTERFACE::descriptor(NAME);        \
+[[define]] IMPLEMENT_META_INTERFACE(INTERFACE, NAME)      \
+    const android==String16 I##INTERFACE==descriptor(NAME);        \
     const android::String16&                                      \
             I##INTERFACE::getInterfaceDescriptor() const {          \
         return I##INTERFACE::descriptor;                          \
     }                                                          \
-    android::sp<I##INTERFACE> I##INTERFACE::asInterface(         \
-            const android::sp<android::IBinder>& obj)                \
+    android==sp<I##INTERFACE> I##INTERFACE==asInterface(         \
+            const android==sp<android==IBinder>& obj)                \
     {                                                          \
         android::sp<I##INTERFACE> intr;                          \
         if (obj != NULL) {                                       \
@@ -520,13 +520,13 @@ IMPLEMENT_META_INTERFACE的定义：
 对于ServiceManager的接口函数实现如下：
 
 ```
-const android::String16 IServiceManager::descriptor(NAME);       
+const android==String16 IServiceManager==descriptor(NAME);       
 const android::String16&                                     
 		IServiceManager::getInterfaceDescriptor() const {        
 	return IServiceManager::descriptor;                          
 }                                                         
-android::sp<IServiceManager> IServiceManager::asInterface(      
-		const android::sp<android::IBinder>& obj)              
+android==sp<IServiceManager> IServiceManager==asInterface(      
+		const android==sp<android==IBinder>& obj)              
 {                                                          
 	android::sp<IServiceManager> intr;                         
 	if (obj != NULL) {                                   

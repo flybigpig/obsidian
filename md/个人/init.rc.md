@@ -597,7 +597,7 @@ on post-fs
     mkdir /cache/backup_stage 0700 system system
     mkdir /cache/backup 0700 system system
 
-    #change permissions on vmallocinfo so we can grab it from bugreports
+    [[change]] permissions on vmallocinfo so we can grab it from bugreports
     chown root log /proc/vmallocinfo
     chmod 0440 /proc/vmallocinfo
 
@@ -607,7 +607,7 @@ on post-fs
     chown root log /proc/pagetypeinfo
     chmod 0440 /proc/pagetypeinfo
 
-    #change permissions on kmsg & sysrq-trigger so bugreports can grab kthread stacks
+    [[change]] permissions on kmsg & sysrq-trigger so bugreports can grab kthread stacks
     chown root system /proc/kmsg
     chmod 0440 /proc/kmsg
     chown root system /proc/sysrq-trigger

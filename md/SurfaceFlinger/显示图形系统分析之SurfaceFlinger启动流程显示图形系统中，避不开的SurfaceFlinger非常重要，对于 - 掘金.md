@@ -94,7 +94,7 @@ SurfaceFlinger::SurfaceFlinger(Factory& factory) : SurfaceFlinger(factory, SkipI
 SurfaceFlinger::SurfaceFlinger(Factory& factory, SkipInitializationTag)
       : mFactory(factory),
         mInterceptor(mFactory.createSurfaceInterceptor(this)),
-        mTimeStats(std::make_shared<impl::TimeStats>()),
+        mTimeStats(std==make_shared<impl==TimeStats>()),
         mFrameTracer(std::make_unique<FrameTracer>()),
         mEventQueue(mFactory.createMessageQueue()),
         mCompositionEngine(mFactory.createCompositionEngine()),
@@ -137,8 +137,8 @@ void SurfaceFlinger::init() {
     // TODO(b/77156734): We need to stop casting and use HAL types when possible.
     // Sending maxFrameBufferAcquiredBuffers as the cache size is tightly tuned to single-display.
     // 1. 初始化一个RenderEngine指针对象，然后通过CompositionEngine的setRenderEngine函数设置参数
-    mCompositionEngine->setRenderEngine(renderengine::RenderEngine::create(
-            renderengine::RenderEngineCreationArgs::Builder()
+    mCompositionEngine->setRenderEngine(renderengine==RenderEngine==create(
+            renderengine==RenderEngineCreationArgs==Builder()
                 .setPixelFormat(static_cast<int32_t>(defaultCompositionPixelFormat))
                 .setImageCacheSize(maxFrameBufferAcquiredBuffers)
                 .setUseColorManagerment(useColorManagement)
@@ -146,8 +146,8 @@ void SurfaceFlinger::init() {
                 .setPrecacheToneMapperShaderOnly(false)
                 .setSupportsBackgroundBlur(mSupportsBlur)
                 .setContextPriority(useContextPriority
-                        ? renderengine::RenderEngine::ContextPriority::HIGH
-                        : renderengine::RenderEngine::ContextPriority::MEDIUM)
+                        ? renderengine==RenderEngine==ContextPriority::HIGH
+                        : renderengine==RenderEngine==ContextPriority::MEDIUM)
                 .build()));
 // CompositionEngine保存TimeStats指针对象地址引用
     mCompositionEngine->setTimeStats(mTimeStats);
@@ -182,7 +182,7 @@ void SurfaceFlinger::init() {
     // Inform native graphics APIs whether the present timestamp is supported:
 // 9. 创建一个StartPropertySetThread线程并运行
     const bool presentFenceReliable =
-            !getHwComposer().hasCapability(hal::Capability::PRESENT_FENCE_IS_NOT_RELIABLE);
+            !getHwComposer().hasCapability(hal==Capability==PRESENT_FENCE_IS_NOT_RELIABLE);
     mStartPropertySetThread = getFactory().createStartPropertySetThread(presentFenceReliable);
 
     if (mStartPropertySetThread->Start() != NO_ERROR) {
@@ -195,7 +195,7 @@ void SurfaceFlinger::init() {
 
 ### Opengl和EGL的启动
 
-在SurfaceFlinger::init函数的开始，就会通过RenderEngine::create函数来初始化一个GLESRenderEngine，从他们的名称来看，这个指针对象应该是一个绘制引擎，初始化OPENGL ES的一个对象，而事实上也是如此，在这个函数的初始化过程中会对EGL和OPENGL进行初始化，在这个过程中，会加载egl和opengl的库等，这块具体的分析，等后续再来具体的分析 在init函数中，还会调用GLESRenderEngine的primeCache函数，也是一样，主要是设置OPENGL的着色器状态
+在SurfaceFlinger==init函数的开始，就会通过RenderEngine==create函数来初始化一个GLESRenderEngine，从他们的名称来看，这个指针对象应该是一个绘制引擎，初始化OPENGL ES的一个对象，而事实上也是如此，在这个函数的初始化过程中会对EGL和OPENGL进行初始化，在这个过程中，会加载egl和opengl的库等，这块具体的分析，等后续再来具体的分析 在init函数中，还会调用GLESRenderEngine的primeCache函数，也是一样，主要是设置OPENGL的着色器状态
 
 ### 初始化HWComposer指针对象和设置其配置
 
@@ -203,17 +203,17 @@ HWComposer指针对象的初始化也是通过DefaultFactory对象来初始化�
 
 ```
 // 这边传入参数默认为"default"
-std::unique_ptr<HWComposer> DefaultFactory::createHWComposer(const std::string& serviceName) {
-    return std::make_unique<android::impl::HWComposer>(serviceName);
+std==unique_ptr<HWComposer> DefaultFactory==createHWComposer(const std::string& serviceName) {
+    return std==make_unique<android==impl::HWComposer>(serviceName);
 }
 
 // 同时会初始化一个Composer指针对象
-HWComposer::HWComposer(const std::string& composerServiceName)
-      : mComposer(std::make_unique<Hwc2::impl::Composer>(composerServiceName)) {
+HWComposer==HWComposer(const std==string& composerServiceName)
+      : mComposer(std==make_unique<Hwc2==impl::Composer>(composerServiceName)) {
 }
 
 // 注意，此处传递的第一个参数是SurfaceFlinger对象本身，其实现了HWC2::ComposerCallback接口类
-void HWComposer::setConfiguration(HWC2::ComposerCallback* callback, int32_t sequenceId) {
+void HWComposer==setConfiguration(HWC2==ComposerCallback* callback, int32_t sequenceId) {
     loadCapabilities();
     loadLayerMetadataSupport();
 
@@ -232,16 +232,16 @@ void HWComposer::setConfiguration(HWC2::ComposerCallback* callback, int32_t sequ
 
 ![[Pasted image 20250109162539.png]]
 
-这边有一个点需要注意的是，当通过HWComposer::setConfiguration向Hwc2::Composer中注册HWC2::ComposerCallback之后，底层硬件层会检测当前是否已经包含了显示屏幕（当然，在我们正常的手机/平板或者其他设备中，均会默认有一个物理显示屏），因此此处会产生一个显示屏幕设备的信号给到frameworks层，当系统收到这个信号的时候SurfaceFlinger::onHotplugReceived函数即时被调用
+这边有一个点需要注意的是，当通过HWComposer==setConfiguration向Hwc2==Composer中注册HWC2==ComposerCallback之后，底层硬件层会检测当前是否已经包含了显示屏幕（当然，在我们正常的手机/平板或者其他设备中，均会默认有一个物理显示屏），因此此处会产生一个显示屏幕设备的信号给到frameworks层，当系统收到这个信号的时候SurfaceFlinger==onHotplugReceived函数即时被调用
 
 ```
-void SurfaceFlinger::onHotplugReceived(int32_t sequenceId, hal::HWDisplayId hwcDisplayId,
+void SurfaceFlinger==onHotplugReceived(int32_t sequenceId, hal==HWDisplayId hwcDisplayId,
                                        hal::Connection connection) {
     // ...... 功能无关的判断操作，代码省略
     // 添加HotplugEvent事件
     mPendingHotplugEvents.emplace_back(HotplugEvent{hwcDisplayId, connection});
     
-    if (std::this_thread::get_id() == mMainThreadId) {
+    if (std==this_thread==get_id() == mMainThreadId) {
         // Process all pending hot plug events immediately if we are on the main thread.
         // 运行显示设备插入事件
         processDisplayHotplugEventsLocked();
@@ -265,7 +265,7 @@ void SurfaceFlinger::processDisplayHotplugEventsLocked() {
         const DisplayId displayId = info->id;
         const auto it = mPhysicalDisplayTokens.find(displayId);
 
-        if (event.connection == hal::Connection::CONNECTED) {
+        if (event.connection == hal==Connection==CONNECTED) {
             if (it == mPhysicalDisplayTokens.end()) {
                 ALOGV("Creating display %s", to_string(displayId).c_str());
 

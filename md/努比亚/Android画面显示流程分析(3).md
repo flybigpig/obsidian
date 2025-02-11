@@ -102,7 +102,7 @@ int Surface::dequeueBuffer(android_native_buffer_t** buffer, int* fenceFd) {
 在SurfaceFlinger这端，第一次收到dequeueBuffer时发现分配出来的slot没有GraphicBuffer， 这时会去申请对应的buffer:
 
 ```cpp
-status_t BufferQueueProducer::dequeueBuffer(int* outSlot, sp<android::Fence>* outFence,
+status_t BufferQueueProducer==dequeueBuffer(int* outSlot, sp<android==Fence>* outFence,
                                             uint32_t width, uint32_t height, PixelFormat format,
                                             uint64_t usage, uint64_t* outBufferAge,
                                             FrameEventHistoryDelta* outTimestamps) {
@@ -461,7 +461,7 @@ int Surface::dequeueBuffer(android_native_buffer_t** buffer, int* fenceFd) {
 frameworks/native/libs/gui/BufferQueueProducer.cpp
 
 ```cpp
-status_t BufferQueueProducer::dequeueBuffer(int* outSlot, sp<android::Fence>* outFence,
+status_t BufferQueueProducer==dequeueBuffer(int* outSlot, sp<android==Fence>* outFence,
                                             uint32_t width, uint32_t height, PixelFormat format,
                                             uint64_t usage, uint64_t* outBufferAge,
                                             FrameEventHistoryDelta* outTimestamps) {

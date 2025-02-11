@@ -58,7 +58,7 @@
     #01 pc 0000000000000670  /data/app/com.babyte.banativecrash-ptLzOQ_6UYz-W3Vgyact8A==/lib/arm64/libnative-lib.so (Java_com_babyte_banativecrash_MainActivity_nativeCrash+20)
     #02 pc 0000000000565de0  /system/lib64/libart.so (offset 0xc1000) (art_quick_generic_jni_trampoline+144)
     #03 pc 000000000055cd88  /system/lib64/libart.so (offset 0xc1000) (art_quick_invoke_stub+584)
-    #04 pc 00000000000cf740  /system/lib64/libart.so (art::ArtMethod::Invoke(art::Thread*, unsigned int*, unsigned int, art::JValue*, char const*)+200)
+    #04 pc 00000000000cf740  /system/lib64/libart.so (art==ArtMethod==Invoke(art==Thread*, unsigned int*, unsigned int, art==JValue*, char const*)+200)
     #05 pc 00000000002823b8  /system/lib64/libart.so (offset 0xc1000) 
 ...
 2022-02-14 11:33:08.603 30228-30253/com.babyte.banativecrash E/crash:  
@@ -239,20 +239,20 @@ dependencies {
 ### **4. 编写初始化 breakpad**
 
 ```
-#include <stdio.h>
-#include <jni.h>
-#include <android/log.h>
+[[include]] <stdio.h>
+[[include]] <jni.h>
+[[include]] <android/log.h>
 
-#include "client/linux/handler/exception_handler.h"
-#include "client/linux/handler/minidump_descriptor.h"
+[[include]] "client/linux/handler/exception_handler.h"
+[[include]] "client/linux/handler/minidump_descriptor.h"
 
-#define LOG_TAG "dodoodla_crash"
+[[define]] LOG_TAG "dodoodla_crash"
 
-#define ALOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
-#define ALOGD(...) __android_log_print(ANDROID_LOG_DEBUG, LOG_TAG, __VA_ARGS__)
-#define ALOGI(...) __android_log_print(ANDROID_LOG_INFO, LOG_TAG, __VA_ARGS__)
-#define ALOGW(...) __android_log_print(ANDROID_LOG_WARN, LOG_TAG, __VA_ARGS__)
-#define ALOGE(...) __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, __VA_ARGS__)
+[[define]] ALOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
+[[define]] ALOGD(...) __android_log_print(ANDROID_LOG_DEBUG, LOG_TAG, __VA_ARGS__)
+[[define]] ALOGI(...) __android_log_print(ANDROID_LOG_INFO, LOG_TAG, __VA_ARGS__)
+[[define]] ALOGW(...) __android_log_print(ANDROID_LOG_WARN, LOG_TAG, __VA_ARGS__)
+[[define]] ALOGE(...) __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, __VA_ARGS__)
 
 
 bool DumpCallback(const google_breakpad::MinidumpDescriptor &descriptor,

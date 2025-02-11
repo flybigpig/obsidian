@@ -96,7 +96,7 @@ new Vue({
     .swiper-slide{
       width: 100%;
       height: 100%;
-      background-color: #42b983;
+      background-color: [[42b983]];
       text-align: center;
       line-height: 500px;
     }

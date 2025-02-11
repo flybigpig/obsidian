@@ -40,13 +40,13 @@ C++ 是一种广泛使用的高级编程语言，以下是一些 C++ 的基础�
     
       
     
-    -   命名空间用于避免名称冲突。例如，`std`是 C++ 标准库的命名空间。当使用`std`中的对象如`cout`时，需要写成`std::cout`。也可以使用`using namespace std;`语句来避免每次都写`std::`，不过这种做法在大型项目中可能会导致名称冲突，不推荐使用。
+    -   命名空间用于避免名称冲突。例如，`std`是 C++ 标准库的命名空间。当使用`std`中的对象如`cout`时，需要写成`std==cout`。也可以使用`using namespace std;`语句来避免每次都写`std==`，不过这种做法在大型项目中可能会导致名称冲突，不推荐使用。
     
       
       
     
     ```
-    #include <iostream>
+    [[include]] <iostream>
     using namespace std;
     int main() {
         cout << "Hello, World!" << endl;

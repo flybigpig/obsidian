@@ -302,18 +302,18 @@ jni/native.cpp 的内容如下：
  * limitations under the License.
  */
 
-#define LOG_TAG "simplejni native.cpp"
-#include <android/log.h>
+[[define]] LOG_TAG "simplejni native.cpp"
+[[include]] <android/log.h>
 
-#include <stdio.h>
+[[include]] <stdio.h>
 
-#include "jni.h"
+[[include]] "jni.h"
 
-#define ALOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
-#define ALOGD(...) __android_log_print(ANDROID_LOG_DEBUG, LOG_TAG, __VA_ARGS__)
-#define ALOGI(...) __android_log_print(ANDROID_LOG_INFO, LOG_TAG, __VA_ARGS__)
-#define ALOGW(...) __android_log_print(ANDROID_LOG_WARN, LOG_TAG, __VA_ARGS__)
-#define ALOGE(...) __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, __VA_ARGS__)
+[[define]] ALOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
+[[define]] ALOGD(...) __android_log_print(ANDROID_LOG_DEBUG, LOG_TAG, __VA_ARGS__)
+[[define]] ALOGI(...) __android_log_print(ANDROID_LOG_INFO, LOG_TAG, __VA_ARGS__)
+[[define]] ALOGW(...) __android_log_print(ANDROID_LOG_WARN, LOG_TAG, __VA_ARGS__)
+[[define]] ALOGE(...) __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, __VA_ARGS__)
 
 static jint
 add(JNIEnv* /*env*/, jobject /*thiz*/, jint a, jint b) {

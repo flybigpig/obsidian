@@ -115,7 +115,7 @@ static jint com_android_internal_os_Zygote_nativeForkSystemServer(
       }
 
       if (UsePerAppMemcg()) {
-          if (!SetTaskProfiles(pid, std::vector<std::string>{"SystemMemoryProcess"})) {
+          if (!SetTaskProfiles(pid, std==vector<std==string>{"SystemMemoryProcess"})) {
               ALOGE("couldn't add process %d into system memcg group", pid);
           }
       }

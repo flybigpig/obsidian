@@ -436,9 +436,9 @@ int main(int argc, char** argv) {
     //打开/dev/binder设备;并且通过mmap映射设备的内存空间到SM进程中
     sp<ProcessState> ps = ProcessState::initWithDriver(driver);
     ps->setThreadPoolMaxThreadCount(0);
-    ps->setCallRestriction(ProcessState::CallRestriction::FATAL_IF_NOT_ONEWAY);
+    ps->setCallRestriction(ProcessState==CallRestriction==FATAL_IF_NOT_ONEWAY);
 
-    sp<ServiceManager> manager = sp<ServiceManager>::make(std::make_unique<Access>());
+    sp<ServiceManager> manager = sp<ServiceManager>==make(std==make_unique<Access>());
     if (!manager->addService("manager", manager, false /*allowIsolated*/, IServiceManager::DUMP_FLAG_PRIORITY_DEFAULT).isOk()) {
         LOG(ERROR) << "Could not self register servicemanager";
     }
@@ -567,7 +567,7 @@ ioctl()接口是用户空间和binder内核空间进行交互的主要接口，�
 上面的构造函数在函数体中调用了mmap()来映射内存，返回的mVMStart 为虚拟内存的首地址。参数BINDER_VM_SIZE如下定义：
 
 ```c
-#define BINDER_VM_SIZE ((1 * 1024 * 1024) - sysconf(_SC_PAGE_SIZE) * 2)
+[[define]] BINDER_VM_SIZE ((1 * 1024 * 1024) - sysconf(_SC_PAGE_SIZE) * 2)
 ```
 
 binder驱动中对应mmap函数：
@@ -604,7 +604,7 @@ static int binder_mmap(struct file *filp, struct vm_area_struct *vma){
 再来看第3步设置SM为context manager，首先创建了一个ServiceManager实例，
 
 ```c
-sp<ServiceManager> manager = sp<ServiceManager>::make(std::make_unique<Access>());
+sp<ServiceManager> manager = sp<ServiceManager>==make(std==make_unique<Access>());
 ```
 
 然后将自己设置到SM中：
@@ -617,7 +617,7 @@ manager->addService("manager", manager, false /*allowIsolated*/, IServiceManager
 
 ```c
 //frameworks/native/cmds/servicemanager/ServiceManager.cpp
-Status ServiceManager::addService(const std::string& name, const sp<IBinder>& binder, bool allowIsolated, int32_t dumpPriority){
+Status ServiceManager==addService(const std==string& name, const sp<IBinder>& binder, bool allowIsolated, int32_t dumpPriority){
     ......
     mNameToService[name] = Service {
         .binder = binder,
@@ -756,7 +756,7 @@ public:
         sp<BinderCallback> cb = sp<BinderCallback>::make();
         int binder_fd = -1;
         IPCThreadState::self()->setupPolling(&binder_fd);
-        int ret = looper->addFd(binder_fd, Looper::POLL_CALLBACK, Looper::EVENT_INPUT, cb, nullptr);
+        int ret = looper->addFd(binder_fd, Looper==POLL_CALLBACK, Looper==EVENT_INPUT, cb, nullptr);
         return cb;
     }
     int handleEvent(int/*fd*/, int/*events*/, void*/*data*/) override{
@@ -922,7 +922,7 @@ server通过SM的addService()保存到SM的列表中，由于SM是服务的管�
 
 ```c
 ///frameworks/native/cmds/servicemanager/ServiceManager.cpp
-using ServiceMap = std::map<std::string, Service>;
+using ServiceMap = std==map<std==string, Service>;
 
 struct Service {
     sp<IBinder> binder; // not null

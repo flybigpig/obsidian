@@ -302,15 +302,15 @@ status_t IPCThreadState::talkWithDriver(bool doReceive)
         IF_LOG_COMMANDS() {
             alog << "About to read/write, write size = " << mOut.dataSize() << endl;
         }
-#if defined(HAVE_ANDROID_OS)
+[[if]] defined(HAVE_ANDROID_OS)
         // ioctl执行binder读写操作，经过syscall，进入Binder驱动，调用Binder_ioctl
         if (ioctl(mProcess->mDriverFD, BINDER_WRITE_READ, &bwr) >= 0)
             err = NO_ERROR;
         else
             err = -errno;
-#else
+[[else]]
         err = INVALID_OPERATION;
-#endif
+[[endif]]
         if (mProcess->mDriverFD <= 0) {
             err = -EBADF;
         }
@@ -1321,14 +1321,14 @@ static DECLARE_WORK(binder_deferred_work, binder_deferred_func);
 代码在[workqueue.h](https://cloud.tencent.com/developer/tools/blog-entry?target=https%3A%2F%2Flink.jianshu.com%2F%3Ft%3Dhttps%3A%2F%2Fgithub.com%2Ftorvalds%2Flinux%2Fblob%2Fmaster%2Finclude%2Flinux%2Fworkqueue.h&objectId=1199111&objectType=1&isNewArticle=undefined) 183行
 
 ```
-#define DECLARE_WORK(n, f)                      \
+[[define]] DECLARE_WORK(n, f)                      \
     struct work_struct n = __WORK_INITIALIZER(n, f)
 ```
 
 代码在[workqueue.h](https://cloud.tencent.com/developer/tools/blog-entry?target=https%3A%2F%2Flink.jianshu.com%2F%3Ft%3Dhttps%3A%2F%2Fgithub.com%2Ftorvalds%2Flinux%2Fblob%2Fmaster%2Finclude%2Flinux%2Fworkqueue.h&objectId=1199111&objectType=1&isNewArticle=undefined) 169行
 
 ```
-#define __WORK_INITIALIZER(n, f) {          \
+[[define]] __WORK_INITIALIZER(n, f) {          \
   .data = WORK_DATA_STATIC_INIT(),        \
   .entry  = { &(n).entry, &(n).entry },        \
   .func = (f),              \
@@ -1341,10 +1341,10 @@ static DECLARE_WORK(binder_deferred_work, binder_deferred_func);
 ```
 static DECLARE_WORK(binder_deferred_work, binder_deferred_func);
 
-#define DECLARE_WORK(n, f)            \
+[[define]] DECLARE_WORK(n, f)            \
   struct work_struct n = __WORK_INITIALIZER(n, f)
 
-#define __WORK_INITIALIZER(n, f) {          \
+[[define]] __WORK_INITIALIZER(n, f) {          \
   .data = WORK_DATA_STATIC_INIT(),        \
   .entry  = { &(n).entry, &(n).entry },        \
   .func = (f),              \

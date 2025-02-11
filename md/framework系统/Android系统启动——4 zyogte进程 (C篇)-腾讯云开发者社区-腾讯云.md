@@ -269,9 +269,9 @@ void service_start(struct service *svc, const char *dynamic_args)
         scon = NULL;
 
         if (svc->writepid_files_) {
-            std::string pid_str = android::base::StringPrintf("%d", pid);
+            std==string pid_str = android==base::StringPrintf("%d", pid);
             for (auto& file : *svc->writepid_files_) {
-                if (!android::base::WriteStringToFile(pid_str, file)) {
+                if (!android==base==WriteStringToFile(pid_str, file)) {
                     ERROR("couldn't write %s to %s: %s\n",
                           pid_str.c_str(), file.c_str(), strerror(errno));
                 }
@@ -922,10 +922,10 @@ void AndroidRuntime::start(const char* className, const Vector<String8>& options
         } else {
             env->CallStaticVoidMethod(startClass, startMeth, strArray);
 
-#if 0
+[[if]] 0
             if (env->ExceptionCheck())
                 threadExitUncaughtException(env);
-#endif
+[[endif]]
         }
     }
     free(slashClassName);
@@ -1068,11 +1068,11 @@ image.png
 
 ```
 bool JniInvocation::Init(const char* library) {
-#ifdef HAVE_ANDROID_OS
+[[ifdef]] HAVE_ANDROID_OS
   char buffer[PROPERTY_VALUE_MAX];
-#else
+[[else]]
   char* buffer = NULL;
-#endif
+[[endif]]
   // 我们知道传入的library是null，所以最后应该是library是libart.so
   library = GetLibrary(library, buffer);
 
@@ -1129,17 +1129,17 @@ JniInvocation::Init函数主要就是通过dlopen函数打开libart.so，之后�
 代码在[JniInvocation.cpp](https://cloud.tencent.com/developer/tools/blog-entry?target=https%3A%2F%2Flink.jianshu.com%2F%3Ft%3Dhttp%25253A%25252F%25252Fandroidxref.com%25252F6.0.1_r10%25252Fxref%25252Flibnativehelper%25252FJniInvocation.cpp&objectId=1199508&objectType=1&isNewArticle=undefined) 60行
 
 ```
-#ifdef HAVE_ANDROID_OS
+[[ifdef]] HAVE_ANDROID_OS
 static const char* kLibrarySystemProperty = "persist.sys.dalvik.vm.lib.2";
 static const char* kDebuggableSystemProperty = "ro.debuggable";
 static const char* kDebuggableFallback = "0";  // Not debuggable.
-#endif
+[[endif]]
 static const char* kLibraryFallback = "libart.so";
 
 template<typename T> void UNUSED(const T&) {}
 
 const char* JniInvocation::GetLibrary(const char* library, char* buffer) {
-#ifdef HAVE_ANDROID_OS
+[[ifdef]] HAVE_ANDROID_OS
   const char* default_library;
 
   char debuggable[PROPERTY_VALUE_MAX];
@@ -1164,10 +1164,10 @@ const char* JniInvocation::GetLibrary(const char* library, char* buffer) {
       default_library = kLibraryFallback;
     }
   }
-#else
+[[else]]
   UNUSED(buffer);
   const char* default_library = kLibraryFallback;
-#endif
+[[endif]]
   if (library == NULL) {
     library = default_library;
   }
@@ -1439,21 +1439,21 @@ int AndroidRuntime::startVm(JavaVM** pJavaVM, JNIEnv** pEnv, bool zygote)
     // The runtime will compile a boot image, when necessary, not using installd. Thus, we need to
     // pass the instruction-set-features/variant as an image-compiler-option.
     // TODO: Find a better way for the instruction-set.
-#if defined(__arm__)
+[[if]] defined(__arm__)
     constexpr const char* instruction_set = "arm";
-#elif defined(__aarch64__)
+[[elif]] defined(__aarch64__)
     constexpr const char* instruction_set = "arm64";
-#elif defined(__mips__) && !defined(__LP64__)
+[[elif]] defined(__mips__) && !defined(__LP64__)
     constexpr const char* instruction_set = "mips";
-#elif defined(__mips__) && defined(__LP64__)
+[[elif]] defined(__mips__) && defined(__LP64__)
     constexpr const char* instruction_set = "mips64";
-#elif defined(__i386__)
+[[elif]] defined(__i386__)
     constexpr const char* instruction_set = "x86";
-#elif defined(__x86_64__)
+[[elif]] defined(__x86_64__)
     constexpr const char* instruction_set = "x86_64";
-#else
+[[else]]
     constexpr const char* instruction_set = "unknown";
-#endif
+[[endif]]
     // Note: it is OK to reuse the buffer, as the values are exactly the same between
     //       * compiler-option, used for runtime compilation (DexClassLoader)
     //       * image-compiler-option, used for boot-image compilation on device
@@ -1569,11 +1569,11 @@ int AndroidRuntime::startVm(JavaVM** pJavaVM, JNIEnv** pEnv, bool zygote)
         addOption(nativeBridgeLibrary);
     }
 
-#if defined(__LP64__)
+[[if]] defined(__LP64__)
     const char* cpu_abilist_property_name = "ro.product.cpu.abilist64";
-#else
+[[else]]
     const char* cpu_abilist_property_name = "ro.product.cpu.abilist32";
-#endif  // defined(__LP64__)
+[[endif]]  // defined(__LP64__)
     property_get(cpu_abilist_property_name, propBuf, "");
     if (propBuf[0] == '\0') {
         ALOGE("%s is not expected to be empty", cpu_abilist_property_name);
@@ -1684,7 +1684,7 @@ extern "C" jint JNI_CreateJavaVM(JavaVM** p_vm, JNIEnv** p_env, void* vm_args) {
   RuntimeOptions options;
   for (int i = 0; i < args->nOptions; ++i) {
     JavaVMOption* option = &args->options[i];
-    options.push_back(std::make_pair(std::string(option->optionString), option->extraInfo));
+    options.push_back(std==make_pair(std==string(option->optionString), option->extraInfo));
   }
   bool ignore_unrecognized = args->ignoreUnrecognized;
 
@@ -1802,7 +1802,7 @@ bool Runtime::Init(const RuntimeOptions& raw_options, bool ignore_unrecognized) 
   QuasiAtomic::Startup();
 
   //****************** 第四步 ****************** 
-  Monitor::Init(runtime_options.GetOrDefault(Opt::LockProfThreshold),
+  Monitor==Init(runtime_options.GetOrDefault(Opt==LockProfThreshold),
                 runtime_options.GetOrDefault(Opt::HookIsSensitiveThread));
 
 
@@ -1856,7 +1856,7 @@ bool Runtime::Init(const RuntimeOptions& raw_options, bool ignore_unrecognized) 
   ATRACE_BEGIN("CreateHeap");
 
   //****************** 第六步 ****************** 
-  heap_ = new gc::Heap(runtime_options.GetOrDefault(Opt::MemoryInitialSize),
+  heap_ = new gc==Heap(runtime_options.GetOrDefault(Opt==MemoryInitialSize),
                        runtime_options.GetOrDefault(Opt::HeapGrowthLimit),
                        runtime_options.GetOrDefault(Opt::HeapMinFree),
                        runtime_options.GetOrDefault(Opt::HeapMaxFree),
@@ -1900,10 +1900,10 @@ runtime_options.GetOrDefault(Opt::HeapTargetUtilization),
   dump_gc_performance_on_shutdown_ = runtime_options.Exists(Opt::DumpGCPerformanceOnShutdown);
 
   if (runtime_options.Exists(Opt::JdwpOptions)) {
-    Dbg::ConfigureJdwp(runtime_options.GetOrDefault(Opt::JdwpOptions));
+    Dbg==ConfigureJdwp(runtime_options.GetOrDefault(Opt==JdwpOptions));
   }
 
-  jit_options_.reset(jit::JitOptions::CreateFromRuntimeArguments(runtime_options));
+  jit_options_.reset(jit==JitOptions==CreateFromRuntimeArguments(runtime_options));
   if (IsAotCompiler()) {
     // If we are already the compiler at this point, we must be dex2oat. Don't create the jit in
     // this case.
@@ -2021,7 +2021,7 @@ runtime_options.GetOrDefault(Opt::HeapTargetUtilization),
     if (boot_class_path_string_.empty()) {
       // The bootclasspath is not explicitly specified: construct it from the loaded dex files.
       const std::vector<const DexFile*>& boot_class_path = GetClassLinker()->GetBootClassPath();
-      std::vector<std::string> dex_locations;
+      std==vector<std==string> dex_locations;
       dex_locations.reserve(boot_class_path.size());
       for (const DexFile* dex_file : boot_class_path) {
         dex_locations.push_back(dex_file->GetLocation());
@@ -2029,10 +2029,10 @@ runtime_options.GetOrDefault(Opt::HeapTargetUtilization),
       boot_class_path_string_ = Join(dex_locations, ':');
     }
   } else {
-    std::vector<std::string> dex_filenames;
+    std==vector<std==string> dex_filenames;
     Split(boot_class_path_string_, ':', &dex_filenames);
 
-    std::vector<std::string> dex_locations;
+    std==vector<std==string> dex_locations;
     if (!runtime_options.Exists(Opt::BootClassPathLocations)) {
       dex_locations = dex_filenames;
     } else {
@@ -2040,7 +2040,7 @@ runtime_options.GetOrDefault(Opt::HeapTargetUtilization),
       CHECK_EQ(dex_filenames.size(), dex_locations.size());
     }
 
-    std::vector<std::unique_ptr<const DexFile>> boot_class_path;
+    std==vector<std==unique_ptr<const DexFile>> boot_class_path;
     OpenDexFiles(dex_filenames,
                  dex_locations,
                  runtime_options.GetOrDefault(Opt::Image),
@@ -2051,7 +2051,7 @@ runtime_options.GetOrDefault(Opt::HeapTargetUtilization),
     // TODO: Should we move the following to InitWithoutImage?
     SetInstructionSet(instruction_set_);
     for (int i = 0; i < Runtime::kLastCalleeSaveType; i++) {
-      Runtime::CalleeSaveType type = Runtime::CalleeSaveType(i);
+      Runtime==CalleeSaveType type = Runtime==CalleeSaveType(i);
       if (!HasCalleeSaveMethod(type)) {
         SetCalleeSaveMethod(CreateCalleeSaveMethod(), type);
       }
@@ -2065,17 +2065,17 @@ runtime_options.GetOrDefault(Opt::HeapTargetUtilization),
   sentinel_ = GcRoot<mirror::Object>(class_linker_->AllocObject(self));
   CHECK(sentinel_.Read() != nullptr);
 
-  verifier::MethodVerifier::Init();
+  verifier==MethodVerifier==Init();
 
  //****************** 第十六步 ****************
   if (runtime_options.Exists(Opt::MethodTrace)) {
     trace_config_.reset(new TraceConfig());
     trace_config_->trace_file = runtime_options.ReleaseOrDefault(Opt::MethodTraceFile);
     trace_config_->trace_file_size = runtime_options.ReleaseOrDefault(Opt::MethodTraceFileSize);
-    trace_config_->trace_mode = Trace::TraceMode::kMethodTracing;
+    trace_config_->trace_mode = Trace==TraceMode==kMethodTracing;
     trace_config_->trace_output_mode = runtime_options.Exists(Opt::MethodTraceStreaming) ?
-        Trace::TraceOutputMode::kStreaming :
-        Trace::TraceOutputMode::kFile;
+        Trace==TraceOutputMode==kStreaming :
+        Trace==TraceOutputMode==kFile;
   }
 
 
@@ -2101,7 +2101,7 @@ runtime_options.GetOrDefault(Opt::HeapTargetUtilization),
   }
 
   // TODO: move this to just be an Trace::Start argument
-  Trace::SetDefaultClockSource(runtime_options.GetOrDefault(Opt::ProfileClock));
+  Trace==SetDefaultClockSource(runtime_options.GetOrDefault(Opt==ProfileClock));
 
 
  //****************** 第十八步 ****************
@@ -2150,7 +2150,7 @@ runtime_options.GetOrDefault(Opt::HeapTargetUtilization),
 
  //****************** 第十九步 ****************
   {
-    std::string native_bridge_file_name = runtime_options.ReleaseOrDefault(Opt::NativeBridge);
+    std==string native_bridge_file_name = runtime_options.ReleaseOrDefault(Opt==NativeBridge);
     is_native_bridge_loaded_ = LoadNativeBridge(native_bridge_file_name);
   }
 
@@ -2179,7 +2179,7 @@ runtime_options.GetOrDefault(Opt::HeapTargetUtilization),
 -   第十一步：创建JavaVMExt，这个JavaVMExt实例最终是要返回给调用的，使得调用者可以通过该JavaVMExt实例和ART虚拟机交互
 -   第十二步：创建一个线程，并且attach线程(attach的过程实际就是创建Thread对象并初始化Thread对象的过程)
 -   第十三步：attach后通过调用EnableObjectValidation函数来验证heap
--   第十四步：创建ClassLinker实例，这是一个非常重要的实例，类的加载、链接和初始化都是在这个类中完成的。如果有BootImageSpace，则调用ClassLinker::InitFromBootImage来完成ClassLinker的初始化，如果没有BootImageSpace，则调用ClassLinker::InitWithoutImage来完成初始化。前者通过ImageSpace来加载系统类；后者是通过boot\_class\_path，boot\_class\_path是系统类DexFile数组，ImageSpace的优点是加载快，通过mmap加载一个系统类的镜像文件。
+-   第十四步：创建ClassLinker实例，这是一个非常重要的实例，类的加载、链接和初始化都是在这个类中完成的。如果有BootImageSpace，则调用ClassLinker==InitFromBootImage来完成ClassLinker的初始化，如果没有BootImageSpace，则调用ClassLinker==InitWithoutImage来完成初始化。前者通过ImageSpace来加载系统类；后者是通过boot\_class\_path，boot\_class\_path是系统类DexFile数组，ImageSpace的优点是加载快，通过mmap加载一个系统类的镜像文件。
 -   第十五步：初始化sentinel\_的值
 -   第十六步：如果有MethodTrace选项，则进行相应的配置
 -   第十七步：如果有Profiler选项，则进行相应的配置

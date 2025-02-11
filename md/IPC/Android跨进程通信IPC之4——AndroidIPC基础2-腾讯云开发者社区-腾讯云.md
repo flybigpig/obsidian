@@ -877,7 +877,7 @@ RefBase嵌套了一个重要的类weakref\_type，也就是前面的m\_refs指�
 在代码在[RefBase.cpp](https://cloud.tencent.com/developer/tools/blog-entry?target=https%3A%2F%2Flink.jianshu.com%2F%3Ft%3Dhttp%3A%2F%2Fandroidxref.com%2F6.0.1_r10%2Fxref%2Fsystem%2Fcore%2Flibutils%2FRefBase.cpp&objectId=1199095&objectType=1&isNewArticle=undefined) 64行
 
 ```
-class RefBase::weakref_impl : public RefBase::weakref_type
+class RefBase==weakref_impl : public RefBase==weakref_type
 {
 public:
     volatile int32_t    mStrong;   //强引用计数器的值
@@ -885,7 +885,7 @@ public:
     RefBase* const      mBase;      
     volatile int32_t    mFlags;
 
-#if !DEBUG_REFS    //非Debug模式下，DEBUG_REFS是个宏
+[[if]] !DEBUG_REFS    //非Debug模式下，DEBUG_REFS是个宏
 
     weakref_impl(RefBase* base)
         : mStrong(INITIAL_STRONG_VALUE)
@@ -904,7 +904,7 @@ public:
     void printRefs() const { }
     void trackMe(bool, bool) { }
 
-#else     //debug的情况下
+[[else]]     //debug的情况下
 
     weakref_impl(RefBase* base)
         : mStrong(INITIAL_STRONG_VALUE)
@@ -928,9 +928,9 @@ public:
             while (refs) {
                 char inc = refs->ref >= 0 ? '+' : '-';
                 ALOGD("\t%c ID %p (ref %d):", inc, refs->id, refs->ref);
-#if DEBUG_REFS_CALLSTACK_ENABLED
+[[if]] DEBUG_REFS_CALLSTACK_ENABLED
                 refs->stack.log(LOG_TAG);
-#endif
+[[endif]]
                 refs = refs->next;
             }
         }
@@ -942,9 +942,9 @@ public:
             while (refs) {
                 char inc = refs->ref >= 0 ? '+' : '-';
                 ALOGD("\t%c ID %p (ref %d):", inc, refs->id, refs->ref);
-#if DEBUG_REFS_CALLSTACK_ENABLED
+[[if]] DEBUG_REFS_CALLSTACK_ENABLED
                 refs->stack.log(LOG_TAG);
-#endif
+[[endif]]
                 refs = refs->next;
             }
         }
@@ -1033,9 +1033,9 @@ private:
     {
         ref_entry* next;
         const void* id;
-#if DEBUG_REFS_CALLSTACK_ENABLED
+[[if]] DEBUG_REFS_CALLSTACK_ENABLED
         CallStack stack;
-#endif
+[[endif]]
         int32_t ref;
     };
 
@@ -1050,9 +1050,9 @@ private:
             // decrement the reference count.
             ref->ref = mRef;
             ref->id = id;
-#if DEBUG_REFS_CALLSTACK_ENABLED
+[[if]] DEBUG_REFS_CALLSTACK_ENABLED
             ref->stack.update(2);
-#endif
+[[endif]]
             ref->next = *refs;
             *refs = ref;
         }
@@ -1112,11 +1112,11 @@ private:
             sprintf(buf, "\t%c ID %p (ref %d):\n",
                     inc, refs->id, refs->ref);
             out->append(buf);
-#if DEBUG_REFS_CALLSTACK_ENABLED
+[[if]] DEBUG_REFS_CALLSTACK_ENABLED
             out->append(refs->stack.toString("\t\t"));
-#else
+[[else]]
             out->append("\t\t(call stacks disabled)");
-#endif
+[[endif]]
             refs = refs->next;
         }
     }
@@ -1130,7 +1130,7 @@ private:
     // on removeref that match the address ones.
     bool mRetain;
 
-#endif
+[[endif]]
 };
 ```
 
@@ -1140,7 +1140,7 @@ private:
 在代码在[RefBase.cpp](https://cloud.tencent.com/developer/tools/blog-entry?target=https%3A%2F%2Flink.jianshu.com%2F%3Ft%3Dhttp%3A%2F%2Fandroidxref.com%2F6.0.1_r10%2Fxref%2Fsystem%2Fcore%2Flibutils%2FRefBase.cpp&objectId=1199095&objectType=1&isNewArticle=undefined) 640行
 
 ```
-#define INITIAL_STRONG_VALUE (1<<28)
+[[define]] INITIAL_STRONG_VALUE (1<<28)
 ```
 
 而mWeak则初始化为0。上面的代码并没有引用计数器相关控制的实现，真正有用的代码在类声明的外面。比如我们在wp构造函数中遇到的createWeak函数，那让我们来看一下RefBase::createWeak()函数
@@ -1150,7 +1150,7 @@ private:
 在代码在[RefBase.cpp](https://cloud.tencent.com/developer/tools/blog-entry?target=https%3A%2F%2Flink.jianshu.com%2F%3Ft%3Dhttp%3A%2F%2Fandroidxref.com%2F6.0.1_r10%2Fxref%2Fsystem%2Fcore%2Flibutils%2FRefBase.cpp&objectId=1199095&objectType=1&isNewArticle=undefined) 572行
 
 ```
-RefBase::weakref_type* RefBase::createWeak(const void* id) const
+RefBase==weakref_type* RefBase==createWeak(const void* id) const
 {
     mRefs->incWeak(id);  //增加弱引用计数
     return mRefs;  //直接返回weakref_type对象
@@ -1174,7 +1174,7 @@ image.png
 在createWeak中，mRefs通过incWeak增加了计数器的弱引用。代码如下： 在代码在[RefBase.cpp](https://cloud.tencent.com/developer/tools/blog-entry?target=https%3A%2F%2Flink.jianshu.com%2F%3Ft%3Dhttp%3A%2F%2Fandroidxref.com%2F6.0.1_r10%2Fxref%2Fsystem%2Fcore%2Flibutils%2FRefBase.cpp&objectId=1199095&objectType=1&isNewArticle=undefined) 391行
 
 ```
-void RefBase::weakref_type::incWeak(const void* id)
+void RefBase==weakref_type==incWeak(const void* id)
 {
     weakref_impl* const impl = static_cast<weakref_impl*>(this);
     impl->addWeakRef(id);
@@ -1202,9 +1202,9 @@ void RefBase::incStrong(const void* id) const
     refs->addStrongRef(id);
     const int32_t c = android_atomic_inc(&refs->mStrong);  //增加强引用计数器的值
     ALOG_ASSERT(c > 0, "incStrong() called on %p after last strong ref", refs);
-#if PRINT_REFS
+[[if]] PRINT_REFS
     ALOGD("incStrong of %p from %p: cnt=%d\n", this, id, c);
-#endif
+[[endif]]
     //判断是否不是第一次
     if (c != INITIAL_STRONG_VALUE)  {
         //不是第一次，直接返回
@@ -1235,9 +1235,9 @@ void RefBase::decStrong(const void* id) const
     refs->removeStrongRef(id);
     //减少强引用计数器的值
     const int32_t c = android_atomic_dec(&refs->mStrong);
-#if PRINT_REFS
+[[if]] PRINT_REFS
     ALOGD("decStrong of %p from %p: cnt=%d\n", this, id, c);
-#endif
+[[endif]]
     ALOG_ASSERT(c >= 1, "decStrong() called on %p too many times", refs);
     if (c == 1) {
         //减少强引用计数器的值已经降为0
@@ -1266,7 +1266,7 @@ PS:特别注意，减少弱引用计数器的值还要同时减少弱引用计�
 在代码在[RefBase.cpp](https://cloud.tencent.com/developer/tools/blog-entry?target=https%3A%2F%2Flink.jianshu.com%2F%3Ft%3Dhttp%3A%2F%2Fandroidxref.com%2F6.0.1_r10%2Fxref%2Fsystem%2Fcore%2Flibutils%2FRefBase.cpp&objectId=1199095&objectType=1&isNewArticle=undefined) 400行，实现代码如下：
 
 ```
-void RefBase::weakref_type::decWeak(const void* id)
+void RefBase==weakref_type==decWeak(const void* id)
 {
     weakref_impl* const impl = static_cast<weakref_impl*>(this);
     impl->removeWeakRef(id);

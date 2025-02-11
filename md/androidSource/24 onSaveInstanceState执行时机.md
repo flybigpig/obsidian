@@ -1,7 +1,7 @@
 我们已经分析过Activity的启动流程，从中也分析了Activity的生命周期。而其中有一个生命周期方法:onSaveInstanceState方法，今天我们主要讲解一下onSaveInstanceState方法的执行时机。
 可能部分同学对Activity的onSaveInstanceState方法不是特别熟悉，这里我们简单介绍一下。onSaveInstanceState方法是Activity的成员方法，主要用于在Activity销毁时保存Activity相关的对象信息，而其执行的时机不是我们主动调用的，而是Android系统的framework帮忙调用的，而其调用的时机，可以参考android系统的介绍：
 
-> This method is called before an activity may be killed so that when it comes back some time in the future it can restore its state.  For example, if activity B is launched in front of activity A, and at some point activity A is killed to reclaim resources, activity A will have a chance to save the current state of its user interface via this method so that when the user returns to activity A, the state of the user interface can be restored via {@link #onCreate} or {@link #onRestoreInstanceState}.
+> This method is called before an activity may be killed so that when it comes back some time in the future it can restore its state.  For example, if activity B is launched in front of activity A, and at some point activity A is killed to reclaim resources, activity A will have a chance to save the current state of its user interface via this method so that when the user returns to activity A, the state of the user interface can be restored via {@link [[onCreate]]} or {@link [[onRestoreInstanceState]]}.
 
 可以发现onSaveInstanceState方法会在Activity将要被kill的时候执行。O(∩_∩)O哈哈~，可能跟以前讲解的内容不是太对，我们看过不少文章都是说onSaveInstanceStatex方法会在Activity容易被销毁的时候执行。那么这里明明说的是当Activity被销毁的时候就会执行onSaveInstanceState方法，那么具体的情况是如何的呢?我们具体看一下源码吧，哈哈。
 
