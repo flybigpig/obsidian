@@ -209,6 +209,7 @@
   "lastOpenFiles": [
     "md/个人/Binder之ProcessState和IPCThreadState类分析-CSDN博客.md",
     "md/个人/Android请求注册服务过程源码分析_android servicemanager.addservice流程-CSDN博客.md",
+    "md/个人/Android IPC数据在内核空间中的发送过程分析.md",
     "md/个人/Android 数据Parcel序列化过程源码分析_writeinterfacetoken-CSDN博客.md",
     "md/个人/Android 数据Parcel序列化过程源码分析.md",
     "Binder之ProcessState和IPCThreadState类分析-CSDN.md",
@@ -226,7 +227,6 @@
     "2025-02-11.md",
     "Pasted image 20250109142002.png",
     "Excalidraw/未命名.canvas",
-    "md/个人/Android IPC数据在内核空间中的发送过程分析.md",
     "md/个人/Android Framework system_server进程启动_startapexservices-CSDN博客.md",
     "md/个人/Android init进程 - yooooooo - 博客园.md",
     "md/个人/Android Wifi断开问题分析和802.11原因码_assoc rsp 0x001e-CSDN博客.md",
