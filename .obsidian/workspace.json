@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/wms/startActivity启动过程  Skytoby.md",
+                "file": "md/wms/onResume()流程.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "startActivity启动过程  Skytoby"
+              "title": "onResume()流程"
             }
           }
         ]
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "md/wms/startActivity启动过程  Skytoby.md",
+                "file": "md/wms/onResume()流程.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "startActivity启动过程  Skytoby 的大纲"
+              "title": "onResume()流程 的大纲"
             }
           },
           {
@@ -193,8 +193,8 @@
   },
   "active": "0ef0d82d52bb5bce",
   "lastOpenFiles": [
-    "md/wms/Android10.0 startActivity启动过程-CSDN博客.md",
     "md/wms/startActivity启动过程  Skytoby.md",
+    "md/wms/Android10.0 startActivity启动过程-CSDN博客.md",
     "md/wms/onResume()流程.md",
     "md/努比亚/Android应用启动全流程分析（源码深度剖析）.md",
     "md/努比亚/Android开机全解析.md",
