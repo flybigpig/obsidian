@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "67041801bc2e2d14",
+        "id": "27abb309d2203e5c",
         "type": "tabs",
         "children": [
           {
-            "id": "d9b2a4a3a85997a1",
+            "id": "0ef0d82d52bb5bce",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -191,10 +191,10 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "f84ce6d2fe2622cd",
+  "active": "0ef0d82d52bb5bce",
   "lastOpenFiles": [
-    "md/个人/Android 数据Parcel序列化过程源码分析_writeinterfacetoken-CSDN博客.md",
     "md/个人/ActivityManagerService - Binder.md",
+    "md/个人/Android 数据Parcel序列化过程源码分析_writeinterfacetoken-CSDN博客.md",
     "md/个人/Android 数据Parcel序列化过程源码分析.md",
     "md/个人/Binder之ProcessState和IPCThreadState类分析-CSDN博客.md",
     "md/个人/Binder驱动的核心数据结构.md",
