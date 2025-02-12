@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/wms/onResume()流程.md",
-                "mode": "preview",
+                "file": "md/wms/startActivity启动过程  Skytoby.md",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "onResume()流程"
+              "title": "startActivity启动过程  Skytoby"
             }
           }
         ]
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "md/wms/onResume()流程.md",
+                "file": "md/wms/startActivity启动过程  Skytoby.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "onResume()流程 的大纲"
+              "title": "startActivity启动过程  Skytoby 的大纲"
             }
           },
           {
@@ -191,11 +191,12 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "0ef0d82d52bb5bce",
+  "active": "f84ce6d2fe2622cd",
   "lastOpenFiles": [
+    "md/wms/Android应用程序窗口设计之Window及WindowManager的创建_mpendingrevomewindow-CSDN博客.md",
+    "md/wms/onResume()流程.md",
     "md/wms/startActivity启动过程  Skytoby.md",
     "md/wms/Android10.0 startActivity启动过程-CSDN博客.md",
-    "md/wms/onResume()流程.md",
     "md/努比亚/Android应用启动全流程分析（源码深度剖析）.md",
     "md/努比亚/Android开机全解析.md",
     "md/努比亚/解析Binder框架.md",
@@ -218,7 +219,6 @@
     "md/android/【Android Framework】ActivityManagerService(二) (含视频) - 掘金.md",
     "md/android/【Android FrameWork】第一个启动的程序--init (含视频) - 掘金.md",
     "md/androidSource/14 activity启动流程.md",
-    "md/个人/androidStart.md",
     "md/wms",
     "Pasted image 20250109141941.png",
     "Pasted image 20250109142002.png",
