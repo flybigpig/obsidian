@@ -11,10 +11,12 @@
             "id": "8688c2079739d479",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "新标签页"
+              "type": "image",
+              "state": {
+                "file": "Pasted image 20250109141941.png"
+              },
+              "icon": "lucide-image",
+              "title": "Pasted image 20250109141941"
             }
           }
         ]
@@ -190,6 +192,9 @@
   },
   "active": "8688c2079739d479",
   "lastOpenFiles": [
+    "2025-02-11.md",
+    "Pasted image 20250109141941.png",
+    "Pasted image 20250109142002.png",
     "md/个人/Android 数据Parcel序列化过程源码分析.md",
     "Excalidraw/未命名.canvas",
     "md/个人/Android IPC数据在内核空间中的发送过程分析.md",
@@ -226,8 +231,6 @@
     "e1fe8d3703d5038b2bd15153c1bf7c7 1.png",
     "pic/Pasted image 20250109162539.png",
     "pic/Pasted image 20250113093852.png",
-    "Pasted image 20250113093848.png",
-    "Pasted image 20250109142016.png",
     "md/SurfaceFlinger",
     "md/努比亚",
     "md/GPT",
