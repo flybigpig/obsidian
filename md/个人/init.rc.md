@@ -1,4 +1,4 @@
-```
+``` c++
 # Copyright (C) 2012 The Android Open Source Project
 #
 # IMPORTANT: Do not create world writable files or directories.

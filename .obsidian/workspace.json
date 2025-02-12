@@ -11,12 +11,14 @@
             "id": "8688c2079739d479",
             "type": "leaf",
             "state": {
-              "type": "image",
+              "type": "markdown",
               "state": {
-                "file": "Pasted image 20250109141941.png"
+                "file": "md/个人/Android Binder通信数据结构介绍_不同传输类型下binder的结构-CSDN博客.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-image",
-              "title": "Pasted image 20250109141941"
+              "icon": "lucide-file",
+              "title": "Android Binder通信数据结构介绍_不同传输类型下binder的结构-CSDN博客"
             }
           }
         ]
@@ -192,18 +194,20 @@
   },
   "active": "8688c2079739d479",
   "lastOpenFiles": [
-    "2025-02-11.md",
-    "Pasted image 20250109141941.png",
-    "Pasted image 20250109142002.png",
+    "md/个人/杂谈.md",
     "md/个人/Android 数据Parcel序列化过程源码分析.md",
+    "md/个人/Android Binder机制(二) Binder中的数据结构  skywang.md",
+    "md/个人/init.rc.md",
+    "md/个人/阿豪.md",
+    "Pasted image 20250109141941.png",
+    "2025-02-11.md",
+    "Pasted image 20250109142002.png",
     "Excalidraw/未命名.canvas",
     "md/个人/Android IPC数据在内核空间中的发送过程分析.md",
     "md/个人/Android Framework system_server进程启动_startapexservices-CSDN博客.md",
     "md/个人/Android init进程 - yooooooo - 博客园.md",
     "md/个人/Android Wifi断开问题分析和802.11原因码_assoc rsp 0x001e-CSDN博客.md",
     "md/个人/硬件抽象层（HAL）的代码示例.md",
-    "md/个人/阿豪.md",
-    "md/个人/Android Binder机制(二) Binder中的数据结构  skywang.md",
     "md/个人/Android请求注册服务过程源码分析.md",
     "md/个人/Android Binder通信数据结构介绍_不同传输类型下binder的结构-CSDN博客.md",
     "md/个人/详解DiffUtils、Myers算法和 Jetpack Compose详细地介绍Android中基于Mayers算法的 - 掘金.md",
@@ -219,9 +223,7 @@
     "md/个人/windows-gitlab.md",
     "md/个人/Windows 11：3 种方法轻松绕过 TPM、CPU 和安全启动检测.md",
     "md/Ubuntu22.04安装、配置、美化、软件安装、配置开发环境_ubuntu安装星火应用商店-CSDN博客.md",
-    "md/个人/杂谈.md",
     "md/资料/ffmpeg/资料/FFmpeg编译常见问题(1).md",
-    "md/资料/ffmpeg/资料/音频资料/资料.md",
     "pic/c1f08381-5bf9-488d-b45c-86edf7160912.png",
     "hexo",
     "pic/e73ad7f6d928a1b67f9f2c08ab9bc1f.png",
