@@ -201,6 +201,8 @@ Java层的Binder通信框架设计和C++层的设计基本类似，也是分为�
 
 ![](https://i-blog.csdnimg.cn/blog_migrate/01f0351a00d09729cfaac8c5185b285b.png)
 
+>将Java层的BinderProxy对象对应的JNI层的gBinderProxyOffsets以键值对的形式存储在BpBinder的ObjectManager中。
+
 Java类在JNI层的数据对应关系：
 
 ![](https://i-blog.csdnimg.cn/blog_migrate/735946ff6ce9577915f4e0034e1ea41e.png)
@@ -268,7 +270,7 @@ void BpBinder == ObjectManager == attach(const void * objectID, void * object, v
 }
 ```
 
-将Java层的BinderProxy对象对应的JNI层的gBinderProxyOffsets以键值对的形式存储在BpBinder的ObjectManager中。
+
 
 #### ServiceManagerProxy对象的创建过程
 
