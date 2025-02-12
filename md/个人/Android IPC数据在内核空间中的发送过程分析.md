@@ -8,7 +8,7 @@ tags:
 
 客户进程向ServiceManager进程发送IPC服务注册信息
 
-```
+```c
 status_t BpBinder::transact(uint32_t code, const Parcel& data, Parcel* reply, uint32_t flags)
 {
     // Once a binder has died, it will never come back to life.
@@ -28,7 +28,7 @@ status_t BpBinder::transact(uint32_t code, const Parcel& data, Parcel* reply, ui
 ```
 由于CameraService服务是向ServiceManager注册，因此将使用ServiceManager的BpBinder来传输Binder数据，由于ServiceManager对应的Handle值为0，因此在这里的mHandle = 0，BpBinder直接调用IPCThreadState来完成数据的传输：
 
-```
+```c
 status_t IPCThreadState::transact(int32_t handle,uint32_t code, const Parcel& data,
                                   Parcel* reply, uint32_t flags)
 {
@@ -68,14 +68,14 @@ status_t IPCThreadState::transact(int32_t handle,uint32_t code, const Parcel& da
 
 对于CameraService服务注册，writeTransactionData函数的参数cmd=BC_TRANSACTION；binderFlags = TF_ACCEPT_FDS；handle = 0；code =ADD_SERVICE_TRANSACTION；statusBuffer = Null；发送的data为：
 
-```
+```java
 data.writeInterfaceToken("android.os.IServiceManager");
 data.writeString16("media.camera");
 data.writeStrongBinder(new CameraService());
 ```
 writeTransactionData函数的定义如下：
 
-```
+```c
 status_t IPCThreadState::writeTransactionData(int32_t cmd, uint32_t binderFlags,
     int32_t handle, uint32_t code, const Parcel& data, status_t* statusBuffer)
 {
@@ -117,7 +117,7 @@ status_t IPCThreadState::writeTransactionData(int32_t cmd, uint32_t binderFlags,
 数据发送过程
 完成数据打包后，接下来将调用waitForResponse函数来实现数据的真正发送过程，并且等待服务进程的数据返回。
 
-```
+```c
 status_t IPCThreadState::waitForResponse(Parcel *reply, status_t *acquireResult)
 {
     int32_t cmd;
@@ -160,7 +160,7 @@ finish:
 ```
 该函数首先通过talkWithDriver向Binder驱动发送数据，talkWithDriver是阻塞类型的函数，只有在发送完数据后才会返回，当talkWithDriver函数返回后，立即从mIn容器中读取服务进程回复的数据，并根据回复的数据中的Binder协议命令头来执行不同的处理，对于BR_TRANSACTION_COMPLETE、BR_DEAD_REPLY、BR_FAILED_REPLY、BR_ACQUIRE_RESULT、BR_REPLY以外的命令则调用executeCommand函数来处理。接下来我们继续分析Binder数据的发送过程，对于接收数据的处理则在接下来的小节中介绍。
 
-```
+```c
 status_t IPCThreadState::talkWithDriver(bool doReceive)
 {
     //判断Binder设备驱动是否已打开
@@ -227,7 +227,7 @@ talkWithDriver函数通过ioctl系统调用进入到Binder驱动程序，为什�
 
 从上图可以清楚地知道，当进程A需要把IPC数据发送给进程B时，必须通过内核空间共享机制来完成，这也印证了为什么Android Binder通信过程中经过层层数据封装后，最终要通过系统调用ioctl进入到Binder驱动中的原因。学过Linux驱动设计的同学应该知道，当调用ioctl函数时，binder_ioctl函数会被调用，这两个函数自己有什么内在关联吗？这里简单介绍一下，Linux设备驱动很好地实现了模块化，在Linux内核启动的时候，会注册所有的内核驱动模块，在Android Init进程源码分析中介绍Init进程启动流程中提到过内核驱动初始化。驱动模块注册完就建立了函数之间的调用关系，在Binder驱动程序中以下代码正是建立ioctl与binder_ioctl之间的映射关系：
 
-```
+```c
 static const struct file_operations binder_fops = {
 	.owner = THIS_MODULE,
 	.poll = binder_poll,
@@ -252,7 +252,7 @@ binder_write_read中存储的数据如下：
 
 BINDER_WRITE_READ命令用来请求Binder驱动发送或接收IPC应答数据，在使用BINDER_WRITE_READ命令调用ioctl()函数时，函数的第三个参数是binder_write_read结构体的变量，该结构体中有两个buffer，一个为IPC数据发送buffer，一个为IPC数据接收buffer;write_size与read_size分别用来指定write_buffer与read_buffer的数据大小。write_consumed与read_consumed分别用来设定write_buffer与read_buffer中被处理的数据大小，从上面分析可知，需要发送的数据为：
 
-```
+```c
 bwr.write_size = outAvail;
 bwr.write_buffer = (long unsigned int)mOut.data();
 bwr.read_size = 0;
@@ -262,7 +262,7 @@ bwr.read_consumed = 0;
 ```
 把将要发送的IPC数据存放到binder_write_read结构体中后通过ioctl系统调用传入到binder驱动程序中，binder_write_read以参数的形式传入内核空间，关于binder_ioctl函数的介绍在ServiceManager 进程启动源码分析中详细介绍了。由于read_size= 0，write_size 大于0 ，因此binder_ioctl函数对BINDER_WRITE_READ命令的处理如下：
 
-```
+```c
 case BINDER_WRITE_READ: {
 	//在内核空间中创建一个binder_write_read
 	struct binder_write_read bwr;
@@ -299,7 +299,7 @@ binder_write_read结构体中包含着用户空间中生成的IPC数据，在Bin
 
 由于此时是客户进程向ServiceManager进程发送IPC注册信息，因此binder_write_read结构体的write_size大于0，调用binder_thread_write()函数进一步实现数据的跨进程发送，此时的Binder命令协议头为BC_TRANSACTION
 
-```
+```c
 int binder_thread_write(struct binder_proc *proc, struct binder_thread *thread,
 			void __user *buffer, int size, signed long *consumed)
 {
@@ -344,7 +344,7 @@ int binder_thread_write(struct binder_proc *proc, struct binder_thread *thread,
 ```
 binder_transaction()函数相当复杂，主要完成Binder寻址，生成Binder节点等。由于cmd = BC_TRANSACTION，因此binder_transaction函数的第四个参数为false。
 
-```
+```c
 static void binder_transaction(struct binder_proc *proc,
 			       struct binder_thread *thread,
 			       struct binder_transaction_data *tr, int reply)
@@ -697,7 +697,7 @@ err_no_context_mgr_node:
 ```
 函数首先根据传进来的参数binder_transaction_data来封装一个工作事务binder_transaction，关于binder_transaction结构的介绍在Android Binder通信数据结构介绍中已经详细介绍过了，然后将封装好的事务挂载到目标进程或线程的待处理队列中，最后唤醒目标进程，这样就将IPC数据发送给了目标进程，同时唤醒目标进程对IPC请求进行处理，以下两句最为重要：
 
-```
+```c
 //将事务添加到目标进程或线程的待处理队列中
 list_add_tail(&t->work.entry, target_list);
 //唤醒目标进程或线程
