@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/wms/Android应用程序窗口设计之Window及WindowManager的创建_mpendingrevomewindow-CSDN博客.md",
+                "file": "md/wms/带你了解Android窗口机制Window、PhoneWindow和DecorView之间的关系.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Android应用程序窗口设计之Window及WindowManager的创建_mpendingrevomewindow-CSDN博客"
+              "title": "带你了解Android窗口机制Window、PhoneWindow和DecorView之间的关系"
             }
           }
         ]
@@ -193,8 +193,9 @@
   },
   "active": "0ef0d82d52bb5bce",
   "lastOpenFiles": [
-    "md/wms/Android 应用程序建立与WMS服务之间的通信过程_binder session-CSDN博客.md",
     "md/wms/Android应用程序窗口设计之Window及WindowManager的创建_mpendingrevomewindow-CSDN博客.md",
+    "md/wms/带你了解Android窗口机制Window、PhoneWindow和DecorView之间的关系.md",
+    "md/wms/Android 应用程序建立与WMS服务之间的通信过程_binder session-CSDN博客.md",
     "md/wms",
     "md/个人/ActivityManagerService - Binder.md",
     "md/个人/Android 数据Parcel序列化过程源码分析_writeinterfacetoken-CSDN博客.md",
@@ -222,7 +223,6 @@
     "Pasted image 20250109142002.png",
     "Excalidraw/未命名.canvas",
     "md/个人/Android Framework system_server进程启动_startapexservices-CSDN博客.md",
-    "md/个人/Android init进程 - yooooooo - 博客园.md",
     "写给应用开发的+Android+Framework+教程(1).pdf",
     "pic/c1f08381-5bf9-488d-b45c-86edf7160912.png",
     "hexo",
