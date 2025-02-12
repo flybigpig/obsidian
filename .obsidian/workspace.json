@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/个人/Android Binder机制(二) Binder中的数据结构  skywang.md",
+                "file": "md/Android请求注册服务过程源码分析_android servicemanager.addservice流程-CSDN博客.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Android Binder机制(二) Binder中的数据结构  skywang"
+              "title": "Android请求注册服务过程源码分析_android servicemanager.addservice流程-CSDN博客"
             }
           }
         ]
@@ -187,21 +187,21 @@
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
       "markdown-importer:打开 Markdown 格式转换器": false,
-      "obsidian-full-calendar:Open Full Calendar": false,
       "obsidian-git:Open Git source control": false,
-      "obsidian-excalidraw-plugin:新建绘图文件": false,
-      "copilot:Open Copilot Chat": false
+      "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
   "active": "73c5899c2e691b20",
   "lastOpenFiles": [
+    "md/个人/Android请求注册服务过程源码分析.md",
+    "else/其他.md",
+    "md/个人/Android Binder机制(二) Binder中的数据结构  skywang.md",
     "md/个人/彻底掌握 Android14 Vsync 原理.md",
     "md/个人/阿豪.md",
     "md/个人/开机优化.md",
     "md/个人/Android Binder通信数据结构介绍_不同传输类型下binder的结构-CSDN博客.md",
     "md/个人/杂谈.md",
     "md/个人/Android 数据Parcel序列化过程源码分析.md",
-    "md/个人/Android Binder机制(二) Binder中的数据结构  skywang.md",
     "md/个人/init.rc.md",
     "Pasted image 20250109141941.png",
     "2025-02-11.md",
@@ -212,7 +212,6 @@
     "md/个人/Android init进程 - yooooooo - 博客园.md",
     "md/个人/Android Wifi断开问题分析和802.11原因码_assoc rsp 0x001e-CSDN博客.md",
     "md/个人/硬件抽象层（HAL）的代码示例.md",
-    "md/个人/Android请求注册服务过程源码分析.md",
     "md/个人/详解DiffUtils、Myers算法和 Jetpack Compose详细地介绍Android中基于Mayers算法的 - 掘金.md",
     "md/IPC/Android跨进程通信IPC之2——Bionic-腾讯云开发者社区-腾讯云.md",
     "yto/kotlin_dialog.md",
@@ -224,7 +223,6 @@
     "md/AdvancedAndroid/组件化/Android-DI从入门到放弃.md",
     "md/个人/windows-gitlab.md",
     "md/个人/Windows 11：3 种方法轻松绕过 TPM、CPU 和安全启动检测.md",
-    "md/Ubuntu22.04安装、配置、美化、软件安装、配置开发环境_ubuntu安装星火应用商店-CSDN博客.md",
     "pic/c1f08381-5bf9-488d-b45c-86edf7160912.png",
     "hexo",
     "pic/e73ad7f6d928a1b67f9f2c08ab9bc1f.png",
