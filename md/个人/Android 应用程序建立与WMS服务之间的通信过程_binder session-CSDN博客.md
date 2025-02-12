@@ -311,16 +311,25 @@ public WindowId getWindowId() {
 
 frameworks\\base\\services\\java\\com\\android\\server\\wm\\Session.java
 
-```
-public IWindowId getWindowId(IBinder window) {return mService.getWindowId(window);}
+```java
+public IWindowId getWindowId(IBinder window) {
+    return mService.getWindowId(window);
+}
+
 ```
 
 在WMS服务中的Session本地对象又将IWindowId对象的查找过程交给WMS服务。
 
 frameworks\\base\\services\\java\\com\\android\\server\\wm\\WindowManagerService.java
 
-```
-public IWindowId getWindowId(IBinder token) {synchronized (mWindowMap) {WindowState window = mWindowMap.get(token);return window != null ? window.mWindowId : null;}}
+```java
+public IWindowId getWindowId(IBinder token) {
+    synchronized (mWindowMap) {
+        WindowState window = mWindowMap.get(token);
+        return window != null ? window.mWindowId : null;
+    }
+}
+
 ```
 
 根据W的binder代理对象token在WMS中查找窗口对应的WindowState对象，再将该窗口在WindowState对象中创建的IWindowId Binder本地对象返回，这样，客户端进程就可以得到该Binder的代理对象。  
