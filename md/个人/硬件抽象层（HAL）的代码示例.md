@@ -8,9 +8,9 @@
 
   
 
-c++
 
-```
+
+```c++
 [[ifndef]] ITEMPERATURESENSOR_H
 [[define]] ITEMPERATURESENSOR_H
 
@@ -38,9 +38,9 @@ public:
 
   
 
-c++
 
-```
+
+```c++
 [[include]] "ITemperatureSensor.h"
 [[include]] <iostream>
 
@@ -82,7 +82,7 @@ public:
 
 c++
 
-```
+```c++
 [[include]] "ITemperatureSensor.h"
 int main() {
     TemperatureSensorImpl sensor;
@@ -111,7 +111,7 @@ int main() {
 
 c++
 
-```
+```c++
 [[ifndef]] ICAMERA_HAL_H
 [[define]] ICAMERA_HAL_H
 
@@ -145,7 +145,7 @@ public:
 
 c++
 
-```
+```c++
 [[include]] "ICameraHAL.h"
 [[include]] <iostream>
 
@@ -204,7 +204,7 @@ public:
 
 c++
 
-```
+```c++
 [[include]] "ICameraHAL.h"
 int main() {
     CameraHALImpl camera;
@@ -253,7 +253,7 @@ int main() {
 
 c++
 
-```
+```c++
 void* handle = dlopen("libsensorhal.so", RTLD_NOW);
 if (handle!= nullptr) {
     typedef int (*open_sensor_func)(int sensor_type);
@@ -283,7 +283,7 @@ if (handle!= nullptr) {
 
 java
 
-```
+```java
 import android.hardware.camera2.ICameraService;
 import android.os.ServiceManager;
 import android.util.Log;

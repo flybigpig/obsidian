@@ -28,7 +28,7 @@
 
 binder\_proc是描述Binder进程上下文信息的结构体。Binder驱动的文件节点是"/dev/binder"，每当一个程序打开该文件节点时；Binder驱动中都会新建一个binder\_proc对象来保存该进程的上下文信息。
 
-```c
+```c++
 struct binder_proc {
   struct hlist_node proc_node;    // 根据proc_node，可以获取该进程在"全局哈希表binder_procs(统计了所有的binder proc进程)"中的位置
   struct rb_root threads;         // binder_proc进程内用于处理用户请求的线程组成的红黑树(关联binder_thread-&gt;rb_node)
