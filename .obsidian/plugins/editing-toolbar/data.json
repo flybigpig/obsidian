@@ -206,7 +206,7 @@
       "icon": "exit-fullscreen"
     }
   ],
-  "appendMethod": "workspace",
+  "appendMethod": "body",
   "shouldShowMenuOnSelect": false,
   "cMenuVisibility": false,
   "cMenuBottomValue": 4.25,
