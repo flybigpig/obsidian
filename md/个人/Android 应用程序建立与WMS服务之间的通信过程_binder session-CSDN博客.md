@@ -337,6 +337,9 @@ public IWindowId getWindowId(IBinder token) {
 查找过程如下：  
 ![](https://i-blog.csdnimg.cn/blog_migrate/88c40c68c12f8abf3b6f1d52d69f3604.jpeg)
 
-通过以上介绍，可以知道应用程序进程和WMS服务之间的交互主要是通过IWindowSession，Iwindow，IWindowId三个接口来完成，IWindowSession实现应用程序进程到WMS服务间的通信，而Iwindow和IWindowId则实现WMS服务到应用程序进程间的通信。
+通过以上介绍，可以知道应用程序进程和WMS服务之间的交互主要是通过IWindowSession，Iwindow，IWindowId三个接口来完成，IWindowSession实现应用程序进程到WMS服务间的通信，而Iwindow和IWindowId则实现WMS服 
+ 
+  
+  务到应用程序进程间的通信。
 
 ![](https://i-blog.csdnimg.cn/blog_migrate/dbf217d6fbb07dc717edcbb86a322c37.jpeg)
