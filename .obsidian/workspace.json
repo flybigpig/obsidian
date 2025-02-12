@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "a5094f55a568f8d0",
+        "id": "bb4a2f5cf39bbb1c",
         "type": "tabs",
         "children": [
           {
-            "id": "8688c2079739d479",
+            "id": "73c5899c2e691b20",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/个人/阿豪.md",
+                "file": "md/个人/彻底掌握 Android14 Vsync 原理.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "阿豪"
+              "title": "彻底掌握 Android14 Vsync 原理"
             }
           }
         ]
@@ -193,15 +193,15 @@
       "copilot:Open Copilot Chat": false
     }
   },
-  "active": "8688c2079739d479",
+  "active": "73c5899c2e691b20",
   "lastOpenFiles": [
+    "md/个人/阿豪.md",
     "md/个人/开机优化.md",
     "md/个人/Android Binder通信数据结构介绍_不同传输类型下binder的结构-CSDN博客.md",
     "md/个人/杂谈.md",
     "md/个人/Android 数据Parcel序列化过程源码分析.md",
     "md/个人/Android Binder机制(二) Binder中的数据结构  skywang.md",
     "md/个人/init.rc.md",
-    "md/个人/阿豪.md",
     "Pasted image 20250109141941.png",
     "2025-02-11.md",
     "Pasted image 20250109142002.png",
