@@ -129,7 +129,7 @@ ProcessState::ProcessState(): mDriverFD(open_driver()), mVMStart(MAP_FAILED), mM
 }
 ```
 
-在构造ProcessState对象时，将打开Binder驱动，并将Binder驱动设备文件句柄保存在成员变量mDriverFD 中。同时将Binder设备文件句柄映射到客户端进程的地址空间中，映射的起始地址保存在mVMStart变量中，映射的空间大小为（1024\*1024） - （2\* 4096）
+>在构造ProcessState对象时，将打开Binder驱动，并将Binder驱动设备文件句柄保存在成员变量mDriverFD 中。同时将Binder设备文件句柄映射到客户端进程的地址空间中，映射的起始地址保存在mVMStart变量中，映射的空间大小为（1024\*1024） - （2\* 4096）
 
 创建BpBinder对象
 
