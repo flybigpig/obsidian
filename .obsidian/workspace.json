@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/wms/Android应用程序窗口设计之setContentView布局加载的实现-CSDN博客.md",
+                "file": "md/wms/onResume()流程.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Android应用程序窗口设计之setContentView布局加载的实现-CSDN博客"
+              "title": "onResume()流程"
             }
           }
         ]
@@ -191,11 +191,12 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "0ef0d82d52bb5bce",
+  "active": "f84ce6d2fe2622cd",
   "lastOpenFiles": [
+    "md/wms/Android应用程序窗口设计之setContentView布局加载的实现-CSDN博客.md",
+    "md/wms/onResume()流程.md",
     "md/wms/Android应用程序窗口设计之Window及WindowManager的创建_mpendingrevomewindow-CSDN博客.md",
     "md/wms/带你了解Android窗口机制Window、PhoneWindow和DecorView之间的关系.md",
-    "md/wms/Android应用程序窗口设计之setContentView布局加载的实现-CSDN博客.md",
     "md/wms/Android 应用程序建立与WMS服务之间的通信过程_binder session-CSDN博客.md",
     "md/wms",
     "md/个人/ActivityManagerService - Binder.md",
@@ -220,7 +221,6 @@
     "md/个人/杂谈.md",
     "md/个人/init.rc.md",
     "Pasted image 20250109141941.png",
-    "2025-02-11.md",
     "Pasted image 20250109142002.png",
     "Excalidraw/未命名.canvas",
     "写给应用开发的+Android+Framework+教程(1).pdf",
