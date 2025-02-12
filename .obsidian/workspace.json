@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/个人/androidStart.md",
-                "mode": "source",
+                "file": "md/wms/Android10.0 startActivity启动过程-CSDN博客.md",
+                "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "androidStart"
+              "title": "Android10.0 startActivity启动过程-CSDN博客"
             }
           }
         ]
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "md/个人/Android 应用程序建立与WMS服务之间的通信过程_binder session-CSDN博客.md",
+                "file": "md/wms/Android10.0 startActivity启动过程-CSDN博客.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Android 应用程序建立与WMS服务之间的通信过程_binder session-CSDN博客 的大纲"
+              "title": "Android10.0 startActivity启动过程-CSDN博客 的大纲"
             }
           },
           {
@@ -191,35 +191,35 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "0ef0d82d52bb5bce",
+  "active": "f84ce6d2fe2622cd",
   "lastOpenFiles": [
+    "md/wms/startActivity启动过程  Skytoby.md",
+    "md/wms/Android10.0 startActivity启动过程-CSDN博客.md",
     "md/wms/onResume()流程.md",
-    "md/wms/Android应用程序窗口设计之setContentView布局加载的实现-CSDN博客.md",
-    "md/wms/Android应用程序窗口设计之Window及WindowManager的创建_mpendingrevomewindow-CSDN博客.md",
-    "md/wms/带你了解Android窗口机制Window、PhoneWindow和DecorView之间的关系.md",
-    "md/wms/Android 应用程序建立与WMS服务之间的通信过程_binder session-CSDN博客.md",
-    "md/wms",
-    "md/个人/ActivityManagerService - Binder.md",
-    "md/个人/Android 数据Parcel序列化过程源码分析_writeinterfacetoken-CSDN博客.md",
-    "md/个人/Android 数据Parcel序列化过程源码分析.md",
-    "md/个人/Binder之ProcessState和IPCThreadState类分析-CSDN博客.md",
-    "md/个人/Binder驱动的核心数据结构.md",
+    "md/努比亚/Android应用启动全流程分析（源码深度剖析）.md",
+    "md/努比亚/Android开机全解析.md",
+    "md/努比亚/解析Binder框架.md",
+    "md/framework系统/Android Handler机制2之ThreadLocal-腾讯云开发者社区-腾讯云.md",
+    "md/framework系统/Android Handler机制5之Message简介与消息对象对象池-腾讯云开发者社区-腾讯云.md",
+    "md/framework系统/Android系统启动——7附录1：Android属性系统-腾讯云开发者社区-腾讯云.md",
+    "md/framework系统/Android系统启动——6 SystemServer启动-腾讯云开发者社区-腾讯云.md",
+    "md/framework系统/Android系统启动——4 zyogte进程 (C篇)-腾讯云开发者社区-腾讯云.md",
+    "md/framework系统/Android系统启动——3 init.rc解析-腾讯云开发者社区-腾讯云.md",
+    "md/android/【Android FrameWork】ServiceManager(一) (含视频) - 掘金.md",
+    "md/android/【Android FrameWork】SystemServer (含视频) - 掘金.md",
+    "md/android/【Android FrameWork】Zygote (含视频) - 掘金.md",
+    "md/android/安卓Watchdog 机制.md",
+    "md/android/【Android FrameWork】ServiceManager （二） (含视频) - 掘金.md",
+    "md/android/【Android Framework】Service (含视频) - 掘金.md",
+    "md/android/【Android Framework】InputManagerService - 掘金.md",
+    "md/android/【Android Framework】ContentProvider(含视频) - 掘金.md",
+    "md/android/【Android Framework】Broadcast(含视频) - 掘金.md",
+    "md/android/【Android Framework】ActivityManagerService(一) (含视频) - 掘金.md",
+    "md/android/【Android Framework】ActivityManagerService(二) (含视频) - 掘金.md",
+    "md/android/【Android FrameWork】第一个启动的程序--init (含视频) - 掘金.md",
+    "md/androidSource/14 activity启动流程.md",
     "md/个人/androidStart.md",
-    "md/个人/Android请求注册服务过程源码分析.md",
-    "md/个人/Android请求注册服务过程源码分析_android servicemanager.addservice流程-CSDN博客.md",
-    "md/个人/Android服务函数远程调用源码分析_android 远程执行函数-CSDN博客.md",
-    "md/个人/Android IPC数据在内核空间中的发送过程分析_安卓系统内核发短信流程-CSDN博客.md",
-    "md/个人/Android IPC数据在内核空间中的发送过程分析.md",
-    "Binder之ProcessState和IPCThreadState类分析-CSDN.md",
-    "ProcessState.md",
-    "else/其他.md",
-    "md/个人/Android Binder机制(二) Binder中的数据结构  skywang.md",
-    "md/个人/彻底掌握 Android14 Vsync 原理.md",
-    "md/个人/阿豪.md",
-    "md/个人/开机优化.md",
-    "md/个人/Android Binder通信数据结构介绍_不同传输类型下binder的结构-CSDN博客.md",
-    "md/个人/杂谈.md",
-    "md/个人/init.rc.md",
+    "md/wms",
     "Pasted image 20250109141941.png",
     "Pasted image 20250109142002.png",
     "Excalidraw/未命名.canvas",
