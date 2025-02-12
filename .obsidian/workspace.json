@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/个人/Android服务函数远程调用源码分析_android 远程执行函数-CSDN博客.md",
-                "mode": "source",
+                "file": "md/个人/Binder之ProcessState和IPCThreadState类分析-CSDN博客.md",
+                "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Android服务函数远程调用源码分析_android 远程执行函数-CSDN博客"
+              "title": "Binder之ProcessState和IPCThreadState类分析-CSDN博客"
             }
           }
         ]
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "写给应用开发的+Android+Framework+教程(1).pdf",
+                "file": "md/个人/Binder之ProcessState和IPCThreadState类分析-CSDN博客.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "写给应用开发的+Android+Framework+教程(1) 的大纲"
+              "title": "Binder之ProcessState和IPCThreadState类分析-CSDN博客 的大纲"
             }
           },
           {
@@ -191,18 +191,20 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "d9b2a4a3a85997a1",
+  "active": "f84ce6d2fe2622cd",
   "lastOpenFiles": [
-    "md/个人/Android IPC数据在内核空间中的发送过程分析_安卓系统内核发短信流程-CSDN博客.md",
-    "md/个人/Android服务函数远程调用源码分析_android 远程执行函数-CSDN博客.md",
-    "md/个人/Binder之ProcessState和IPCThreadState类分析-CSDN博客.md",
+    "md/个人/Binder驱动的核心数据结构.md",
+    "md/个人/androidStart.md",
+    "md/个人/Android请求注册服务过程源码分析.md",
     "md/个人/Android请求注册服务过程源码分析_android servicemanager.addservice流程-CSDN博客.md",
+    "md/个人/Android服务函数远程调用源码分析_android 远程执行函数-CSDN博客.md",
+    "md/个人/Android IPC数据在内核空间中的发送过程分析_安卓系统内核发短信流程-CSDN博客.md",
+    "md/个人/Binder之ProcessState和IPCThreadState类分析-CSDN博客.md",
     "md/个人/Android IPC数据在内核空间中的发送过程分析.md",
     "md/个人/Android 数据Parcel序列化过程源码分析_writeinterfacetoken-CSDN博客.md",
     "md/个人/Android 数据Parcel序列化过程源码分析.md",
     "Binder之ProcessState和IPCThreadState类分析-CSDN.md",
     "ProcessState.md",
-    "md/个人/Android请求注册服务过程源码分析.md",
     "else/其他.md",
     "md/个人/Android Binder机制(二) Binder中的数据结构  skywang.md",
     "md/个人/彻底掌握 Android14 Vsync 原理.md",
@@ -220,8 +222,6 @@
     "md/个人/Android Wifi断开问题分析和802.11原因码_assoc rsp 0x001e-CSDN博客.md",
     "md/个人/硬件抽象层（HAL）的代码示例.md",
     "md/个人/详解DiffUtils、Myers算法和 Jetpack Compose详细地介绍Android中基于Mayers算法的 - 掘金.md",
-    "md/IPC/Android跨进程通信IPC之2——Bionic-腾讯云开发者社区-腾讯云.md",
-    "yto/kotlin_dialog.md",
     "写给应用开发的+Android+Framework+教程(1).pdf",
     "pic/c1f08381-5bf9-488d-b45c-86edf7160912.png",
     "hexo",
