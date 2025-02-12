@@ -1,3 +1,4 @@
+
 我们知道WindowManagerService服务运行在SystemServer进程中，应用程序启动Activity时，需要请求WMS为启动的Activity创建对应的窗口，同时WMS也负责修改窗口属性，因此这里就涉及到应用程序进程与WMS服务之间的跨进程交互过程。在前面我们介绍了Android中的Binder通信机制，应用程序进程正是使用Binder[通信方式](https://so.csdn.net/so/search?q=%E9%80%9A%E4%BF%A1%E6%96%B9%E5%BC%8F&spm=1001.2101.3001.7020)和SystemServer进程交互的。
 
 ![](https://i-blog.csdnimg.cn/blog_migrate/8933e430d210ca5ae23a156512a6af0b.jpeg)
