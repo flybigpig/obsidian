@@ -492,6 +492,24 @@ public final void scheduleLaunchActivity(Intent intent, IBinder token, ) {
 }
 ```
 
+```java
+//activirtstarter
+startactivity(){
+
+	// record  
+ActivityRecord r = new ActivityRecord(mService, callerApp, callingPid, callingUid,  
+        callingPackage, intent, resolvedType, aInfo, mService.getGlobalConfiguration(),  
+        resultRecord, resultWho, requestCode, componentSpecified, voiceSession != null,  
+        mSupervisor, checkedOptions, sourceRecord);
+        
+startActivityUnchecked(r)
+
+mTargetStack.startActivityLocked(r, topFocused, newTask, mKeepCurTransition,  
+        mOptions);
+}
+
+```
+
 ```
 @Override
   public void scheduleTransaction(ClientTransaction transaction) throws RemoteException {
@@ -513,5 +531,40 @@ public void execute(ClientTransaction transaction) {
     
     mPendingActions.clear();  
     if (DEBUG_RESOLVER) Slog.d(TAG, tId(transaction) + "End resolving transaction");  
+}
+```
+
+
+
+```java
+@VisibleForTesting  
+public void executeCallbacks(ClientTransaction transaction) {  
+    final List<ClientTransactionItem> callbacks = transaction.getCallbacks();  
+    
+    final IBinder token = transaction.getActivityToken();  
+    ActivityClientRecord r = mTransactionHandler.getActivityClient(token);  
+  
+        item.execute(mTransactionHandler, token, mPendingActions);  
+        item.postExecute(mTransactionHandler, token, mPendingActions);  
+        
+......
+}
+```
+
+
+```java
+// launchactivityitem
+@Override  
+public void execute(ClientTransactionHandler client, IBinder token,  
+        PendingTransactionActions pendingActions) {  
+    Trace.traceBegin(TRACE_TAG_ACTIVITY_MANAGER, "activityStart"); 
+     
+    ActivityClientRecord r = new ActivityClientRecord(token, mIntent, mIdent, mInfo,  
+            mOverrideConfig, mCompatInfo, mReferrer, mVoiceInteractor, mState, mPersistentState,  
+            mPendingResults, mPendingNewIntents, mIsForward,  
+            mProfilerInfo, client, mAssistToken);  
+            
+    client.handleLaunchActivity(r, pendingActions, null /* customIntent */);  
+    Trace.traceEnd(TRACE_TAG_ACTIVITY_MANAGER);  
 }
 ```
