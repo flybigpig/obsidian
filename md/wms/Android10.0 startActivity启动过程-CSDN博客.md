@@ -2710,6 +2710,11 @@ final boolean startPausingLocked(boolean userLeaving, boolean uiSleeping,
 
 #### 2.15 AMS.startProcessLocked
 
+上图中，这里又调用了ZYGOTE_PROCESS.start()方法，ZYGOTE_PROCESS就是系统中的Zygote进程，Android中所有的App进程都是由Zygote进程fork生成的，包括SystemServer进程，Zygote是所有Java进程的父进程，到这里就开始了目标APP进程的创建了，目标APP进程创建成功，会立即启动ActivityThread线程，并进入它的main方法。接下来进入ActivityThread的main入口进行分析。↓
+                        
+原文链接：https://blog.csdn.net/u010263943/article/details/109119898
+
+
 这个过程为启动Android进程的过程，在文章Android进程启动过程解析，详细描述了startProcessLocked整个过程，创建完成新进程之后，在新进程中通过binder ipc方式后调用到AMS.attachApplicationLocked。
 
 \[->ActivityManagerService.java\]
