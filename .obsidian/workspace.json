@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/wms/android session.md",
+                "file": "md/wms/android开发浅谈之WindowToken,AppWindowToken,Task,TaskStack和DisplayContent-CSDN博客.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "android session"
+              "title": "android开发浅谈之WindowToken,AppWindowToken,Task,TaskStack和DisplayContent-CSDN博客"
             }
           }
         ]
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "md/wms/android session.md",
+                "file": "md/wms/android开发浅谈之WindowToken,AppWindowToken,Task,TaskStack和DisplayContent-CSDN博客.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "android session 的大纲"
+              "title": "android开发浅谈之WindowToken,AppWindowToken,Task,TaskStack和DisplayContent-CSDN博客 的大纲"
             }
           },
           {
@@ -191,10 +191,11 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "f84ce6d2fe2622cd",
+  "active": "e3ae17e5caf15de2",
   "lastOpenFiles": [
-    "md/wms/windowstate apptoken windowtoken.md",
     "md/wms/android session.md",
+    "md/wms/android开发浅谈之WindowToken,AppWindowToken,Task,TaskStack和DisplayContent-CSDN博客.md",
+    "md/wms/windowstate apptoken windowtoken.md",
     "md/wms/Token.md",
     "md/wms/Android应用程序窗口设计之窗口的添加_android 窗口添加-CSDN博客.md",
     "md/wms/Android应用程序窗口设计之setContentView布局加载的实现-CSDN博客.md",
@@ -218,7 +219,6 @@
     "md/个人/Android IPC数据在内核空间中的发送过程分析.md",
     "md/framework系统/Android10_原理机制系列_AMS(ATMS)之应用的第一次启动的过程 - 流浪_归家 - 博客园.md",
     "md/wms/Android四大组件之Activity启动流程源码实现详解概要-CSDN博客.md",
-    "md/wms/普法Android Token的前世今生以及在APP,AMS,WMS之间传递_android token ams-CSDN博客.md",
     "md/wms",
     "Pasted image 20250109141941.png",
     "Pasted image 20250109142002.png",
