@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/努比亚/解析Binder框架.md",
-                "mode": "source",
+                "file": "md/wms/Android Token在APP,AMS,WMS之间传递.md",
+                "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "解析Binder框架"
+              "title": "Android Token在APP,AMS,WMS之间传递"
             }
           }
         ]
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "md/努比亚/解析Binder框架.md",
+                "file": "md/wms/Android Token在APP,AMS,WMS之间传递.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "解析Binder框架 的大纲"
+              "title": "Android Token在APP,AMS,WMS之间传递 的大纲"
             }
           },
           {
@@ -191,8 +191,14 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "e3ae17e5caf15de2",
+  "active": "f84ce6d2fe2622cd",
   "lastOpenFiles": [
+    "md/努比亚/Android S原生系统内存泄露问题案例.md",
+    "md/wms/Android Token在APP,AMS,WMS之间传递.md",
+    "md/努比亚/Android Input输入事件处理流程分享（2）.md",
+    "md/努比亚/Android Input输入事件处理流程分享（1）.md",
+    "md/努比亚/Android 权限控制机制.md",
+    "md/努比亚/解析Binder框架.md",
     "md/资料/美颜/直播美颜.md",
     "md/GPT/Input事件.md",
     "md/AdvancedAndroid/README.md",
@@ -204,7 +210,6 @@
     "md/wms/Android10.0 startActivity启动过程-CSDN博客.md",
     "md/努比亚/Android应用启动全流程分析（源码深度剖析）.md",
     "md/努比亚/Android开机全解析.md",
-    "md/努比亚/解析Binder框架.md",
     "md/framework系统/Android Handler机制2之ThreadLocal-腾讯云开发者社区-腾讯云.md",
     "md/framework系统/Android Handler机制5之Message简介与消息对象对象池-腾讯云开发者社区-腾讯云.md",
     "md/framework系统/Android系统启动——7附录1：Android属性系统-腾讯云开发者社区-腾讯云.md",
@@ -214,11 +219,6 @@
     "md/android/【Android FrameWork】ServiceManager(一) (含视频) - 掘金.md",
     "md/android/【Android FrameWork】SystemServer (含视频) - 掘金.md",
     "md/android/【Android FrameWork】Zygote (含视频) - 掘金.md",
-    "md/android/安卓Watchdog 机制.md",
-    "md/android/【Android FrameWork】ServiceManager （二） (含视频) - 掘金.md",
-    "md/android/【Android Framework】Service (含视频) - 掘金.md",
-    "md/android/【Android Framework】InputManagerService - 掘金.md",
-    "md/android/【Android Framework】ContentProvider(含视频) - 掘金.md",
     "md/wms",
     "Pasted image 20250109141941.png",
     "Pasted image 20250109142002.png",
