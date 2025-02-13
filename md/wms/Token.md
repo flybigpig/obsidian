@@ -209,3 +209,117 @@ public void setWindowManager(WindowManager wm, IBinder appToken, String appName,
     mWindowManager = ((WindowManagerImpl)wm).createLocalWindowManager(this);  
 }
 ```
+
+AMS通过Activity传递给WMS
+
+```java
+//Activity
+void makeVisible() {  
+    if (!mWindowAdded) {  
+        ViewManager wm = getWindowManager();  
+        wm.addView(mDecor, getWindow().getAttributes());    //addView
+        mWindowAdded = true;  
+    }  
+    mDecor.setVisibility(View.VISIBLE);  
+}
+```
+
+```java
+// windowmanagerimpl
+@Override  
+public void addView(@NonNull View view, @NonNull ViewGroup.LayoutParams params) {  
+    applyDefaultToken(params);  
+    mGlobal.addView(view, params, mContext.getDisplay(), mParentWindow);  
+}
+```
+
+```java
+// windowmanagerGlobal
+public void addView(View view, ViewGroup.LayoutParams params,  
+        Display display, Window parentWindow) {  
+    if (view == null) {  
+        throw new IllegalArgumentException("view must not be null");  
+    }  
+    if (display == null) {  
+        throw new IllegalArgumentException("display must not be null");  
+    }  
+    if (!(params instanceof WindowManager.LayoutParams)) {  
+        throw new IllegalArgumentException("Params must be WindowManager.LayoutParams");  
+    }  
+  
+    final WindowManager.LayoutParams wparams = (WindowManager.LayoutParams) params;  
+    if (parentWindow != null) {  
+        parentWindow.adjustLayoutParamsForSubWindow(wparams);  
+    } else {  
+        // If there's no parent, then hardware acceleration for this view is  
+        // set from the application's hardware acceleration setting.        final Context context = view.getContext();  
+        if (context != null  
+                && (context.getApplicationInfo().flags  
+                        & ApplicationInfo.FLAG_HARDWARE_ACCELERATED) != 0) {  
+            wparams.flags |= WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED;  
+        }  
+    }  
+  
+    ViewRootImpl root;  
+    View panelParentView = null;  
+  
+    synchronized (mLock) {  
+        // Start watching for system property changes.  
+        if (mSystemPropertyUpdater == null) {  
+            mSystemPropertyUpdater = new Runnable() {  
+                @Override public void run() {  
+                    synchronized (mLock) {  
+                        for (int i = mRoots.size() - 1; i >= 0; --i) {  
+                            mRoots.get(i).loadSystemProperties();  
+                        }  
+                    }  
+                }  
+            };  
+            SystemProperties.addChangeCallback(mSystemPropertyUpdater);  
+        }  
+  
+        int index = findViewLocked(view, false);  
+        if (index >= 0) {  
+            if (mDyingViews.contains(view)) {  
+                // Don't wait for MSG_DIE to make it's way through root's queue.  
+                mRoots.get(index).doDie();  
+            } else {  
+                throw new IllegalStateException("View " + view  
+                        + " has already been added to the window manager.");  
+            }  
+            // The previous removeView() had not completed executing. Now it has.  
+        }  
+  
+        // If this is a panel window, then find the window it is being  
+        // attached to for future reference.        if (wparams.type >= WindowManager.LayoutParams.FIRST_SUB_WINDOW &&  
+                wparams.type <= WindowManager.LayoutParams.LAST_SUB_WINDOW) {  
+            final int count = mViews.size();  
+            for (int i = 0; i < count; i++) {  
+                if (mRoots.get(i).mWindow.asBinder() == wparams.token) {  
+                    panelParentView = mViews.get(i);  
+                }  
+            }  
+        }  
+  
+        root = new ViewRootImpl(view.getContext(), display);  
+  
+        view.setLayoutParams(wparams);  
+  
+        mViews.add(view);  
+        mRoots.add(root);  
+        mParams.add(wparams);  
+  
+        // do this last because it fires off messages to start doing things  
+        try {  
+            root.setView(view, wparams, panelParentView);  
+        } catch (RuntimeException e) {  
+            // BadTokenException or InvalidDisplayException, clean up.  
+            if (index >= 0) {  
+                removeViewLocked(index, true);  
+            }  
+            throw e;  
+        }  
+    }  
+}
+
+```
