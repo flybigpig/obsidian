@@ -1,0 +1,13 @@
+
+```
+ActivityStarter.startActivityLocked(){
+
+ ......
+
+
+
+
+.......
+
+}
+```
