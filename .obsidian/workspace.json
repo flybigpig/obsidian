@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/wms/Token.md",
+                "file": "hm/9.鸿蒙面试真题.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Token"
+              "title": "9.鸿蒙面试真题"
             }
           }
         ]
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "md/wms/Token.md",
+                "file": "hm/9.鸿蒙面试真题.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Token 的大纲"
+              "title": "9.鸿蒙面试真题 的大纲"
             }
           },
           {
@@ -191,8 +191,10 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "e3ae17e5caf15de2",
+  "active": "f84ce6d2fe2622cd",
   "lastOpenFiles": [
+    "md/wms/Token.md",
+    "hm/9.鸿蒙面试真题.md",
     "md/个人/Android 数据Parcel序列化过程源码分析.md",
     "md/个人/Android IPC数据在内核空间中的发送过程分析_安卓系统内核发短信流程-CSDN博客.md",
     "md/个人/Android Wifi断开问题分析和802.11原因码_assoc rsp 0x001e-CSDN博客.md",
@@ -203,7 +205,6 @@
     "md/个人/Android Boot Optimization Techniques · GitHub Copilot.md",
     "md/个人/Android Binder通信数据结构介绍_不同传输类型下binder的结构-CSDN博客.md",
     "md/个人/Android IPC数据在内核空间中的发送过程分析.md",
-    "md/wms/Token.md",
     "md/framework系统/Android10_原理机制系列_AMS(ATMS)之应用的第一次启动的过程 - 流浪_归家 - 博客园.md",
     "md/wms/startActivity启动过程  Skytoby.md",
     "md/wms/Android四大组件之Activity启动流程源码实现详解概要-CSDN博客.md",
@@ -218,7 +219,6 @@
     "md/资料/美颜/直播美颜.md",
     "md/GPT/Input事件.md",
     "md/AdvancedAndroid/README.md",
-    "md/wms/带你了解Android窗口机制Window、PhoneWindow和DecorView之间的关系.md",
     "md/wms",
     "Pasted image 20250109141941.png",
     "Pasted image 20250109142002.png",
