@@ -237,69 +237,8 @@ public void addView(@NonNull View view, @NonNull ViewGroup.LayoutParams params) 
 // windowmanagerGlobal
 public void addView(View view, ViewGroup.LayoutParams params,  
         Display display, Window parentWindow) {  
-    if (view == null) {  
-        throw new IllegalArgumentException("view must not be null");  
-    }  
-    if (display == null) {  
-        throw new IllegalArgumentException("display must not be null");  
-    }  
-    if (!(params instanceof WindowManager.LayoutParams)) {  
-        throw new IllegalArgumentException("Params must be WindowManager.LayoutParams");  
-    }  
-  
-    final WindowManager.LayoutParams wparams = (WindowManager.LayoutParams) params;  
-    if (parentWindow != null) {  
-        parentWindow.adjustLayoutParamsForSubWindow(wparams);  
-    } else {  
-        // If there's no parent, then hardware acceleration for this view is  
-        // set from the application's hardware acceleration setting.        final Context context = view.getContext();  
-        if (context != null  
-                && (context.getApplicationInfo().flags  
-                        & ApplicationInfo.FLAG_HARDWARE_ACCELERATED) != 0) {  
-            wparams.flags |= WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED;  
-        }  
-    }  
-  
-    ViewRootImpl root;  
-    View panelParentView = null;  
-  
-    synchronized (mLock) {  
-        // Start watching for system property changes.  
-        if (mSystemPropertyUpdater == null) {  
-            mSystemPropertyUpdater = new Runnable() {  
-                @Override public void run() {  
-                    synchronized (mLock) {  
-                        for (int i = mRoots.size() - 1; i >= 0; --i) {  
-                            mRoots.get(i).loadSystemProperties();  
-                        }  
-                    }  
-                }  
-            };  
-            SystemProperties.addChangeCallback(mSystemPropertyUpdater);  
-        }  
-  
-        int index = findViewLocked(view, false);  
-        if (index >= 0) {  
-            if (mDyingViews.contains(view)) {  
-                // Don't wait for MSG_DIE to make it's way through root's queue.  
-                mRoots.get(index).doDie();  
-            } else {  
-                throw new IllegalStateException("View " + view  
-                        + " has already been added to the window manager.");  
-            }  
-            // The previous removeView() had not completed executing. Now it has.  
-        }  
-  
-        // If this is a panel window, then find the window it is being  
-        // attached to for future reference.        if (wparams.type >= WindowManager.LayoutParams.FIRST_SUB_WINDOW &&  
-                wparams.type <= WindowManager.LayoutParams.LAST_SUB_WINDOW) {  
-            final int count = mViews.size();  
-            for (int i = 0; i < count; i++) {  
-                if (mRoots.get(i).mWindow.asBinder() == wparams.token) {  
-                    panelParentView = mViews.get(i);  
-                }  
-            }  
-        }  
+
+		......
   
         root = new ViewRootImpl(view.getContext(), display);  
   
@@ -319,7 +258,166 @@ public void addView(View view, ViewGroup.LayoutParams params,
             }  
             throw e;  
         }  
-    }  
+
+		......
+}
+
+```
+
+```java
+// viewrootimpl
+public void setView(View view, WindowManager.LayoutParams attrs, View panelParentView) {  
+    synchronized (this) {  
+        if (mView == null) {  
+            mView = view;  
+  
+            ......
+            mAdded = true;  
+            int res; /* = WindowManagerImpl.ADD_OKAY; */  
+  
+            // Schedule the first layout -before- adding to the window            // manager, to make sure we do the relayout before receiving            // any other events from the system.            requestLayout();  
+            if ((mWindowAttributes.inputFeatures  
+                    & WindowManager.LayoutParams.INPUT_FEATURE_NO_INPUT_CHANNEL) == 0) {  
+                mInputChannel = new InputChannel();  
+            }  
+            mForceDecorViewVisibility = (mWindowAttributes.privateFlags  
+                    & PRIVATE_FLAG_FORCE_DECOR_VIEW_VISIBILITY) != 0;  
+            try {  
+                mOrigWindowType = mWindowAttributes.type;  
+                mAttachInfo.mRecomputeGlobalAttributes = true;  
+                collectViewAttributes();  
+                res = mWindowSession.addToDisplay(mWindow, mSeq, mWindowAttributes,  
+                        getHostVisibility(), mDisplay.getDisplayId(), mTmpFrame,  
+                        mAttachInfo.mContentInsets, mAttachInfo.mStableInsets,  
+                        mAttachInfo.mOutsets, mAttachInfo.mDisplayCutout, mInputChannel,  
+                        mTempInsets);  
+                setFrame(mTmpFrame);  
+            } catch (RemoteException e) {  
+                mAdded = false;  
+                mView = null;  
+                mAttachInfo.mRootView = null;  
+                mInputChannel = null;  
+                mFallbackEventHandler.setView(null);  
+                unscheduleTraversals();  
+                setAccessibilityFocus(null, null);  
+                throw new RuntimeException("Adding window failed", e);  
+            } finally {  
+                if (restore) {  
+                    attrs.restore();  
+                }  
+            }  
+  
+            ......
+}
+
+```
+
+```java
+//session
+@Override  
+public int addToDisplay(IWindow window, int seq, WindowManager.LayoutParams attrs,  
+        int viewVisibility, int displayId, Rect outFrame, Rect outContentInsets,  
+        Rect outStableInsets, Rect outOutsets,  
+        DisplayCutout.ParcelableWrapper outDisplayCutout, InputChannel outInputChannel,  
+        InsetsState outInsetsState) {  
+    return mService.addWindow(this, window, seq, attrs, viewVisibility, displayId, outFrame,  
+            outContentInsets, outStableInsets, outOutsets, outDisplayCutout, outInputChannel,  
+            outInsetsState);  
+}
+
+```
+
+```java
+// windowmanagerservice
+public int addWindow(Session session, IWindow client, int seq,  
+        LayoutParams attrs, int viewVisibility, int displayId, Rect outFrame,  
+        Rect outContentInsets, Rect outStableInsets, Rect outOutsets,  
+        DisplayCutout.ParcelableWrapper outDisplayCutout, InputChannel outInputChannel,  
+        InsetsState outInsetsState) { 
+         
+    
+  
+    synchronized (mGlobalLock) {  
+        if (!mDisplayReady) {  
+            throw new IllegalStateException("Display has not been initialialized");  
+        }  
+  
+        final DisplayContent displayContent = getDisplayContentOrCreate(displayId, attrs.token);  
+  
+  
+        AppWindowToken atoken = null;  
+        final boolean hasParent = parentWindow != null;  
+        // Use existing parent window token for child windows since they go in the same token  
+        // as there parent window so we can apply the same policy on them.        WindowToken token = displayContent.getWindowToken(  
+                hasParent ? parentWindow.mAttrs.token : attrs.token);  
+        // If this is a child window, we want to apply the same type checking rules as the  
+        // parent window type.        final int rootType = hasParent ? parentWindow.mAttrs.type : type;  
+  
+        boolean addToastWindowRequiresToken = false;  
+  
+  
+        final WindowState win = new WindowState(this, session, client, token, parentWindow,  
+                appOp[0], seq, attrs, viewVisibility, session.mUid,  
+                session.mCanAddInternalSystemWindow);  
+        
+  
+        final DisplayPolicy displayPolicy = displayContent.getDisplayPolicy();  
+        displayPolicy.adjustWindowParamsLw(win, win.mAttrs, Binder.getCallingPid(),  
+                Binder.getCallingUid());  
+        win.setShowToOwnerOnlyLocked(mPolicy.checkShowToOwnerOnly(attrs));  
+  
+        res = displayPolicy.prepareAddWindowLw(win, attrs);  
+        if (res != WindowManagerGlobal.ADD_OKAY) {  
+            return res;  
+        }  
+  
+        final boolean openInputChannels = (outInputChannel != null  
+                && (attrs.inputFeatures & INPUT_FEATURE_NO_INPUT_CHANNEL) == 0);  
+        if  (openInputChannels) {  
+            win.openInputChannel(outInputChannel);  
+        }  
+  
+        // If adding a toast requires a token for this app we always schedule hiding  
+        // toast windows to make sure they don't stick around longer then necessary.        // We hide instead of remove such windows as apps aren't prepared to handle        // windows being removed under them.        //        // If the app is older it can add toasts without a token and hence overlay        // other apps. To be maximally compatible with these apps we will hide the        // window after the toast timeout only if the focused window is from another        // UID, otherwise we allow unlimited duration. When a UID looses focus we        // schedule hiding all of its toast windows.        if (type == TYPE_TOAST) {  
+            if (!displayContent.canAddToastWindowForUid(callingUid)) {  
+                Slog.w(TAG_WM, "Adding more than one toast window for UID at a time.");  
+                return WindowManagerGlobal.ADD_DUPLICATE_ADD;  
+            }  
+            // Make sure this happens before we moved focus as one can make the  
+            // toast focusable to force it not being hidden after the timeout.            // Focusable toasts are always timed out to prevent a focused app to            // show a focusable toasts while it has focus which will be kept on            // the screen after the activity goes away.            if (addToastWindowRequiresToken  
+                    || (attrs.flags & LayoutParams.FLAG_NOT_FOCUSABLE) == 0  
+                    || displayContent.mCurrentFocus == null  
+                    || displayContent.mCurrentFocus.mOwnerUid != callingUid) {  
+                mH.sendMessageDelayed(  
+                        mH.obtainMessage(H.WINDOW_HIDE_TIMEOUT, win),  
+                        win.mAttrs.hideTimeoutMilliseconds);  
+            }  
+        }  
+  
+        // From now on, no exceptions or errors allowed!  
+  
+        res = WindowManagerGlobal.ADD_OKAY;  
+        if (displayContent.mCurrentFocus == null) {  
+            displayContent.mWinAddedSinceNullFocus.add(win);  
+        }  
+  
+        if (excludeWindowTypeFromTapOutTask(type)) {  
+            displayContent.mTapExcludedWindows.add(win);  
+        }  
+  
+        origId = Binder.clearCallingIdentity();  
+  
+        win.attach();  
+        mWindowMap.put(client.asBinder(), win);  
+  
+        win.initAppOpsState();  
+  
+        
+  
+        win.mToken.addWindow(win);  
+        
+        ......
+    
 }
 
 ```
