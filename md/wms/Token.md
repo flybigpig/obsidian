@@ -1,5 +1,4 @@
 
-## Token : AMS->WMS
 ``` java
 ActivityStarter.startActivityLocked(){
 
@@ -476,8 +475,6 @@ WINDOW MANAGER DISPLAY CONTENTS (dumpsys window displays)
 ```
 
 
-
-## AMS -> APP token传递
 
 
 ```
