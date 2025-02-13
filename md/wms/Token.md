@@ -491,3 +491,27 @@ public final void scheduleLaunchActivity(Intent intent, IBinder token, ) {
             r.token = token;  //将AMS中的token保存到 ActivityClientRecord中 见P5
 }
 ```
+
+```
+@Override
+  public void scheduleTransaction(ClientTransaction transaction) throws RemoteException {
+        ActivityThread.this.scheduleTransaction(transaction);
+  }
+```
+
+```TransactionExccutor
+public void execute(ClientTransaction transaction) {  
+  
+    final IBinder token = transaction.getActivityToken();  
+    
+  
+    if (DEBUG_RESOLVER) Slog.d(TAG, transactionToString(transaction, mTransactionHandler));  
+  
+    executeCallbacks(transaction);  // oncreate
+  
+    executeLifecycleState(transaction);   // onresume
+    
+    mPendingActions.clear();  
+    if (DEBUG_RESOLVER) Slog.d(TAG, tId(transaction) + "End resolving transaction");  
+}
+```
