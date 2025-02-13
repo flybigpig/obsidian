@@ -193,3 +193,19 @@ final void attach(Context context, ActivityThread aThread,
     setContentCaptureOptions(application.getContentCaptureOptions());
 }
 ```
+
+
+```
+public void setWindowManager(WindowManager wm, IBinder appToken, String appName,  
+        boolean hardwareAccelerated) {  
+        
+    mAppToken = appToken;  
+    
+    mAppName = appName;  
+    mHardwareAccelerated = hardwareAccelerated;  
+    if (wm == null) {  
+        wm = (WindowManager)mContext.getSystemService(Context.WINDOW_SERVICE);  
+    }  
+    mWindowManager = ((WindowManagerImpl)wm).createLocalWindowManager(this);  
+}
+```
