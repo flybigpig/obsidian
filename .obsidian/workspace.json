@@ -14,7 +14,7 @@
               "type": "markdown",
               "state": {
                 "file": "md/wms/普法Android Token的前世今生以及在APP,AMS,WMS之间传递_android token ams-CSDN博客.md",
-                "mode": "preview",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
@@ -191,11 +191,11 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "f84ce6d2fe2622cd",
+  "active": "0ef0d82d52bb5bce",
   "lastOpenFiles": [
     "md/wms/带你了解Android窗口机制Window、PhoneWindow和DecorView之间的关系.md",
-    "md/wms/startActivity启动过程  Skytoby.md",
     "md/wms/普法Android Token的前世今生以及在APP,AMS,WMS之间传递_android token ams-CSDN博客.md",
+    "md/wms/startActivity启动过程  Skytoby.md",
     "md/wms/Android应用程序窗口设计之Window及WindowManager的创建_mpendingrevomewindow-CSDN博客.md",
     "md/wms/onResume()流程.md",
     "md/wms/Android10.0 startActivity启动过程-CSDN博客.md",

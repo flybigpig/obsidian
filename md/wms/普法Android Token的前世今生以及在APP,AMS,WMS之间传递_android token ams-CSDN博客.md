@@ -34,7 +34,7 @@ ___
 
 注意：本篇的介绍是基于Android 7.xx平台为基础的，其中涉及的代码路径如下：
 
-```
+```java
 frameworks/base/services/core/java/com/android/server/am/
   --- ActivityManagerService.java
   --- ProcessRecord.java
