@@ -1,4 +1,5 @@
 
+## Token : AMS->WMS
 ``` java
 ActivityStarter.startActivityLocked(){
 
@@ -408,7 +409,7 @@ public int addWindow(Session session, IWindow client, int seq,
         origId = Binder.clearCallingIdentity();  
   
         win.attach();  
-        mWindowMap.put(client.asBinder(), win);  
+        mWindowMap.put(client.asBinder(), win);   //windowstate
   
         win.initAppOpsState();  
   
@@ -420,4 +421,73 @@ public int addWindow(Session session, IWindow client, int seq,
     
 }
 
+```
+
+```
+xxx/#dumpsys window
+WINDOW MANAGER DISPLAY CONTENTS (dumpsys window displays)
+  Display: mDisplayId=0
+    init=720x1280 320dpi cur=720x1280 app=720x1184 rng=720x672-1184x1136
+    deferred=false layoutNeeded=false
+
+  Application tokens in top down Z order:
+    mStackId=1
+    mDeferDetach=false
+    mFullscreen=true
+    mBounds=[0,0][720,1280]
+      taskId=103
+        mFullscreen=true
+        mBounds=[0,0][720,1280]
+        mdr=false
+        appTokens=[AppWindowToken{5e6032b token=Token{6264fa5 ActivityRecord{8ee899c u0 com.example.window/.MainActivity t103}}}]
+        mTempInsetBounds=[0,0][0,0]
+          Activity #0 AppWindowToken{5e6032b token=Token{6264fa5 ActivityRecord{8ee899c u0 com.example.window/.MainActivity t103}}}
+          windows=[Window{4163ff6 u0 com.example.window/com.example.window.MainActivity}]
+          windowType=2 hidden=false hasVisible=true
+          app=true voiceInteraction=false
+          allAppWindows=[Window{4163ff6 u0 com.example.window/com.example.window.MainActivity}]
+          task={taskId=103 appTokens=[AppWindowToken{5e6032b token=Token{6264fa5 ActivityRecord{8ee899c u0 com.example.window/.MainActivity t103}}}] mdr=false}
+           appFullscreen=true requestedOrientation=-1
+          hiddenRequested=false clientHidden=false reportedDrawn=true reportedVisible=true
+          numInterestingWindows=1 numDrawnWindows=1 inPendingTransaction=false allDrawn=true (animator=true)
+          startingData=null removed=false firstWindowDrawn=true mIsExiting=false
+    mStackId=0
+    mDeferDetach=false
+    mFullscreen=true
+    mBounds=[0,0][720,1280]
+      taskId=102
+        mFullscreen=true
+        mBounds=[0,0][720,1280]
+        mdr=false
+        appTokens=[AppWindowToken{a014b86 token=Token{7700dba ActivityRecord{fb0cee5 u0 com.android.launcher3/.Launcher t102}}}]
+        mTempInsetBounds=[0,0][0,0]
+          Activity #0 AppWindowToken{a014b86 token=Token{7700dba ActivityRecord{fb0cee5 u0 com.android.launcher3/.Launcher t102}}}
+          windows=[Window{92f807 u0 com.android.launcher3/com.android.launcher3.Launcher}]
+          windowType=2 hidden=true hasVisible=true
+          app=true voiceInteraction=false
+          allAppWindows=[Window{92f807 u0 com.android.launcher3/com.android.launcher3.Launcher}]
+          task={taskId=102 appTokens=[AppWindowToken{a014b86 token=Token{7700dba ActivityRecord{fb0cee5 u0 com.android.launcher3/.Launcher t102}}}] mdr=false}
+           appFullscreen=true requestedOrientation=5
+          hiddenRequested=true clientHidden=true reportedDrawn=false reportedVisible=false
+          mAppStopped=true
+          numInterestingWindows=1 numDrawnWindows=1 inPendingTransaction=false allDrawn=true (animator=true)
+          startingData=null removed=false firstWindowDrawn=true mIsExiting=false
+
+```
+
+
+
+## AMS -> APP token传递
+
+
+```
+attachApplicationLocked
+    realStartActivityLocked
+        app.thread.scheduleLaunchActivity(new Intent(r.intent), r.appToken, );
+
+public final void scheduleLaunchActivity(Intent intent, IBinder token, ) {
+            //生成App中的ActivityClientRecord
+            ActivityClientRecord r = new ActivityClientRecord();
+            r.token = token;  //将AMS中的token保存到 ActivityClientRecord中 见P5
+}
 ```
