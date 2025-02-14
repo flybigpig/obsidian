@@ -4,21 +4,19 @@
     "type": "split",
     "children": [
       {
-        "id": "ca269bf47c2e3aa0",
+        "id": "27f4ff8fa7433ac5",
         "type": "tabs",
         "children": [
           {
-            "id": "e3ae17e5caf15de2",
+            "id": "031813cc6ea77f12",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "image",
               "state": {
-                "file": "else/杂谈.md",
-                "mode": "source",
-                "source": false
+                "file": "Pasted image 20250113093848.png"
               },
-              "icon": "lucide-file",
-              "title": "杂谈"
+              "icon": "lucide-image",
+              "title": "Pasted image 20250113093848"
             }
           }
         ]
@@ -142,13 +140,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "else/杂谈.md",
+                "file": "Pasted image 20250113093848.png",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "杂谈 的大纲"
+              "title": "Pasted image 20250113093848 的大纲"
             }
           },
           {
@@ -191,8 +189,16 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "fa4657deb406b728",
+  "active": "031813cc6ea77f12",
   "lastOpenFiles": [
+    "ProcessState.md",
+    "Pasted image 20250113093848.png",
+    "Pasted image 20250109142016.png",
+    "Pasted image 20250109142002.png",
+    "Pasted image 20250109141941.png",
+    "写给应用开发的+Android+Framework+教程(1).pdf",
+    "README.md",
+    "else/杂谈.md",
     "md/个人/Android 数据Parcel序列化过程源码分析.md",
     "md/个人/ActivityManagerService - Binder.md",
     "md/个人/揭秘Activity“重生”的面纱---Activity管理系列.md",
@@ -215,26 +221,17 @@
     "md/car/【Android车载系列】第1章 车载系统整体介绍_android 车载-CSDN博客.md",
     "md/car/Android Automotive之CarService开机启动_android carwatchdog-CSDN博客.md",
     "md/wms/AndroidQ 分屏窗口模式 (AMS部分)_android 车机分屏模式-CSDN博客.md",
-    "md/car/Android Automotive之Car API_carapi-CSDN博客.md",
     "md/car",
-    "md/wms/AndroidQ 分屏窗口尺寸计算 (WMS部分)_applygravityandupdateframe-CSDN博客.md",
-    "md/wms/Android12 窗口组织方式（对比Android10）_activitystack,在 android 12 中已经被删除-CSDN博客.md",
-    "md/wms/Android12 多屏多用户_invalid physical display id-CSDN博客.md",
     "pic/6b5710bda24ee1fd270ddd2da769d63.png",
     "md/HAL",
     "md/wms",
-    "Pasted image 20250109141941.png",
-    "Pasted image 20250109142002.png",
     "Excalidraw/未命名.canvas",
-    "写给应用开发的+Android+Framework+教程(1).pdf",
     "pic/c1f08381-5bf9-488d-b45c-86edf7160912.png",
     "hexo",
     "pic/e73ad7f6d928a1b67f9f2c08ab9bc1f.png",
     "pic/e1fe8d3703d5038b2bd15153c1bf7c7.png",
     "pic/Pasted image 20250114160028.png",
     "e1fe8d3703d5038b2bd15153c1bf7c7 1.png",
-    "pic/Pasted image 20250109162539.png",
-    "pic/Pasted image 20250113093852.png",
     "md/SurfaceFlinger",
     "md/努比亚",
     "md/GPT",
