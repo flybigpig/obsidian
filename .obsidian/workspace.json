@@ -11,12 +11,14 @@
             "id": "e6f4167e914a0f2c",
             "type": "leaf",
             "state": {
-              "type": "pdf",
+              "type": "markdown",
               "state": {
-                "file": "写给应用开发的+Android+Framework+教程(1).pdf"
+                "file": "md/wms/ViewRootImpl 中的 W 对象.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-file-text",
-              "title": "写给应用开发的+Android+Framework+教程(1)"
+              "icon": "lucide-file",
+              "title": "ViewRootImpl 中的 W 对象"
             }
           }
         ]
@@ -140,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "写给应用开发的+Android+Framework+教程(1).pdf",
+                "file": "md/wms/ViewRootImpl 中的 W 对象.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "写给应用开发的+Android+Framework+教程(1) 的大纲"
+              "title": "ViewRootImpl 中的 W 对象 的大纲"
             }
           },
           {
@@ -189,14 +191,15 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "e6f4167e914a0f2c",
+  "active": "f84ce6d2fe2622cd",
   "lastOpenFiles": [
+    "写给应用开发的+Android+Framework+教程(1).pdf",
+    "md/wms/ViewRootImpl 中的 W 对象.md",
     "Pasted image 20250113093848.png",
     "ProcessState.md",
     "Pasted image 20250109142016.png",
     "Pasted image 20250109142002.png",
     "Pasted image 20250109141941.png",
-    "写给应用开发的+Android+Framework+教程(1).pdf",
     "README.md",
     "else/杂谈.md",
     "md/个人/Android 数据Parcel序列化过程源码分析.md",
@@ -220,7 +223,6 @@
     "md/car/【Android车载系列】第2章 车载系统启动与CarService-CSDN博客.md",
     "md/car/【Android车载系列】第1章 车载系统整体介绍_android 车载-CSDN博客.md",
     "md/car/Android Automotive之CarService开机启动_android carwatchdog-CSDN博客.md",
-    "md/wms/AndroidQ 分屏窗口模式 (AMS部分)_android 车机分屏模式-CSDN博客.md",
     "md/car",
     "pic/6b5710bda24ee1fd270ddd2da769d63.png",
     "md/HAL",
