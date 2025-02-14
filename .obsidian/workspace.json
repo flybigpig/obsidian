@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/car/Android车载 CarFrameWork——carservice启动流程 - 知乎.md",
+                "file": "md/掘金Framework/【Android Framework】InputManagerService - 掘金.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Android车载 CarFrameWork——carservice启动流程 - 知乎"
+              "title": "【Android Framework】InputManagerService - 掘金"
             }
           }
         ]
@@ -53,7 +53,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "事件分发",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -74,7 +74,8 @@
               "title": "书签"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -142,13 +143,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "md/car/Android车载 CarFrameWork——carservice启动流程 - 知乎.md",
+                "file": "md/掘金Framework/【Android Framework】InputManagerService - 掘金.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Android车载 CarFrameWork——carservice启动流程 - 知乎 的大纲"
+              "title": "【Android Framework】InputManagerService - 掘金 的大纲"
             }
           },
           {
@@ -176,7 +177,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 343.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -193,6 +194,8 @@
   },
   "active": "f84ce6d2fe2622cd",
   "lastOpenFiles": [
+    "md/个人/【Android Framework系列】第8章 事件分发你真了解吗？_dispatcheventlocked-CSDN博客.md",
+    "md/car/Android车载 CarFrameWork——carservice启动流程 - 知乎.md",
     "md/car/【Android车载系列】第14章 车载渲染-分屏显示的实现_车载 分屏显示实现-CSDN博客.md",
     "md/car/【Android车载系列】第13章 车载渲染-OpenGL实现屏幕渲染_车载opengl-CSDN博客.md",
     "md/car/【Android车载系列】第12章 车载渲染-SurfaceFlinger单独绘制到界面_android surfaceflinger-CSDN博客.md",
@@ -207,7 +210,6 @@
     "md/car/【Android车载系列】第2章 车载系统启动与CarService-CSDN博客.md",
     "md/car/【Android车载系列】第1章 车载系统整体介绍_android 车载-CSDN博客.md",
     "md/car/Android Automotive之CarService开机启动_android carwatchdog-CSDN博客.md",
-    "md/car/Android车载 CarFrameWork——carservice启动流程 - 知乎.md",
     "md/wms/AndroidQ 分屏窗口模式 (AMS部分)_android 车机分屏模式-CSDN博客.md",
     "md/car/Android Automotive之Car API_carapi-CSDN博客.md",
     "md/car",
@@ -219,7 +221,6 @@
     "md/md/retrofit.md",
     "md/md/recycleview.md",
     "md/md/ListView-Recycleview.md",
-    "md/md/Lifecycle.md",
     "pic/6b5710bda24ee1fd270ddd2da769d63.png",
     "md/HAL",
     "md/wms",
