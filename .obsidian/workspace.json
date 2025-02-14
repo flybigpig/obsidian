@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/wms/Token.md",
+                "file": "else/Ubuntu22.04安装、配置、美化、软件安装、配置开发环境_ubuntu安装星火应用商店-CSDN博客.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Token"
+              "title": "Ubuntu22.04安装、配置、美化、软件安装、配置开发环境_ubuntu安装星火应用商店-CSDN博客"
             }
           }
         ]
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "md/wms/Token.md",
+                "file": "else/Ubuntu22.04安装、配置、美化、软件安装、配置开发环境_ubuntu安装星火应用商店-CSDN博客.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Token 的大纲"
+              "title": "Ubuntu22.04安装、配置、美化、软件安装、配置开发环境_ubuntu安装星火应用商店-CSDN博客 的大纲"
             }
           },
           {
@@ -191,14 +191,14 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "e3ae17e5caf15de2",
+  "active": "fa4657deb406b728",
   "lastOpenFiles": [
+    "md/wms/Token.md",
     "md/wms/startActivity启动过程  Skytoby.md",
     "md/wms/android session.md",
     "md/wms/AppWindowToken和WindowToken的添加流程和排序规则_addwindowtoken-CSDN博客.md",
     "md/wms/android开发浅谈之WindowToken,AppWindowToken,Task,TaskStack和DisplayContent-CSDN博客.md",
     "md/wms/windowstate apptoken windowtoken.md",
-    "md/wms/Token.md",
     "md/wms/Android应用程序窗口设计之窗口的添加_android 窗口添加-CSDN博客.md",
     "md/wms/Android应用程序窗口设计之setContentView布局加载的实现-CSDN博客.md",
     "md/wms/流程分析：Android之WMS-窗口的添加_android 添加窗口-CSDN博客.md",
