@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/wms/Android12 窗口组织方式（对比Android10）_activitystack,在 android 12 中已经被删除-CSDN博客.md",
+                "file": "md/wms/AndroidQ 分屏窗口模式 (AMS部分)_android 车机分屏模式-CSDN博客.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Android12 窗口组织方式（对比Android10）_activitystack,在 android 12 中已经被删除-CSDN博客"
+              "title": "AndroidQ 分屏窗口模式 (AMS部分)_android 车机分屏模式-CSDN博客"
             }
           }
         ]
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "md/wms/Android12 窗口组织方式（对比Android10）_activitystack,在 android 12 中已经被删除-CSDN博客.md",
+                "file": "md/wms/AndroidQ 分屏窗口模式 (AMS部分)_android 车机分屏模式-CSDN博客.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Android12 窗口组织方式（对比Android10）_activitystack,在 android 12 中已经被删除-CSDN博客 的大纲"
+              "title": "AndroidQ 分屏窗口模式 (AMS部分)_android 车机分屏模式-CSDN博客 的大纲"
             }
           },
           {
@@ -191,11 +191,13 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "f84ce6d2fe2622cd",
+  "active": "e3ae17e5caf15de2",
   "lastOpenFiles": [
+    "md/wms/AndroidQ 分屏窗口尺寸计算 (WMS部分)_applygravityandupdateframe-CSDN博客.md",
+    "md/wms/Android12 窗口组织方式（对比Android10）_activitystack,在 android 12 中已经被删除-CSDN博客.md",
+    "md/wms/AndroidQ 分屏窗口模式 (AMS部分)_android 车机分屏模式-CSDN博客.md",
     "md/wms/Android12 多屏多用户_invalid physical display id-CSDN博客.md",
     "md/md/Toast.md",
-    "md/wms/Android12 窗口组织方式（对比Android10）_activitystack,在 android 12 中已经被删除-CSDN博客.md",
     "md/md/Rxjava.md",
     "md/md/retrofit.md",
     "md/md/recycleview.md",
@@ -218,9 +220,7 @@
     "md/HAL/1AndroidQ 打通应用层到HAL层---(HAL模块实现)-CSDN博客.md",
     "md/HAL/4AndroidQ 打通应用层到HAL层---(应用层实现)_android 应用层到hal 例子-CSDN博客.md",
     "md/HAL/3AndroidQ 打通应用层到HAL层---(JNI服务和AIDL服务实现)_android aidl hal-CSDN博客.md",
-    "md/HAL/2AndroidQ 打通应用层到HAL层---(HIDL服务实现)_应用层hidl-CSDN博客.md",
     "md/HAL",
-    "md/md/Android_MaNiu.md",
     "md/wms",
     "Pasted image 20250109141941.png",
     "Pasted image 20250109142002.png",
