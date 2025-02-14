@@ -14,15 +14,20 @@
 java
 
 ```java
-public class ActivityManagerService extends SystemService implements IActivityManager {
+public class ActivityManagerService
+    extends SystemService
+    implements IActivityManager {
     // ActivityManagerService 的具体实现
 }
 
 // IActivityManager.aidl 会自动生成对应的 Java 接口
 // IActivityManager.Stub 继承自 Binder
-public static abstract class Stub extends android.os.Binder implements com.android.server.am.IActivityManager {
+public abstract static class Stub
+    extends android.os.Binder
+    implements com.android.server.am.IActivityManager {
     // 自动生成的代码，处理跨进程调用的逻辑
 }
+
 ```
 
 - **`IActivityManager`**：这是一个 AIDL（Android Interface Definition Language）接口，它定义了客户端（应用进程）和服务端（`ActivityManagerService`）之间通信的方法。
