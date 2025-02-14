@@ -78,7 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 325.5
+    "width": 560.5
   },
   "right": {
     "id": "9529d323d9cfa4b3",
@@ -193,8 +193,9 @@
   },
   "active": "e3ae17e5caf15de2",
   "lastOpenFiles": [
-    "md/wms/android session.md",
+    "md/wms/AppWindowToken和WindowToken的添加流程和排序规则_addwindowtoken-CSDN博客.md",
     "md/wms/android开发浅谈之WindowToken,AppWindowToken,Task,TaskStack和DisplayContent-CSDN博客.md",
+    "md/wms/android session.md",
     "md/wms/windowstate apptoken windowtoken.md",
     "md/wms/Token.md",
     "md/wms/Android应用程序窗口设计之窗口的添加_android 窗口添加-CSDN博客.md",
@@ -218,7 +219,6 @@
     "md/个人/Android Binder通信数据结构介绍_不同传输类型下binder的结构-CSDN博客.md",
     "md/个人/Android IPC数据在内核空间中的发送过程分析.md",
     "md/framework系统/Android10_原理机制系列_AMS(ATMS)之应用的第一次启动的过程 - 流浪_归家 - 博客园.md",
-    "md/wms/Android四大组件之Activity启动流程源码实现详解概要-CSDN博客.md",
     "md/wms",
     "Pasted image 20250109141941.png",
     "Pasted image 20250109142002.png",
