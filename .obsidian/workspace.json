@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/HAL/4AndroidQ 打通应用层到HAL层---(应用层实现)_android 应用层到hal 例子-CSDN博客.md",
+                "file": "yto/侧滑.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "4AndroidQ 打通应用层到HAL层---(应用层实现)_android 应用层到hal 例子-CSDN博客"
+              "title": "侧滑"
             }
           }
         ]
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "md/HAL/4AndroidQ 打通应用层到HAL层---(应用层实现)_android 应用层到hal 例子-CSDN博客.md",
+                "file": "yto/侧滑.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "4AndroidQ 打通应用层到HAL层---(应用层实现)_android 应用层到hal 例子-CSDN博客 的大纲"
+              "title": "侧滑 的大纲"
             }
           },
           {
@@ -193,10 +193,10 @@
   },
   "active": "e3ae17e5caf15de2",
   "lastOpenFiles": [
+    "md/HAL/4AndroidQ 打通应用层到HAL层---(应用层实现)_android 应用层到hal 例子-CSDN博客.md",
     "md/HAL/3AndroidQ 打通应用层到HAL层---(JNI服务和AIDL服务实现)_android aidl hal-CSDN博客.md",
     "md/HAL/2AndroidQ 打通应用层到HAL层---(HIDL服务实现)_应用层hidl-CSDN博客.md",
     "md/HAL/1AndroidQ 打通应用层到HAL层---(HAL模块实现)-CSDN博客.md",
-    "md/HAL/4AndroidQ 打通应用层到HAL层---(应用层实现)_android 应用层到hal 例子-CSDN博客.md",
     "md/md/androidStart.md",
     "md/HAL",
     "md/md/Android_MaNiu.md",
