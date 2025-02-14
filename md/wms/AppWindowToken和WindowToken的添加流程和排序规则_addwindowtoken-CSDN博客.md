@@ -1,5 +1,11 @@
 本篇基于AndroidQ代码分析  
-我们知道Android系统有三种类型窗口，应用窗口，系统窗口，子窗口，无论哪种窗口在WMS都会用一个WindowState来描述，[Android窗口Z轴计算以及WindowState排列规则](https://blog.csdn.net/qq_34211365/article/details/103873512)详细介绍了WindowState的排列规则，每个窗口都需要一种token以识别身份，应用窗口对应AppWindowToken，系统窗口对应WindowToken，子窗口对应父窗口ViewRootImpl的W对象，另外三种类型窗口在WMS对应的WindowState会分别添加在不同的地方，应用窗口添加在AppWindowToken的WindowList中，系统窗口添加在WindowToken的WindowList中，子窗口添加在父窗口的WindowState的WindowList中，AppWindowToken继承WindowToken，WindowToken继承WindowContainer，WindowState也是继承WindowContainer，WindowList是WindowContainer的成员变量，是一个ArrayList
+我们知道Android系统有三种类型窗口，应用窗口，系统窗口，子窗口，无论哪种窗口在WMS都会用一个WindowState来描述，
+
+[Android窗口Z轴计算以及WindowState排列规则](https://blog.csdn.net/qq_34211365/article/details/103873512)详细介绍了WindowState的排列规则，
+
+每个窗口都需要一种token以识别身份，应用窗口对应AppWindowToken，系统窗口对应WindowToken，子窗口对应父窗口ViewRootImpl的W对象，
+
+另外三种类型窗口在WMS对应的WindowState会分别添加在不同的地方，应用窗口添加在AppWindowToken的WindowList中，系统窗口添加在WindowToken的WindowList中，子窗口添加在父窗口的WindowState的WindowList中，AppWindowToken继承WindowToken，WindowToken继承WindowContainer，WindowState也是继承WindowContainer，WindowList是WindowContainer的成员变量，是一个ArrayList
 
 ```
 // List of children for this window container. List is in z-order as the children appear on
