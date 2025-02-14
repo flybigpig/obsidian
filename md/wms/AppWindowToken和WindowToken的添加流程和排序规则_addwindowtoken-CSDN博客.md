@@ -34,10 +34,10 @@ WindowList是WindowContainer的成员变量，是一个ArrayList
 
 ![在这里插入图片描述](https://i-blog.csdnimg.cn/blog_migrate/aa64f47aa043aa4f9fd86703620274b8.png)  
 
-
 我们可以从图中分析窗口的关系；  
-一个Activity对应一个ActivityRecord，一个ActivityRecord对应一个，AppWindowToken，一个AppWindowToken对应一组WindowState，一个WindowState可能还有子WindowState，当ActivityRecord顺序定好了，AppWindowToken顺序也好了，WindowState的顺序自然也定好了，  
-[Android窗口Z轴计算以及WindowState排列规则](https://blog.csdn.net/qq_34211365/article/details/103873512)已经介绍了WindowState的排序规则，WindowState排好之后再对AppWindowToken和WindowToken排序，这样整个窗口的Z-order就排好了，这篇文章来分析下AppWindowToken和WindowToken的添加排序过程
+
+>一个Activity对应一个ActivityRecord，一个ActivityRecord对应一个，AppWindowToken，一个AppWindowToken对应一组WindowState，一个WindowState可能还有子WindowState，当ActivityRecord顺序定好了，AppWindowToken顺序也好了，WindowState的顺序自然也定好了，  
+  [Android窗口Z轴计算以及WindowState排列规则](https://blog.csdn.net/qq_34211365/article/details/103873512)已经介绍了WindowState的排序规则，WindowState排好之后再对AppWindowToken和WindowToken排序，这样整个窗口的Z-order就排好了，这篇文章来分析下AppWindowToken和WindowToken的添加排序过程
 
 AppWindowToken是在Activity启动过程创建的
 
