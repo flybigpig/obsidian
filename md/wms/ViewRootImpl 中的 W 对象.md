@@ -11,11 +11,6 @@
 
 以下是 `W` 类的简单定义示例：
 
-  
-
-收起
-
-java
 
 ```java
 static class W extends IWindow.Stub {
