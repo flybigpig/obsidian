@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/HAL/AndroidQ 打通应用层到HAL层---(HAL模块实现)-CSDN博客.md",
+                "file": "md/HAL/4AndroidQ 打通应用层到HAL层---(应用层实现)_android 应用层到hal 例子-CSDN博客.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "AndroidQ 打通应用层到HAL层---(HAL模块实现)-CSDN博客"
+              "title": "4AndroidQ 打通应用层到HAL层---(应用层实现)_android 应用层到hal 例子-CSDN博客"
             }
           }
         ]
@@ -78,7 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 560.5
+    "width": 377.5
   },
   "right": {
     "id": "9529d323d9cfa4b3",
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "md/HAL/AndroidQ 打通应用层到HAL层---(HAL模块实现)-CSDN博客.md",
+                "file": "md/HAL/4AndroidQ 打通应用层到HAL层---(应用层实现)_android 应用层到hal 例子-CSDN博客.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "AndroidQ 打通应用层到HAL层---(HAL模块实现)-CSDN博客 的大纲"
+              "title": "4AndroidQ 打通应用层到HAL层---(应用层实现)_android 应用层到hal 例子-CSDN博客 的大纲"
             }
           },
           {
@@ -193,8 +193,11 @@
   },
   "active": "e3ae17e5caf15de2",
   "lastOpenFiles": [
+    "md/HAL/3AndroidQ 打通应用层到HAL层---(JNI服务和AIDL服务实现)_android aidl hal-CSDN博客.md",
+    "md/HAL/2AndroidQ 打通应用层到HAL层---(HIDL服务实现)_应用层hidl-CSDN博客.md",
+    "md/HAL/1AndroidQ 打通应用层到HAL层---(HAL模块实现)-CSDN博客.md",
+    "md/HAL/4AndroidQ 打通应用层到HAL层---(应用层实现)_android 应用层到hal 例子-CSDN博客.md",
     "md/md/androidStart.md",
-    "md/HAL/AndroidQ 打通应用层到HAL层---(HAL模块实现)-CSDN博客.md",
     "md/HAL",
     "md/md/Android_MaNiu.md",
     "md/md/ActivityShow.md",
@@ -217,9 +220,6 @@
     "md/个人/Android 数据Parcel序列化过程源码分析.md",
     "md/个人/Android IPC数据在内核空间中的发送过程分析_安卓系统内核发短信流程-CSDN博客.md",
     "md/个人/Android Wifi断开问题分析和802.11原因码_assoc rsp 0x001e-CSDN博客.md",
-    "md/个人/Android10.0系统启动之Launcher(桌面)启动流程-Android取经之路 - yooooooo - 博客园.md",
-    "md/个人/Android请求注册服务过程源码分析_android servicemanager.addservice流程-CSDN博客.md",
-    "md/个人/Android请求注册服务过程源码分析.md",
     "md/wms",
     "Pasted image 20250109141941.png",
     "Pasted image 20250109142002.png",
