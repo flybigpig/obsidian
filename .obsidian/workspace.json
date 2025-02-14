@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/car/Android Automotive之CarService开机启动_android carwatchdog-CSDN博客.md",
+                "file": "md/car/Android车载 CarFrameWork——carservice启动流程 - 知乎.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Android Automotive之CarService开机启动_android carwatchdog-CSDN博客"
+              "title": "Android车载 CarFrameWork——carservice启动流程 - 知乎"
             }
           }
         ]
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "md/car/Android Automotive之CarService开机启动_android carwatchdog-CSDN博客.md",
+                "file": "md/car/Android车载 CarFrameWork——carservice启动流程 - 知乎.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Android Automotive之CarService开机启动_android carwatchdog-CSDN博客 的大纲"
+              "title": "Android车载 CarFrameWork——carservice启动流程 - 知乎 的大纲"
             }
           },
           {
@@ -193,9 +193,10 @@
   },
   "active": "e3ae17e5caf15de2",
   "lastOpenFiles": [
+    "md/car/Android Automotive之CarService开机启动_android carwatchdog-CSDN博客.md",
+    "md/car/Android车载 CarFrameWork——carservice启动流程 - 知乎.md",
     "md/wms/AndroidQ 分屏窗口模式 (AMS部分)_android 车机分屏模式-CSDN博客.md",
     "md/car/Android Automotive之Car API_carapi-CSDN博客.md",
-    "md/car/Android Automotive之CarService开机启动_android carwatchdog-CSDN博客.md",
     "md/car",
     "md/wms/AndroidQ 分屏窗口尺寸计算 (WMS部分)_applygravityandupdateframe-CSDN博客.md",
     "md/wms/Android12 窗口组织方式（对比Android10）_activitystack,在 android 12 中已经被删除-CSDN博客.md",
@@ -220,7 +221,6 @@
     "md/DeepSeek/Input事件.md",
     "md/DeepSeek/Input管理.md",
     "md/HAL/JNI.md",
-    "md/HAL/1AndroidQ 打通应用层到HAL层---(HAL模块实现)-CSDN博客.md",
     "md/HAL",
     "md/wms",
     "Pasted image 20250109141941.png",
