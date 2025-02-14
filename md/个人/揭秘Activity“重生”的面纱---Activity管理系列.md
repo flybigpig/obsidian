@@ -314,13 +314,15 @@ protected void onSaveInstanceState(@NonNull Bundle outState) {
 
 那我就来分析下，因为Activity“重生”会存在App进程被杀掉的情况，因此针对此情况数据肯定不能保存在App进程内，那只能保存在systemserver进程了。对的没错，收集到的数据会通过binder通信来到systemserver进程，并且保存在Activity对应的ActivityRecord对象中，如下是相关的代码，请自行取阅：
 
-```
+```java
 //ActivityRecord
 
 //mIcicle就是App端收集上来的数据，它不会持久化到文件中
-private Bundle mIcicle;         // last saved activity state
+private Bundle mIcicle; // last saved activity state
+
 //mPersistentState也是App端收集上来的数据，只不过该数据会持久化到文件中
 private PersistableBundle mPersistentState; // last persistently saved activity state
+
 ```
 
 ### **3.2.4 小结**
