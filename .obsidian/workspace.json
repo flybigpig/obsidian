@@ -4,19 +4,19 @@
     "type": "split",
     "children": [
       {
-        "id": "27f4ff8fa7433ac5",
+        "id": "3e071a5f2b7f6805",
         "type": "tabs",
         "children": [
           {
-            "id": "031813cc6ea77f12",
+            "id": "e6f4167e914a0f2c",
             "type": "leaf",
             "state": {
-              "type": "image",
+              "type": "pdf",
               "state": {
-                "file": "Pasted image 20250113093848.png"
+                "file": "写给应用开发的+Android+Framework+教程(1).pdf"
               },
-              "icon": "lucide-image",
-              "title": "Pasted image 20250113093848"
+              "icon": "lucide-file-text",
+              "title": "写给应用开发的+Android+Framework+教程(1)"
             }
           }
         ]
@@ -140,13 +140,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Pasted image 20250113093848.png",
+                "file": "写给应用开发的+Android+Framework+教程(1).pdf",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Pasted image 20250113093848 的大纲"
+              "title": "写给应用开发的+Android+Framework+教程(1) 的大纲"
             }
           },
           {
@@ -189,10 +189,10 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "031813cc6ea77f12",
+  "active": "e6f4167e914a0f2c",
   "lastOpenFiles": [
-    "ProcessState.md",
     "Pasted image 20250113093848.png",
+    "ProcessState.md",
     "Pasted image 20250109142016.png",
     "Pasted image 20250109142002.png",
     "Pasted image 20250109141941.png",
