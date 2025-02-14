@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "else/Ubuntu22.04安装、配置、美化、软件安装、配置开发环境_ubuntu安装星火应用商店-CSDN博客.md",
+                "file": "md/md/androidStart.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Ubuntu22.04安装、配置、美化、软件安装、配置开发环境_ubuntu安装星火应用商店-CSDN博客"
+              "title": "androidStart"
             }
           }
         ]
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "else/Ubuntu22.04安装、配置、美化、软件安装、配置开发环境_ubuntu安装星火应用商店-CSDN博客.md",
+                "file": "md/md/androidStart.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Ubuntu22.04安装、配置、美化、软件安装、配置开发环境_ubuntu安装星火应用商店-CSDN博客 的大纲"
+              "title": "androidStart 的大纲"
             }
           },
           {
@@ -191,8 +191,12 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "fa4657deb406b728",
+  "active": "e3ae17e5caf15de2",
   "lastOpenFiles": [
+    "md/md/Android_MaNiu.md",
+    "md/md/androidStart.md",
+    "md/md/ActivityShow.md",
+    "else/Ubuntu22.04安装、配置、美化、软件安装、配置开发环境_ubuntu安装星火应用商店-CSDN博客.md",
     "md/wms/Token.md",
     "md/wms/startActivity启动过程  Skytoby.md",
     "md/wms/android session.md",
@@ -215,10 +219,6 @@
     "md/个人/Android请求注册服务过程源码分析_android servicemanager.addservice流程-CSDN博客.md",
     "md/个人/Android请求注册服务过程源码分析.md",
     "md/个人/Android 数据Parcel序列化过程源码分析_writeinterfacetoken-CSDN博客.md",
-    "md/个人/Android Boot Optimization Techniques · GitHub Copilot.md",
-    "md/个人/Android Binder通信数据结构介绍_不同传输类型下binder的结构-CSDN博客.md",
-    "md/个人/Android IPC数据在内核空间中的发送过程分析.md",
-    "md/framework系统/Android10_原理机制系列_AMS(ATMS)之应用的第一次启动的过程 - 流浪_归家 - 博客园.md",
     "md/wms",
     "Pasted image 20250109141941.png",
     "Pasted image 20250109142002.png",
