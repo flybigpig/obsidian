@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "yto/替换布局.md",
+                "file": "md/C++/析构函数.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "替换布局"
+              "title": "析构函数"
             }
           }
         ]
@@ -187,14 +187,15 @@
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
       "markdown-importer:打开 Markdown 格式转换器": false,
-      "obsidian-git:Open Git source control": false,
-      "obsidian-excalidraw-plugin:新建绘图文件": false
+      "obsidian-git:Open Git source control": false
     }
   },
   "active": "e6f4167e914a0f2c",
   "lastOpenFiles": [
-    "md/wms/ViewRootImpl 中的 W 对象.md",
+    "md/C++/C++ 20.md",
+    "md/car/【Android车载系列】第1章 车载系统整体介绍_android 车载-CSDN博客.md",
     "yto/替换布局.md",
+    "md/wms/ViewRootImpl 中的 W 对象.md",
     "写给应用开发的+Android+Framework+教程(1).pdf",
     "Pasted image 20250113093848.png",
     "ProcessState.md",
@@ -222,8 +223,6 @@
     "md/car/【Android车载系列】第4章 Activity启动到渲染到SurfaceFlinger流程_android surfaceflinger流程-CSDN博客.md",
     "md/car/【Android车载系列】第3章 车载通讯CAN协议_android can通信-CSDN博客.md",
     "md/car/【Android车载系列】第2章 车载系统启动与CarService-CSDN博客.md",
-    "md/car/【Android车载系列】第1章 车载系统整体介绍_android 车载-CSDN博客.md",
-    "md/car/Android Automotive之CarService开机启动_android carwatchdog-CSDN博客.md",
     "md/car",
     "pic/6b5710bda24ee1fd270ddd2da769d63.png",
     "md/HAL",
