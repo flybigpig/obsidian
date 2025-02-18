@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/C++/析构函数.md",
+                "file": "md/wms/AndroidO 图形框架下应用绘图过程——Surface创建_android surface surfacecontrol-CSDN博客.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "析构函数"
+              "title": "AndroidO 图形框架下应用绘图过程——Surface创建_android surface surfacecontrol-CSDN博客"
             }
           }
         ]
@@ -187,11 +187,14 @@
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
       "markdown-importer:打开 Markdown 格式转换器": false,
-      "obsidian-git:Open Git source control": false
+      "obsidian-git:Open Git source control": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
   "active": "e6f4167e914a0f2c",
   "lastOpenFiles": [
+    "md/C++/析构函数.md",
+    "md/wms/AndroidO 图形框架下应用绘图过程——Surface创建_android surface surfacecontrol-CSDN博客.md",
     "md/C++/C++ 20.md",
     "md/car/【Android车载系列】第1章 车载系统整体介绍_android 车载-CSDN博客.md",
     "yto/替换布局.md",
@@ -221,8 +224,6 @@
     "md/car/【Android车载系列】第7章 车载通信-USB通信原理-CSDN博客.md",
     "md/car/【Android车载系列】第6章 车载通信-串口通信原理_安卓车机 串口-CSDN博客.md",
     "md/car/【Android车载系列】第4章 Activity启动到渲染到SurfaceFlinger流程_android surfaceflinger流程-CSDN博客.md",
-    "md/car/【Android车载系列】第3章 车载通讯CAN协议_android can通信-CSDN博客.md",
-    "md/car/【Android车载系列】第2章 车载系统启动与CarService-CSDN博客.md",
     "md/car",
     "pic/6b5710bda24ee1fd270ddd2da769d63.png",
     "md/HAL",
