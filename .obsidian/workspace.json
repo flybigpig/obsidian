@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/linux/Linux IO控制命令生成_linux iomanager-CSDN博客.md",
-                "mode": "source",
+                "file": "md/wms/App、WMS、AMS如何通信_app访问wms-CSDN博客.md",
+                "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Linux IO控制命令生成_linux iomanager-CSDN博客"
+              "title": "App、WMS、AMS如何通信_app访问wms-CSDN博客"
             }
           }
         ]
@@ -191,10 +191,11 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "a692dc5f8b21aca0",
+  "active": "f84ce6d2fe2622cd",
   "lastOpenFiles": [
-    "md/linux/Linux内核中的xx_initcall初始化标号-CSDN博客.md",
     "md/linux/Linux IO控制命令生成_linux iomanager-CSDN博客.md",
+    "md/wms/App、WMS、AMS如何通信_app访问wms-CSDN博客.md",
+    "md/linux/Linux内核中的xx_initcall初始化标号-CSDN博客.md",
     "md/linux/Linux进程间通信方式之管道(pipe)_.下面关于 linux 中管道(pipe)的说法错误的是()a管道(pipe)用于在进程之间进-CSDN博客.md",
     "md/linux/Linux源代码目录树结构-CSDN博客.md",
     "md/linux/嵌入式系统启动流程-CSDN博客.md",
@@ -226,7 +227,6 @@
     "md/car/Android车载 CarFrameWork——carservice启动流程 - 知乎.md",
     "md/car/【Android车载系列】第14章 车载渲染-分屏显示的实现_车载 分屏显示实现-CSDN博客.md",
     "md/car/【Android车载系列】第13章 车载渲染-OpenGL实现屏幕渲染_车载opengl-CSDN博客.md",
-    "md/car/【Android车载系列】第12章 车载渲染-SurfaceFlinger单独绘制到界面_android surfaceflinger-CSDN博客.md",
     "md/car",
     "pic/6b5710bda24ee1fd270ddd2da769d63.png",
     "md/HAL",
