@@ -269,9 +269,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
 
         protected String doInBackground(Void... voids) {
-
             // 模拟耗时操作
-
             try {
 
                 Thread.sleep(3000);
