@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/HAL/cmake.md",
+                "file": "md/framework系统/Android Handler机制2之ThreadLocal-腾讯云开发者社区-腾讯云.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "cmake"
+              "title": "Android Handler机制2之ThreadLocal-腾讯云开发者社区-腾讯云"
             }
           }
         ]
@@ -193,8 +193,8 @@
   },
   "active": "a692dc5f8b21aca0",
   "lastOpenFiles": [
-    "md/HAL/JNI.md",
     "md/HAL/cmake.md",
+    "md/HAL/JNI.md",
     "md/HAL/3AndroidQ 打通应用层到HAL层---(JNI服务和AIDL服务实现)_android aidl hal-CSDN博客.md",
     "md/AndroidFrameworkTutorial/1.基础篇/JNI 编程上手指南/003.JNI 编程上手指南之描述符.md",
     "md/AndroidFrameworkTutorial/1.基础篇/JNI 编程上手指南/002.JNI 编程上手指南之 JNI 数据类型.md",
