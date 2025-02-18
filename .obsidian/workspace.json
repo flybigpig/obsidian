@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/个人/安卓逆向基础知识之JNI开发与so层逆向基础.md",
+                "file": "md/HAL/cmake.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "安卓逆向基础知识之JNI开发与so层逆向基础"
+              "title": "cmake"
             }
           }
         ]
@@ -53,7 +53,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "jni",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -187,13 +187,22 @@
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
       "markdown-importer:打开 Markdown 格式转换器": false,
-      "obsidian-git:Open Git source control": false
+      "obsidian-git:Open Git source control": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
   "active": "a692dc5f8b21aca0",
   "lastOpenFiles": [
-    "md/wms/Activity、PhoneWindow、WindowManagerImpl、ContextImpl的组织关系_phonewindow 与 windowmanager(即windowmanagerimpl)-CSDN博客.md",
+    "md/HAL/JNI.md",
+    "md/HAL/cmake.md",
+    "md/HAL/3AndroidQ 打通应用层到HAL层---(JNI服务和AIDL服务实现)_android aidl hal-CSDN博客.md",
+    "md/AndroidFrameworkTutorial/1.基础篇/JNI 编程上手指南/003.JNI 编程上手指南之描述符.md",
+    "md/AndroidFrameworkTutorial/1.基础篇/JNI 编程上手指南/002.JNI 编程上手指南之 JNI 数据类型.md",
+    "md/AndroidFrameworkTutorial/1.基础篇/JNI 编程上手指南/001.JNI 编程上手指南之 HelloWorld 实战.md",
+    "md/android/【Android Framework】ActivityManagerService(一) (含视频) - 掘金.md",
+    "md/掘金Framework/【Android Framework】ActivityManagerService(一) (含视频) - 掘金.md",
     "md/个人/安卓逆向基础知识之JNI开发与so层逆向基础.md",
+    "md/wms/Activity、PhoneWindow、WindowManagerImpl、ContextImpl的组织关系_phonewindow 与 windowmanager(即windowmanagerimpl)-CSDN博客.md",
     "md/wms/Android 应用程序建立与WMS服务之间的通信过程_binder session-CSDN博客.md",
     "md/wms/App、WMS、AMS如何通信_app访问wms-CSDN博客.md",
     "md/linux/Linux IO控制命令生成_linux iomanager-CSDN博客.md",
@@ -218,14 +227,6 @@
     "ProcessState.md",
     "pic/Pasted image 20250109142016.png",
     "pic/Pasted image 20250109142002.png",
-    "README.md",
-    "else/杂谈.md",
-    "md/个人/Android 数据Parcel序列化过程源码分析.md",
-    "md/个人/ActivityManagerService - Binder.md",
-    "md/个人/揭秘Activity“重生”的面纱---Activity管理系列.md",
-    "md/个人/彻底掌握 Android14 Vsync 原理.md",
-    "md/掘金Framework/【Android Framework】InputManagerService - 掘金.md",
-    "md/个人/【Android Framework系列】第8章 事件分发你真了解吗？_dispatcheventlocked-CSDN博客.md",
     "md/car",
     "pic/6b5710bda24ee1fd270ddd2da769d63.png",
     "md/HAL",
