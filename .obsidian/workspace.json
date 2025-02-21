@@ -13,28 +13,15 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/个人/马牛与牛马.md",
+                "file": "md/个人/Android应用层的cpu优化.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "马牛与牛马"
-            }
-          },
-          {
-            "id": "7c137e4f4e195992",
-            "type": "leaf",
-            "state": {
-              "type": "release-notes",
-              "state": {
-                "currentVersion": "1.8.7"
-              },
-              "icon": "lucide-book-up",
-              "title": "Release Notes 1.8.7"
+              "title": "Android应用层的cpu优化"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -66,7 +53,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "jni",
+                "query": "tag:#性能优化",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -87,7 +74,8 @@
               "title": "书签"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -107,7 +95,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "md/个人/GPT40-mini.md",
+                "file": "md/个人/Android应用层的cpu优化.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -117,7 +105,7 @@
                 "unlinkedCollapsed": false
               },
               "icon": "links-coming-in",
-              "title": "GPT40-mini 的反向链接列表"
+              "title": "Android应用层的cpu优化 的反向链接列表"
             }
           },
           {
@@ -155,13 +143,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "md/wms/ViewRootImpl 中的 W 对象.md",
+                "file": "md/个人/Android应用层的cpu优化.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "ViewRootImpl 中的 W 对象 的大纲"
+              "title": "Android应用层的cpu优化 的大纲"
             }
           },
           {
@@ -189,7 +177,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 343.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -200,18 +188,26 @@
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
       "markdown-importer:打开 Markdown 格式转换器": false,
-      "obsidian-git:Open Git source control": false
+      "obsidian-git:Open Git source control": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "7c137e4f4e195992",
+  "active": "f84ce6d2fe2622cd",
   "lastOpenFiles": [
+    "md/个人/Android启动优化实践 - 秒开率从17_提升至75_秒开，是许多人对性能优化的一种执着，也是许多用户简单甄别App - 掘金 (1).md",
+    "md/个人/Android 性能优化（一）内存优化为什么要做内存优化 内存作为App运行必需的资源，对用户体验的影响非常明显。如果内 - 掘金.md",
+    "md/个人/Android 数据Parcel序列化过程源码分析_writeinterfacetoken-CSDN博客.md",
+    "md/个人/ActivityManagerService - Binder.md",
+    "md/个人/原创安卓逆向基础知识之JNI开发与so层逆向基础-Android安全-看雪-安全社区安全招聘kanxue.com.md",
+    "md/个人/优化.md",
     "md/个人/性能优化.md",
+    "md/个人/开机优化.md",
+    "md/个人/抖音 Android 性能优化系列：启动优化实践本文将按照主线程直接优化、后台线程间接优化、全局优化的逻辑，介绍抖音An - 掘金.md",
+    "md/个人/详解DiffUtils、Myers算法和 Jetpack Compose详细地介绍Android中基于Mayers算法的 - 掘金.md",
     "md/个人/马牛与牛马.md",
     "md/个人/Android应用层的cpu优化.md",
-    "md/个人/开机优化.md",
     "f39805ccabec34bac1e4990daf7a02f 1.png",
     "f39805ccabec34bac1e4990daf7a02f.png",
-    "md/个人/原创安卓逆向基础知识之JNI开发与so层逆向基础-Android安全-看雪-安全社区安全招聘kanxue.com.md",
     "md/个人/安卓逆向基础知识之JNI开发与so层逆向基础.md",
     "md/framework系统/Android Handler机制2之ThreadLocal-腾讯云开发者社区-腾讯云.md",
     "md/HAL/cmake.md",
@@ -226,16 +222,9 @@
     "md/wms/Android 应用程序建立与WMS服务之间的通信过程_binder session-CSDN博客.md",
     "md/wms/App、WMS、AMS如何通信_app访问wms-CSDN博客.md",
     "md/linux/Linux IO控制命令生成_linux iomanager-CSDN博客.md",
-    "md/linux/Linux内核中的xx_initcall初始化标号-CSDN博客.md",
-    "md/linux/Linux进程间通信方式之管道(pipe)_.下面关于 linux 中管道(pipe)的说法错误的是()a管道(pipe)用于在进程之间进-CSDN博客.md",
-    "md/linux/Linux源代码目录树结构-CSDN博客.md",
-    "md/linux/嵌入式系统启动流程-CSDN博客.md",
     "pic/Pasted image 20250218094344.png",
     "pic/Pasted image 20250109141941.png",
     "pic/Pasted image 20250218094245.png",
-    "md/linux/Linux系统IO复用接口(select、poll、epoll)_limuxio接口复用-CSDN博客.md",
-    "md/linux/Linux文件系统Inotify机制_文件系统通知(inotify)资源限制-CSDN博客.md",
-    "md/wms/AndroidO 图形框架下应用绘图过程——Surface创建_android surface surfacecontrol-CSDN博客.md",
     "md/linux",
     "写给应用开发的+Android+Framework+教程(1).pdf",
     "pic/Pasted image 20250113093848.png",
