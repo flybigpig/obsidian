@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/个人/性能优化.md",
-                "mode": "source",
+                "file": "md/个人/马牛与牛马.md",
+                "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "性能优化"
+              "title": "马牛与牛马"
             }
           }
         ]
@@ -187,13 +187,15 @@
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
       "markdown-importer:打开 Markdown 格式转换器": false,
-      "obsidian-git:Open Git source control": false
+      "obsidian-git:Open Git source control": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
   "active": "a692dc5f8b21aca0",
   "lastOpenFiles": [
-    "md/个人/Android应用层的cpu优化.md",
     "md/个人/性能优化.md",
+    "md/个人/马牛与牛马.md",
+    "md/个人/Android应用层的cpu优化.md",
     "md/个人/开机优化.md",
     "f39805ccabec34bac1e4990daf7a02f 1.png",
     "f39805ccabec34bac1e4990daf7a02f.png",
@@ -223,7 +225,6 @@
     "md/linux/Linux文件系统Inotify机制_文件系统通知(inotify)资源限制-CSDN博客.md",
     "md/wms/AndroidO 图形框架下应用绘图过程——Surface创建_android surface surfacecontrol-CSDN博客.md",
     "md/linux",
-    "md/C++/析构函数.md",
     "写给应用开发的+Android+Framework+教程(1).pdf",
     "pic/Pasted image 20250113093848.png",
     "pic/Pasted image 20250109142016.png",
