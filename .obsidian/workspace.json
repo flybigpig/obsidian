@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/个人/Binder驱动如何处理多个通信请求？.md",
+                "file": "md/个人/硬件抽象层（HAL）的代码示例.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Binder驱动如何处理多个通信请求？"
+              "title": "硬件抽象层（HAL）的代码示例"
             }
           }
         ]
@@ -193,8 +193,16 @@
   },
   "active": "a692dc5f8b21aca0",
   "lastOpenFiles": [
-    "md/个人/Harmonyos鸿蒙 Next中集成微信支付 wechat_open_sdk.md",
+    "md/个人/详解DiffUtils、Myers算法和 Jetpack Compose详细地介绍Android中基于Mayers算法的 - 掘金.md",
+    "md/个人/马牛与牛马.md",
+    "md/个人/开机优化.md",
+    "md/个人/金瓶梅.md",
+    "md/个人/揭秘Activity“重生”的面纱---Activity管理系列.md",
+    "md/个人/抖音 Android 性能优化系列：启动优化实践本文将按照主线程直接优化、后台线程间接优化、全局优化的逻辑，介绍抖音An - 掘金.md",
+    "md/个人/彻底掌握 Android14 Vsync 原理.md",
+    "md/个人/【Android Framework系列】第8章 事件分发你真了解吗？_dispatcheventlocked-CSDN博客.md",
     "md/个人/Binder驱动如何处理多个通信请求？.md",
+    "md/个人/Harmonyos鸿蒙 Next中集成微信支付 wechat_open_sdk.md",
     "md/C++/C++11、C++14、C++17、C++20新特性.md",
     "md/C++/C++14.md",
     "md/C++/C++基础介绍 - 豆包.md",
@@ -211,14 +219,6 @@
     "md/wms/AndroidQ 分屏窗口模式 (AMS部分)_android 车机分屏模式-CSDN博客.md",
     "md/wms/Android应用程序窗口设计之Window及WindowManager的创建_mpendingrevomewindow-CSDN博客.md",
     "md/wms/android session.md",
-    "md/wms/Android Token在APP,AMS,WMS之间传递.md",
-    "md/个人/Binder.md",
-    "md/个人/Binder驱动的核心数据结构.md",
-    "md/个人/harmony-人脸.md",
-    "md/个人/init.rc.md",
-    "md/个人/hexo博客插入音视频-腾讯云开发者社区-腾讯云.md",
-    "md/个人/json to Map.md",
-    "md/个人/金瓶梅.md",
     "f39805ccabec34bac1e4990daf7a02f 1.png",
     "f39805ccabec34bac1e4990daf7a02f.png",
     "pic/Pasted image 20250218094344.png",
