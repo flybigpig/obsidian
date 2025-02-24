@@ -64,22 +64,110 @@
 
          **SystemServer进程**启动后会调用**main()->run()->startOtherService()**方法，通过判断当前系统是否是车载分支的版本，是则创建CarServiceHelperService。
 
-```
-package com.android.server;public final class SystemServer {private void startOtherServices() {if (mPackageManager.hasSystemFeature(PackageManager.FEATURE_AUTOMOTIVE)) {            traceBeginAndSlog("StartCarServiceHelperService");            mSystemServiceManager.startService(CAR_SERVICE_HELPER_SERVICE_CLASS);            traceEnd();        }    }}
+```java
+package com.android.server;
+
+public final class SystemServer {
+
+    private void startOtherServices() {
+        if (
+            mPackageManager.hasSystemFeature(PackageManager.FEATURE_AUTOMOTIVE)
+        ) {
+            traceBeginAndSlog("StartCarServiceHelperService");
+            mSystemServiceManager.startService(
+                CAR_SERVICE_HELPER_SERVICE_CLASS
+            );
+            traceEnd();
+        }
+    }
+}
+
 ```
 
          SystemServer中使用Service管理代理SystemServiceManager的startService方法**通过反射构建com.android.internal.car.CarServiceHelperService**。CarServiceHelperService也是继承自SystemService，初始化成功后调用onStart()方法启动。
 
-```
-public class SystemServiceManager {@SuppressWarnings("unchecked")public SystemService startService(String className) {final Class<SystemService> serviceClass;try {            serviceClass = (Class<SystemService>)Class.forName(className);        } catch (ClassNotFoundException ex) {            Slog.i(TAG, "Starting " + className);throw new RuntimeException("Failed to create service " + className                    + ": service class not found, usually indicates that the caller should "                    + "have called PackageManager.hasSystemFeature() to check whether the "                    + "feature is available on this device before trying to start the "                    + "services that implement it", ex);        }return startService(serviceClass);    }public <T extends SystemService> T startService(Class<T> serviceClass) {try {            startService(service);return service;        } finally {            Trace.traceEnd(Trace.TRACE_TAG_SYSTEM_SERVER);        }    }public void startService(@NonNull final SystemService service) {        mServices.add(service);long time = SystemClock.elapsedRealtime();try {            service.onStart();        } catch (RuntimeException ex) {throw new RuntimeException("Failed to start service " + service.getClass().getName()                    + ": onStart threw an exception", ex);        }        warnIfTooLong(SystemClock.elapsedRealtime() - time, service, "onStart");    }}
+```java
+public class SystemServiceManager {
+
+    @SuppressWarnings("unchecked")
+    public SystemService startService(String className) {
+        final Class<SystemService> serviceClass;
+        try {
+            serviceClass = (Class<SystemService>) Class.forName(className);
+        } catch (ClassNotFoundException ex) {
+            Slog.i(TAG, "Starting " + className);
+            throw new RuntimeException(
+                "Failed to create service " +
+                className +
+                ": service class not found, usually indicates that the caller should " +
+                "have called PackageManager.hasSystemFeature() to check whether the " +
+                "feature is available on this device before trying to start the " +
+                "services that implement it",
+                ex
+            );
+        }
+        return startService(serviceClass);
+    }
+
+    public <T extends SystemService> T startService(Class<T> serviceClass) {
+        try {
+            startService(service);
+            return service;
+        } finally {
+            Trace.traceEnd(Trace.TRACE_TAG_SYSTEM_SERVER);
+        }
+    }
+
+    public void startService(@NonNull final SystemService service) {
+        mServices.add(service);
+        long time = SystemClock.elapsedRealtime();
+        try {
+            service.onStart();
+        } catch (RuntimeException ex) {
+            throw new RuntimeException(
+                "Failed to start service " +
+                service.getClass().getName() +
+                ": onStart threw an exception",
+                ex
+            );
+        }
+        warnIfTooLong(SystemClock.elapsedRealtime() - time, service, "onStart");
+    }
+}
+
 ```
 
 ### 2.2 车载CarService进程启动        
 
         **onStart()方法中使用AIDL启动CarService（新的进程），并加载jni库为CarService提供必要的API。CarServiceHelperService重写后的onStart()需要重点看一下：**
 
-```
-package com.android.internal.car;public class CarServiceHelperService extends SystemService {private static final String CAR_SERVICE_INTERFACE = "android.car.ICar";@Overridepublic void onStart() {Intent intent = new Intent();        intent.setPackage("com.android.car");        intent.setAction(CAR_SERVICE_INTERFACE);if (!getContext().bindServiceAsUser(intent, mCarServiceConnection,Context.BIND_AUTO_CREATE,UserHandle.SYSTEM)) {            Slog.wtf(TAG, "cannot start car service");        }        System.loadLibrary("car-framework-service-jni");    }}
+```java
+package com.android.internal.car;
+
+public class CarServiceHelperService extends SystemService {
+
+    private static final String CAR_SERVICE_INTERFACE = "android.car.ICar";
+
+    @Overridepublic
+    void onStart() {
+        Intent intent = new Intent();
+        intent.setPackage("com.android.car");
+        intent.setAction(CAR_SERVICE_INTERFACE);
+        if (
+            !getContext()
+                .bindServiceAsUser(
+                    intent,
+                    mCarServiceConnection,
+                    Context.BIND_AUTO_CREATE,
+                    UserHandle.SYSTEM
+                )
+        ) {
+            Slog.wtf(TAG, "cannot start car service");
+        }
+        System.loadLibrary("car-framework-service-jni");
+    }
+}
+
 ```
 
 ### 2.3 CarServer启动图 
@@ -110,16 +198,80 @@ CarService进入启动时序后，onCreate()方法中进行一系列的自身的
 
         4）设定SystemProperty，将CarService设定为创建完成状态，只有包含CarService在内的所有的核心Service都完成初始化，才能结束开机动画并发送开机广播。
 
-```
-@Overridepublic void onCreate() {    Log.i(CarLog.TAG_SERVICE, "Service onCreate");    mCanBusErrorNotifier = new CanBusErrorNotifier(this  );    mVehicle = getVehicle();    EventLog.writeEvent(EventLogTags.CAR_SERVICE_CREATE, mVehicle == null ? 0 : 1);if (mVehicle == null) {throw new IllegalStateException("Vehicle HAL service is not available.");    }try {        mVehicleInterfaceName = mVehicle.interfaceDescriptor();    } catch (RemoteException e) {throw new IllegalStateException("Unable to get Vehicle HAL interface descriptor", e);    }    Log.i(CarLog.TAG_SERVICE, "Connected to " + mVehicleInterfaceName);    EventLog.writeEvent(EventLogTags.CAR_SERVICE_CONNECTED, mVehicleInterfaceName);    mICarImpl = new ICarImpl(this,            mVehicle,            SystemInterface.Builder.defaultSystemInterface(this).build(),            mCanBusErrorNotifier,            mVehicleInterfaceName);    mICarImpl.init();linkToDeath(mVehicle, mVehicleDeathRecipient);    ServiceManager.addService("car_service", mICarImpl);    SystemProperties.set("boot.car_service_created", "1");super.onCreate();}
+```java
+@Overridepublic
+void onCreate() {
+    Log.i(CarLog.TAG_SERVICE, "Service onCreate");
+    mCanBusErrorNotifier = new CanBusErrorNotifier(this);
+    mVehicle = getVehicle();
+    EventLog.writeEvent(
+        EventLogTags.CAR_SERVICE_CREATE,
+        mVehicle == null ? 0 : 1
+    );
+    if (mVehicle == null) {
+        throw new IllegalStateException(
+            "Vehicle HAL service is not available."
+        );
+    }
+    try {
+        mVehicleInterfaceName = mVehicle.interfaceDescriptor();
+    } catch (RemoteException e) {
+        throw new IllegalStateException(
+            "Unable to get Vehicle HAL interface descriptor",
+            e
+        );
+    }
+    Log.i(CarLog.TAG_SERVICE, "Connected to " + mVehicleInterfaceName);
+    EventLog.writeEvent(
+        EventLogTags.CAR_SERVICE_CONNECTED,
+        mVehicleInterfaceName
+    );
+    mICarImpl = new ICarImpl(
+        this,
+        mVehicle,
+        SystemInterface.Builder.defaultSystemInterface(this).build(),
+        mCanBusErrorNotifier,
+        mVehicleInterfaceName
+    );
+    mICarImpl.init();
+    linkToDeath(mVehicle, mVehicleDeathRecipient);
+    ServiceManager.addService("car_service", mICarImpl);
+    SystemProperties.set("boot.car_service_created", "1");
+    super.onCreate();
+}
+
 ```
 
 ### 3.1 IVehicle对象创建
 
         通过HIDL接口获取到HAL层的IHwBinder对象-IVehicle，与AIDL的用法类似，必须持有IHwBinder对象我们才可以与Vehicle HAL层进行通信。
 
-```
-@Nullableprivate static IVehicle getVehicle() {final String instanceName = SystemProperties.get("ro.vehicle.hal", "default");try {return android.hardware.automotive.vehicle.V2_0.IVehicle.getService(instanceName);    } catch (RemoteException e) {        Log.e(CarLog.TAG_SERVICE, "Failed to get IVehicle/" + instanceName + " service", e);    } catch (NoSuchElementException e) {        Log.e(CarLog.TAG_SERVICE, "IVehicle/" + instanceName + " service not registered yet");    }return null;}
+```java
+@Nullableprivate
+static IVehicle getVehicle() {
+    final String instanceName = SystemProperties.get(
+        "ro.vehicle.hal",
+        "default"
+    );
+    try {
+        return android.hardware.automotive.vehicle.V2_0.IVehicle.getService(
+            instanceName
+        );
+    } catch (RemoteException e) {
+        Log.e(
+            CarLog.TAG_SERVICE,
+            "Failed to get IVehicle/" + instanceName + " service",
+            e
+        );
+    } catch (NoSuchElementException e) {
+        Log.e(
+            CarLog.TAG_SERVICE,
+            "IVehicle/" + instanceName + " service not registered yet"
+        );
+    }
+    return null;
+}
+
 ```
 
 ### 3.2 实现Service服务，ICarImpl实现
@@ -130,19 +282,19 @@ CarService进入启动时序后，onCreate()方法中进行一系列的自身的
 
 #### 3.2.2 把服务对象缓存到CarLocalServices中，主要为了方便Service之间的相互访问。
 
-```
+```java
 ICarImpl(Context serviceContext, IVehicle vehicle, SystemInterface systemInterface,         CanBusErrorNotifier errorNotifier, String vehicleInterfaceName,@Nullable CarUserService carUserService,@Nullable CarWatchdogService carWatchdogService) {    ...mCarPowerManagementService = new CarPowerManagementService(mContext, mHal.getPowerHal(),            systemInterface, mCarUserService);    ...CarLocalServices.addService(CarPowerManagementService.class, mCarPowerManagementService);    CarLocalServices.addService(CarPropertyService.class, mCarPropertyService);    CarLocalServices.addService(CarUserService.class, mCarUserService);    CarLocalServices.addService(CarTrustedDeviceService.class, mCarTrustedDeviceService);    CarLocalServices.addService(CarUserNoticeService.class, mCarUserNoticeService);    CarLocalServices.addService(SystemInterface.class, mSystemInterface);    CarLocalServices.addService(CarDrivingStateService.class, mCarDrivingStateService);    CarLocalServices.addService(PerUserCarServiceHelper.class, mPerUserCarServiceHelper);    CarLocalServices.addService(FixedActivityService.class, mFixedActivityService);    CarLocalServices.addService(VmsBrokerService.class, mVmsBrokerService);    CarLocalServices.addService(CarOccupantZoneService.class, mCarOccupantZoneService);    CarLocalServices.addService(AppFocusService.class, mAppFocusService);List<CarServiceBase> allServices = new ArrayList<>();    allServices.add(mFeatureController);    allServices.add(mCarUserService);    ...    allServices.add(mCarWatchdogService);addServiceIfNonNull(allServices, mCarExperimentalFeatureServiceController);    mAllServices = allServices.toArray(new CarServiceBase[allServices.size()]);}
 ```
 
 #### 3.2.3 将服务对象放置一个list中。这样init方法中就可以以循环的形式直接调用服务对象的init，而不需要一个个调用。VechicleHAL的程序也会在这里完成初始化。
 
-```
+```java
 @MainThreadvoid init() {    mBootTiming = new TimingsTraceLog(VHAL_TIMING_TAG, Trace.TRACE_TAG_HAL);    traceBegin("VehicleHal.init");    mHal.init();    traceEnd();    traceBegin("CarService.initAllServices");for (CarServiceBase service : mAllServices) {        service.init();    }    traceEnd();}
 ```
 
 #### 3.2.4 最后实现ICar.aidl中定义的各个接口就可以了
 
-```
+```java
 @Overridepublic IBinder getCarService(String serviceName) {if (!mFeatureController.isFeatureEnabled(serviceName)) {        Log.w(CarLog.TAG_SERVICE, "getCarService for disabled service:" + serviceName);return null;    }switch (serviceName) {case Car.AUDIO_SERVICE:return mCarAudioService;case Car.APP_FOCUS_SERVICE:return mAppFocusService;case Car.PACKAGE_SERVICE:return mCarPackageManagerService;       ...default:IBinder service = null;if (mCarExperimentalFeatureServiceController != null) {                service = mCarExperimentalFeatureServiceController.getCarService(serviceName);            }if (service == null) {                Log.w(CarLog.TAG_SERVICE, "getCarService for unknown service:"                        + serviceName);            }return service;    }}
 ```
 
