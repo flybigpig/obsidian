@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/car/【Android车载系列】第2章 车载系统启动与CarService-CSDN博客.md",
+                "file": "md/car/【Android车载系列】第4章 Activity启动到渲染到SurfaceFlinger流程_android surfaceflinger流程-CSDN博客.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "【Android车载系列】第2章 车载系统启动与CarService-CSDN博客"
+              "title": "【Android车载系列】第4章 Activity启动到渲染到SurfaceFlinger流程_android surfaceflinger流程-CSDN博客"
             }
           }
         ]
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "md/car/【Android车载系列】第2章 车载系统启动与CarService-CSDN博客.md",
+                "file": "md/car/【Android车载系列】第4章 Activity启动到渲染到SurfaceFlinger流程_android surfaceflinger流程-CSDN博客.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "【Android车载系列】第2章 车载系统启动与CarService-CSDN博客 的大纲"
+              "title": "【Android车载系列】第4章 Activity启动到渲染到SurfaceFlinger流程_android surfaceflinger流程-CSDN博客 的大纲"
             }
           },
           {
@@ -191,8 +191,10 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "f84ce6d2fe2622cd",
+  "active": "a692dc5f8b21aca0",
   "lastOpenFiles": [
+    "md/car/【Android车载系列】第3章 车载通讯CAN协议_android can通信-CSDN博客.md",
+    "md/car/【Android车载系列】第2章 车载系统启动与CarService-CSDN博客.md",
     "md/car/【Android车载系列】第1章 车载系统整体介绍_android 车载-CSDN博客.md",
     "md/wms/带你了解Android窗口机制Window、PhoneWindow和DecorView之间的关系.md",
     "md/wms/AndroidQ 分屏窗口尺寸计算 (WMS部分)_applygravityandupdateframe-CSDN博客.md",
@@ -217,8 +219,6 @@
     "md/个人/Android应用层的cpu优化.md",
     "md/个人/Android启动优化实践 - 秒开率从17_提升至75_秒开，是许多人对性能优化的一种执着，也是许多用户简单甄别App - 掘金 (1).md",
     "md/个人/Android 性能优化（一）内存优化为什么要做内存优化 内存作为App运行必需的资源，对用户体验的影响非常明显。如果内 - 掘金.md",
-    "md/个人/ActivityManagerService - Binder.md",
-    "md/个人/原创安卓逆向基础知识之JNI开发与so层逆向基础-Android安全-看雪-安全社区安全招聘kanxue.com.md",
     "f39805ccabec34bac1e4990daf7a02f 1.png",
     "f39805ccabec34bac1e4990daf7a02f.png",
     "pic/Pasted image 20250218094344.png",
