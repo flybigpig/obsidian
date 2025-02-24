@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/car/【Android车载系列】第4章 Activity启动到渲染到SurfaceFlinger流程_android surfaceflinger流程-CSDN博客.md",
+                "file": "md/C++/C++11、C++14、C++17、C++20新特性.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "【Android车载系列】第4章 Activity启动到渲染到SurfaceFlinger流程_android surfaceflinger流程-CSDN博客"
+              "title": "C++11、C++14、C++17、C++20新特性"
             }
           }
         ]
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "md/car/【Android车载系列】第4章 Activity启动到渲染到SurfaceFlinger流程_android surfaceflinger流程-CSDN博客.md",
+                "file": "md/C++/C++11、C++14、C++17、C++20新特性.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "【Android车载系列】第4章 Activity启动到渲染到SurfaceFlinger流程_android surfaceflinger流程-CSDN博客 的大纲"
+              "title": "C++11、C++14、C++17、C++20新特性 的大纲"
             }
           },
           {
@@ -191,8 +191,15 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "a692dc5f8b21aca0",
+  "active": "f84ce6d2fe2622cd",
   "lastOpenFiles": [
+    "md/C++/C++14.md",
+    "md/C++/C++基础介绍 - 豆包.md",
+    "md/C++/C++类.md",
+    "md/C++/C++11.md",
+    "md/C++/C++ 20.md",
+    "md/C++/析构函数.md",
+    "md/car/【Android车载系列】第4章 Activity启动到渲染到SurfaceFlinger流程_android surfaceflinger流程-CSDN博客.md",
     "md/car/【Android车载系列】第3章 车载通讯CAN协议_android can通信-CSDN博客.md",
     "md/car/【Android车载系列】第2章 车载系统启动与CarService-CSDN博客.md",
     "md/car/【Android车载系列】第1章 车载系统整体介绍_android 车载-CSDN博客.md",
@@ -212,13 +219,6 @@
     "md/个人/【Android Framework系列】第8章 事件分发你真了解吗？_dispatcheventlocked-CSDN博客.md",
     "md/个人/阿豪.md",
     "md/个人/Android 数据Parcel序列化过程源码分析_writeinterfacetoken-CSDN博客.md",
-    "md/个人/Android 性能优化（一）： 启动优化理论与实践-阿里云开发者社区.md",
-    "md/个人/开机优化.md",
-    "md/个人/优化.md",
-    "md/个人/性能优化.md",
-    "md/个人/Android应用层的cpu优化.md",
-    "md/个人/Android启动优化实践 - 秒开率从17_提升至75_秒开，是许多人对性能优化的一种执着，也是许多用户简单甄别App - 掘金 (1).md",
-    "md/个人/Android 性能优化（一）内存优化为什么要做内存优化 内存作为App运行必需的资源，对用户体验的影响非常明显。如果内 - 掘金.md",
     "f39805ccabec34bac1e4990daf7a02f 1.png",
     "f39805ccabec34bac1e4990daf7a02f.png",
     "pic/Pasted image 20250218094344.png",
