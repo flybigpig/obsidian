@@ -4,19 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "9d3bf9cd748052aa",
+        "id": "5f76fe68342e5073",
         "type": "tabs",
         "children": [
           {
-            "id": "a692dc5f8b21aca0",
+            "id": "121fbbe92fe8c160",
             "type": "leaf",
             "state": {
-              "type": "pdf",
+              "type": "markdown",
               "state": {
-                "file": "Effective+PyCharm+(大语言模型翻译中文版).pdf"
+                "file": "md/DeepSeek/豆包.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-file-text",
-              "title": "Effective+PyCharm+(大语言模型翻译中文版)"
+              "icon": "lucide-file",
+              "title": "豆包"
             }
           }
         ]
@@ -140,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "md/C++/C++11、C++14、C++17、C++20新特性.md",
+                "file": "md/DeepSeek/豆包.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "C++11、C++14、C++17、C++20新特性 的大纲"
+              "title": "豆包 的大纲"
             }
           },
           {
@@ -189,10 +191,11 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "a692dc5f8b21aca0",
+  "active": "f84ce6d2fe2622cd",
   "lastOpenFiles": [
-    "写给应用开发的+Android+Framework+教程(1).pdf",
+    "md/DeepSeek/豆包.md",
     "Effective+PyCharm+(大语言模型翻译中文版).pdf",
+    "写给应用开发的+Android+Framework+教程(1).pdf",
     "md/SurfaceFlinger/Android Systrace 基础知识 - SurfaceFlinger 解读 · Android Performance.md",
     "md/个人/深入研究Android启动速度优化（下）- 不敢说100_秒开，但这样做“雀食”是快前言：生活不止眼前的苟且，还有诗和远 - 掘金.md",
     "md/SurfaceFlinger/显示图形系统分析之SurfaceFlinger启动流程显示图形系统中，避不开的SurfaceFlinger非常重要，对于 - 掘金.md",
