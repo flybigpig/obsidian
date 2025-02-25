@@ -11,14 +11,12 @@
             "id": "a692dc5f8b21aca0",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "pdf",
               "state": {
-                "file": "md/SurfaceFlinger/Android Systrace 基础知识 - SurfaceFlinger 解读 · Android Performance.md",
-                "mode": "source",
-                "source": false
+                "file": "Effective+PyCharm+(大语言模型翻译中文版).pdf"
               },
-              "icon": "lucide-file",
-              "title": "Android Systrace 基础知识 - SurfaceFlinger 解读 · Android Performance"
+              "icon": "lucide-file-text",
+              "title": "Effective+PyCharm+(大语言模型翻译中文版)"
             }
           }
         ]
@@ -191,8 +189,11 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "fa4657deb406b728",
+  "active": "a692dc5f8b21aca0",
   "lastOpenFiles": [
+    "写给应用开发的+Android+Framework+教程(1).pdf",
+    "Effective+PyCharm+(大语言模型翻译中文版).pdf",
+    "md/SurfaceFlinger/Android Systrace 基础知识 - SurfaceFlinger 解读 · Android Performance.md",
     "md/个人/深入研究Android启动速度优化（下）- 不敢说100_秒开，但这样做“雀食”是快前言：生活不止眼前的苟且，还有诗和远 - 掘金.md",
     "md/SurfaceFlinger/显示图形系统分析之SurfaceFlinger启动流程显示图形系统中，避不开的SurfaceFlinger非常重要，对于 - 掘金.md",
     "md/framework系统/Android Handler机制7之消息发送-腾讯云开发者社区-腾讯云.md",
@@ -217,15 +218,12 @@
     "md/个人/Android 数据Parcel序列化过程源码分析.md",
     "md/个人/ActivityManagerService - Binder.md",
     "md/个人/深入研究Android启动速度优化（上）- 看完这些启动优化已经完成80_了_android 分析app的启动流程跟启动时间-CSDN博客.md",
-    "md/个人/彻底掌握 Android14 Vsync 原理.md",
     "f39805ccabec34bac1e4990daf7a02f.png",
     "f39805ccabec34bac1e4990daf7a02f 1.png",
-    "md/个人/硬件抽象层（HAL）的代码示例.md",
     "pic/Pasted image 20250218094344.png",
     "pic/Pasted image 20250109141941.png",
     "pic/Pasted image 20250218094245.png",
     "md/linux",
-    "写给应用开发的+Android+Framework+教程(1).pdf",
     "pic/Pasted image 20250113093848.png",
     "pic/Pasted image 20250109142016.png",
     "pic/Pasted image 20250109142002.png",
@@ -239,7 +237,6 @@
     "md/SurfaceFlinger",
     "md/努比亚",
     "md/GPT",
-    "md/DeepSeek",
     "Excalidraw/未命名 1.canvas"
   ]
 }
