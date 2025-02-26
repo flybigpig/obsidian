@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/个人/Android IPC数据在内核空间中的发送过程分析_安卓系统内核发短信流程-CSDN博客.md",
+                "file": "md/个人/深入研究Android启动速度优化（下）- 不敢说100_秒开，但这样做“雀食”是快前言：生活不止眼前的苟且，还有诗和远 - 掘金.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Android IPC数据在内核空间中的发送过程分析_安卓系统内核发短信流程-CSDN博客"
+              "title": "深入研究Android启动速度优化（下）- 不敢说100_秒开，但这样做“雀食”是快前言：生活不止眼前的苟且，还有诗和远 - 掘金"
             }
           }
         ]
@@ -187,11 +187,16 @@
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
       "markdown-importer:打开 Markdown 格式转换器": false,
-      "obsidian-git:Open Git source control": false
+      "obsidian-git:Open Git source control": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "f84ce6d2fe2622cd",
+  "active": "121fbbe92fe8c160",
   "lastOpenFiles": [
+    "md/个人/详解DiffUtils、Myers算法和 Jetpack Compose详细地介绍Android中基于Mayers算法的 - 掘金.md",
+    "md/个人/深入研究Android启动速度优化（上）- 看完这些启动优化已经完成80_了_android 分析app的启动流程跟启动时间-CSDN博客.md",
+    "md/个人/深入研究Android启动速度优化（下）- 不敢说100_秒开，但这样做“雀食”是快前言：生活不止眼前的苟且，还有诗和远 - 掘金.md",
+    "md/个人/Android IPC数据在内核空间中的发送过程分析_安卓系统内核发短信流程-CSDN博客.md",
     "md/个人/Android IPC数据在内核空间中的发送过程分析.md",
     "md/个人/Android Wifi断开问题分析和802.11原因码_assoc rsp 0x001e-CSDN博客.md",
     "md/个人/Android 性能优化（一）内存优化为什么要做内存优化 内存作为App运行必需的资源，对用户体验的影响非常明显。如果内 - 掘金.md",
@@ -206,7 +211,6 @@
     "Effective+PyCharm+(大语言模型翻译中文版).pdf",
     "写给应用开发的+Android+Framework+教程(1).pdf",
     "md/SurfaceFlinger/Android Systrace 基础知识 - SurfaceFlinger 解读 · Android Performance.md",
-    "md/个人/深入研究Android启动速度优化（下）- 不敢说100_秒开，但这样做“雀食”是快前言：生活不止眼前的苟且，还有诗和远 - 掘金.md",
     "md/SurfaceFlinger/显示图形系统分析之SurfaceFlinger启动流程显示图形系统中，避不开的SurfaceFlinger非常重要，对于 - 掘金.md",
     "md/framework系统/Android Handler机制7之消息发送-腾讯云开发者社区-腾讯云.md",
     "md/framework系统/Android Handler机制5之Message简介与消息对象对象池-腾讯云开发者社区-腾讯云.md",
@@ -217,9 +221,6 @@
     "md/个人/Fragment 新特性  Fragment Result API 使用以及源码分析 - 知乎.md",
     "md/个人/Handler-sendMessageAtTime.md",
     "md/个人/hexo博客插入音视频-腾讯云开发者社区-腾讯云.md",
-    "md/个人/java -stream.md",
-    "md/个人/Makefile.md",
-    "md/个人/Android init进程 - yooooooo - 博客园.md",
     "f39805ccabec34bac1e4990daf7a02f.png",
     "f39805ccabec34bac1e4990daf7a02f 1.png",
     "pic/Pasted image 20250218094344.png",
