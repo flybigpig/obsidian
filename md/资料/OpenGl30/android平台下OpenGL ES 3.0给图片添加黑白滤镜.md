@@ -127,7 +127,7 @@ public class GrayFilter extends BaseFilter {
 还记得之前入门的一些博客内容吗？笔者之前也写过一些简单的片段着色器：
 
 ```java
-#version 300 es
+[[version]] 300 es
 precision mediump float;
 uniform sampler2D uTextureUnit;
 in vec2 vTexCoord;
@@ -140,7 +140,7 @@ void main() {
 但是这个着色器只能输出原图的数据，那么我们应该如何更改输出之后的数据呢？这个时候我们就需要动态的修改`统一变量`
 
 ```java
-#version 300 es
+[[version]] 300 es
 precision mediump float;
 uniform sampler2D uTextureUnit;
 //传入滤镜类型

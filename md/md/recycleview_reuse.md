@@ -129,7 +129,7 @@ mAttachedScrap` : 用来保存`RecyclerView`做数据刷新(`notify`)，被detac
          * Attempts to get the ViewHolder for the given position, either from the Recycler scrap,
          * cache, the RecycledViewPool, or creating it directly.
          * <p>
-         * If a deadlineNs other than {@link #FOREVER_NS} is passed, this method early return
+         * If a deadlineNs other than {@link [[FOREVER_NS]]} is passed, this method early return
          * rather than constructing or binding a ViewHolder if it doesn't think it has time.
          * If a ViewHolder must be constructed and not enough time remains, null is returned. If a
          * ViewHolder is aquired and must be bound but not enough time remains, an unbound holder is

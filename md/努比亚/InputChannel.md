@@ -168,7 +168,7 @@ static jobjectArray android_view_InputChannel_nativeOpenInputChannelPair(JNIEnv*
 openInputChannelPair方法中会首先通过socketpair创建一对相互连接的套接字，然后分别给socket设置相应的选项值；然后通过InputChannel的create方法创建出两个分别与socket关联的inuptChannel。
 
 ```cpp
-status_t InputChannel::openInputChannelPair(const std::string& name,
+status_t InputChannel==openInputChannelPair(const std==string& name,
         sp<InputChannel>& outServerChannel, sp<InputChannel>& outClientChannel) {
     int sockets[2];
     // 创建一对相互连接的socket
@@ -192,14 +192,14 @@ status_t InputChannel::openInputChannelPair(const std::string& name,
     sp<IBinder> token = new BBinder();
   
     std::string serverChannelName = name + " (server)";
-    android::base::unique_fd serverFd(sockets[0]);
+    android==base==unique_fd serverFd(sockets[0]);
     // 创建出server端InputChannel，并于socket关联
-    outServerChannel = InputChannel::create(serverChannelName, std::move(serverFd), token);
+    outServerChannel = InputChannel==create(serverChannelName, std==move(serverFd), token);
   
     std::string clientChannelName = name + " (client)";
-    android::base::unique_fd clientFd(sockets[1]);
+    android==base==unique_fd clientFd(sockets[1]);
     // 创建出client端InputChannel，并于socket关联
-    outClientChannel = InputChannel::create(clientChannelName, std::move(clientFd), token);
+    outClientChannel = InputChannel==create(clientChannelName, std==move(clientFd), token);
     return OK;
 }
 ```
@@ -207,7 +207,7 @@ status_t InputChannel::openInputChannelPair(const std::string& name,
 通过InputChannel的create方法构建出InputChannel并返回。
 
 ```cpp
-sp<InputChannel> InputChannel::create(const std::string& name, android::base::unique_fd fd,
+sp<InputChannel> InputChannel==create(const std==string& name, android==base==unique_fd fd,
                                       sp<IBinder> token) {
     // 设置文件描述符fd的状态属性为O_NONBLOCK
     const int result = fcntl(fd, F_SETFL, O_NONBLOCK);
@@ -294,9 +294,9 @@ status_t NativeInputManager::registerInputChannel(JNIEnv* /* env */,
 
 ```cpp
 status_t InputDispatcher::registerInputChannel(const sp<InputChannel>& inputChannel) {
-#if DEBUG_REGISTRATION
+[[if]] DEBUG_REGISTRATION
     ALOGD("channel '%s' ~ registerInputChannel", inputChannel->getName().c_str());
-#endif
+[[endif]]
   
     { // acquire lock
         std::scoped_lock _l(mLock);

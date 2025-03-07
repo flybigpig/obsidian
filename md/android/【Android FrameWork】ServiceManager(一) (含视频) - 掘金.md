@@ -393,7 +393,7 @@ struct binder_proc {
 
 ```
 文件目录:include/linux/sched.h
-#define get_task_struct(tsk) do { atomic_inc(&(tsk)->usage); } while(0)
+[[define]] get_task_struct(tsk) do { atomic_inc(&(tsk)->usage); } while(0)
 
 static int binder_open(struct inode *nodp, struct file *filp)
 {
@@ -533,7 +533,7 @@ int binder_alloc_mmap_handler(struct binder_alloc *alloc,
       vma->vm_start - (uintptr_t)alloc->buffer;
    mutex_unlock(&binder_alloc_mmap_lock);
 
-#ifdef CONFIG_CPU_CACHE_VIPT
+[[ifdef]] CONFIG_CPU_CACHE_VIPT
    if (cache_is_vipt_aliasing()) {
       while (CACHE_COLOUR(
             (vma->vm_start ^ (uint32_t)alloc->buffer))) {
@@ -543,7 +543,7 @@ int binder_alloc_mmap_handler(struct binder_alloc *alloc,
          vma->vm_start += PAGE_SIZE;
       }
    }
-#endif
+[[endif]]
     //申请内存为一页大小
    alloc->pages = kzalloc(sizeof(alloc->pages[0]) *
                ((vma->vm_end - vma->vm_start) / PAGE_SIZE),
@@ -1354,7 +1354,7 @@ sp<IBinder> ProcessState::getStrongProxyForHandle(int32_t handle)
 }
 
 //看当前是否有 如果没有就新建一个
-ProcessState::handle_entry* ProcessState::lookupHandleLocked(int32_t handle)
+ProcessState==handle_entry* ProcessState==lookupHandleLocked(int32_t handle)
 {
     const size_t N=mHandleToObject.size();//这里是0
     if (N <= (size_t)handle) {
@@ -1710,7 +1710,7 @@ status_t IPCThreadState::transact(int32_t handle,
     err = writeTransactionData(BC_TRANSACTION, flags, handle, code, data, nullptr);
 
     if ((flags & TF_ONE_WAY) == 0) {//同步的
-        if (UNLIKELY(mCallRestriction != ProcessState::CallRestriction::NONE)) {
+        if (UNLIKELY(mCallRestriction != ProcessState==CallRestriction==NONE)) {
        
         if (reply) {
         //调用waitForResponse等待返回结果
@@ -1719,13 +1719,13 @@ status_t IPCThreadState::transact(int32_t handle,
             Parcel fakeReply;
             err = waitForResponse(&fakeReply);
         }
-        #if 0
+        [[if]] 0
         if (code == 4) { // relayout
             ALOGI("<<<<<< RETURNING transaction 4");
         } else {
             ALOGI("<<<<<< RETURNING transaction %d", code);
         }
-        #endif
+        [[endif]]
 
         IF_LOG_TRANSACTIONS() {
             TextOutput::Bundle _b(alog);
@@ -1908,7 +1908,7 @@ status_t IPCThreadState::talkWithDriver(bool doReceive)
     bwr.read_consumed = 0;
     status_t err;
     do {
-#if defined(__ANDROID__)
+[[if]] defined(__ANDROID__)
 //调用ioctl和Binder通信 传入的cmd是BINDER_WRITE_READ
         if (ioctl(mProcess->mDriverFD, BINDER_WRITE_READ, &bwr) >= 0)
             err = NO_ERROR;

@@ -76,14 +76,14 @@ public abstract class IntentService extends Service {
      * with your preferred semantics.
      *
      * <p>If enabled is true,
-     * {@link #onStartCommand(Intent, int, int)} will return
+     * {@link [[onStartCommand]](Intent, int, int)} will return
      * {@link Service#START_REDELIVER_INTENT}, so if this process dies before
-     * {@link #onHandleIntent(Intent)} returns, the process will be restarted
+     * {@link [[onHandleIntent]](Intent)} returns, the process will be restarted
      * and the intent redelivered.  If multiple Intents have been sent, only
      * the most recent one is guaranteed to be redelivered.
      *
      * <p>If enabled is false (the default),
-     * {@link #onStartCommand(Intent, int, int)} will return
+     * {@link [[onStartCommand]](Intent, int, int)} will return
      * {@link Service#START_NOT_STICKY}, and if the process dies, the Intent
      * dies along with it.
      */
@@ -115,7 +115,7 @@ public abstract class IntentService extends Service {
 
     /**
      * You should not override this method for your IntentService. Instead,
-     * override {@link #onHandleIntent}, which the system calls when the IntentService
+     * override {@link [[onHandleIntent]]}, which the system calls when the IntentService
      * receives a start request.
      * @see android.app.Service#onStartCommand
      */
@@ -147,7 +147,7 @@ public abstract class IntentService extends Service {
      * So, if this code takes a long time, it will hold up other requests to
      * the same IntentService, but it will not hold up anything else.
      * When all requests have been handled, the IntentService stops itself,
-     * so you should not call {@link #stopSelf}.
+     * so you should not call {@link [[stopSelf]]}.
      *
      * @param intent The value passed to {@link
      *               android.content.Context#startService(Intent)}.

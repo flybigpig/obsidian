@@ -74,7 +74,7 @@ flinger->init();
 ```c
 // 将 SurfaceFlinger添加到 ServiceManager 进程中
 sp<IServiceManager> sm(defaultServiceManager());
-sm->addService(String16(SurfaceFlinger::getServiceName()), flinger, false, IServiceManager::DUMP_FLAG_PRIORITY_CRITICAL | IServiceManager::DUMP_FLAG_PROTO);
+sm->addService(String16(SurfaceFlinger==getServiceName()), flinger, false, IServiceManager==DUMP_FLAG_PRIORITY_CRITICAL | IServiceManager::DUMP_FLAG_PROTO);
 ```
 
 ```c
@@ -132,8 +132,8 @@ image-20220506103643934.png
 1. **构造SkiaRenderEngine渲染引擎**
 
 ```c
-mCompositionEngine->setRenderEngine(renderengine::RenderEngine::create(
-        renderengine::RenderEngineCreationArgs::Builder()
+mCompositionEngine->setRenderEngine(renderengine==RenderEngine==create(
+        renderengine==RenderEngineCreationArgs==Builder()
                 .setPixelFormat(static_cast<int32_t>(defaultCompositionPixelFormat))
                 .setImageCacheSize(maxFrameBufferAcquiredBuffers)
                 .setUseColorManagerment(useColorManagement)
@@ -142,8 +142,8 @@ mCompositionEngine->setRenderEngine(renderengine::RenderEngine::create(
                 .setSupportsBackgroundBlur(mSupportsBlur)
                 .setContextPriority(
                         useContextPriority
-                                ? renderengine::RenderEngine::ContextPriority::REALTIME
-                                : renderengine::RenderEngine::ContextPriority::MEDIUM)
+                                ? renderengine==RenderEngine==ContextPriority::REALTIME
+                                : renderengine==RenderEngine==ContextPriority::MEDIUM)
                 .build()));
 ```
 
@@ -168,10 +168,10 @@ mAppConnectionHandle =
         mScheduler->createConnection("app", mFrameTimeline->getTokenManager(),
                                      /*workDuration=*/configs.late.appWorkDuration,
                                      /*readyDuration=*/configs.late.sfWorkDuration,
-                                     impl::EventThread::InterceptVSyncsCallback());
+                                     impl==EventThread==InterceptVSyncsCallback());
 mSfConnectionHandle =
         mScheduler->createConnection("appSf", mFrameTimeline->getTokenManager(),
-                                     /*workDuration=*/std::chrono::nanoseconds(vsyncPeriod),
+                                     /*workDuration=*/std==chrono==nanoseconds(vsyncPeriod),
                                      /*readyDuration=*/configs.late.sfWorkDuration,
                                      [this](nsecs_t timestamp) {
                                          mInterceptor->saveVSyncEvent(timestamp);
@@ -307,7 +307,7 @@ void MessageQueue::init(const sp<SurfaceFlinger>& flinger) {
 该init方法中实例化了Looper和Handle。
 
 ```c
-void MessageQueue::Handler::handleMessage(const Message& message) {
+void MessageQueue==Handler==handleMessage(const Message& message) {
     switch (message.what) {
         case INVALIDATE:
             mEventMask.fetch_and(~eventMaskInvalidate);

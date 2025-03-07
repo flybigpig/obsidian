@@ -252,7 +252,7 @@ LoadedApk有两个构造函数，一个是多参数的，用来给新应用；�
 ```
 178    /**
 179     * Create information about the system package.
-180     * Must call {@link #installSystemApplicationInfo} later.
+180     * Must call {@link [[installSystemApplicationInfo]]} later.
 181     */
 182    LoadedApk(ActivityThread activityThread) {
 183        mActivityThread = activityThread;
@@ -2052,13 +2052,13 @@ LoadApk对象用来保存一个apk信息，这个构造方法中会将使用的�
 28 * </p><ul>
 29 * <li>The constructor is called and provided with the system {@link Context}
 30 * to initialize the system service.
-31 * <li>{@link #onStart()} is called to get the service running.  The service should
+31 * <li>{@link [[onStart]]()} is called to get the service running.  The service should
 32 * publish its binder interface at this point using
-33 * {@link #publishBinderService(String, IBinder)}.  It may also publish additional
+33 * {@link [[publishBinderService]](String, IBinder)}.  It may also publish additional
 34 * local interfaces that other services within the system server may use to access
 35 * privileged internal functions.
-36 * <li>Then {@link #onBootPhase(int)} is called as many times as there are boot phases
-37 * until {@link #PHASE_BOOT_COMPLETED} is sent, which is the last boot phase. Each phase
+36 * <li>Then {@link [[onBootPhase]](int)} is called as many times as there are boot phases
+37 * until {@link [[PHASE_BOOT_COMPLETED]]} is sent, which is the last boot phase. Each phase
 38 * is an opportunity to do special work, like acquiring optional service dependencies,
 39 * waiting to see if SafeMode is enabled, or registering with a service that gets
 40 * started after this one.

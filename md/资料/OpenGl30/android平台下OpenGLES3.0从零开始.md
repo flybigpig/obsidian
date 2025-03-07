@@ -45,7 +45,7 @@ OpenGL ES 3.0实现了具有可编程着色功能的图形管线，由两个规�
 
 `顶点着色器取得一个位置及相关的颜色数据作为输入属性，用一个 4x4矩阵变换位置，并输出变换后的位置和颜色。`
 ```java
-#version 300 es
+[[version]] 300 es
 uniform mat4 u_mvpMatrix;
 
 int vec4 a_postion;

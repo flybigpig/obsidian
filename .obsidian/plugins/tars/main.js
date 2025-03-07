@@ -13499,7 +13499,6 @@ var fetchTagsWithSections = (env, startOffset, endOffset) => {
       lowerCaseTag,
       tagRange: [t4.position.start.offset, t4.position.end.offset],
       tagLine: t4.position.start.line
-      // eslint-disable-next-line no-mixed-spaces-and-tabs
     } : null;
   }).filter((t4) => t4 !== null);
   console.debug("tags", tags);
@@ -13544,23 +13543,11 @@ var fetchTextRange = async (env, sectionWithRefer, contentRange) => {
   };
 };
 var fetchTextForTag = async (env, tagWithSections) => {
-  const { fileText } = env;
   const textRanges = await Promise.all(
     tagWithSections.sections.map((section) => fetchTextRange(env, section, tagWithSections.contentRange))
   );
-  const startOffset = tagWithSections.contentRange[0];
-  const accumulated = textRanges.reduce(
-    (acc, { text, range }) => ({
-      text: acc.text + fileText.slice(acc.range[1], range[0]) + text,
-      range: [acc.range[0], range[1]]
-    }),
-    {
-      range: [startOffset, startOffset],
-      text: ""
-    }
-  );
-  console.debug("accumulated", accumulated);
-  return accumulated.text;
+  const accumulated = textRanges.map((range) => range.text).join("\n\n").trim();
+  return accumulated;
 };
 var fetchConversation = async (env, startOffset, endOffset) => {
   const {
@@ -13700,6 +13687,8 @@ var en_default = {
   tag: "tag",
   "Trigger AI generation": "Trigger AI generation",
   "Obtain key from ": "Obtain key from ",
+  "Web search": "Web search",
+  "Enable web search for AI": "Enable web search for AI",
   "Enter your key": "Enter your key",
   "Refer to the technical documentation": "Refer to the technical documentation",
   "Keyword for tag must not contain #": "Keyword for tag must not contain #",
@@ -13717,9 +13706,11 @@ var en_default = {
   "Remove AI assistant": "Remove AI assistant",
   Remove: "Remove",
   Endpoint: "Endpoint",
+  "API version": "API version",
   // suggest.ts
   "AI generate": "AI generate",
-  "Text generated successfully": "Text generated successfully"
+  "Text generated successfully": "Text generated successfully",
+  "Check the developer console for error details": "Check the developer console for error details"
 };
 
 // src/lang/locale/zh-cn.ts
@@ -13757,6 +13748,8 @@ var zh_cn_default = {
   tag: "\u6807\u7B7E",
   "Trigger AI generation": "\u89E6\u53D1AI\u751F\u6210",
   "Obtain key from ": "\u83B7\u53D6 key \u7F51\u7AD9 ",
+  "Web search": "\u7F51\u7EDC\u641C\u7D22",
+  "Enable web search for AI": "\u4E3A\u5F53\u524D AI \u542F\u7528\u7F51\u7EDC\u641C\u7D22",
   "Enter your key": "\u8F93\u5165\u4F60\u7684 key",
   "Refer to the technical documentation": "\u53C2\u8003\u6280\u672F\u6587\u6863",
   "Keyword for tag must not contain #": "\u6807\u7B7E\u5173\u952E\u5B57\u4E0D\u80FD\u5305\u542B#",
@@ -13774,9 +13767,11 @@ var zh_cn_default = {
   "Remove AI assistant": "\u79FB\u9664 AI \u52A9\u624B",
   Remove: "\u79FB\u9664",
   Endpoint: "\u7EC8\u7ED3\u70B9",
+  "API version": "API \u7248\u672C",
   // suggest.ts
   "AI generate": "AI \u751F\u6210",
-  "Text generated successfully": "\u6587\u672C\u751F\u6210\u6210\u529F"
+  "Text generated successfully": "\u6587\u672C\u751F\u6210\u6210\u529F",
+  "Check the developer console for error details": "\u67E5\u770B\u5F00\u53D1\u8005\u63A7\u5236\u53F0\u4E86\u89E3\u9519\u8BEF"
 };
 
 // src/lang/locale/zh-tw.ts
@@ -13929,10 +13924,13 @@ var ReplaceTagModal = class extends import_obsidian3.Modal {
     );
   }
 };
-var countOccurrences = (array) => array.reduce((acc, curr) => {
-  acc[curr] = (acc[curr] || 0) + 1;
-  return acc;
-}, {});
+var countOccurrences = (array) => array.reduce(
+  (acc, curr) => {
+    acc[curr] = (acc[curr] || 0) + 1;
+    return acc;
+  },
+  {}
+);
 var findTwoMostFrequentSpeakers = (fileText) => {
   const lines = fileText.split("\n");
   const matchResults = lines.map((line) => line.match(/^([\u4e00-\u9fa5a-zA-Z0-9# ]+)([:|：]) /g)).flatMap((match) => match || []);
@@ -19546,37 +19544,56 @@ var API_KEY_SENTINEL = "<Missing Key>";
 var openai_default = OpenAI;
 
 // src/providers/azure.ts
+var CALLOUT_BLOCK_START = "\n\n> [!quote]-  \n> ";
+var CALLOUT_BLOCK_END = "";
 var sendRequestFunc = (settings) => async function* (messages) {
   var _a7, _b;
   const { parameters, ...optionsExcludingParams } = settings;
   const options = { ...optionsExcludingParams, ...parameters };
-  const { apiKey, baseURL, model, endpoint, ...remains } = options;
+  const { apiKey, model, endpoint, apiVersion, ...remains } = options;
   if (!apiKey)
     throw new Error(t("API key is required"));
-  const apiVersion = "2024-06-01";
-  const deployment = model;
-  const client = new AzureOpenAI({ endpoint, apiKey, apiVersion, deployment, dangerouslyAllowBrowser: true });
+  const client = new AzureOpenAI({ endpoint, apiKey, apiVersion, deployment: model, dangerouslyAllowBrowser: true });
+  messages = [
+    { role: "system", content: `Initiate your response with "<think>
+\u55EF" at the beginning of every output.` },
+    ...messages
+  ];
   const stream = await client.chat.completions.create({
     model,
     messages,
     stream: true,
     ...remains
   });
+  let isReasoning = false;
+  let thinkBegin = false;
+  let thinkEnd = false;
   for await (const part of stream) {
+    if (part.usage && part.usage.prompt_tokens && part.usage.completion_tokens)
+      console.debug(`Prompt tokens: ${part.usage.prompt_tokens}, completion tokens: ${part.usage.completion_tokens}`);
     const text = (_b = (_a7 = part.choices[0]) == null ? void 0 : _a7.delta) == null ? void 0 : _b.content;
     if (!text)
       continue;
-    yield text;
+    if (text === "<think>") {
+      if (thinkBegin)
+        continue;
+      isReasoning = true;
+      thinkBegin = true;
+      yield CALLOUT_BLOCK_START;
+      continue;
+    }
+    if (text === "</think>") {
+      if (thinkEnd)
+        continue;
+      isReasoning = false;
+      thinkEnd = true;
+      yield CALLOUT_BLOCK_END;
+      continue;
+    }
+    yield isReasoning ? text.replace(/\n/g, "\n> ") : text;
   }
 };
-var models = [
-  "gpt-4o-mini",
-  "gpt-4o",
-  "gpt-4-turbo",
-  "gpt-4",
-  "gpt-3.5-turbo",
-  "gpt-3.5-turbo-16k"
-];
+var models = ["o3-mini", "deepseek-r1", "phi-4", "o1", "o1-mini", "gpt-4o", "gpt-4o-mini"];
 var azureVendor = {
   name: "Azure",
   defaultOptions: {
@@ -19584,6 +19601,7 @@ var azureVendor = {
     baseURL: "",
     model: models[0],
     endpoint: "",
+    apiVersion: "",
     parameters: {}
   },
   sendRequestFunc,
@@ -20921,7 +20939,7 @@ var sendRequestFunc2 = (settings) => async function* (messages) {
     }
   }
 };
-var models2 = ["claude-3-5-sonnet-latest", "claude-3-opus-latest", "claude-3-haiku-20240307"];
+var models2 = ["claude-3-5-sonnet-latest", "claude-3-opus-latest", "claude-3-5-haiku-latest"];
 var claudeVendor = {
   name: "Claude",
   defaultOptions: {
@@ -21122,7 +21140,7 @@ async function* iterSSEChunks2(iterator) {
       continue;
     }
     const binaryChunk = chunk instanceof ArrayBuffer ? new Uint8Array(chunk) : typeof chunk === "string" ? new TextEncoder().encode(chunk) : chunk;
-    let newData = new Uint8Array(data.length + binaryChunk.length);
+    const newData = new Uint8Array(data.length + binaryChunk.length);
     newData.set(data);
     newData.set(binaryChunk, data.length);
     data = newData;
@@ -21179,10 +21197,8 @@ var SSEDecoder2 = class {
     if (line.startsWith(":")) {
       return null;
     }
-    let [fieldName, _2, value] = partition2(line, ":");
-    if (value.startsWith(" ")) {
-      value = value.substring(1);
-    }
+    const [fieldName, _2, leftoverValue] = partition2(line, ":");
+    const value = leftoverValue.startsWith(" ") ? leftoverValue.substring(1) : leftoverValue;
     if (fieldName === "event") {
       this.event = value;
     } else if (fieldName === "data") {
@@ -21306,8 +21322,10 @@ function readableStreamAsyncIterable2(stream) {
 }
 
 // src/providers/deepSeek.ts
+var CALLOUT_BLOCK_START2 = "\n\n> [!quote]-  \n> ";
+var CALLOUT_BLOCK_END2 = "\n\n";
 var sendRequestFunc3 = (settings) => async function* (messages) {
-  var _a7, _b;
+  var _a7;
   const { parameters, ...optionsExcludingParams } = settings;
   const options = { ...optionsExcludingParams, ...parameters };
   const { apiKey, baseURL, model, ...remains } = options;
@@ -21324,14 +21342,23 @@ var sendRequestFunc3 = (settings) => async function* (messages) {
     stream: true,
     ...remains
   });
+  let startReasoning = false;
   for await (const part of stream) {
-    const text = (_b = (_a7 = part.choices[0]) == null ? void 0 : _a7.delta) == null ? void 0 : _b.content;
-    if (!text)
-      continue;
-    yield text;
+    if (part.usage && part.usage.prompt_tokens && part.usage.completion_tokens)
+      console.debug(`Prompt tokens: ${part.usage.prompt_tokens}, completion tokens: ${part.usage.completion_tokens}`);
+    const delta = (_a7 = part.choices[0]) == null ? void 0 : _a7.delta;
+    const reasonContent = delta == null ? void 0 : delta.reasoning_content;
+    if (reasonContent) {
+      const prefix = !startReasoning ? (startReasoning = true, CALLOUT_BLOCK_START2) : "";
+      yield prefix + reasonContent.replace(/\n/g, "\n> ");
+    } else {
+      const prefix = startReasoning ? (startReasoning = false, CALLOUT_BLOCK_END2) : "";
+      if (delta == null ? void 0 : delta.content)
+        yield prefix + (delta == null ? void 0 : delta.content);
+    }
   }
 };
-var models3 = ["deepseek-chat", "deepseek-coder"];
+var models3 = ["deepseek-chat", "deepseek-coder", "deepseek-reasoner"];
 var deepSeekVendor = {
   name: "DeepSeek",
   defaultOptions: {
@@ -24160,10 +24187,10 @@ var sendRequestFunc11 = (settings) => async function* (messages) {
   var _a7, _b;
   const { parameters, ...optionsExcludingParams } = settings;
   const options = { ...optionsExcludingParams, ...parameters };
-  const { apiKey, baseURL, model, token: currentToken, tokenExpireInMinutes, ...remains } = options;
+  const { apiKey, baseURL, model, token: currentToken, tokenExpireInMinutes, enableWebSearch, ...remains } = options;
   if (!apiKey)
     throw new Error(t("API key is required"));
-  console.debug("zhipu options", { baseURL, apiKey, model, currentToken, tokenExpireInMinutes });
+  console.debug("zhipu options", { baseURL, apiKey, model, currentToken, tokenExpireInMinutes, enableWebSearch });
   const { token } = await validOrCreate2(currentToken, apiKey, tokenExpireInMinutes);
   options.token = token;
   const client = new openai_default({
@@ -24171,10 +24198,19 @@ var sendRequestFunc11 = (settings) => async function* (messages) {
     baseURL,
     dangerouslyAllowBrowser: true
   });
+  const tools = enableWebSearch ? [
+    {
+      type: "web_search",
+      web_search: {
+        enable: true
+      }
+    }
+  ] : [];
   const stream = await client.chat.completions.create({
     model,
     messages,
     stream: true,
+    tools,
     ...remains
   });
   for await (const part of stream) {
@@ -24216,7 +24252,7 @@ var validOrCreate2 = async (currentToken, apiKeySecret, expireInMinutes) => {
     token: newToken
   };
 };
-var models7 = ["glm-4", "glm-4-0520", "glm-4-air", "glm-4-flash", "glm-3-turbo"];
+var models7 = ["glm-4-plus", "glm-4-air", "glm-4-airx", "glm-4-long", "glm-4-flash", "glm-4-flashx"];
 var zhipuVendor = {
   name: "Zhipu",
   defaultOptions: {
@@ -24224,6 +24260,7 @@ var zhipuVendor = {
     baseURL: "https://open.bigmodel.cn/api/paas/v4/",
     model: models7[0],
     tokenExpireInMinutes: 60 * 24,
+    enableWebSearch: false,
     parameters: {}
   },
   sendRequestFunc: sendRequestFunc11,
@@ -24257,14 +24294,14 @@ var availableVendors = [
 var TarsSettingTab = class extends import_obsidian5.PluginSettingTab {
   constructor(app, plugin) {
     super(app, plugin);
-    this.createProviderSetting = (index2, settings) => {
+    this.createProviderSetting = (index2, settings, isOpen = false) => {
       const vendor = availableVendors.find((v2) => v2.name === settings.vendor);
       if (!vendor)
         throw new Error("No vendor found " + settings.vendor);
       const { containerEl } = this;
       const details = containerEl.createEl("details");
-      const summary = settings.tag === vendor.name ? vendor.name : settings.tag + " (" + vendor.name + ")";
-      details.createEl("summary", { text: summary, cls: "tars-setting-h4" });
+      details.createEl("summary", { text: getSummary(settings.tag, vendor.name), cls: "tars-setting-h4" });
+      details.open = isOpen;
       this.addTagSection(details, settings, index2, vendor.name);
       if (settings.vendor !== "Ollama") {
         this.addAPIkeySection(
@@ -24276,9 +24313,18 @@ var TarsSettingTab = class extends import_obsidian5.PluginSettingTab {
       if ("apiSecret" in settings.options)
         this.addAPISecretOptional(details, settings.options);
       if (vendor.models.length > 0) {
-        this.addModelDropDownSection(details, settings.options, vendor.models);
+        this.addModelDropDownSection(details, settings.options, vendor.models, index2);
       } else {
-        this.addModelTextSection(details, settings.options);
+        this.addModelTextSection(details, settings.options, index2);
+      }
+      if (settings.vendor === "Zhipu") {
+        new import_obsidian5.Setting(details).setName(t("Web search")).setDesc(t("Enable web search for AI")).addToggle(
+          (toggle) => toggle.setValue(settings.options.enableWebSearch).onChange(async (value) => {
+            ;
+            settings.options.enableWebSearch = value;
+            await this.plugin.saveSettings();
+          })
+        );
       }
       this.addBaseURLSection(details, settings.options, "e.g. " + vendor.defaultOptions.baseURL);
       if ("max_tokens" in settings.options)
@@ -24287,8 +24333,10 @@ var TarsSettingTab = class extends import_obsidian5.PluginSettingTab {
         this.addProxyUrlOptional(details, settings.options);
       if ("endpoint" in settings.options)
         this.addEndpointOptional(details, settings.options);
+      if ("apiVersion" in settings.options)
+        this.addApiVersionOptional(details, settings.options);
       this.addParametersSection(details, settings.options);
-      new import_obsidian5.Setting(details).setName(t("Remove") + " " + summary).addButton((btn) => {
+      new import_obsidian5.Setting(details).setName(t("Remove") + " " + vendor.name).addButton((btn) => {
         btn.setWarning().setButtonText(t("Remove")).onClick(async () => {
           this.plugin.settings.providers.splice(index2, 1);
           await this.plugin.saveSettings();
@@ -24299,7 +24347,6 @@ var TarsSettingTab = class extends import_obsidian5.PluginSettingTab {
     this.addTagSection = (details, settings, index2, defaultTag) => new import_obsidian5.Setting(details).setName(t("tag")).setDesc(t("Trigger AI generation")).addText(
       (text) => text.setPlaceholder(defaultTag).setValue(settings.tag).onChange(async (value) => {
         const trimmed = value.trim();
-        console.debug("trimmed", trimmed);
         if (trimmed.length === 0)
           return;
         if (!validateTag(trimmed))
@@ -24310,6 +24357,9 @@ var TarsSettingTab = class extends import_obsidian5.PluginSettingTab {
           return;
         }
         settings.tag = trimmed;
+        const summaryElement = details.querySelector("summary");
+        if (summaryElement != null)
+          summaryElement.textContent = getSummary(settings.tag, defaultTag);
         await this.plugin.saveSettings();
       })
     );
@@ -24331,7 +24381,7 @@ var TarsSettingTab = class extends import_obsidian5.PluginSettingTab {
         await this.plugin.saveSettings();
       })
     );
-    this.addModelDropDownSection = (details, options, models8) => new import_obsidian5.Setting(details).setName(t("Model")).setDesc(t("Select the model to use")).addDropdown(
+    this.addModelDropDownSection = (details, options, models8, index2) => new import_obsidian5.Setting(details).setName(t("Model")).setDesc(t("Select the model to use")).addDropdown(
       (dropdown) => dropdown.addOptions(
         models8.reduce((acc, cur) => {
           acc[cur] = cur;
@@ -24342,7 +24392,7 @@ var TarsSettingTab = class extends import_obsidian5.PluginSettingTab {
         await this.plugin.saveSettings();
       })
     );
-    this.addModelTextSection = (details, options) => new import_obsidian5.Setting(details).setName(t("Model")).setDesc(t("Input the model to use")).addText(
+    this.addModelTextSection = (details, options, index2) => new import_obsidian5.Setting(details).setName(t("Model")).setDesc(t("Input the model to use")).addText(
       (text) => text.setPlaceholder("").setValue(options.model).onChange(async (value) => {
         options.model = value;
         await this.plugin.saveSettings();
@@ -24393,19 +24443,25 @@ var TarsSettingTab = class extends import_obsidian5.PluginSettingTab {
         }
       })
     );
+    this.addApiVersionOptional = (details, options) => new import_obsidian5.Setting(details).setName(t("API version")).setDesc("e.g. 2024-xx-xx-preview").addText(
+      (text) => text.setPlaceholder("").setValue(options.apiVersion).onChange(async (value) => {
+        options.apiVersion = value;
+        await this.plugin.saveSettings();
+      })
+    );
     this.addParametersSection = (details, options) => new import_obsidian5.Setting(details).setName(t("Override input parameters")).setDesc(t('Developer feature, in JSON format. e.g. {"model": "your model", "baseURL": "your url"}')).addTextArea(
       (text) => text.setPlaceholder("{}").setValue(JSON.stringify(options.parameters)).onChange(async (value) => {
         try {
           options.parameters = JSON.parse(value);
           await this.plugin.saveSettings();
-        } catch (error) {
+        } catch (_error) {
           return;
         }
       })
     );
     this.plugin = plugin;
   }
-  display() {
+  display(expandLastProvider = false) {
     const { containerEl } = this;
     containerEl.empty();
     const vendorNames = availableVendors.map((v2) => v2.name);
@@ -24438,11 +24494,12 @@ var TarsSettingTab = class extends import_obsidian5.PluginSettingTab {
           options: deepCopiedOptions
         });
         await this.plugin.saveSettings();
-        this.display();
+        this.display(true);
       });
     });
     for (const [index2, provider] of this.plugin.settings.providers.entries()) {
-      this.createProviderSetting(index2, provider);
+      const isLast = index2 === this.plugin.settings.providers.length - 1;
+      this.createProviderSetting(index2, provider, isLast && expandLastProvider);
     }
     containerEl.createEl("br");
     new import_obsidian5.Setting(containerEl).setName(t("Message tags")).setDesc(t("Keywords for tags in the text box are separated by spaces")).setHeading();
@@ -24475,6 +24532,7 @@ var TarsSettingTab = class extends import_obsidian5.PluginSettingTab {
     );
   }
 };
+var getSummary = (tag2, defaultTag) => tag2 === defaultTag ? defaultTag : tag2 + " (" + defaultTag + ")";
 var validateTag = (tag2) => {
   if (tag2.includes("#")) {
     new import_obsidian5.Notice(t("Keyword for tag must not contain #"));
@@ -24501,7 +24559,7 @@ var isValidUrl = (url) => {
   try {
     new URL(url);
     return true;
-  } catch (e3) {
+  } catch (_error) {
     return false;
   }
 };
@@ -24518,6 +24576,8 @@ var toTriggerPhrase = (w2) => [
   `#${w2.toLowerCase()} \uFF1A`
   // 中文冒号
 ];
+var formatDate = (d2) => `${d2.getHours().toString().padStart(2, "0")}:${d2.getMinutes().toString().padStart(2, "0")}:${d2.getSeconds().toString().padStart(2, "0")}`;
+var formatDuration = (d2) => `${(d2 / 1e3).toFixed(2)}s`;
 var TagEditorSuggest = class extends import_obsidian6.EditorSuggest {
   constructor(app, settings) {
     super(app);
@@ -24637,13 +24697,24 @@ var TagEditorSuggest = class extends import_obsidian6.EditorSuggest {
         throw new Error("No vendor found " + provider.vendor);
       }
       const sendRequest = vendor.sendRequestFunc(provider.options);
+      const startTime = new Date();
+      console.debug("\u{1F680} Begin : ", formatDate(startTime));
+      let accumulatedText = "";
       for await (const text of sendRequest(messages)) {
         insertText(editor, text);
+        accumulatedText += text;
       }
+      const endTime = new Date();
+      console.debug("\u{1F3C1} Finish: ", formatDate(endTime));
+      console.debug("\u231B Total : ", formatDuration(endTime.getTime() - startTime.getTime()));
+      if (accumulatedText.length === 0) {
+        throw new Error("No text generated");
+      }
+      console.debug("\u2728 " + t("AI generate") + " \u2728 ", accumulatedText);
       new import_obsidian6.Notice(t("Text generated successfully"));
     } catch (error) {
       console.error("error", error);
-      new import_obsidian6.Notice(`\u{1F534}${t("Error")}: ${error}`, 10 * 1e3);
+      new import_obsidian6.Notice(`\u{1F534}${t("Check the developer console for error details")}: ${error}`, 10 * 1e3);
     }
     this.close();
   }

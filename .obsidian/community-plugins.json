@@ -1,10 +1,11 @@
 [
-  "obsidian-full-calendar",
   "quickadd",
   "obsidian-git",
   "obsidian-excalidraw-plugin",
   "calendar",
   "obsidian-admonition",
-  "editing-toolbar",
-  "tars"
+  "tars",
+  "editor-width-slider",
+  "simple-code-formatter",
+  "editing-toolbar"
 ]

@@ -744,7 +744,7 @@ void Parcel::ipcSetDataReference(const uint8_t* data, size_t dataSize,
 
 ```
 
-把返回的数据拷贝到parcel中，然后返回`IPCThreadState::transact`返回到`BpBinder::transact` 再返回到 `android_os_BinderProxy_transact`返回到java层BinderProxy.java的 `transact`函数,最后返回到`ServiceManager`对应的`addService`中,没有返回值 执行完毕。
+把返回的数据拷贝到parcel中，然后返回`IPCThreadState==transact`返回到`BpBinder==transact` 再返回到 `android_os_BinderProxy_transact`返回到java层BinderProxy.java的 `transact`函数,最后返回到`ServiceManager`对应的`addService`中,没有返回值 执行完毕。
 
 ## 服务的获取
 

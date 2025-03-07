@@ -1,1 +1,18 @@
-{}
+{
+  "obsidian-format-code:format-prettier-GraphQL": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "Q"
+    }
+  ],
+  "simple-code-formatter:simple_code_formatter": [
+    {
+      "modifiers": [
+        "Alt"
+      ],
+      "key": "Q"
+    }
+  ]
+}

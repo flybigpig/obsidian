@@ -60,7 +60,7 @@ ThreadLocal类结构.png
    /**
      * Sets the current thread's copy of this thread-local variable
      * to the specified value.  Most subclasses will have no need to
-     * override this method, relying solely on the {@link #initialValue}
+     * override this method, relying solely on the {@link [[initialValue]]}
      * method to set the values of thread-locals.
      *
      * @param value the value to be stored in the current thread's copy of
@@ -118,7 +118,7 @@ ok，我们总结一下：
      * Returns the value in the current thread's copy of this
      * thread-local variable.  If the variable has no value for the
      * current thread, it is first initialized to the value returned
-     * by an invocation of the {@link #initialValue} method.
+     * by an invocation of the {@link [[initialValue]]} method.
      *
      * @return the current thread's value of this thread-local
      */
@@ -546,7 +546,7 @@ ThreadLocal的结构.png
     private static AtomicInteger hashCounter = new AtomicInteger(0);
 
     /**
-     * Internal hash. We deliberately don't bother with #hashCode().
+     * Internal hash. We deliberately don't bother with [[hashCode]]().
      * Hashes must be even. This ensures that the result of
      * (hash & (table.length - 1)) points to a key and not a value.
      *
@@ -575,7 +575,7 @@ ThreadLocal除了构造函数一共6个方法，我们就依次说下
      * Returns the value of this variable for the current thread. If an entry
      * doesn't yet exist for this variable on this thread, this method will
      * create an entry, populating the value with the result of
-     * {@link #initialValue()}.
+     * {@link [[initialValue]]()}.
      *
      * @return the current value of the variable for the calling thread.
      */
@@ -667,8 +667,8 @@ ThreadLocal除了构造函数一共6个方法，我们就依次说下
 ```
     /**
      * Removes the entry for this variable in the current thread. If this call
-     * is followed by a {@link #get()} before a {@link #set},
-     * {@code #get()} will call {@link #initialValue()} and create a new
+     * is followed by a {@link [[get]]()} before a {@link [[set]]},
+     * {@code [[get]]()} will call {@link [[initialValue]]()} and create a new
      * entry with the resulting value.
      *
      * @since 1.5
@@ -855,7 +855,7 @@ this.mask = table.length - 1;
 //1.5之后加入的一个类，它所持有的Integer可以原子的增加，其本身是线程安全的
 private static AtomicInteger hashCounter = new AtomicInteger(0);
 /**
- * Internal hash. We deliberately don't bother with #hashCode().
+ * Internal hash. We deliberately don't bother with [[hashCode]]().
  * Hashes must be even. This ensures that the result of
  * (hash & (table.length - 1)) points to a key and not a value.
  *

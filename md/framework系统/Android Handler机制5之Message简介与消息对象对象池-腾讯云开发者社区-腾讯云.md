@@ -54,14 +54,14 @@
 ```
     /**
      * arg1 and arg2 are lower-cost alternatives to using
-     * {@link #setData(Bundle) setData()} if you only need to store a
+     * {@link [[setData]](Bundle) setData()} if you only need to store a
      * few integer values.
      */
     public int arg1; 
 
     /**
      * arg1 and arg2 are lower-cost alternatives to using
-     * {@link #setData(Bundle) setData()} if you only need to store a
+     * {@link [[setData]](Bundle) setData()} if you only need to store a
      * few integer values.
      */
     public int arg2;
@@ -83,7 +83,7 @@
      * {@link Messenger} to send the message across processes this can only
      * be non-null if it contains a Parcelable of a framework class (not one
      * implemented by the application).   For other data transfer use
-     * {@link #setData}.
+     * {@link [[setData]]}.
      * 
      * <p>Note that Parcelable objects here are not supported prior to
      * the {@link android.os.Build.VERSION_CODES#FROYO} release.
@@ -157,7 +157,7 @@
 如果想获取Message对象，大家第一印象肯定是找Message的构造函数，那我们就来看下Message的构造函数。代码在[Message.java](https://cloud.tencent.com/developer/tools/blog-entry?target=https%3A%2F%2Flink.jianshu.com%2F%3Ft%3Dhttp%3A%2F%2Fandroidxref.com%2F6.0.1_r10%2Fxref%2Fframeworks%2Fbase%2Fcore%2Fjava%2Fandroid%2Fos%2FMessage.java&objectId=1199403&objectType=1&isNewArticle=undefined) 475行
 
 ```
-    /** Constructor (but the preferred way to get a Message is to call {@link #obtain() Message.obtain()}).
+    /** Constructor (but the preferred way to get a Message is to call {@link [[obtain]]() Message.obtain()}).
     */
     public Message() {
     }
@@ -391,7 +391,7 @@ ecycleUnchecked()回收.png
 
 ```
    /**
-     * Same as {@link #obtain()}, but copies the values of an existing
+     * Same as {@link [[obtain]]()}, but copies the values of an existing
      * message (including its target) into the new one.
      * @param orig Original message to copy.
      * @return A Message object from the global pool.
@@ -426,7 +426,7 @@ ecycleUnchecked()回收.png
 
 ```
      /**
-     * Same as {@link #obtain()}, but sets the value for the <em>target</em> member on the Message returned.
+     * Same as {@link [[obtain]]()}, but sets the value for the <em>target</em> member on the Message returned.
      * @param h  Handler to assign to the returned Message object's <em>target</em> member.
      * @return A Message object from the global pool.
      */
@@ -450,7 +450,7 @@ ecycleUnchecked()回收.png
 
 ```
     /**
-     * Same as {@link #obtain(Handler)}, but assigns a callback Runnable on
+     * Same as {@link [[obtain]](Handler)}, but assigns a callback Runnable on
      * the Message that is returned.
      * @param h  Handler to assign to the returned Message object's <em>target</em> member.
      * @param callback Runnable that will execute when the message is handled.
@@ -477,7 +477,7 @@ ecycleUnchecked()回收.png
 
 ```
     /**
-     * Same as {@link #obtain()}, but sets the values for both <em>target</em> and
+     * Same as {@link [[obtain]]()}, but sets the values for both <em>target</em> and
      * <em>what</em> members on the Message.
      * @param h  Value to assign to the <em>target</em> member.
      * @param what  Value to assign to the <em>what</em> member.
@@ -504,7 +504,7 @@ ecycleUnchecked()回收.png
 
 ```
     /**
-     * Same as {@link #obtain()}, but sets the values of the <em>target</em>, <em>what</em>, and <em>obj</em>
+     * Same as {@link [[obtain]]()}, but sets the values of the <em>target</em>, <em>what</em>, and <em>obj</em>
      * members.
      * @param h  The <em>target</em> value to set.
      * @param what  The <em>what</em> value to set.
@@ -533,7 +533,7 @@ ecycleUnchecked()回收.png
 
 ```
     /**
-     * Same as {@link #obtain()}, but sets the values of the <em>target</em>, <em>what</em>, 
+     * Same as {@link [[obtain]]()}, but sets the values of the <em>target</em>, <em>what</em>, 
      * <em>arg1</em>, and <em>arg2</em> members.
      * 
      * @param h  The <em>target</em> value to set.
@@ -565,7 +565,7 @@ ecycleUnchecked()回收.png
 
 ```
     /**
-     * Same as {@link #obtain()}, but sets the values of the <em>target</em>, <em>what</em>, 
+     * Same as {@link [[obtain]]()}, but sets the values of the <em>target</em>, <em>what</em>, 
      * <em>arg1</em>, <em>arg2</em>, and <em>obj</em> members.
      * 
      * @param h  The <em>target</em> value to set.

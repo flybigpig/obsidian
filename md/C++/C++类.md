@@ -3,7 +3,7 @@
 ### C++ 类的基本结构
 
 ```
-#include <iostream>
+[[include]] <iostream>
 using namespace std;
 
 class MyClass {
@@ -108,7 +108,7 @@ int main() {
 C++ 支持面向对象编程中的继承机制，可以创建基类和派生类。派生类继承了基类的成员，并可以扩展或重写基类的功能。
 
 ```
-#include <iostream>
+[[include]] <iostream>
 using namespace std;
 
 // 基类
@@ -140,7 +140,7 @@ int main() {
 多态性是面向对象编程的一个重要特性，它允许不同的类以相同的接口调用各自不同的实现。通过虚函数（`virtual`）和函数重写（`override`），C++ 可以实现运行时的多态。
 
 ```
-#include <iostream>
+[[include]] <iostream>
 using namespace std;
 
 class Animal {

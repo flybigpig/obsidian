@@ -105,9 +105,9 @@ youName="cat"
 
 ```
 ABC="tom"
-echo $ABC #使用变量前面加$美元符号
-echo "ABC=$ABC" #可以直接在字符串里面引用
-echo "ABC=${ABC}" #但是建议把变量名字用{}包起来
+echo $ABC [[使用变量前面加]]$美元符号
+echo "ABC=$ABC" [[可以直接在字符串里面引用]]
+echo "ABC=${ABC}" [[但是建议把变量名字用]]{}包起来
 ```
 
 只读变量
@@ -115,8 +115,8 @@ echo "ABC=${ABC}" #但是建议把变量名字用{}包起来
 ```
 ABC="tom"
 echo "ABC=${ABC}"
-readOnly ABC #设置只读
-ABC="CAT" #会报错，因为设置了只读，不能修改
+readOnly ABC [[设置只读]]
+ABC="CAT" [[会报错，因为设置了只读，不能修改]]
 ```
 
 ![readonly](https://oscimg.oschina.net/oscnet/9b7245a65e0825b8deb2424437011e61f25.jpg)
@@ -126,7 +126,7 @@ ABC="CAT" #会报错，因为设置了只读，不能修改
 ```
 ABC="tom"
 echo "ABC=${ABC}"
-unset ABC #删除
+unset ABC [[删除]]
 echo "ABC=$ABC"  
 echo "ABC=${ABC}"
 ```
@@ -139,9 +139,9 @@ echo "ABC=${ABC}"
 
 ```
 NAME="tom"
-A=my #你甚至可以不用引号，但是字符串当中不能有空格，这种方式也不推荐
-B='my name is ${NAME}' #变量不会被解析
-C="my name is ${NAME}" #变量会解析
+A=my [[你甚至可以不用引号，但是字符串当中不能有空格，这种方式也不推荐]]
+B='my name is ${NAME}' [[变量不会被解析]]
+C="my name is ${NAME}" [[变量会解析]]
 echo $A
 echo $B
 echo $C
@@ -170,9 +170,9 @@ echo $B
 - 二是直接把字符串写在一起，不需要类似Java链接字符串的“+” 和PHP链接字符串的“.”
 
 ```
-NAME="TOM"# 使用双引号拼接echo "hello, "$NAME" !" #直接写在一起，没有字符串连接符
-echo "hello, ${NAME} !" #填充模版# 使用单引号拼接echo 'hello, '$NAME' !' #直接写在一起，没有字符串连接符
-echo 'hello, ${NAME} !' #上面已经提高过，单引号里面的变量是不会解析的
+NAME="TOM"# 使用双引号拼接echo "hello, "$NAME" !" [[直接写在一起，没有字符串连接符]]
+echo "hello, ${NAME} !" [[填充模版]]# 使用单引号拼接echo 'hello, '$NAME' !' [[直接写在一起，没有字符串连接符]]
+echo 'hello, ${NAME} !' [[上面已经提高过，单引号里面的变量是不会解析的]]
 ```
 
 ![run_3](https://oscimg.oschina.net/oscnet/1c09b9bd68aa837218e8a5e176cd36d9d4c.jpg)
@@ -184,14 +184,14 @@ ABC="my name is tom,his name is cat"
 echo "字符串长度=${#ABC}" # 取字符串长度
 echo "截取=${ABC:11}" # 截取字符串， 从11开始到结束
 echo "截取=${ABC:11:3}" # 截取字符串， 从11开始3个字符串
-echo "默认值=${XXX-default}" #如果XXX不存在，默认值是default
-echo "默认值=${XXX-$ABC}" #如果XXX不存在，默认值是变量ABC
+echo "默认值=${XXX-default}" [[如果XXX不存在，默认值是default]]
+echo "默认值=${XXX-$ABC}" [[如果XXX不存在，默认值是变量ABC]]
 echo "从开头删除最短匹配=${ABC#my}" # 从开头删除 my 匹配的最短字符串
 echo "从开头删除最长匹配=${ABC##my*tom}" # 从开头删除 my 匹配的最长字符串
 echo "从结尾删除最短匹配=${ABC%cat}" # 从结尾删除 cat 匹配的最短字符串
 echo "从结尾删除最长匹配=${ABC%%,*t}" # 从结尾删除 ,*t 匹配的最长字符串
-echo "替换第一个=${ABC/is/are}" #替换第一个is
-echo "替换所有=${ABC//is/are}" #替换所有的is
+echo "替换第一个=${ABC/is/are}" [[替换第一个is]]
+echo "替换所有=${ABC//is/are}" [[替换所有的is]]
 ```
 
 运行结构
@@ -214,7 +214,7 @@ array=("item0" "item1" "item2")
 array[0]="new_item0"
 array[1]="new_item1"
 array[2]="new_item2"
-array[4]="new_item4" #数组下标可以是不连续的
+array[4]="new_item4" [[数组下标可以是不连续的]]
 ```
 
 读取数组元素，和变量类似
@@ -253,11 +253,11 @@ echo "Hello world!"
 ```
 echo "Hello \nworld!"
 echo "\"Hello\""
-echo '"Hello"' #当然，也可以这样,单引号不转义，上文提到过
-echo `date` #打印执行date的结果
-echo -n "123" #加-n  表示不在末尾输出换行
+echo '"Hello"' [[当然，也可以这样]],单引号不转义，上文提到过
+echo `date` [[打印执行date的结果]]
+echo -n "123" [[加-n]]  表示不在末尾输出换行
 echo "456"
-echo -e "\a处理特殊符号" #-e 处理特殊符号
+echo -e "\a处理特殊符号" [[-e]] 处理特殊符号
 ```
 
 -n 让echo输出结束以后，在默认不输出换行符 -e 让echo处理特殊符号，比如：
@@ -286,14 +286,14 @@ echo -e "\033[41m 红色背景 \033[0m 缺省颜色"
 其中 \033[是一个特殊标记，表示终端转义开始， 31m表示使用红色字体，你也可以使用其他颜色，[30-39]是前景颜色，[40-49]是背景颜色。 \033[0m回复到缺省设置 还可以有一些其他的动作
 
 ```
-echo -e "\033[2J" #清除屏幕
-echo -e "\033[0q" #关闭所有的键盘指示灯
-echo -e "\033[1q" #设置"滚动锁定"指示灯(Scroll Lock)
-echo -e "\033[2q" #设置"数值锁定"指示灯(Num Lock)
-echo -e "\033[1m" #设置高亮度
-echo -e "\033[4m" #下划线
-echo -e "\033[7m" #反显
-echo -e "\033[y;xH" #设置光标位置
+echo -e "\033[2J" [[清除屏幕]]
+echo -e "\033[0q" [[关闭所有的键盘指示灯]]
+echo -e "\033[1q" [[设置]]"滚动锁定"指示灯(Scroll Lock)
+echo -e "\033[2q" [[设置]]"数值锁定"指示灯(Num Lock)
+echo -e "\033[1m" [[设置高亮度]]
+echo -e "\033[4m" [[下划线]]
+echo -e "\033[7m" [[反显]]
+echo -e "\033[y;xH" [[设置光标位置]]
 ```
 
 其他更多的特殊码请自行查询。
@@ -376,8 +376,8 @@ printf "%-10s %-8s %-4.2f\n" 郭芙 女 47.9876
 输出到文件
 
 ```
-echo "test">text.txt #直接输出
-echo "test">>text.txt #追加在text.txt后面
+echo "test">text.txt [[直接输出]]
+echo "test">>text.txt [[追加在text]].txt后面
 ```
 
 重定向输入
@@ -567,7 +567,7 @@ fi
 - 多个逻辑组合 -a 表示and 与运算 -o 表示or 或运算
 
   ```
-  if [ "2" == "2" -a "1" == "1" ]; then #注意，在这里，不能是[ "2" == "2" ] -a [ "1" == "1" ] 会报错
+  if [ "2" == "2" -a "1" == "1" ]; then [[注意，在这里，不能是]][ "2" == "2" ] -a [ "1" == "1" ] 会报错
     echo "ok"
   fi
   ```
@@ -579,7 +579,7 @@ fi
 - 字符串匹配时甚至支持简单的正则表达式
 
   ```
-  if [[ "123" == 12* ]]; then #右边是正则不需要引号
+  if [[ "123" == 12* ]]; then [[右边是正则不需要引号]]
     echo "ok"
   fi
   ```
@@ -605,7 +605,7 @@ fi
 - 统配扩展
 
   ```
-  touch new_{1..5}.txt #创建new_1.txt	new_2.txt	new_3.txt	new_4.txt	new_5.txt  5个文件
+  touch new_{1..5}.txt [[创建new_1]].txt	new_2.txt	new_3.txt	new_4.txt	new_5.txt  5个文件
   ```
 
 ## 4.8、循环
@@ -719,7 +719,7 @@ out(){
     echo "1-->$1"
     echo "2-->$2"
 }
-out 1 2 #调用的之后
+out 1 2 [[调用的之后]]
 ```
 
 还有一些其他的特殊符号需要注意
@@ -742,7 +742,7 @@ out(){
     do
         echo "$item"
     done
-    return $# #这类返回参数个数，返回值必须是整数
+    return $# [[这类返回参数个数，返回值必须是整数]]
 }
 out this is perfect
 echo "函数返回值:$?"
@@ -777,7 +777,7 @@ while :
 do
     echo $int
     ((int++))
-    sleep 1s #睡眠一秒
+    sleep 1s [[睡眠一秒]]
 done
 ```
 

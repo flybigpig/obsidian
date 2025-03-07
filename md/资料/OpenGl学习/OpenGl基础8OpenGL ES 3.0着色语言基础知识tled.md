@@ -122,7 +122,7 @@ public class UniformRenderer implements GLSurfaceView.Renderer {
 }
 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354
 顶点着色器
-#version 300 es
+[[version]] 300 es
 uniform mat4 mMatrix4;
 uniform mat3 mMatrix3;
 
@@ -136,7 +136,7 @@ void main() {
 }
 123456789101112
 片段着色器
-#version 300 es
+[[version]] 300 es
 precision mediump float;
 in vec4 vColor;
 out vec4 fragColor;
@@ -174,7 +174,7 @@ uniform TransformBlock {
 上述声明了一个名为`TransformBlock`且包含3个矩阵的统一变量块。名称`TransformBlock`将供应用程序使用，统一缓冲区对象函数`glGetUniformBlocklndex`中的`blockName`参数。统一变量块声明中的变量在着色器中都可以访问，就像常规形式声明的变量一样。
 
 ```java
-#version 300 es
+[[version]] 300 es
 uniform TransformBlock {
     mat4 matViewProj;
     mat3 matNormal;
@@ -223,7 +223,7 @@ mat3 matTexGen;
 
 ```
 顶点着色器
-#version 300 es
+[[version]] 300 es
 uniform mat4 u_matViewProjection;
 //输入
 layout(location = 0) in vec4 a_position;
@@ -236,7 +236,7 @@ void main{)
 }
 1234567891011
 片段着色器
-#version 300 es
+[[version]] 300 es
 precision mediump float;
 in vec4 vColor;
 //输出片段着色器

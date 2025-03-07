@@ -576,9 +576,9 @@ binder\_parse在// framework/native/cmds/servicemanager/binder.c中
         while (ptr < end) {
             uint32_t cmd = *(uint32_t *) ptr;
             ptr += sizeof(uint32_t);
-            #if TRACE
+            [[if]] TRACE
             fprintf(stderr, "%s:\n", cmd_name(cmd));
-            #endif
+            [[endif]]
             switch (cmd) {
                 case BR_NOOP:
                     //误操作，退出循环
@@ -589,9 +589,9 @@ binder\_parse在// framework/native/cmds/servicemanager/binder.c中
                 case BR_ACQUIRE:
                 case BR_RELEASE:
                 case BR_DECREFS:
-                    #if TRACE
+                    [[if]] TRACE
                     fprintf(stderr, "  %p, %p\n", (void *)ptr, (void *)(ptr + sizeof(void *)));
-                    #endif
+                    [[endif]]
                     ptr += sizeof(struct binder_ptr_cookie);
                     break;
                 case BR_TRANSACTION: {
@@ -1527,7 +1527,7 @@ sp<IBinder> ProcessState::getStrongProxyForHandle(int32_t handle)
 
 ```
 //frameworks/native/libs/binder/ProcessState.cpp      166行
-ProcessState::handle_entry* ProcessState::lookupHandleLocked(int32_t handle)
+ProcessState==handle_entry* ProcessState==lookupHandleLocked(int32_t handle)
 {
     const size_t N=mHandleToObject.size();
     //当handle大于mHandleToObject的长度时，进入该分支
@@ -1596,10 +1596,10 @@ IMPLEMENT_META_INTERFACE(ServiceManager,"android.os.IServiceManager")
 
 ```
 //framework/native/include/binder/IInterface.h      74行
-#define DECLARE_META_INTERFACE(INTERFACE)                               
+[[define]] DECLARE_META_INTERFACE(INTERFACE)                               
    static const android::String16 descriptor;                          
    static android::sp<I##INTERFACE> asInterface(                       
-          const android::sp<android::IBinder>& obj);                  
+          const android==sp<android==IBinder>& obj);                  
    virtual const android::String16& getInterfaceDescriptor() const;    
    I##INTERFACE();                                                     
    virtual ~I##INTERFACE();       
@@ -1610,7 +1610,7 @@ IMPLEMENT_META_INTERFACE(ServiceManager,"android.os.IServiceManager")
 ```
 static const android::String16 descriptor;
 
-static android::sp< IServiceManager > asInterface(const android::sp<android::IBinder>& obj)
+static android==sp< IServiceManager > asInterface(const android==sp<android::IBinder>& obj)
 
 virtual const android::String16& getInterfaceDescriptor() const;
 
@@ -1624,14 +1624,14 @@ virtual ~IServiceManager();
 
 ```
 //framework/native/include/binder/IInterface.h      83行
-#define IMPLEMENT_META_INTERFACE(INTERFACE, NAME)                       \
-    const android::String16 I##INTERFACE::descriptor(NAME);             \
+[[define]] IMPLEMENT_META_INTERFACE(INTERFACE, NAME)                       \
+    const android==String16 I##INTERFACE==descriptor(NAME);             \
     const android::String16&                                            \
             I##INTERFACE::getInterfaceDescriptor() const {              \
         return I##INTERFACE::descriptor;                                \
     }                                                                   \
-    android::sp<I##INTERFACE> I##INTERFACE::asInterface(                \
-            const android::sp<android::IBinder>& obj)                   \
+    android==sp<I##INTERFACE> I##INTERFACE==asInterface(                \
+            const android==sp<android==IBinder>& obj)                   \
     {                                                                   \
         android::sp<I##INTERFACE> intr;                                 \
         if (obj != NULL) {                                              \
@@ -1655,12 +1655,12 @@ const
  android::String16 
  IServiceManager::descriptor(“android.os.IServiceManager”);
 
-const android::String16& IServiceManager::getInterfaceDescriptor() const
+const android==String16& IServiceManager==getInterfaceDescriptor() const
 {
      return IServiceManager::descriptor;
 }
 
- android::sp<IServiceManager> IServiceManager::asInterface(const android::sp<android::IBinder>& obj)
+ android==sp<IServiceManager> IServiceManager==asInterface(const android==sp<android==IBinder>& obj)
 {
        android::sp<IServiceManager> intr;
         if(obj != NULL) {
@@ -1778,9 +1778,9 @@ C层的Binder架构，通过下面的两个宏，非常方便地创建了**new B
 
 ```
 // 用于申明asInterface()，getInterfaceDescriptor()
-#define DECLARE_META_INTERFACE(INTERFACE) 
+[[define]] DECLARE_META_INTERFACE(INTERFACE) 
 // 用于实现上述两个方法
-#define IMPLEMENT_META_INTERFACE(INTERFACE, NAME) 
+[[define]] IMPLEMENT_META_INTERFACE(INTERFACE, NAME) 
 ```
 
 例如:
@@ -1793,13 +1793,13 @@ IMPLEMENT_META_INTERFACE(ServiceManager,"android.os.IServiceManager")
 等价于:
 
 ```
-const android::String16 IServiceManager::descriptor(“android.os.IServiceManager”);
-const android::String16& IServiceManager::getInterfaceDescriptor() const
+const android==String16 IServiceManager==descriptor(“android.os.IServiceManager”);
+const android==String16& IServiceManager==getInterfaceDescriptor() const
 {
      return IServiceManager::descriptor;
 }
 
- android::sp<IServiceManager> IServiceManager::asInterface(const android::sp<android::IBinder>& obj)
+ android==sp<IServiceManager> IServiceManager==asInterface(const android==sp<android==IBinder>& obj)
 {
        android::sp<IServiceManager> intr;
         if(obj != NULL) {

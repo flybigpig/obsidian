@@ -15,7 +15,7 @@
 ```
   /**
      * Run the message queue in this thread. Be sure to call
-     * {@link #quit()} to end the loop.
+     * {@link [[quit]]()} to end the loop.
      */
     public static void loop() {
          //第1步
@@ -738,7 +738,7 @@ boolean hasMessages(Handler h, Runnable r, Object object)方法和本方法基�
      * complete at a later time.
      * </p><p>
      * When using this method, be sure to use {@link Looper#quitSafely} when
-     * quitting the looper.  Otherwise {@link #runWithScissors} may hang indefinitely.
+     * quitting the looper.  Otherwise {@link [[runWithScissors]]} may hang indefinitely.
      * (TODO: We should fix this by making MessageQueue aware of blocking runnables.)
      * </p>
      *

@@ -28,7 +28,7 @@
 
 binder\_proc是描述Binder进程上下文信息的结构体。Binder驱动的文件节点是"/dev/binder"，每当一个程序打开该文件节点时；Binder驱动中都会新建一个binder\_proc对象来保存该进程的上下文信息。
 
-```
+```c++
 struct binder_proc {
   struct hlist_node proc_node;    // 根据proc_node，可以获取该进程在"全局哈希表binder_procs(统计了所有的binder proc进程)"中的位置
   struct rb_root threads;         // binder_proc进程内用于处理用户请求的线程组成的红黑树(关联binder_thread-&gt;rb_node)
@@ -80,7 +80,7 @@ struct binder_proc {
 
 binder\_buffer是描述Binder进程所管理的每段内存的结构体。
 
-```
+```c
 struct binder_buffer {
     struct list_head entry;    // 和binder_proc-&gt;buffers关联到同一链表，从而使Binder进程对内存进行管理。
     struct rb_node rb_node;    // 和binder_proc-&gt;free_buffers或binder_proc-&gt;allocated_buffers关联到同一红黑树，从而对已有内存和空闲内存进行管理。
@@ -105,7 +105,7 @@ struct binder_buffer {
 
 binder\_thread是描述Binder线程的结构体。binder\_proc是描述进程的，而binder\_thread是描述进程中的线程。
 
-```
+```c
 struct binder_thread {
     struct binder_proc *proc;   // 线程所属的Binder进程
     struct rb_node rb_node;     // 红黑树节点，关联到红黑树binder_proc-&gt;threads中。
@@ -129,7 +129,7 @@ struct binder_thread {
 
 binder\_node是描述Binder实体的结构体。
 
-```
+```c
 struct binder_node {
     int debug_id;
     struct binder_work work;
@@ -166,7 +166,7 @@ struct binder_node {
 
 binder\_ref是描述Binder引用的结构体。
 
-```
+```c
 struct binder_ref {
     int debug_id;
     struct rb_node rb_node_desc;    // 关联到binder_proc-&gt;refs_by_desc红黑树中
@@ -195,7 +195,7 @@ struct binder_ref {
 
 binder\_write\_read是描述Binder读写信息的结构体。
 
-```
+```c
 struct binder_write_read {
     signed long write_size;
     signed long write_consumed;
@@ -214,7 +214,7 @@ struct binder_write_read {
 
 flat\_binder\_object是描述Binder对象信息的结构体。
 
-```
+```c
 struct flat_binder_object {
     unsigned long       type;   // binder类型：可以为BINDER_TYPE_BINDER或BINDER_TYPE_HANDLE等类型
     unsigned long       flags;  // 标记
@@ -234,7 +234,7 @@ struct flat_binder_object {
 
 binder\_transaction\_data是描述Binder事务交互的数据格式的结构体。
 
-```
+```c
 struct binder_transaction_data {
     union {
         size_t  handle; // 当binder_transaction_data是由用户空间的进程发送给Binder驱动时，
@@ -271,7 +271,7 @@ struct binder_transaction_data {
 
 ### 2.1.1 binder\_state
 
-```
+```c
 struct binder_state
 {
     int fd;           // 文件节点"/dev/binder"的句柄
@@ -286,7 +286,7 @@ struct binder_state
 
 binder\_object是与flat\_binder\_object对应的结构体。
 
-```
+```c
 struct binder_object
 {
     uint32_t type;  // 类型
@@ -302,7 +302,7 @@ struct binder_object
 
 binder\_txn与binder\_transaction\_data对应的结构体。
 
-```
+```c
 struct binder_txn
 {
     void *target;
@@ -324,7 +324,7 @@ struct binder_txn
 
 ### 2.1.4 svcinfo
 
-```
+```c
 struct svcinfo
 {
     struct svcinfo *next;         // 下一个"服务的信息"
@@ -345,7 +345,7 @@ svcinfo是保存"注册到ServiceManager中的服务"的相关信息的结构体
 
 Parcel是描述Binder通信信息的结构体。
 
-```
+```c
 class Parcel {
 public:
     ...

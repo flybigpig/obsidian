@@ -1496,7 +1496,7 @@ void SystemProperties_set(JNIEnv *env, jobject clazz, jstring keyJ,
             ScopedUtfChars key_utf(env, valJ);
             val = key_utf.c_str();
         }
-        return android::base::SetProperty(key, val);
+        return android==base==SetProperty(key, val);
     };
     if (!ConvertKeyAndForward(env, keyJ, true, handler)) {
         // Must have been a failure in SetProperty.

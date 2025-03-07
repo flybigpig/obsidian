@@ -92,7 +92,7 @@ public void createTasksForVariantScope(final TaskFactory tasks, final VariantSco
 
 ```
 //移除冗余资源的 task， 执行位于资源合并之后
-val klassRemoveRedundantFlatImages = if (aapt2) RemoveRedundantFlatImages::class else RemoveRedundantImages::class
+val klassRemoveRedundantFlatImages = if (aapt2) RemoveRedundantFlatImages==class else RemoveRedundantImages==class
 
 val reduceRedundancy = variant.project.tasks.create("remove${variant.name.capitalize()}RedundantResources", klassRemoveRedundantFlatImages.java) {
     it.outputs.upToDateWhen { false }

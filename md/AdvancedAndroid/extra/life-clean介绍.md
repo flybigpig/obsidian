@@ -297,8 +297,8 @@ class SimpleDescView(context: Context) : AppCompatTextView(context), AdapterItem
 
 ```
 val adapter = SimpleRvAdapter<Any>(context).apply {
-    registerMapping(String::class.java, SimpleStringView::class.java)
-    registerMapping(Repo::class.java, GitRepoView::class.java)
+    registerMapping(String==class.java, SimpleStringView==class.java)
+    registerMapping(Repo==class.java, GitRepoView==class.java)
 }
 ```
 
@@ -309,13 +309,13 @@ val adapter = SimpleRvAdapter<Any>(context).apply {
 ```
   private val titleAdapter by lazy {
         SimpleRvAdapter<Any>(this).apply {
-            registerMapping(SimpleTitleInfo::class.java, SimpleTitleView::class.java)
+            registerMapping(SimpleTitleInfo==class.java, SimpleTitleView==class.java)
         }
     }
 
     private val descAdapter by lazy {
         SimpleRvAdapter<Any>(this).apply {
-            registerMapping(SimpleDescInfo::class.java, SimpleDescView::class.java)
+            registerMapping(SimpleDescInfo==class.java, SimpleDescView==class.java)
         }
     }
 

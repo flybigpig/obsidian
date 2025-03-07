@@ -181,8 +181,8 @@ PATH=~/bin:$PATH
 
 ```bash
 source ~/.bashrc
-#如果使用的是 zsh
-#source ~/.zshrc
+[[如果使用的是]] zsh
+[[source]] ~/.zshrc
 ```
 
 #### 4.2 初始化仓库并同步远程代码
@@ -192,9 +192,9 @@ git config --global user.email "you@example.com"
 git config --global user.name "Your Name"
 mkdir aosp 
 cd asop
-#初始化仓库,-b 指示分支，这里使用 android10
+[[初始化仓库]],-b 指示分支，这里使用 android10
 repo init -u https://mirrors.tuna.tsinghua.edu.cn/git/AOSP/platform/manifest -b android-10.0.0_r41
-#同步远程代码
+[[同步远程代码]]
 repo sync
 ```
 
@@ -315,7 +315,7 @@ network:
       addresses: [10.0.0.89/24]  # 静态ip，根据自己网络情况配置
       gateway4: 10.0.0.1     # 网关，根据自己网络情况配置
       nameservers:
-        addresses: [10.0.0.1, 114.114.114.114] #dns，根据自己网络情况配置
+        addresses: [10.0.0.1, 114.114.114.114] [[dns，根据自己网络情况配置]]
 ```
 
 使配置生效：
@@ -466,7 +466,7 @@ sudo apt install samba
 ```bash
 [Project]
         comment = project
-        path = /home/zzh0838/Project #你自己需要共享的目录
+        path = /home/zzh0838/Project [[你自己需要共享的目录]]
         browseable = yes
         writable = yes
 ```
@@ -475,9 +475,9 @@ sudo apt install samba
 
 ```bash
 chmod 777 /home/zzh0838/Project
-sudo smbpasswd -a username #这里是当前用户名
-sudo systemctl enable smbd #samba 开机自启动
-sudo systemctl restart smbd #重启 samba 
+sudo smbpasswd -a username [[这里是当前用户名]]
+sudo systemctl enable smbd [[samba]] 开机自启动
+sudo systemctl restart smbd [[重启]] samba 
 ```
 
 windows 访问 Ubuntu 共享的文件键：
@@ -875,7 +875,7 @@ WIFI_DRIVER_FW_PATH_AP      := "/dev/null"
 # Unbundled apps will be built with the most generic product config.
 # TARGET_BUILD_APPS 编译Android系统时，这个值为空，编译单模块时，这个值为所编译模块的路径
 
-#编译单模块
+[[编译单模块]]
 ifneq ($(TARGET_BUILD_APPS),)
 PRODUCT_MAKEFILES := \
     $(LOCAL_DIR)/aosp_arm64.mk \
@@ -884,7 +884,7 @@ PRODUCT_MAKEFILES := \
     $(LOCAL_DIR)/aosp_x86.mk \
     $(LOCAL_DIR)/full.mk \
     $(LOCAL_DIR)/full_x86.mk \
-#编译系统
+[[编译系统]]
 else
 PRODUCT_MAKEFILES := \
     $(LOCAL_DIR)/aosp_64bitonly_x86_64.mk \
@@ -1163,9 +1163,9 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/emulator_vendor.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/board/generic_x86_64/device.mk)
 
 # Enable mainline checking for excat this product name
-#ifeq (aosp_x86_64,$(TARGET_PRODUCT))
+[[ifeq]] (aosp_x86_64,$(TARGET_PRODUCT))
 PRODUCT_ENFORCE_ARTIFACT_PATH_REQUIREMENTS := relaxed
-#endif
+[[endif]]
 
 PRODUCT_ARTIFACT_PATH_REQUIREMENT_WHITELIST += \
     root/init.zygote32_64.rc \
@@ -1270,7 +1270,7 @@ hello
 其中 hello.cpp 的内容如下
 
 ```c++
-#include <cstdio>
+[[include]] <cstdio>
 
 int main()
 {
@@ -1699,19 +1699,19 @@ cc_library_shared {
 my_math.h 内容如下：
 
 ```c++
-#ifndef __MY_MATH_H__
-#define __MY_MATH_H__
+[[ifndef]] __MY_MATH_H__
+[[define]] __MY_MATH_H__
 
 int my_add(int a, int b);
 int my_sub(int a, int b);
 
-#endif
+[[endif]]
 ```
 
 my_math.cpp 内容如下：
 
 ```c++
-#include "my_math.h"
+[[include]] "my_math.h"
 
 int my_add(int a, int b)
 {
@@ -1729,8 +1729,8 @@ int my_sub(int a, int b)
 修改 `hello.cpp`
 
 ```c++
-#include <cstdio>
-#include "my_math.h" //添加头文件
+[[include]] <cstdio>
+[[include]] "my_math.h" //添加头文件
 
 int main()
 {
@@ -1943,7 +1943,7 @@ lunch Rice14-eng
 ```bash
 cd device/Jelly/Rice14/libmymathjava
 mm
-#编译完成后，会打印出编译产物路径 out/target/product/Rice14/obj/JAVA_LIBRARIES/libmymathjava_intermediates/javalib.jar
+[[编译完成后，会打印出编译产物路径]] out/target/product/Rice14/obj/JAVA_LIBRARIES/libmymathjava_intermediates/javalib.jar
 ```
 
 为避免冲突我们把  `device/Jelly/Rice14/libmymathjava` 移动到源码以外的目录或者删除
@@ -2498,18 +2498,18 @@ jni/native.cpp 的内容如下：
  * limitations under the License.
  */
 
-#define LOG_TAG "simplejni native.cpp"
-#include <android/log.h>
+[[define]] LOG_TAG "simplejni native.cpp"
+[[include]] <android/log.h>
 
-#include <stdio.h>
+[[include]] <stdio.h>
 
-#include "jni.h"
+[[include]] "jni.h"
 
-#define ALOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
-#define ALOGD(...) __android_log_print(ANDROID_LOG_DEBUG, LOG_TAG, __VA_ARGS__)
-#define ALOGI(...) __android_log_print(ANDROID_LOG_INFO, LOG_TAG, __VA_ARGS__)
-#define ALOGW(...) __android_log_print(ANDROID_LOG_WARN, LOG_TAG, __VA_ARGS__)
-#define ALOGE(...) __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, __VA_ARGS__)
+[[define]] ALOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
+[[define]] ALOGD(...) __android_log_print(ANDROID_LOG_DEBUG, LOG_TAG, __VA_ARGS__)
+[[define]] ALOGI(...) __android_log_print(ANDROID_LOG_INFO, LOG_TAG, __VA_ARGS__)
+[[define]] ALOGW(...) __android_log_print(ANDROID_LOG_WARN, LOG_TAG, __VA_ARGS__)
+[[define]] ALOGE(...) __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, __VA_ARGS__)
 
 static jint
 add(JNIEnv* /*env*/, jobject /*thiz*/, jint a, jint b) {
@@ -2709,7 +2709,7 @@ LOCAL_SHARED_LIBRARIES := libmymath
 修改 JNIApp/jni/native.cpp：
 
 ```c++
-#include "my_math.h"
+[[include]] "my_math.h"
 
 static jint
 add(JNIEnv* /*env*/, jobject /*thiz*/, jint a, jint b) {
@@ -2750,7 +2750,7 @@ lunch rice14-eng
 # Android10 及以前
 make framework
 # Android11 及以后
-#make framework-minus-apex
+[[make]] framework-minus-apex
 ```
 
 编译完成后，我们在 `out/target/common/obj/JAVA_LIBRARIES/framework_intermediates` 目录下找到 `classes.jar` 文件，为方便识别，我们将该文件拷贝到其他地方，并将文件名修改为 `framework.jar` 。
@@ -3148,15 +3148,15 @@ hello_seandroid 目录下是一个读取文件的可执行程序：
 hello_seandroid.c:
 
 ```c
-#include <unistd.h>
-#include <string.h>
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <fcntl.h>
-#include <errno.h>
+[[include]] <unistd.h>
+[[include]] <string.h>
+[[include]] <sys/types.h>
+[[include]] <sys/stat.h>
+[[include]] <fcntl.h>
+[[include]] <errno.h>
 
-#define LOG_TAG "helloseandroid"
-#include <log/log.h>
+[[define]] LOG_TAG "helloseandroid"
+[[include]] <log/log.h>
 
 int main(int argc, char *argv[])
 {
@@ -3219,9 +3219,9 @@ hello_se.te：
 type  hello_se_dt, domain;
 # 可执行文件对应的类型
 type  hello_se_dt_exec, exec_type, vendor_file_type, file_type;
-#表示该程序如果从 init 进程启动 hello_seandroid_dt_exec，其安全上下文的 domain 部分从 init 转化为 hello_seandroid_dt
+[[表示该程序如果从]] init 进程启动 hello_seandroid_dt_exec，其安全上下文的 domain 部分从 init 转化为 hello_seandroid_dt
 init_daemon_domain(hello_se_dt);
-#从 shell 启动 type 为 hello_seandroid_dt_exec 的可执行程序，其对应进程的 domain 为 hello_seandroid_dt
+[[从]] shell 启动 type 为 hello_seandroid_dt_exec 的可执行程序，其对应进程的 domain 为 hello_seandroid_dt
 domain_auto_trans(shell, hello_se_dt_exec, hello_se_dt);
 ```
 
@@ -3251,11 +3251,11 @@ make -j16
 准备工作：
 
 ```bash
-#进入Android shell 环境
+[[进入Android]] shell 环境
 adb shell
  
 # 创建待访问的设备文件
-su #使用 root 
+su [[使用]] root 
 touch /dev/hello_seandroid_dev
 ls -Z /dev/hello_seandroid_dev                     
 u:object_r:device:s0 /dev/hello_seandroid_dev
@@ -3264,7 +3264,7 @@ restorecon /dev/hello_seandroid_dev
 # 查看文件的安全上下文
 ls -Z /dev/hello_seandroid_dev           
 u:object_r:hello_se_dev_t:s0 /dev/hello_seandroid_dev
-#放宽权限
+[[放宽权限]]
 chmod 777 /dev/hello_seandroid_dev 
 # 查看可执行文件的安全上下文
 ls -Z /vendor/bin/helloseandroid
@@ -3275,7 +3275,7 @@ u:object_r:hello_se_dt_exec:s0 /vendor/bin/helloseandroid
 
 ```bash
 setenforce 0
-exit #退出 root
+exit [[退出]] root
 # 执行程序
 helloseandroid &
 ```
@@ -3311,9 +3311,9 @@ allow hello_se_dt shell:fd use;
 type  hello_se_dt, domain;
 # 可执行文件对应的类型
 type  hello_se_dt_exec, exec_type, vendor_file_type, file_type;
-#表示该程序如果从 init 进程启动 hello_seandroid_dt_exec，其安全上下文的 domain 部分从 init 转化为 hello_seandroid_dt
+[[表示该程序如果从]] init 进程启动 hello_seandroid_dt_exec，其安全上下文的 domain 部分从 init 转化为 hello_seandroid_dt
 init_daemon_domain(hello_se_dt);
-#从 shell 启动 type 为 hello_seandroid_dt_exec 的可执行程序，其对应进程的 domain 为 hello_seandroid_dt
+[[从]] shell 启动 type 为 hello_seandroid_dt_exec 的可执行程序，其对应进程的 domain 为 hello_seandroid_dt
 domain_auto_trans(shell, hello_se_dt_exec, hello_se_dt);
 
 allow hello_se_dt adbd:unix_stream_socket { read write };
@@ -3338,7 +3338,7 @@ initscript
 ├── initscript.rc
 └── initscript.sh
 
-sepolicy    #部分文件为 seandroid 入门添加的内容
+sepolicy    [[部分文件为]] seandroid 入门添加的内容
 ├── device.te      
 ├── file_contexts
 ├── hello_se.te
@@ -3351,7 +3351,7 @@ initscript.sh 是一个简单的 shell 脚本：
 #!/vendor/bin/sh
 
 echo "this is init script"
-log -t initscript "this is initscript!" #打 log
+log -t initscript "this is initscript!" [[打]] log
 ```
 
 需要注意的是 shebang 的内容是 `#!/vendor/bin/sh`。
@@ -3442,11 +3442,11 @@ logcat | grep initscript
 我们先看下 `/vendor/bin/toybox_vendor` 文件：
 
 ```bash
-#切换为 root
+[[切换为]] root
 su 
-#带 x 权限，是一个可执行文件
+[[带]] x 权限，是一个可执行文件
 -rwxr-xr-x 1 root shell 503304 2023-04-08 23:04 /vendor/bin/toybox_vendor
-#不带参数执行一下
+[[不带参数执行一下]]
 /vendor/bin/toybox_vendor                                                                                            
 acpi base64 basename bc blkid blockdev cal cat chattr chcon chgrp
 chmod chown chroot chrt cksum clear cmp comm cp cpio cut date dd devmem
@@ -3503,7 +3503,7 @@ emulator
 ```bash
 # 准备工作
 source build/envsetup.sh
-lunch aosp_x86_64-eng #选择一个合适的 Product
+lunch aosp_x86_64-eng [[选择一个合适的]] Product
 export SOONG_GEN_CMAKEFILES=1
 export SOONG_GEN_CMAKEFILES_DEBUG=1
 make -j16
@@ -3514,7 +3514,7 @@ make -j16
 假设我们需要看 SurfaceFlinger 相关代码:
 
 ```bash
-#系统源码目录下搜索
+[[系统源码目录下搜索]]
 find . -name "SurfaceFlinger*"
 ./frameworks/native/services/surfaceflinger/SurfaceFlinger.cpp
 ./frameworks/native/services/surfaceflinger/SurfaceFlingerProperties.cpp
@@ -3557,16 +3557,16 @@ find . -name "SurfaceFlinger*"
 
 ```c++
 //log的头文件
-#include "log/log.h"
+[[include]] "log/log.h"
 //直接 define LOG_TAG 会报已定义错误，因为 SurFaceFlinger 模块的 Android.bp 已经定义了 LOG_Tag
 //下面这样定义就不会出错了
-#ifdef LOG_TAG
-#undef LOG_TAG
-#define LOG_TAG "yuandaima_sf"
-#endif
+[[ifdef]] LOG_TAG
+[[undef]] LOG_TAG
+[[define]] LOG_TAG "yuandaima_sf"
+[[endif]]
 
 //打印堆栈的头文件
-#include <utils/CallStack.h>
+[[include]] <utils/CallStack.h>
 
 //在 main 函数中打印信息
 
@@ -3655,9 +3655,9 @@ AIDEGen，我叫它 “爱得跟”，大概是 Android10 中，google 推出的
 source build/envsetup.sh
 lunch sdk-eng
 # or
-#lunch sdk-userdebug
+[[lunch]] sdk-userdebug
 # or
-#lunch sdk-user
+[[lunch]] sdk-user
 make sdk
 ```
 
@@ -3667,7 +3667,7 @@ make sdk
 
 ```bash
 source build/envsetup.sh
-lunch aosp_x86_64-eng  #也可以是其他 product
+lunch aosp_x86_64-eng  [[也可以是其他]] product
 ```
 
 做好以上准备工作后，我们就可以打开系统模块了，：
@@ -3761,7 +3761,7 @@ Java 源码我们一般通过以下两种方法阅读：
 首先找到 SystemServer：
 
 ```bash
-#源码根目录下
+[[源码根目录下]]
 cd frameworks
 
 find . -name "SystemServer*"

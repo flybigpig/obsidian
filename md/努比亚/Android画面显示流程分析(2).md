@@ -53,8 +53,8 @@ CRT controller,目前主要用于显示控制，如显示时序,分辨率，刷�
 
 ```cpp
 ......
-#include <drm_fourcc.h>
-#include <drm.h>
+[[include]] <drm_fourcc.h>
+[[include]] <drm.h>
 ......
 static drmModeCrtc *main_monitor_crtc;
 static drmModeConnector *main_monitor_connector;

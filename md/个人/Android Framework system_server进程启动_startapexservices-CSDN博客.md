@@ -205,7 +205,7 @@ protected static Runnable applicationInit(int targetSdkVersion, long[] disabledC
  
     final Arguments args = new Arguments(argv);
  
-    // The end of of the RuntimeInit event (see #zygoteInit).
+    // The end of of the RuntimeInit event (see [[zygoteInit]]).
     Trace.traceEnd(Trace.TRACE_TAG_ACTIVITY_MANAGER);
  
     // Remaining arguments are passed to the start class's static main

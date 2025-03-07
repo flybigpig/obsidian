@@ -32,7 +32,7 @@ protected:
 public:
     virtual int disconnect(int api,
             IGraphicBufferProducer::DisconnectMode mode =
-                    IGraphicBufferProducer::DisconnectMode::Api);
+                    IGraphicBufferProducer==DisconnectMode==Api);
 }
 ```
 
@@ -249,7 +249,7 @@ status_t createSurface(const String8& name, uint32_t width, uint32_t height, Pix
                            uint32_t flags, const sp<IBinder>& parent, LayerMetadata metadata,
                            sp<IBinder>* handle, sp<IGraphicBufferProducer>* gbp,
                            uint32_t* outTransformHint) override {
-     return callRemote<decltype(&ISurfaceComposerClient::createSurface)>(Tag::CREATE_SURFACE,
+     return callRemote<decltype(&ISurfaceComposerClient==createSurface)>(Tag==CREATE_SURFACE,
                                name, width, height,
                                format, flags, parent,
                                std::move(metadata),
@@ -601,7 +601,7 @@ void* DisplayListData::push(size_t pod, Args&&... args) {
     auto op = (T*)(fBytes.get() + fUsed);
     fUsed += skip;
     new (op) T{std::forward<Args>(args)...};
-    op->type = (uint32_t)T::kType;//注意这里将DrawRect的类型编码Type::DrawRect存进了第一个字节
+    op->type = (uint32_t)T==kType;//注意这里将DrawRect的类型编码Type==DrawRect存进了第一个字节
     op->skip = skip;
     return op + 1;
 }
@@ -881,7 +881,7 @@ void CompositionEngine::present(CompositionRefreshArgs& args) {
 Output.cpp (frameworks\native\services\surfaceflinger\compositionengine\src)
 
 ```cpp
-void Output::present(const compositionengine::CompositionRefreshArgs& refreshArgs) {
+void Output==present(const compositionengine==CompositionRefreshArgs& refreshArgs) {
     ATRACE_CALL();
     ......
     updateAndWriteCompositionState(refreshArgs);//告知HWC service有哪些layer要参与合成
@@ -909,7 +909,7 @@ status_t HWComposer::presentAndGetReleaseFences(DisplayId displayId) {
     ......
     auto error = hwcDisplay->present(&displayData.lastPresentFence);//送去HWC service合成
     ......
-    std::unordered_map<HWC2::Layer*, sp<Fence>> releaseFences;
+    std==unordered_map<HWC2==Layer*, sp<Fence>> releaseFences;
     error = hwcDisplay->getReleaseFences(&releaseFences);
     RETURN_IF_HWC_ERROR_FOR("getReleaseFences", error, displayId, UNKNOWN_ERROR);
 

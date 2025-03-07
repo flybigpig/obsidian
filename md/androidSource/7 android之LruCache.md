@@ -28,7 +28,7 @@ public class LruCache<K, V> {
     private int missCount;
 
     /**
-     * @param maxSize for caches that do not override {@link #sizeOf}, this is
+     * @param maxSize for caches that do not override {@link [[sizeOf]]}, this is
      *     the maximum number of entries in the cache. For all other caches,
      *     this is the maximum sum of the sizes of the entries in this cache.
      */
@@ -58,7 +58,7 @@ public class LruCache<K, V> {
 
     /**
      * Returns the value for {@code key} if it exists in the cache or can be
-     * created by {@code #create}. If a value was returned, it is moved to the
+     * created by {@code [[create]]}. If a value was returned, it is moved to the
      * head of the queue. This returns null if a value is not cached and cannot
      * be created.
      */
@@ -204,17 +204,17 @@ public class LruCache<K, V> {
     /**
      * Called for entries that have been evicted or removed. This method is
      * invoked when a value is evicted to make space, removed by a call to
-     * {@link #remove}, or replaced by a call to {@link #put}. The default
+     * {@link [[remove]]}, or replaced by a call to {@link [[put]]}. The default
      * implementation does nothing.
      *
      * <p>The method is called without synchronization: other threads may
      * access the cache while this method is executing.
      *
      * @param evicted true if the entry is being removed to make space, false
-     *     if the removal was caused by a {@link #put} or {@link #remove}.
+     *     if the removal was caused by a {@link [[put]]} or {@link [[remove]]}.
      * @param newValue the new value for {@code key}, if it exists. If non-null,
-     *     this removal was caused by a {@link #put}. Otherwise it was caused by
-     *     an eviction or a {@link #remove}.
+     *     this removal was caused by a {@link [[put]]}. Otherwise it was caused by
+     *     an eviction or a {@link [[remove]]}.
      */
     protected void entryRemoved(boolean evicted, K key, V oldValue, V newValue) {}
 
@@ -227,10 +227,10 @@ public class LruCache<K, V> {
      * access the cache while this method is executing.
      *
      * <p>If a value for {@code key} exists in the cache when this method
-     * returns, the created value will be released with {@link #entryRemoved}
+     * returns, the created value will be released with {@link [[entryRemoved]]}
      * and discarded. This can occur when multiple threads request the same key
      * at the same time (causing multiple values to be created), or when one
-     * thread calls {@link #put} while another is creating a value for the same
+     * thread calls {@link [[put]]} while another is creating a value for the same
      * key.
      */
     protected V create(K key) {
@@ -257,14 +257,14 @@ public class LruCache<K, V> {
     }
 
     /**
-     * Clear the cache, calling {@link #entryRemoved} on each removed entry.
+     * Clear the cache, calling {@link [[entryRemoved]]} on each removed entry.
      */
     public final void evictAll() {
         trimToSize(-1); // -1 will evict 0-sized elements
     }
 
     /**
-     * For caches that do not override {@link #sizeOf}, this returns the number
+     * For caches that do not override {@link [[sizeOf]]}, this returns the number
      * of entries in the cache. For all other caches, this returns the sum of
      * the sizes of the entries in this cache.
      */
@@ -273,7 +273,7 @@ public class LruCache<K, V> {
     }
 
     /**
-     * For caches that do not override {@link #sizeOf}, this returns the maximum
+     * For caches that do not override {@link [[sizeOf]]}, this returns the maximum
      * number of entries in the cache. For all other caches, this returns the
      * maximum sum of the sizes of the entries in this cache.
      */
@@ -282,7 +282,7 @@ public class LruCache<K, V> {
     }
 
     /**
-     * Returns the number of times {@link #get} returned a value that was
+     * Returns the number of times {@link [[get]]} returned a value that was
      * already present in the cache.
      */
     public synchronized final int hitCount() {
@@ -290,7 +290,7 @@ public class LruCache<K, V> {
     }
 
     /**
-     * Returns the number of times {@link #get} returned null or required a new
+     * Returns the number of times {@link [[get]]} returned null or required a new
      * value to be created.
      */
     public synchronized final int missCount() {
@@ -298,14 +298,14 @@ public class LruCache<K, V> {
     }
 
     /**
-     * Returns the number of times {@link #create(Object)} returned a value.
+     * Returns the number of times {@link [[create]](Object)} returned a value.
      */
     public synchronized final int createCount() {
         return createCount;
     }
 
     /**
-     * Returns the number of times {@link #put} was called.
+     * Returns the number of times {@link [[put]]} was called.
      */
     public synchronized final int putCount() {
         return putCount;

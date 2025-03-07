@@ -49,7 +49,7 @@ $NDK/toolchains/llvm/prebuilt/linux-x86_64/bin/aarch64-linux-android26-clang++  
 >
 >  tar xvf faac-1.29.9.2.tar.gz
 >
->  #进入facc目录 
+>  [[进入facc目录]] 
 >
 > cd faac-1.29.9.2
 

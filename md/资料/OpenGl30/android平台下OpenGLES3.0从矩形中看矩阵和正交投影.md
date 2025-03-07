@@ -19,7 +19,7 @@ public class RectangleRenderer implements GLSurfaceView.Renderer
 `定义顶点着色器：`
 
 ```java
-#version 300 es
+[[version]] 300 es
 layout (location = 0) in vec4 vPosition;
 layout (location = 1) in vec4 aColor;
 out vec4 vColor;
@@ -33,7 +33,7 @@ void main() {
 `定义片段着色器：`
 
 ```java
-#version 300 es
+[[version]] 300 es
 precision mediump float;
 in vec4 vColor;
 out vec4 fragColor;
@@ -252,7 +252,7 @@ private final float[] mMatrix = new float[16];
 修改`顶点着色器`
 
 ```java
-#version 300 es
+[[version]] 300 es
 layout (location = 0) in vec4 vPosition;
 layout (location = 1) in vec4 aColor;
 uniform mat4 u_Matrix;

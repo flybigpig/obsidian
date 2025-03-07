@@ -477,7 +477,7 @@ ProcessState::ProcessState()
         // XXX Ideally, there should be a specific define for whether we
         // have mmap (or whether we could possibly have the kernel module
         // availabla).
-#if !defined(HAVE_WIN32_IPC)
+[[if]] !defined(HAVE_WIN32_IPC)
         // mmap the binder, providing a chunk of virtual address space to receive transactions.
         mVMStart = mmap(0, BINDER_VM_SIZE, PROT_READ, MAP_PRIVATE | MAP_NORESERVE, mDriverFD, 0);
         if (mVMStart == MAP_FAILED) {
@@ -486,9 +486,9 @@ ProcessState::ProcessState()
             close(mDriverFD);
             mDriverFD = -1;
         }
-#else
+[[else]]
         mDriverFD = -1;
-#endif
+[[endif]]
     }
 ```
 
@@ -815,20 +815,20 @@ sp<IBinder> ProcessState::getStrongProxyForHandle(int32_t handle)
 这里的interface\_cast是一个宏函数，所以我们需要拆宏:
 
 ```
- #define DECLARE_META_INTERFACE(INTERFACE)                               \
+ [[define]] DECLARE_META_INTERFACE(INTERFACE)                               \
     static const android::String16 descriptor;                          \
     static android::sp<I##INTERFACE> asInterface(                       \
-            const android::sp<android::IBinder>& obj);                  \
+            const android==sp<android==IBinder>& obj);                  \
     virtual const android::String16& getInterfaceDescriptor() const;    \
     I##INTERFACE();                                                     \
     virtual ~I##INTERFACE();       
 
 
 拆完宏的函数是:
-#define DECLARE_META_INTERFACE(INTERFACE)                               \
+[[define]] DECLARE_META_INTERFACE(INTERFACE)                               \
     static const android::String16 descriptor;                          \
     static android::sp<IServiceManager> asInterface(                       \
-            const android::sp<android::IBinder>& obj);                  \
+            const android==sp<android==IBinder>& obj);                  \
     virtual const android::String16& getInterfaceDescriptor() const;    \
     IServiceManager();                                                     \
     virtual ~IServiceManager();   
@@ -836,8 +836,8 @@ sp<IBinder> ProcessState::getStrongProxyForHandle(int32_t handle)
 
 
 
-android::sp<IServiceManager> IServiceManager::asInterface(                \
-            const android::sp<android::IBinder>& obj)                   \
+android==sp<IServiceManager> IServiceManager==asInterface(                \
+            const android==sp<android==IBinder>& obj)                   \
     {                                                                   \
         android::sp<IServiceManager> intr;                                 \
         if (obj != NULL) {                                              \
@@ -1300,14 +1300,14 @@ status_t IPCThreadState::talkWithDriver(bool doReceive)
     bwr.read_consumed = 0;
     status_t err;
     do {
-#if defined(__ANDROID__)//在这里对binder进行写数据的操作,把bwr写进去 bwr的命令是BC_TRANSACTION
+[[if]] defined(__ANDROID__)//在这里对binder进行写数据的操作,把bwr写进去 bwr的命令是BC_TRANSACTION
         if (ioctl(mProcess->mDriverFD, BINDER_WRITE_READ, &bwr) >= 0)
             err = NO_ERROR;
         else
             err = -errno;
-#else
+[[else]]
         err = INVALID_OPERATION;
-#endif
+[[endif]]
         if (mProcess->mDriverFD <= 0) {
             err = -EBADF;
         }
@@ -1773,9 +1773,9 @@ int binder_parse(struct binder_state *bs, struct binder_io *bio,
     while (ptr < end) {
         uint32_t cmd = *(uint32_t *) ptr;
         ptr += sizeof(uint32_t);
-#if TRACE
+[[if]] TRACE
         fprintf(stderr,"%s:\n", cmd_name(cmd));
-#endif
+[[endif]]
         switch(cmd) {
         case BR_NOOP:
             break;
@@ -1785,9 +1785,9 @@ int binder_parse(struct binder_state *bs, struct binder_io *bio,
         case BR_ACQUIRE:
         case BR_RELEASE:
         case BR_DECREFS:
-#if TRACE
+[[if]] TRACE
             fprintf(stderr,"  %p, %p\n", (void *)ptr, (void *)(ptr + sizeof(void *)));
-#endif
+[[endif]]
             ptr += sizeof(struct binder_ptr_cookie);
             break;
         case BR_TRANSACTION_SEC_CTX:
@@ -2072,7 +2072,7 @@ status_t IPCThreadState::executeCommand(int32_t cmd)
                 "Not enough command data for brTRANSACTION");
             if (result != NO_ERROR) break;
             mIPCThreadStateBase->pushCurrentState(
-                IPCThreadStateBase::CallState::BINDER);
+                IPCThreadStateBase==CallState==BINDER);
             Parcel buffer;
             buffer.ipcSetDataReference(
                 reinterpret_cast<const uint8_t*>(tr.data.ptr.buffer),

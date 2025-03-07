@@ -83,20 +83,20 @@ Makefile:160: /tests/Makefile: No such file or directory
 config.h 搜索 lrint、lrintf、round、roundf 等对于的字符，将0修改为1
 
 ```
-#define HAVE_LLRINT 1
-#define HAVE_LLRINTF 1
-#define HAVE_LRINT 1
-#define HAVE_LRINTF 1
-#define HAVE_ROUND 1
-#define HAVE_ROUNDF 1
-#define HAVE_CBRT 1
-#define HAVE_CBRTF 1
-#define HAVE_COPYSIGN 1
-#define HAVE_TRUNC 1
-#define HAVE_TRUNCF 1
-#define HAVE_RINT 1
-#define HAVE_HYPOT 1
-#define HAVE_ERF 1
+[[define]] HAVE_LLRINT 1
+[[define]] HAVE_LLRINTF 1
+[[define]] HAVE_LRINT 1
+[[define]] HAVE_LRINTF 1
+[[define]] HAVE_ROUND 1
+[[define]] HAVE_ROUNDF 1
+[[define]] HAVE_CBRT 1
+[[define]] HAVE_CBRTF 1
+[[define]] HAVE_COPYSIGN 1
+[[define]] HAVE_TRUNC 1
+[[define]] HAVE_TRUNCF 1
+[[define]] HAVE_RINT 1
+[[define]] HAVE_HYPOT 1
+[[define]] HAVE_ERF 1
 ```
 
 **或直接使用**`sed`来修改`config.h`文件
@@ -126,13 +126,13 @@ sed -i -e 's/#define HAVE_INET_ATON 0/#define HAVE_INET_ATON 1/g' config.h
 错误信息：
 
 ```
-#define getenv(x) NULL
+[[define]] getenv(x) NULL
 ^
 /home/cd008/diska/android-ndk-r9/platforms/android-18/arch-arm/usr/include/stdlib.h:54:14: note: in expansion of macro 'getenv'
 extern char *getenv(const char *);
 ^
 ./config.h:17:19: error: expected ')' before numeric constant
-#define getenv(x) NULL
+[[define]] getenv(x) NULL
 ^
 /home/cd008/diska/android-ndk-r9/platforms/android-18/arch-arm/usr/include/stdlib.h:54:14: note: in expansion of macro 'getenv'
 extern char *getenv(const char *);

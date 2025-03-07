@@ -27,7 +27,7 @@
 了解 native 层的崩溃处理机制，那么我们的实现方案便是注册信号处理函数，在 native 层可以用 sigaction()：
 
 ```
-#include <signal.h> 
+[[include]] <signal.h> 
 
 // signum：代表信号编码，可以是除SIGKILL及SIGSTOP外的任何一个特定有效的信号，如果为这两个信号定义自己的处理函数，将导致信号安装错误。
 // act：指向结构体sigaction的一个实例的指针，该实例指定了对特定信号的处理，如果设置为空，进程会执行默认处理。

@@ -154,7 +154,7 @@ App 申请 Vsync-app 信号的流程
     
 2.  App Binder 远程调用到 SF 端 EventThreadConnection::stealReceiveChannel 函数，获取到后续收 Vsync-app 信号的的 socket 句柄
     
-3.  App 渲染前，远程调用到 SF 中的 EventThreadConnection::requestNextVsync 函数请求 Vsync-app 信号，该函数会修改 `EventThreadConnection#vsyncRequest` 的值为 `VSyncRequest::Single`，接着唤醒 wait 中的 EventThread 线程。
+3.  App 渲染前，远程调用到 SF 中的 EventThreadConnection==requestNextVsync 函数请求 Vsync-app 信号，该函数会修改 `EventThreadConnection#vsyncRequest` 的值为 `VSyncRequest==Single`，接着唤醒 wait 中的 EventThread 线程。
     
 4.  EventThread 唤醒后，调用到 VSyncCallbackRegistration::schedule 函数开始软件 Vsync 信号的计算分发。
     
@@ -164,7 +164,7 @@ App 申请 Vsync-app 信号的流程
 2.  接着以该时间安排一个 TimeKeeper 定时器，时间到达后，回调到 EventThread 对应的回调函数 EventThread::onVsync。
     
 
-6.  EventThread::onVsync 会构建一个 `DisplayEventReceiver::Event` 对象，插入 EventThread 线程的事件队列中，接着唤醒 EventThread
+6.  EventThread==onVsync 会构建一个 `DisplayEventReceiver==Event` 对象，插入 EventThread 线程的事件队列中，接着唤醒 EventThread
     
 7.  EventThread 唤醒后，读取到 Event，找到目标 EventThreadConnection，确定的主要标准是 `EventThreadConnection#vsyncRequest` 的值为 `VSyncRequest::Single`，然后通过 EventThreadConnection 的 socket 通信通道发送给 App，最后修改`EventThreadConnection#vsyncRequest` 的值为 SingleSuppressCallback。
     
@@ -185,6 +185,6 @@ App 申请 Vsync-app 信号的流程
     
 4.  接着以该时间安排一个 TimeKeeper 定时器，时间到达后，回调到对应的回调函数 MessageQueue::vsyncCallback。
     
-5.  MessageQueue::vsyncCallback 向 Looper 发送一个 Message，后续 Looper 回调到 Message 对应的回调函数 `MessageQueue::Handler::handleMessage`
+5.  MessageQueue==vsyncCallback 向 Looper 发送一个 Message，后续 Looper 回调到 Message 对应的回调函数 `MessageQueue==Handler::handleMessage`
     
-6.  在 `MessageQueue::Handler::handleMessage` 回调中会调用 Scheduler::onFrameSignal
+6.  在 `MessageQueue==Handler==handleMessage` 回调中会调用 Scheduler::onFrameSignal

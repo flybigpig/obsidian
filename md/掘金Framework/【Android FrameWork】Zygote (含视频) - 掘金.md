@@ -21,7 +21,7 @@ Zygote做为一个孵化器，会提前加载一些系统资源、创建Java虚�
 代码如下：
 
 ```
-#解析服务 并且添加到serviceList中
+[[解析服务]] 并且添加到serviceList中
 service zygote /system/bin/app_process64 -Xzygote /system/bin --zygote --start-system-server
     class main
     priority -20
@@ -38,7 +38,7 @@ service zygote /system/bin/app_process64 -Xzygote /system/bin --zygote --start-s
     onrestart restart wificond
     writepid /dev/cpuset/foreground/tasks
     
-#遍历serviceList 调用start函数 fork进程 execv执行app_process64
+[[遍历serviceList]] 调用start函数 fork进程 execv执行app_process64
 on nonencrypted class_start main class_start late_start
     
 ```
@@ -295,10 +295,10 @@ void AndroidRuntime::start(const char* className, const Vector<String8>& options
         } else {
             env->CallStaticVoidMethod(startClass, startMeth, strArray);
 
-#if 0
+[[if]] 0
             if (env->ExceptionCheck())
                 threadExitUncaughtException(env);
-#endif
+[[endif]]
         }
     }
     free(slashClassName);

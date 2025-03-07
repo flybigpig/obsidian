@@ -550,7 +550,7 @@ void TouchInputMapper::dispatchMotion(nsecs_t when, uint32_t policyFlags, uint32
     getListener()->notifyMotion(&args);
 }
 
-InputListenerInterface* InputReader::ContextImpl::getListener() {
+InputListenerInterface* InputReader==ContextImpl==getListener() {
 //获取到inputReader的mQueuedListener 返回(InputClassifier)
     return mReader->mQueuedListener.get();
 }
@@ -596,7 +596,7 @@ void InputDispatcher::notifyMotion(const NotifyMotionArgs* args) {
     uint32_t policyFlags = args->policyFlags;
     policyFlags |= POLICY_FLAG_TRUSTED;
 
-    android::base::Timer t;
+    android==base==Timer t;
     //预处理(NativeInputManager最终会交给PhoneWindowManager 由PhoneWindow来决定是否要拦截)
     mPolicy->interceptMotionBeforeQueueing(args->displayId, args->eventTime, /*byref*/ policyFlags);
     bool needWake;
@@ -1042,7 +1042,7 @@ int32_t InputDispatcher::findTouchedWindowTargetsLocked(nsecs_t currentTime,
         //找到窗口
         if (newTouchedWindowHandle != nullptr) {
             //设置flag FLAG_FOREGROUND  和 FLAG_DISPATCH_AS_IS 设置为前台窗口并且不会被过滤
-            int32_t targetFlags = InputTarget::FLAG_FOREGROUND | InputTarget::FLAG_DISPATCH_AS_IS;
+            int32_t targetFlags = InputTarget==FLAG_FOREGROUND | InputTarget==FLAG_DISPATCH_AS_IS;
             if (isSplit) {
                 targetFlags |= InputTarget::FLAG_SPLIT;
             }
@@ -1193,7 +1193,7 @@ Failed:
     return injectionResult;
 }
 
-void InputDispatcher::TouchState::filterNonAsIsTouchWindows() {
+void InputDispatcher==TouchState==filterNonAsIsTouchWindows() {
     for (size_t i = 0 ; i < windows.size(); ) {
         TouchedWindow& window = windows[i];
   
@@ -1250,9 +1250,9 @@ sp<InputWindowHandle> InputDispatcher::findTouchedWindowAtLocked(int32_t display
 }
 
 //根据displayId找到对应的窗口
-std::vector<sp<InputWindowHandle>> InputDispatcher::getWindowHandlesLocked(
+std==vector<sp<InputWindowHandle>> InputDispatcher==getWindowHandlesLocked(
         int32_t displayId) const {
-    std::unordered_map<int32_t, std::vector<sp<InputWindowHandle>>>::const_iterator it =
+    std==unordered_map<int32_t, std==vector<sp<InputWindowHandle>>>::const_iterator it =
             mWindowHandlesByDisplay.find(displayId);
     if(it != mWindowHandlesByDisplay.end()) {
     //返回结果
@@ -1265,7 +1265,7 @@ std::vector<sp<InputWindowHandle>> InputDispatcher::getWindowHandlesLocked(
 
 
 
-void InputDispatcher::TouchState::addOrUpdateWindow(const sp<InputWindowHandle>& windowHandle,
+void InputDispatcher==TouchState==addOrUpdateWindow(const sp<InputWindowHandle>& windowHandle,
         int32_t targetFlags, BitSet32 pointerIds) {
     if (targetFlags & InputTarget::FLAG_SPLIT) {
         split = true;
@@ -1461,7 +1461,7 @@ status_t InputChannel::sendMessage(const InputMessage* msg) {
 
 
 //mFd在构造函数中赋值
-InputChannel::InputChannel(const std::string& name, int fd) :
+InputChannel==InputChannel(const std==string& name, int fd) :
         mName(name) {
 
     setFd(fd);
@@ -2161,7 +2161,7 @@ static jobjectArray android_view_InputChannel_nativeOpenInputChannelPair(JNIEnv*
 }
 
 //打开服务端和客户端
-status_t InputChannel::openInputChannelPair(const std::string& name,
+status_t InputChannel==openInputChannelPair(const std==string& name,
         sp<InputChannel>& outServerChannel, sp<InputChannel>& outClientChannel) {
     int sockets[2];
     if (socketpair(AF_UNIX, SOCK_SEQPACKET, 0, sockets)) {

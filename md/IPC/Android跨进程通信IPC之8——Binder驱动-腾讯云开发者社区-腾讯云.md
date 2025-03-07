@@ -292,14 +292,14 @@ static int binder_mmap(struct file *filp, struct vm_area_struct *vma)
       // 释放锁
     mutex_unlock(&binder_mmap_lock);
 
-#ifdef CONFIG_CPU_CACHE_VIPT
+[[ifdef]] CONFIG_CPU_CACHE_VIPT
     if (cache_is_vipt_aliasing()) {
         while (CACHE_COLOUR((vma->vm_start ^ (uint32_t)proc->buffer))) {
             pr_info("binder_mmap: %d %lx-%lx maps %p bad alignment\n", proc->pid, vma->vm_start, vma->vm_end, proc->buffer);
             vma->vm_start += PAGE_SIZE;
         }
     }
-#endif
+[[endif]]
         //分配物理页的指针数组，大小等于用户虚拟内存/4K
     proc->pages = kzalloc(sizeof(proc->pages[0]) * ((vma->vm_end - vma->vm_start) / PAGE_SIZE), GFP_KERNEL);
     if (proc->pages == NULL) {
@@ -990,7 +990,7 @@ done:
 -   binder\_proc的requested\_threads\_started个数小于15(即最大线程个数)
 -   binder\_thread的looper状态为BINDER\_LOOPER\_STATE\_REGISTERED或者BINDER\_LOOPER\_STATE\_ENTERED
 
-那么问题来了，什么时候处理的响应码？通过上面的Binder通信协议图，可以知道处理响应码的过程是在用户态处理，下一篇文章会讲解到用户控件IPCThreadState类中IPCThreadState::waitForResponse()和IPCThreadState::executeCommand()两个方法共同处理Binder协议的18个响应码
+那么问题来了，什么时候处理的响应码？通过上面的Binder通信协议图，可以知道处理响应码的过程是在用户态处理，下一篇文章会讲解到用户控件IPCThreadState类中IPCThreadState==waitForResponse()和IPCThreadState==executeCommand()两个方法共同处理Binder协议的18个响应码
 
 ###### 1.3、BR\_PROTOCOL 响应码
 

@@ -172,8 +172,8 @@ Looper.loop();
 /** Initialize the current thread as a looper.
       * This gives you a chance to create handlers that then reference
       * this looper, before actually starting the loop. Be sure to call
-      * {@link #loop()} after calling this method, and end it by calling
-      * {@link #quit()}.
+      * {@link [[loop]]()} after calling this method, and end it by calling
+      * {@link [[quit]]()}.
       */
     public static void prepare() {
         prepare(true);
@@ -326,7 +326,7 @@ boolean enqueueMessage(Message msg, long when) {
 ```
 /**
      * Run the message queue in this thread. Be sure to call
-     * {@link #quit()} to end the loop.
+     * {@link [[quit]]()} to end the loop.
      */
     public static void loop() {
         final Looper me = myLooper();

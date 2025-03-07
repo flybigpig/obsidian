@@ -533,15 +533,15 @@ status_t IPCThreadState::waitForResponse(Parcel *reply, status_t *acquireResult)
             IF_LOG_COMMANDS() {
                 alog << "About to read/write, write size = " << mOut.dataSize() << endl;
             }
-            #if defined(HAVE_ANDROID_OS)
+            [[if]] defined(HAVE_ANDROID_OS)
             //通过ioctl不停的读写操作，跟Binder驱动进行通信
             if (ioctl(mProcess -> mDriverFD, BINDER_WRITE_READ, & bwr) >=0)
             err = NO_ERROR;
                     else
             err = -errno;
-            #else
+            [[else]]
             err = INVALID_OPERATION;
-            #endif
+            [[endif]]
             if (mProcess -> mDriverFD <= 0) {
                 err = -EBADF;
             }
@@ -1321,7 +1321,7 @@ restart:
 
 TLS是指Thread local storage(线程本地存储空间)，每个线程都拥有自己的TLS，并且是私有空间，线程之间不会共享。通过pthread\_getspecific()/pthread\_setspecific()函数可以获取/设置这些空间中的内容。从线程本地存储空间获的保存期中的IPCThreadState对象。
 
-###### 以后面的流程和上面的注册流程大致相同，主要流程也是 IPCThreadState:: transact()函数、IPCThreadState::writeTransactionData()函数、IPCThreadState::waitForResponse()函数和IPCThreadState.talkWithDriver()函数，由于上面已经讲解过了，这里就不详细说明了。我们从IPCThreadState.talkWithDriver() 开始继讲解
+###### 以后面的流程和上面的注册流程大致相同，主要流程也是 IPCThreadState:: transact()函数、IPCThreadState==writeTransactionData()函数、IPCThreadState==waitForResponse()函数和IPCThreadState.talkWithDriver()函数，由于上面已经讲解过了，这里就不详细说明了。我们从IPCThreadState.talkWithDriver() 开始继讲解
 
 ###### 4.2、IPCThreadState:: talkWithDriver()函数
 
@@ -1610,7 +1610,7 @@ readStrong的功能是flat\_binder\_object解析并创建BpBinder对象
 ###### 4.3.2、getStrongProxyForHandle()函数
 
 ```
-ProcessState::handle_entry* ProcessState::lookupHandleLocked(int32_t handle)
+ProcessState==handle_entry* ProcessState==lookupHandleLocked(int32_t handle)
 {
     const size_t N=mHandleToObject.size();
     //当handle大于mHandleToObject的长度时，进入该分支
@@ -1691,7 +1691,7 @@ status_t IPCThreadState::requestDeathNotification(int32_t handle, BpBinder* prox
 
 ```
 //frameworks/av/media/libmedia/IMediaDeathNotifier.cpp    78行
-void IMediaDeathNotifier::DeathNotifier::binderDied(const wp<IBinder>& who __unused) {
+void IMediaDeathNotifier==DeathNotifier==binderDied(const wp<IBinder>& who __unused) {
     SortedVector< wp<IMediaDeathNotifier> > list;
     {
         Mutex::Autolock _l(sServiceLock);
@@ -1719,7 +1719,7 @@ void IMediaDeathNotifier::DeathNotifier::binderDied(const wp<IBinder>& who __unu
 
 ```
 //frameworks/av/media/libmedia/IMediaDeathNotifier.cpp    101行
-IMediaDeathNotifier::DeathNotifier::~DeathNotifier()
+IMediaDeathNotifier==DeathNotifier==~DeathNotifier()
 {
     Mutex::Autolock _l(sServiceLock);
     sObitRecipients.clear();

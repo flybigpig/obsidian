@@ -228,7 +228,7 @@ public class TextureRenderer implements GLSurfaceView.Renderer {
 `顶点着色器`
 
 ```java
-#version 300 es
+[[version]] 300 es
 layout (location = 0) in vec4 vPosition;
 layout (location = 1) in vec2 aTextureCoord;
 //输出纹理坐标(s,t)
@@ -243,7 +243,7 @@ void main() {
 `片段着色器`
 
 ```java
-#version 300 es
+[[version]] 300 es
 precision mediump float;
 uniform sampler2D uTextureUnit;
 //接收刚才顶点着色器传入的纹理坐标(s,t)
@@ -299,7 +299,7 @@ glGenerateMipmap(GL_TEXTURE_2D);
 刚才也看到最终的显示效果有种拉伸的感觉，现在使用正交投影来调整这个显示效果，修改一下`顶点着色器`，加入矩阵，可以参考之前的例子：[android平台下OpenGL ES 3.0从矩形中看矩阵和正交投影](https://blog.csdn.net/byhook/article/details/83759218)。
 
 ```java
-#version 300 es
+[[version]] 300 es
 layout (location = 0) in vec4 vPosition;
 layout (location = 1) in vec2 aTextureCoord;
 //矩阵

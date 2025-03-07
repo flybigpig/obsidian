@@ -29,9 +29,9 @@ GLES30.glUniform1i(uniformSamplers, 0);
 
 ```java
 //这行是OpenGL ES 2.0中的声明
-#extension GL_OES_EGL_image_external : require
+[[extension]] GL_OES_EGL_image_external : require
 //这行是OpenGL ES 3.0中的声明
-#extension GL_OES_EGL_image_external_essl3 : require
+[[extension]] GL_OES_EGL_image_external_essl3 : require
 ```
 
 上面的过程就是使用这种扩展类型的纹理ID从创建到设置参数，再到真正的渲染整个过程，接下来再根据`一个完整的示例`看一下具体的旋转角度问题，因为在使用摄像头的时候很容易在预览的时候会出现倒立、镜像等问题。
@@ -277,7 +277,7 @@ public class CameraSurfaceRenderer implements GLSurfaceView.Renderer {
 `顶点着色器：`
 
 ```java
-#version 300 es
+[[version]] 300 es
 layout (location = 0) in vec4 vPosition;
 layout (location = 1) in vec4 aTextureCoord;
 //纹理矩阵
@@ -294,9 +294,9 @@ void main() {
 `片段着色器：`
 
 ```java
-#version 300 es
+[[version]] 300 es
 //OpenGL ES3.0外部纹理扩展
-#extension GL_OES_EGL_image_external_essl3 : require
+[[extension]] GL_OES_EGL_image_external_essl3 : require
 precision mediump float;
 uniform samplerExternalOES yuvTexSampler;
 in vec2 yuvTexCoords;
@@ -310,7 +310,7 @@ void main() {
 
 ```java
 //OpenGL ES2.0外部纹理扩展
-#extension GL_OES_EGL_image_external : require
+[[extension]] GL_OES_EGL_image_external : require
 ```
 
 `在启动的Activity中处理初始化的部分：`
@@ -336,9 +336,9 @@ private void setupView() {
 给相机添加黑白滤镜，修改`片段着色器`
 
 ```java
-#version 300 es
+[[version]] 300 es
 //OpenGL ES3.0外部纹理扩展
-#extension GL_OES_EGL_image_external_essl3 : require
+[[extension]] GL_OES_EGL_image_external_essl3 : require
 precision mediump float;
 uniform samplerExternalOES yuvTexSampler;
 in vec2 yuvTexCoords;

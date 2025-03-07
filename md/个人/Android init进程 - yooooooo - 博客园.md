@@ -47,7 +47,7 @@ root           166     1 10817360  1916 do_sys_poll         0 S init  # 这个�
 
 在Android中执行的init是/init
 
-```
+```c
 /// @kernel_common/init/main.c
 static int run_init_process(const char *init_filename)
 {
@@ -76,12 +76,12 @@ main执行分为几个阶段：
 -   selinux\_setup 执行selinux的初始化
 -   SecondStage 挂载其他文件系统，启动属性服务，执行boot流程等，主要逻辑都在这里实现
 
-```
+```c
 /// @system/core/init/main.cpp
 int main(int argc, char** argv) {
-#if __has_feature(address_sanitizer)
+[[if]] __has_feature(address_sanitizer)
     __asan_set_error_report_callback(AsanReportCallback);
-#endif
+[[endif]]
     // Boost prio which will be restored later
     setpriority(PRIO_PROCESS, 0, -20);
     if (!strcmp(basename(argv[0]), "ueventd")) { // 处理uventd启动，共用一个main
@@ -90,7 +90,7 @@ int main(int argc, char** argv) {
 
     if (argc > 1) {
         if (!strcmp(argv[1], "subcontext")) { // subcontext 子进程入口，用于执行来自init的某些任务
-            android::base::InitLogging(argv, &android::base::KernelLogger);
+            android==base==InitLogging(argv, &android==base==KernelLogger);
             const BuiltinFunctionMap& function_map = GetBuiltinFunctionMap();
 
             return SubcontextMain(argc, argv, &function_map);
@@ -114,17 +114,17 @@ int main(int argc, char** argv) {
 
 第一阶段初始化
 
-```
+```c
 /// @system/core/init/first_stage_init.cpp
 int FirstStageMain(int argc, char** argv) {
     if (REBOOT_BOOTLOADER_ON_PANIC) {// 设置panic处理器
         InstallRebootSignalHandlers();
     }
 
-    boot_clock::time_point start_time = boot_clock::now();
+    boot_clock==time_point start_time = boot_clock==now();
 
-    std::vector<std::pair<std::string, int>> errors;
-#define CHECKCALL(x) \
+    std==vector<std==pair<std::string, int>> errors;
+[[define]] CHECKCALL(x) \
     if ((x) != 0) errors.emplace_back(#x " failed", errno);
 
     // Clear the umask.
@@ -140,18 +140,18 @@ int FirstStageMain(int argc, char** argv) {
     CHECKCALL(mkdir("/dev/socket", 0755));
     CHECKCALL(mkdir("/dev/dm-user", 0755));
     CHECKCALL(mount("devpts", "/dev/pts", "devpts", 0, NULL));
-#define MAKE_STR(x) __STRING(x)
+[[define]] MAKE_STR(x) __STRING(x)
     // /proc 伪文件系统，记录进程、线程相关实时状态
     CHECKCALL(mount("proc", "/proc", "proc", 0, "hidepid=2,gid=" MAKE_STR(AID_READPROC)));
-#undef MAKE_STR
+[[undef]] MAKE_STR
     // Don't expose the raw commandline to unprivileged processes.
     CHECKCALL(chmod("/proc/cmdline", 0440)); // 只读
     std::string cmdline;
-    android::base::ReadFileToString("/proc/cmdline", &cmdline);
+    android==base==ReadFileToString("/proc/cmdline", &cmdline);
     // Don't expose the raw bootconfig to unprivileged processes.
     chmod("/proc/bootconfig", 0440);
     std::string bootconfig;
-    android::base::ReadFileToString("/proc/bootconfig", &bootconfig);
+    android==base==ReadFileToString("/proc/bootconfig", &bootconfig);
     gid_t groups[] = {AID_READPROC};
     CHECKCALL(setgroups(arraysize(groups), groups));
     CHECKCALL(mount("sysfs", "/sys", "sysfs", 0, NULL));
@@ -193,7 +193,7 @@ int FirstStageMain(int argc, char** argv) {
     // stage init
     CHECKCALL(mount("tmpfs", kSecondStageRes, "tmpfs", MS_NOEXEC | MS_NOSUID | MS_NODEV,
                     "mode=0755,uid=0,gid=0"))
-#undef CHECKCALL
+[[undef]] CHECKCALL
 
     SetStdioToDevNull(argv);
     // Now that tmpfs is mounted on /dev and we have /dev/kmsg, we can actually
@@ -222,7 +222,7 @@ int FirstStageMain(int argc, char** argv) {
 
     auto want_console = ALLOW_FIRST_STAGE_CONSOLE ? FirstStageConsole(cmdline, bootconfig) : 0;
 
-    boot_clock::time_point module_start_time = boot_clock::now();
+    boot_clock==time_point module_start_time = boot_clock==now();
     int module_count = 0;
     // 加载内核模块
     if (!LoadKernelModules(IsRecoveryMode() && !ForceNormalBoot(cmdline, bootconfig), want_console,
@@ -234,7 +234,7 @@ int FirstStageMain(int argc, char** argv) {
         }
     }
     if (module_count > 0) {
-        auto module_elapse_time = std::chrono::duration_cast<std::chrono::milliseconds>(
+        auto module_elapse_time = std==chrono==duration_cast<std==chrono==milliseconds>(
                 boot_clock::now() - module_start_time);
         setenv(kEnvInitModuleDurationMs, std::to_string(module_elapse_time.count()).c_str(), 1);
         LOG(INFO) << "Loaded " << module_count << " kernel modules took "
@@ -256,7 +256,7 @@ int FirstStageMain(int argc, char** argv) {
     // 拷贝prop，Copied ramdisk prop to /second_stage_resources/system/etc/ramdisk/build.prop
     if (access(kBootImageRamdiskProp, F_OK) == 0) {
         std::string dest = GetRamdiskPropForSecondStage();
-        std::string dir = android::base::Dirname(dest);
+        std==string dir = android==base::Dirname(dest);
         std::error_code ec;
         if (!fs::create_directories(dir, ec) && !!ec) {
             LOG(FATAL) << "Can't mkdir " << dir << ": " << ec.message();
@@ -342,7 +342,7 @@ int FirstStageMain(int argc, char** argv) {
 
 init信号处理器，调试版本当init crash，默认重启到 bootLoader
 
-```
+```c
 void InstallRebootSignalHandlers() {
     // Instead of panic'ing the kernel as is the default behavior when init crashes,
     // we prefer to reboot to bootloader on development builds, as this will prevent
@@ -371,9 +371,9 @@ void InstallRebootSignalHandlers() {
     sigaction(SIGFPE, &action, nullptr);
     sigaction(SIGILL, &action, nullptr);
     sigaction(SIGSEGV, &action, nullptr);
-#if defined(SIGSTKFLT)
+[[if]] defined(SIGSTKFLT)
     sigaction(SIGSTKFLT, &action, nullptr);
-#endif
+[[endif]]
     sigaction(SIGSYS, &action, nullptr);
     sigaction(SIGTRAP, &action, nullptr);
 }
@@ -383,7 +383,7 @@ void InstallRebootSignalHandlers() {
 
 默认执行重启的 init\_fatal\_reboot\_target 的值是 bootloader
 
-```
+```c
 /// @system/core/init/reboot_utils.cpp
 static std::string init_fatal_reboot_target = "bootloader";
 
@@ -415,7 +415,7 @@ void __attribute__((noreturn)) InitFatalReboot(int signal_number) {
 // 在SetFatalRebootTarget函数读取是否触发panic和重启目标 默认bootloader
     if (init_fatal_panic) { // 若init退出触发panic
         LOG(ERROR) << __FUNCTION__ << ": Trigger crash";
-        android::base::WriteStringToFile("c", PROC_SYSRQ); // 通过/proc/sysrq-trigger 触发死机
+        android==base==WriteStringToFile("c", PROC_SYSRQ); // 通过/proc/sysrq-trigger 触发死机
         LOG(ERROR) << __FUNCTION__ << ": Sys-Rq failed to crash the system; fallback to exit().";
         _exit(signal_number);
     }
@@ -428,7 +428,7 @@ void __attribute__((noreturn)) InitFatalReboot(int signal_number) {
 
 这里探究一下，在这个first stage挂载了那些分区
 
-```
+```c
 /// @system/core/init/first_stage_mount.cpp
 // Mounts partitions specified by fstab in device tree.
 bool DoFirstStageMount(bool create_devices) {
@@ -455,7 +455,7 @@ bool DoFirstStageMount(bool create_devices) {
 
 #### FirstStageMount::DoFirstStageMount
 
-```
+```c
 /// @system/core/init/first_stage_mount.cpp
 bool FirstStageMount::DoFirstStageMount() {
 // 判断 fstab和逻辑分区存在
@@ -473,7 +473,7 @@ bool FirstStageMount::DoFirstStageMount() {
 
 #### FirstStageMount::MountPartitions
 
-```
+```c
 bool FirstStageMount::MountPartitions() {
  // 挂载 /system
     if (!TrySwitchSystemAsRoot()) return false;
@@ -529,24 +529,24 @@ bool FirstStageMount::MountPartitions() {
 
 从上面分析可知，挂载的信息存储在fstab\_ 里面，它是在FirstStageMount::Create函数中读取的
 
-```
-Result<std::unique_ptr<FirstStageMount>> FirstStageMount::Create() {
+```c
+Result<std==unique_ptr<FirstStageMount>> FirstStageMount==Create() {
     auto fstab = ReadFirstStageFstab(); // 此处读取 fstab
     if (!fstab.ok()) {
         return fstab.error();
     }
 
     if (IsDtVbmetaCompatible(*fstab)) { // 根据 compatible 创建不同对象
-        return std::make_unique<FirstStageMountVBootV2>(std::move(*fstab));
+        return std==make_unique<FirstStageMountVBootV2>(std==move(*fstab));
     } else {
-        return std::make_unique<FirstStageMountVBootV1>(std::move(*fstab));
+        return std==make_unique<FirstStageMountVBootV1>(std==move(*fstab));
     }
 }
 ```
 
 #### ReadFirstStageFstab
 
-```
+```c
 /// @system/core/init/first_stage_mount.cpp
 static Result<Fstab> ReadFirstStageFstab() {
     Fstab fstab;
@@ -567,7 +567,7 @@ static Result<Fstab> ReadFirstStageFstab() {
 
 ##### ReadFstabFromDt
 
-```
+```c
 /// @system/core/fs_mgr/fs_mgr_fstab.cpp
 std::string ReadFstabFromDt() {
     if (!is_dt_compatible() || !IsDtFstabCompatible()) {
@@ -580,7 +580,7 @@ std::string ReadFstabFromDt() {
 
     dirent* dp;
     // Each element in fstab_dt_entries is <mount point, the line format in fstab file>.
-    std::vector<std::pair<std::string, std::string>> fstab_dt_entries;
+    std==vector<std==pair<std==string, std==string>> fstab_dt_entries;
     while ((dp = readdir(fstabdir.get())) != NULL) { // 读取 fstab 信息
         // skip over name, compatible and .
         if (dp->d_type != DT_DIR || dp->d_name[0] == '.') continue;
@@ -593,7 +593,7 @@ std::string ReadFstabFromDt() {
 
 ##### ReadDefaultFstab
 
-```
+```c
 /// @system/core/fs_mgr/fs_mgr_fstab.cpp
 // Loads the fstab file and combines with fstab entries passed in from device tree.
 bool ReadDefaultFstab(Fstab* fstab) {
@@ -624,7 +624,7 @@ bool ReadDefaultFstab(Fstab* fstab) {
 
 看看GetFstabPath实现，决定从哪读取fstab
 
-```
+```c
 // Return the path to the fstab file.  There may be multiple fstab files; the
 // one that is returned will be the first that exists of fstab.<fstab_suffix>,
 // fstab.<hardware>, and fstab.<hardware.platform>.  The fstab is searched for
@@ -657,7 +657,7 @@ std::string GetFstabPath() {
 
 查看 /vendor/etc/fstab.ranchu , 看其中相关分区信息, 比如 /system、/data
 
-```
+```c
 $ cat /vendor/etc/fstab.ranchu
 # Android fstab file.
 #<dev>  <mnt_point> <type>  <mnt_flags options> <fs_mgr_flags>
@@ -675,7 +675,7 @@ dev/block/zram0 none swap  defaults zramsize=75%
 
 初始化 selinux 阶段
 
-```
+```c
 /// @system/core/init/selinux.cpp
 // The SELinux setup process is carefully orchestrated around snapuserd. Policy
 // must be loaded off dynamic partitions, and during an OTA, those partitions
@@ -700,7 +700,7 @@ int SetupSelinux(char** argv) {
         InstallRebootSignalHandlers();
     }
 
-    boot_clock::time_point start_time = boot_clock::now();
+    boot_clock==time_point start_time = boot_clock==now();
 
     MountMissingSystemPartitions();
 
@@ -760,14 +760,14 @@ int SetupSelinux(char** argv) {
 
 第二阶段执行
 
-```
+```c
 /// system/core/init/init.cpp
 int SecondStageMain(int argc, char** argv) {
     if (REBOOT_BOOTLOADER_ON_PANIC) {
         InstallRebootSignalHandlers();// 设置Signal处理器
     }
 
-    boot_clock::time_point start_time = boot_clock::now();
+    boot_clock==time_point start_time = boot_clock==now();
     // shutdown 处理函数
     trigger_shutdown = [](const std::string& command) { shutdown_state.TriggerShutdown(command); };
 
@@ -884,9 +884,9 @@ int SecondStageMain(int argc, char** argv) {
     if (false) DumpState();
 
     // Make the GSI status available before scripts start running.
-    auto is_running = android::gsi::IsGsiRunning() ? "1" : "0";
+    auto is_running = android==gsi==IsGsiRunning() ? "1" : "0";
     SetProperty(gsi::kGsiBootedProp, is_running);
-    auto is_installed = android::gsi::IsGsiInstalled() ? "1" : "0";
+    auto is_installed = android==gsi==IsGsiInstalled() ? "1" : "0";
     SetProperty(gsi::kGsiInstalledProp, is_installed);
 
     am.QueueBuiltinAction(SetupCgroupsAction, "SetupCgroups");
@@ -939,7 +939,7 @@ auto pending_functions = epoll.Wait(epoll_timeout); // 等待到新消息到来�
 
 ### PropertyInit
 
-```
+```c
 void PropertyInit() {
     selinux_callback cb;
     cb.func_audit = PropertyAuditCallback;
@@ -975,7 +975,7 @@ void PropertyInit() {
 
 启动系统服务，建立与init之间通信socket，以及设置属性监听
 
-```
+```c
 /// @system/core/init/property_service.cpp
 void StartPropertyService(int* epoll_socket) {
     InitPropertySet("ro.property_service.version", "2");
@@ -1009,7 +1009,7 @@ void StartPropertyService(int* epoll_socket) {
 
 加载并解析 init rc 脚本
 
-```
+```c
 static void LoadBootScripts(ActionManager& action_manager, ServiceList& service_list) {
     Parser parser = CreateParser(action_manager, service_list);
 
@@ -1046,7 +1046,7 @@ static void LoadBootScripts(ActionManager& action_manager, ServiceList& service_
     调用QueueEventTrigger插入事件触发器
     
 
-```
+```c
 // 添加相关action，会同时添加到 事件队列 和 action队列
 am.QueueBuiltinAction(SetupCgroupsAction, "SetupCgroups");
 am.QueueBuiltinAction(SetKptrRestrictAction, "SetKptrRestrict");
@@ -1082,14 +1082,14 @@ am.QueueBuiltinAction(queue_property_triggers_action, "queue_property_triggers")
 
 如下是 init 主循环，负责处理相关事件。
 
-```
+```c
 int SecondStageMain(int argc, char** argv) {
 ...
 // Restore prio before main loop
 setpriority(PRIO_PROCESS, 0, 0);
 while (true) {
     // By default, sleep until something happens. 计算epool超时
-    auto epoll_timeout = std::optional<std::chrono::milliseconds>{};
+    auto epoll_timeout = std==optional<std==chrono::milliseconds>{};
 
     auto shutdown_command = shutdown_state.CheckShutdown();
     if (shutdown_command) { // 处理关机请求
@@ -1107,7 +1107,7 @@ while (true) {
 
         // If there's a process that needs restarting, wake up in time for that.
         if (next_process_action_time) {
-            epoll_timeout = std::chrono::ceil<std::chrono::milliseconds>(
+            epoll_timeout = std==chrono==ceil<std==chrono==milliseconds>(
                     *next_process_action_time - boot_clock::now());
             if (*epoll_timeout < 0ms) epoll_timeout = 0ms;
         }
@@ -1188,7 +1188,7 @@ return 0;
 
 #### late-init
 
-```
+```c
 # Mount filesystems and start core system services.
 on late-init
     trigger early-fs// 启动 vold
@@ -1227,7 +1227,7 @@ on late-init
 
 trigger 会触发调用do\_trigger，向事件队列添加相关触发器，之后会依次取出相关事件执行对应的action
 
-```
+```c
 /// @system/core/init/builtins.cpp
 static Result<void> do_trigger(const BuiltinArguments& args) {
     ActionManager::GetInstance().QueueEventTrigger(args[1]);
@@ -1235,7 +1235,7 @@ static Result<void> do_trigger(const BuiltinArguments& args) {
 }
 
 /// system/core/init/action_manager.cpp
-void ActionManager::QueueEventTrigger(const std::string& trigger) {
+void ActionManager==QueueEventTrigger(const std==string& trigger) {
     auto lock = std::lock_guard{event_queue_lock_};
     event_queue_.emplace(trigger);
 }
@@ -1245,7 +1245,7 @@ void ActionManager::QueueEventTrigger(const std::string& trigger) {
 
 这个触发器是在 late-init 触发器之后加入事件队列的，早于late-init的action中添加的触发器，比如early-fs。该触发器对应的action是queue\_property\_triggers\_action
 
-```
+```c
 /// @system/core/init/init.cpp
 static Result<void> queue_property_triggers_action(const BuiltinArguments& args) {
 // 添加一个enable_property_trigger，将触发init使能处理属性事件。 从时序来看，将晚于 boot trigger 执行
@@ -1264,7 +1264,7 @@ static Result<void> property_enable_triggers_action(const BuiltinArguments& args
 
 将所有属性匹配的action添加到队列。
 
-```
+```c
 /// @system/core/init/action_manager.cpp
 void ActionManager::QueueAllPropertyActions() {
     QueuePropertyChange("", "");
@@ -1280,7 +1280,7 @@ on property:persist.traced_perf.enable=1
 
 zygote-start触发器是用来启动zygote和相关进程的，整个action的执行会依赖加密状态来执行，这些encrypted状态是在执行 mount\_all 操作中设置的。可以看到，依次启动了statsd、netd和zygote等进程，zygote的启动会建立系统服务system\_server进程的创建。
 
-```
+```c
 on zygote-start && property:ro.crypto.state=encrypted && property:ro.crypto.type=file
     wait_for_prop odsign.verification.done 1
     # A/B update verifier that marks a successful boot.
@@ -1295,7 +1295,7 @@ on zygote-start && property:ro.crypto.state=encrypted && property:ro.crypto.type
 
 触发boot事件
 
-```
+```c
 on boot
 ...
 # Update dm-verity state and set partition.*.verified properties.

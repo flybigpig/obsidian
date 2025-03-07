@@ -8,10 +8,10 @@ status_t result = mChannel->receiveMessage(&mMsg);
 ```
 status_t InputConsumer::consume(InputEventFactoryInterface* factory,  
         bool consumeBatches, nsecs_t frameTime, uint32_t* outSeq, InputEvent** outEvent) {  
-#if DEBUG_TRANSPORT_ACTIONS  
+[[if]] DEBUG_TRANSPORT_ACTIONS  
     ALOGD("channel '%s' consumer ~ consume: consumeBatches=%s, frameTime=%" PRId64,  
             mChannel->getName().c_str(), consumeBatches ? "true" : "false", frameTime);  
-#endif  
+[[endif]]  
   
     *outSeq = 0;  
     *outEvent = nullptr;  
@@ -29,10 +29,10 @@ status_t InputConsumer::consume(InputEventFactoryInterface* factory,
                 if (consumeBatches || result != WOULD_BLOCK) {  
                     result = consumeBatch(factory, frameTime, outSeq, outEvent);  
                     if (*outEvent) {  
-#if DEBUG_TRANSPORT_ACTIONS  
+[[if]] DEBUG_TRANSPORT_ACTIONS  
                         ALOGD("channel '%s' consumer ~ consumed batch event, seq=%u",  
                                 mChannel->getName().c_str(), *outSeq);  
-#endif  
+[[endif]]  
                         break;  
                     }  
                 }  
@@ -48,10 +48,10 @@ status_t InputConsumer::consume(InputEventFactoryInterface* factory,
             initializeKeyEvent(keyEvent, &mMsg);  
             *outSeq = mMsg.body.key.seq;  
             *outEvent = keyEvent;  
-#if DEBUG_TRANSPORT_ACTIONS  
+[[if]] DEBUG_TRANSPORT_ACTIONS  
             ALOGD("channel '%s' consumer ~ consumed key event, seq=%u",  
                     mChannel->getName().c_str(), *outSeq);  
-#endif  
+[[endif]]  
             break;  
         }  
   
@@ -61,10 +61,10 @@ status_t InputConsumer::consume(InputEventFactoryInterface* factory,
                 Batch& batch = mBatches.editItemAt(batchIndex);  
                 if (canAddSample(batch, &mMsg)) {  
                     batch.samples.push(mMsg);  
-#if DEBUG_TRANSPORT_ACTIONS  
+[[if]] DEBUG_TRANSPORT_ACTIONS  
                     ALOGD("channel '%s' consumer ~ appended to batch event",  
                             mChannel->getName().c_str());  
-#endif  
+[[endif]]  
                     break;  
                 } else if (isPointerEvent(mMsg.body.motion.source) &&  
                         mMsg.body.motion.action == AMOTION_EVENT_ACTION_CANCEL) {  
@@ -85,11 +85,11 @@ status_t InputConsumer::consume(InputEventFactoryInterface* factory,
                     if (result) {  
                         return result;  
                     }  
-#if DEBUG_TRANSPORT_ACTIONS  
+[[if]] DEBUG_TRANSPORT_ACTIONS  
                     ALOGD("channel '%s' consumer ~ consumed batch event and "  
                             "deferred current event, seq=%u",  
                             mChannel->getName().c_str(), *outSeq);  
-#endif  
+[[endif]]  
                     break;  
                 }  
             }  
@@ -100,10 +100,10 @@ status_t InputConsumer::consume(InputEventFactoryInterface* factory,
                 mBatches.push();  
                 Batch& batch = mBatches.editTop();  
                 batch.samples.push(mMsg);  
-#if DEBUG_TRANSPORT_ACTIONS  
+[[if]] DEBUG_TRANSPORT_ACTIONS  
                 ALOGD("channel '%s' consumer ~ started batch event",  
                         mChannel->getName().c_str());  
-#endif  
+[[endif]]  
                 break;  
             }  
   
@@ -115,10 +115,10 @@ status_t InputConsumer::consume(InputEventFactoryInterface* factory,
             *outSeq = mMsg.body.motion.seq;  
             *outEvent = motionEvent;  
   
-#if DEBUG_TRANSPORT_ACTIONS  
+[[if]] DEBUG_TRANSPORT_ACTIONS  
             ALOGD("channel '%s' consumer ~ consumed motion event, seq=%u",  
                     mChannel->getName().c_str(), *outSeq);  
-#endif  
+[[endif]]  
             break;  
         }  
   

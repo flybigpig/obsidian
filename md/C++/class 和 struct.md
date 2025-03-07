@@ -13,7 +13,7 @@
 ### 示例：
 
 ```
-#include <iostream>
+[[include]] <iostream>
 using namespace std;
 
 // struct 中的成员默认为 public
@@ -66,7 +66,7 @@ x = 20
 ### 示例：
 
 ```
-#include <iostream>
+[[include]] <iostream>
 using namespace std;
 
 struct BaseStruct {
@@ -140,7 +140,7 @@ Base x = 20
 ### 示例总结：
 
 ```
-#include <iostream>
+[[include]] <iostream>
 using namespace std;
 
 // struct 的使用
