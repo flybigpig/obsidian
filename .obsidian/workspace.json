@@ -78,7 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 405.5
+    "width": 297.5
   },
   "right": {
     "id": "9529d323d9cfa4b3",
@@ -176,7 +176,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 343.5
+    "width": 233.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -191,10 +191,10 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "f84ce6d2fe2622cd",
+  "active": "121fbbe92fe8c160",
   "lastOpenFiles": [
-    "md/个人/Android 应用层开发Framework必知必会 - 知乎.md",
     "conflict-files-obsidian-git.md",
+    "md/个人/Android 应用层开发Framework必知必会 - 知乎.md",
     "md/个人/ActivityManagerService - Binder.md",
     "md/个人/Android 数据Parcel序列化过程源码分析.md",
     "md/个人/Android Binder通信数据结构介绍_不同传输类型下binder的结构-CSDN博客.md",
