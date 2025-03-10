@@ -20,8 +20,21 @@
               "icon": "lucide-file",
               "title": "硬件抽象层（HAL）的代码示例"
             }
+          },
+          {
+            "id": "d74c487c20fedf38",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.8.9"
+              },
+              "icon": "lucide-book-up",
+              "title": "Release Notes 1.8.9"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -188,11 +201,10 @@
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
       "markdown-importer:打开 Markdown 格式转换器": false,
-      "obsidian-git:Open Git source control": false,
-      "obsidian-excalidraw-plugin:新建绘图文件": false
+      "obsidian-git:Open Git source control": false
     }
   },
-  "active": "8e2685d6beb88fb4",
+  "active": "d74c487c20fedf38",
   "lastOpenFiles": [
     "md/个人/性能优化.md",
     "md/个人/优化.md",
