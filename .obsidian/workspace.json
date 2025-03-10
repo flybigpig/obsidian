@@ -191,14 +191,15 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "121fbbe92fe8c160",
+  "active": "f84ce6d2fe2622cd",
   "lastOpenFiles": [
+    "md/个人/Android 应用层开发Framework必知必会 - 知乎.md",
+    "conflict-files-obsidian-git.md",
     "md/个人/ActivityManagerService - Binder.md",
     "md/个人/Android 数据Parcel序列化过程源码分析.md",
     "md/个人/Android Binder通信数据结构介绍_不同传输类型下binder的结构-CSDN博客.md",
     "md/个人/Android Framework system_server进程启动_startapexservices-CSDN博客.md",
     "md/个人/硬件抽象层（HAL）的代码示例.md",
-    "md/个人/Android 应用层开发Framework必知必会 - 知乎.md",
     "md/个人/性能优化.md",
     "md/个人/优化.md",
     "md/个人/窗口动画为什么要单独再建一个 leash 图层来做动画而不是用原来的图层.md",
@@ -220,7 +221,6 @@
     "md/SurfaceFlinger/Android Systrace 基础知识 - SurfaceFlinger 解读 · Android Performance.md",
     "md/SurfaceFlinger/显示图形系统分析之SurfaceFlinger启动流程显示图形系统中，避不开的SurfaceFlinger非常重要，对于 - 掘金.md",
     "md/framework系统/Android Handler机制7之消息发送-腾讯云开发者社区-腾讯云.md",
-    "md/framework系统/Android Handler机制5之Message简介与消息对象对象池-腾讯云开发者社区-腾讯云.md",
     "f39805ccabec34bac1e4990daf7a02f.png",
     "f39805ccabec34bac1e4990daf7a02f 1.png",
     "pic/Pasted image 20250218094344.png",
