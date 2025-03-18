@@ -14,7 +14,7 @@
               "type": "markdown",
               "state": {
                 "file": "md/千里马/千里马android framework车机车载手机智能驾驶双屏互动实现方案_android 千里马bolg-CSDN博客.md",
-                "mode": "source",
+                "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
@@ -53,7 +53,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "千里马",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -74,8 +74,7 @@
               "title": "书签"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -192,7 +191,7 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "8e2685d6beb88fb4",
+  "active": "121fbbe92fe8c160",
   "lastOpenFiles": [
     "md/个人/深入研究Android启动速度优化（上）- 看完这些启动优化已经完成80_了_android 分析app的启动流程跟启动时间-CSDN博客.md",
     "md/千里马/千里马android framework车机车载手机智能驾驶双屏互动实现方案_android 千里马bolg-CSDN博客.md",
