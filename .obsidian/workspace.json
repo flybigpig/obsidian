@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/个人/Android Framework 面试集合——Binder篇 - 知乎.md",
+                "file": "md/千里马/千里马android framework车机车载手机智能驾驶双屏互动实现方案_android 千里马bolg-CSDN博客.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Android Framework 面试集合——Binder篇 - 知乎"
+              "title": "千里马android framework车机车载手机智能驾驶双屏互动实现方案_android 千里马bolg-CSDN博客"
             }
           }
         ]
@@ -53,7 +53,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "千里马",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -74,7 +74,8 @@
               "title": "书签"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -142,13 +143,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "md/个人/Android Framework 面试集合——Binder篇 - 知乎.md",
+                "file": "md/千里马/千里马android framework车机车载手机智能驾驶双屏互动实现方案_android 千里马bolg-CSDN博客.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Android Framework 面试集合——Binder篇 - 知乎 的大纲"
+              "title": "千里马android framework车机车载手机智能驾驶双屏互动实现方案_android 千里马bolg-CSDN博客 的大纲"
             }
           },
           {
@@ -176,7 +177,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 431.5
+    "width": 309.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -191,21 +192,23 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "f84ce6d2fe2622cd",
+  "active": "8e2685d6beb88fb4",
   "lastOpenFiles": [
-    "md/个人/详解DiffUtils、Myers算法和 Jetpack Compose详细地介绍Android中基于Mayers算法的 - 掘金.md",
     "md/个人/深入研究Android启动速度优化（上）- 看完这些启动优化已经完成80_了_android 分析app的启动流程跟启动时间-CSDN博客.md",
+    "md/千里马/千里马android framework车机车载手机智能驾驶双屏互动实现方案_android 千里马bolg-CSDN博客.md",
+    "md/千里马",
+    "md/个人/开机优化.md",
+    "md/个人/Android Framework 面试集合——Binder篇 - 知乎.md",
+    "md/个人/详解DiffUtils、Myers算法和 Jetpack Compose详细地介绍Android中基于Mayers算法的 - 掘金.md",
     "md/个人/【Android Framework系列】第8章 事件分发你真了解吗？_dispatcheventlocked-CSDN博客.md",
     "md/个人/马牛与牛马.md",
     "md/个人/【拒绝岁月史书】胖猫谭竹事件最全解析+存档记录 - 知乎.md",
     "md/个人/Linux Shell 脚本编程入门1——核心基础语法什么是 Shell 脚本？我们把多个 linux 命令写进一个文件 - 掘金.md",
-    "md/个人/Android Framework 面试集合——Binder篇 - 知乎.md",
     "md/DeepSeek/adb shell 命令进行kill进程.md",
     "md/DeepSeek/豆包.md",
     "md/个人/windows-gitlab.md",
     "md/个人/Zygote.md",
     "md/个人/聊一聊Android的消息机制 - OSCHINA - 中文开源技术交流社区.md",
-    "md/个人/千里马android framework车机车载手机智能驾驶双屏互动实现方案_android 千里马bolg-CSDN博客.md",
     "md/个人/做一做Android消息机制native层实战demo.md",
     "md/个人/Android Binder通信数据结构介绍_不同传输类型下binder的结构-CSDN博客.md",
     "md/个人/Android Binder机制(二) Binder中的数据结构  skywang.md",
@@ -217,8 +220,6 @@
     "md/个人/硬件抽象层（HAL）的代码示例.md",
     "md/个人/性能优化.md",
     "md/个人/优化.md",
-    "md/个人/窗口动画为什么要单独再建一个 leash 图层来做动画而不是用原来的图层.md",
-    "md/个人/深入研究Android启动速度优化（下）- 不敢说100_秒开，但这样做“雀食”是快前言：生活不止眼前的苟且，还有诗和远 - 掘金.md",
     "Effective+PyCharm+(大语言模型翻译中文版).pdf",
     "写给应用开发的+Android+Framework+教程(1).pdf",
     "f39805ccabec34bac1e4990daf7a02f.png",
@@ -239,7 +240,6 @@
     "hexo",
     "md/SurfaceFlinger",
     "md/努比亚",
-    "md/GPT",
     "Excalidraw/未命名 1.canvas"
   ]
 }
