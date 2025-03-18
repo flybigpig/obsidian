@@ -187,11 +187,14 @@
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
       "markdown-importer:打开 Markdown 格式转换器": false,
-      "obsidian-git:Open Git source control": false
+      "obsidian-git:Open Git source control": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
   "active": "121fbbe92fe8c160",
   "lastOpenFiles": [
+    "md/个人/Linux Shell 脚本编程入门1——核心基础语法什么是 Shell 脚本？我们把多个 linux 命令写进一个文件 - 掘金.md",
+    "md/个人/Android Framework 面试集合——Binder篇 - 知乎.md",
     "md/DeepSeek/adb shell 命令进行kill进程.md",
     "md/个人/【拒绝岁月史书】胖猫谭竹事件最全解析+存档记录 - 知乎.md",
     "md/DeepSeek/豆包.md",
@@ -216,8 +219,6 @@
     "md/个人/深入研究Android启动速度优化（上）- 看完这些启动优化已经完成80_了_android 分析app的启动流程跟启动时间-CSDN博客.md",
     "md/个人/Android IPC数据在内核空间中的发送过程分析_安卓系统内核发短信流程-CSDN博客.md",
     "md/个人/Android IPC数据在内核空间中的发送过程分析.md",
-    "md/个人/Android Wifi断开问题分析和802.11原因码_assoc rsp 0x001e-CSDN博客.md",
-    "md/个人/Android 性能优化（一）内存优化为什么要做内存优化 内存作为App运行必需的资源，对用户体验的影响非常明显。如果内 - 掘金.md",
     "Effective+PyCharm+(大语言模型翻译中文版).pdf",
     "写给应用开发的+Android+Framework+教程(1).pdf",
     "f39805ccabec34bac1e4990daf7a02f.png",
