@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/个人/Android系统启动流程（四）Launcher进程启动过程解析（附带面试题）-CSDN博客.md",
+                "file": "md/实践/Android Launcher3 首屏图标锁定技术方案解析-CSDN博客.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Android系统启动流程（四）Launcher进程启动过程解析（附带面试题）-CSDN博客"
+              "title": "Android Launcher3 首屏图标锁定技术方案解析-CSDN博客"
             }
           }
         ]
@@ -193,8 +193,10 @@
   },
   "active": "121fbbe92fe8c160",
   "lastOpenFiles": [
+    "md/实践/深度解析  Android 13 Launcher3分页指示器改造：横线变圆点实战指南-CSDN博客.md",
     "md/实践/Android Launcher3终极改造：全屏应用展示实战！深度解析去除Hotseat的隐藏技巧-CSDN博客.md",
     "md/个人/Android系统启动流程（四）Launcher进程启动过程解析（附带面试题）-CSDN博客.md",
+    "md/实践/Android Launcher3 首屏图标锁定技术方案解析-CSDN博客.md",
     "md/实践/Android 13深度定制：SystemUI状态栏时间居中显示终极实战指南-CSDN博客.md",
     "md/个人/Android 性能优化（一）内存优化为什么要做内存优化 内存作为App运行必需的资源，对用户体验的影响非常明显。如果内 - 掘金.md",
     "md/实践",
@@ -219,8 +221,6 @@
     "md/个人/聊一聊Android的消息机制 - OSCHINA - 中文开源技术交流社区.md",
     "md/个人/做一做Android消息机制native层实战demo.md",
     "md/个人/Android Binder通信数据结构介绍_不同传输类型下binder的结构-CSDN博客.md",
-    "md/个人/Android Binder机制(二) Binder中的数据结构  skywang.md",
-    "conflict-files-obsidian-git.md",
     "Effective+PyCharm+(大语言模型翻译中文版).pdf",
     "写给应用开发的+Android+Framework+教程(1).pdf",
     "f39805ccabec34bac1e4990daf7a02f.png",
