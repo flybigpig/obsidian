@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/个人/init.rc.md",
+                "file": "else/通过Samba配置将虚拟机内存映射到主机盘符_在windows中 如何把samba服务器建立的共享目录,映射到一个分区盘上-CSDN博客.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "init.rc"
+              "title": "通过Samba配置将虚拟机内存映射到主机盘符_在windows中 如何把samba服务器建立的共享目录,映射到一个分区盘上-CSDN博客"
             }
           }
         ]
@@ -193,12 +193,13 @@
   },
   "active": "121fbbe92fe8c160",
   "lastOpenFiles": [
+    "else/金瓶梅.md",
+    "else/阿豪.md",
+    "else/【拒绝岁月史书】胖猫谭竹事件最全解析+存档记录 - 知乎.md",
+    "md/个人/init.rc.md",
     "md/DeepSeek/GPT40-mini.md",
     "md/个人/Handler-sendMessageAtTime.md",
     "md/个人/优化.md",
-    "else/金瓶梅.md",
-    "else/【拒绝岁月史书】胖猫谭竹事件最全解析+存档记录 - 知乎.md",
-    "else/阿豪.md",
     "md/个人/安卓逆向基础知识之JNI开发与so层逆向基础.md",
     "md/个人/做一做Android消息机制native层实战demo.md",
     "else/通过Samba配置将虚拟机内存映射到主机盘符_在windows中 如何把samba服务器建立的共享目录,映射到一个分区盘上-CSDN博客.md",
@@ -219,7 +220,6 @@
     "md/个人/Android 应用层开发Framework必知必会 - 知乎.md",
     "md/个人/Android冷启动优化终极指南：让APP比微信还快的7个黑科技.md",
     "md/个人/揭秘Activity“重生”的面纱---Activity管理系列.md",
-    "md/千里马/千里马android framework车机车载手机智能驾驶双屏互动实现方案_android 千里马bolg-CSDN博客.md",
     "md/千里马",
     "Effective+PyCharm+(大语言模型翻译中文版).pdf",
     "写给应用开发的+Android+Framework+教程(1).pdf",
