@@ -1,0 +1,842 @@
+聊一聊 Android 的消息机制
+
+侯 亮
+
+## 1 概述
+
+在 Android 平台上，主要用到两种通信机制，即 Binder 机制和消息机制，前者用于跨进程通信，后者用于进程内部通信。
+
+从技术实现上来说，消息机制还是比较简单的。从大的方面讲，不光是 Android 平台，各种平台的消息机制的原理基本上都是相近的，其中用到的主要概念大概有：  
+1）消息发送者；  
+2）消息队列；  
+3）消息处理循环。  
+示意图如下：
+
+![](http://static.oschina.net/uploads/space/2015/0814/211646_iWfd_174429.png)
+
+图中表达的基本意思是，消息发送者通过某种方式，将消息发送到某个消息队列里，同时还有一个消息处理循环，不断从消息队列里摘取消息，并进一步解析处理。
+
+ 在 Android 平台上，把上图的右边部分包装成了一个 Looper 类，这个类的内部具有对应的消息队列（MessageQueue  mQueue）和 loop 函数。
+
+  但是 Looper 只是个简单的类而已，它虽然提供了循环处理方面的成员函数 loop ()，却不能自己凭空地运行起来，而只能寄身于某个真实的线程。而且，每个线程最多只能运作一个 Looper 对象，这一点应该很容易理解。
+
+Android 平台上另一个关键类是 Handler。当消息循环在其寄身的线程里正式运作后，外界就是通过 Handler 向消息循环发出事件的。我们再画一张示意图如下：
+
+![](http://static.oschina.net/uploads/space/2015/0814/211734_fMFD_174429.png)
+
+  
+当然，系统也允许多个 Handler 向同一个消息队列发送消息：
+
+![](http://static.oschina.net/uploads/space/2015/0814/211801_rd8F_174429.png)
+
+整个消息机制的轮廓也就是这些啦，下面我们来详细阐述。
+
+## 2 先说一下 Looper 部分
+
+Looper 类的定义截选如下：  
+【frameworks/base/core/java/android/os/Looper.java】
+
+```
+public final class Looper {
+    private static final String TAG = "Looper";
+
+    // sThreadLocal.get() will return null unless you've called prepare().
+    static final ThreadLocal<Looper> sThreadLocal = new ThreadLocal<Looper>();
+    private static Looper sMainLooper;  // guarded by Looper.class
+
+    final MessageQueue mQueue;
+    final Thread mThread;
+
+    private Printer mLogging;
+    . . . . . .
+    . . . . . .
+```
+
+当一个线程运行到某处，准备运作一个 Looper 时，它必须先调用 Looper 类的静态函数 prepare ()，做一些准备工作。说穿了就是创建一个 Looper 对象，并把它设置进线程的本地存储区（TLS）里。然后线程才能继续调用 Looper 类的另一个静态函数 loop ()，从而建立起消息处理循环。示意图如下：
+
+![](http://static.oschina.net/uploads/space/2015/0814/212125_vxi5_174429.png)
+
+prepare () 函数的代码如下：
+
+```
+public static void prepare() 
+{
+    prepare(true);
+}
+
+private static void prepare(boolean quitAllowed) 
+{
+    if (sThreadLocal.get() != null) {
+        throw new RuntimeException("Only one Looper may be created per thread");
+    }
+    sThreadLocal.set(new Looper(quitAllowed));  // 创建Looper对象，并设置进TLS
+}
+```
+
+可以看到，sThreadLocal.set () 一句所完成的工作，正是把新创建的 Looper 对象设置进线程本地存储区里。在 Looper.prepare () 之后，线程的主运作函数就可以调用 Looper.loop () 了。
+
+为了便于大家理解，我们多说两句关于 sThreadLocal 的细节，这会牵扯一点儿本地存储的技术。简单地说，每个线程对象内部会记录一张逻辑上的 key-value 表，当然，这张表在具体实现时不一定会被实现成 HashMap，以我们目前的代码来说，它被记录成一个数组，其中每两个数组项作为一个 key-value 单元。反正大家从逻辑上理解概念即可，不必拘泥于具体实现。很明显，一个线程内部是可以记录多个本地存储单元的，我们关心的 sThreadLocal 只是其中一个本地存储单元的 key 而已。
+
+当我们在不同 Thread 里调用 Looper.prepare () 时，其实是向 Thread 对应的那张表里添加一个 key-value 项，其中的 key 部分，指向的是同一个对象，即 Looper.sThreadLocal 静态对象，而 value 部分，则彼此不同，我们可以画出如下示意图：
+
+![](http://static.oschina.net/uploads/space/2015/0814/212325_SkIv_174429.png)
+
+看到了吧，不同 Thread 会对应不同 Object \[\] 数组，该数组以每 2 个元素为一个 key-value 对。请注意不同 Thread 虽然使用同一个静态对象作为 key 值，最终却会对应不同的 Looper 对象，这一点系统是不会弄错的。
+
+为了由浅入深地阐述问题，我们暂时先不看 Looper.loop () 内部的代码，这个后文还会再讲。现在我们接着说说 Handler。
+
+## 3 接着说一下 Handler 部分
+
+一般而言，运作 Looper 的线程会负责构造自己的 Handler 对象，当然，其他线程也可以针对某个 Looper 构造 Handler 对象。
+
+Handler 对象在构造时，不但会把 Looper 对象记录在它内部的 mLooper 成员变量中，还会把 Looper 对象的消息队列也一并记录，代码截选如下：
+
+```
+public Handler(Callback callback, boolean async) 
+{
+    . . . . . .
+    mLooper = Looper.myLooper();   // 记录下Looper对象
+    . . . . . .
+    mQueue = mLooper.mQueue;        // 也记录下Looper对象的消息队列
+    mCallback = callback;
+    mAsynchronous = async;
+}
+```
+
+我们也可以直接传入 Looper 对象，此时可以使用另一个构造函数：
+
+```
+public Handler(Looper looper, Callback callback, boolean async) 
+{
+    mLooper = looper;                // 记录下Looper对象
+    mQueue = looper.mQueue;         // 也记录下Looper对象的消息队列
+    mCallback = callback;
+    mAsynchronous = async;
+}
+```
+
+以后，每当线程需要向消息队列发送消息时，只需调用 Handler 对象的 sendMessage () 等成员函数就可以了。
+
+简单说来，只要一个线程可以获取另一个目标线程的某个 Handler 对象，它就具有了向目标线程发送消息的能力。不过，也只是发送消息而已，消息的真正处理却是在目标线程的消息循环里完成的。
+
+前文已经说过，在 Looper 准备停当后，我们的线程会调用 Looper.loop ()，从而进入真正的循环机制。loop () 函数的代码流程非常简单，只不过是在一个 for 循环里不停从消息队列中摘取消息，而后调用 msg.target.dispatchMessage () 对消息进行派发处理而已。
+
+这么看来，msg.target 域就显得比较重要了，说穿了，这个域记录的其实就是当初向消息队列发送消息的那个 handler 啦。当我们调用 handler 的 send 函数时，最终基本上都会走到 sendMessageAtTime ()，其代码如下：  
+【frameworks/base/core/java/android/os/Handler.java】
+
+```
+public boolean sendMessageAtTime(Message msg, long uptimeMillis) 
+{
+    MessageQueue queue = mQueue;
+    if (queue == null) {
+        RuntimeException e = new RuntimeException(
+                this + " sendMessageAtTime() called with no mQueue");
+        Log.w("Looper", e.getMessage(), e);
+        return false;
+    }
+    return enqueueMessage(queue, msg, uptimeMillis);
+}
+```
+
+```
+private boolean enqueueMessage(MessageQueue queue, Message msg, long uptimeMillis) 
+{
+    // 注意这一句，消息的target就是handler对象啦！日后msg.target.dispatchMessage()时会使用。
+    msg.target = this; 
+
+    if (mAsynchronous) {
+        msg.setAsynchronous(true);
+    }
+    return queue.enqueueMessage(msg, uptimeMillis);
+}
+```
+
+请大家注意 msg.target = this; 一句，记录的就是 handler 对象。
+
+当 Looper 的消息循环最终调用到 msg.target.dispatchMessage () 时，会间接调用到 handler 的 handleMessage () 函数，从而对消息进行实际处理。
+
+在实际运用 handler 时，大体有两种方式。一种方式是写一个继承于 Handler 的新类，并在新类里实现自己的 handleMessage () 成员函数；另一种方式是在创建匿名 Handler 对象时，直接修改 handleMessage () 成员函数。
+
+## 4 消息队列 MessageQueue
+
+在刚刚介绍 Handler 的 sendMessageAtTime () 时，我们已经看到最终会调用 queue.enqueueMessage () 来向消息队列打入消息。queue 对应的类是 MessageQueue，其定义截选如下：  
+【frameworks/base/core/java/android/os/MessageQueue.java】
+
+```
+public final class MessageQueue {
+    // True if the message queue can be quit.
+    private final boolean mQuitAllowed;
+
+    @SuppressWarnings("unused")
+    private int mPtr; // used by native code
+
+    Message mMessages;  // 消息队列！
+    private final ArrayList<IdleHandler> mIdleHandlers = new ArrayList<IdleHandler>();
+    private IdleHandler[] mPendingIdleHandlers;
+    private boolean mQuitting;
+
+    // Indicates whether next() is blocked waiting in pollOnce() with a non-zero timeout.
+    private boolean mBlocked;
+
+    // The next barrier token.
+    // Barriers are indicated by messages with a null target whose arg1 field carries the token.
+    private int mNextBarrierToken;
+
+    private native static int nativeInit();
+    private native static void nativeDestroy(int ptr);
+    private native static void nativePollOnce(int ptr, int timeoutMillis);
+    private native static void nativeWake(int ptr);
+    private native static boolean nativeIsIdling(int ptr);
+    . . . . . .
+```
+
+其中 Message mMessages 记录的就是一条消息链表。另外还有几个 native 函数，这就说明 MessageQueue 会通过 JNI 技术调用到底层代码。mMessages 域记录着消息队列中所有 Java 层的实质消息。请大家注意，记录的只是 Java 层的消息，不包括 C++ 层的。MessageQueue 的示意图如下：
+
+![](http://static.oschina.net/uploads/space/2015/0814/212852_5dYP_174429.png)
+
+##   
+4.1 打入消息
+
+### 4.1.1enqueueMessage()
+
+很明显，enqueueMessage () 就是在向 MessageQueue 的消息链表里插入 Message。其代码截选如下：  
+【frameworks/base/core/java/android/os/MessageQueue.java】
+
+```
+boolean enqueueMessage(Message msg, long when) {
+    . . . . . .
+        . . . . . .
+        msg.when = when;
+        Message p = mMessages;
+        boolean needWake;
+        if (p == null || when == 0 || when < p.when) {
+            // 此时，新消息会插入到链表的表头，这意味着队列需要调整唤醒时间啦。
+             msg.next = p;
+            mMessages = msg;
+            needWake = mBlocked;
+        } else {
+            // 此时，新消息会插入到链表的内部，一般情况下，这不需要调整唤醒时间。
+              // 但还必须考虑到当表头为“同步分割栏”的情况
+              needWake = mBlocked && p.target == null && msg.isAsynchronous();
+            Message prev;
+            for (;;) {
+                prev = p;
+                p = p.next;
+                if (p == null || when < p.when) {
+                    break;
+                }
+                if (needWake && p.isAsynchronous()) {
+                    // 说明即便msg是异步的，也不是链表中第一个异步消息，所以没必要唤醒了
+                    needWake = false;  
+                }
+            }
+            msg.next = p;
+            prev.next = msg;
+        }
+
+        if (needWake) {
+            nativeWake(mPtr);
+        }
+    . . . . . .
+}
+```
+
+打入消息的动作并不复杂，无非是在消息链表中找到合适的位置，插入 Message 节点而已。因为消息链表是按时间进行排序的，所以主要是在比对 Message 携带的 when 信息。消息链表的首个节点对应着最先将被处理的消息，如果 Message 被插到链表的头部了，就意味着队列的最近唤醒时间也应该被调整了，因此 needWake 会被设为 true，以便代码下方可以走进 nativeWake ()。
+
+### 4.1.2 说说 “同步分割栏”
+
+上面的代码中还有一个 “同步分割栏” 的概念需要提一下。所谓 “同步分割栏”，可以被理解为一个特殊 Message，它的 target 域为 null。它不能通过 sendMessageAtTime () 等函数打入到消息队列里，而只能通过调用 Looper 的 postSyncBarrier () 来打入。
+
+“同步分割栏” 是起什么作用的呢？它就像一个卡子，卡在消息链表中的某个位置，当消息循环不断从消息链表中摘取消息并进行处理时，一旦遇到这种 “同步分割栏”，那么即使在分割栏之后还有若干已经到时的普通 Message，也不会摘取这些消息了。请注意，此时只是不会摘取 “普通 Message” 了，如果队列中还设置有 “异步 Message”，那么还是会摘取已到时的 “异步 Message” 的。
+
+在 Android 的消息机制里，“普通 Message” 和 “异步 Message” 也就是这点儿区别啦，也就是说，如果消息列表中根本没有设置 “同步分割栏” 的话，那么 “普通 Message” 和 “异步 Message” 的处理就没什么大的不同了。
+
+打入 “同步分割栏” 的 postSyncBarrier () 函数的代码如下：  
+【frameworks/base/core/java/android/os/Looper.java】
+
+```
+public int postSyncBarrier() {
+    return mQueue.enqueueSyncBarrier(SystemClock.uptimeMillis());
+}
+```
+
+【frameworks/base/core/java/android/os/MessageQueue.java】
+
+```
+int enqueueSyncBarrier(long when) {
+    synchronized (this) {
+        final int token = mNextBarrierToken++;
+        final Message msg = Message.obtain();
+        msg.when = when;
+        msg.arg1 = token;
+
+
+        Message prev = null;
+        Message p = mMessages;
+        if (when != 0) {
+            while (p != null && p.when <= when) {
+                prev = p;
+                p = p.next;
+            }
+        }
+        if (prev != null) { 
+            msg.next = p;
+            prev.next = msg;
+        } else {
+            msg.next = p;
+            mMessages = msg;
+        }
+        return token;
+    }
+}
+```
+
+要得到 “异步 Message”，只需调用一下 Message 的 setAsynchronous () 即可：  
+【frameworks/base/core/java/android/os/Message.java】
+
+```
+public void setAsynchronous(boolean async) {
+    if (async) {
+        flags |= FLAG_ASYNCHRONOUS;
+    } else {
+        flags &= ~FLAG_ASYNCHRONOUS;
+    }
+}
+```
+
+一般，我们是通过 “异步 Handler” 向消息队列打入 “异步 Message” 的。异步 Handler 的 mAsynchronous 域为 true，因此它在调用 enqueueMessage () 时，可以走入：
+
+```
+if (mAsynchronous) {
+        msg.setAsynchronous(true);
+    }
+```
+
+现在我们画一张关于 “同步分割栏” 的示意图：
+
+![](http://static.oschina.net/uploads/space/2015/0814/213341_azCi_174429.png)
+
+图中的消息队列中有一个 “同步分割栏”，因此它后面的 “2” 号 Message 即使到时了，也不会摘取下来。而 “3” 号 Message 因为是个异步 Message，所以当它到时后，是可以进行处理的。
+
+“同步分割栏” 这种卡子会一直卡在消息队列中，除非我们调用 removeSyncBarrier () 删除这个卡子。  
+【frameworks/base/core/java/android/os/Looper.java】
+
+```
+public void removeSyncBarrier(int token) {
+    mQueue.removeSyncBarrier(token);
+}
+```
+
+【frameworks/base/core/java/android/os/MessageQueue.java】
+
+```
+void removeSyncBarrier(int token) {
+    // Remove a sync barrier token from the queue.
+    // If the queue is no longer stalled by a barrier then wake it.
+    synchronized (this) {
+        Message prev = null;
+        Message p = mMessages;
+        while (p != null && (p.target != null || p.arg1 != token)) {
+            prev = p;
+            p = p.next;
+        }
+        if (p == null) {
+            throw new IllegalStateException("The specified message queue synchronization "
+                    + " barrier token has not been posted or has already been removed.");
+        }
+        final boolean needWake;
+        if (prev != null) {
+            prev.next = p.next;
+            needWake = false;
+        } else {
+            mMessages = p.next;
+            needWake = mMessages == null || mMessages.target != null;
+        }
+        p.recycle();
+
+        // If the loop is quitting then it is already awake.
+        // We can assume mPtr != 0 when mQuitting is false.
+        if (needWake && !mQuitting) {
+            nativeWake(mPtr);
+        }
+    }
+}
+```
+
+和插入消息类似，如果删除动作改变了链表的头部，也意味着队列的最近唤醒时间应该被调整了，因此 needWake 会被设为 true，以便代码下方可以走进 nativeWake ()。
+
+### 4.1.3nativeWake()
+
+nativeWake () 对应的 C++ 层函数如下：  
+【frameworks/base/core/jni/android\_os\_MessageQueue.cpp】
+
+```
+static void android_os_MessageQueue_nativeWake(JNIEnv* env, jclass clazz, jint ptr) {
+    NativeMessageQueue* nativeMessageQueue = reinterpret_cast<NativeMessageQueue*>(ptr);
+    return nativeMessageQueue->wake();
+}
+```
+
+```
+void NativeMessageQueue::wake() {
+    mLooper->wake();
+}
+```
+
+【system/core/libutils/Looper.cpp】
+
+```
+void Looper::wake() {
+    . . . . . .
+    ssize_t nWrite;
+    do {
+        nWrite = write(mWakeWritePipeFd, "W", 1);
+    } while (nWrite == -1 && errno == EINTR);
+
+    if (nWrite != 1) {
+        if (errno != EAGAIN) {
+            ALOGW("Could not write wake signal, errno=%d", errno);
+        }
+    }
+}
+```
+
+wake () 动作主要是向一个管道的 “写入端” 写入了 “W”。有关这个管道的细节，我们会在后文再细说，这里先放下。
+
+## 4.2 消息循环
+
+接下来我们来看看消息循环。我们从 Looper 的 Loop () 函数开始讲起。下面是 loop () 函数的简略代码，我们只保留了其中最关键的部分：  
+【frameworks/base/core/java/android/os/Looper.java】
+
+```
+public static void loop() 
+{
+    final Looper me = myLooper();
+    . . . . . .
+    final MessageQueue queue = me.mQueue;
+
+    Binder.clearCallingIdentity();
+    final long ident = Binder.clearCallingIdentity();
+
+    for (;;) {
+        Message msg = queue.next(); // might block
+        . . . . . .
+        msg.target.dispatchMessage(msg);  // 派发消息
+        . . . . . .
+        final long newIdent = Binder.clearCallingIdentity();
+        . . . . . .
+        msg.recycle();
+    }
+}
+```
+
+无非是在一个 for 循环里不断摘取队列里的下一条消息，而后 dispatchMessage () 消息。呃，至少逻辑上就是这么简单，但如果我们希望再探索得更深一点的话，就得详细研究 MessageQueue 以及其 next () 函数了。
+
+ 对于 Looper 而言，它主要关心的是从消息队列里摘取消息，而后分派消息。然而对消息队列而言，在摘取消息时还要考虑更多技术细节。它关心的细节有：  
+1）如果消息队列里目前没有合适的消息可以摘取，那么不能让它所属的线程 “傻转”，而应该使之阻塞；  
+2）队列里的消息应该按其 “到时” 的顺序进行排列，最先到时的消息会放在队头，也就是 mMessages 域所指向的消息，其后的消息依次排开；  
+3）阻塞的时间最好能精确一点儿，所以如果暂时没有合适的消息节点可摘时，要考虑链表首个消息节点将在什么时候到时，所以这个消息节点距离当前时刻的时间差，就是我们要阻塞的时长。  
+4）有时候外界希望队列能在即将进入阻塞状态之前做一些动作，这些动作可以称为 idle 动作，我们需要兼顾处理这些 idle 动作。一个典型的例子是外界希望队列在进入阻塞之前做一次垃圾收集。
+
+以上所述的细节，基本上都体现在 MessageQueue 的 next () 函数里了，现在我们就来看这个函数的主要流程。
+
+### 4.2.1MessageQueue 的 next () 成员函数
+
+MessageQueue 的 next () 函数的代码截选如下：
+
+```
+Message next() 
+{
+    int pendingIdleHandlerCount = -1; // -1 only during first iteration
+    int nextPollTimeoutMillis = 0;
+    
+    for (;;) {
+        . . . . . .
+        nativePollOnce(mPtr, nextPollTimeoutMillis);    // 阻塞于此
+        . . . . . .
+            // 获取next消息，如能得到就返回之。
+            final long now = SystemClock.uptimeMillis();
+            Message prevMsg = null;
+            Message msg = mMessages;  // 先尝试拿消息队列里当前第一个消息
+            
+            if (msg != null && msg.target == null) {
+                // 如果从队列里拿到的msg是个“同步分割栏”，那么就寻找其后第一个“异步消息”
+                do {
+                    prevMsg = msg;
+                    msg = msg.next;
+                } while (msg != null && !msg.isAsynchronous());
+            }
+            
+            if (msg != null) {
+                if (now < msg.when) {
+                    // Next message is not ready.  Set a timeout to wake up when it is ready.
+                    nextPollTimeoutMillis = (int) Math.min(msg.when - now, 
+                                                                   Integer.MAX_VALUE);
+                } else {
+                    // Got a message.
+                    mBlocked = false;
+                    if (prevMsg != null) {
+                        prevMsg.next = msg.next;
+                    } else {
+                        mMessages = msg.next;  // 重新设置一下消息队列的头部
+                    }
+                    msg.next = null;
+                    if (false) Log.v("MessageQueue", "Returning message: " + msg);
+                    msg.markInUse();
+                    return msg;     // 返回得到的消息对象
+                }
+            } else {
+                // No more messages.
+                nextPollTimeoutMillis = -1;
+            }
+
+            // Process the quit message now that all pending messages have been handled.
+            if (mQuitting) {
+                dispose();
+                return null;
+            }
+            if (pendingIdleHandlerCount < 0
+                        && (mMessages == null || now < mMessages.when)) {
+                    pendingIdleHandlerCount = mIdleHandlers.size();
+            }
+            if (pendingIdleHandlerCount <= 0) {
+                // No idle handlers to run.  Loop and wait some more.
+                mBlocked = true;
+                continue;
+            }
+        . . . . . .
+        // 处理idle handlers部分
+        for (int i = 0; i < pendingIdleHandlerCount; i++) {
+            final IdleHandler idler = mPendingIdleHandlers[i];
+            mPendingIdleHandlers[i] = null; // release the reference to the handler
+
+            boolean keep = false;
+            try {
+                keep = idler.queueIdle();
+            } catch (Throwable t) {
+                Log.wtf("MessageQueue", "IdleHandler threw exception", t);
+            }
+
+            if (!keep) {
+                synchronized (this) {
+                    mIdleHandlers.remove(idler);
+                }
+            }
+        }
+        
+        pendingIdleHandlerCount = 0;
+        nextPollTimeoutMillis = 0;
+    }
+}
+```
+
+这个函数里的 for 循环并不是起循环摘取消息节点的作用，而是为了连贯 “当前时间点” 和 “处理下一条消息的时间点”。简单地说，当 “定时机制” 触发 “摘取一条消息” 的动作时，会判断事件队列的首条消息是否真的到时了，如果已经到时了，就直接返回这个 msg，而如果尚未到时，则会努力计算一个较精确的等待时间（nextPollTimeoutMillis），计算完后，那个 for 循环会掉过头再次调用到 nativePollOnce (mPtr, nextPollTimeoutMillis)，进入阻塞状态，从而等待合适的时长。
+
+上面代码中也处理了 “同步分割栏” 的情况。如果从队列里获取的消息是个 “同步分割栏” 的话，可千万不能把 “同步分割栏” 给返回了，此时会尝试找寻其后第一个 “异步消息”。
+
+next () 里另一个要说的是那些 Idle Handler，当消息队列中没有消息需要马上处理时，会判断用户是否设置了 Idle Handler，如果有的话，则会尝试处理 mIdleHandlers 中所记录的所有 Idle Handler，此时会逐个调用这些 Idle Handler 的 queueIdle () 成员函数。我们举一个例子，在 ActivityThread 中，在某种情况下会在消息队列中设置 GcIdler，进行垃圾收集，其定义如下：
+
+```
+final class GcIdler implements MessageQueue.IdleHandler {
+    @Override
+    public final boolean queueIdle() {
+        doGcIfNeeded();
+        return false;
+    }
+}
+```
+
+一旦队列里设置了这个 Idle Handler，那么当队列中没有马上需处理的消息时，就会进行垃圾收集。
+
+#### 4.2.1.1nativePollOnce()
+
+前文我们已经说过，next () 中调用的 nativePollOnce () 起到了阻塞作用，保证消息循环不会在无消息处理时一直在那里 “傻转”。那么，nativePollOnce () 函数究竟是如何实现阻塞功能的呢？我们来探索一下。首先，MessageQueue 类里声明的几个 native 函数，对应的 JNI 实现位于 android\_os\_MessageQueue.cpp 文件中：  
+【frameworks/base/core/jni/android\_os\_MessageQueue.cpp】
+
+```
+static JNINativeMethod gMessageQueueMethods[] = {
+    /* name, signature, funcPtr */
+    { "nativeInit", "()I", (void*)android_os_MessageQueue_nativeInit },
+    { "nativeDestroy", "(I)V", (void*)android_os_MessageQueue_nativeDestroy },
+    { "nativePollOnce", "(II)V", (void*)android_os_MessageQueue_nativePollOnce },
+    { "nativeWake", "(I)V", (void*)android_os_MessageQueue_nativeWake },
+    { "nativeIsIdling", "(I)Z", (void*)android_os_MessageQueue_nativeIsIdling }
+};
+```
+
+而且在 MessageQueue 构造之时，就会调用 nativeInit () 函数。
+
+目前我们只关心 nativePollOnce 对应的 android\_os\_MessageQueue\_nativePollOnce ()。其代码如下：
+
+```
+static void android_os_MessageQueue_nativePollOnce(JNIEnv* env, jclass clazz,
+                                                             jint ptr, jint timeoutMillis) 
+{
+    NativeMessageQueue* nativeMessageQueue = reinterpret_cast<NativeMessageQueue*>(ptr);
+    nativeMessageQueue->pollOnce(env, timeoutMillis);
+}
+```
+
+看到了吧，ptr 参数会被强制转换成 NativeMessageQueue\*。
+
+NativeMessageQueue 的 pollOnce () 如下：  
+【frameworks/base/core/jni/android\_os\_MessageQueue.cpp】
+
+```
+void NativeMessageQueue::pollOnce(JNIEnv* env, int timeoutMillis) {
+    mInCallback = true;
+    mLooper->pollOnce(timeoutMillis);   // 用到C++层的Looper对象
+    mInCallback = false;
+    if (mExceptionObj) {
+        env->Throw(mExceptionObj);
+        env->DeleteLocalRef(mExceptionObj);
+        mExceptionObj = NULL;
+    }
+}
+```
+
+这里会用到 C++ 层的 Looper 类，它和 Java 层的 Looper 类可是不一样的哩。C++ 层的 Looper 类的定义截选如下：  
+【system/core/include/utils/Looper.h】
+
+```
+class Looper : public ALooper, public RefBase {
+protected:
+    virtual ~Looper();
+
+public:
+    Looper(bool allowNonCallbacks);
+    bool getAllowNonCallbacks() const;
+    int pollOnce(int timeoutMillis, int* outFd, int* outEvents, void** outData);
+    . . . . . .
+    int pollAll(int timeoutMillis, int* outFd, int* outEvents, void** outData);
+    . . . . . .
+    void wake();
+
+    int addFd(int fd, int ident, int events, ALooper_callbackFunc callback, void* data);
+    int addFd(int fd, int ident, int events, const sp<LooperCallback>& callback, void* data);
+    int removeFd(int fd);
+
+    void sendMessage(const sp<MessageHandler>& handler, const Message& message);
+    void sendMessageDelayed(nsecs_t uptimeDelay, const sp<MessageHandler>& handler,
+            const Message& message);
+    void sendMessageAtTime(nsecs_t uptime, const sp<MessageHandler>& handler,
+            const Message& message);
+    void removeMessages(const sp<MessageHandler>& handler);
+    void removeMessages(const sp<MessageHandler>& handler, int what);
+
+    bool isIdling() const;
+    static sp<Looper> prepare(int opts);
+    static void setForThread(const sp<Looper>& looper);
+    static sp<Looper> getForThread();
+    . . . . . .
+    . . . . . .
+};
+```
+
+我们把 C++ 层的 NativeMessageQueue 和 Looper 融入前文的示意图，可以得到一张新的示意图，如下所示：
+
+![](http://static.oschina.net/uploads/space/2015/0814/214918_USvs_174429.png)
+
+C++ 层的 Looper 的构造函数如下：
+
+```
+Looper::Looper(bool allowNonCallbacks) :
+        mAllowNonCallbacks(allowNonCallbacks), mSendingMessage(false),
+        mResponseIndex(0), mNextMessageUptime(LLONG_MAX) 
+{
+    int wakeFds[2];
+    int result = pipe(wakeFds);  // 创建一个管道
+    LOG_ALWAYS_FATAL_IF(result != 0, "Could not create wake pipe.  errno=%d", errno);
+
+    mWakeReadPipeFd = wakeFds[0];    // 管道的“读取端”
+    mWakeWritePipeFd = wakeFds[1];   // 管道的“写入端”
+
+    result = fcntl(mWakeReadPipeFd, F_SETFL, O_NONBLOCK);
+    LOG_ALWAYS_FATAL_IF(result != 0, 
+                       "Could not make wake read pipe non-blocking.  errno=%d", errno);
+
+    result = fcntl(mWakeWritePipeFd, F_SETFL, O_NONBLOCK);
+    LOG_ALWAYS_FATAL_IF(result != 0, 
+                       "Could not make wake write pipe non-blocking.  errno=%d", errno);
+    mIdling = false;
+
+    // 创建一个epoll
+    mEpollFd = epoll_create(EPOLL_SIZE_HINT);
+    LOG_ALWAYS_FATAL_IF(mEpollFd < 0, "Could not create epoll instance.  errno=%d", errno);
+
+    struct epoll_event eventItem;
+    memset(& eventItem, 0, sizeof(epoll_event)); 
+    eventItem.events = EPOLLIN;
+    eventItem.data.fd = mWakeReadPipeFd;   
+    // 监听管道的read端
+    result = epoll_ctl(mEpollFd, EPOLL_CTL_ADD, mWakeReadPipeFd, & eventItem);
+    LOG_ALWAYS_FATAL_IF(result != 0, 
+                     "Could not add wake read pipe to epoll instance.  errno=%d", errno);
+}
+```
+
+可以看到在构造 Looper 对象时，其内部除了创建了一个管道以外，还创建了一个 epoll 来监听管道的 “读取端”。也就是说，是利用 epoll 机制来完成阻塞动作的。每当我们向消息队列发送事件时，最终会间接向管道的 “写入端” 写入数据，这个前文已有叙述，于是 epoll 通过管道的 “读取端” 立即就感知到了风吹草动，epoll\_wait () 在等到事件后，随即进行相应的事件处理。这就是消息循环阻塞并处理的大体流程。当然，因为向管道写数据只是为了通知风吹草动，所以写入的数据是非常简单的 “W” 字符串。现在大家不妨再看看前文阐述 “nativeWake ()” 的小节，应该能明白了吧。
+
+我们还是继续说消息循环。Looper 的 pollOnce () 函数如下：  
+【system/core/libutils/Looper.cpp】
+
+```
+int Looper::pollOnce(int timeoutMillis, int* outFd, int* outEvents, void** outData) 
+{
+    int result = 0;
+    for (;;) {
+        . . . . . .
+        if (result != 0) {
+            . . . . . .
+            if (outFd != NULL) *outFd = 0;
+            if (outEvents != NULL) *outEvents = 0;
+            if (outData != NULL) *outData = NULL;
+            return result;
+        }
+
+        result = pollInner(timeoutMillis);
+    }
+}
+```
+
+```
+int Looper::pollInner(int timeoutMillis) 
+{
+. . . . . .
+    // 阻塞、等待
+int eventCount = epoll_wait( mEpollFd, eventItems, 
+                                   EPOLL_MAX_EVENTS, timeoutMillis);
+    . . . . . .
+    . . . . . .
+    // 处理所有epoll事件
+    for (int i = 0; i < eventCount; i++) 
+    {
+        int fd = eventItems[i].data.fd;
+        uint32_t epollEvents = eventItems[i].events;
+        if (fd == mWakeReadPipeFd) 
+        {
+            if (epollEvents & EPOLLIN) {
+                awoken();  // 从管道中感知到EPOLLIN，于是调用awoken()
+            } 
+            . . . . . .
+        } 
+        else 
+        {
+            // 如果是除管道以外的其他fd发生了变动，那么根据其对应的request，
+            // 将response先记录进mResponses
+            ssize_t requestIndex = mRequests.indexOfKey(fd);
+            if (requestIndex >= 0) {
+                int events = 0;
+                if (epollEvents & EPOLLIN ) events |= ALOOPER_EVENT_INPUT;
+                if (epollEvents & EPOLLOUT) events |= ALOOPER_EVENT_OUTPUT;
+                if (epollEvents & EPOLLERR) events |= ALOOPER_EVENT_ERROR;
+                if (epollEvents & EPOLLHUP) events |= ALOOPER_EVENT_HANGUP;
+                // 内部会调用 mResponses.push(response);
+                pushResponse(events, mRequests.valueAt(requestIndex));
+            } 
+            . . . . . .
+        }
+    }
+    
+Done: ;
+    . . . . . .
+    // 调用尚未处理的事件的回调
+    while (mMessageEnvelopes.size() != 0) 
+    {
+        nsecs_t now = systemTime(SYSTEM_TIME_MONOTONIC);
+        const MessageEnvelope& messageEnvelope = mMessageEnvelopes.itemAt(0);
+        if (messageEnvelope.uptime <= now) 
+        {
+            { 
+                sp<MessageHandler> handler = messageEnvelope.handler;
+                Message message = messageEnvelope.message;
+                mMessageEnvelopes.removeAt(0);
+                . . . . . .
+                handler->handleMessage(message);
+            }
+            . . . . . .
+        } 
+        else {
+            mNextMessageUptime = messageEnvelope.uptime;
+            break;
+        }
+    }
+    
+    . . . . . .
+    // 调用所有response记录的回调
+    for (size_t i = 0; i < mResponses.size(); i++) {
+        Response& response = mResponses.editItemAt(i);
+        if (response.request.ident == ALOOPER_POLL_CALLBACK) {
+            . . . . . .
+            int callbackResult = response.request.callback->handleEvent(fd, events, data);
+            if (callbackResult == 0) {
+                removeFd(fd);
+            }
+            . . . . . .
+        }
+    }
+    return result;
+}
+```
+
+现在我们可以画一张调用示意图，理一下 loop () 函数的调用关系，如下：
+
+![](http://static.oschina.net/uploads/space/2015/0814/215548_4LpP_174429.png)
+
+  
+pollInner () 调用 epoll\_wait () 时传入的 timeoutMillis 参数，其实来自于前文所说的 MessageQueue 的 next () 函数里的 nextPollTimeoutMillis，next () 函数里在以下 3 种情况下，会给 nextPollTimeoutMillis 赋不同的值：  
+1）如果消息队列中的下一条消息还要等一段时间才到时的话，那么 nextPollTimeoutMillis 赋值为 Math.min (msg.when - now, Integer.MAX\_VALUE)，即时间差；  
+2）如果消息队列已经是空队列了，那么 nextPollTimeoutMillis 赋值为 - 1；  
+3）不管前两种情况下是否已给 nextPollTimeoutMillis 赋过值了，只要队列中有 Idle Handler 需要处理，那么在处理完所有 Idle Handler 之后，会强制将 nextPollTimeoutMillis 赋值为 0。这主要是考虑到在处理 Idle Handler 时，不知道会耗时多少，而在此期间消息队列的 “到时情况” 有可能已发生改变。
+
+不管 epoll\_wait () 的超时阀值被设置成什么，只要程序从 epoll\_wait () 中返回，就会尝试处理等到的 epoll 事件。目前我们的主要关心点是事件机制，所以主要讨论当 fd 等于 mWakeReadPipeFd 时的情况，此时会调用一下 awoken () 函数。该函数很简单，只是在读取 mWakeReadPipeFd 而已：
+
+```
+void Looper::awoken() {
+#if DEBUG_POLL_AND_WAKE
+    ALOGD("%p ~ awoken", this);
+#endif
+
+    char buffer[16];
+    ssize_t nRead;
+    do {
+        nRead = read(mWakeReadPipeFd, buffer, sizeof(buffer));
+    } while ((nRead == -1 && errno == EINTR) || nRead == sizeof(buffer));
+}
+```
+
+为什么要起个名字叫 awoken () 呢？这是因为当初发送事件时，最终是调用一个 wake () 函数来通知消息队列的，现在 epoll\_wait () 既然已经感应到了，自然相当于 “被唤醒”（awoken）了。
+
+除了感知 mWakeReadPipeFd 管道的情况以外，epoll 还会感知其他一些 fd 对应的事件。在 Looper 中有一个 mRequests 键值向量表（KeyedVector<int, Request> mRequests），其键值就是感兴趣的 fd。如果收到的 epoll 事件所携带的 fd 可以在这张表里查到，那么就将该 fd 对应的 Request 整理进 Response 对象，并将该 Response 对象记入 mResponses 表。在 pollInner () 的最后，会用一个 for 循环遍历 mResponses 表，分析每个 Response 表项对应的 Request 是不是需要 callback，如果需要的话，执行对应的回调函数：
+
+```
+int callbackResult = response.request.callback->handleEvent(fd, events, data);
+if (callbackResult == 0) {
+    removeFd(fd);
+}
+```
+
+可以看到，handleEvent () 的返回值将决定那个 Request 表项是否继续保留在 mRequests 表中，如果返回值为 0，说明不必保留了，所以删除之。删除时会同时从 epoll 中注销这个 Request 对应的 fd，表示不再对这个 fd 感兴趣了。
+
+pollInner () 内部还会集中处理所记录的所有 C++ 层的 Message。在一个 while 循环中，不断摘取 mMessageEnvelopes 向量表的第 0 个 MessageEnvelope，如果消息已经到时，则回调 handleMessage ()。
+
+```
+sp<MessageHandler> handler = messageEnvelope.handler;
+Message message = messageEnvelope.message;
+mMessageEnvelopes.removeAt(0);
+. . . . . .
+
+handler->handleMessage(message);
+```
+
+而如果消息未到时，说明 while 循环可以 break 了。
+
+C++ 层的 Looper 及这个层次的消息链表，再加上对应其他 fd 的 Request 和 Response，可以形成下面这张示意图：
+
+![](http://static.oschina.net/uploads/space/2015/0814/215836_Sr0Y_174429.png)
+
+ 从我们的分析中可以知道，在 Android 中，不光是 Java 层可以发送 Message，C++ 层也可以发送，当然，不同层次的 Message 是放在不同层次的消息链中的。在 Java 层，每次尝试从队列中获取一个 Message，而后 dispatch 它。而 C++ 层的消息则尽量在一次 pollOnce 中集中处理完毕，这是它们的一点不同。
+
+## 5 尾声
+
+关于 Android 的消息机制，我们就先说这么多。总体上的而言还是比较简单的，无非是通过 Handler 向 Looper 的消息队列中插入 Message，而后再由 Looper 在消息循环里具体处理。因为消息队列本身不具有链表一变动就能马上感知的功能，所以它需要借助管道和 epoll 机制来监听变动。当外界向消息队列中打入新消息后，就向管道的 “写入端” 写入简单数据，于是 epoll 可以立即感知到管道的变动，从何激发从消息队列中摘取消息的动作。这就是 Android 消息机制的大体情况。
