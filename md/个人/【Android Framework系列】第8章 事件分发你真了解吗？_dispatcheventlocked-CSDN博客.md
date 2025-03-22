@@ -1,6 +1,6 @@
 ## 1 事件分发基本认知
 
-### 1.1 事件分发的”事件“是指什么
+### 1.1 事件分发的”事件“是指什么 
 
 ![在这里插入图片描述](https://i-blog.csdnimg.cn/blog_migrate/6ce8891bf197bad40d762d208cb3ff1f.png)
 
