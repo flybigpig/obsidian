@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/init/Android10 Framework—Init进程-7.服务端属性安全上下文序列化本章主要讲“属性安全上下文序列化”， - 掘金.md",
+                "file": "md/个人/《10分钟剖析》系统启动2——启动zygotezygote作为App开发者所熟知的孵化器进程，在App界的地位是绝对的龙 - 掘金.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Android10 Framework—Init进程-7.服务端属性安全上下文序列化本章主要讲“属性安全上下文序列化”， - 掘金"
+              "title": "《10分钟剖析》系统启动2——启动zygotezygote作为App开发者所熟知的孵化器进程，在App界的地位是绝对的龙 - 掘金"
             }
           }
         ]
@@ -191,8 +191,20 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "f84ce6d2fe2622cd",
+  "active": "fa4657deb406b728",
   "lastOpenFiles": [
+    "md/handler/Android10 Framework—Handler消息系统—7.IdleHandler机制IdleHandler是a - 掘金.md",
+    "md/handler/Android10 Framework—Handler消息系统—6.同步屏障同步屏障这个概念有点不好理解，为了搞清楚同步 - 掘金.md",
+    "md/handler/Android10 Framework—Handler消息系统—5.消息回收机制消息系统在线程通过的过程中可能会创建大量 - 掘金.md",
+    "md/handler/Android10 Framework—Handler消息系统—4.消息系统退出UI线程创建Looper，prepare - 掘金.md",
+    "md/handler/Android10 Framework—Handler消息系统—3.UI线程创建Handler在UI线程中我们直接使用如 - 掘金.md",
+    "md/handler/Android10 Framework—Handler消息系统—2.子线程创建HandlerHandler使用场景 Ha - 掘金.md",
+    "md/handler/Android10 Framework—Handler消息系统—1.整体概述类图 Handler消息系统通过线程间消息通 - 掘金.md",
+    "md/个人/《10分钟剖析》系统启动3——Zygote的使命我们在App中常用来调试查看线程、内存、UI布局等方法都是在这里注册的。 - 掘金.md",
+    "md/个人/《10分钟剖析》系统启动1——从内核到用户Android系统总体是围绕着Linux内核而建立的。从加电到系统启动，大 - 掘金.md",
+    "md/init/Android10 Framework—Init进程-7.服务端属性安全上下文序列化本章主要讲“属性安全上下文序列化”， - 掘金.md",
+    "md/个人/《10分钟剖析》系统启动2——启动zygotezygote作为App开发者所熟知的孵化器进程，在App界的地位是绝对的龙 - 掘金.md",
+    "md/handler",
     "md/init/Android10 Framework—Init进程-15.属性变化控制Service属性变化有两个来源： 属性服务端（ - 掘金.md",
     "md/init/Android10 Framework—Init进程-14.启动服务以上代码对am进行了 2 个操作 QueueBuil - 掘金.md",
     "md/init/Android10 Framework—Init进程-13.rc文件解析init进程的一个核心部分，是通过解析rc文件， - 掘金.md",
@@ -202,25 +214,14 @@
     "md/init/Android10 Framework—Init进程-9.服务端属性值初始化本章主要讲“属性值初始化”，先给出完整数据流 - 掘金.md",
     "md/init/Android10 Framework—Init进程-8.服务端属性文件创建和mmap映射本章主要讲“属性文件创建和mm - 掘金.md",
     "md/init/Android10 Framework—Init进程-3.init启动第二阶段第二阶段的代码入口是FirstStageM - 掘金.md",
-    "md/init/Android10 Framework—Init进程-7.服务端属性安全上下文序列化本章主要讲“属性安全上下文序列化”， - 掘金.md",
     "md/init/Android10 Framework—Init进程-6.属性服务框架属性是什么 在 Android 系统中，为统一管理 - 掘金.md",
     "md/init/Android10 Framework—Init进程-5.SEAndroid机制权限控制介绍 SEAndroid是and - 掘金.md",
     "md/init/Android10 Framework—Init进程-4.init进程日志Android系统中 应用层打印日志 impo - 掘金.md",
     "md/掘金Framework/【Android FrameWork】第一个启动的程序--init (含视频) - 掘金.md",
     "md/framework系统/Android Handler机制11之Handler机制总结-腾讯云开发者社区-腾讯云.md",
     "md/framework系统/Android10_原理机制系列_AMS(ATMS)之应用的第一次启动的过程 - 流浪_归家 - 博客园.md",
-    "md/framework系统/Android系统启动——4 zyogte进程 (C篇)-腾讯云开发者社区-腾讯云.md",
-    "md/framework系统/Android系统启动——3 init.rc解析-腾讯云开发者社区-腾讯云.md",
-    "md/init/Android10 Framework—Init进程-2.init启动第一阶段第一阶段的代码入口是FirstStageM - 掘金.md",
-    "md/init/Android10 Framework—Init进程-1.init进程执行流程init进程是linux系统中用户空间的第 - 掘金.md",
-    "conflict-files-obsidian-git.md",
-    "md/init/Android系统—systemproductvendorodm分区介绍system、product、vendor - 掘金.md",
-    "md/init/Android启动概述.md",
     "写给应用开发的+Android+Framework+教程(1).pdf",
     "md/init",
-    "else/通过Samba配置将虚拟机内存映射到主机盘符_在windows中 如何把samba服务器建立的共享目录,映射到一个分区盘上-CSDN博客.md",
-    "else/金瓶梅.md",
-    "else/阿豪.md",
     "md/实践",
     "md/千里马",
     "Effective+PyCharm+(大语言模型翻译中文版).pdf",
@@ -239,7 +240,6 @@
     "md/wms",
     "Excalidraw/未命名.canvas",
     "pic/c1f08381-5bf9-488d-b45c-86edf7160912.png",
-    "hexo",
     "Excalidraw/未命名 1.canvas"
   ]
 }
