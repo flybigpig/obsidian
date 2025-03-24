@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/掘金Framework/【Android FrameWork】第一个启动的程序--init (含视频) - 掘金.md",
+                "file": "md/init/Android10 Framework—Init进程-7.服务端属性安全上下文序列化本章主要讲“属性安全上下文序列化”， - 掘金.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "【Android FrameWork】第一个启动的程序--init (含视频) - 掘金"
+              "title": "Android10 Framework—Init进程-7.服务端属性安全上下文序列化本章主要讲“属性安全上下文序列化”， - 掘金"
             }
           }
         ]
@@ -78,7 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 510.5
+    "width": 471.5
   },
   "right": {
     "id": "9529d323d9cfa4b3",
@@ -193,6 +193,12 @@
   },
   "active": "121fbbe92fe8c160",
   "lastOpenFiles": [
+    "md/init/Android10 Framework—Init进程-3.init启动第二阶段第二阶段的代码入口是FirstStageM - 掘金.md",
+    "md/init/Android10 Framework—Init进程-7.服务端属性安全上下文序列化本章主要讲“属性安全上下文序列化”， - 掘金.md",
+    "md/init/Android10 Framework—Init进程-6.属性服务框架属性是什么 在 Android 系统中，为统一管理 - 掘金.md",
+    "md/init/Android10 Framework—Init进程-5.SEAndroid机制权限控制介绍 SEAndroid是and - 掘金.md",
+    "md/init/Android10 Framework—Init进程-4.init进程日志Android系统中 应用层打印日志 impo - 掘金.md",
+    "md/掘金Framework/【Android FrameWork】第一个启动的程序--init (含视频) - 掘金.md",
     "md/framework系统/Android Handler机制11之Handler机制总结-腾讯云开发者社区-腾讯云.md",
     "md/framework系统/Android10_原理机制系列_AMS(ATMS)之应用的第一次启动的过程 - 流浪_归家 - 博客园.md",
     "md/framework系统/Android系统启动——4 zyogte进程 (C篇)-腾讯云开发者社区-腾讯云.md",
@@ -215,12 +221,6 @@
     "md/个人/安卓逆向基础知识之JNI开发与so层逆向基础.md",
     "md/个人/做一做Android消息机制native层实战demo.md",
     "md/个人/ActivityManagerService - Binder.md",
-    "md/个人/Android 15新特性，预测性返回手势_android15系统设置返回效果-CSDN博客.md",
-    "md/个人/开机优化.md",
-    "md/个人/《H.264 vs H.265：一场关于“省流量”和“烧CPU”的塑料兄弟情》-CSDN博客.md",
-    "md/个人/窗口动画为什么要单独再建一个 leash 图层来做动画而不是用原来的图层.md",
-    "md/实践/《Android启动侦探团：追踪Launcher启动的“最后一公里”》-CSDN博客.md",
-    "md/实践/【Launcher3系列】Android 11 Launcher3 翻页底部导航横条改为点式导航_android multivaluealpha-CSDN博客.md",
     "md/实践",
     "md/千里马",
     "Effective+PyCharm+(大语言模型翻译中文版).pdf",
