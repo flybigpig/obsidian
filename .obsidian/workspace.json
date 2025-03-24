@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/init/trigger + command.md",
+                "file": "md/init/深入解析Android12中的init进程启动和服务启动-CSDN博客.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "trigger + command"
+              "title": "深入解析Android12中的init进程启动和服务启动-CSDN博客"
             }
           }
         ]
@@ -193,8 +193,9 @@
   },
   "active": "68e31cad439dd4e6",
   "lastOpenFiles": [
-    "md/init/Android10 Framework—Init进程-12.rc文件格式rc文件说明 早期的rc文件的内容都集中在in - 掘金.md",
     "md/init/trigger + command.md",
+    "md/init/深入解析Android12中的init进程启动和服务启动-CSDN博客.md",
+    "md/init/Android10 Framework—Init进程-12.rc文件格式rc文件说明 早期的rc文件的内容都集中在in - 掘金.md",
     "md/努比亚/Android画面显示流程分析(1).md",
     "md/SurfaceFlinger/显示图形系统分析之SurfaceFlinger启动流程显示图形系统中，避不开的SurfaceFlinger非常重要，对于 - 掘金 1.md",
     "md/SurfaceFlinger/显示图形系统分析之SurfaceFlinger启动流程显示图形系统中，避不开的SurfaceFlinger非常重要，对于 - 掘金.md",
@@ -225,7 +226,6 @@
     "md/handler",
     "md/init/Android10 Framework—Init进程-15.属性变化控制Service属性变化有两个来源： 属性服务端（ - 掘金.md",
     "md/init/Android10 Framework—Init进程-14.启动服务以上代码对am进行了 2 个操作 QueueBuil - 掘金.md",
-    "md/init/Android10 Framework—Init进程-13.rc文件解析init进程的一个核心部分，是通过解析rc文件， - 掘金.md",
     "写给应用开发的+Android+Framework+教程(1).pdf",
     "md/init",
     "md/实践",
