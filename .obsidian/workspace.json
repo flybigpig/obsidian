@@ -191,10 +191,11 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "121fbbe92fe8c160",
+  "active": "f84ce6d2fe2622cd",
   "lastOpenFiles": [
-    "md/init/Android系统—systemproductvendorodm分区介绍system、product、vendor - 掘金.md",
     "md/init/Android10 Framework—Init进程-1.init进程执行流程init进程是linux系统中用户空间的第 - 掘金.md",
+    "conflict-files-obsidian-git.md",
+    "md/init/Android系统—systemproductvendorodm分区介绍system、product、vendor - 掘金.md",
     "md/init/Android启动概述.md",
     "写给应用开发的+Android+Framework+教程(1).pdf",
     "md/init",
@@ -220,7 +221,6 @@
     "md/实践/Android Launcher3终极改造：全屏应用展示实战！深度解析去除Hotseat的隐藏技巧-CSDN博客.md",
     "md/个人/Android系统启动流程（四）Launcher进程启动过程解析（附带面试题）-CSDN博客.md",
     "md/实践/Android 13深度定制：SystemUI状态栏时间居中显示终极实战指南-CSDN博客.md",
-    "md/个人/Android 性能优化（一）内存优化为什么要做内存优化 内存作为App运行必需的资源，对用户体验的影响非常明显。如果内 - 掘金.md",
     "md/实践",
     "md/千里马",
     "Effective+PyCharm+(大语言模型翻译中文版).pdf",
