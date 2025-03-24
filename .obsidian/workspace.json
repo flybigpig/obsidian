@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "5f76fe68342e5073",
+        "id": "3734bab43c0948a4",
         "type": "tabs",
         "children": [
           {
-            "id": "121fbbe92fe8c160",
+            "id": "68e31cad439dd4e6",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/资料/ffmpeg/资料/上课资料/文档01-视频压缩原理.md",
+                "file": "md/努比亚/Android画面显示流程分析(1).md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "文档01-视频压缩原理"
+              "title": "Android画面显示流程分析(1)"
             }
           }
         ]
@@ -191,8 +191,14 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "121fbbe92fe8c160",
+  "active": "68e31cad439dd4e6",
   "lastOpenFiles": [
+    "md/SurfaceFlinger/显示图形系统分析之SurfaceFlinger启动流程显示图形系统中，避不开的SurfaceFlinger非常重要，对于 - 掘金 1.md",
+    "md/SurfaceFlinger/显示图形系统分析之SurfaceFlinger启动流程显示图形系统中，避不开的SurfaceFlinger非常重要，对于 - 掘金.md",
+    "md/努比亚/Android画面显示流程分析(5).md",
+    "RecyclerView刷新机制.md",
+    "md/AndroidFrameworkTutorial/视频课程讲稿/添加系统 App 源码讲稿.md",
+    "md/资料/ffmpeg/资料/上课资料/文档01-视频压缩原理.md",
     "md/资料/ffmpeg/资料/上课资料/文档00-音视频格式封装原理.md",
     "md/资料/ffmpeg/资料/上课资料/img/1.png",
     "md/资料/美颜/通道美颜.mp4",
@@ -220,12 +226,6 @@
     "md/init/Android10 Framework—Init进程-12.rc文件格式rc文件说明 早期的rc文件的内容都集中在in - 掘金.md",
     "md/init/Android10 Framework—Init进程-11.客户端操作属性本章看看客户端是如何去操作属性的，这里主要分为 - 掘金.md",
     "md/init/Android10 Framework—Init进程-10.服务端属性服务启动属性服务的本质就是init进程作为服务端创 - 掘金.md",
-    "md/init/Android10 Framework—Init进程-9.服务端属性值初始化本章主要讲“属性值初始化”，先给出完整数据流 - 掘金.md",
-    "md/init/Android10 Framework—Init进程-8.服务端属性文件创建和mmap映射本章主要讲“属性文件创建和mm - 掘金.md",
-    "md/init/Android10 Framework—Init进程-3.init启动第二阶段第二阶段的代码入口是FirstStageM - 掘金.md",
-    "md/init/Android10 Framework—Init进程-6.属性服务框架属性是什么 在 Android 系统中，为统一管理 - 掘金.md",
-    "md/init/Android10 Framework—Init进程-5.SEAndroid机制权限控制介绍 SEAndroid是and - 掘金.md",
-    "md/init/Android10 Framework—Init进程-4.init进程日志Android系统中 应用层打印日志 impo - 掘金.md",
     "写给应用开发的+Android+Framework+教程(1).pdf",
     "md/init",
     "md/实践",
