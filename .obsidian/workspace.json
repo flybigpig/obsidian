@@ -11,12 +11,14 @@
             "id": "121fbbe92fe8c160",
             "type": "leaf",
             "state": {
-              "type": "pdf",
+              "type": "markdown",
               "state": {
-                "file": "写给应用开发的+Android+Framework+教程(1).pdf"
+                "file": "md/init/Android10 Framework—Init进程-1.init进程执行流程init进程是linux系统中用户空间的第 - 掘金.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-file-text",
-              "title": "写给应用开发的+Android+Framework+教程(1)"
+              "icon": "lucide-file",
+              "title": "Android10 Framework—Init进程-1.init进程执行流程init进程是linux系统中用户空间的第 - 掘金"
             }
           }
         ]
@@ -185,11 +187,17 @@
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
       "markdown-importer:打开 Markdown 格式转换器": false,
-      "obsidian-git:Open Git source control": false
+      "obsidian-git:Open Git source control": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
   "active": "121fbbe92fe8c160",
   "lastOpenFiles": [
+    "md/init/Android系统—systemproductvendorodm分区介绍system、product、vendor - 掘金.md",
+    "md/init/Android10 Framework—Init进程-1.init进程执行流程init进程是linux系统中用户空间的第 - 掘金.md",
+    "md/init/Android启动概述.md",
+    "写给应用开发的+Android+Framework+教程(1).pdf",
+    "md/init",
     "else/通过Samba配置将虚拟机内存映射到主机盘符_在windows中 如何把samba服务器建立的共享目录,映射到一个分区盘上-CSDN博客.md",
     "else/金瓶梅.md",
     "else/阿豪.md",
@@ -214,12 +222,8 @@
     "md/实践/Android 13深度定制：SystemUI状态栏时间居中显示终极实战指南-CSDN博客.md",
     "md/个人/Android 性能优化（一）内存优化为什么要做内存优化 内存作为App运行必需的资源，对用户体验的影响非常明显。如果内 - 掘金.md",
     "md/实践",
-    "md/个人/Android 应用层开发Framework必知必会 - 知乎.md",
-    "md/个人/Android冷启动优化终极指南：让APP比微信还快的7个黑科技.md",
-    "md/个人/揭秘Activity“重生”的面纱---Activity管理系列.md",
     "md/千里马",
     "Effective+PyCharm+(大语言模型翻译中文版).pdf",
-    "写给应用开发的+Android+Framework+教程(1).pdf",
     "f39805ccabec34bac1e4990daf7a02f.png",
     "f39805ccabec34bac1e4990daf7a02f 1.png",
     "pic/Pasted image 20250218094344.png",
@@ -236,7 +240,6 @@
     "Excalidraw/未命名.canvas",
     "pic/c1f08381-5bf9-488d-b45c-86edf7160912.png",
     "hexo",
-    "md/SurfaceFlinger",
     "Excalidraw/未命名 1.canvas"
   ]
 }
