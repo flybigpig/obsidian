@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/init/Android10 Framework—Init进程-1.init进程执行流程init进程是linux系统中用户空间的第 - 掘金.md",
+                "file": "md/掘金Framework/【Android FrameWork】第一个启动的程序--init (含视频) - 掘金.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Android10 Framework—Init进程-1.init进程执行流程init进程是linux系统中用户空间的第 - 掘金"
+              "title": "【Android FrameWork】第一个启动的程序--init (含视频) - 掘金"
             }
           }
         ]
@@ -78,7 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 297.5
+    "width": 510.5
   },
   "right": {
     "id": "9529d323d9cfa4b3",
@@ -191,8 +191,13 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "f84ce6d2fe2622cd",
+  "active": "121fbbe92fe8c160",
   "lastOpenFiles": [
+    "md/framework系统/Android Handler机制11之Handler机制总结-腾讯云开发者社区-腾讯云.md",
+    "md/framework系统/Android10_原理机制系列_AMS(ATMS)之应用的第一次启动的过程 - 流浪_归家 - 博客园.md",
+    "md/framework系统/Android系统启动——4 zyogte进程 (C篇)-腾讯云开发者社区-腾讯云.md",
+    "md/framework系统/Android系统启动——3 init.rc解析-腾讯云开发者社区-腾讯云.md",
+    "md/init/Android10 Framework—Init进程-2.init启动第一阶段第一阶段的代码入口是FirstStageM - 掘金.md",
     "md/init/Android10 Framework—Init进程-1.init进程执行流程init进程是linux系统中用户空间的第 - 掘金.md",
     "conflict-files-obsidian-git.md",
     "md/init/Android系统—systemproductvendorodm分区介绍system、product、vendor - 掘金.md",
@@ -216,11 +221,6 @@
     "md/个人/窗口动画为什么要单独再建一个 leash 图层来做动画而不是用原来的图层.md",
     "md/实践/《Android启动侦探团：追踪Launcher启动的“最后一公里”》-CSDN博客.md",
     "md/实践/【Launcher3系列】Android 11 Launcher3 翻页底部导航横条改为点式导航_android multivaluealpha-CSDN博客.md",
-    "md/实践/Android Launcher3 首屏图标锁定技术方案解析-CSDN博客.md",
-    "md/实践/深度解析  Android 13 Launcher3分页指示器改造：横线变圆点实战指南-CSDN博客.md",
-    "md/实践/Android Launcher3终极改造：全屏应用展示实战！深度解析去除Hotseat的隐藏技巧-CSDN博客.md",
-    "md/个人/Android系统启动流程（四）Launcher进程启动过程解析（附带面试题）-CSDN博客.md",
-    "md/实践/Android 13深度定制：SystemUI状态栏时间居中显示终极实战指南-CSDN博客.md",
     "md/实践",
     "md/千里马",
     "Effective+PyCharm+(大语言模型翻译中文版).pdf",
