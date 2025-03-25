@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/linux/epoll、poll、select的原理和区别-腾讯云开发者社区-腾讯云.md",
+                "file": "md/linux/【epoll】epoll使用详解（精髓）--研读和修正-CSDN博客.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "epoll、poll、select的原理和区别-腾讯云开发者社区-腾讯云"
+              "title": "【epoll】epoll使用详解（精髓）--研读和修正-CSDN博客"
             }
           }
         ]
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "md/linux/epoll、poll、select的原理和区别-腾讯云开发者社区-腾讯云.md",
+                "file": "md/linux/【epoll】epoll使用详解（精髓）--研读和修正-CSDN博客.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "epoll、poll、select的原理和区别-腾讯云开发者社区-腾讯云 的大纲"
+              "title": "【epoll】epoll使用详解（精髓）--研读和修正-CSDN博客 的大纲"
             }
           },
           {
@@ -194,8 +194,9 @@
   "active": "f84ce6d2fe2622cd",
   "lastOpenFiles": [
     "md/linux/一文搞懂epoll：高效IO多路复用的核心技术 - 知乎.md",
-    "md/linux/嵌入式系统启动流程-CSDN博客.md",
     "md/linux/epoll、poll、select的原理和区别-腾讯云开发者社区-腾讯云.md",
+    "md/linux/【epoll】epoll使用详解（精髓）--研读和修正-CSDN博客.md",
+    "md/linux/嵌入式系统启动流程-CSDN博客.md",
     "md/掘金Framework/【Android FrameWork】第一个启动的程序--init (含视频) - 掘金.md",
     "md/init/Android10 Framework—Init进程-15.属性变化控制Service属性变化有两个来源： 属性服务端（ - 掘金.md",
     "md/init/深入解析Android12中的init进程启动和服务启动-CSDN博客.md",
@@ -225,7 +226,6 @@
     "md/handler/Android10 Framework—Handler消息系统—6.同步屏障同步屏障这个概念有点不好理解，为了搞清楚同步 - 掘金.md",
     "md/handler/Android10 Framework—Handler消息系统—5.消息回收机制消息系统在线程通过的过程中可能会创建大量 - 掘金.md",
     "md/handler/Android10 Framework—Handler消息系统—4.消息系统退出UI线程创建Looper，prepare - 掘金.md",
-    "md/handler/Android10 Framework—Handler消息系统—3.UI线程创建Handler在UI线程中我们直接使用如 - 掘金.md",
     "md/handler",
     "写给应用开发的+Android+Framework+教程(1).pdf",
     "md/init",
