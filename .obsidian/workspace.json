@@ -187,11 +187,14 @@
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
       "markdown-importer:打开 Markdown 格式转换器": false,
-      "obsidian-git:Open Git source control": false
+      "obsidian-git:Open Git source control": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "594470d946758675",
+  "active": "fa4657deb406b728",
   "lastOpenFiles": [
+    "md/个人/Android 底层渲染 - 屏幕刷新机制源码分析 - 简书.md",
+    "md/个人/Android Binder 驱动 - Media 服务的添加过程_android binder 驱动 media-CSDN博客.md",
     "md/init/Android启动概述.md",
     "md/linux/进程（六）—— 进程程序替换（exec函数族）-CSDN博客.md",
     "md/linux/【epoll】epoll使用详解（精髓）--研读和修正-CSDN博客.md",
@@ -223,8 +226,6 @@
     "md/资料/美颜/1asd.md",
     "md/个人/《10分钟剖析》系统启动2——启动zygotezygote作为App开发者所熟知的孵化器进程，在App界的地位是绝对的龙 - 掘金.md",
     "md/handler/Android10 Framework—Handler消息系统—7.IdleHandler机制IdleHandler是a - 掘金.md",
-    "md/handler/Android10 Framework—Handler消息系统—6.同步屏障同步屏障这个概念有点不好理解，为了搞清楚同步 - 掘金.md",
-    "md/handler/Android10 Framework—Handler消息系统—5.消息回收机制消息系统在线程通过的过程中可能会创建大量 - 掘金.md",
     "md/handler",
     "写给应用开发的+Android+Framework+教程(1).pdf",
     "md/init",
