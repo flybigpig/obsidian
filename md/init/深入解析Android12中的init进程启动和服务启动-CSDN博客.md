@@ -198,3 +198,6 @@ main函数这个我们下次再说。
 ---
 
 加载并解析init.rc 根据rc文件创建Service对象，最终将service添加到service_List中，然后解析到on 执行 class_start的时候会开启服务调用Service::Start函数,fork子进程，并且执行app_process文件 开启了zygote，也就到了zygote的main函数中了
+
+
+fork 创建一个新的进程，系统调用，fork了之后子进程会继承父进程的资源，exec 是不会的，读时共享写时复制
