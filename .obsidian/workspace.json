@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/init/Android10 Framework—Init进程-14.启动服务以上代码对am进行了 2 个操作 QueueBuil - 掘金.md",
-                "mode": "preview",
+                "file": "md/init/深入解析Android12中的init进程启动和服务启动-CSDN博客.md",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Android10 Framework—Init进程-14.启动服务以上代码对am进行了 2 个操作 QueueBuil - 掘金"
+              "title": "深入解析Android12中的init进程启动和服务启动-CSDN博客"
             }
           }
         ]
@@ -193,6 +193,8 @@
   },
   "active": "68e31cad439dd4e6",
   "lastOpenFiles": [
+    "md/init/Android启动概述.md",
+    "md/init/Android10 Framework—Init进程-14.启动服务以上代码对am进行了 2 个操作 QueueBuil - 掘金.md",
     "md/init/深入解析Android12中的init进程启动和服务启动-CSDN博客.md",
     "md/init/trigger + command.md",
     "md/init/Android10 Framework—Init进程-12.rc文件格式rc文件说明 早期的rc文件的内容都集中在in - 掘金.md",
@@ -224,8 +226,6 @@
     "md/个人/《10分钟剖析》系统启动1——从内核到用户Android系统总体是围绕着Linux内核而建立的。从加电到系统启动，大 - 掘金.md",
     "md/init/Android10 Framework—Init进程-7.服务端属性安全上下文序列化本章主要讲“属性安全上下文序列化”， - 掘金.md",
     "md/handler",
-    "md/init/Android10 Framework—Init进程-15.属性变化控制Service属性变化有两个来源： 属性服务端（ - 掘金.md",
-    "md/init/Android10 Framework—Init进程-14.启动服务以上代码对am进行了 2 个操作 QueueBuil - 掘金.md",
     "写给应用开发的+Android+Framework+教程(1).pdf",
     "md/init",
     "md/实践",
