@@ -1131,6 +1131,8 @@ int main(int argc, char* const argv[])
 
 这样init的就唤起了Zygote了。
 
+![[Pasted image 20250325092704.png]]
+
 ## 补充
 
 关于Epoll，Select,Poll。这个在面试中经常会被问到。这里解释下：在Linux中，监听文件（I/O多路复用）。

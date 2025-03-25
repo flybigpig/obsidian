@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "3734bab43c0948a4",
+        "id": "3aea6d8653b5c208",
         "type": "tabs",
         "children": [
           {
-            "id": "68e31cad439dd4e6",
+            "id": "594470d946758675",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/init/深入解析Android12中的init进程启动和服务启动-CSDN博客.md",
+                "file": "md/掘金Framework/【Android FrameWork】第一个启动的程序--init (含视频) - 掘金.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "深入解析Android12中的init进程启动和服务启动-CSDN博客"
+              "title": "【Android FrameWork】第一个启动的程序--init (含视频) - 掘金"
             }
           }
         ]
@@ -191,11 +191,14 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "68e31cad439dd4e6",
+  "active": "594470d946758675",
   "lastOpenFiles": [
+    "md/init/Android10 Framework—Init进程-15.属性变化控制Service属性变化有两个来源： 属性服务端（ - 掘金.md",
+    "md/init/深入解析Android12中的init进程启动和服务启动-CSDN博客.md",
+    "yto/Pasted image 20250325092704.png",
+    "md/掘金Framework/【Android FrameWork】第一个启动的程序--init (含视频) - 掘金.md",
     "md/init/Android启动概述.md",
     "md/init/Android10 Framework—Init进程-14.启动服务以上代码对am进行了 2 个操作 QueueBuil - 掘金.md",
-    "md/init/深入解析Android12中的init进程启动和服务启动-CSDN博客.md",
     "md/init/trigger + command.md",
     "md/init/Android10 Framework—Init进程-12.rc文件格式rc文件说明 早期的rc文件的内容都集中在in - 掘金.md",
     "md/努比亚/Android画面显示流程分析(1).md",
@@ -223,8 +226,6 @@
     "md/handler/Android10 Framework—Handler消息系统—2.子线程创建HandlerHandler使用场景 Ha - 掘金.md",
     "md/handler/Android10 Framework—Handler消息系统—1.整体概述类图 Handler消息系统通过线程间消息通 - 掘金.md",
     "md/个人/《10分钟剖析》系统启动3——Zygote的使命我们在App中常用来调试查看线程、内存、UI布局等方法都是在这里注册的。 - 掘金.md",
-    "md/个人/《10分钟剖析》系统启动1——从内核到用户Android系统总体是围绕着Linux内核而建立的。从加电到系统启动，大 - 掘金.md",
-    "md/init/Android10 Framework—Init进程-7.服务端属性安全上下文序列化本章主要讲“属性安全上下文序列化”， - 掘金.md",
     "md/handler",
     "写给应用开发的+Android+Framework+教程(1).pdf",
     "md/init",
@@ -237,7 +238,6 @@
     "pic/Pasted image 20250109141941.png",
     "pic/Pasted image 20250218094245.png",
     "md/linux",
-    "pic/Pasted image 20250113093848.png",
     "md/car",
     "Excalidraw/未命名.canvas",
     "Excalidraw/未命名 1.canvas"
