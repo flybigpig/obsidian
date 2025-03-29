@@ -20,8 +20,23 @@
               "icon": "lucide-file",
               "title": "【Launcher3系列】Android 11 Launcher3 翻页底部导航横条改为点式导航_android multivaluealpha-CSDN博客"
             }
+          },
+          {
+            "id": "0d8eb31f4bb74143",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "conflict-files-obsidian-git.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "conflict-files-obsidian-git"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -182,39 +197,43 @@
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
       "markdown-importer:打开 Markdown 格式转换器": false,
-      "obsidian-git:Open Git source control": false
+      "obsidian-git:Open Git source control": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "a467f0ba849a2a83",
+  "active": "0d8eb31f4bb74143",
   "lastOpenFiles": [
-    "md/androidSource/1  android项目构建流程.md",
-    "conflict-files-obsidian-git.md",
-    "md/实践/深度解析  Android 13 Launcher3分页指示器改造：横线变圆点实战指南-CSDN博客.md",
     "md/实践/【Launcher3系列】Android 11 Launcher3 翻页底部导航横条改为点式导航_android multivaluealpha-CSDN博客.md",
-    "md/实践/《Android启动侦探团：追踪Launcher启动的“最后一公里”》-CSDN博客.md",
-    "md/实践/Android Launcher3终极改造：全屏应用展示实战！深度解析去除Hotseat的隐藏技巧-CSDN博客.md",
-    "md/实践/Android Launcher3 首屏图标锁定技术方案解析-CSDN博客.md",
-    "md/实践/Android 13深度定制：SystemUI状态栏时间居中显示终极实战指南-CSDN博客.md",
+    "conflict-files-obsidian-git.md",
+    "yto/Pasted image 20250325092704.png",
+    "md/个人/异常处理 - Native 层的崩溃捕获机制及实现 - 简书.md",
+    "md/个人/《10分钟剖析》系统启动3——Zygote的使命我们在App中常用来调试查看线程、内存、UI布局等方法都是在这里注册的。 - 掘金.md",
+    "md/个人/《10分钟剖析》系统启动2——启动zygotezygote作为App开发者所熟知的孵化器进程，在App界的地位是绝对的龙 - 掘金.md",
+    "md/个人/《10分钟剖析》系统启动1——从内核到用户Android系统总体是围绕着Linux内核而建立的。从加电到系统启动，大 - 掘金.md",
+    "md/个人/Android 底层渲染 - 屏幕刷新机制源码分析 - 简书.md",
+    "md/init/深入解析Android12中的init进程启动和服务启动-CSDN博客.md",
+    "md/init/trigger + command.md",
+    "md/init/Android系统—systemproductvendorodm分区介绍system、product、vendor - 掘金.md",
+    "md/init/Android启动概述.md",
+    "md/init/Android10 Framework—Init进程-9.服务端属性值初始化本章主要讲“属性值初始化”，先给出完整数据流 - 掘金.md",
+    "md/init/Android10 Framework—Init进程-8.服务端属性文件创建和mmap映射本章主要讲“属性文件创建和mm - 掘金.md",
+    "md/init/Android10 Framework—Init进程-7.服务端属性安全上下文序列化本章主要讲“属性安全上下文序列化”， - 掘金.md",
+    "md/init/Android10 Framework—Init进程-6.属性服务框架属性是什么 在 Android 系统中，为统一管理 - 掘金.md",
+    "md/init/Android10 Framework—Init进程-5.SEAndroid机制权限控制介绍 SEAndroid是and - 掘金.md",
+    "md/init/Android10 Framework—Init进程-4.init进程日志Android系统中 应用层打印日志 impo - 掘金.md",
+    "md/init/Android10 Framework—Init进程-3.init启动第二阶段第二阶段的代码入口是FirstStageM - 掘金.md",
+    "md/init/Android10 Framework—Init进程-2.init启动第一阶段第一阶段的代码入口是FirstStageM - 掘金.md",
+    "md/init/Android10 Framework—Init进程-15.属性变化控制Service属性变化有两个来源： 属性服务端（ - 掘金.md",
+    "md/init/Android10 Framework—Init进程-14.启动服务以上代码对am进行了 2 个操作 QueueBuil - 掘金.md",
+    "md/init/Android10 Framework—Init进程-13.rc文件解析init进程的一个核心部分，是通过解析rc文件， - 掘金.md",
+    "md/init/Android10 Framework—Init进程-12.rc文件格式rc文件说明 早期的rc文件的内容都集中在in - 掘金.md",
+    "md/init/Android10 Framework—Init进程-11.客户端操作属性本章看看客户端是如何去操作属性的，这里主要分为 - 掘金.md",
+    "md/init/Android10 Framework—Init进程-10.服务端属性服务启动属性服务的本质就是init进程作为服务端创 - 掘金.md",
+    "md/init/Android10 Framework—Init进程-1.init进程执行流程init进程是linux系统中用户空间的第 - 掘金.md",
+    "md/init",
+    "md/handler",
     "md/实践",
-    "md/千里马/千里马android framework车机车载手机智能驾驶双屏互动实现方案_android 千里马bolg-CSDN博客.md",
     "md/千里马",
-    "md/个人/聊一聊Android的消息机制 - OSCHINA - 中文开源技术交流社区.md",
-    "md/个人/做一做Android消息机制native层实战demo.md",
-    "md/个人/《H.264 vs H.265：一场关于“省流量”和“烧CPU”的塑料兄弟情》-CSDN博客.md",
-    "md/个人/Linux Shell 脚本编程入门1——核心基础语法什么是 Shell 脚本？我们把多个 linux 命令写进一个文件 - 掘金.md",
-    "md/个人/Android系统启动流程（四）Launcher进程启动过程解析（附带面试题）-CSDN博客.md",
-    "md/个人/Android冷启动优化终极指南：让APP比微信还快的7个黑科技.md",
-    "md/个人/Android 应用层开发Framework必知必会 - 知乎.md",
-    "md/个人/Android Framework 面试集合——Binder篇 - 知乎.md",
-    "md/个人/Android 15新特性，预测性返回手势_android15系统设置返回效果-CSDN博客.md",
-    "md/DeepSeek/adb shell 命令进行kill进程.md",
-    "md/DeepSeek/GPT40-mini.md",
-    "else/阿豪.md",
-    "else/金瓶梅.md",
-    "else/通过Samba配置将虚拟机内存映射到主机盘符_在windows中 如何把samba服务器建立的共享目录,映射到一个分区盘上-CSDN博客.md",
-    "else/【拒绝岁月史书】胖猫谭竹事件最全解析+存档记录 - 知乎.md",
-    "md/androidSource/2 android异步消息机制.md",
-    "md/个人/【Android Framework系列】第8章 事件分发你真了解吗？_dispatcheventlocked-CSDN博客.md",
     "pic/Pasted image 20250218094344.png",
     "pic/Pasted image 20250218094245.png",
     "pic/Pasted image 20250113093848.png",
@@ -228,11 +247,8 @@
     "md/DeepSeek",
     "Effective+PyCharm+(大语言模型翻译中文版).pdf",
     "pic/c1f08381-5bf9-488d-b45c-86edf7160912.png",
-    "hexo",
     "pic/e73ad7f6d928a1b67f9f2c08ab9bc1f.png",
     "pic/6b5710bda24ee1fd270ddd2da769d63.png",
-    "pic/e1fe8d3703d5038b2bd15153c1bf7c7.png",
-    "写给应用开发的+Android+Framework+教程(1).pdf",
     "Excalidraw/未命名.canvas",
     "Excalidraw/未命名 1.canvas"
   ]
