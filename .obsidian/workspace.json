@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/init/深入解析Android12中的init进程启动和服务启动-CSDN博客.md",
+                "file": "md/init/Android10 Framework—Init进程-1.init进程执行流程init进程是linux系统中用户空间的第 - 掘金.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "深入解析Android12中的init进程启动和服务启动-CSDN博客"
+              "title": "Android10 Framework—Init进程-1.init进程执行流程init进程是linux系统中用户空间的第 - 掘金"
             }
           }
         ]
@@ -182,11 +182,13 @@
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
       "markdown-importer:打开 Markdown 格式转换器": false,
-      "obsidian-git:Open Git source control": false
+      "obsidian-git:Open Git source control": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
   "active": "a467f0ba849a2a83",
   "lastOpenFiles": [
+    "md/init/深入解析Android12中的init进程启动和服务启动-CSDN博客.md",
     "md/init/Android10 Framework—Init进程-1.init进程执行流程init进程是linux系统中用户空间的第 - 掘金.md",
     "md/实践/【Launcher3系列】Android 11 Launcher3 翻页底部导航横条改为点式导航_android multivaluealpha-CSDN博客.md",
     "conflict-files-obsidian-git.md",
@@ -196,7 +198,6 @@
     "md/个人/《10分钟剖析》系统启动2——启动zygotezygote作为App开发者所熟知的孵化器进程，在App界的地位是绝对的龙 - 掘金.md",
     "md/个人/《10分钟剖析》系统启动1——从内核到用户Android系统总体是围绕着Linux内核而建立的。从加电到系统启动，大 - 掘金.md",
     "md/个人/Android 底层渲染 - 屏幕刷新机制源码分析 - 简书.md",
-    "md/init/深入解析Android12中的init进程启动和服务启动-CSDN博客.md",
     "md/init/trigger + command.md",
     "md/init/Android系统—systemproductvendorodm分区介绍system、product、vendor - 掘金.md",
     "md/init/Android启动概述.md",
