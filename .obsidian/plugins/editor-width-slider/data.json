@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
+  "sliderPercentage": "19",
+=======
   "sliderPercentage": "23",
+>>>>>>> origin/main
   "sliderPercentageDefault": "20",
   "sliderWidth": "150"
 }
