@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/zygote/Zygote 服务器.md",
+                "file": "RecyclerView刷新机制.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Zygote 服务器"
+              "title": "RecyclerView刷新机制"
             }
           }
         ]
@@ -191,10 +191,10 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "f84ce6d2fe2622cd",
+  "active": "594470d946758675",
   "lastOpenFiles": [
-    "conflict-files-obsidian-git.md",
     "md/zygote/Zygote 服务器.md",
+    "conflict-files-obsidian-git.md",
     "md/HAL/2AndroidQ 打通应用层到HAL层---(HIDL服务实现)_应用层hidl-CSDN博客.md",
     "md/zygote",
     "md/HAL/1AndroidQ 打通应用层到HAL层---(HAL模块实现)-CSDN博客.md",
