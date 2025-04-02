@@ -1,3 +1,6 @@
+---
+title: launcher
+---
 ## 1\. 概述
 
 [Launcher](https://so.csdn.net/so/search?q=Launcher&spm=1001.2101.3001.7020) 是 Android 系统中负责管理主屏幕、应用图标和用户交互的核心组件。它是用户与设备交互的第一个界面。
