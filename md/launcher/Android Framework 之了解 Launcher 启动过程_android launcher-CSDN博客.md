@@ -1,5 +1,7 @@
 ---
 title: launcher
+tags:
+  - launcher
 ---
 ## 1\. 概述
 
