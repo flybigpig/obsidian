@@ -187,11 +187,13 @@
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
       "markdown-importer:打开 Markdown 格式转换器": false,
-      "obsidian-git:Open Git source control": false
+      "obsidian-git:Open Git source control": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
   "active": "594470d946758675",
   "lastOpenFiles": [
+    "md/个人/Android Framwork 之深入理解 IPC Binder机制_android binder ipc-CSDN博客.md",
     "md/systemservice/安卓 SystemServer 启动流程_android systemserver启动流程-CSDN博客.md",
     "md/systemservice/解析 ServiceManager 实现.md",
     "md/systemservice/Android 系统启动之 SystemServer 进程启动分析二  Android Framework.md",
@@ -220,7 +222,6 @@
     "conflict-files-obsidian-git.md",
     "md/zygote",
     "md/个人/Android Binder 驱动 - 内核驱动层源码分析_binder.c源码分析-CSDN博客.md",
-    "md/个人/异常处理 - Native 层的崩溃捕获机制及实现 - 简书.md",
     "yto/Pasted image 20250325092704.png",
     "md/资料/ffmpeg/资料/上课资料/img/1.png",
     "md/资料/美颜/通道美颜.mp4",
