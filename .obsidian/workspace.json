@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/systemserver/SystemServer 启动.md",
+                "file": "md/systemserver/安卓 SystemServer 启动流程_android systemserver启动流程-CSDN博客.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "SystemServer 启动"
+              "title": "安卓 SystemServer 启动流程_android systemserver启动流程-CSDN博客"
             }
           }
         ]
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "md/systemserver/SystemServer 启动.md",
+                "file": "md/systemserver/安卓 SystemServer 启动流程_android systemserver启动流程-CSDN博客.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "SystemServer 启动 的大纲"
+              "title": "安卓 SystemServer 启动流程_android systemserver启动流程-CSDN博客 的大纲"
             }
           },
           {
@@ -193,8 +193,9 @@
   },
   "active": "594470d946758675",
   "lastOpenFiles": [
-    "md/systemserver/Android 系统启动之 SystemServer 进程启动分析二  Android Framework.md",
     "md/systemserver/SystemServer 启动.md",
+    "md/systemserver/安卓 SystemServer 启动流程_android systemserver启动流程-CSDN博客.md",
+    "md/systemserver/Android 系统启动之 SystemServer 进程启动分析二  Android Framework.md",
     "md/zygote/ZygoteInit.main.md",
     "md/systemserver",
     "md/zygote/父子进程的故事：解读Linux中的fork机制-腾讯云开发者社区-腾讯云.md",
@@ -220,7 +221,6 @@
     "md/linux/epoll、poll、select的原理和区别-腾讯云开发者社区-腾讯云.md",
     "md/linux/嵌入式系统启动流程-CSDN博客.md",
     "md/掘金Framework/【Android FrameWork】第一个启动的程序--init (含视频) - 掘金.md",
-    "md/init/Android10 Framework—Init进程-15.属性变化控制Service属性变化有两个来源： 属性服务端（ - 掘金.md",
     "yto/Pasted image 20250325092704.png",
     "md/资料/ffmpeg/资料/上课资料/img/1.png",
     "md/资料/美颜/通道美颜.mp4",
