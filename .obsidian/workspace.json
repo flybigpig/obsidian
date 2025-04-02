@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/systemserver/解析 ServiceManager 实现.md",
+                "file": "md/systemserver/ServiceManagerNative.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "解析 ServiceManager 实现"
+              "title": "ServiceManagerNative"
             }
           }
         ]
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "md/systemserver/解析 ServiceManager 实现.md",
+                "file": "md/systemserver/ServiceManagerNative.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "解析 ServiceManager 实现 的大纲"
+              "title": "ServiceManagerNative 的大纲"
             }
           },
           {
@@ -193,9 +193,10 @@
   },
   "active": "594470d946758675",
   "lastOpenFiles": [
+    "md/systemserver/解析 ServiceManager 实现.md",
+    "md/systemserver/ServiceManagerNative.md",
     "md/systemserver/Android 系统启动之 SystemServer 进程启动分析二  Android Framework.md",
     "md/systemserver/ServerManager.md",
-    "md/systemserver/解析 ServiceManager 实现.md",
     "md/HAL/3AndroidQ 打通应用层到HAL层---(JNI服务和AIDL服务实现)_android aidl hal-CSDN博客.md",
     "md/HAL/1AndroidQ 打通应用层到HAL层---(HAL模块实现)-CSDN博客.md",
     "md/HAL/2AndroidQ 打通应用层到HAL层---(HIDL服务实现)_应用层hidl-CSDN博客.md",
@@ -221,7 +222,6 @@
     "md/zygote",
     "md/个人/Android Binder 驱动 - 内核驱动层源码分析_binder.c源码分析-CSDN博客.md",
     "md/个人/异常处理 - Native 层的崩溃捕获机制及实现 - 简书.md",
-    "md/init/深入解析Android12中的init进程启动和服务启动-CSDN博客.md",
     "yto/Pasted image 20250325092704.png",
     "md/资料/ffmpeg/资料/上课资料/img/1.png",
     "md/资料/美颜/通道美颜.mp4",
