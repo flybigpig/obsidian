@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/zygote/Android系统启动——5 zyogte进程(Java篇)-腾讯云开发者社区-腾讯云.md",
+                "file": "md/systemserver/SystemServer 启动.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Android系统启动——5 zyogte进程(Java篇)-腾讯云开发者社区-腾讯云"
+              "title": "SystemServer 启动"
             }
           }
         ]
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "md/zygote/Android系统启动——5 zyogte进程(Java篇)-腾讯云开发者社区-腾讯云.md",
+                "file": "md/systemserver/SystemServer 启动.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Android系统启动——5 zyogte进程(Java篇)-腾讯云开发者社区-腾讯云 的大纲"
+              "title": "SystemServer 启动 的大纲"
             }
           },
           {
@@ -172,7 +172,7 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
@@ -187,18 +187,21 @@
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
       "markdown-importer:打开 Markdown 格式转换器": false,
-      "obsidian-git:Open Git source control": false
+      "obsidian-git:Open Git source control": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "9c3898f8c049b5d3",
+  "active": "f84ce6d2fe2622cd",
   "lastOpenFiles": [
+    "md/zygote/ZygoteInit.main.md",
+    "md/systemserver/SystemServer 启动.md",
+    "md/systemserver",
+    "md/zygote/父子进程的故事：解读Linux中的fork机制-腾讯云开发者社区-腾讯云.md",
+    "md/zygote/Android系统启动——5 zyogte进程(Java篇)-腾讯云开发者社区-腾讯云.md",
     "md/zygote/AndroidRuntime.start.md",
     "md/zygote/runSelectLoop.md",
-    "md/zygote/父子进程的故事：解读Linux中的fork机制-腾讯云开发者社区-腾讯云.md",
-    "md/zygote/ZygoteInit.main.md",
     "md/zygote/app_main.md",
     "md/zygote/Zygote 服务器.md",
-    "md/zygote/Android系统启动——5 zyogte进程(Java篇)-腾讯云开发者社区-腾讯云.md",
     "RecyclerView刷新机制.md",
     "conflict-files-obsidian-git.md",
     "md/HAL/2AndroidQ 打通应用层到HAL层---(HIDL服务实现)_应用层hidl-CSDN博客.md",
@@ -219,7 +222,6 @@
     "md/init/Android10 Framework—Init进程-15.属性变化控制Service属性变化有两个来源： 属性服务端（ - 掘金.md",
     "yto/Pasted image 20250325092704.png",
     "md/init/Android10 Framework—Init进程-14.启动服务以上代码对am进行了 2 个操作 QueueBuil - 掘金.md",
-    "md/init/trigger + command.md",
     "md/资料/ffmpeg/资料/上课资料/img/1.png",
     "md/资料/美颜/通道美颜.mp4",
     "md/资料/美颜/美颜.jpg",
@@ -237,7 +239,6 @@
     "pic/Pasted image 20250218094344.png",
     "pic/Pasted image 20250109141941.png",
     "pic/Pasted image 20250218094245.png",
-    "md/linux",
     "Excalidraw/未命名.canvas",
     "Excalidraw/未命名 1.canvas"
   ]
