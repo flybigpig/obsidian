@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/HAL/3AndroidQ 打通应用层到HAL层---(JNI服务和AIDL服务实现)_android aidl hal-CSDN博客.md",
-                "mode": "source",
+                "file": "md/systemserver/Android 系统启动之 SystemServer 进程启动分析二  Android Framework.md",
+                "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "3AndroidQ 打通应用层到HAL层---(JNI服务和AIDL服务实现)_android aidl hal-CSDN博客"
+              "title": "Android 系统启动之 SystemServer 进程启动分析二  Android Framework"
             }
           }
         ]
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "md/HAL/3AndroidQ 打通应用层到HAL层---(JNI服务和AIDL服务实现)_android aidl hal-CSDN博客.md",
+                "file": "md/systemserver/Android 系统启动之 SystemServer 进程启动分析二  Android Framework.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "3AndroidQ 打通应用层到HAL层---(JNI服务和AIDL服务实现)_android aidl hal-CSDN博客 的大纲"
+              "title": "Android 系统启动之 SystemServer 进程启动分析二  Android Framework 的大纲"
             }
           },
           {
@@ -187,11 +187,16 @@
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
       "markdown-importer:打开 Markdown 格式转换器": false,
-      "obsidian-git:Open Git source control": false
+      "obsidian-git:Open Git source control": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "594470d946758675",
+  "active": "f84ce6d2fe2622cd",
   "lastOpenFiles": [
+    "md/systemserver/ServerManager.md",
+    "md/systemserver/Android 系统启动之 SystemServer 进程启动分析二  Android Framework.md",
+    "md/systemserver/解析 ServiceManager 实现.md",
+    "md/HAL/3AndroidQ 打通应用层到HAL层---(JNI服务和AIDL服务实现)_android aidl hal-CSDN博客.md",
     "md/HAL/1AndroidQ 打通应用层到HAL层---(HAL模块实现)-CSDN博客.md",
     "md/HAL/2AndroidQ 打通应用层到HAL层---(HIDL服务实现)_应用层hidl-CSDN博客.md",
     "md/handler/Android10 Framework—Handler消息系统—2.子线程创建HandlerHandler使用场景 Ha - 掘金.md",
@@ -203,7 +208,6 @@
     "md/systemserver/SystemServer 启动.md",
     "md/systemserver/安卓 SystemServer 启动流程_android systemserver启动流程-CSDN博客.md",
     "md/launcher",
-    "md/systemserver/Android 系统启动之 SystemServer 进程启动分析二  Android Framework.md",
     "md/zygote/ZygoteInit.main.md",
     "md/systemserver",
     "md/zygote/父子进程的故事：解读Linux中的fork机制-腾讯云开发者社区-腾讯云.md",
@@ -218,9 +222,6 @@
     "md/个人/Android Binder 驱动 - 内核驱动层源码分析_binder.c源码分析-CSDN博客.md",
     "md/个人/异常处理 - Native 层的崩溃捕获机制及实现 - 简书.md",
     "md/init/深入解析Android12中的init进程启动和服务启动-CSDN博客.md",
-    "md/个人/Android 底层渲染 - 屏幕刷新机制源码分析 - 简书.md",
-    "md/个人/Android Binder 驱动 - Media 服务的添加过程_android binder 驱动 media-CSDN博客.md",
-    "md/init/Android启动概述.md",
     "yto/Pasted image 20250325092704.png",
     "md/资料/ffmpeg/资料/上课资料/img/1.png",
     "md/资料/美颜/通道美颜.mp4",
