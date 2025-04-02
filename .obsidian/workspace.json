@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/systemserver/SystemServer 启动.md",
+                "file": "md/systemserver/Android 系统启动之 SystemServer 进程启动分析二  Android Framework.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "SystemServer 启动"
+              "title": "Android 系统启动之 SystemServer 进程启动分析二  Android Framework"
             }
           }
         ]
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "md/systemserver/SystemServer 启动.md",
+                "file": "md/systemserver/Android 系统启动之 SystemServer 进程启动分析二  Android Framework.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "SystemServer 启动 的大纲"
+              "title": "Android 系统启动之 SystemServer 进程启动分析二  Android Framework 的大纲"
             }
           },
           {
@@ -191,10 +191,10 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "594470d946758675",
+  "active": "f84ce6d2fe2622cd",
   "lastOpenFiles": [
-    "md/systemserver/Android 系统启动之 SystemServer 进程启动分析二  Android Framework.md",
     "md/systemserver/SystemServer 启动.md",
+    "md/systemserver/Android 系统启动之 SystemServer 进程启动分析二  Android Framework.md",
     "md/zygote/ZygoteInit.main.md",
     "md/systemserver",
     "md/zygote/父子进程的故事：解读Linux中的fork机制-腾讯云开发者社区-腾讯云.md",
