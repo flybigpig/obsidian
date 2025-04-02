@@ -1,7 +1,7 @@
 
 
 
-
+### 启动
 ```
 handleSystemServerProcess(){
 
@@ -33,7 +33,7 @@ handleSystemServerProcess(){
 }
 ```
 
-
+###  systemserver.main.run()
 ```
 private void run() {  
     try {  
@@ -1242,7 +1242,9 @@ private void startOtherServices() {
     final CellsService cellsServiceF = cellsService;  
   
     // We now tell the activity manager it is okay to run third party  
-    // code.  It will call back into us once it has gotten to the state    // where third party code can really run (but before it has actually    // started launching the initial applications), for us to complete our    // initialization.    mActivityManagerService.systemReady(() -> {  
+    // code.  It will call back into us once it has gotten to the state    // where third party code can really run (but before it has actually    // started launching the initial applications), for us to complete our    // initialization.  
+		// 开始启动launcher
+      mActivityManagerService.systemReady(() -> {  
         Slog.i(TAG, "Making services ready");  
         traceBeginAndSlog("StartActivityManagerReadyPhase");  
         mSystemServiceManager.startBootPhase(  
