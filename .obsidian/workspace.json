@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/launcher/Android Framework 之了解 Launcher 启动过程_android launcher-CSDN博客.md",
+                "file": "md/systemserver/SystemServer 启动.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Android Framework 之了解 Launcher 启动过程_android launcher-CSDN博客"
+              "title": "SystemServer 启动"
             }
           }
         ]
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "md/launcher/Android Framework 之了解 Launcher 启动过程_android launcher-CSDN博客.md",
+                "file": "md/systemserver/SystemServer 启动.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Android Framework 之了解 Launcher 启动过程_android launcher-CSDN博客 的大纲"
+              "title": "SystemServer 启动 的大纲"
             }
           },
           {
@@ -191,10 +191,10 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "594470d946758675",
+  "active": "f84ce6d2fe2622cd",
   "lastOpenFiles": [
-    "md/systemserver/安卓 SystemServer 启动流程_android systemserver启动流程-CSDN博客.md",
     "md/launcher/Android Framework 之了解 Launcher 启动过程_android launcher-CSDN博客.md",
+    "md/systemserver/安卓 SystemServer 启动流程_android systemserver启动流程-CSDN博客.md",
     "md/launcher",
     "md/systemserver/SystemServer 启动.md",
     "md/systemserver/Android 系统启动之 SystemServer 进程启动分析二  Android Framework.md",

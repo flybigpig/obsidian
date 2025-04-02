@@ -1,3 +1,7 @@
+
+
+
+
 ```
 handleSystemServerProcess(){
 
@@ -1451,5 +1455,43 @@ private void startOtherServices() {
         }  
   
     }, BOOT_TIMINGS_TRACE_LOG);  
+}
+```
+
+
+-----------------------------
+### 简化
+
+```
+// frameworks/base/services/java/com/android/server/SystemServer.java
+ 
+public final class SystemServer {
+ 
+    private void run() {
+        try {
+            // Initialize the system context.
+            createSystemContext();    // 01. 初始化系统上下文
+            
+            // 02. 创建系统服务管理                                       
+            mSystemServiceManager = new SystemServiceManager(mSystemContext);
+            mSystemServiceManager.setRuntimeRestarted(mRuntimeRestart);                  
+            LocalServices.addService(SystemServiceManager.class, mSystemServiceManager);   
+        } finally {
+            traceEnd();  // InitBeforeStartServices
+        }
+ 
+        // 03.启动系统各种服务
+        try {
+            startBootstrapServices();    // 启动引导服务
+            startCoreServices();         // 启动核心服务
+            startOtherServices();        // 启动其他服务
+            
+        }
+ 
+        // Loop forever.
+        Looper.loop();    // 一直循环执行  
+        throw new RuntimeException("Main thread loop unexpectedly exited");
+    }
+ 
 }
 ```
