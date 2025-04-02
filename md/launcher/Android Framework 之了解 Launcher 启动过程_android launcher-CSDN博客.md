@@ -38,11 +38,8 @@ public static void main(String[] args) {
        // step4 调用 AMS.systemReady() 启动桌面，进入 Launcher 的启动过程
         mActivityManagerService.systemReady(() -> {
             ...
-            try {
-                mActivityManagerService.startObservingNativeCrashes();
-            } catch (Throwable e) {
-                reportWtf("observing native crashes", e);
-            }
+	        //  ActivityManagerService.systemReady()
+	         mAtmInternal.startHomeOnAllDisplays(currentUserId, "systemReady");  
           }
            ...
     }
