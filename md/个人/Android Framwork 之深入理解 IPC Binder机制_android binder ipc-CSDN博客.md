@@ -1,0 +1,385 @@
+## 1\. App跨进程的系统设计及意义
+
+我们都知道 Android 系统分成三层。最上层是 application 应用层，第二层是 [Framework](https://so.csdn.net/so/search?q=Framework&spm=1001.2101.3001.7020) 层，第三层是 native 层。
+
+-   Android 中的应用层和系统服务层不在同一个进程，系统服务在单独的进程中。
+-   Android 中不同应用属于不同的进程。
+
+[Android 应用](https://so.csdn.net/so/search?q=Android%20%E5%BA%94%E7%94%A8&spm=1001.2101.3001.7020)和系统 Service 运行在不同进程中是为了安全、稳定以及内存管理的原因，但是应用和系统服务需要通信和分享数据。
+
+跨进程设计的好处：  
+1.安全性：每个进程都单独运行的，可以保证应用层对系统层的隔离。  
+2.稳定性：如果某个进程崩溃了不会导致其他进程崩溃。  
+3.内存分配：如果某个进程以及不需要了可以从内存中移除，并且回收相应的内存。
+
+对于单独 App 程序中的多进程，跨进程设计的好处：  
+虚拟机分配给各个进程的运行内存是有限制的，LMK 也会优先回收对系统资源的占用多的进程  
+1.突破进程内存限制，如图库占用内存过多；  
+2.功能稳定性：独立的通信进程保持长连接的稳定性；  
+3.规避系统内存泄漏：独立的 webview 进程阻隔内存泄漏导致的问题；  
+4.隔离风险：对于不稳定的功能放入独立进程，避免导致主进程崩溃；
+
+## 2\. Binder 是什么？，
+
+Binder 就是 Android 中的血管。在 Android 中我们所使用的 Activity、Service 等组件都需要和 AMS（system\_server）通信，这种跨进程的通信都是通过 BInder 完成。
+
+-   机制：Binder 是一种进程间通信机制。
+-   驱动：Binder 是一个虚拟物理设备驱动。
+-   应用层：Binder 是一个能发起通信 Java 类。
+-   Framework/Native：Binder 连接了 Client、Server、ServiceManager 和 Binder 驱动程序，形成一套 C/S 的通信架构。
+
+## 3\. 跨进程通信都有哪些？
+
+Linux 的 IPC 有管道、消息队列、内存共享、Socket、binder。
+
+（1）内存共享机制
+
+-   定义：
+    
+    -   共享内存允许多个进程共享同一块内存区域，进程可以直接读写这块内存。
+    -   共享内存是最快的IPC机制，因为数据不需要在内核和用户空间之间拷贝。
+-   优点：
+    
+    -   高效：数据直接共享，无需拷贝，性能最高。
+    -   适合大数据量：可以共享大量数据。
+-   缺点：
+    
+    -   需要同步机制：多个进程同时访问共享内存时，需要额外的同步机制（如信号量）来避免竞争条件。
+    -   复杂性较高：需要手动管理内存的分配和释放。
+-   使用场景：
+    
+    -   需要高效共享大数据量的场景，如多媒体数据处理。  
+        ![在这里插入图片描述](https://i-blog.csdnimg.cn/direct/bb6e6cb9414a4af592055cf059e0a394.png)
+
+（2）管道 Pipe
+
+-   定义：
+    
+    -   管道是一种半双工的通信机制，数据只能单向流动。
+    -   管道分为匿名管道（用于父子进程或兄弟进程之间的通信）和命名管道（FIFO，用于任意进程之间的通信）。
+-   优点：
+    
+    -   简单易用：实现简单，适合小规模数据传递。
+    -   轻量级：开销较小，适合频繁的小数据量通信。
+-   缺点：
+    
+    -   单向通信：数据只能单向流动，双向通信需要创建两个管道。
+    -   仅限于父子进程或兄弟进程：匿名管道只能用于有亲缘关系的进程之间。
+    -   数据容量有限：管道的数据缓冲区大小有限，不适合传递大数据量。
+-   使用场景：
+    
+    -   父子进程或兄弟进程之间的简单通信。  
+        ![在这里插入图片描述](https://i-blog.csdnimg.cn/direct/1dbc3d0402ca4703873c2988acd59492.png)
+
+（3）消息队列 Message Queue
+
+-   定义：
+    -   消息队列是一种消息链表，进程可以通过消息队列发送和接收消息。
+    -   消息队列中的每条消息都有一个类型字段，接收方可以根据类型选择性地接收消息。
+-   优点：
+    -   支持消息类型：可以根据消息类型选择性地接收消息。
+    -   异步通信：发送方和接收方不需要同时存在。
+    -   适合结构化数据：可以传递复杂的数据结构。
+-   缺点：
+    -   性能较低：相比于共享内存和管道，消息队列的性能较低。
+    -   容量有限：消息队列的大小有限，不适合传递大数据量。
+    -   复杂性较高：需要手动管理消息的发送和接收。
+-   使用场景：
+    -   需要异步通信和选择性接收消息的场景。  
+        ![在这里插入图片描述](https://i-blog.csdnimg.cn/direct/77374c484df344caaa36512b98ef9855.png)
+
+（4）Socket
+
+-   定义：
+    
+    -   Socket是一种网络通信机制，支持TCP和UDP协议。
+    -   Socket不仅可以用于不同设备之间的通信，还可以用于同一设备的不同进程之间的通信。
+-   优点：
+    
+    -   跨设备通信：支持不同设备之间的通信。
+    -   灵活性高：支持多种协议（TCP、UDP）和通信模式（流式、数据报）。
+    -   适合分布式系统：广泛应用于网络编程和分布式系统。
+-   缺点：
+    
+    -   性能较低：相比于共享内存和管道，Socket的性能较低。
+    -   复杂性较高：需要处理网络协议、连接管理等问题。
+-   使用场景：
+    
+    -   跨设备通信或分布式系统中的进程间通信。  
+        ![在这里插入图片描述](https://i-blog.csdnimg.cn/direct/af07e15af8a5415783a48359936ea0e3.png)
+
+（5）Binder
+
+-   定义：
+    
+    -   Binder是Android特有的IPC机制，基于C/S架构，客户端通过Binder代理对象调用服务端的方法。
+    -   Binder使用内存映射（mmap）技术，减少了数据拷贝，性能优异。
+-   优点：
+    
+    -   高效：使用内存映射技术，性能优于传统的IPC机制。
+    -   安全性高：支持基于UID/PID的权限检查。
+    -   易用性：Android提供了AIDL工具，简化了Binder的使用。
+-   缺点：
+    
+    -   平台限制：仅适用于Android系统。
+    -   复杂性较高：需要理解Binder的底层机制和AIDL的使用。
+-   使用场景：
+    
+    -   Android系统中的跨进程通信，如系统服务与应用程序之间的通信。
+
+binder 和其它通信机制的不同在于它是用的内存映射方案，而不是内核空间。binder 通信的数据大小是1M-8k。  
+![在这里插入图片描述](https://i-blog.csdnimg.cn/direct/c4bae64ae0cc4b388747a91eeb33e93c.png)  
+mmap 内存映射的过程：  
+一个数据发送方 client，一个数据接收方 server，两个进程之间通信，会让 server 端中的一块内存与物理内存进行内存映射。内核地址空间里也会有一块内存和物理内存一一映射。这就会形成一个结果，假如运用内核空间一块地址往物理内存写数据，等价于数据写到了 server 端。
+
+## 4\. 内存模型：
+
+内存被操作系统划分成两块：用户空间和内核空间。为了安全，它们是隔离的，即使用户的程序崩溃了，内核也不受影响。
+
+-   用户空间：是用户程序代码运行的地方；
+-   内核空间：是内核代码运行的地方；  
+    ![在这里插入图片描述](https://i-blog.csdnimg.cn/direct/5778732bdb7f4daf9d913389f4dad0e9.png)
+
+## 5\. Binder 通信的基本原理：
+
+Client 要和 Server 端通信，需要拿到 server 端的 binder。这就需要 Server 端先启动，然后将自己的 binder 注册到 ServiceManager，这里就需要 ServiceManager 维持一个表，这个表包含了 Server 端的 binder。这个时候 Client 就可以从 ServiceManager 的表中获取 Server 的 binder，再利用 binder 完成通信。  
+![在这里插入图片描述](https://i-blog.csdnimg.cn/direct/db9cf456355a4768b3fa62650653a5b9.png)
+
+-   Binder 是在什么时间创建的？  
+    进程创建的时候，就准备了 binder。
+-   Binder 的初始化过程
+    -   ServiceManager 的启动：  
+        1.Android系统启动时，会启动ServiceManager进程，它是所有Binder服务的注册中心。  
+        2.ServiceManager通过binder\_open()和binder\_become\_context\_manager()初始化Binder驱动。
+    -   服务的注册：  
+        1.服务端通过ServiceManager.addService()将服务注册到ServiceManager中。  
+        2.ServiceManager会为每个服务分配一个唯一的Binder句柄。
+    -   客户端的获取：  
+        客户端通过ServiceManager.getService()获取服务的Binder代理对象（BinderProxy）。
+
+## 6\. Aidl 跨进程通信
+
+（1）基本使用
+
+-   首先在 main目录下创建一个 aidl 文件夹，在该文件夹下创建一个 aidl 文件，把服务公布给客户端使用。  
+    如：IMediaInterface.aidl
+
+```
+interface IMediaInterface {
+        /**
+         * 同步请求
+         */
+        String request();
+}
+```
+
+-   然后 build 编译，自动生成接口的 java 文件，在…/xxmodule/build/generated/aidl\_source\_output\_dir/xx/out/com/example/media/aidl/IMediaInterface.java 路径下。  
+    如：
+
+```
+public interface IMediaInterface extends android.os.IInterface
+{
+  /** Default implementation for IMediaInterface. */
+  public static class Default implements com.example.media.aidl.IMediaInterface
+  {
+    /**
+             * 同步请求
+             */
+    @Override public java.lang.String request() throws android.os.RemoteException
+    {
+      return null;
+    }
+    @Override
+    public android.os.IBinder asBinder() {
+      return null;
+    }
+  }
+  /** Local-side IPC implementation stub class. */
+  public static abstract class Stub extends android.os.Binder implements com.example.media.aidl.IMediaInterface
+  {
+    private static final java.lang.String DESCRIPTOR = "com.example.media.aidl.IMediaInterface";
+    /** Construct the stub at attach it to the interface. */
+    public Stub()
+    {
+      this.attachInterface(this, DESCRIPTOR);
+    }
+    /**
+     * Cast an IBinder object into an com.autoai.media.aidl.IMediaInterface interface,
+     * generating a proxy if needed.
+     */
+    public static com.example.media.aidl.IMediaInterface asInterface(android.os.IBinder obj)
+    {
+      if ((obj==null)) {
+        return null;
+      }
+      android.os.IInterface iin = obj.queryLocalInterface(DESCRIPTOR);
+      if (((iin!=null)&&(iin instanceof com.example.media.aidl.IMediaInterface))) {
+        return ((com.example.media.aidl.IMediaInterface)iin);
+      }
+      return new com.example.media.aidl.IMediaInterface.Stub.Proxy(obj);
+    }
+    @Override public android.os.IBinder asBinder()
+    {
+      return this;
+    }
+    @Override public boolean onTransact(int code, android.os.Parcel data, android.os.Parcel reply, int flags) throws android.os.RemoteException
+    {
+      java.lang.String descriptor = DESCRIPTOR;
+      switch (code)
+      {
+        case INTERFACE_TRANSACTION:
+        {
+          reply.writeString(descriptor);
+          return true;
+        }
+        case TRANSACTION_request:
+        {
+          data.enforceInterface(descriptor);
+          java.lang.String _arg0;
+          _arg0 = data.readString();
+          java.lang.String _arg1;
+          _arg1 = data.readString();
+          java.lang.String _result = this.request();
+          reply.writeNoException();
+          reply.writeString(_result);
+          return true;
+        }
+        default:
+        {
+          return super.onTransact(code, data, reply, flags);
+        }
+      }
+    }
+    private static class Proxy implements com.example.media.aidl.IMediaInterface
+    {
+      private android.os.IBinder mRemote;
+      Proxy(android.os.IBinder remote)
+      {
+        mRemote = remote;
+      }
+      @Override public android.os.IBinder asBinder()
+      {
+        return mRemote;
+      }
+      public java.lang.String getInterfaceDescriptor()
+      {
+        return DESCRIPTOR;
+      }
+      /**
+               * 同步请求
+               */
+      @Override public java.lang.String request() throws android.os.RemoteException
+      {
+        android.os.Parcel _data = android.os.Parcel.obtain();
+        android.os.Parcel _reply = android.os.Parcel.obtain();
+        java.lang.String _result;
+        try {
+          _data.writeInterfaceToken(DESCRIPTOR);
+          _data.writeString(packageName);
+          _data.writeString(jsonParams);
+          // 实际请求
+          boolean _status = mRemote.transact(Stub.TRANSACTION_request, _data, _reply, 0);
+          if (!_status && getDefaultImpl() != null) {
+            return getDefaultImpl().request(packageName, jsonParams);
+          }
+          _reply.readException();
+          _result = _reply.readString();
+        }
+        finally {
+          _reply.recycle();
+          _data.recycle();
+        }
+        return _result;
+      }
+      public static com.autoai.media.aidl.IMediaInterface sDefaultImpl;
+    }
+    static final int TRANSACTION_request = (android.os.IBinder.FIRST_CALL_TRANSACTION + 0);
+    public static boolean setDefaultImpl(com.example.media.aidl.IMediaInterface impl) {
+      // Only one user of this interface can use this function
+      // at a time. This is a heuristic to detect if two different
+      // users in the same process use this function.
+      if (Stub.Proxy.sDefaultImpl != null) {
+        throw new IllegalStateException("setDefaultImpl() called twice");
+      }
+      if (impl != null) {
+        Stub.Proxy.sDefaultImpl = impl;
+        return true;
+      }
+      return false;
+    }
+    public static com.example.media.aidl.IMediaInterface getDefaultImpl() {
+      return Stub.Proxy.sDefaultImpl;
+    }
+  }
+  /**
+           * 同步请求
+           */
+  public java.lang.String request() throws android.os.RemoteException;
+}
+
+```
+
+-   实现服务端
+
+```
+public class MyService extends Service {
+@Override
+    public IBinder onBind(Intent intent) {
+    return Mybind();
+    }
+   ...
+   class Mybind extends IMediaInterface.Stub {
+   @Override
+   public String request() throws RemoteException {
+   // todo
+   }
+}
+}
+```
+
+-   实现客户端
+
+```
+IMediaInterface myService;
+private ServiceConnection connection = new ServiceConnection() {
+@Override
+        public void onServiceConnected(ComponentName name, IBinder service) {
+               myService = IMediaInterface.Stub.asInterface(service);
+        }
+
+        @Override
+        public void onServiceDisconnected(ComponentName name) {
+            
+        }
+}
+...
+Intent intent = new Intent();
+intent.setAction("com.example.media.aidl.IMediaInterface");
+intent.setPackages("com.example.media.aidl");
+bindService(intent, connection, BIND_AUTO_CREATE);
+```
+
+看这一句 `IMediaInterface.Stub.asInterface(service)`，service 是服务端的 IBinder，asInterface() 里会将 IBinder 转成 Proxy，代理的是 stub，Proxy是给客户端用的，并且会将Stub封装到Proxy中。客户端调用Proxy接口，但Proxy没有功能，又会转交给Remote，到Stub，最终交给Stub完成请求，客户端最终调用接口是 mRemote.transact() 。
+
+## 7\. Client 与 Server 通过 Binder 通信的过程
+
+![在这里插入图片描述](https://i-blog.csdnimg.cn/direct/649a1720a2074b6dbf41b95dbc7e8c9b.png)
+
+-   客户端调用：
+    
+    -   客户端通过Binder代理对象（Proxy）调用远程方法。
+        
+    -   Proxy将方法调用封装成Parcel对象，并通过Binder驱动发送给服务端。
+        
+-   Binder 驱动：
+    
+    -   Binder驱动在内核空间接收数据，并将请求传递给目标进程的Binder线程池。
+-   服务端处理：
+    
+    -   服务端的Binder Stub对象接收到请求后，解析Parcel数据并调用实际的方法。
+        
+    -   方法执行完毕后，Stub将结果封装成Parcel对象，通过Binder驱动返回给客户端。
+        
+-   客户端接收结果：
+    
+    -   客户端接收到结果后，Proxy将结果返回给调用者。

@@ -20,8 +20,23 @@
               "icon": "lucide-file",
               "title": "Android10 Framework—Init进程-1.init进程执行流程init进程是linux系统中用户空间的第 - 掘金"
             }
+          },
+          {
+            "id": "9f53dc900bb06593",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "conflict-files-obsidian-git.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "conflict-files-obsidian-git"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -182,15 +197,33 @@
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
       "markdown-importer:打开 Markdown 格式转换器": false,
-      "obsidian-git:Open Git source control": false
+      "obsidian-git:Open Git source control": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "a467f0ba849a2a83",
+  "active": "9f53dc900bb06593",
   "lastOpenFiles": [
-    "md/init/深入解析Android12中的init进程启动和服务启动-CSDN博客.md",
     "md/init/Android10 Framework—Init进程-1.init进程执行流程init进程是linux系统中用户空间的第 - 掘金.md",
-    "md/实践/【Launcher3系列】Android 11 Launcher3 翻页底部导航横条改为点式导航_android multivaluealpha-CSDN博客.md",
     "conflict-files-obsidian-git.md",
+    "md/个人/Android Framwork 之深入理解 IPC Binder机制_android binder ipc-CSDN博客.md",
+    "md/zygote/父子进程的故事：解读Linux中的fork机制-腾讯云开发者社区-腾讯云.md",
+    "md/zygote/ZygoteInit.main.md",
+    "md/zygote/Zygote 服务器.md",
+    "md/zygote/runSelectLoop.md",
+    "md/zygote/app_main.md",
+    "md/zygote/Android系统启动——5 zyogte进程(Java篇)-腾讯云开发者社区-腾讯云.md",
+    "md/zygote/AndroidRuntime.start.md",
+    "md/zygote",
+    "md/systemservice/解析 ServiceManager 实现.md",
+    "md/systemservice/安卓 SystemServer 启动流程_android systemserver启动流程-CSDN博客.md",
+    "md/systemservice/ServiceManagerNative.md",
+    "md/systemservice/SystemServer 启动.md",
+    "md/systemservice/Android 系统启动之 SystemServer 进程启动分析二  Android Framework.md",
+    "md/systemservice",
+    "md/launcher/Android Framework 之了解 Launcher 启动过程_android launcher-CSDN博客.md",
+    "md/launcher",
+    "md/init/深入解析Android12中的init进程启动和服务启动-CSDN博客.md",
+    "md/实践/【Launcher3系列】Android 11 Launcher3 翻页底部导航横条改为点式导航_android multivaluealpha-CSDN博客.md",
     "yto/Pasted image 20250325092704.png",
     "md/个人/异常处理 - Native 层的崩溃捕获机制及实现 - 简书.md",
     "md/个人/《10分钟剖析》系统启动3——Zygote的使命我们在App中常用来调试查看线程、内存、UI布局等方法都是在这里注册的。 - 掘金.md",
@@ -200,20 +233,6 @@
     "md/init/trigger + command.md",
     "md/init/Android系统—systemproductvendorodm分区介绍system、product、vendor - 掘金.md",
     "md/init/Android启动概述.md",
-    "md/init/Android10 Framework—Init进程-9.服务端属性值初始化本章主要讲“属性值初始化”，先给出完整数据流 - 掘金.md",
-    "md/init/Android10 Framework—Init进程-8.服务端属性文件创建和mmap映射本章主要讲“属性文件创建和mm - 掘金.md",
-    "md/init/Android10 Framework—Init进程-7.服务端属性安全上下文序列化本章主要讲“属性安全上下文序列化”， - 掘金.md",
-    "md/init/Android10 Framework—Init进程-6.属性服务框架属性是什么 在 Android 系统中，为统一管理 - 掘金.md",
-    "md/init/Android10 Framework—Init进程-5.SEAndroid机制权限控制介绍 SEAndroid是and - 掘金.md",
-    "md/init/Android10 Framework—Init进程-4.init进程日志Android系统中 应用层打印日志 impo - 掘金.md",
-    "md/init/Android10 Framework—Init进程-3.init启动第二阶段第二阶段的代码入口是FirstStageM - 掘金.md",
-    "md/init/Android10 Framework—Init进程-2.init启动第一阶段第一阶段的代码入口是FirstStageM - 掘金.md",
-    "md/init/Android10 Framework—Init进程-15.属性变化控制Service属性变化有两个来源： 属性服务端（ - 掘金.md",
-    "md/init/Android10 Framework—Init进程-14.启动服务以上代码对am进行了 2 个操作 QueueBuil - 掘金.md",
-    "md/init/Android10 Framework—Init进程-13.rc文件解析init进程的一个核心部分，是通过解析rc文件， - 掘金.md",
-    "md/init/Android10 Framework—Init进程-12.rc文件格式rc文件说明 早期的rc文件的内容都集中在in - 掘金.md",
-    "md/init/Android10 Framework—Init进程-11.客户端操作属性本章看看客户端是如何去操作属性的，这里主要分为 - 掘金.md",
-    "md/init/Android10 Framework—Init进程-10.服务端属性服务启动属性服务的本质就是init进程作为服务端创 - 掘金.md",
     "md/init",
     "md/handler",
     "md/实践",
@@ -227,9 +246,6 @@
     "md/wms",
     "md/linux",
     "md/car",
-    "md/HAL",
-    "md/DeepSeek",
-    "Effective+PyCharm+(大语言模型翻译中文版).pdf",
     "pic/c1f08381-5bf9-488d-b45c-86edf7160912.png",
     "pic/e73ad7f6d928a1b67f9f2c08ab9bc1f.png",
     "pic/6b5710bda24ee1fd270ddd2da769d63.png",
