@@ -1,4 +1,7 @@
 {
+  "editorStatus": {
+    "isTextInserting": false
+  },
   "providers": [],
   "systemTags": [
     "System",
@@ -11,5 +14,19 @@
   "userTags": [
     "User",
     "我"
-  ]
+  ],
+  "roleEmojis": {
+    "assistant": "✨",
+    "system": "🔧",
+    "newChat": " 🚀",
+    "user": "💬"
+  },
+  "promptTemplates": [],
+  "enableInternalLink": true,
+  "answerDelayInMilliseconds": 2000,
+  "confirmRegenerate": true,
+  "enableTagSuggest": true,
+  "tagSuggestMaxLineLength": 20,
+  "enableExportToJSONL": false,
+  "enableReplaceTag": false
 }

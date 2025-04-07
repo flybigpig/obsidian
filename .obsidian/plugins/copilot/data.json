@@ -44,28 +44,41 @@
       "provider": "copilot-plus",
       "enabled": true,
       "isBuiltIn": true,
-      "core": true
+      "core": true,
+      "plusExclusive": true,
+      "capabilities": [
+        "vision"
+      ]
     },
     {
       "name": "gpt-4o",
       "provider": "openai",
       "enabled": true,
       "isBuiltIn": true,
-      "core": true
+      "core": true,
+      "capabilities": [
+        "vision"
+      ]
     },
     {
       "name": "gpt-4o-mini",
       "provider": "openai",
       "enabled": true,
       "isBuiltIn": true,
-      "core": true
+      "core": true,
+      "capabilities": [
+        "vision"
+      ]
     },
     {
       "name": "claude-3-5-sonnet-latest",
       "provider": "anthropic",
       "enabled": true,
       "isBuiltIn": true,
-      "core": true
+      "core": true,
+      "capabilities": [
+        "vision"
+      ]
     },
     {
       "name": "gpt-4-turbo",
@@ -117,6 +130,36 @@
       "enabled": true,
       "isBuiltIn": true,
       "isEmbeddingModel": true,
+      "core": true,
+      "plusExclusive": true
+    },
+    {
+      "name": "copilot-plus-large",
+      "provider": "copilot-plus-jina",
+      "enabled": true,
+      "isBuiltIn": true,
+      "isEmbeddingModel": true,
+      "core": true,
+      "plusExclusive": true,
+      "believerExclusive": true,
+      "dimensions": 1024
+    },
+    {
+      "name": "copilot-plus-multilingual",
+      "provider": "copilot-plus-jina",
+      "enabled": true,
+      "isBuiltIn": true,
+      "isEmbeddingModel": true,
+      "core": true,
+      "plusExclusive": true,
+      "dimensions": 512
+    },
+    {
+      "name": "text-embedding-3-small",
+      "provider": "openai",
+      "enabled": true,
+      "isBuiltIn": true,
+      "isEmbeddingModel": true,
       "core": true
     },
     {
@@ -127,22 +170,6 @@
       "isEmbeddingModel": true,
       "core": true,
       "believerExclusive": true
-    },
-    {
-      "name": "copilot-plus-multilingual",
-      "provider": "copilot-plus-jina",
-      "enabled": true,
-      "isBuiltIn": true,
-      "isEmbeddingModel": true,
-      "core": true
-    },
-    {
-      "name": "text-embedding-3-small",
-      "provider": "openai",
-      "enabled": true,
-      "isBuiltIn": true,
-      "isEmbeddingModel": true,
-      "core": true
     },
     {
       "name": "text-embedding-3-large",
@@ -180,5 +207,7 @@
   "numPartitions": 1,
   "enabledCommands": {},
   "promptUsageTimestamps": {},
-  "defaultConversationNoteName": "{$topic}@{$date}_{$time}"
+  "defaultConversationNoteName": "{$topic}@{$date}_{$time}",
+  "embeddingRequestsPerMin": 90,
+  "embeddingBatchSize": 16
 }
