@@ -11,12 +11,14 @@
             "id": "594470d946758675",
             "type": "leaf",
             "state": {
-              "type": "pdf",
+              "type": "markdown",
               "state": {
-                "file": "Effective+PyCharm+(大语言模型翻译中文版).pdf"
+                "file": "md/zygote/nativeZygoteInit.md",
+                "mode": "preview",
+                "source": false
               },
-              "icon": "lucide-file-text",
-              "title": "Effective+PyCharm+(大语言模型翻译中文版)"
+              "icon": "lucide-file",
+              "title": "nativeZygoteInit"
             }
           }
         ]
@@ -191,6 +193,12 @@
   },
   "active": "594470d946758675",
   "lastOpenFiles": [
+    "md/zygote/ZygoteInit.main.md",
+    "md/zygote/nativeZygoteInit.md",
+    "md/zygote/Zygote 服务器.md",
+    "md/zygote/runSelectLoop.md",
+    "md/zygote/AndroidRuntime.start.md",
+    "Effective+PyCharm+(大语言模型翻译中文版).pdf",
     "写给应用开发的+Android+Framework+教程(1).pdf",
     "hm/9.鸿蒙面试真题.md",
     "md/launcher/Android Framework 之了解 Launcher 启动过程_android launcher-CSDN博客.md",
@@ -210,14 +218,10 @@
     "md/掘金Framework/【Android Framework】Broadcast(含视频) - 掘金.md",
     "md/systemservice/SystemServer 启动.md",
     "md/launcher",
-    "md/zygote/ZygoteInit.main.md",
     "md/systemservice",
     "md/zygote/父子进程的故事：解读Linux中的fork机制-腾讯云开发者社区-腾讯云.md",
     "md/zygote/Android系统启动——5 zyogte进程(Java篇)-腾讯云开发者社区-腾讯云.md",
-    "md/zygote/AndroidRuntime.start.md",
-    "md/zygote/runSelectLoop.md",
     "md/zygote/app_main.md",
-    "md/zygote/Zygote 服务器.md",
     "RecyclerView刷新机制.md",
     "md/zygote",
     "yto/Pasted image 20250325092704.png",
@@ -230,7 +234,6 @@
     "md/handler",
     "md/init",
     "md/实践",
-    "md/千里马",
     "f39805ccabec34bac1e4990daf7a02f.png",
     "f39805ccabec34bac1e4990daf7a02f 1.png",
     "pic/Pasted image 20250218094344.png",
