@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/zygote/nativeZygoteInit.md",
+                "file": "md/framework系统/Android系统启动——5 zyogte进程(Java篇)-腾讯云开发者社区-腾讯云 (1).md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "nativeZygoteInit"
+              "title": "Android系统启动——5 zyogte进程(Java篇)-腾讯云开发者社区-腾讯云 (1)"
             }
           }
         ]
@@ -187,13 +187,16 @@
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
       "markdown-importer:打开 Markdown 格式转换器": false,
-      "obsidian-git:Open Git source control": false
+      "obsidian-git:Open Git source control": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
   "active": "594470d946758675",
   "lastOpenFiles": [
-    "md/zygote/ZygoteInit.main.md",
+    "md/framework系统/Android系统启动——4 zyogte进程 (C篇)-腾讯云开发者社区-腾讯云.md",
+    "md/framework系统/Android系统启动——3 init.rc解析-腾讯云开发者社区-腾讯云.md",
     "md/zygote/nativeZygoteInit.md",
+    "md/zygote/ZygoteInit.main.md",
     "md/zygote/Zygote 服务器.md",
     "md/zygote/runSelectLoop.md",
     "md/zygote/AndroidRuntime.start.md",
@@ -220,8 +223,6 @@
     "md/systemservice",
     "md/zygote/父子进程的故事：解读Linux中的fork机制-腾讯云开发者社区-腾讯云.md",
     "md/zygote/Android系统启动——5 zyogte进程(Java篇)-腾讯云开发者社区-腾讯云.md",
-    "md/zygote/app_main.md",
-    "RecyclerView刷新机制.md",
     "md/zygote",
     "yto/Pasted image 20250325092704.png",
     "md/资料/ffmpeg/资料/上课资料/img/1.png",
