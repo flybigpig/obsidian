@@ -5,7 +5,12 @@
     "fontSize": 16,
     "emojiStyle": "native",
     "iconColor": null,
-    "recentlyUsedIcons": [],
+    "recentlyUsedIcons": [
+      "LiActivitySquare",
+      "LiAnchor",
+      "LiBadgeInfo",
+      "LiAArrowDown"
+    ],
     "recentlyUsedIconsSize": 5,
     "rules": [],
     "extraMargin": {
@@ -27,5 +32,10 @@
     "lucideIconPackType": "native",
     "debugMode": false,
     "useInternalPlugins": false
+  },
+  "RecyclerView刷新机制.md": "LiAArrowDown",
+  "md": {
+    "iconName": "LiAnchor",
+    "iconColor": "#f90b0b"
   }
 }

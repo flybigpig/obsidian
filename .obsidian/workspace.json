@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "hm/9.鸿蒙面试真题.md",
-                "mode": "preview",
+                "file": "RecyclerView刷新机制.md",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "9.鸿蒙面试真题"
+              "title": "RecyclerView刷新机制"
             }
           }
         ]
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "hm/9.鸿蒙面试真题.md",
+                "file": "RecyclerView刷新机制.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "9.鸿蒙面试真题 的大纲"
+              "title": "RecyclerView刷新机制 的大纲"
             }
           },
           {
@@ -176,7 +176,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 414.5
+    "width": 200
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -188,11 +188,15 @@
       "command-palette:打开命令面板": false,
       "markdown-importer:打开 Markdown 格式转换器": false,
       "obsidian-git:Open Git source control": false,
-      "obsidian-excalidraw-plugin:新建绘图文件": false
+      "obsidian-excalidraw-plugin:新建绘图文件": false,
+      "copilot:Open Copilot Chat": false
     }
   },
-  "active": "f84ce6d2fe2622cd",
+  "active": "594470d946758675",
   "lastOpenFiles": [
+    "README.md",
+    "RecyclerView刷新机制.md",
+    "hm/9.鸿蒙面试真题.md",
     "md/launcher/Android Framework 之了解 Launcher 启动过程_android launcher-CSDN博客.md",
     "md/framework系统/Android系统启动——5 zyogte进程(Java篇)-腾讯云开发者社区-腾讯云 (1).md",
     "md/framework系统/Android系统启动——4 zyogte进程 (C篇)-腾讯云开发者社区-腾讯云.md",
@@ -204,7 +208,6 @@
     "md/zygote/AndroidRuntime.start.md",
     "Effective+PyCharm+(大语言模型翻译中文版).pdf",
     "写给应用开发的+Android+Framework+教程(1).pdf",
-    "hm/9.鸿蒙面试真题.md",
     "md/个人/Android Framwork 之深入理解 IPC Binder机制_android binder ipc-CSDN博客.md",
     "md/systemservice/安卓 SystemServer 启动流程_android systemserver启动流程-CSDN博客.md",
     "md/systemservice/解析 ServiceManager 实现.md",
@@ -219,10 +222,8 @@
     "md/掘金Framework/【Android Framework】ActivityManagerService(一) (含视频) - 掘金.md",
     "md/掘金Framework/【Android Framework】ActivityManagerService(二) (含视频) - 掘金.md",
     "md/掘金Framework/【Android Framework】Broadcast(含视频) - 掘金.md",
-    "md/systemservice/SystemServer 启动.md",
     "md/launcher",
     "md/systemservice",
-    "md/zygote/父子进程的故事：解读Linux中的fork机制-腾讯云开发者社区-腾讯云.md",
     "md/zygote",
     "yto/Pasted image 20250325092704.png",
     "md/资料/ffmpeg/资料/上课资料/img/1.png",
