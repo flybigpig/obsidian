@@ -11,14 +11,12 @@
             "id": "594470d946758675",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "pdf",
               "state": {
-                "file": "hm/9.鸿蒙面试真题.md",
-                "mode": "preview",
-                "source": false
+                "file": "Effective+PyCharm+(大语言模型翻译中文版).pdf"
               },
-              "icon": "lucide-file",
-              "title": "9.鸿蒙面试真题"
+              "icon": "lucide-file-text",
+              "title": "Effective+PyCharm+(大语言模型翻译中文版)"
             }
           }
         ]
@@ -193,6 +191,8 @@
   },
   "active": "594470d946758675",
   "lastOpenFiles": [
+    "写给应用开发的+Android+Framework+教程(1).pdf",
+    "hm/9.鸿蒙面试真题.md",
     "md/launcher/Android Framework 之了解 Launcher 启动过程_android launcher-CSDN博客.md",
     "md/个人/Android Framwork 之深入理解 IPC Binder机制_android binder ipc-CSDN博客.md",
     "md/systemservice/安卓 SystemServer 启动流程_android systemserver启动流程-CSDN博客.md",
@@ -219,9 +219,7 @@
     "md/zygote/app_main.md",
     "md/zygote/Zygote 服务器.md",
     "RecyclerView刷新机制.md",
-    "conflict-files-obsidian-git.md",
     "md/zygote",
-    "md/个人/Android Binder 驱动 - 内核驱动层源码分析_binder.c源码分析-CSDN博客.md",
     "yto/Pasted image 20250325092704.png",
     "md/资料/ffmpeg/资料/上课资料/img/1.png",
     "md/资料/美颜/通道美颜.mp4",
@@ -230,7 +228,6 @@
     "md/资料/美颜/高斯模糊.mp4",
     "md/资料/美颜/11.jpg",
     "md/handler",
-    "写给应用开发的+Android+Framework+教程(1).pdf",
     "md/init",
     "md/实践",
     "md/千里马",
