@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "3aea6d8653b5c208",
+        "id": "38cd771d46f8f4c2",
         "type": "tabs",
         "children": [
           {
-            "id": "594470d946758675",
+            "id": "a467f0ba849a2a83",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/launcher/Android Framework 之了解 Launcher 启动过程_android launcher-CSDN博客.md",
-                "mode": "preview",
+                "file": "md/zygote/app_main.md",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Android Framework 之了解 Launcher 启动过程_android launcher-CSDN博客"
+              "title": "app_main"
             }
           }
         ]
@@ -78,7 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 282.5
+    "width": 373.5
   },
   "right": {
     "id": "9529d323d9cfa4b3",
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "md/个人/优化.md",
+                "file": "md/个人/GPT40-mini.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +104,7 @@
                 "unlinkedCollapsed": false
               },
               "icon": "links-coming-in",
-              "title": "优化 的反向链接列表"
+              "title": "GPT40-mini 的反向链接列表"
             }
           },
           {
@@ -128,9 +128,7 @@
               "type": "tag",
               "state": {
                 "sortOrder": "frequency",
-                "useHierarchy": false,
-                "showSearch": false,
-                "searchQuery": ""
+                "useHierarchy": false
               },
               "icon": "lucide-tags",
               "title": "标签"
@@ -142,13 +140,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "md/launcher/Android Framework 之了解 Launcher 启动过程_android launcher-CSDN博客.md",
-                "followCursor": false,
-                "showSearch": false,
-                "searchQuery": ""
+                "file": "md/努比亚/Android Input输入事件处理流程分享（1）.md"
               },
               "icon": "lucide-list",
-              "title": "Android Framework 之了解 Launcher 启动过程_android launcher-CSDN博客 的大纲"
+              "title": "Android Input输入事件处理流程分享（1） 的大纲"
             }
           },
           {
@@ -167,8 +162,8 @@
             "state": {
               "type": "calendar",
               "state": {},
-              "icon": "calendar-with-checkmark",
-              "title": "Calendar"
+              "icon": "lucide-file",
+              "title": "插件不再活动"
             }
           }
         ],
@@ -176,7 +171,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 303.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -190,54 +185,54 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "594470d946758675",
+  "active": "fa4657deb406b728",
   "lastOpenFiles": [
+    "md/init/Android10 Framework—Init进程-1.init进程执行流程init进程是linux系统中用户空间的第 - 掘金.md",
+    "conflict-files-obsidian-git.md",
     "md/个人/Android Framwork 之深入理解 IPC Binder机制_android binder ipc-CSDN博客.md",
-    "md/systemservice/安卓 SystemServer 启动流程_android systemserver启动流程-CSDN博客.md",
-    "md/systemservice/解析 ServiceManager 实现.md",
-    "md/systemservice/Android 系统启动之 SystemServer 进程启动分析二  Android Framework.md",
-    "md/systemservice/ServiceManagerNative.md",
-    "md/systemserver/ServerManager.md",
-    "md/HAL/3AndroidQ 打通应用层到HAL层---(JNI服务和AIDL服务实现)_android aidl hal-CSDN博客.md",
-    "md/HAL/1AndroidQ 打通应用层到HAL层---(HAL模块实现)-CSDN博客.md",
-    "md/HAL/2AndroidQ 打通应用层到HAL层---(HIDL服务实现)_应用层hidl-CSDN博客.md",
-    "md/handler/Android10 Framework—Handler消息系统—2.子线程创建HandlerHandler使用场景 Ha - 掘金.md",
-    "md/handler/Android10 Framework—Handler消息系统—1.整体概述类图 Handler消息系统通过线程间消息通 - 掘金.md",
-    "md/掘金Framework/【Android Framework】ActivityManagerService(一) (含视频) - 掘金.md",
-    "md/掘金Framework/【Android Framework】ActivityManagerService(二) (含视频) - 掘金.md",
-    "md/掘金Framework/【Android Framework】Broadcast(含视频) - 掘金.md",
-    "md/launcher/Android Framework 之了解 Launcher 启动过程_android launcher-CSDN博客.md",
-    "md/systemservice/SystemServer 启动.md",
-    "md/launcher",
-    "md/zygote/ZygoteInit.main.md",
-    "md/systemservice",
     "md/zygote/父子进程的故事：解读Linux中的fork机制-腾讯云开发者社区-腾讯云.md",
-    "md/zygote/Android系统启动——5 zyogte进程(Java篇)-腾讯云开发者社区-腾讯云.md",
-    "md/zygote/AndroidRuntime.start.md",
+    "md/zygote/ZygoteInit.main.md",
+    "md/zygote/Zygote 服务器.md",
     "md/zygote/runSelectLoop.md",
     "md/zygote/app_main.md",
-    "md/zygote/Zygote 服务器.md",
-    "RecyclerView刷新机制.md",
-    "conflict-files-obsidian-git.md",
+    "md/zygote/Android系统启动——5 zyogte进程(Java篇)-腾讯云开发者社区-腾讯云.md",
+    "md/zygote/AndroidRuntime.start.md",
     "md/zygote",
-    "md/个人/Android Binder 驱动 - 内核驱动层源码分析_binder.c源码分析-CSDN博客.md",
+    "md/systemservice/解析 ServiceManager 实现.md",
+    "md/systemservice/安卓 SystemServer 启动流程_android systemserver启动流程-CSDN博客.md",
+    "md/systemservice/ServiceManagerNative.md",
+    "md/systemservice/SystemServer 启动.md",
+    "md/systemservice/Android 系统启动之 SystemServer 进程启动分析二  Android Framework.md",
+    "md/systemservice",
+    "md/launcher/Android Framework 之了解 Launcher 启动过程_android launcher-CSDN博客.md",
+    "md/launcher",
+    "md/init/深入解析Android12中的init进程启动和服务启动-CSDN博客.md",
+    "md/实践/【Launcher3系列】Android 11 Launcher3 翻页底部导航横条改为点式导航_android multivaluealpha-CSDN博客.md",
     "yto/Pasted image 20250325092704.png",
-    "md/资料/ffmpeg/资料/上课资料/img/1.png",
-    "md/资料/美颜/通道美颜.mp4",
-    "md/资料/美颜/美颜.jpg",
-    "md/资料/美颜/流程.jpg",
-    "md/资料/美颜/高斯模糊.mp4",
-    "md/资料/美颜/11.jpg",
-    "md/handler",
-    "写给应用开发的+Android+Framework+教程(1).pdf",
+    "md/个人/异常处理 - Native 层的崩溃捕获机制及实现 - 简书.md",
+    "md/个人/《10分钟剖析》系统启动3——Zygote的使命我们在App中常用来调试查看线程、内存、UI布局等方法都是在这里注册的。 - 掘金.md",
+    "md/个人/《10分钟剖析》系统启动2——启动zygotezygote作为App开发者所熟知的孵化器进程，在App界的地位是绝对的龙 - 掘金.md",
+    "md/个人/《10分钟剖析》系统启动1——从内核到用户Android系统总体是围绕着Linux内核而建立的。从加电到系统启动，大 - 掘金.md",
+    "md/个人/Android 底层渲染 - 屏幕刷新机制源码分析 - 简书.md",
+    "md/init/trigger + command.md",
+    "md/init/Android系统—systemproductvendorodm分区介绍system、product、vendor - 掘金.md",
+    "md/init/Android启动概述.md",
     "md/init",
+    "md/handler",
     "md/实践",
     "md/千里马",
-    "f39805ccabec34bac1e4990daf7a02f.png",
-    "f39805ccabec34bac1e4990daf7a02f 1.png",
     "pic/Pasted image 20250218094344.png",
-    "pic/Pasted image 20250109141941.png",
     "pic/Pasted image 20250218094245.png",
+    "pic/Pasted image 20250113093848.png",
+    "pic/Pasted image 20250109142016.png",
+    "pic/Pasted image 20250109142002.png",
+    "pic/Pasted image 20250109141941.png",
+    "md/wms",
+    "md/linux",
+    "md/car",
+    "pic/c1f08381-5bf9-488d-b45c-86edf7160912.png",
+    "pic/e73ad7f6d928a1b67f9f2c08ab9bc1f.png",
+    "pic/6b5710bda24ee1fd270ddd2da769d63.png",
     "Excalidraw/未命名.canvas",
     "Excalidraw/未命名 1.canvas"
   ]
