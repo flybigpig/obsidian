@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/launcher/Android1011 原生Launcher3深度定制开发【转载】一、引言         关于Android10和1 - 掘金.md",
+                "file": "md/个人/安卓在Recent界面清理app同时也清理掉关于此app的所有服务.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Android1011 原生Launcher3深度定制开发【转载】一、引言         关于Android10和1 - 掘金"
+              "title": "安卓在Recent界面清理app同时也清理掉关于此app的所有服务"
             }
           }
         ]
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "md/launcher/Android1011 原生Launcher3深度定制开发【转载】一、引言         关于Android10和1 - 掘金.md",
+                "file": "md/个人/安卓在Recent界面清理app同时也清理掉关于此app的所有服务.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Android1011 原生Launcher3深度定制开发【转载】一、引言         关于Android10和1 - 掘金 的大纲"
+              "title": "安卓在Recent界面清理app同时也清理掉关于此app的所有服务 的大纲"
             }
           },
           {
@@ -194,8 +194,9 @@
   },
   "active": "594470d946758675",
   "lastOpenFiles": [
-    "md/launcher/android framework13-launcher3【01launcher】1.简介 默认的launcher就是l - 掘金.md",
     "md/launcher/Android1011 原生Launcher3深度定制开发【转载】一、引言         关于Android10和1 - 掘金.md",
+    "md/个人/安卓在Recent界面清理app同时也清理掉关于此app的所有服务.md",
+    "md/launcher/android framework13-launcher3【01launcher】1.简介 默认的launcher就是l - 掘金.md",
     "md/launcher/Android Framework 之了解 Launcher 启动过程_android launcher-CSDN博客.md",
     "md/android/java - Android FlexboxLayout流式布局 - 个人文章 - SegmentFault 思否.md",
     "md/未命名",
@@ -222,7 +223,6 @@
     "md/systemserver/ServerManager.md",
     "md/HAL/3AndroidQ 打通应用层到HAL层---(JNI服务和AIDL服务实现)_android aidl hal-CSDN博客.md",
     "md/HAL/1AndroidQ 打通应用层到HAL层---(HAL模块实现)-CSDN博客.md",
-    "md/HAL/2AndroidQ 打通应用层到HAL层---(HIDL服务实现)_应用层hidl-CSDN博客.md",
     "md/launcher",
     "md/systemservice",
     "md/zygote",
