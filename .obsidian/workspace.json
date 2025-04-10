@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/android/java - Android FlexboxLayout流式布局 - 个人文章 - SegmentFault 思否.md",
+                "file": "md/launcher/android framework13-launcher3【01launcher】1.简介 默认的launcher就是l - 掘金.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "java - Android FlexboxLayout流式布局 - 个人文章 - SegmentFault 思否"
+              "title": "android framework13-launcher3【01launcher】1.简介 默认的launcher就是l - 掘金"
             }
           }
         ]
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "md/android/java - Android FlexboxLayout流式布局 - 个人文章 - SegmentFault 思否.md",
+                "file": "md/launcher/android framework13-launcher3【01launcher】1.简介 默认的launcher就是l - 掘金.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "java - Android FlexboxLayout流式布局 - 个人文章 - SegmentFault 思否 的大纲"
+              "title": "android framework13-launcher3【01launcher】1.简介 默认的launcher就是l - 掘金 的大纲"
             }
           },
           {
@@ -176,7 +176,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 390.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -192,15 +192,17 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "594470d946758675",
+  "active": "f84ce6d2fe2622cd",
   "lastOpenFiles": [
-    "md/个人/未命名.md",
+    "md/launcher/Android Framework 之了解 Launcher 启动过程_android launcher-CSDN博客.md",
+    "md/launcher/android framework13-launcher3【01launcher】1.简介 默认的launcher就是l - 掘金.md",
     "md/android/java - Android FlexboxLayout流式布局 - 个人文章 - SegmentFault 思否.md",
+    "md/未命名",
+    "md/个人/未命名.md",
     "yto/替换布局.md",
     "RecyclerView刷新机制.md",
     "README.md",
     "hm/9.鸿蒙面试真题.md",
-    "md/launcher/Android Framework 之了解 Launcher 启动过程_android launcher-CSDN博客.md",
     "md/framework系统/Android系统启动——5 zyogte进程(Java篇)-腾讯云开发者社区-腾讯云 (1).md",
     "md/framework系统/Android系统启动——4 zyogte进程 (C篇)-腾讯云开发者社区-腾讯云.md",
     "md/framework系统/Android系统启动——3 init.rc解析-腾讯云开发者社区-腾讯云.md",
@@ -221,7 +223,6 @@
     "md/HAL/1AndroidQ 打通应用层到HAL层---(HAL模块实现)-CSDN博客.md",
     "md/HAL/2AndroidQ 打通应用层到HAL层---(HIDL服务实现)_应用层hidl-CSDN博客.md",
     "md/handler/Android10 Framework—Handler消息系统—2.子线程创建HandlerHandler使用场景 Ha - 掘金.md",
-    "md/handler/Android10 Framework—Handler消息系统—1.整体概述类图 Handler消息系统通过线程间消息通 - 掘金.md",
     "md/launcher",
     "md/systemservice",
     "md/zygote",
@@ -234,7 +235,6 @@
     "md/资料/美颜/11.jpg",
     "md/handler",
     "md/init",
-    "md/实践",
     "f39805ccabec34bac1e4990daf7a02f.png",
     "f39805ccabec34bac1e4990daf7a02f 1.png",
     "pic/Pasted image 20250218094344.png",
