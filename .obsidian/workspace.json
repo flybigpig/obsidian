@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/binder/Android Binder通信数据结构介绍_不同传输类型下binder的结构-CSDN博客.md",
+                "file": "md/binder/链接.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Android Binder通信数据结构介绍_不同传输类型下binder的结构-CSDN博客"
+              "title": "链接"
             }
           }
         ]
@@ -176,7 +176,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 390.5
+    "width": 200
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -194,6 +194,17 @@
   },
   "active": "02721dbca3d360bb",
   "lastOpenFiles": [
+    "md/binder/Binder-Android IPC数据在内核空间中的发送过程分析.md",
+    "md/binder/链接.md",
+    "md/binder/Binder8-Android请求注册服务过程源码分析.md",
+    "md/binder/Binder7-Android服务注册完整过程源码分析.md",
+    "md/binder/Binder6-Android Binder通信数据结构介绍.md",
+    "md/binder/Binder2-深入分析Android Binder 驱动.md",
+    "md/binder/Binder1-Android Binder通信机制.md",
+    "md/binder/Binder5-Android服务函数远程调用源码分析.md",
+    "md/binder/Binder4-Android服务查询完整过程源码分析.md",
+    "md/binder/Binder3-Android应用程序启动Binder线程源码分析.md",
+    "md/binder/Android Binder通信机制_binderservice 是实名binder吗-CSDN博客.md",
     "md/努比亚/解析Binder框架.md",
     "md/binder/Android Binder通信数据结构介绍_不同传输类型下binder的结构-CSDN博客.md",
     "md/binder",
@@ -213,18 +224,7 @@
     "md/handler/都 2021 年了，还有人在研究 Handler？建议收藏~_还在用handler-CSDN博客.md",
     "md/handler/Android10 Framework—Handler消息系统—6.同步屏障同步屏障这个概念有点不好理解，为了搞清楚同步 - 掘金.md",
     "md/handler/Android10 Framework—Handler消息系统—7.IdleHandler机制IdleHandler是a - 掘金.md",
-    "md/handler/Android10 Framework—Handler消息系统—1.整体概述类图 Handler消息系统通过线程间消息通 - 掘金.md",
-    "md/handler/Android10 Framework—Handler消息系统—2.子线程创建HandlerHandler使用场景 Ha - 掘金.md",
-    "md/handler/Android10 Framework—Handler消息系统—3.UI线程创建Handler在UI线程中我们直接使用如 - 掘金.md",
-    "md/handler/Android10 Framework—Handler消息系统—4.消息系统退出UI线程创建Looper，prepare - 掘金.md",
-    "md/handler/Android10 Framework—Handler消息系统—5.消息回收机制消息系统在线程通过的过程中可能会创建大量 - 掘金.md",
-    "md/个人/ActivityManagerService - Binder.md",
-    "md/个人/synchronized详解-CSDN博客.md",
-    "yto/MyExpandAdapter.md",
     "pdf/Android Framework精编内核解析（1）.pdf",
-    "md/个人/Typora.md",
-    "md/个人/开机优化.md",
-    "md/个人/安卓在Recent界面清理app同时也清理掉关于此app的所有服务.md",
     "md/未命名",
     "写给应用开发的+Android+Framework+教程(1).pdf",
     "md/launcher",
