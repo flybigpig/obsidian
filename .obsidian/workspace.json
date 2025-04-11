@@ -11,10 +11,12 @@
             "id": "9b4894a1bc2fdfce",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "新标签页"
+              "type": "pdf",
+              "state": {
+                "file": "pdf/Android Framework 开发揭秘.pdf"
+              },
+              "icon": "lucide-file-text",
+              "title": "Android Framework 开发揭秘"
             }
           }
         ]
@@ -188,10 +190,10 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "f84ce6d2fe2622cd",
+  "active": "9b4894a1bc2fdfce",
   "lastOpenFiles": [
-    "RecyclerView刷新机制.md",
     "pdf/Effective+PyCharm+(大语言模型翻译中文版).pdf",
+    "RecyclerView刷新机制.md",
     "md/handler/synchronized.md",
     "pdf",
     "md/handler/都 2021 年了，还有人在研究 Handler？建议收藏~_还在用handler-CSDN博客.md",
