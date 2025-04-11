@@ -4,21 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "3aea6d8653b5c208",
+        "id": "757c1bbb9208cf3b",
         "type": "tabs",
         "children": [
           {
-            "id": "594470d946758675",
+            "id": "ad1def21b97fe2ff",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "md/个人/synchronized详解-CSDN博客.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "synchronized详解-CSDN博客"
+              "title": "新标签页"
             }
           }
         ]
@@ -192,10 +188,12 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "594470d946758675",
+  "active": "ad1def21b97fe2ff",
   "lastOpenFiles": [
-    "md/个人/开机优化.md",
+    "Android Framework 开发揭秘.pdf",
     "md/个人/synchronized详解-CSDN博客.md",
+    "md/个人/Typora.md",
+    "md/个人/开机优化.md",
     "md/个人/安卓在Recent界面清理app同时也清理掉关于此app的所有服务.md",
     "md/launcher/Android1011 原生Launcher3深度定制开发【转载】一、引言         关于Android10和1 - 掘金.md",
     "md/launcher/android framework13-launcher3【01launcher】1.简介 默认的launcher就是l - 掘金.md",
@@ -221,8 +219,6 @@
     "md/systemservice/安卓 SystemServer 启动流程_android systemserver启动流程-CSDN博客.md",
     "md/systemservice/解析 ServiceManager 实现.md",
     "md/systemservice/Android 系统启动之 SystemServer 进程启动分析二  Android Framework.md",
-    "md/systemservice/ServiceManagerNative.md",
-    "md/systemserver/ServerManager.md",
     "md/launcher",
     "md/systemservice",
     "md/zygote",
