@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "yto/MyExpandAdapter.md",
+                "file": "md/handler/未命名.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "MyExpandAdapter"
+              "title": "未命名"
             }
           }
         ]
@@ -78,7 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 282.5
+    "width": 405.5
   },
   "right": {
     "id": "9529d323d9cfa4b3",
@@ -192,11 +192,21 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "fa4657deb406b728",
+  "active": "889cc0e2e6473611",
   "lastOpenFiles": [
+    "md/handler/Android10 Framework—Handler消息系统—7.IdleHandler机制IdleHandler是a - 掘金.md",
+    "md/handler/未命名.md",
+    "md/handler/Android10 Framework—Handler消息系统—1.整体概述类图 Handler消息系统通过线程间消息通 - 掘金.md",
+    "md/handler/Android10 Framework—Handler消息系统—2.子线程创建HandlerHandler使用场景 Ha - 掘金.md",
+    "md/handler/Android10 Framework—Handler消息系统—3.UI线程创建Handler在UI线程中我们直接使用如 - 掘金.md",
+    "md/handler/Android10 Framework—Handler消息系统—4.消息系统退出UI线程创建Looper，prepare - 掘金.md",
+    "md/handler/Android10 Framework—Handler消息系统—5.消息回收机制消息系统在线程通过的过程中可能会创建大量 - 掘金.md",
+    "md/handler/Android10 Framework—Handler消息系统—6.同步屏障同步屏障这个概念有点不好理解，为了搞清楚同步 - 掘金.md",
+    "md/个人/ActivityManagerService - Binder.md",
+    "md/个人/synchronized详解-CSDN博客.md",
+    "yto/MyExpandAdapter.md",
     "Android Framework 开发揭秘.pdf",
     "Android Framework精编内核解析（1）.pdf",
-    "md/个人/synchronized详解-CSDN博客.md",
     "md/个人/Typora.md",
     "md/个人/开机优化.md",
     "md/个人/安卓在Recent界面清理app同时也清理掉关于此app的所有服务.md",
@@ -213,17 +223,8 @@
     "md/framework系统/Android系统启动——5 zyogte进程(Java篇)-腾讯云开发者社区-腾讯云 (1).md",
     "md/framework系统/Android系统启动——4 zyogte进程 (C篇)-腾讯云开发者社区-腾讯云.md",
     "md/framework系统/Android系统启动——3 init.rc解析-腾讯云开发者社区-腾讯云.md",
-    "md/zygote/nativeZygoteInit.md",
-    "md/zygote/ZygoteInit.main.md",
-    "md/zygote/Zygote 服务器.md",
-    "md/zygote/runSelectLoop.md",
-    "md/zygote/AndroidRuntime.start.md",
     "Effective+PyCharm+(大语言模型翻译中文版).pdf",
     "写给应用开发的+Android+Framework+教程(1).pdf",
-    "md/个人/Android Framwork 之深入理解 IPC Binder机制_android binder ipc-CSDN博客.md",
-    "md/systemservice/安卓 SystemServer 启动流程_android systemserver启动流程-CSDN博客.md",
-    "md/systemservice/解析 ServiceManager 实现.md",
-    "md/systemservice/Android 系统启动之 SystemServer 进程启动分析二  Android Framework.md",
     "md/launcher",
     "md/systemservice",
     "md/zygote",
@@ -234,7 +235,6 @@
     "md/资料/美颜/流程.jpg",
     "md/资料/美颜/高斯模糊.mp4",
     "md/资料/美颜/11.jpg",
-    "md/handler",
     "f39805ccabec34bac1e4990daf7a02f.png",
     "f39805ccabec34bac1e4990daf7a02f 1.png",
     "pic/Pasted image 20250218094344.png",
