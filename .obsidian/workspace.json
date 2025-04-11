@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/个人/开机优化.md",
+                "file": "md/个人/synchronized详解-CSDN博客.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "开机优化"
+              "title": "synchronized详解-CSDN博客"
             }
           }
         ]
@@ -188,11 +188,14 @@
       "command-palette:打开命令面板": false,
       "markdown-importer:打开 Markdown 格式转换器": false,
       "obsidian-git:Open Git source control": false,
-      "copilot:Open Copilot Chat": false
+      "copilot:Open Copilot Chat": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
   "active": "594470d946758675",
   "lastOpenFiles": [
+    "md/个人/开机优化.md",
+    "md/个人/synchronized详解-CSDN博客.md",
     "md/个人/安卓在Recent界面清理app同时也清理掉关于此app的所有服务.md",
     "md/launcher/Android1011 原生Launcher3深度定制开发【转载】一、引言         关于Android10和1 - 掘金.md",
     "md/launcher/android framework13-launcher3【01launcher】1.简介 默认的launcher就是l - 掘金.md",
@@ -220,8 +223,6 @@
     "md/systemservice/Android 系统启动之 SystemServer 进程启动分析二  Android Framework.md",
     "md/systemservice/ServiceManagerNative.md",
     "md/systemserver/ServerManager.md",
-    "md/HAL/3AndroidQ 打通应用层到HAL层---(JNI服务和AIDL服务实现)_android aidl hal-CSDN博客.md",
-    "md/HAL/1AndroidQ 打通应用层到HAL层---(HAL模块实现)-CSDN博客.md",
     "md/launcher",
     "md/systemservice",
     "md/zygote",
