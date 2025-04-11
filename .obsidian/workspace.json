@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/handler/Android10 Framework—Handler消息系统—6.同步屏障同步屏障这个概念有点不好理解，为了搞清楚同步 - 掘金.md",
+                "file": "md/handler/都 2021 年了，还有人在研究 Handler？建议收藏~_还在用handler-CSDN博客.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Android10 Framework—Handler消息系统—6.同步屏障同步屏障这个概念有点不好理解，为了搞清楚同步 - 掘金"
+              "title": "都 2021 年了，还有人在研究 Handler？建议收藏~_还在用handler-CSDN博客"
             }
           }
         ]
@@ -194,6 +194,8 @@
   },
   "active": "889cc0e2e6473611",
   "lastOpenFiles": [
+    "md/handler/Android10 Framework—Handler消息系统—6.同步屏障同步屏障这个概念有点不好理解，为了搞清楚同步 - 掘金.md",
+    "md/handler/都 2021 年了，还有人在研究 Handler？建议收藏~_还在用handler-CSDN博客.md",
     "md/handler/Android10 Framework—Handler消息系统—7.IdleHandler机制IdleHandler是a - 掘金.md",
     "md/handler/未命名.md",
     "md/handler/Android10 Framework—Handler消息系统—1.整体概述类图 Handler消息系统通过线程间消息通 - 掘金.md",
@@ -201,7 +203,6 @@
     "md/handler/Android10 Framework—Handler消息系统—3.UI线程创建Handler在UI线程中我们直接使用如 - 掘金.md",
     "md/handler/Android10 Framework—Handler消息系统—4.消息系统退出UI线程创建Looper，prepare - 掘金.md",
     "md/handler/Android10 Framework—Handler消息系统—5.消息回收机制消息系统在线程通过的过程中可能会创建大量 - 掘金.md",
-    "md/handler/Android10 Framework—Handler消息系统—6.同步屏障同步屏障这个概念有点不好理解，为了搞清楚同步 - 掘金.md",
     "md/个人/ActivityManagerService - Binder.md",
     "md/个人/synchronized详解-CSDN博客.md",
     "yto/MyExpandAdapter.md",
@@ -222,7 +223,6 @@
     "hm/9.鸿蒙面试真题.md",
     "md/framework系统/Android系统启动——5 zyogte进程(Java篇)-腾讯云开发者社区-腾讯云 (1).md",
     "md/framework系统/Android系统启动——4 zyogte进程 (C篇)-腾讯云开发者社区-腾讯云.md",
-    "md/framework系统/Android系统启动——3 init.rc解析-腾讯云开发者社区-腾讯云.md",
     "Effective+PyCharm+(大语言模型翻译中文版).pdf",
     "写给应用开发的+Android+Framework+教程(1).pdf",
     "md/launcher",
