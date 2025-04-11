@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/binder/Binder9-Android IPC数据在内核空间中的发送过程分析.md",
-                "mode": "preview",
+                "file": "md/binder/链接.md",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Binder9-Android IPC数据在内核空间中的发送过程分析"
+              "title": "链接"
             }
           }
         ]
@@ -194,6 +194,7 @@
   },
   "active": "02721dbca3d360bb",
   "lastOpenFiles": [
+    "md/binder/《Android IPC 数据在内核空间的发送过程剖析》.md",
     "md/binder/链接.md",
     "md/binder/Binder9-Android IPC数据在内核空间中的发送过程分析.md",
     "md/binder/Binder8-Android请求注册服务过程源码分析.md",
@@ -223,7 +224,6 @@
     "pdf",
     "md/handler/都 2021 年了，还有人在研究 Handler？建议收藏~_还在用handler-CSDN博客.md",
     "md/handler/Android10 Framework—Handler消息系统—6.同步屏障同步屏障这个概念有点不好理解，为了搞清楚同步 - 掘金.md",
-    "md/handler/Android10 Framework—Handler消息系统—7.IdleHandler机制IdleHandler是a - 掘金.md",
     "pdf/Android Framework精编内核解析（1）.pdf",
     "md/未命名",
     "写给应用开发的+Android+Framework+教程(1).pdf",
