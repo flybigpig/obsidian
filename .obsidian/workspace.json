@@ -14,7 +14,7 @@
               "type": "markdown",
               "state": {
                 "file": "md/binder/Binder9-Android IPC数据在内核空间中的发送过程分析.md",
-                "mode": "source",
+                "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
@@ -192,7 +192,7 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "f84ce6d2fe2622cd",
+  "active": "02721dbca3d360bb",
   "lastOpenFiles": [
     "md/binder/链接.md",
     "md/binder/Binder9-Android IPC数据在内核空间中的发送过程分析.md",
