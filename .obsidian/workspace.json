@@ -11,10 +11,14 @@
             "id": "889cc0e2e6473611",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "yto/MyExpandAdapter.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "新标签页"
+              "title": "MyExpandAdapter"
             }
           }
         ]
@@ -188,7 +192,7 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "889cc0e2e6473611",
+  "active": "fa4657deb406b728",
   "lastOpenFiles": [
     "Android Framework 开发揭秘.pdf",
     "Android Framework精编内核解析（1）.pdf",
