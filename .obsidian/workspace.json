@@ -4,19 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "f5586b5b5a698527",
+        "id": "f6622347391963b6",
         "type": "tabs",
         "children": [
           {
-            "id": "889cc0e2e6473611",
+            "id": "9b4894a1bc2fdfce",
             "type": "leaf",
             "state": {
-              "type": "pdf",
-              "state": {
-                "file": "pdf/Effective+PyCharm+(大语言模型翻译中文版).pdf"
-              },
-              "icon": "lucide-file-text",
-              "title": "Effective+PyCharm+(大语言模型翻译中文版)"
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "新标签页"
             }
           }
         ]
@@ -190,7 +188,7 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "fa4657deb406b728",
+  "active": "f84ce6d2fe2622cd",
   "lastOpenFiles": [
     "RecyclerView刷新机制.md",
     "pdf/Effective+PyCharm+(大语言模型翻译中文版).pdf",
