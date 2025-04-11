@@ -4,19 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "f6622347391963b6",
+        "id": "7a9e7b6080c3f1b9",
         "type": "tabs",
         "children": [
           {
-            "id": "9b4894a1bc2fdfce",
+            "id": "02721dbca3d360bb",
             "type": "leaf",
             "state": {
-              "type": "pdf",
+              "type": "markdown",
               "state": {
-                "file": "pdf/Android Framework 开发揭秘.pdf"
+                "file": "md/DeepSeek/binder 驱动是怎么帮我们找到 ServiceManager 进程的.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-file-text",
-              "title": "Android Framework 开发揭秘"
+              "icon": "lucide-file",
+              "title": "binder 驱动是怎么帮我们找到 ServiceManager 进程的"
             }
           }
         ]
@@ -190,8 +192,10 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "9b4894a1bc2fdfce",
+  "active": "02721dbca3d360bb",
   "lastOpenFiles": [
+    "md/DeepSeek/binder 驱动是怎么帮我们找到 ServiceManager 进程的.md",
+    "pdf/Android Framework 开发揭秘.pdf",
     "pdf/Effective+PyCharm+(大语言模型翻译中文版).pdf",
     "RecyclerView刷新机制.md",
     "md/handler/synchronized.md",
@@ -207,7 +211,6 @@
     "md/个人/ActivityManagerService - Binder.md",
     "md/个人/synchronized详解-CSDN博客.md",
     "yto/MyExpandAdapter.md",
-    "pdf/Android Framework 开发揭秘.pdf",
     "pdf/Android Framework精编内核解析（1）.pdf",
     "md/个人/Typora.md",
     "md/个人/开机优化.md",
