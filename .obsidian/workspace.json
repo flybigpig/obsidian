@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "7a9e7b6080c3f1b9",
+        "id": "30a912ce2d0adf0d",
         "type": "tabs",
         "children": [
           {
-            "id": "02721dbca3d360bb",
+            "id": "0d80913debb42267",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/binder/链接.md",
+                "file": "md/binder/Binder9-Android IPC数据在内核空间中的发送过程分析.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "链接"
+              "title": "Binder9-Android IPC数据在内核空间中的发送过程分析"
             }
           }
         ]
@@ -192,11 +192,12 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "02721dbca3d360bb",
+  "active": "0d80913debb42267",
   "lastOpenFiles": [
-    "md/binder/《Android IPC 数据在内核空间的发送过程剖析》.md",
     "md/binder/链接.md",
+    "pic/Pasted image 20250411160829.png",
     "md/binder/Binder9-Android IPC数据在内核空间中的发送过程分析.md",
+    "md/binder/《Android IPC 数据在内核空间的发送过程剖析》.md",
     "md/binder/Binder8-Android请求注册服务过程源码分析.md",
     "md/binder/Binder7-Android服务注册完整过程源码分析.md",
     "md/binder/Binder6-Android Binder通信数据结构介绍.md",
@@ -223,7 +224,6 @@
     "md/handler/synchronized.md",
     "pdf",
     "md/handler/都 2021 年了，还有人在研究 Handler？建议收藏~_还在用handler-CSDN博客.md",
-    "md/handler/Android10 Framework—Handler消息系统—6.同步屏障同步屏障这个概念有点不好理解，为了搞清楚同步 - 掘金.md",
     "pdf/Android Framework精编内核解析（1）.pdf",
     "md/未命名",
     "写给应用开发的+Android+Framework+教程(1).pdf",
@@ -239,7 +239,6 @@
     "f39805ccabec34bac1e4990daf7a02f 1.png",
     "pic/Pasted image 20250218094344.png",
     "pic/Pasted image 20250109141941.png",
-    "pic/Pasted image 20250218094245.png",
     "Excalidraw/未命名.canvas",
     "Excalidraw/未命名 1.canvas"
   ]

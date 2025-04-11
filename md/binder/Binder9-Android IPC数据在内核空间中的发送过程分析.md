@@ -1,5 +1,9 @@
 在上一篇文章[Android请求注册服务过程源码分析](http://blog.csdn.net/yangwen123/article/details/9075171 "Android请求注册服务过程源码分析")中从Java层面和C++层面分析了服务请求注册的过程，无论Java还是C++最后都是将需要发送的数据写入的Parcel容器中，然后通过Binder线程持有对象IPCThreadState向Binder驱动发送，本文继续在[Android请求注册服务过程源码分析](http://blog.csdn.net/yangwen123/article/details/9075171 "Android请求注册服务过程源码分析")的基础上更深入地介绍服务注册的整个过程。
 
+![[Pasted image 20250411160829.png]]
+
+
+
 ### 客户进程向ServiceManager进程发送IPC服务注册信息
 
 ```cpp
