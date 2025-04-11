@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "757c1bbb9208cf3b",
+        "id": "f5586b5b5a698527",
         "type": "tabs",
         "children": [
           {
-            "id": "ad1def21b97fe2ff",
+            "id": "889cc0e2e6473611",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -188,10 +188,10 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "f84ce6d2fe2622cd",
+  "active": "889cc0e2e6473611",
   "lastOpenFiles": [
-    "Android Framework精编内核解析（1）.pdf",
     "Android Framework 开发揭秘.pdf",
+    "Android Framework精编内核解析（1）.pdf",
     "md/个人/synchronized详解-CSDN博客.md",
     "md/个人/Typora.md",
     "md/个人/开机优化.md",
