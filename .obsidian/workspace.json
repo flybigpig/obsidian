@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "d5fc978a3643079e",
+        "id": "a207836f89bf8f3a",
         "type": "tabs",
         "children": [
           {
-            "id": "9ae9ea359e56ae86",
+            "id": "c3a049d967bf890f",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -179,12 +179,16 @@
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
       "markdown-importer:打开 Markdown 格式转换器": false,
-      "obsidian-git:Open Git source control": false
+      "obsidian-git:Open Git source control": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
   "active": "f84ce6d2fe2622cd",
   "lastOpenFiles": [
     "conflict-files-obsidian-git.md",
+    "md/个人/Android四大组件之Activity-管理方式.md",
+    "md/个人/Android_Context的设计思想和源码分析.md",
+    "md/handler/Handler机制——同步屏障-CSDN博客.md",
     "pic/Pasted image 20250411160829.png",
     "pdf/Effective+PyCharm+(大语言模型翻译中文版).pdf",
     "pdf/Android Framework精编内核解析（1）.pdf",
@@ -213,8 +217,6 @@
     "md/zygote/app_main.md",
     "md/init/Android10 Framework—Init进程-1.init进程执行流程init进程是linux系统中用户空间的第 - 掘金.md",
     "md/个人/Android Framwork 之深入理解 IPC Binder机制_android binder ipc-CSDN博客.md",
-    "md/zygote/父子进程的故事：解读Linux中的fork机制-腾讯云开发者社区-腾讯云.md",
-    "md/zygote/ZygoteInit.main.md",
     "md/zygote",
     "md/systemservice",
     "md/launcher",
