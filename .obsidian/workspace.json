@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "drives/gcc_12.md",
+                "file": "md/handler/Handler机制——同步屏障-CSDN博客.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "gcc_12"
+              "title": "Handler机制——同步屏障-CSDN博客"
             }
           }
         ]
@@ -188,11 +188,13 @@
       "command-palette:打开命令面板": false,
       "markdown-importer:打开 Markdown 格式转换器": false,
       "obsidian-git:Open Git source control": false,
-      "copilot:Open Copilot Chat": false
+      "copilot:Open Copilot Chat": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
   "active": "9b4bbd0239db76b9",
   "lastOpenFiles": [
+    "drives/gcc_12.md",
     "md/handler/Handler机制——同步屏障-CSDN博客.md",
     "conflict-files-obsidian-git.md",
     "md/binder/Binder9-Android IPC数据在内核空间中的发送过程分析.md",
@@ -222,7 +224,6 @@
     "pdf/Android Framework 开发揭秘.pdf",
     "pdf/Effective+PyCharm+(大语言模型翻译中文版).pdf",
     "RecyclerView刷新机制.md",
-    "md/handler/synchronized.md",
     "pdf",
     "pdf/Android Framework精编内核解析（1）.pdf",
     "md/未命名",
