@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/个人/深入研究Android启动速度优化（下）- 不敢说100_秒开，但这样做“雀食”是快前言：生活不止眼前的苟且，还有诗和远 - 掘金.md",
+                "file": "else/could not read Username for ‘httpse.coding.net‘ No such file or directory-CSDN博客.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "深入研究Android启动速度优化（下）- 不敢说100_秒开，但这样做“雀食”是快前言：生活不止眼前的苟且，还有诗和远 - 掘金"
+              "title": "could not read Username for ‘httpse.coding.net‘ No such file or directory-CSDN博客"
             }
           }
         ]
@@ -188,11 +188,27 @@
       "command-palette:打开命令面板": false,
       "markdown-importer:打开 Markdown 格式转换器": false,
       "obsidian-git:Open Git source control": false,
-      "copilot:Open Copilot Chat": false
+      "copilot:Open Copilot Chat": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
   "active": "9b4bbd0239db76b9",
   "lastOpenFiles": [
+    "else/杂谈.md",
+    "else/其他.md",
+    "else/金瓶梅.md",
+    "else/阿豪.md",
+    "else/【拒绝岁月史书】胖猫谭竹事件最全解析+存档记录 - 知乎.md",
+    "else/git 报错.md",
+    "else/Ubuntu20.04换源教程、解决主机与虚拟机之间进行文本复制粘贴问题_ubuntu 换源-CSDN博客.md",
+    "else/Ubuntu22.04安装、配置、美化、软件安装、配置开发环境_ubuntu安装星火应用商店-CSDN博客.md",
+    "else/csdn保存.md",
+    "else/could not read Username for ‘httpse.coding.net‘ No such file or directory-CSDN博客.md",
+    "else/通过Samba配置将虚拟机内存映射到主机盘符_在windows中 如何把samba服务器建立的共享目录,映射到一个分区盘上-CSDN博客.md",
+    "hm/UI开发（ArkTS声明式开发范式）概述.md",
+    "hm/9.鸿蒙面试真题.md",
+    "md/个人/开机优化.md",
+    "md/个人/深入研究Android启动速度优化（下）- 不敢说100_秒开，但这样做“雀食”是快前言：生活不止眼前的苟且，还有诗和远 - 掘金.md",
     "md/个人/深入研究Android启动速度优化（上）- 看完这些启动优化已经完成80_了_android 分析app的启动流程跟启动时间-CSDN博客.md",
     "md/AndroidFrameworkTutorial/3.学穿Binder篇/012. Binder 服务获取与使用过程情景分析之C++篇.md",
     "md/个人/优化.md",
@@ -204,22 +220,7 @@
     "md/handler/Android10 Framework—Handler消息系统—7.IdleHandler机制IdleHandler是a - 掘金.md",
     "md/努比亚/Android 权限控制机制.md",
     "md/努比亚/解析Binder框架.md",
-    "md/掘金Framework/InputManagerService.md",
-    "md/掘金Framework/Binder究竟是什么？ - 掘金.md",
-    "drives/gcc_12.md",
-    "drives/smodule.md",
-    "drives/Ubuntu编写简单驱动测试程序 - 知乎.md",
-    "md/个人/安卓逆向基础知识之JNI开发与so层逆向基础.md",
-    "md/个人/《10分钟剖析》系统启动1——从内核到用户Android系统总体是围绕着Linux内核而建立的。从加电到系统启动，大 - 掘金.md",
-    "md/handler/Handler机制——同步屏障-CSDN博客.md",
-    "conflict-files-obsidian-git.md",
-    "md/binder/Binder9-Android IPC数据在内核空间中的发送过程分析.md",
     "pic/Pasted image 20250411160829.png",
-    "md/binder/链接.md",
-    "md/binder/《Android IPC 数据在内核空间的发送过程剖析》.md",
-    "md/binder/Binder8-Android请求注册服务过程源码分析.md",
-    "md/binder/Binder7-Android服务注册完整过程源码分析.md",
-    "md/binder/Binder6-Android Binder通信数据结构介绍.md",
     "md/binder",
     "pdf/Android Framework 开发揭秘.pdf",
     "pdf/Effective+PyCharm+(大语言模型翻译中文版).pdf",
