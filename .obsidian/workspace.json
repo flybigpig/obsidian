@@ -188,11 +188,15 @@
       "command-palette:打开命令面板": false,
       "markdown-importer:打开 Markdown 格式转换器": false,
       "obsidian-git:Open Git source control": false,
-      "copilot:Open Copilot Chat": false
+      "copilot:Open Copilot Chat": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
   "active": "9b4bbd0239db76b9",
   "lastOpenFiles": [
+    "conflict-files-obsidian-git.md",
+    "else/could not read Username for ‘httpse.coding.net‘ No such file or directory-CSDN博客.md",
+    "md/个人/binder_mmap.md",
     "else/杂谈.md",
     "else/其他.md",
     "else/金瓶梅.md",
@@ -202,7 +206,6 @@
     "else/Ubuntu20.04换源教程、解决主机与虚拟机之间进行文本复制粘贴问题_ubuntu 换源-CSDN博客.md",
     "else/Ubuntu22.04安装、配置、美化、软件安装、配置开发环境_ubuntu安装星火应用商店-CSDN博客.md",
     "else/csdn保存.md",
-    "else/could not read Username for ‘httpse.coding.net‘ No such file or directory-CSDN博客.md",
     "else/通过Samba配置将虚拟机内存映射到主机盘符_在windows中 如何把samba服务器建立的共享目录,映射到一个分区盘上-CSDN博客.md",
     "hm/UI开发（ArkTS声明式开发范式）概述.md",
     "hm/9.鸿蒙面试真题.md",
@@ -217,8 +220,6 @@
     "md/个人/Android_Context的设计思想和源码分析.md",
     "md/个人/Android四大组件之Activity-管理方式.md",
     "md/handler/Android10 Framework—Handler消息系统—7.IdleHandler机制IdleHandler是a - 掘金.md",
-    "md/努比亚/Android 权限控制机制.md",
-    "md/努比亚/解析Binder框架.md",
     "pic/Pasted image 20250411160829.png",
     "md/binder",
     "pdf/Android Framework 开发揭秘.pdf",
