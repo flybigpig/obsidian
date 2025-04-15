@@ -188,11 +188,17 @@
       "command-palette:打开命令面板": false,
       "markdown-importer:打开 Markdown 格式转换器": false,
       "obsidian-git:Open Git source control": false,
-      "copilot:Open Copilot Chat": false
+      "copilot:Open Copilot Chat": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "f84ce6d2fe2622cd",
+  "active": "fa4657deb406b728",
   "lastOpenFiles": [
+    "md/个人/Binder从入门到放弃（框架篇） - 内核工匠 - 博客园.md",
+    "md/个人/dumpsys meminfo 的原理和应用 - 内核工匠 - 博客园.md",
+    "md/个人/Android ART dex2oat 浅析 - 内核工匠 - 博客园.md",
+    "md/个人/Android 热缓解框架解析 - 内核工匠 - 博客园.md",
+    "md/个人/Android Input 子系统初探 - 内核工匠 - 博客园.md",
     "md/linux/一文读懂 Linux mmap 内存映射-腾讯云开发者社区-腾讯云.md",
     "md/binder/Binder究竟是什么？Binder究竟是什么？ 先说答案Binder是android提出的一种跨进程的通信机制，也可 - 掘金.md",
     "md/个人/Binder从入门到放弃（细节篇） - 内核工匠 - 博客园.md",
@@ -214,11 +220,6 @@
     "hm/9.鸿蒙面试真题.md",
     "md/个人/开机优化.md",
     "md/个人/深入研究Android启动速度优化（下）- 不敢说100_秒开，但这样做“雀食”是快前言：生活不止眼前的苟且，还有诗和远 - 掘金.md",
-    "md/个人/深入研究Android启动速度优化（上）- 看完这些启动优化已经完成80_了_android 分析app的启动流程跟启动时间-CSDN博客.md",
-    "md/AndroidFrameworkTutorial/3.学穿Binder篇/012. Binder 服务获取与使用过程情景分析之C++篇.md",
-    "md/个人/优化.md",
-    "md/个人/Android 性能优化（一）： 启动优化理论与实践-阿里云开发者社区.md",
-    "md/个人/原创安卓逆向基础知识之JNI开发与so层逆向基础-Android安全-看雪-安全社区安全招聘kanxue.com.md",
     "pic/Pasted image 20250411160829.png",
     "md/binder",
     "pdf/Android Framework 开发揭秘.pdf",
