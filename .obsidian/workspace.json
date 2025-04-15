@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "md/android/Binder中的数据结构.md",
+                "file": "md/binder/binder 情景分析 - service manager (context manager) 的启动  Jekton.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Binder中的数据结构 的大纲"
+              "title": "binder 情景分析 - service manager (context manager) 的启动  Jekton 的大纲"
             }
           },
           {
@@ -176,7 +176,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 303.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -192,7 +192,7 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "9b4bbd0239db76b9",
+  "active": "f84ce6d2fe2622cd",
   "lastOpenFiles": [
     "md/binder/binder 情景分析 - service 的注册（上）  Jekton.md",
     "md/binder/binder 情景分析 - service manager (context manager) 的启动  Jekton.md",
