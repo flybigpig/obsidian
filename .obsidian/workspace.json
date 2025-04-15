@@ -188,11 +188,15 @@
       "command-palette:打开命令面板": false,
       "markdown-importer:打开 Markdown 格式转换器": false,
       "obsidian-git:Open Git source control": false,
-      "copilot:Open Copilot Chat": false
+      "copilot:Open Copilot Chat": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "9b4bbd0239db76b9",
+  "active": "fa4657deb406b728",
   "lastOpenFiles": [
+    "md/binder/binder 情景分析 - service 的注册（下）  Jekton.md",
+    "md/binder/binder 情景分析 - service 的注册（中）  Jekton.md",
+    "md/binder/binder 情景分析 - service 的注册（上）  Jekton.md",
     "md/个人/init.rc.md",
     "md/个人/Zygote.md",
     "md/个人/一文读懂 Linux mmap 内存映射-腾讯云开发者社区-腾讯云.md",
@@ -216,9 +220,6 @@
     "else/阿豪.md",
     "else/【拒绝岁月史书】胖猫谭竹事件最全解析+存档记录 - 知乎.md",
     "else/git 报错.md",
-    "else/Ubuntu20.04换源教程、解决主机与虚拟机之间进行文本复制粘贴问题_ubuntu 换源-CSDN博客.md",
-    "else/Ubuntu22.04安装、配置、美化、软件安装、配置开发环境_ubuntu安装星火应用商店-CSDN博客.md",
-    "else/csdn保存.md",
     "pic/Pasted image 20250411160829.png",
     "md/binder",
     "pdf/Android Framework 开发揭秘.pdf",
