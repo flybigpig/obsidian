@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "else/could not read Username for ‘httpse.coding.net‘ No such file or directory-CSDN博客.md",
+                "file": "md/linux/一文读懂 Linux mmap 内存映射-腾讯云开发者社区-腾讯云.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "could not read Username for ‘httpse.coding.net‘ No such file or directory-CSDN博客"
+              "title": "一文读懂 Linux mmap 内存映射-腾讯云开发者社区-腾讯云"
             }
           }
         ]
@@ -188,13 +188,15 @@
       "command-palette:打开命令面板": false,
       "markdown-importer:打开 Markdown 格式转换器": false,
       "obsidian-git:Open Git source control": false,
-      "copilot:Open Copilot Chat": false
+      "copilot:Open Copilot Chat": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
   "active": "9b4bbd0239db76b9",
   "lastOpenFiles": [
-    "conflict-files-obsidian-git.md",
     "else/could not read Username for ‘httpse.coding.net‘ No such file or directory-CSDN博客.md",
+    "md/linux/一文读懂 Linux mmap 内存映射-腾讯云开发者社区-腾讯云.md",
+    "conflict-files-obsidian-git.md",
     "md/个人/binder_mmap.md",
     "else/杂谈.md",
     "else/其他.md",
@@ -218,7 +220,6 @@
     "md/掘金Framework/【Android FrameWork】第一个启动的程序--init (含视频) - 掘金.md",
     "md/个人/Android_Context的设计思想和源码分析.md",
     "md/个人/Android四大组件之Activity-管理方式.md",
-    "md/handler/Android10 Framework—Handler消息系统—7.IdleHandler机制IdleHandler是a - 掘金.md",
     "pic/Pasted image 20250411160829.png",
     "md/binder",
     "pdf/Android Framework 开发揭秘.pdf",
