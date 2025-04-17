@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/binder/binder 情景分析 - service manager (context manager) 的启动  Jekton.md",
+                "file": "else/未命名.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "binder 情景分析 - service manager (context manager) 的启动  Jekton"
+              "title": "未命名"
             }
           }
         ]
@@ -188,15 +188,17 @@
       "command-palette:打开命令面板": false,
       "markdown-importer:打开 Markdown 格式转换器": false,
       "obsidian-git:Open Git source control": false,
-      "copilot:Open Copilot Chat": false
+      "copilot:Open Copilot Chat": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
   "active": "9b4bbd0239db76b9",
   "lastOpenFiles": [
+    "md/binder/binder 情景分析 - service manager (context manager) 的启动  Jekton.md",
+    "else/未命名.md",
     "md/binder/Binder系列1—Binder Driver初探 - Gityuan博客  袁辉辉的技术博客.md",
     "md/binder/Android mmap+Binder机制_binder mmap-CSDN博客.md",
     "md/binder/binder 情景分析 - service 的注册（上）  Jekton.md",
-    "md/binder/binder 情景分析 - service manager (context manager) 的启动  Jekton.md",
     "md/个人/json to Map.md",
     "md/binder/binder 情景分析 - service 的注册（下）  Jekton.md",
     "md/binder/binder 情景分析 - service 的注册（中）  Jekton.md",
@@ -218,7 +220,6 @@
     "conflict-files-obsidian-git.md",
     "md/个人/binder_mmap.md",
     "else/杂谈.md",
-    "else/其他.md",
     "pic/Pasted image 20250411160829.png",
     "md/binder",
     "pdf/Android Framework 开发揭秘.pdf",
