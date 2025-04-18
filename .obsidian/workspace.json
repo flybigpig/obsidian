@@ -138,13 +138,12 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "md/ims/未命名.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "未命名 的大纲"
+              "title": "大纲"
             }
           },
           {
@@ -192,8 +191,8 @@
   },
   "active": "f84ce6d2fe2622cd",
   "lastOpenFiles": [
-    "md/ims/I-O 多路复用机制.md",
     "md/ims/未命名.md",
+    "md/ims/I-O 多路复用机制.md",
     "md/ims/深入剖析 Android Input 输入事件处理全流程.md",
     "md/ims/InputManagerService的工作原理.md",
     "md/ims/InputManagerService的启动流程 代码详解.md",
