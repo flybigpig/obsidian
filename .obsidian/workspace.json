@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/ims/InputManagerService的工作原理.md",
+                "file": "md/ims/详细介绍InputManagerService的事件分发机制.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "InputManagerService的工作原理"
+              "title": "详细介绍InputManagerService的事件分发机制"
             }
           }
         ]
@@ -195,6 +195,7 @@
   "active": "f84ce6d2fe2622cd",
   "lastOpenFiles": [
     "md/ims/InputManagerService的启动流程 代码详解.md",
+    "md/ims/详细介绍InputManagerService的事件分发机制.md",
     "md/ims/InputManagerService的工作原理.md",
     "md/ims",
     "else/未命名.md",
@@ -220,7 +221,6 @@
     "md/个人/Binder从入门到放弃（细节篇） - 内核工匠 - 博客园.md",
     "drives/Ubuntu编写简单驱动测试程序.md",
     "else/could not read Username for ‘httpse.coding.net‘ No such file or directory-CSDN博客.md",
-    "conflict-files-obsidian-git.md",
     "pic/Pasted image 20250411160829.png",
     "md/binder",
     "pdf/Android Framework 开发揭秘.pdf",
