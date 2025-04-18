@@ -176,7 +176,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 303.5
+    "width": 244.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -192,7 +192,7 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "e12147b01176da25",
+  "active": "f84ce6d2fe2622cd",
   "lastOpenFiles": [
     "md/ims/深入剖析 Android Input 输入事件处理全流程.md",
     "md/ims/I-O 多路复用机制.md",
