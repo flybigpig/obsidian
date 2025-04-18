@@ -2,18 +2,7 @@
   "editorStatus": {
     "isTextInserting": false
   },
-  "providers": [
-    {
-      "tag": "SiliconFlow",
-      "vendor": "SiliconFlow",
-      "options": {
-        "apiKey": "sk-hgisxenrpafudvgaelfmzvfukeaygferobykkehidshgkzww",
-        "baseURL": "https://api.siliconflow.cn/v1",
-        "model": "Qwen/Qwen2.5-7B-Instruct",
-        "parameters": {}
-      }
-    }
-  ],
+  "providers": [],
   "systemTags": [
     "System",
     "系统"
