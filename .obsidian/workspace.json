@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/ims/深入剖析 Android Input 输入事件处理全流程.md",
+                "file": "md/ims/InputManagerService的工作原理.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "深入剖析 Android Input 输入事件处理全流程"
+              "title": "InputManagerService的工作原理"
             }
           }
         ]
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "md/ims/深入剖析 Android Input 输入事件处理全流程.md",
+                "file": "md/ims/InputManagerService的工作原理.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "深入剖析 Android Input 输入事件处理全流程 的大纲"
+              "title": "InputManagerService的工作原理 的大纲"
             }
           },
           {
@@ -192,10 +192,10 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "f84ce6d2fe2622cd",
+  "active": "e12147b01176da25",
   "lastOpenFiles": [
-    "md/ims/InputManagerService的启动流程 代码详解.md",
     "md/ims/深入剖析 Android Input 输入事件处理全流程.md",
+    "md/ims/InputManagerService的启动流程 代码详解.md",
     "md/ims/详细介绍InputManagerService的事件分发机制.md",
     "md/ims/InputManagerService的工作原理.md",
     "md/ims",
