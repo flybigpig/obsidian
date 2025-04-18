@@ -2,7 +2,18 @@
   "editorStatus": {
     "isTextInserting": false
   },
-  "providers": [],
+  "providers": [
+    {
+      "tag": "SiliconFlow",
+      "vendor": "SiliconFlow",
+      "options": {
+        "apiKey": "sk-hgisxenrpafudvgaelfmzvfukeaygferobykkehidshgkzww",
+        "baseURL": "https://api.siliconflow.cn/v1",
+        "model": "Qwen/Qwen2.5-7B-Instruct",
+        "parameters": {}
+      }
+    }
+  ],
   "systemTags": [
     "System",
     "系统"
@@ -26,7 +37,7 @@
   "answerDelayInMilliseconds": 2000,
   "confirmRegenerate": true,
   "enableTagSuggest": true,
-  "tagSuggestMaxLineLength": 20,
+  "tagSuggestMaxLineLength": 25,
   "enableExportToJSONL": false,
   "enableReplaceTag": false
 }
