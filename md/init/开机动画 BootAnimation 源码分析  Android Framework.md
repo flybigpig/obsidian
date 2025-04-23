@@ -50,6 +50,15 @@ cc_binary {
 
 
 ```
+SurfaceFlinger 是 Android 系统中负责管理和合成图形表面的关键服务，其启动过程与 Android 系统的整体启动流程紧密相关，涉及多个系统进程和步骤。
+
+  
+
+1. **init 进程启动**：Android 内核完成初始化后，启动 init 进程，其进程 ID 为 1。init 进程是用户空间的首个进程，主要职责是解析并执行初始化脚本，启动系统各项服务。
+2. **解析配置文件**：init 进程会读取一系列`.rc`配置文件，这些文件分布在`/init.rc` 、`/system/etc/init`以及`/vendor/etc/init`等目录下。其中，`surfaceflinger.rc`文件定义了 SurfaceFlinger 服务的启动参数和依赖关系 。比如，定义了服务名为`surfaceflinger`，对应的可执行文件路径为`/system/bin/surfaceflinger` ；指定服务属于`core`类，会在系统启动早期启动；设置服务以`system`用户和`graphics`、`drmrpc`组的身份运行，并赋予`SYS_NICE`权限；还规定了服务重启时会同时重启`zygote`进程等。
+3. **启动服务进程**：init 进程解析`surfaceflinger.rc`文件后，通过调用`fork()`和`exec()`系统调用，创建一个新进程来运行`/system/bin/surfaceflinger`可执行文件。在这个过程中，init 进程会依据配置文件设置新进程的用户、组、权限等运行环境。
+4. **执行初始化操作**：新创建的进程开始执行 SurfaceFlinger 的`main()`函数。在`main()`函数中，会进行一系列初始化操作，包括创建 SurfaceFlinger 对象、初始化显示设备、创建图形缓冲区等。例如，创建 SurfaceFlinger 对象，初始化相关资源，为后续的图形合成和显示功能做准备。
+5. **启动消息循环与注册服务**：SurfaceFlinger 会启动一个消息循环，用于处理各种图形合成和显示相关的事件。同时，它会将自己注册到`ServiceManager`中。其他服务可以通过`ServiceManager`获取 SurfaceFlinger 的服务，实现与它的交互，从而完成系统图形显示相关的功能 。
 ```
 
 
