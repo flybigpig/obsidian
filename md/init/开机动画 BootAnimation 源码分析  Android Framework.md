@@ -108,6 +108,84 @@ bool StartPropertySetThread::threadLoop() {
 ```
 
 
+```
+// This returns one of the enum of PROP_SUCCESS or PROP_ERROR*.  
+uint32_t HandlePropertySet(const std::string& name, const std::string& value,  
+                           const std::string& source_context, const ucred& cr, std::string* error) {  
+    if (auto ret = CheckPermissions(name, value, source_context, cr, error); ret != PROP_SUCCESS) {  
+        return ret;  
+    }  
+  
+    if (StartsWith(name, "ctl.")) {  
+        HandleControlMessage(name.c_str() + 4, value, cr.pid);  
+        return PROP_SUCCESS;  
+    }  
+  
+    // sys.powerctl is a special property that is used to make the device reboot.  We want to log  
+    // any process that sets this property to be able to accurately blame the cause of a shutdown.    if (name == "sys.powerctl") {  
+        std::string cmdline_path = StringPrintf("proc/%d/cmdline", cr.pid);  
+        std::string process_cmdline;  
+        std::string process_log_string;  
+        if (ReadFileToString(cmdline_path, &process_cmdline)) {  
+            // Since cmdline is null deliminated, .c_str() conveniently gives us just the process  
+            // path.            process_log_string = StringPrintf(" (%s)", process_cmdline.c_str());  
+        }  
+        LOG(INFO) << "Received sys.powerctl='" << value << "' from pid: " << cr.pid  
+                  << process_log_string;  
+    }  
+  
+    if (name == "selinux.restorecon_recursive") {  
+        return PropertySetAsync(name, value, RestoreconRecursiveAsync, error);  
+    }  
+  
+    return PropertySet(name, value, error);  
+}
+```
+
+```
+void HandleControlMessage(const std::string& msg, const std::string& name, pid_t pid) {  
+    const auto& map = get_control_message_map();  
+    const auto it = map.find(msg);  
+  
+    if (it == map.end()) {  
+        LOG(ERROR) << "Unknown control msg '" << msg << "'";  
+        return;    }  
+  
+    std::string cmdline_path = StringPrintf("proc/%d/cmdline", pid);  
+    std::string process_cmdline;  
+    if (ReadFileToString(cmdline_path, &process_cmdline)) {  
+        std::replace(process_cmdline.begin(), process_cmdline.end(), '\0', ' ');  
+        process_cmdline = Trim(process_cmdline);  
+    } else {  
+        process_cmdline = "unknown process";  
+    }  
+  
+    LOG(INFO) << "Received control message '" << msg << "' for '" << name << "' from pid: " << pid  
+              << " (" << process_cmdline << ")";  
+  
+    const ControlMessageFunction& function = it->second;  
+  
+    Service* svc = nullptr;  
+  
+    switch (function.target) {  
+        case ControlTarget::SERVICE:  
+            svc = ServiceList::GetInstance().FindService(name);  
+            break;        case ControlTarget::INTERFACE:  
+            svc = ServiceList::GetInstance().FindInterface(name);  
+            break;        default:  
+            LOG(ERROR) << "Invalid function target from static map key '" << msg << "': "  
+                       << static_cast<std::underlying_type<ControlTarget>::type>(function.target);  
+            return;    }  
+  
+    if (svc == nullptr) {  
+        LOG(ERROR) << "Could not find '" << name << "' for ctl." << msg;  
+        return;    }  
+  
+    if (auto result = function.action(svc); !result) {  
+        LOG(ERROR) << "Could not ctl." << msg << " for '" << name << "': " << result.error();  
+    }  
+}
+```
 
 在 `mStartPropertySetThread` 线程中会设置 `ctl.start` 属性的值为 `bootanim`，在属性系统部分我们讲过这样会启动 `bootanim service`。
 
