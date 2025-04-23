@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/init/init.rc.md",
+                "file": "md/init/开机动画 BootAnimation 源码分析  Android Framework.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "init.rc"
+              "title": "开机动画 BootAnimation 源码分析  Android Framework"
             }
           }
         ]
@@ -188,11 +188,13 @@
       "command-palette:打开命令面板": false,
       "markdown-importer:打开 Markdown 格式转换器": false,
       "obsidian-git:Open Git source control": false,
-      "copilot:Open Copilot Chat": false
+      "copilot:Open Copilot Chat": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "fa4657deb406b728",
+  "active": "c1a32978df59ca37",
   "lastOpenFiles": [
+    "md/init/init.rc.md",
     "md/SurfaceFlinger/Android Systrace 基础知识 -- Why 60 fps ？ · Android Performance.md",
     "md/SurfaceFlinger/显示图形系统分析之SurfaceFlinger启动流程显示图形系统中，避不开的SurfaceFlinger非常重要，对于 - 掘金 1.md",
     "md/SurfaceFlinger/显示图形系统分析之SurfaceFlinger启动流程显示图形系统中，避不开的SurfaceFlinger非常重要，对于 - 掘金.md",
@@ -219,7 +221,6 @@
     "md/mk_bp/Android Android.mk入门-CSDN博客.md",
     "md/launcher/Android Framework 之了解 Launcher 启动过程_android launcher-CSDN博客.md",
     "md/mk_bp",
-    "md/launcher/Launcher3客制化记录（基于Android P）.md",
     "md/ims",
     "pic/Pasted image 20250411160829.png",
     "md/binder",

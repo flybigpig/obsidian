@@ -48,6 +48,11 @@ cc_binary {
 
 这里有个 `init_rc: ["bootanim.rc"]` 的配置。加了这个配置之后，在编译系统的时候会把 `bootanim.rc` 文件预制到 `/system/etc/init/` 目录。init 进程在启动的时候会加载这个目录下的所有 rc 文件.
 
+
+```
+```
+
+
 bootanim 服务要定义成 disable 的？为什么不直接在 init 阶段启动？因为 bootanim 需要借助于 surfaceflinger 来显示动画，所以需要等待 surfacefinger 启动后，再启动 bootanim。
 
 接下来我们来看看 SurfaceFlinger 的初始化函数：
