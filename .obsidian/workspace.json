@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/个人/Android 开关机动画显示源码分析_android 开启动画 源码分析-CSDN博客.md",
+                "file": "md/个人/异常处理 - Native 层的崩溃捕获机制及实现 - 简书.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Android 开关机动画显示源码分析_android 开启动画 源码分析-CSDN博客"
+              "title": "异常处理 - Native 层的崩溃捕获机制及实现 - 简书"
             }
           }
         ]
@@ -194,8 +194,8 @@
   },
   "active": "c1a32978df59ca37",
   "lastOpenFiles": [
-    "md/mk_bp/mk 使用.md",
     "md/个人/Android 开关机动画显示源码分析_android 开启动画 源码分析-CSDN博客.md",
+    "md/mk_bp/mk 使用.md",
     "md/launcher/Android AIDL 与 Android.bp 的结合使用.md",
     "md/mk_bp/Android.mk解析与使用看这篇就够了 - 知乎.md",
     "md/mk_bp/Android.bp详解+入门必备-CSDN博客.md",
