@@ -180,7 +180,7 @@ void HandleControlMessage(const std::string& msg, const std::string& name, pid_t
     if (svc == nullptr) {  
         LOG(ERROR) << "Could not find '" << name << "' for ctl." << msg;  
         return;    }  
-  
+	//  bootanim.start
     if (auto result = function.action(svc); !result) {  
         LOG(ERROR) << "Could not ctl." << msg << " for '" << name << "': " << result.error();  
     }  
