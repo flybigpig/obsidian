@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "5f067e4ba546cfcb",
+        "id": "7d6d8b0518d4d54b",
         "type": "tabs",
         "children": [
           {
-            "id": "9d6506b19d96615c",
+            "id": "1de14381a11070e6",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -186,8 +186,9 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "9d6506b19d96615c",
+  "active": "1de14381a11070e6",
   "lastOpenFiles": [
+    "md/JVM/Java虚拟机基础——1Java的内存模型-腾讯云开发者社区-腾讯云.md",
     "md/init/`bootFinished` 函数的触发过程涉及多个组件的协同工作.md",
     "md/init/init.rc.md",
     "conflict-files-obsidian-git.md",
@@ -214,7 +215,6 @@
     "md/launcher/Android AIDL 与 Android.bp 的结合使用.md",
     "md/init/开机动画 BootAnimation 源码分析  Android Framework.md",
     "md/ims/详细介绍InputManagerService的事件分发机制.md",
-    "md/ims/深入剖析 Android Input 输入事件处理全流程.md",
     "md/ims",
     "pic/Pasted image 20250411160829.png",
     "pdf/Effective+PyCharm+(大语言模型翻译中文版).pdf",
