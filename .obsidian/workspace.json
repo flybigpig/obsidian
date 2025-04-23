@@ -14,7 +14,7 @@
               "type": "markdown",
               "state": {
                 "file": "md/mk_bp/mk 使用.md",
-                "mode": "source",
+                "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
@@ -192,7 +192,7 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "f84ce6d2fe2622cd",
+  "active": "c1a32978df59ca37",
   "lastOpenFiles": [
     "md/launcher/Android AIDL 与 Android.bp 的结合使用.md",
     "md/mk_bp/mk 使用.md",
