@@ -8,6 +8,119 @@
 - 这是通过设置系统属性 `ctl.start` 为 `bootanim` 来实现的，`init` 进程会监听这些属性变化，并启动 `bootanimation` 服务。
 
 ### 2. **`bootFinished` 函数的调用**
+
+```
+@Override  
+public void handleResumeActivity(IBinder token, boolean finalStateRequest, boolean isForward,  
+        String reason) {  
+     
+    Looper.myQueue().addIdleHandler(new Idler());  
+}
+```
+
+```
+private class Idler implements MessageQueue.IdleHandler {  
+    @Override  
+    public final boolean queueIdle() {   
+                if (a.activity != null && !a.activity.mFinished) {  
+                    try {  
+                        am.activityIdle(a.token, a.createdConfig, stopProfiling);  
+                        a.createdConfig = null;  
+                    } catch (RemoteException ex) {  
+                        throw ex.rethrowFromSystemServer();  
+                    }  
+                }   
+}
+```
+
+```
+@GuardedBy("mService")  
+final ActivityRecord activityIdleInternalLocked(final IBinder token, boolean fromTimeout,  
+        boolean processPausingActivities, Configuration config) {  
+    
+  
+        // Check if able to finish booting when device is booting and all resumed activities        // are idle.        if ((mService.isBooting() && mRootActivityContainer.allResumedActivitiesIdle())  
+                || fromTimeout) {  
+            booting = checkFinishBootingLocked();  
+        }  
+  
+        // When activity is idle, we consider the relaunch must be successful, so let's clear  
+        // the flag.        r.mRelaunchReason = RELAUNCH_REASON_NONE;  
+    }  
+  
+}
+
+```
+```
+/**  
+ * Called when all resumed tasks/stacks are idle. * @return the state of mService.mAm.mBooting before this was called.  
+ */@GuardedBy("mService")  
+private boolean checkFinishBootingLocked() {  
+    final boolean booting = mService.isBooting();  
+    boolean enableScreen = false;  
+    mService.setBooting(false);  
+    if (!mService.isBooted()) {  
+        mService.setBooted(true);  
+        enableScreen = true;  
+    }  
+    if (booting || enableScreen) {  
+        mService.postFinishBooting(booting, enableScreen);  
+    }  
+    return booting;  
+}
+```
+
+```
+void postFinishBooting(boolean finishBooting, boolean enableScreen) {  
+    mH.post(() -> {  
+        if (finishBooting) {  
+            mAmInternal.finishBooting();  
+        }  
+        if (enableScreen) {  
+            mInternal.enableScreenAfterBoot(isBooted());  
+        }  
+    });  
+}
+```
+
+```
+@Override  
+public void enableScreenAfterBoot(boolean booted) {  
+    synchronized (mGlobalLock) {  
+        EventLog.writeEvent(EventLogTags.BOOT_PROGRESS_ENABLE_SCREEN,  
+                SystemClock.uptimeMillis());  
+        mWindowManager.enableScreenAfterBoot();  
+        updateEventDispatchingLocked(booted);  
+    }  
+}
+```
+
+
+```
+public void enableScreenAfterBoot() {  
+    synchronized (mGlobalLock) {  
+        if (DEBUG_BOOT) {  
+            RuntimeException here = new RuntimeException("here");  
+            here.fillInStackTrace();  
+            Slog.i(TAG_WM, "enableScreenAfterBoot: mDisplayEnabled=" + mDisplayEnabled  
+                    + " mForceDisplayEnabled=" + mForceDisplayEnabled  
+                    + " mShowingBootMessages=" + mShowingBootMessages  
+                    + " mSystemBooted=" + mSystemBooted, here);  
+        }  
+        if (mSystemBooted) {  
+            return;  
+        }  
+        mSystemBooted = true;  
+        hideBootMessagesLocked();  
+        // If the screen still doesn't come up after 30 seconds, give  
+        // up and turn it on.        mH.sendEmptyMessageDelayed(H.BOOT_TIMEOUT, 30 * 1000);  
+    }  
+  
+    mPolicy.systemBooted();  
+  
+    performEnableScreen();  
+}
+```
 `bootFinished` 函数的作用是通知系统启动完成，并停止开机动画。该函数的调用路径如下：
 
 - **`WindowManagerService` 调用**：在 `WindowManagerService` 的 `performEnableScreen` 方法中，会通过 `SurfaceControl.bootFinished()` 方法调用 `bootFinished`。
