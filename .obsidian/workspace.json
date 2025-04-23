@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/mk_bp/Android.mk解析与使用看这篇就够了 - 知乎.md",
-                "mode": "preview",
+                "file": "md/launcher/Android AIDL 与 Android.bp 的结合使用.md",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Android.mk解析与使用看这篇就够了 - 知乎"
+              "title": "Android AIDL 与 Android.bp 的结合使用"
             }
           }
         ]
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "md/mk_bp/Android.mk解析与使用看这篇就够了 - 知乎.md",
+                "file": "md/launcher/Android AIDL 与 Android.bp 的结合使用.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Android.mk解析与使用看这篇就够了 - 知乎 的大纲"
+              "title": "Android AIDL 与 Android.bp 的结合使用 的大纲"
             }
           },
           {
@@ -192,13 +192,14 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "fa4657deb406b728",
+  "active": "c1a32978df59ca37",
   "lastOpenFiles": [
+    "md/mk_bp/Android.mk解析与使用看这篇就够了 - 知乎.md",
+    "md/launcher/Android AIDL 与 Android.bp 的结合使用.md",
     "md/mk_bp/Android.bp详解+入门必备-CSDN博客.md",
     "md/mk_bp/Android.bp解析与使用看这篇就够了 - 知乎.md",
     "md/mk_bp/Android Android.mk入门-CSDN博客.md",
     "md/launcher/Android Framework 之了解 Launcher 启动过程_android launcher-CSDN博客.md",
-    "md/mk_bp/Android.mk解析与使用看这篇就够了 - 知乎.md",
     "md/mk_bp",
     "md/launcher/Launcher3客制化记录（基于Android P）.md",
     "md/个人/Android Android.mk入门-CSDN博客.md",
@@ -221,7 +222,6 @@
     "md/个人/init.rc.md",
     "md/个人/Zygote.md",
     "md/个人/一文读懂 Linux mmap 内存映射-腾讯云开发者社区-腾讯云.md",
-    "md/个人/Binder究竟是什么？Binder究竟是什么？ 先说答案Binder是android提出的一种跨进程的通信机制，也可 - 掘金.md",
     "pic/Pasted image 20250411160829.png",
     "md/binder",
     "pdf/Android Framework 开发揭秘.pdf",
