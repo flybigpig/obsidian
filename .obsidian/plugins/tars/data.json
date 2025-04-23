@@ -26,7 +26,7 @@
   "answerDelayInMilliseconds": 2000,
   "confirmRegenerate": true,
   "enableTagSuggest": true,
-  "tagSuggestMaxLineLength": 20,
+  "tagSuggestMaxLineLength": 25,
   "enableExportToJSONL": false,
   "enableReplaceTag": false
 }

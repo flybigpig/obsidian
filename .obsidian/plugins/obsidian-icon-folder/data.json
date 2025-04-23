@@ -6,11 +6,11 @@
     "emojiStyle": "native",
     "iconColor": null,
     "recentlyUsedIcons": [
+      "LiAccessibility",
       "LiAtSign",
       "LiActivitySquare",
       "LiAnchor",
-      "LiBadgeInfo",
-      "LiAArrowDown"
+      "LiBadgeInfo"
     ],
     "recentlyUsedIconsSize": 5,
     "rules": [],
@@ -41,5 +41,9 @@
   "pdf": {
     "iconName": "LiAtSign",
     "iconColor": "#2ed6ac"
+  },
+  "hm": {
+    "iconName": "LiAccessibility",
+    "iconColor": "#26c939"
   }
 }

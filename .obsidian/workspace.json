@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "a207836f89bf8f3a",
+        "id": "25d6cf370a2e4edf",
         "type": "tabs",
         "children": [
           {
-            "id": "c3a049d967bf890f",
+            "id": "7e7654202d4e239d",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/个人/binder_mmap.md",
-                "mode": "preview",
+                "file": "conflict-files-obsidian-git.md",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "binder_mmap"
+              "title": "conflict-files-obsidian-git"
             }
           }
         ]
@@ -78,7 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 373.5
+    "width": 300.5
   },
   "right": {
     "id": "9529d323d9cfa4b3",
@@ -186,49 +186,50 @@
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
       "markdown-importer:打开 Markdown 格式转换器": false,
-      "obsidian-git:Open Git source control": false
+      "obsidian-git:Open Git source control": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
   "active": "f84ce6d2fe2622cd",
   "lastOpenFiles": [
-    "md/个人/binder_mmap.md",
     "conflict-files-obsidian-git.md",
-    "md/个人/Android四大组件之Activity-管理方式.md",
-    "md/个人/Android_Context的设计思想和源码分析.md",
-    "md/handler/Handler机制——同步屏障-CSDN博客.md",
+    "md/个人/binder_mmap.md",
+    "md/个人/开机动画 BootAnimation 源码分析  Android Framework.md",
+    "md/个人/一文读懂 Linux mmap 内存映射-腾讯云开发者社区-腾讯云.md",
+    "md/个人/dumpsys meminfo 的原理和应用 - 内核工匠 - 博客园.md",
+    "md/个人/Binder究竟是什么？Binder究竟是什么？ 先说答案Binder是android提出的一种跨进程的通信机制，也可 - 掘金.md",
+    "md/个人/Binder从入门到放弃（细节篇） - 内核工匠 - 博客园.md",
+    "md/个人/Binder从入门到放弃（框架篇） - 内核工匠 - 博客园.md",
+    "md/个人/Android 热缓解框架解析 - 内核工匠 - 博客园.md",
+    "md/个人/Android 开关机动画显示源码分析_android 开启动画 源码分析-CSDN博客.md",
+    "md/个人/Android Input 子系统初探 - 内核工匠 - 博客园.md",
+    "md/个人/Android Android.mk入门-CSDN博客.md",
+    "md/个人/Android ART dex2oat 浅析 - 内核工匠 - 博客园.md",
+    "md/mk_bp/mk 使用.md",
+    "md/mk_bp/Android.mk解析与使用看这篇就够了 - 知乎.md",
+    "md/mk_bp/Android.bp详解+入门必备-CSDN博客.md",
+    "md/mk_bp/Android.bp解析与使用看这篇就够了 - 知乎.md",
+    "md/mk_bp/Android Android.mk入门-CSDN博客.md",
+    "md/mk_bp",
+    "md/linux/一文读懂 Linux mmap 内存映射-腾讯云开发者社区-腾讯云.md",
+    "md/launcher/Launcher3客制化记录（基于Android P）.md",
+    "md/launcher/Android AIDL 与 Android.bp 的结合使用.md",
+    "md/init/开机动画 BootAnimation 源码分析  Android Framework.md",
+    "md/init/init.rc.md",
+    "md/init/`bootFinished` 函数的触发过程涉及多个组件的协同工作.md",
+    "md/ims/详细介绍InputManagerService的事件分发机制.md",
+    "md/ims/深入剖析 Android Input 输入事件处理全流程.md",
+    "md/ims",
     "pic/Pasted image 20250411160829.png",
     "pdf/Effective+PyCharm+(大语言模型翻译中文版).pdf",
     "pdf/Android Framework精编内核解析（1）.pdf",
     "pdf/Android Framework 开发揭秘.pdf",
     "pdf",
-    "md/个人/安卓在Recent界面清理app同时也清理掉关于此app的所有服务.md",
-    "md/个人/synchronized详解-CSDN博客.md",
-    "md/zygote/nativeZygoteInit.md",
-    "md/launcher/android framework13-launcher3【01launcher】1.简介 默认的launcher就是l - 掘金.md",
-    "md/launcher/Android1011 原生Launcher3深度定制开发【转载】一、引言         关于Android10和1 - 掘金.md",
-    "md/handler/都 2021 年了，还有人在研究 Handler？建议收藏~_还在用handler-CSDN博客.md",
-    "md/handler/synchronized.md",
-    "md/binder/链接.md",
-    "md/binder/Binder9-Android IPC数据在内核空间中的发送过程分析.md",
-    "md/binder/Binder8-Android请求注册服务过程源码分析.md",
-    "md/binder/Binder7-Android服务注册完整过程源码分析.md",
-    "md/binder/Binder6-Android Binder通信数据结构介绍.md",
-    "md/binder/Binder5-Android服务函数远程调用源码分析.md",
-    "md/binder/Binder4-Android服务查询完整过程源码分析.md",
-    "md/binder/Binder3-Android应用程序启动Binder线程源码分析.md",
-    "md/binder/Binder2-深入分析Android Binder 驱动.md",
-    "md/binder/Binder1-Android Binder通信机制.md",
     "md/binder",
-    "md/android/java - Android FlexboxLayout流式布局 - 个人文章 - SegmentFault 思否.md",
-    "md/DeepSeek/binder 驱动是怎么帮我们找到 ServiceManager 进程的.md",
-    "md/zygote/app_main.md",
-    "md/init/Android10 Framework—Init进程-1.init进程执行流程init进程是linux系统中用户空间的第 - 掘金.md",
     "md/zygote",
     "md/systemservice",
     "md/launcher",
     "yto/Pasted image 20250325092704.png",
-    "md/init",
-    "md/handler",
     "pic/Pasted image 20250218094344.png",
     "pic/Pasted image 20250218094245.png",
     "pic/Pasted image 20250113093848.png",
