@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/HAL/1AndroidQ 打通应用层到HAL层---(HAL模块实现)-CSDN博客.md",
+                "file": "md/init/开机动画 BootAnimation 源码分析  Android Framework.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "1AndroidQ 打通应用层到HAL层---(HAL模块实现)-CSDN博客"
+              "title": "开机动画 BootAnimation 源码分析  Android Framework"
             }
           }
         ]
@@ -188,11 +188,15 @@
       "command-palette:打开命令面板": false,
       "markdown-importer:打开 Markdown 格式转换器": false,
       "obsidian-git:Open Git source control": false,
-      "copilot:Open Copilot Chat": false
+      "copilot:Open Copilot Chat": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "f84ce6d2fe2622cd",
+  "active": "c1a32978df59ca37",
   "lastOpenFiles": [
+    "md/个人/开机动画 BootAnimation 源码分析  Android Framework.md",
+    "md/init/开机动画 BootAnimation 源码分析  Android Framework.md",
+    "md/HAL/1AndroidQ 打通应用层到HAL层---(HAL模块实现)-CSDN博客.md",
     "md/个人/异常处理 - Native 层的崩溃捕获机制及实现 - 简书.md",
     "md/个人/Android 开关机动画显示源码分析_android 开启动画 源码分析-CSDN博客.md",
     "md/mk_bp/mk 使用.md",
@@ -218,9 +222,6 @@
     "md/binder/Binder系列1—Binder Driver初探 - Gityuan博客  袁辉辉的技术博客.md",
     "md/binder/Android mmap+Binder机制_binder mmap-CSDN博客.md",
     "md/binder/binder 情景分析 - service 的注册（上）  Jekton.md",
-    "md/个人/json to Map.md",
-    "md/binder/binder 情景分析 - service 的注册（下）  Jekton.md",
-    "md/binder/binder 情景分析 - service 的注册（中）  Jekton.md",
     "pic/Pasted image 20250411160829.png",
     "md/binder",
     "pdf/Android Framework 开发揭秘.pdf",
