@@ -187,6 +187,28 @@ void HandleControlMessage(const std::string& msg, const std::string& name, pid_t
 }
 ```
 
+
+```
+static const std::map<std::string, ControlMessageFunction>& get_control_message_map() {  
+    // clang-format off  
+    static const std::map<std::string, ControlMessageFunction> control_message_functions = {  
+        {"sigstop_on",        {ControlTarget::SERVICE,  
+                               [](auto* service) { service->set_sigstop(true); return Success(); }}},  
+        {"sigstop_off",       {ControlTarget::SERVICE,  
+                               [](auto* service) { service->set_sigstop(false); return Success(); }}},  
+        {"start",             {ControlTarget::SERVICE,   DoControlStart}},  
+        {"stop",              {ControlTarget::SERVICE,   DoControlStop}},  
+        {"restart",           {ControlTarget::SERVICE,   DoControlRestart}},  
+        {"interface_start",   {ControlTarget::INTERFACE, DoControlStart}},  
+        {"interface_stop",    {ControlTarget::INTERFACE, DoControlStop}},  
+        {"interface_restart", {ControlTarget::INTERFACE, DoControlRestart}},  
+    };  
+    // clang-format on  
+  
+    return control_message_functions;  
+}
+```
+
 在 `mStartPropertySetThread` 线程中会设置 `ctl.start` 属性的值为 `bootanim`，在属性系统部分我们讲过这样会启动 `bootanim service`。
 
 ## [#](http://ahaoframework.tech/005.%E7%B3%BB%E7%BB%9F%E5%90%AF%E5%8A%A8%E8%BF%87%E7%A8%8B%E5%88%86%E6%9E%90/014.%E5%BC%80%E6%9C%BA%E5%8A%A8%E7%94%BB%20BootAnimation%20%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90.html#_2-bootanimation-%E7%9A%84%E6%89%A7%E8%A1%8C%E8%BF%87%E7%A8%8B) 2. BootAnimation 的执行过程
