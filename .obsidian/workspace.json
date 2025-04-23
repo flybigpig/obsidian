@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "d1346c54dbd88689",
+        "id": "5f067e4ba546cfcb",
         "type": "tabs",
         "children": [
           {
-            "id": "2b0d2c94c3a83c4f",
+            "id": "9d6506b19d96615c",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -74,7 +74,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300.5
+    "width": 330.5
   },
   "right": {
     "id": "9529d323d9cfa4b3",
@@ -170,7 +170,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 303.5
+    "width": 347.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -186,8 +186,10 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "f84ce6d2fe2622cd",
+  "active": "9d6506b19d96615c",
   "lastOpenFiles": [
+    "md/init/`bootFinished` 函数的触发过程涉及多个组件的协同工作.md",
+    "md/init/init.rc.md",
     "conflict-files-obsidian-git.md",
     "md/个人/binder_mmap.md",
     "md/个人/开机动画 BootAnimation 源码分析  Android Framework.md",
@@ -211,8 +213,6 @@
     "md/launcher/Launcher3客制化记录（基于Android P）.md",
     "md/launcher/Android AIDL 与 Android.bp 的结合使用.md",
     "md/init/开机动画 BootAnimation 源码分析  Android Framework.md",
-    "md/init/init.rc.md",
-    "md/init/`bootFinished` 函数的触发过程涉及多个组件的协同工作.md",
     "md/ims/详细介绍InputManagerService的事件分发机制.md",
     "md/ims/深入剖析 Android Input 输入事件处理全流程.md",
     "md/ims",
