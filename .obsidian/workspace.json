@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/launcher/Android AIDL 与 Android.bp 的结合使用.md",
+                "file": "md/mk_bp/mk.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Android AIDL 与 Android.bp 的结合使用"
+              "title": "mk"
             }
           }
         ]
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "md/launcher/Android AIDL 与 Android.bp 的结合使用.md",
+                "file": "md/mk_bp/mk.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Android AIDL 与 Android.bp 的结合使用 的大纲"
+              "title": "mk 的大纲"
             }
           },
           {
@@ -194,8 +194,9 @@
   },
   "active": "c1a32978df59ca37",
   "lastOpenFiles": [
-    "md/mk_bp/Android.mk解析与使用看这篇就够了 - 知乎.md",
     "md/launcher/Android AIDL 与 Android.bp 的结合使用.md",
+    "md/mk_bp/mk.md",
+    "md/mk_bp/Android.mk解析与使用看这篇就够了 - 知乎.md",
     "md/mk_bp/Android.bp详解+入门必备-CSDN博客.md",
     "md/mk_bp/Android.bp解析与使用看这篇就够了 - 知乎.md",
     "md/mk_bp/Android Android.mk入门-CSDN博客.md",
@@ -221,7 +222,6 @@
     "md/binder/binder 情景分析 - service 的注册（中）  Jekton.md",
     "md/个人/init.rc.md",
     "md/个人/Zygote.md",
-    "md/个人/一文读懂 Linux mmap 内存映射-腾讯云开发者社区-腾讯云.md",
     "pic/Pasted image 20250411160829.png",
     "md/binder",
     "pdf/Android Framework 开发揭秘.pdf",
