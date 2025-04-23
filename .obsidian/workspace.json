@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/launcher/Android Framework 之了解 Launcher 启动过程_android launcher-CSDN博客.md",
+                "file": "md/mk_bp/Android Android.mk入门-CSDN博客.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Android Framework 之了解 Launcher 启动过程_android launcher-CSDN博客"
+              "title": "Android Android.mk入门-CSDN博客"
             }
           }
         ]
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "md/launcher/Android Framework 之了解 Launcher 启动过程_android launcher-CSDN博客.md",
+                "file": "md/mk_bp/Android Android.mk入门-CSDN博客.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Android Framework 之了解 Launcher 启动过程_android launcher-CSDN博客 的大纲"
+              "title": "Android Android.mk入门-CSDN博客 的大纲"
             }
           },
           {
@@ -194,6 +194,12 @@
   },
   "active": "c1a32978df59ca37",
   "lastOpenFiles": [
+    "md/launcher/Android Framework 之了解 Launcher 启动过程_android launcher-CSDN博客.md",
+    "md/mk_bp/Android Android.mk入门-CSDN博客.md",
+    "md/mk_bp/Android.bp详解+入门必备-CSDN博客.md",
+    "md/mk_bp/Android.mk解析与使用看这篇就够了 - 知乎.md",
+    "md/mk_bp/Android.bp解析与使用看这篇就够了 - 知乎.md",
+    "md/mk_bp",
     "md/launcher/Launcher3客制化记录（基于Android P）.md",
     "md/个人/Android Android.mk入门-CSDN博客.md",
     "md/个人/聊一聊Android的消息机制 - OSCHINA - 中文开源技术交流社区.md",
@@ -216,11 +222,6 @@
     "md/个人/Zygote.md",
     "md/个人/一文读懂 Linux mmap 内存映射-腾讯云开发者社区-腾讯云.md",
     "md/个人/Binder究竟是什么？Binder究竟是什么？ 先说答案Binder是android提出的一种跨进程的通信机制，也可 - 掘金.md",
-    "md/android/Binder中的数据结构.md",
-    "md/个人/Binder从入门到放弃（框架篇） - 内核工匠 - 博客园.md",
-    "md/个人/dumpsys meminfo 的原理和应用 - 内核工匠 - 博客园.md",
-    "md/个人/Android ART dex2oat 浅析 - 内核工匠 - 博客园.md",
-    "md/个人/Android 热缓解框架解析 - 内核工匠 - 博客园.md",
     "pic/Pasted image 20250411160829.png",
     "md/binder",
     "pdf/Android Framework 开发揭秘.pdf",
@@ -230,7 +231,6 @@
     "md/未命名",
     "写给应用开发的+Android+Framework+教程(1).pdf",
     "md/launcher",
-    "md/systemservice",
     "yto/Pasted image 20250325092704.png",
     "md/资料/ffmpeg/资料/上课资料/img/1.png",
     "md/资料/美颜/美颜.jpg",
