@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/init/开机动画 BootAnimation 源码分析  Android Framework.md",
+                "file": "md/init/`bootFinished` 函数的触发过程涉及多个组件的协同工作.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "开机动画 BootAnimation 源码分析  Android Framework"
+              "title": "`bootFinished` 函数的触发过程涉及多个组件的协同工作"
             }
           }
         ]
@@ -194,6 +194,8 @@
   },
   "active": "c1a32978df59ca37",
   "lastOpenFiles": [
+    "md/init/开机动画 BootAnimation 源码分析  Android Framework.md",
+    "md/init/`bootFinished` 函数的触发过程涉及多个组件的协同工作.md",
     "md/init/init.rc.md",
     "md/SurfaceFlinger/Android Systrace 基础知识 -- Why 60 fps ？ · Android Performance.md",
     "md/SurfaceFlinger/显示图形系统分析之SurfaceFlinger启动流程显示图形系统中，避不开的SurfaceFlinger非常重要，对于 - 掘金 1.md",
@@ -202,7 +204,6 @@
     "md/init/trigger + command.md",
     "md/init/Android10 Framework—Init进程-12.rc文件格式rc文件说明 早期的rc文件的内容都集中在in - 掘金.md",
     "md/个人/Android init进程 - yooooooo - 博客园.md",
-    "md/init/开机动画 BootAnimation 源码分析  Android Framework.md",
     "md/掘金Framework/【Android FrameWork】Zygote (含视频) - 掘金.md",
     "md/android/【Android FrameWork】ServiceManager(一) (含视频) - 掘金.md",
     "md/掘金Framework/【Android FrameWork】ServiceManager(一) (含视频) - 掘金.md",
@@ -219,7 +220,6 @@
     "md/mk_bp/Android.bp详解+入门必备-CSDN博客.md",
     "md/mk_bp/Android.bp解析与使用看这篇就够了 - 知乎.md",
     "md/mk_bp/Android Android.mk入门-CSDN博客.md",
-    "md/launcher/Android Framework 之了解 Launcher 启动过程_android launcher-CSDN博客.md",
     "md/mk_bp",
     "md/ims",
     "pic/Pasted image 20250411160829.png",
