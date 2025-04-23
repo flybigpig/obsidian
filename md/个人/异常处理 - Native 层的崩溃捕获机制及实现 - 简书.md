@@ -88,7 +88,7 @@ Native 层的崩溃捕获复杂就复杂在需要处理各种特殊情况，虽�
 
 SIGSEGV 很有可能是栈溢出引起的，如果在默认的栈上运行很有可能会破坏程序运行的现场，无法获取到正确的上下文。而且当栈满了（太多次递归，栈上太多对象），系统会在同一个已经满了的栈上调用 SIGSEGV 的信号处理函数，又再一次引起同样的信号。我们应该开辟一块新的空间作为运行信号处理函数的栈。可以使用 sigaltstack 在任意线程注册一个可选的栈，保留一下在紧急情况下使用的空间。（系统会在危险情况下把栈指针指向这个地方，使得可以在一个新的栈上运行信号处理函数）
 
-```
+```c
 /**
  * 先创建一块 sigaltstack ，因为有可能是由堆栈溢出发出的信号
  */
@@ -124,7 +124,7 @@ static void installAlternateStackLocked() {
 
 某些信号可能在之前已经被安装过信号处理函数，而 sigaction 一个信号量只能注册一个处理函数，这意味着我们的处理函数会覆盖其他人的处理信号。保存旧的处理函数，在处理完我们的信号处理函数后，在重新运行老的处理函数就能完成兼容。
 
-```
+```c
 /* Call the old handler. */
 void call_old_signal_handler(const int sig, siginfo_t *const info, void *const sc) {
     // 恢复默认应该也行吧
@@ -135,7 +135,7 @@ void call_old_signal_handler(const int sig, siginfo_t *const info, void *const s
 
 ##### 3.3 防止死锁或者死循环
 
-```
+```c
 void signal_pass(int code, siginfo_t *si, void *sc) {
     /* Ensure we do not deadlock. Default of ALRM is to die.
     * (signal() and alarm() are signal-safe) */
