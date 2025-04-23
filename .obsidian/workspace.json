@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "md/个人/优化.md",
+                "file": "md/HAL/1AndroidQ 打通应用层到HAL层---(HAL模块实现)-CSDN博客.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +104,7 @@
                 "unlinkedCollapsed": false
               },
               "icon": "links-coming-in",
-              "title": "优化 的反向链接列表"
+              "title": "1AndroidQ 打通应用层到HAL层---(HAL模块实现)-CSDN博客 的反向链接列表"
             }
           },
           {
@@ -192,7 +192,7 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "c1a32978df59ca37",
+  "active": "f84ce6d2fe2622cd",
   "lastOpenFiles": [
     "md/个人/异常处理 - Native 层的崩溃捕获机制及实现 - 简书.md",
     "md/个人/Android 开关机动画显示源码分析_android 开启动画 源码分析-CSDN博客.md",
