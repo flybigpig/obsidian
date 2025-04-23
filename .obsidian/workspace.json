@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/个人/异常处理 - Native 层的崩溃捕获机制及实现 - 简书.md",
+                "file": "md/HAL/1AndroidQ 打通应用层到HAL层---(HAL模块实现)-CSDN博客.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "异常处理 - Native 层的崩溃捕获机制及实现 - 简书"
+              "title": "1AndroidQ 打通应用层到HAL层---(HAL模块实现)-CSDN博客"
             }
           }
         ]
@@ -194,6 +194,7 @@
   },
   "active": "c1a32978df59ca37",
   "lastOpenFiles": [
+    "md/个人/异常处理 - Native 层的崩溃捕获机制及实现 - 简书.md",
     "md/个人/Android 开关机动画显示源码分析_android 开启动画 源码分析-CSDN博客.md",
     "md/mk_bp/mk 使用.md",
     "md/launcher/Android AIDL 与 Android.bp 的结合使用.md",
@@ -221,7 +222,6 @@
     "md/个人/json to Map.md",
     "md/binder/binder 情景分析 - service 的注册（下）  Jekton.md",
     "md/binder/binder 情景分析 - service 的注册（中）  Jekton.md",
-    "md/个人/init.rc.md",
     "pic/Pasted image 20250411160829.png",
     "md/binder",
     "pdf/Android Framework 开发揭秘.pdf",
