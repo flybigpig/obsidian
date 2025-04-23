@@ -510,28 +510,6 @@ void BootAnimation::checkExit() {
 
 那 `service.bootanim.exit` 这个属性是在哪里设置的呢？
 
-```
-public void systemReady(final Runnable goingCallback, TimingsTraceLog traceLog) {  
-     
-  
-    mAtmInternal.updateTopComponentForFactoryTest(); //  结束显示动画   
-	mAtmInternal.getLaunchObserverRegistry().registerLaunchObserver(mActivityLaunchObserver);  
-  
-    watchDeviceProvisioning(mContext);  
-  
-    retrieveSettings();  
-    mUgmInternal.onSystemReady();  
-  
-}
-```
-
-```
-mUiHandler.post(() -> {  
-    Dialog d = new FactoryErrorDialog(mUiContext, errorMsg);  
-    d.show();  
-    mAmInternal.ensureBootCompleted();  
-});
-```
 
 在 SurfaceFlinger 的服务端，如果收到 BOOT\_FINISHED 指令，就会调用到 `bootFinished` 函数，`bootFinished` 函数中就会设置 `service.bootanim.exit` 这个属性。
 
