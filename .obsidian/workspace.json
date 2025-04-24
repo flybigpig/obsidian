@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/linux/【epoll】epoll使用详解（精髓）--研读和修正-CSDN博客.md",
+                "file": "md/linux/Linux fd 系列 — eventfd 是什么？ - 知乎.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "【epoll】epoll使用详解（精髓）--研读和修正-CSDN博客"
+              "title": "Linux fd 系列 — eventfd 是什么？ - 知乎"
             }
           }
         ]
@@ -192,10 +192,11 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "f84ce6d2fe2622cd",
+  "active": "c1a32978df59ca37",
   "lastOpenFiles": [
     "md/linux/【epoll】epoll使用详解（精髓）--研读和修正-CSDN博客.md",
     "conflict-files-obsidian-git.md",
+    "md/linux/Linux fd 系列 — eventfd 是什么？ - 知乎.md",
     "md/init/开机动画 BootAnimation 源码分析  Android Framework.md",
     "md/init/`bootFinished` 函数的触发过程涉及多个组件的协同工作.md",
     "md/init/init.rc.md",
@@ -219,7 +220,6 @@
     "md/mk_bp/mk 使用.md",
     "md/launcher/Android AIDL 与 Android.bp 的结合使用.md",
     "md/mk_bp/Android.mk解析与使用看这篇就够了 - 知乎.md",
-    "md/mk_bp/Android.bp详解+入门必备-CSDN博客.md",
     "md/mk_bp",
     "md/ims",
     "pic/Pasted image 20250411160829.png",
