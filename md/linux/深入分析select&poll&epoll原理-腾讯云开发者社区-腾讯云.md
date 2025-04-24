@@ -160,6 +160,10 @@ IO复用模型实现技术
 
 > select/poll/epoll的等待逻辑伪代码
 
+```
+for(;;){ res = 0;
+```
+
 > select/poll/epoll的唤醒逻辑伪代码
 
 ```
