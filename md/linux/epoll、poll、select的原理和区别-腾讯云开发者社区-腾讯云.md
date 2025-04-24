@@ -45,7 +45,11 @@ int epoll_wait(int epfd， struct epoll_event *events， int maxevents， int ti
 
 ![](https://ask.qcloudimg.com/http-save/yehe-8223537/0ed943d1ec454c42d59ba56579ab3629.png)
 
-1.通过调用epoll\_create，在epoll文件系统建立了个file节点，并开辟epoll自己的内核高速cache区，建立红黑树，分配好想要的size的内存对象，建立一个list链表，用于存储准备就绪的事件。 2.通过调用epoll\_ctl，把要监听的socket放到对应的红黑树上，给内核中断处理程序注册一个回调函数，通知内核，如果这个句柄的数据到了，就把它放到就绪列表。 3.通过调用 epoll\_wait，观察就绪列表里面有没有数据，并进行提取和清空就绪列表，非常高效。
+1.通过调用epoll\_create，在epoll文件系统建立了个file节点，并开辟epoll自己的内核高速cache区，建立红黑树，分配好想要的size的内存对象，建立一个list链表，用于存储准备就绪的事件。
+
+2.通过调用epoll\_ctl，把要监听的socket放到对应的红黑树上，给内核中断处理程序注册一个回调函数，通知内核，如果这个句柄的数据到了，就把它放到就绪列表。
+
+3.通过调用 epoll\_wait，观察就绪列表里面有没有数据，并进行提取和清空就绪列表，非常高效。
 
 
 > 句柄（Handle）是一个用来标识对象或者项目的[标识符](https://baike.baidu.com/item/%E6%A0%87%E8%AF%86%E7%AC%A6/7105638?fromModule=lemma_inlink)，可以用来描述窗体、文件等，值得注意的是句柄不能是常量 [1]。
