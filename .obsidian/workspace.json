@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/init/开机动画 BootAnimation 源码分析  Android Framework.md",
+                "file": "md/linux/【epoll】epoll使用详解（精髓）--研读和修正-CSDN博客.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "开机动画 BootAnimation 源码分析  Android Framework"
+              "title": "【epoll】epoll使用详解（精髓）--研读和修正-CSDN博客"
             }
           }
         ]
@@ -188,13 +188,16 @@
       "command-palette:打开命令面板": false,
       "markdown-importer:打开 Markdown 格式转换器": false,
       "obsidian-git:Open Git source control": false,
-      "copilot:Open Copilot Chat": false
+      "copilot:Open Copilot Chat": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "c1a32978df59ca37",
+  "active": "f84ce6d2fe2622cd",
   "lastOpenFiles": [
-    "md/init/`bootFinished` 函数的触发过程涉及多个组件的协同工作.md",
+    "md/linux/【epoll】epoll使用详解（精髓）--研读和修正-CSDN博客.md",
+    "conflict-files-obsidian-git.md",
     "md/init/开机动画 BootAnimation 源码分析  Android Framework.md",
+    "md/init/`bootFinished` 函数的触发过程涉及多个组件的协同工作.md",
     "md/init/init.rc.md",
     "md/SurfaceFlinger/Android Systrace 基础知识 -- Why 60 fps ？ · Android Performance.md",
     "md/SurfaceFlinger/显示图形系统分析之SurfaceFlinger启动流程显示图形系统中，避不开的SurfaceFlinger非常重要，对于 - 掘金 1.md",
@@ -217,8 +220,6 @@
     "md/launcher/Android AIDL 与 Android.bp 的结合使用.md",
     "md/mk_bp/Android.mk解析与使用看这篇就够了 - 知乎.md",
     "md/mk_bp/Android.bp详解+入门必备-CSDN博客.md",
-    "md/mk_bp/Android.bp解析与使用看这篇就够了 - 知乎.md",
-    "md/mk_bp/Android Android.mk入门-CSDN博客.md",
     "md/mk_bp",
     "md/ims",
     "pic/Pasted image 20250411160829.png",
