@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "else/（保姆级教程） Typora+PicGo+gitee搭建博客写作环境（超详细） 同步解决：PicGo插件安装失败问题_picgo+typora+gitee-CSDN博客.md",
+                "file": "md/linux/深入分析select&poll&epoll原理-腾讯云开发者社区-腾讯云.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "（保姆级教程） Typora+PicGo+gitee搭建博客写作环境（超详细） 同步解决：PicGo插件安装失败问题_picgo+typora+gitee-CSDN博客"
+              "title": "深入分析select&poll&epoll原理-腾讯云开发者社区-腾讯云"
             }
           }
         ]
@@ -194,8 +194,9 @@
   },
   "active": "c1a32978df59ca37",
   "lastOpenFiles": [
-    "md/linux/epoll、poll、select的原理和区别-腾讯云开发者社区-腾讯云.md",
     "else/（保姆级教程） Typora+PicGo+gitee搭建博客写作环境（超详细） 同步解决：PicGo插件安装失败问题_picgo+typora+gitee-CSDN博客.md",
+    "md/linux/深入分析select&poll&epoll原理-腾讯云开发者社区-腾讯云.md",
+    "md/linux/epoll、poll、select的原理和区别-腾讯云开发者社区-腾讯云.md",
     "md/linux/Linux fd 系列 — eventfd 是什么？ - 知乎.md",
     "md/linux/深入理解 Linux 的 epoll 机制 - 知乎.md",
     "md/linux/【epoll】epoll使用详解（精髓）--研读和修正-CSDN博客.md",
@@ -219,7 +220,6 @@
     "md/个人/开机动画 BootAnimation 源码分析  Android Framework.md",
     "md/HAL/1AndroidQ 打通应用层到HAL层---(HAL模块实现)-CSDN博客.md",
     "md/个人/异常处理 - Native 层的崩溃捕获机制及实现 - 简书.md",
-    "md/个人/Android 开关机动画显示源码分析_android 开启动画 源码分析-CSDN博客.md",
     "md/mk_bp",
     "md/ims",
     "pic/Pasted image 20250411160829.png",
