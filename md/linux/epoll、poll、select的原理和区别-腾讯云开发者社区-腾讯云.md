@@ -17,7 +17,7 @@ epoll有两种工作方式，**LT-水平触发 和ET-边缘触发(默认工作�
  int epoll_create(int size)
 ```
 
-[Jetbrains全家桶1年46，售后保障稳定](https://cloud.tencent.com/developer/tools/blog-entry?target=https%3A%2F%2Fmh5ittqva6.feishu.cn%2Fdocs%2FdoccnA8l3EZCT2ILuQrlNX0XVif&objectId=2164266&objectType=1&isNewArticle=undefined)
+
 
 -   size参数告诉内核这个epoll对象处理的事件大致数量，而不是能够处理的最大数量。
 -   在现在的linux版本中，这个size函数已经被废弃（但是size不要传0，会报invalid argument错误）。
