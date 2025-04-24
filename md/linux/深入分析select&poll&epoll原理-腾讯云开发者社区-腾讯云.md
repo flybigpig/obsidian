@@ -4,7 +4,7 @@ tags: [socket编程,linux,编程算法]
 source: https://cloud.tencent.com/developer/article/1596962?policyId=1003
 author: keithl0LV.0这个人很懒，什么都没有留下～关注文章32获赞107专栏2作者相关精选换一批深入分析select&poll&epoll原理Epoll技术补充及扩展深入分析Netty的高性能
 ---
-点击上方疾风先生可以订阅哦
+
 
 ![](https://ask.qcloudimg.com/http-save/yehe-1029648/fkqpx8fkjp.jpeg)
 
