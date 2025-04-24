@@ -194,6 +194,7 @@
   },
   "active": "c1a32978df59ca37",
   "lastOpenFiles": [
+    "md/linux/深入理解 Linux 的 epoll 机制 - 知乎.md",
     "md/linux/【epoll】epoll使用详解（精髓）--研读和修正-CSDN博客.md",
     "conflict-files-obsidian-git.md",
     "md/linux/Linux fd 系列 — eventfd 是什么？ - 知乎.md",
@@ -219,7 +220,6 @@
     "md/个人/Android 开关机动画显示源码分析_android 开启动画 源码分析-CSDN博客.md",
     "md/mk_bp/mk 使用.md",
     "md/launcher/Android AIDL 与 Android.bp 的结合使用.md",
-    "md/mk_bp/Android.mk解析与使用看这篇就够了 - 知乎.md",
     "md/mk_bp",
     "md/ims",
     "pic/Pasted image 20250411160829.png",
