@@ -47,6 +47,10 @@ int epoll_wait(int epfd， struct epoll_event *events， int maxevents， int ti
 
 1.通过调用epoll\_create，在epoll文件系统建立了个file节点，并开辟epoll自己的内核高速cache区，建立红黑树，分配好想要的size的内存对象，建立一个list链表，用于存储准备就绪的事件。 2.通过调用epoll\_ctl，把要监听的socket放到对应的红黑树上，给内核中断处理程序注册一个回调函数，通知内核，如果这个句柄的数据到了，就把它放到就绪列表。 3.通过调用 epoll\_wait，观察就绪列表里面有没有数据，并进行提取和清空就绪列表，非常高效。
 
+
+> 句柄（Handle）是一个用来标识对象或者项目的[标识符](https://baike.baidu.com/item/%E6%A0%87%E8%AF%86%E7%AC%A6/7105638?fromModule=lemma_inlink)，可以用来描述窗体、文件等，值得注意的是句柄不能是常量 [1]。
+
+Windows之所以要设立句柄，根本上源于内存管理机制的问题，即[虚拟地址](https://baike.baidu.com/item/%E8%99%9A%E6%8B%9F%E5%9C%B0%E5%9D%80/1329947?fromModule=lemma_inlink)。简而言之数据的地址需要变动，变动以后就需要有人来记录、管理变动，因此系统用句柄来记载数据地址的变更。在程序设计中，句柄是一种特殊的[智能指针](https://baike.baidu.com/item/%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88/10784135?fromModule=lemma_inlink)，当一个[应用程序](https://baike.baidu.com/item/%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/5985445?fromModule=lemma_inlink)要引用其他系统（如数据库、操作系统）所管理的内存块或对象时，就要使用句柄 [1]。
 #### 四、epoll与select、poll的对比
 
 ##### 1\. 用户态将文件描述符传入内核的方式
