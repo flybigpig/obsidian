@@ -188,11 +188,13 @@
       "command-palette:打开命令面板": false,
       "markdown-importer:打开 Markdown 格式转换器": false,
       "obsidian-git:Open Git source control": false,
-      "copilot:Open Copilot Chat": false
+      "copilot:Open Copilot Chat": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "c1a32978df59ca37",
+  "active": "fa4657deb406b728",
   "lastOpenFiles": [
+    "md/framework基础",
     "else/（保姆级教程） Typora+PicGo+gitee搭建博客写作环境（超详细） 同步解决：PicGo插件安装失败问题_picgo+typora+gitee-CSDN博客.md",
     "md/linux/深入分析select&poll&epoll原理-腾讯云开发者社区-腾讯云.md",
     "md/linux/epoll、poll、select的原理和区别-腾讯云开发者社区-腾讯云.md",
@@ -218,7 +220,6 @@
     "md/个人/《10分钟剖析》系统启动2——启动zygotezygote作为App开发者所熟知的孵化器进程，在App界的地位是绝对的龙 - 掘金.md",
     "md/个人/开机动画 BootAnimation 源码分析  Android Framework.md",
     "md/HAL/1AndroidQ 打通应用层到HAL层---(HAL模块实现)-CSDN博客.md",
-    "md/个人/异常处理 - Native 层的崩溃捕获机制及实现 - 简书.md",
     "md/mk_bp",
     "md/ims",
     "pic/Pasted image 20250411160829.png",
