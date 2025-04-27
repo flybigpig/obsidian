@@ -40,7 +40,7 @@ Zygote进程孵化出的第一个App进程是Launcher，即手机桌面APP，没
 
 严格来说，Android系统实际上是运行于Linux内核上的一系列服务进程，这些进程是维持设备正常运行的关键，而这些进程的老祖宗就是init进程
 
-#### init进程
+### init进程
 
 上面也介绍到了，当内核启动完成后，就会创建用户空间的第一个进程，即init进程；后面所有的进程，比如Binder机制中的ServiceManager，Zygote都是由init进程孵化出来的
 
@@ -639,8 +639,7 @@ init进程的功能
 +   处理子进程的终止(signal方式)
 +   提供属性服务
 
-####   
-Zygote进程
+### Zygote进程
 
   
 在Android中，zygote是整个系统创建新进程的核心进程。在init进程启动后就会创建zygote进程；zygote进程在内部会先启动Dalvik虚拟机，继而加载一些必要的系统资源和系统类，最后进入一种监听状态。在之后的运作中，当其他系统模块（比如AMS）希望创建新进程时，只需向zygote进程发出请求，zygote进程监听到该请求后，会相应地fork出新的进程，于是这个新进程在初生之时，就先天具有了自己的Dalvik虚拟机以及系统资源
@@ -940,8 +939,7 @@ int AndroidRuntime::startReg(JNIEnv* env)
 
 /frameworks/base/core/java/com/android/internal/os/ZygoteInit.java
 
-####   
-ZygoteInit.main
+####   ZygoteInit.main
 
 ```java
 public static void main(String argv[]) {
@@ -1010,7 +1008,7 @@ private static void registerZygoteSocket(String socketName) {
 
 在这里就是实例化一个LocalServerSocket，这样zygote就可以作为服务端，不断的获取其它进程发送过来的请求
 
-### ZygoteInit.preload
+#### ZygoteInit.preload
 
 ```java
 static void preload() {
@@ -1166,8 +1164,7 @@ boolean runOnce() throws ZygoteInit.MethodAndArgsCaller {
 +   通过startSystemServer()，fork得力帮手system\_server进程，也是Java Framework的运行载体（下面讲到system server再详细讲解）
 +   调用runSelectLoop()，随时待命，当接收到请求创建新进程请求时立即唤醒并执行相应工作
 
-####   
-System Server进程
+###  System Server进程
 
   
 system server进程和zygote进程可以说是Android世界中的两大最重要的进程，离开其中之一基本上系统就玩完了；基本上在Java Framework中的大多数服务都是在system server进程中一个线程的方式存在的，如下：
@@ -1299,7 +1296,7 @@ public static int forkSystemServer(int uid, int gid, int[] gids, int debugFlags,
 
 nativeForkSystemServer()方法在AndroidRuntime.cpp中注册的，调用com\_android\_internal\_os\_Zygote.cpp中的register\_com\_android\_internal\_os\_Zygote()方法建立native方法的映射关系，所以接下来进入如下方法
 
-### com\_android\_internal\_os\_Zygote.nativeForkSystemServer
+#### com\_android\_internal\_os\_Zygote.nativeForkSystemServer
 
 ```cpp
 static jint com_android_internal_os_Zygote_nativeForkSystemServer(
