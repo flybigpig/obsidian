@@ -200,7 +200,7 @@ SystemProperties.set("service.bootanim.exit", "0");
 
 常见的属性文件的作用如下：
 
-![[Pasted image 20250428165626.png]]
+![[pic/Pasted image 20250428165626.png]]
 
 
 ## [#](#参考资料) 参考资料

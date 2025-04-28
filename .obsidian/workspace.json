@@ -20,6 +20,18 @@
               "icon": "lucide-file",
               "title": "Android 属性系统入门"
             }
+          },
+          {
+            "id": "6257f8bc6db86df5",
+            "type": "leaf",
+            "state": {
+              "type": "image",
+              "state": {
+                "file": "pic/Pasted image 20250428165626.png"
+              },
+              "icon": "lucide-image",
+              "title": "Pasted image 20250428165626"
+            }
           }
         ]
       }
@@ -192,7 +204,7 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "f84ce6d2fe2622cd",
+  "active": "e2a0473dd7581fd7",
   "lastOpenFiles": [
     "pic/Pasted image 20250428165626.png",
     "md/framework基础/Android 属性系统入门.md",
