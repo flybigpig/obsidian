@@ -15,22 +15,11 @@
               "state": {
                 "file": "md/framework基础/Android 属性系统入门.md",
                 "mode": "source",
-                "source": false
+                "source": false,
+                "backlinks": false
               },
               "icon": "lucide-file",
               "title": "Android 属性系统入门"
-            }
-          },
-          {
-            "id": "6257f8bc6db86df5",
-            "type": "leaf",
-            "state": {
-              "type": "image",
-              "state": {
-                "file": "pic/Pasted image 20250428165626.png"
-              },
-              "icon": "lucide-image",
-              "title": "Pasted image 20250428165626"
             }
           }
         ]
