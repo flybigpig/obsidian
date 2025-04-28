@@ -199,10 +199,7 @@ SystemProperties.set("service.bootanim.exit", "0");
 ## [#](#属性的作用) 属性的作用
 
 常见的属性文件的作用如下：
-
-![[pic/Pasted image 20250428165626.png]]
-
-https://cdn.jsdelivr.net/gh/zzh0838/MyImages/img/20231018121100.png
+![](https://cdn.jsdelivr.net/gh/zzh0838/MyImages/img/20231018121100.png)
 ## [#](#参考资料) 参考资料
 
 +   [Android系统10 RK3399 init进程启动(三十三) property属性系统框架 (opens new window)](https://blog.csdn.net/ldswfun/article/details/126129569?spm=1001.2014.3001.5501)
