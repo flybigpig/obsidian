@@ -1,8 +1,8 @@
 ---
 created: 2025-05-14T09:51:01 (UTC +08:00)
-tags: []
+tags: 
 source: https://www.jianshu.com/p/37370c1d17fc
-author: 
+author: 关于作者 春风不识路 摸鱼工程师@摸鱼免责有限公司  文章 14   阅读 50232  粉丝 8
 ---
 
 # Android应用启动全流程分析（源码深度剖析） - 简书
