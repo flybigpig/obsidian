@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/努比亚/Android开机全解析.md",
+                "file": "md/努比亚/SurfaceFlinger.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Android开机全解析"
+              "title": "SurfaceFlinger"
             }
           }
         ]
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "md/努比亚/Android开机全解析.md",
+                "file": "md/努比亚/SurfaceFlinger.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Android开机全解析 的大纲"
+              "title": "SurfaceFlinger 的大纲"
             }
           },
           {
@@ -172,7 +172,7 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
@@ -191,8 +191,10 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "e2a0473dd7581fd7",
+  "active": "f84ce6d2fe2622cd",
   "lastOpenFiles": [
+    "md/努比亚/Android开机全解析.md",
+    "md/努比亚/SurfaceFlinger.md",
     "md/努比亚/Android系统Surface机制的SurfaceFlinger服务的启动过程分析 - Android社区 - httpswww.androidos.net.cn.md",
     "md/努比亚/InputChannel.md",
     "md/努比亚/Input.md",
@@ -221,8 +223,6 @@
     "md/linux/深入理解 Linux 的 epoll 机制 - 知乎.md",
     "md/linux/【epoll】epoll使用详解（精髓）--研读和修正-CSDN博客.md",
     "conflict-files-obsidian-git.md",
-    "md/init/开机动画 BootAnimation 源码分析  Android Framework.md",
-    "md/init/`bootFinished` 函数的触发过程涉及多个组件的协同工作.md",
     "md/mk_bp",
     "md/ims",
     "pic/Pasted image 20250411160829.png",
