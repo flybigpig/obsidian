@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/努比亚/Android应用启动全流程分析（源码深度剖析） - 简书.md",
-                "mode": "preview",
+                "file": "md/努比亚/Input.md",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Android应用启动全流程分析（源码深度剖析） - 简书"
+              "title": "Input"
             }
           }
         ]
@@ -187,13 +187,15 @@
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
       "markdown-importer:打开 Markdown 格式转换器": false,
-      "obsidian-git:Open Git source control": false
+      "obsidian-git:Open Git source control": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
   "active": "e2a0473dd7581fd7",
   "lastOpenFiles": [
-    "md/努比亚/Android应用启动全流程分析（源码深度剖析）.md",
     "md/努比亚/Android应用启动全流程分析（源码深度剖析） - 简书.md",
+    "md/努比亚/Input.md",
+    "md/努比亚/Android应用启动全流程分析（源码深度剖析）.md",
     "md/AdvancedAndroid/performance/booster框架分析/booster实现原理分析.md",
     "md/AdvancedAndroid/performance/booster框架分析/booster分析-App资源压缩.md",
     "md/AdvancedAndroid/performance/booster框架分析/booster分析-修复系统bug.md",
@@ -221,7 +223,6 @@
     "md/init/`bootFinished` 函数的触发过程涉及多个组件的协同工作.md",
     "md/init/init.rc.md",
     "md/SurfaceFlinger/Android Systrace 基础知识 -- Why 60 fps ？ · Android Performance.md",
-    "md/SurfaceFlinger/显示图形系统分析之SurfaceFlinger启动流程显示图形系统中，避不开的SurfaceFlinger非常重要，对于 - 掘金 1.md",
     "md/mk_bp",
     "md/ims",
     "pic/Pasted image 20250411160829.png",
