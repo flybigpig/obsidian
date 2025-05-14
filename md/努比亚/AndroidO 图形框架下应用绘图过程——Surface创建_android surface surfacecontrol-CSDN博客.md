@@ -4,14 +4,7 @@ tags: [android surface surfacecontrol]
 source: https://blog.csdn.net/yangwen123/article/details/80674965
 author: 成就一亿技术人!
 ---
-
-# AndroidO 图形框架下应用绘图过程——Surface创建_android surface surfacecontrol-CSDN博客
-
-> ## Excerpt
-> 文章浏览阅读9.1k次，点赞28次，收藏70次。Android图形框架在前几年已经分析过了，不过，随着Android版本的升级，虽然框架主体未变，但有些细节变动还是比较大的，应网友要求，今天再次以AndroidO为基础，重新介绍图形框架实现，Android图形框架包括以下三大部分：1. 应用绘图；2. SurfaceFlinger混合图层；3. Hwc Hal实现本文首先介绍AndroidO下应用的绘图过程，应用绘图也分为以下几个步骤：sp&l..._android surface surfacecontrol
-
----
-Android图形[框架](https://so.csdn.net/so/search?q=%E6%A1%86%E6%9E%B6&spm=1001.2101.3001.7020)在前几年已经分析过了，不过，随着Android版本的升级，虽然框架主体未变，但有些细节变动还是比较大的，应网友要求，今天再次以AndroidO为基础，重新介绍图形框架实现，Android图形框架包括以下三大部分：
+Android图形框架在前几年已经分析过了，不过，随着Android版本的升级，虽然框架主体未变，但有些细节变动还是比较大的，应网友要求，今天再次以AndroidO为基础，重新介绍图形框架实现，Android图形框架包括以下三大部分：
 
 1\. 应用绘图；
 
@@ -21,8 +14,18 @@ Android图形[框架](https://so.csdn.net/so/search?q=%E6%A1%86%E6%9E%B6&spm=100
 
 本文首先介绍AndroidO下应用的绘图过程，应用绘图也分为以下几个步骤：
 
-```
-sp<SurfaceComposerClient> client = new SurfaceComposerClient();  sp<SurfaceControl> surfaceControl = client->createSurface(String8("resize"),  160, 240, PIXEL_FORMAT_RGB_565, 0);  sp<Surface> surface = surfaceControl->getSurface();  SurfaceComposerClient::openGlobalTransaction();  surfaceControl->setLayer(100000);  SurfaceComposerClient::closeGlobalTransaction();  ANativeWindow_Buffer outBuffer;  surface->lock(&outBuffer, NULL);  ssize_t bpr = outBuffer.stride * bytesPerPixel(outBuffer.format);  android_memset16((uint16_t*)outBuffer.bits, 0xF800, bpr*outBuffer.height);  surface->unlockAndPost();  
+```cpp
+sp<SurfaceComposerClient> client = new SurfaceComposerClient();  
+sp<SurfaceControl> surfaceControl = client->createSurface(String8("resize"),  160, 240, PIXEL_FORMAT_RGB_565, 0);  
+sp<Surface> surface = surfaceControl->getSurface();  
+SurfaceComposerClient::openGlobalTransaction();  
+surfaceControl->setLayer(100000);  
+SurfaceComposerClient::closeGlobalTransaction();  
+ANativeWindow_Buffer outBuffer;  
+surface->lock(&outBuffer, NULL);  
+ssize_t bpr = outBuffer.stride * bytesPerPixel(outBuffer.format);  
+android_memset16((uint16_t*)outBuffer.bits, 0xF800, bpr*outBuffer.height);  
+surface->unlockAndPost();  
 ```
 
 1\. 应用创建Surface过程
@@ -49,7 +52,7 @@ sp<SurfaceComposerClient> client = new SurfaceComposerClient();  sp<SurfaceContr
 
 在应用程序的ViewRootImpl类中定义了成员变量mSurface，
 
-```
+```cpp
 private final Surface mSurface = new Surface();
 ```
 
@@ -67,16 +70,92 @@ ViewRootImpl通过IWindowSession接口请求WMS的完整过程如下：
 
 这是什么意思呢？其实应用程序这边的窗口只是创建了一个空的Surface，而真正的Surface是由WMS创建的，WMS最终会将创建好的Surface传递给应用程序。因此这里就涉及到应用程序和WMS之间的RPC通信，这个通信过程是通过IWindowSession完成的，应用程序调用relayoutWindow来请求WMS为其创建一个Surface对象。frameworks\\base\\core\\Java\\android\\view\\ViewRootImpl.Java
 
-```
-private int relayoutWindow(WindowManager.LayoutParams params, int viewVisibility,boolean insetsPending) throws RemoteException {float appScale = mAttachInfo.mApplicationScale;boolean restore = false;if (params != null && mTranslator != null) {        restore = true;        params.backup();        mTranslator.translateWindowLayout(params);    }if (params != null) {if (DBG) Log.d(mTag, "WindowLayout in layoutWindow:" + params);    }    mPendingMergedConfiguration.getMergedConfiguration().seq = 0;if (params != null && mOrigWindowType != params.type) {if (mTargetSdkVersion < Build.VERSION_CODES.ICE_CREAM_SANDWICH) {            Slog.w(mTag, "Window type can not be changed after "                    + "the window is added; ignoring change of " + mView);            params.type = mOrigWindowType;        }    }int relayoutResult = mWindowSession.relayout(            mWindow, mSeq, params,            (int) (mView.getMeasuredWidth() * appScale + 0.5f),            (int) (mView.getMeasuredHeight() * appScale + 0.5f),            viewVisibility, insetsPending ? WindowManagerGlobal.RELAYOUT_INSETS_PENDING : 0,            mWinFrame, mPendingOverscanInsets, mPendingContentInsets, mPendingVisibleInsets,            mPendingStableInsets, mPendingOutsets, mPendingBackDropFrame,            mPendingMergedConfiguration, mSurface);    mPendingAlwaysConsumeNavBar =            (relayoutResult & WindowManagerGlobal.RELAYOUT_RES_CONSUME_ALWAYS_NAV_BAR) != 0;if (restore) {        params.restore();    }if (mTranslator != null) {        mTranslator.translateRectInScreenToAppWinFrame(mWinFrame);        mTranslator.translateRectInScreenToAppWindow(mPendingOverscanInsets);        mTranslator.translateRectInScreenToAppWindow(mPendingContentInsets);        mTranslator.translateRectInScreenToAppWindow(mPendingVisibleInsets);        mTranslator.translateRectInScreenToAppWindow(mPendingStableInsets);    }return relayoutResult;}
+```java
+private int relayoutWindow(WindowManager.LayoutParams params, int viewVisibility,
+        boolean insetsPending) throws RemoteException {
+
+    float appScale = mAttachInfo.mApplicationScale;
+    boolean restore = false;
+    if (params != null && mTranslator != null) {
+        restore = true;
+        params.backup();
+        mTranslator.translateWindowLayout(params);
+    }
+    if (params != null) {
+        if (DBG) Log.d(mTag, "WindowLayout in layoutWindow:" + params);
+    }
+    mPendingMergedConfiguration.getMergedConfiguration().seq = 0;
+    //Log.d(mTag, ">>>>>> CALLING relayout");
+    if (params != null && mOrigWindowType != params.type) {
+        // For compatibility with old apps, don't crash here.
+        if (mTargetSdkVersion < Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
+            Slog.w(mTag, "Window type can not be changed after "
+                    + "the window is added; ignoring change of " + mView);
+            params.type = mOrigWindowType;
+        }
+    }
+    int relayoutResult = mWindowSession.relayout(
+            mWindow, mSeq, params,
+            (int) (mView.getMeasuredWidth() * appScale + 0.5f),
+            (int) (mView.getMeasuredHeight() * appScale + 0.5f),
+            viewVisibility, insetsPending ? WindowManagerGlobal.RELAYOUT_INSETS_PENDING : 0,
+            mWinFrame, mPendingOverscanInsets, mPendingContentInsets, mPendingVisibleInsets,
+            mPendingStableInsets, mPendingOutsets, mPendingBackDropFrame,
+            mPendingMergedConfiguration, mSurface);//这里传入变量mSurface
+
+    mPendingAlwaysConsumeNavBar =
+            (relayoutResult & WindowManagerGlobal.RELAYOUT_RES_CONSUME_ALWAYS_NAV_BAR) != 0;
+
+    //Log.d(mTag, "<<<<<< BACK FROM relayout");
+    if (restore) {
+        params.restore();
+    }
+
+    if (mTranslator != null) {
+        mTranslator.translateRectInScreenToAppWinFrame(mWinFrame);
+        mTranslator.translateRectInScreenToAppWindow(mPendingOverscanInsets);
+        mTranslator.translateRectInScreenToAppWindow(mPendingContentInsets);
+        mTranslator.translateRectInScreenToAppWindow(mPendingVisibleInsets);
+        mTranslator.translateRectInScreenToAppWindow(mPendingStableInsets);
+    }
+    return relayoutResult;
+}
 ```
 
 这里将变量mSurface以参数的形式传递给WMS，在RPC调用过程中，会完成这个变量的赋值。
 
 framework\_intermediates\\src\\core\\Java\\android\\view\\IWindowSession.Java$ Proxy
 
-```
-public int relayout(android.view.IWindow window, int seq,android.view.WindowManager.LayoutParams attrs,int requestedWidth, int requestedHeight,...android.view.Surface outSurface)throws android.os.RemoteException {android.os.Parcel _data = android.os.Parcel.obtain();android.os.Parcel _reply = android.os.Parcel.obtain();int _result;try {_data.writeInterfaceToken(DESCRIPTOR);_data.writeStrongBinder((((window != null)) ? (window.asBinder()) : (null)));..._data.writeInt(viewVisibility);_data.writeInt(flags);mRemote.transact(Stub.TRANSACTION_relayout, _data, _reply,0);_reply.readException();_result = _reply.readInt();…if ((0 != _reply.readInt())) {outSurface.readFromParcel(_reply);}} finally {_reply.recycle();_data.recycle();}return _result;}
+```java
+public int relayout(android.view.IWindow window, int seq,
+		android.view.WindowManager.LayoutParams attrs,
+		int requestedWidth, int requestedHeight,
+		...
+		android.view.Surface outSurface)
+		throws android.os.RemoteException {
+	android.os.Parcel _data = android.os.Parcel.obtain();
+	android.os.Parcel _reply = android.os.Parcel.obtain();
+	int _result;
+	try {
+		_data.writeInterfaceToken(DESCRIPTOR);
+		_data.writeStrongBinder((((window != null)) ? (window.asBinder()) : (null)));
+		...
+		_data.writeInt(viewVisibility);
+		_data.writeInt(flags);
+		mRemote.transact(Stub.TRANSACTION_relayout, _data, _reply,0);
+		_reply.readException();
+		_result = _reply.readInt();
+		…
+         //读取WMS中创建的Surface对象
+		if ((0 != _reply.readInt())) {
+			outSurface.readFromParcel(_reply);
+		}
+	} finally {
+		_reply.recycle();
+		_data.recycle();
+	}
+	return _result;
+}
 ```
 
 从IWindowSession代理类Proxy的relayout函数实现可以看出，应用程序进程中创建的Surface对象并没有传递到WMS服务进程，只是读取WMS服务进程返回来的Surface。那么WMS服务是如何响应应用程序进程窗口布局请求的呢？
@@ -85,8 +164,32 @@ public int relayout(android.view.IWindow window, int seq,android.view.WindowMana
 
 framework\_intermediates\\src\\core\\Java\\android\\view\\IWindowSession.Java$Stub
 
-```
-public boolean onTransact(int code, android.os.Parcel data,android.os.Parcel reply, int flags)throws android.os.RemoteException {switch (code) {case TRANSACTION_relayout: {data.enforceInterface(DESCRIPTOR);android.view.IWindow _arg0;_arg0 = android.view.IWindow.Stub.asInterface(data.readStrongBinder());…android.view.Surface _arg13;_arg13 = new android.view.Surface();int _result = this.relayout(_arg0, _arg1, _arg2, _arg3, _arg4,_arg5, _arg6, _arg7, _arg8, _arg9, _arg10, _arg11,_arg12, _arg13);reply.writeNoException();reply.writeInt(_result);….if ((_arg13 != null)) {reply.writeInt(1);_arg13.writeToParcel(reply,android.os.Parcelable.PARCELABLE_WRITE_RETURN_VALUE);} else {reply.writeInt(0);}return true;}}return super.onTransact(code, data, reply, flags);}
+```java
+public boolean onTransact(int code, android.os.Parcel data,android.os.Parcel reply, int flags)throws android.os.RemoteException {
+	switch (code) {
+	case TRANSACTION_relayout: {
+		data.enforceInterface(DESCRIPTOR);
+		android.view.IWindow _arg0;
+		_arg0 = android.view.IWindow.Stub.asInterface(data.readStrongBinder());
+		…
+		android.view.Surface _arg13;
+		_arg13 = new android.view.Surface();
+		int _result = this.relayout(_arg0, _arg1, _arg2, _arg3, _arg4,
+				_arg5, _arg6, _arg7, _arg8, _arg9, _arg10, _arg11,_arg12, _arg13);
+		reply.writeNoException();
+		reply.writeInt(_result);
+		….
+		if ((_arg13 != null)) {
+			reply.writeInt(1);
+			_arg13.writeToParcel(reply,android.os.Parcelable.PARCELABLE_WRITE_RETURN_VALUE);
+		} else {
+			reply.writeInt(0);
+		}
+		return true;
+	}
+	}
+	return super.onTransact(code, data, reply, flags);
+}
 ```
 
 WMS服务在响应应用程序进程请求relayout调用时，首先在当前进程空间创建一个Surface对象，然后调用Session的relayout()函数进一步完成窗口布局过程，最后将WMS服务中创建的Surface返回给应用程序。
@@ -97,8 +200,24 @@ WMS服务在响应应用程序进程请求relayout调用时，首先在当前进
 
 frameworks\\base\\services\\core\\Java\\com\\android\\server\\wm\\Session.Java
 
-```
-public int relayout(IWindow window, int seq, WindowManager.LayoutParams attrs,        int requestedWidth, int requestedHeight, int viewFlags,        int flags, Rect outFrame, Rect outOverscanInsets, Rect outContentInsets,        Rect outVisibleInsets, Rect outStableInsets, Rect outsets, Rect outBackdropFrame,        MergedConfiguration mergedConfiguration, Surface outSurface) {if (false) Slog.d(TAG_WM, ">>>>>> ENTERED relayout from "            + Binder.getCallingPid());    Trace.traceBegin(TRACE_TAG_WINDOW_MANAGER, mRelayoutTag);int res = mService.relayoutWindow(this, window, seq, attrs,            requestedWidth, requestedHeight, viewFlags, flags,            outFrame, outOverscanInsets, outContentInsets, outVisibleInsets,            outStableInsets, outsets, outBackdropFrame, mergedConfiguration, outSurface);    Trace.traceEnd(TRACE_TAG_WINDOW_MANAGER);if (false) Slog.d(TAG_WM, "<<<<<< EXITING relayout to "            + Binder.getCallingPid());return res;}
+```java
+public int relayout(IWindow window, int seq, WindowManager.LayoutParams attrs,
+        int requestedWidth, int requestedHeight, int viewFlags,
+        int flags, Rect outFrame, Rect outOverscanInsets, Rect outContentInsets,
+        Rect outVisibleInsets, Rect outStableInsets, Rect outsets, Rect outBackdropFrame,
+        MergedConfiguration mergedConfiguration, Surface outSurface) {
+    if (false) Slog.d(TAG_WM, ">>>>>> ENTERED relayout from "
+            + Binder.getCallingPid());
+    Trace.traceBegin(TRACE_TAG_WINDOW_MANAGER, mRelayoutTag);
+    int res = mService.relayoutWindow(this, window, seq, attrs,
+            requestedWidth, requestedHeight, viewFlags, flags,
+            outFrame, outOverscanInsets, outContentInsets, outVisibleInsets,
+            outStableInsets, outsets, outBackdropFrame, mergedConfiguration, outSurface);
+    Trace.traceEnd(TRACE_TAG_WINDOW_MANAGER);
+    if (false) Slog.d(TAG_WM, "<<<<<< EXITING relayout to "
+            + Binder.getCallingPid());
+    return res;
+}
 ```
 
 Session又将调用WMS的relayoutWindow函数来布局窗口。
@@ -143,8 +262,22 @@ frameworks\\native\\libs\\gui\\SurfaceComposerClient.cpp
 
 frameworks\\native\\libs\\gui\\ISurfaceComposerClient.cpp$BpSurfaceComposerClient
 
-```
-virtual status_t createSurface(const String8& name, uint32_t w,uint32_t h, PixelFormat format, uint32_t flags,sp<IBinder>* handle,sp<IGraphicBufferProducer>* gbp) {Parcel data, reply;data.writeInterfaceToken(ISurfaceComposerClient::getInterfaceDescriptor());data.writeString8(name);data.writeInt32(w);data.writeInt32(h);data.writeInt32(format);data.writeInt32(flags);remote()->transact(CREATE_SURFACE, data, &reply);*handle = reply.readStrongBinder();*gbp = interface_cast<IGraphicBufferProducer>(reply.readStrongBinder());return reply.readInt32();}
+```cpp
+virtual status_t createSurface(const String8& name, uint32_t w,
+		uint32_t h, PixelFormat format, uint32_t flags,
+		sp<IBinder>* handle,sp<IGraphicBufferProducer>* gbp) {
+	Parcel data, reply;
+	data.writeInterfaceToken(ISurfaceComposerClient::getInterfaceDescriptor());
+	data.writeString8(name);
+	data.writeInt32(w);
+	data.writeInt32(h);
+	data.writeInt32(format);
+	data.writeInt32(flags);
+	remote()->transact(CREATE_SURFACE, data, &reply);
+	*handle = reply.readStrongBinder();
+	*gbp = interface_cast<IGraphicBufferProducer>(reply.readStrongBinder());
+	return reply.readInt32();
+}
 ```
 
 在SurfaceFlinger端的Client本地对象会返回一个IGraphicBufferProducer代理对象给WMS，WMS通过该代理对象为当前创建的Surface创建一个SurfaceControl对象。Native层的SurfaceControl对象的构造过程如下：
@@ -198,8 +331,11 @@ Android4.4之前版本中，在WMS服务进程端会创建两个Java层的Surfac
 
 WMS服务为应用程序创建好Surface后，通过writeToParcel方式写回到应用程序进程。
 
-```
-if ((_arg13 != null)) {reply.writeInt(1);_arg13.writeToParcel(reply,android.os.Parcelable.PARCELABLE_WRITE_RETURN_VALUE);}
+```java
+if ((_arg13 != null)) {
+	reply.writeInt(1);
+	_arg13.writeToParcel(reply,android.os.Parcelable.PARCELABLE_WRITE_RETURN_VALUE);
+}
 ```
 
 在给应用程序返回结果时，先向应用程序进程发送数字1，然后将WMS这边创建的Java层Surface对象返回给应用程序进程。
