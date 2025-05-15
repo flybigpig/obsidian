@@ -78,7 +78,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 333.5
+    "width": 333.5,
+    "collapsed": true
   },
   "right": {
     "id": "9529d323d9cfa4b3",
@@ -176,7 +177,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 322.5
+    "width": 217.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -191,7 +192,7 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "e2a0473dd7581fd7",
+  "active": "f84ce6d2fe2622cd",
   "lastOpenFiles": [
     "md/努比亚/Android系统Surface机制的SurfaceFlinger服务的启动过程分析 - Android社区 - httpswww.androidos.net.cn.md",
     "md/努比亚/Android卡顿掉帧问题分析之实战篇.md",
