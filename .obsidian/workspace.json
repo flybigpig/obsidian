@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "md/努比亚/SurfaceFlinger.md",
+                "file": "md/个人/个人.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "SurfaceFlinger 的大纲"
+              "title": "个人 的大纲"
             }
           },
           {
@@ -172,11 +172,11 @@
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
-    "width": 217.5
+    "width": 305.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -191,7 +191,7 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "e2a0473dd7581fd7",
+  "active": "9c3898f8c049b5d3",
   "lastOpenFiles": [
     "md/努比亚/SurfaceFlinger模块.md",
     "md/个人/个人.md",
