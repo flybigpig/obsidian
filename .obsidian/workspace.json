@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/binder/MediaServer服务添加过程.md",
-                "mode": "preview",
+                "file": "md/binder/IHelloService.java.md",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "MediaServer服务添加过程"
+              "title": "IHelloService.java"
             }
           }
         ]
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "md/binder/MediaServer服务添加过程.md",
+                "file": "md/binder/IHelloService.java.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "MediaServer服务添加过程 的大纲"
+              "title": "IHelloService.java 的大纲"
             }
           },
           {
@@ -191,14 +191,15 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "e2a0473dd7581fd7",
+  "active": "f84ce6d2fe2622cd",
   "lastOpenFiles": [
+    "md/binder/MediaServer服务添加过程.md",
+    "md/binder/IHelloService.java.md",
     "md/binder/IInterface.h.md",
     "md/binder/Binder系列1—Binder Driver初探 - Gityuan博客  袁辉辉的技术博客.md",
     "md/binder/Binder4-Android服务查询完整过程源码分析.md",
     "md/binder/Binder5-Android服务函数远程调用源码分析.md",
     "md/binder/链接.md",
-    "md/binder/MediaServer服务添加过程.md",
     "md/binder/binder 情景分析 - service 的注册（中）  Jekton.md",
     "md/binder/binder 情景分析 - service 的注册（下）  Jekton.md",
     "md/binder/binder 情景分析 - service 的注册（上）  Jekton.md",
@@ -218,7 +219,6 @@
     "md/努比亚/Android应用启动全流程分析（源码深度剖析）.md",
     "md/努比亚/Android系统Surface机制的SurfaceFlinger服务的启动过程分析 - Android社区 - httpswww.androidos.net.cn.md",
     "md/努比亚/Android显示系统设计框架介绍_快乐安卓-GitCode 开源社区.md",
-    "md/努比亚/Android卡顿掉帧问题分析之实战篇.md",
     "md/AdvancedAndroid/bitmap/Fresco源码分析/picture/BitmapMemoryCacheProducer工作流.png",
     "md/AdvancedAndroid/bitmap/Fresco源码分析/picture/图片加载之前的逻辑.png",
     "pic/Pasted image 20250428165626.png",
