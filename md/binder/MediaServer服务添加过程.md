@@ -58,7 +58,7 @@ ProcessState::ProcessState(size_t mmap_size)
 ```
 
 
-```
+``` 
 sp<IServiceManager> defaultServiceManager()  
 {  
     if (gDefaultServiceManager != nullptr) return gDefaultServiceManager;  
