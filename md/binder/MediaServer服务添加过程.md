@@ -57,6 +57,8 @@ ProcessState::ProcessState(size_t mmap_size)
 }
 ```
 
+> defaultServiceManager() = new BpServiceManager(new BpBinder(0))
+
 
 ``` 
 sp<IServiceManager> defaultServiceManager()  
