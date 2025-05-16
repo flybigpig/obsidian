@@ -127,7 +127,7 @@ inline sp<INTERFACE> interface_cast(const sp<IBinder>& obj)
 
 ```
 // ----------------------------------------------------------------------  
-  
+  // 申明
 #define DECLARE_META_INTERFACE(INTERFACE)                               \  
 public:                                                                 \  
     static const ::android::String16 descriptor;                        \ 
