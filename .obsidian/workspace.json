@@ -74,7 +74,8 @@
               "title": "书签"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -191,7 +192,7 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "f84ce6d2fe2622cd",
+  "active": "8e2685d6beb88fb4",
   "lastOpenFiles": [
     "md/个人/开机优化.md",
     "md/个人/揭秘Activity“重生”的面纱---Activity管理系列.md",
