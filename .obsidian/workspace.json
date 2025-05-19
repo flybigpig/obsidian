@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/binder/Android mmap+Binder机制_binder mmap-CSDN博客.md",
+                "file": "md/binder/新笔记.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Android mmap+Binder机制_binder mmap-CSDN博客"
+              "title": "新笔记"
             }
           }
         ]
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "md/个人/个人.md",
+                "file": "md/binder/新笔记.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "个人 的大纲"
+              "title": "新笔记 的大纲"
             }
           },
           {
@@ -191,10 +191,11 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "e2a0473dd7581fd7",
+  "active": "f84ce6d2fe2622cd",
   "lastOpenFiles": [
-    "md/binder/binder 情景分析 - service 的注册（上）  Jekton.md",
     "md/binder/Android mmap+Binder机制_binder mmap-CSDN博客.md",
+    "md/binder/新笔记.md",
+    "md/binder/binder 情景分析 - service 的注册（上）  Jekton.md",
     "md/binder/链接.md",
     "md/android/【Android Framework】ActivityManagerService(二) (含视频) - 掘金.md",
     "md/掘金Framework/【Android Framework】ActivityManagerService(二) (含视频) - 掘金.md",
@@ -218,7 +219,6 @@
     "md/个人/Binder驱动的核心数据结构.md",
     "md/个人/优化.md",
     "md/个人/原创安卓逆向基础知识之JNI开发与so层逆向基础-Android安全-看雪-安全社区安全招聘kanxue.com.md",
-    "md/个人/异常处理 - Native 层的崩溃捕获机制及实现 - 简书.md",
     "md/AdvancedAndroid/bitmap/Fresco源码分析/picture/BitmapMemoryCacheProducer工作流.png",
     "md/AdvancedAndroid/bitmap/Fresco源码分析/picture/图片加载之前的逻辑.png",
     "pic/Pasted image 20250428165626.png",
