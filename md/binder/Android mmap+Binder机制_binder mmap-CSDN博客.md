@@ -231,7 +231,7 @@ Linux自带了一些IPC方法，如共享内存、消息队列、管道、Socket
 
 Binder在内存管理方面使用了mmap函数。达到了文件只拷贝一次的特点：
 
-①Binder初始化时会在物理内存当中申请大小为一页的空间，然后分别映射到内核空间vm\_struct和Server进程的用户空间vm\_area\_struct；
+①Binder初始化时会在物理内存当中申请大小为一页的空间，然后分别映射到内核空间vm_struct和Server进程的用户空间vm\_area\_struct；
 
 ②当Client通过Binder跨进程与Server进行交互时，会将Client携带的数据写入vm\_struct内核空间，完成第一次拷贝；
 

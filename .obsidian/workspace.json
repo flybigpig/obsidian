@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/个人/个人.md",
+                "file": "md/binder/Android mmap+Binder机制_binder mmap-CSDN博客.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "个人"
+              "title": "Android mmap+Binder机制_binder mmap-CSDN博客"
             }
           }
         ]
@@ -53,7 +53,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "init.rc",
+                "query": "binder",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -74,8 +74,7 @@
               "title": "书签"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -192,15 +191,25 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "8e2685d6beb88fb4",
+  "active": "e2a0473dd7581fd7",
   "lastOpenFiles": [
+    "md/binder/binder 情景分析 - service 的注册（上）  Jekton.md",
+    "md/binder/Android mmap+Binder机制_binder mmap-CSDN博客.md",
+    "md/binder/链接.md",
+    "md/android/【Android Framework】ActivityManagerService(二) (含视频) - 掘金.md",
+    "md/掘金Framework/【Android Framework】ActivityManagerService(二) (含视频) - 掘金.md",
+    "md/掘金Framework/【Android FrameWork】第一个启动的程序--init (含视频) - 掘金.md",
+    "md/android/【Android FrameWork】第一个启动的程序--init (含视频) - 掘金.md",
+    "md/实践/《Android启动侦探团：追踪Launcher启动的“最后一公里”》-CSDN博客.md",
+    "md/个人/《10分钟剖析》系统启动2——启动zygotezygote作为App开发者所熟知的孵化器进程，在App界的地位是绝对的龙 - 掘金.md",
+    "md/个人/《10分钟剖析》系统启动1——从内核到用户Android系统总体是围绕着Linux内核而建立的。从加电到系统启动，大 - 掘金.md",
+    "md/个人/个人.md",
     "md/个人/开机优化.md",
     "md/个人/揭秘Activity“重生”的面纱---Activity管理系列.md",
     "md/个人/窗口动画为什么要单独再建一个 leash 图层来做动画而不是用原来的图层.md",
     "md/个人/彻底掌握 Android14 Vsync 原理.md",
     "md/个人/安卓在Recent界面清理app同时也清理掉关于此app的所有服务.md",
     "md/个人/安卓逆向基础知识之JNI开发与so层逆向基础.md",
-    "md/个人/《10分钟剖析》系统启动1——从内核到用户Android系统总体是围绕着Linux内核而建立的。从加电到系统启动，大 - 掘金.md",
     "md/个人/View工作原理.md",
     "md/个人/Systrace入门_systrace使用-CSDN博客.md",
     "md/个人/synchronized详解-CSDN博客.md",
@@ -210,16 +219,6 @@
     "md/个人/优化.md",
     "md/个人/原创安卓逆向基础知识之JNI开发与so层逆向基础-Android安全-看雪-安全社区安全招聘kanxue.com.md",
     "md/个人/异常处理 - Native 层的崩溃捕获机制及实现 - 简书.md",
-    "md/binder/IHelloService.java.md",
-    "md/binder/MediaServer服务添加过程.md",
-    "md/binder/IInterface.h.md",
-    "md/binder/Binder系列1—Binder Driver初探 - Gityuan博客  袁辉辉的技术博客.md",
-    "md/binder/Binder4-Android服务查询完整过程源码分析.md",
-    "md/binder/Binder5-Android服务函数远程调用源码分析.md",
-    "md/binder/链接.md",
-    "md/binder/binder 情景分析 - service 的注册（中）  Jekton.md",
-    "md/binder/binder 情景分析 - service 的注册（下）  Jekton.md",
-    "md/binder/binder 情景分析 - service 的注册（上）  Jekton.md",
     "md/AdvancedAndroid/bitmap/Fresco源码分析/picture/BitmapMemoryCacheProducer工作流.png",
     "md/AdvancedAndroid/bitmap/Fresco源码分析/picture/图片加载之前的逻辑.png",
     "pic/Pasted image 20250428165626.png",
