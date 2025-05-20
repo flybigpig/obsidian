@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/binder/Stub.md",
+                "file": "md/init/Android10 Framework—Init进程-1.init进程执行流程init进程是linux系统中用户空间的第 - 掘金.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Stub"
+              "title": "Android10 Framework—Init进程-1.init进程执行流程init进程是linux系统中用户空间的第 - 掘金"
             }
           }
         ]
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "md/binder/Stub.md",
+                "file": "md/init/Android10 Framework—Init进程-1.init进程执行流程init进程是linux系统中用户空间的第 - 掘金.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Stub 的大纲"
+              "title": "Android10 Framework—Init进程-1.init进程执行流程init进程是linux系统中用户空间的第 - 掘金 的大纲"
             }
           },
           {
@@ -187,13 +187,14 @@
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
       "markdown-importer:打开 Markdown 格式转换器": false,
-      "obsidian-git:Open Git source control": false
+      "obsidian-git:Open Git source control": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "e2a0473dd7581fd7",
+  "active": "f84ce6d2fe2622cd",
   "lastOpenFiles": [
-    "md/binder/新笔记.md",
     "md/binder/Stub.md",
+    "md/binder/新笔记.md",
     "md/binder/Android mmap+Binder机制_binder mmap-CSDN博客.md",
     "md/binder/binder 情景分析 - service 的注册（上）  Jekton.md",
     "md/binder/链接.md",
