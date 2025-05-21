@@ -436,3 +436,6 @@ sp<ProcessState> ps(ProcessState::initWithDriver("/dev/vndbinder"));
   
 
 理解三者的差异，有助于开发者根据具体场景选择最合适的 IPC 机制，优化应用性能和安全性。
+
+
+
