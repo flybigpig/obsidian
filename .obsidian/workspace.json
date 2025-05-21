@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/binder/AndroidQ Binder通信原理(二)-Binder入门篇 - 知乎.md",
+                "file": "md/个人/binder 种类.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "AndroidQ Binder通信原理(二)-Binder入门篇 - 知乎"
+              "title": "binder 种类"
             }
           }
         ]
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "md/binder/AndroidQ Binder通信原理(二)-Binder入门篇 - 知乎.md",
+                "file": "md/个人/binder 种类.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "AndroidQ Binder通信原理(二)-Binder入门篇 - 知乎 的大纲"
+              "title": "binder 种类 的大纲"
             }
           },
           {
@@ -193,8 +193,8 @@
   },
   "active": "191f14d7d684f132",
   "lastOpenFiles": [
-    "md/个人/binder 种类.md",
     "md/binder/AndroidQ Binder通信原理(二)-Binder入门篇 - 知乎.md",
+    "md/个人/binder 种类.md",
     "md/个人/service_manager.md",
     "md/个人/马牛与牛马.md",
     "md/个人/聊一聊Android的消息机制 - OSCHINA - 中文开源技术交流社区.md",
