@@ -35,8 +35,7 @@
               "title": "个人"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -157,13 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "md/个人/个人.md",
+                "file": "md/个人/Binder从入门到放弃（细节篇） - 内核工匠 - 博客园.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "个人 的大纲"
+              "title": "Binder从入门到放弃（细节篇） - 内核工匠 - 博客园 的大纲"
             }
           },
           {
@@ -206,11 +205,12 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "f84ce6d2fe2622cd",
+  "active": "191f14d7d684f132",
   "lastOpenFiles": [
+    "md/个人/个人.md",
+    "md/个人/Binder从入门到放弃（细节篇） - 内核工匠 - 博客园.md",
     "md/个人/优化.md",
     "md/binder/Binder6-Android Binder通信数据结构介绍.md",
-    "md/个人/Binder从入门到放弃（细节篇） - 内核工匠 - 博客园.md",
     "md/个人/Binder驱动的核心数据结构.md",
     "md/个人/Binder究竟是什么？Binder究竟是什么？ 先说答案Binder是android提出的一种跨进程的通信机制，也可 - 掘金.md",
     "md/个人/Binder从入门到放弃（框架篇） - 内核工匠 - 博客园.md",
@@ -221,7 +221,6 @@
     "md/个人/马牛与牛马.md",
     "md/个人/聊一聊Android的消息机制 - OSCHINA - 中文开源技术交流社区.md",
     "md/个人/揭秘Activity“重生”的面纱---Activity管理系列.md",
-    "md/个人/个人.md",
     "md/binder/Stub.md",
     "md/init/Android10 Framework—Init进程-10.服务端属性服务启动属性服务的本质就是init进程作为服务端创 - 掘金.md",
     "md/init/Android10 Framework—Init进程-7.服务端属性安全上下文序列化本章主要讲“属性安全上下文序列化”， - 掘金.md",
