@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/binder/Binder6-Android Binder通信数据结构介绍.md",
+                "file": "md/个人/个人.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Binder6-Android Binder通信数据结构介绍"
+              "title": "个人"
             }
           }
         ],
@@ -157,13 +157,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "md/binder/Binder6-Android Binder通信数据结构介绍.md",
+                "file": "md/个人/个人.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Binder6-Android Binder通信数据结构介绍 的大纲"
+              "title": "个人 的大纲"
             }
           },
           {
@@ -206,10 +206,11 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "4f1f35415515bda1",
+  "active": "f84ce6d2fe2622cd",
   "lastOpenFiles": [
-    "md/个人/Binder从入门到放弃（细节篇） - 内核工匠 - 博客园.md",
+    "md/个人/优化.md",
     "md/binder/Binder6-Android Binder通信数据结构介绍.md",
+    "md/个人/Binder从入门到放弃（细节篇） - 内核工匠 - 博客园.md",
     "md/个人/Binder驱动的核心数据结构.md",
     "md/个人/Binder究竟是什么？Binder究竟是什么？ 先说答案Binder是android提出的一种跨进程的通信机制，也可 - 掘金.md",
     "md/个人/Binder从入门到放弃（框架篇） - 内核工匠 - 博客园.md",
@@ -233,7 +234,6 @@
     "md/binder/新笔记.md",
     "md/binder/Android mmap+Binder机制_binder mmap-CSDN博客.md",
     "md/binder/binder 情景分析 - service 的注册（上）  Jekton.md",
-    "md/binder/链接.md",
     "md/AdvancedAndroid/bitmap/Fresco源码分析/picture/BitmapMemoryCacheProducer工作流.png",
     "md/AdvancedAndroid/bitmap/Fresco源码分析/picture/图片加载之前的逻辑.png",
     "pic/Pasted image 20250428165626.png",
