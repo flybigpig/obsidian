@@ -14,7 +14,7 @@
               "type": "markdown",
               "state": {
                 "file": "md/binder/binder_mmap.md",
-                "mode": "preview",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
@@ -92,7 +92,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 333.5
+    "width": 333.5,
+    "collapsed": true
   },
   "right": {
     "id": "9529d323d9cfa4b3",
@@ -190,7 +191,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 305.5
+    "width": 305.5,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -205,7 +207,7 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "f84ce6d2fe2622cd",
+  "active": "191f14d7d684f132",
   "lastOpenFiles": [
     "md/个人/Android Binder 驱动 - Media 服务的添加过程_android binder 驱动 media-CSDN博客.md",
     "md/binder/binder_mmap.md",
