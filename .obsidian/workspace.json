@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/binder/图解/图解 Binder：内存管理在本文，我们将深入探讨 Binder 的内存管理。这涉及了虚拟内存、mmap、缓冲区分配和释 - 掘金.md",
+                "file": "md/binder/图解/图解 Binder：事务Binder 事务是 Android IPC（进程间通信）机制的基本单元。它是基于 CS 架构 - 掘金.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "图解 Binder：内存管理在本文，我们将深入探讨 Binder 的内存管理。这涉及了虚拟内存、mmap、缓冲区分配和释 - 掘金"
+              "title": "图解 Binder：事务Binder 事务是 Android IPC（进程间通信）机制的基本单元。它是基于 CS 架构 - 掘金"
             }
           }
         ]
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "md/binder/图解/图解 Binder：内存管理在本文，我们将深入探讨 Binder 的内存管理。这涉及了虚拟内存、mmap、缓冲区分配和释 - 掘金.md",
+                "file": "md/binder/图解/图解 Binder：事务Binder 事务是 Android IPC（进程间通信）机制的基本单元。它是基于 CS 架构 - 掘金.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "图解 Binder：内存管理在本文，我们将深入探讨 Binder 的内存管理。这涉及了虚拟内存、mmap、缓冲区分配和释 - 掘金 的大纲"
+              "title": "图解 Binder：事务Binder 事务是 Android IPC（进程间通信）机制的基本单元。它是基于 CS 架构 - 掘金 的大纲"
             }
           },
           {
@@ -193,15 +193,15 @@
   },
   "active": "191f14d7d684f132",
   "lastOpenFiles": [
-    "md/个人/个人.md",
     "md/binder/图解/图解 Binder：内存管理在本文，我们将深入探讨 Binder 的内存管理。这涉及了虚拟内存、mmap、缓冲区分配和释 - 掘金.md",
+    "md/binder/图解/图解 Binder：线程池本文主要介绍 Binder 线程、Binder 工作队列，还有 Binder 线程池的启动流程 - 掘金.md",
+    "md/binder/图解/图解 Binder：概述本系列 Binder 文章，会从内核层到 Framework 层，再到应用层，深入浅出，介绍整个 - 掘金.md",
+    "md/binder/图解/图解 Binder：初始化本文主要分两部分： 1. binder_init()的解析 2. 内核对binder_init - 掘金.md",
+    "md/个人/个人.md",
     "md/binder/图解/图解 Binder：AIDLAIDL 是一种支持跨进程通信 (IPC) 的接口定义语言，作用就是为我们生成一些 Bind - 掘金.md",
     "md/binder/图解/图解 Binder：ServiceManagerServiceManager 在 Android 系统中扮演了极其重要的 - 掘金.md",
-    "md/binder/图解/图解 Binder：线程池本文主要介绍 Binder 线程、Binder 工作队列，还有 Binder 线程池的启动流程 - 掘金.md",
     "md/binder/图解/图解 Binder：事务Binder 事务是 Android IPC（进程间通信）机制的基本单元。它是基于 CS 架构 - 掘金.md",
     "md/binder/图解/图解 Binder：系统调用 open以Android Binder的open()调用为例，解析系统调用open()从用 - 掘金.md",
-    "md/binder/图解/图解 Binder：初始化本文主要分两部分： 1. binder_init()的解析 2. 内核对binder_init - 掘金.md",
-    "md/binder/图解/图解 Binder：概述本系列 Binder 文章，会从内核层到 Framework 层，再到应用层，深入浅出，介绍整个 - 掘金.md",
     "md/binder/图解",
     "Pasted image 20250522134438.png",
     "md/binder/binder_mmap.md",
