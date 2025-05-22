@@ -205,11 +205,11 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "f84ce6d2fe2622cd",
+  "active": "191f14d7d684f132",
   "lastOpenFiles": [
-    "md/binder/binder_mmap.md",
-    "md/binder/图解 Binder：内存管理在本文，我们将深入探讨 Binder 的内存管理。这涉及了虚拟内存、mmap、缓冲区分配和释 - 掘金.md",
     "Pasted image 20250522134438.png",
+    "md/binder/图解 Binder：内存管理在本文，我们将深入探讨 Binder 的内存管理。这涉及了虚拟内存、mmap、缓冲区分配和释 - 掘金.md",
+    "md/binder/binder_mmap.md",
     "md/个人/Android Binder 驱动 - Media 服务的添加过程_android binder 驱动 media-CSDN博客.md",
     "md/binder/新笔记.md",
     "md/AndroidFrameworkTutorial/3.学穿Binder篇/011. Binder 服务注册过程情景分析之C++篇.md",
@@ -233,7 +233,6 @@
     "md/个人/Binder.md",
     "md/binder/AndroidQ Binder通信原理(二)-Binder入门篇 - 知乎.md",
     "md/个人/service_manager.md",
-    "md/个人/马牛与牛马.md",
     "md/AdvancedAndroid/bitmap/Fresco源码分析/picture/BitmapMemoryCacheProducer工作流.png",
     "md/AdvancedAndroid/bitmap/Fresco源码分析/picture/图片加载之前的逻辑.png",
     "pic/Pasted image 20250428165626.png",
