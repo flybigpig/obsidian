@@ -193,8 +193,9 @@
   },
   "active": "191f14d7d684f132",
   "lastOpenFiles": [
-    "md/SurfaceFlinger/Android Systrace 基础知识 - Vsync 解读 · Android Performance.md",
+    "md/SurfaceFlinger/Android 显示系统概述.md",
     "md/SurfaceFlinger/史上最全Android渲染机制讲解（长文源码深度剖析）.md",
+    "md/SurfaceFlinger/Android Systrace 基础知识 - Vsync 解读 · Android Performance.md",
     "md/SurfaceFlinger/SurfaceFlinger模块-VSYNC研究 - 简书.md",
     "md/SurfaceFlinger/Android Systrace 基础知识 -- Why 60 fps ？ · Android Performance.md",
     "md/SurfaceFlinger/Android Systrace 基础知识 -- 分析 Systrace 预备知识 · Android Performance.md",
@@ -220,7 +221,6 @@
     "md/努比亚/Android应用启动全流程分析（源码深度剖析） - 简书.md",
     "md/努比亚/Android开机全解析.md",
     "md/努比亚/Android Input输入事件处理流程分享（1）.md",
-    "md/努比亚/Android 图形系统之一：概览-CSDN博客.md",
     "md/AdvancedAndroid/bitmap/Fresco源码分析/picture/BitmapMemoryCacheProducer工作流.png",
     "md/AdvancedAndroid/bitmap/Fresco源码分析/picture/图片加载之前的逻辑.png",
     "pic/Pasted image 20250428165626.png",

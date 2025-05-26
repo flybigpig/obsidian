@@ -79,8 +79,31 @@ Android应用进程核心组成
 
 AMS(ActivityManagerService)请求zygote创建进程的流程如下：
 
-```
-##ActvityManager:startProcessLockedprivate final void startProcessLocked(ProcessRecord app, String hostingType,  String hostingNameStr, String abiOverride, String entryPoint, String[] entryPointArgs) {    boolean isActivityProcess = (entryPoint == null);    if (entryPoint == null) entryPoint = "android.app.ActivityThread";    Trace.traceBegin(Trace.TRACE_TAG_ACTIVITY_MANAGER, "Start proc: " +app.processName);    checkTime(startTime, "startProcess: asking zygote to start proc");    ProcessStartResult startResult;    if (hostingType.equals("webview_service")) {    startResult = startWebView(entryPoint,      app.processName, uid, uid, gids, debugFlags, mountExternal,            app.info.targetSdkVersion, seInfo, requiredAbi, instructionSet,      app.info.dataDir, null, entryPointArgs);    } else {        startResult = Process.start(entryPoint,      app.processName, uid, uid, gids, debugFlags, mountExternal,      app.info.targetSdkVersion, seInfo, requiredAbi, instructionSet,            app.info.dataDir, invokeWith, entryPointArgs);    }    checkTime(startTime, "startProcess: returned from zygote!");    Trace.traceEnd(Trace.TRACE_TAG_ACTIVITY_MANAGER);}
+```java
+##ActvityManager:startProcessLocked  
+  
+private final void startProcessLocked(ProcessRecord app, String hostingType,  
+String hostingNameStr, String abiOverride, String entryPoint, String[] entryPointArgs) {  
+  
+boolean isActivityProcess = (entryPoint == null);  
+if (entryPoint == null) entryPoint = "android.app.ActivityThread";  
+Trace.traceBegin(Trace.TRACE_TAG_ACTIVITY_MANAGER, "Start proc: " +app.processName);  
+checkTime(startTime, "startProcess: asking zygote to start proc");  
+ProcessStartResult startResult;  
+if (hostingType.equals("webview_service")) {  
+startResult = startWebView(entryPoint,  
+app.processName, uid, uid, gids, debugFlags, mountExternal,  
+app.info.targetSdkVersion, seInfo, requiredAbi, instructionSet,  
+app.info.dataDir, null, entryPointArgs);  
+} else {  
+startResult = Process.start(entryPoint,  
+app.processName, uid, uid, gids, debugFlags, mountExternal,  
+app.info.targetSdkVersion, seInfo, requiredAbi, instructionSet,  
+app.info.dataDir, invokeWith, entryPointArgs);  
+}  
+checkTime(startTime, "startProcess: returned from zygote!");  
+Trace.traceEnd(Trace.TRACE_TAG_ACTIVITY_MANAGER);  
+}
 ```
 
 前面systrace打印的proc创建时间就是来自与此，Process.start是请求zygote来创建创建进程，这其中有几个很重要问题，比如新建进程入口函数在哪？这个新建进程如何做到创建以后能够不退出，且能不断响应外部输入的等，接下来介绍下入口函数这个点，正如C/C++跑起来去找main函数一样，可以看到startProcess函数有个entrypoint参数：
@@ -95,14 +118,46 @@ if (entryPoint == null) entryPoint = "android.app.ActivityThread";
 
 看到上面PostFork色块，很明显是Process创建成功后的打印，然后代码继续执行到ZygoteInit，ZygoteInit真正来查找entrypoint，应用程序跳转到ActivityThread.Main开始执行：
 
-```
-    public static final Runnable zygoteInit(int targetSdkVersion, String[] argv, ClassLoader classLoader) {        if (RuntimeInit.DEBUG) {            Slog.d(RuntimeInit.TAG, "RuntimeInit: Starting application from zygote");        }        Trace.traceBegin(Trace.TRACE_TAG_ACTIVITY_MANAGER, "ZygoteInit");        RuntimeInit.redirectLogStreams();        RuntimeInit.commonInit();        ZygoteInit.nativeZygoteInit();        return RuntimeInit.applicationInit(targetSdkVersion, argv, classLoader);    }
+```java
+public static final Runnable zygoteInit(int targetSdkVersion, String[] argv, ClassLoader classLoader) {  
+if (RuntimeInit.DEBUG) {  
+Slog.d(RuntimeInit.TAG, "RuntimeInit: Starting application from zygote");  
+}  
+  
+Trace.traceBegin(Trace.TRACE_TAG_ACTIVITY_MANAGER, "ZygoteInit");  
+RuntimeInit.redirectLogStreams();  
+  
+RuntimeInit.commonInit();  
+ZygoteInit.nativeZygoteInit();  
+return RuntimeInit.applicationInit(targetSdkVersion, argv, classLoader);  
+}
 ```
 
 上面代码RuntimeInit.applicationInit内部执行findStaticMain查找入口函数：
 
-```
-    protected static Runnable applicationInit(int targetSdkVersion, String[] argv,            ClassLoader classLoader) {        // If the application calls System.exit(), terminate the process        // immediately without running any shutdown hooks.  It is not possible to        // shutdown an Android application gracefully.  Among other things, the        // Android runtime shutdown hooks close the Binder driver, which can cause        // leftover running threads to crash before the process actually exits.        nativeSetExitWithoutCleanup(true);        // We want to be fairly aggressive about heap utilization, to avoid        // holding on to a lot of memory that isn't needed.        VMRuntime.getRuntime().setTargetHeapUtilization(0.75f);        VMRuntime.getRuntime().setTargetSdkVersion(targetSdkVersion);        final Arguments args = new Arguments(argv);        // The end of of the RuntimeInit event (see #zygoteInit).        Trace.traceEnd(Trace.TRACE_TAG_ACTIVITY_MANAGER);        // Remaining arguments are passed to the start class's static main        return findStaticMain(args.startClass, args.startArgs, classLoader);    }
+```java
+protected static Runnable applicationInit(int targetSdkVersion, String[] argv,  
+ClassLoader classLoader) {  
+// If the application calls System.exit(), terminate the process  
+// immediately without running any shutdown hooks. It is not possible to  
+// shutdown an Android application gracefully. Among other things, the  
+// Android runtime shutdown hooks close the Binder driver, which can cause  
+// leftover running threads to crash before the process actually exits.  
+nativeSetExitWithoutCleanup(true);  
+  
+// We want to be fairly aggressive about heap utilization, to avoid  
+// holding on to a lot of memory that isn't needed.  
+VMRuntime.getRuntime().setTargetHeapUtilization(0.75f);  
+VMRuntime.getRuntime().setTargetSdkVersion(targetSdkVersion);  
+  
+final Arguments args = new Arguments(argv);  
+  
+// The end of of the RuntimeInit event (see #zygoteInit).  
+Trace.traceEnd(Trace.TRACE_TAG_ACTIVITY_MANAGER);  
+  
+// Remaining arguments are passed to the start class's static main  
+return findStaticMain(args.startClass, args.startArgs, classLoader);  
+}
 ```
 
 OK，至此进入systrace显示ActivityThread.main函数执行，也就是达到了P0的第3步骤。
@@ -111,8 +166,42 @@ OK，至此进入systrace显示ActivityThread.main函数执行，也就是达到
 
 ActivityThread main执行的第一件事是调用AMS的attacApplicationLock(P0 :6）向大管家汇报：“进程已经启动好了，继续往下启动吧”。AMS收到汇报就回调了（P0：7）ActvityThread的bindApplication，这里“绑定”理解起来比较抽象，到底是要把哪些东西跟应用程序“绑定”起来呢？其实是把app本身的“上下文（context）”信息跟刚刚创建的进程绑定起来，噢，又出来一个“上下文(context)”概念，用大白话讲就是应用的apk包包含应用的所有身家信息，这些个信息就可以称为是应用的“上下文（context）”，应用可以通过这个Context访问自己的家当，此处会创建Application Context（具体关于应用程序几种context区别自行google，此处不予展开）
 
-```
-    private void handleBindApplication(AppBindData data) {        mBoundApplication = data;        mConfiguration = new Configuration(data.config);        mCompatConfiguration = new Configuration(data.config);        final ContextImpl appContext = ContextImpl.createAppContext(this, data.info);        updateLocaleListFromAppContext(appContext,                mResourcesManager.getConfiguration().getLocales());        if (ii != null) {            final ApplicationInfo instrApp = new ApplicationInfo();            ii.copyTo(instrApp);            instrApp.initForUser(UserHandle.myUserId());            final LoadedApk pi = getPackageInfo(instrApp, data.compatInfo,                    appContext.getClassLoader(), false, true, false);            final ContextImpl instrContext = ContextImpl.createAppContext(this, pi);            final ComponentName component = new ComponentName(ii.packageName, ii.name);            mInstrumentation.init(this, instrContext, appContext, component,                    data.instrumentationWatcher, data.instrumentationUiAutomationConnection);        } else {            mInstrumentation = new Instrumentation();        }        Application app;        try {            app = data.info.makeApplication(data.restrictedBackupMode, null);            mInitialApplication = app;            try {                mInstrumentation.onCreate(data.instrumentationArgs);            }            try {                mInstrumentation.callApplicationOnCreate(app);            }        }    }
+```java
+private void handleBindApplication(AppBindData data) {  
+  
+mBoundApplication = data;  
+mConfiguration = new Configuration(data.config);  
+mCompatConfiguration = new Configuration(data.config);  
+  
+final ContextImpl appContext = ContextImpl.createAppContext(this, data.info);  
+updateLocaleListFromAppContext(appContext,  
+mResourcesManager.getConfiguration().getLocales());  
+if (ii != null) {  
+final ApplicationInfo instrApp = new ApplicationInfo();  
+ii.copyTo(instrApp);  
+instrApp.initForUser(UserHandle.myUserId());  
+final LoadedApk pi = getPackageInfo(instrApp, data.compatInfo,  
+appContext.getClassLoader(), false, true, false);  
+final ContextImpl instrContext = ContextImpl.createAppContext(this, pi);  
+final ComponentName component = new ComponentName(ii.packageName, ii.name);  
+mInstrumentation.init(this, instrContext, appContext, component,  
+data.instrumentationWatcher, data.instrumentationUiAutomationConnection);  
+} else {  
+mInstrumentation = new Instrumentation();  
+}  
+  
+Application app;  
+try {  
+app = data.info.makeApplication(data.restrictedBackupMode, null);  
+mInitialApplication = app;  
+try {  
+mInstrumentation.onCreate(data.instrumentationArgs);  
+}  
+try {  
+mInstrumentation.callApplicationOnCreate(app);  
+}  
+}  
+}
 ```
 
 上面回调到应用程序Application.onCreate函数，很多应用会在此处做初始化动作，如果初始化模块过多可以考虑延迟加载，应用继续启动来到P0:12/P0:13
@@ -134,24 +223,43 @@ Activity的构建开始窗口显示之旅，上面“Android应用进程核心�
 
 #### attach函数
 
-```
-final void attach(...) {  mWindow = new PhoneWindow(this, window, activityConfigCallback);  mWindow.setWindowManager((WindowManager)context.getSystemService(Context.WINDOW_SERVICE),mToken,  mComponent.flattenToString(),(info.flags & ActivityInfo.FLAG_HARDWARE_ACCELERATED) != 0);}
+```java
+final void attach(...) {  
+mWindow = new PhoneWindow(this, window, activityConfigCallback);  
+mWindow.setWindowManager((WindowManager)context.getSystemService(Context.WINDOW_SERVICE),mToken,  
+mComponent.flattenToString(),(info.flags & ActivityInfo.FLAG_HARDWARE_ACCELERATED) != 0);  
+}
 ```
 
 mWindowManager最后是一个WindowManagerImpl对象，WindowManagerImpl对象的mParentWindow对应了Activity中的PhoneWindow对象。
 
 #### setWindowManager函数
 
-```
-public void setWindowManager(WindowManager wm, IBinder appToken, String appName,boolean                     hardwareAccelerated) {       mAppToken = appToken;       mAppName = appName;       mHardwareAccelerated = hardwareAccelerated               || SystemProperties.getBoolean(PROPERTY_HARDWARE_UI, false);       if (wm == null) {           wm = (WindowManager)mContext.getSystemService(Context.WINDOW_SERVICE);       }       //this对象对应Activity中的PhoneWindow对象       mWindowManager = ((WindowManagerImpl)wm).createLocalWindowManager(this);   }
+```java
+public void setWindowManager(WindowManager wm, IBinder appToken, String appName,boolean hardwareAccelerated) {  
+mAppToken = appToken;  
+mAppName = appName;  
+mHardwareAccelerated = hardwareAccelerated  
+|| SystemProperties.getBoolean(PROPERTY_HARDWARE_UI, false);  
+if (wm == null) {  
+wm = (WindowManager)mContext.getSystemService(Context.WINDOW_SERVICE);  
+}  
+//this对象对应Activity中的PhoneWindow对象  
+mWindowManager = ((WindowManagerImpl)wm).createLocalWindowManager(this);  
+}
 ```
 
 OK，上面的perfomrLaunchActivity一顿操作已经完成两个“窗口（Activity）”中两个重要变量的初始化，流程走到15 Activity:onCreate函数。
 
 #### onCreate函数
 
-```
-@Overrideprotected void onCreate(Bundle savedInstanceState) {    super.onCreate(savedInstanceState);    setContentView(R.layout.activity_main);}
+```java
+@Overrideprotected
+void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_main);
+}
+
 ```
 
 空的HellWorld工程都默认包含上面两行代码，setContentView就是操作系统给开发机会告诉系统“到底让我显示什么？”就是这么简单的一行代码很可能就是导致应用性能卡顿，那么setContentView干啥了？
@@ -165,16 +273,63 @@ OK，上面的perfomrLaunchActivity一顿操作已经完成两个“窗口（Act
 
 随后应用启动流程来到handleResumeActivity：
 
-```
-final void handleResumeActivity(IBinder token,     boolean clearHide, boolean isForward, boolean reallyResume, int seq, String reason) {       ...；       //回调应用程序的onResume       r = performResumeActivity(token, clearHide, reason);       ...;       if (r.window == null && !a.mFinished && willBeVisible) {          r.window = r.activity.getWindow();           View decor = r.window.getDecorView();           decor.setVisibility(View.INVISIBLE);           ViewManager wm = a.getWindowManager();           WindowManager.LayoutParams l = r.window.getAttributes();           a.mDecor = decor;           l.type = WindowManager.LayoutParams.TYPE_BASE_APPLICATION;          ...           if (a.mVisibleFromClient) {           if (!a.mWindowAdded) {                a.mWindowAdded = true;                wm.addView(decor, l);             }         }   }
+```java
+final void handleResumeActivity(IBinder token,  
+boolean clearHide, boolean isForward, boolean reallyResume, int seq, String reason) {  
+...；  
+//回调应用程序的onResume  
+r = performResumeActivity(token, clearHide, reason);  
+...;  
+if (r.window == null && !a.mFinished && willBeVisible) {  
+r.window = r.activity.getWindow();  
+View decor = r.window.getDecorView();  
+decor.setVisibility(View.INVISIBLE);  
+ViewManager wm = a.getWindowManager();  
+WindowManager.LayoutParams l = r.window.getAttributes();  
+a.mDecor = decor;  
+l.type = WindowManager.LayoutParams.TYPE_BASE_APPLICATION;  
+...  
+if (a.mVisibleFromClient) {  
+if (!a.mWindowAdded) {  
+a.mWindowAdded = true;  
+wm.addView(decor, l);  
+}  
+}  
+}
 ```
 
 上面performResumeActivity会回调应用程序的onResume函数，从这里可以看到onResume被回调时用户是看不到窗口的。wm.addView是重点，这一步就要把“房间”亮灯，也就是把窗口注册到wms中着手显示出来，并且开门接收用户操作，这里是调用的WindowManagerImpl.java：addView：
 
 #### addView函数
 
-```
-public void addView(View view, ViewGroup.LayoutParams params,Display display, Window parentWindow) {       ...；       ViewRootImpl root;       View panelParentView = null;       synchronized (mLock) {           root = new ViewRootImpl(view.getContext(), display);           view.setLayoutParams(wparams);           mViews.add(view);           mRoots.add(root);           mParams.add(wparams);           // do this last because it fires off messages to start doing things           try {               root.setView(view, wparams, panelParentView);           } catch (RuntimeException e) {               // BadTokenException or InvalidDisplayException, clean up.               if (index >= 0) {                   removeViewLocked(index, true);               }               throw e;           }       }   }
+```java
+public void addView(
+    View view,
+    ViewGroup.LayoutParams params,
+    Display display,
+    Window parentWindow
+) {
+    ViewRootImpl root;
+    View panelParentView = null;
+    synchronized (mLock) {
+        root = new ViewRootImpl(view.getContext(), display);
+        view.setLayoutParams(wparams);
+        mViews.add(view);
+        mRoots.add(root);
+        mParams.add(wparams);
+        // do this last because it fires off messages to start doing things
+        try {
+            root.setView(view, wparams, panelParentView);
+        } catch (RuntimeException e) {
+            // BadTokenException or InvalidDisplayException, clean up.
+            if (index >= 0) {
+                removeViewLocked(index, true);
+            }
+            throw e;
+        }
+    }
+}
+
 ```
 
 从这里开始创建应用进程最核心的：ViewRootImpl类，它负责与WMS通信，负责管理Surface,负责触发控件的测量、布局、绘制，同时也是输入事件的中转站，可以说ViewRootImpl是整个控件系统运转的中枢，应用进程中最为重要的一个组件，有了ViewRootImpl这个窗口才能开始渲染被用户看到，并且接受用户操作（开灯、开门）。
@@ -187,26 +342,112 @@ Activity中的某个控件调用invalidate以后，会逆流到根控件，最�
 
 #### invalidate函数
 
-```
-void invalidate() {  mDirty.set(0, 0, mWidth, mHeight);  if (!mWillDrawSoon) {  scheduleTraversals();  }}
+```java
+void invalidate() {
+    mDirty.set(0, 0, mWidth, mHeight);
+    if (!mWillDrawSoon) {
+        scheduleTraversals();
+    }
+}
+
 ```
 
 #### scheduleTraversals函数
 
-```
-void scheduleTraversals() {       if (!mTraversalScheduled) {           mTraversalScheduled = true;           mTraversalBarrier = mHandler.getLooper().getQueue().postSyncBarrier();           mChoreographer.postCallback(                   Choreographer.CALLBACK_TRAVERSAL, mTraversalRunnable, null);           if (!mUnbufferedInputDispatch) {               scheduleConsumeBatchedInput();           }           notifyRendererOfFramePending();           pokeDrawLockIfNeeded();       }   }
+```java
+void scheduleTraversals() {
+    if (!mTraversalScheduled) {
+        mTraversalScheduled = true;
+        mTraversalBarrier = mHandler.getLooper().getQueue().postSyncBarrier();
+        mChoreographer.postCallback(
+            Choreographer.CALLBACK_TRAVERSAL,
+            mTraversalRunnable,
+            null
+        );
+        if (!mUnbufferedInputDispatch) {
+            scheduleConsumeBatchedInput();
+        }
+        notifyRendererOfFramePending();
+        pokeDrawLockIfNeeded();
+    }
+}
+
 ```
 
 从上面的代码看到Invalidate最终调用到mChoreographer.postCallback，这代码的含义：应用程序请求vsync信号，收到vsync信号以后会调用mTraversalRunnable，接下来看下应用程序如何通过Choreographer接收vsync信号：
 
-```
-//Choreographer.javaprivate final class FrameDisplayEventReceiver extends DisplayEventReceiver            implements Runnable {        private boolean mHavePendingVsync;        private long mTimestampNanos;        private int mFrame;        public FrameDisplayEventReceiver(Looper looper, int vsyncSource) {            super(looper, vsyncSource);        }        @Override        public void onVsync(long timestampNanos, int builtInDisplayId, int frame) {            //应用请求vsync信号以后，vsync信号分发就会回调到这里            if (builtInDisplayId != SurfaceControl.BUILT_IN_DISPLAY_ID_MAIN) {                Log.d(TAG, "Received vsync from secondary display, but we don't support "                        + "this case yet.  Choreographer needs a way to explicitly request "                        + "vsync for a specific display to ensure it doesn't lose track "                        + "of its scheduled vsync.");                scheduleVsync();                return;            }            mTimestampNanos = timestampNanos;            mFrame = frame;            Message msg = Message.obtain(mHandler, this);            msg.setAsynchronous(true);            mHandler.sendMessageAtTime(msg, timestampNanos / TimeUtils.NANOS_PER_MS);        }        @Override        public void run() {            mHavePendingVsync = false;            doFrame(mTimestampNanos, mFrame);        }    }
+```java
+//Choreographer.java
+private final class FrameDisplayEventReceiver
+    extends DisplayEventReceiver
+    implements Runnable {
+
+    private boolean mHavePendingVsync;
+    private long mTimestampNanos;
+    private int mFrame;
+
+    public FrameDisplayEventReceiver(Looper looper, int vsyncSource) {
+        super(looper, vsyncSource);
+    }
+
+    @Override
+    public void onVsync(long timestampNanos, int builtInDisplayId, int frame) {
+        if (builtInDisplayId != SurfaceControl.BUILT_IN_DISPLAY_ID_MAIN) {
+        //应用请求vsync信号以后，vsync信号分发就会回调到这里 
+            Log.d(
+                TAG,
+                "Received vsync from secondary display, but we don't support " +
+                "this case yet.  Choreographer needs a way to explicitly request " +
+                "vsync for a specific display to ensure it doesn't lose track " +
+                "of its scheduled vsync."
+            );
+            scheduleVsync();
+            return;
+        }
+        mTimestampNanos = timestampNanos;
+        mFrame = frame;
+        Message msg = Message.obtain(mHandler, this);
+        msg.setAsynchronous(true);
+        mHandler.sendMessageAtTime(
+            msg,
+            timestampNanos / TimeUtils.NANOS_PER_MS
+        );
+    }
+
+    @Override
+    public void run() {
+        mHavePendingVsync = false;
+        doFrame(mTimestampNanos, mFrame);
+    }
+}
+
 ```
 
 上面onVsync会往消息队列放一个消息，通过下面的FrameHandler进行处理：
 
-```
-private final class FrameHandler extends Handler {       public FrameHandler(Looper looper) {           super(looper);       }       @Override       public void handleMessage(Message msg) {           switch (msg.what) {               case MSG_DO_FRAME:                   doFrame(System.nanoTime(), 0);                   break;               case MSG_DO_SCHEDULE_VSYNC:                   doScheduleVsync();                   break;               case MSG_DO_SCHEDULE_CALLBACK:                   doScheduleCallback(msg.arg1);                   break;           }       }   }
+```java
+private final class FrameHandler extends Handler {
+
+    public FrameHandler(Looper looper) {
+        super(looper);
+    }
+
+    @Override
+    public void handleMessage(Message msg) {
+        switch (msg.what) {
+            case MSG_DO_FRAME:
+                doFrame(System.nanoTime(), 0);
+                break;
+            case MSG_DO_SCHEDULE_VSYNC:
+                doScheduleVsync();
+                break;
+            case MSG_DO_SCHEDULE_CALLBACK:
+                doScheduleCallback(msg.arg1);
+                break;
+        }
+    }
+}
+
 ```
 
 从systrace中我们经常看到doFrame就是从上面的doFrame打印，这说明应用程序收到了vsync信号要开始渲染布局了，图示如下：
@@ -221,8 +462,15 @@ doCallbacks(Choreographer.CALLBACK_INPUT, frameTimeNanos);mFrameInfo.markAnimati
 
 比如上面调用Invalidate的时候已经post了一个CALLBACK_TRAVERSAL类型的Runnable，这里就会执行到那个Runnable也就是mTraversalRunnable：
 
-```
-final class TraversalRunnable implements Runnable {       @Override       public void run() {           doTraversal();       }   }
+```java
+final class TraversalRunnable implements Runnable {
+
+    @Override
+    public void run() {
+        doTraversal();
+    }
+}
+
 ```
 
 #### performTraversal函数
