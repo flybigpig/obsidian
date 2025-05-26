@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/SurfaceFlinger/SurfaceFlinger模块-VSYNC研究 - 简书.md",
+                "file": "md/SurfaceFlinger/Android Systrace 基础知识 - Vsync 解读 · Android Performance.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "SurfaceFlinger模块-VSYNC研究 - 简书"
+              "title": "Android Systrace 基础知识 - Vsync 解读 · Android Performance"
             }
           }
         ]
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "md/SurfaceFlinger/SurfaceFlinger模块-VSYNC研究 - 简书.md",
+                "file": "md/SurfaceFlinger/Android Systrace 基础知识 - Vsync 解读 · Android Performance.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "SurfaceFlinger模块-VSYNC研究 - 简书 的大纲"
+              "title": "Android Systrace 基础知识 - Vsync 解读 · Android Performance 的大纲"
             }
           },
           {
@@ -191,10 +191,11 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "f84ce6d2fe2622cd",
+  "active": "191f14d7d684f132",
   "lastOpenFiles": [
-    "md/SurfaceFlinger/Android Systrace 基础知识 -- Why 60 fps ？ · Android Performance.md",
     "md/SurfaceFlinger/SurfaceFlinger模块-VSYNC研究 - 简书.md",
+    "md/SurfaceFlinger/Android Systrace 基础知识 - Vsync 解读 · Android Performance.md",
+    "md/SurfaceFlinger/Android Systrace 基础知识 -- Why 60 fps ？ · Android Performance.md",
     "md/SurfaceFlinger/Android Systrace 基础知识 -- 分析 Systrace 预备知识 · Android Performance.md",
     "md/binder/图解/图解 Binder：ServiceManagerServiceManager 在 Android 系统中扮演了极其重要的 - 掘金.md",
     "md/binder/图解/图解 Binder：AIDLAIDL 是一种支持跨进程通信 (IPC) 的接口定义语言，作用就是为我们生成一些 Bind - 掘金.md",
@@ -220,7 +221,6 @@
     "md/努比亚/Android Input输入事件处理流程分享（1）.md",
     "md/努比亚/Android 图形系统之一：概览-CSDN博客.md",
     "md/努比亚/Android Input输入事件处理流程分享（2）.md",
-    "md/个人/Binder从入门到放弃（细节篇） - 内核工匠 - 博客园.md",
     "md/AdvancedAndroid/bitmap/Fresco源码分析/picture/BitmapMemoryCacheProducer工作流.png",
     "md/AdvancedAndroid/bitmap/Fresco源码分析/picture/图片加载之前的逻辑.png",
     "pic/Pasted image 20250428165626.png",
