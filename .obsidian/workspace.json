@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/binder/图解/图解 Binder：ServiceManagerServiceManager 在 Android 系统中扮演了极其重要的 - 掘金.md",
+                "file": "md/SurfaceFlinger/SurfaceFlinger模块-VSYNC研究 - 简书.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "图解 Binder：ServiceManagerServiceManager 在 Android 系统中扮演了极其重要的 - 掘金"
+              "title": "SurfaceFlinger模块-VSYNC研究 - 简书"
             }
           }
         ]
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "md/binder/图解/图解 Binder：ServiceManagerServiceManager 在 Android 系统中扮演了极其重要的 - 掘金.md",
+                "file": "md/SurfaceFlinger/SurfaceFlinger模块-VSYNC研究 - 简书.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "图解 Binder：ServiceManagerServiceManager 在 Android 系统中扮演了极其重要的 - 掘金 的大纲"
+              "title": "SurfaceFlinger模块-VSYNC研究 - 简书 的大纲"
             }
           },
           {
@@ -187,11 +187,16 @@
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
       "markdown-importer:打开 Markdown 格式转换器": false,
-      "obsidian-git:Open Git source control": false
+      "obsidian-git:Open Git source control": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "191f14d7d684f132",
+  "active": "f84ce6d2fe2622cd",
   "lastOpenFiles": [
+    "md/SurfaceFlinger/Android Systrace 基础知识 -- Why 60 fps ？ · Android Performance.md",
+    "md/SurfaceFlinger/SurfaceFlinger模块-VSYNC研究 - 简书.md",
+    "md/SurfaceFlinger/Android Systrace 基础知识 -- 分析 Systrace 预备知识 · Android Performance.md",
+    "md/binder/图解/图解 Binder：ServiceManagerServiceManager 在 Android 系统中扮演了极其重要的 - 掘金.md",
     "md/binder/图解/图解 Binder：AIDLAIDL 是一种支持跨进程通信 (IPC) 的接口定义语言，作用就是为我们生成一些 Bind - 掘金.md",
     "md/binder/图解/图解 Binder：线程池本文主要介绍 Binder 线程、Binder 工作队列，还有 Binder 线程池的启动流程 - 掘金.md",
     "md/binder/图解/图解 Binder：事务Binder 事务是 Android IPC（进程间通信）机制的基本单元。它是基于 CS 架构 - 掘金.md",
@@ -199,7 +204,6 @@
     "md/binder/图解/图解 Binder：概述本系列 Binder 文章，会从内核层到 Framework 层，再到应用层，深入浅出，介绍整个 - 掘金.md",
     "md/binder/图解/图解 Binder：内存管理在本文，我们将深入探讨 Binder 的内存管理。这涉及了虚拟内存、mmap、缓冲区分配和释 - 掘金.md",
     "md/个人/个人.md",
-    "md/binder/图解/图解 Binder：ServiceManagerServiceManager 在 Android 系统中扮演了极其重要的 - 掘金.md",
     "md/binder/图解/图解 Binder：系统调用 open以Android Binder的open()调用为例，解析系统调用open()从用 - 掘金.md",
     "md/binder/图解",
     "Pasted image 20250522134438.png",
@@ -217,9 +221,6 @@
     "md/努比亚/Android 图形系统之一：概览-CSDN博客.md",
     "md/努比亚/Android Input输入事件处理流程分享（2）.md",
     "md/个人/Binder从入门到放弃（细节篇） - 内核工匠 - 博客园.md",
-    "md/个人/优化.md",
-    "md/binder/Binder6-Android Binder通信数据结构介绍.md",
-    "md/个人/Binder驱动的核心数据结构.md",
     "md/AdvancedAndroid/bitmap/Fresco源码分析/picture/BitmapMemoryCacheProducer工作流.png",
     "md/AdvancedAndroid/bitmap/Fresco源码分析/picture/图片加载之前的逻辑.png",
     "pic/Pasted image 20250428165626.png",
