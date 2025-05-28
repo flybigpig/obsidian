@@ -14,7 +14,7 @@
               "type": "markdown",
               "state": {
                 "file": "md/个人/个人.md",
-                "mode": "preview",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
@@ -191,10 +191,11 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "f84ce6d2fe2622cd",
+  "active": "191f14d7d684f132",
   "lastOpenFiles": [
-    "md/个人/android系统framework的几个新面试题目（涉及binder，input，SurfaceFlinger带答案）.md",
+    "pic/Pasted image 20250528144525.png",
     "md/个人/个人.md",
+    "md/个人/android系统framework的几个新面试题目（涉及binder，input，SurfaceFlinger带答案）.md",
     "md/个人/Android系统启动流程（四）Launcher进程启动过程解析（附带面试题）-CSDN博客.md",
     "md/个人/Android系统启动流程.md",
     "md/个人/Android冷启动优化终极指南：让APP比微信还快的7个黑科技.md",
@@ -220,7 +221,6 @@
     "md/binder/新笔记.md",
     "md/AndroidFrameworkTutorial/3.学穿Binder篇/011. Binder 服务注册过程情景分析之C++篇.md",
     "md/AndroidFrameworkTutorial/3.学穿Binder篇/017. Binder 多线程分析.md",
-    "md/AndroidFrameworkTutorial/3.学穿Binder篇/008. Binder 程序示例之C++篇.md",
     "md/AdvancedAndroid/bitmap/Fresco源码分析/picture/BitmapMemoryCacheProducer工作流.png",
     "md/AdvancedAndroid/bitmap/Fresco源码分析/picture/图片加载之前的逻辑.png",
     "pic/Pasted image 20250428165626.png",
@@ -238,7 +238,6 @@
     "md/资料/ffmpeg/资料/上课资料/img/1.png",
     "md/资料/美颜/美颜.jpg",
     "md/资料/美颜/流程.jpg",
-    "md/资料/美颜/11.jpg",
     "Excalidraw/未命名.canvas",
     "Excalidraw/未命名 1.canvas"
   ]
