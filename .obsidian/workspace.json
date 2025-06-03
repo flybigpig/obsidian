@@ -14,8 +14,8 @@
               "type": "markdown",
               "state": {
                 "file": "md/binder/解析Binder框架 - 简书.md",
-                "mode": "source",
-                "source": false
+                "mode": "preview",
+                "source": true
               },
               "icon": "lucide-file",
               "title": "解析Binder框架 - 简书"
@@ -191,7 +191,7 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "191f14d7d684f132",
+  "active": "f84ce6d2fe2622cd",
   "lastOpenFiles": [
     "https%3A%2F%2Fxrefandroid.com%2Fandroid-12.0.0_r34%2Fxref%2Fframeworks%2Fbase%2Fcore%2Fjava%2Fandroid%2Fos%2FBinder.java.md",
     "md/binder/解析Binder框架 - 简书.md",
