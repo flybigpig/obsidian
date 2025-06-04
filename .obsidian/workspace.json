@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/binder/解析Binder框架 - 简书.md",
+                "file": "md/systrace/DispSync.md",
                 "mode": "preview",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "解析Binder框架 - 简书"
+              "title": "DispSync"
             }
           }
         ]
@@ -187,13 +187,16 @@
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
       "markdown-importer:打开 Markdown 格式转换器": false,
-      "obsidian-git:Open Git source control": false
+      "obsidian-git:Open Git source control": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "f84ce6d2fe2622cd",
+  "active": "191f14d7d684f132",
   "lastOpenFiles": [
-    "https%3A%2F%2Fxrefandroid.com%2Fandroid-12.0.0_r34%2Fxref%2Fframeworks%2Fbase%2Fcore%2Fjava%2Fandroid%2Fos%2FBinder.java.md",
     "md/binder/解析Binder框架 - 简书.md",
+    "md/systrace/DispSync.md",
+    "md/未命名 1",
+    "https%3A%2F%2Fxrefandroid.com%2Fandroid-12.0.0_r34%2Fxref%2Fframeworks%2Fbase%2Fcore%2Fjava%2Fandroid%2Fos%2FBinder.java.md",
     "http%3A%2F%2Fxrefandroid.com%2Fandroid-12.0.0_r34%2Fxref%2Fframeworks%2Fbase%2Fcore%2Fjava%2Fandroid%2Fos%2FBinder.java.md",
     "md/个人/个人.md",
     "pic/Pasted image 20250528145236.png",
@@ -225,7 +228,6 @@
     "Pasted image 20250522134438.png",
     "md/binder/binder_mmap.md",
     "md/个人/Android Binder 驱动 - Media 服务的添加过程_android binder 驱动 media-CSDN博客.md",
-    "md/binder/新笔记.md",
     "md/AdvancedAndroid/bitmap/Fresco源码分析/picture/BitmapMemoryCacheProducer工作流.png",
     "md/AdvancedAndroid/bitmap/Fresco源码分析/picture/图片加载之前的逻辑.png",
     "pic/Pasted image 20250428165626.png",
@@ -237,7 +239,6 @@
     "pdf/Effective+PyCharm+(大语言模型翻译中文版).pdf",
     "pdf",
     "pdf/Android Framework精编内核解析（1）.pdf",
-    "md/未命名",
     "Excalidraw/未命名.canvas",
     "Excalidraw/未命名 1.canvas"
   ]
