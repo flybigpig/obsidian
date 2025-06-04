@@ -193,10 +193,12 @@
   },
   "active": "191f14d7d684f132",
   "lastOpenFiles": [
-    "https%3A%2F%2Fxrefandroid.com%2Fandroid-12.0.0_r34%2Fxref%2Fframeworks%2Fbase%2Fcore%2Fjava%2Fandroid%2Fos%2FBinder.java.md",
-    "md/systrace/systrace.md",
-    "http%3A%2F%2Fxrefandroid.com%2Fandroid-12.0.0_r34%2Fxref%2Fframeworks%2Fbase%2Fcore%2Fjava%2Fandroid%2Fos%2FBinder.java.md",
     "md/systrace/DispSync.md",
+    "md/systrace/系统跟踪/系统跟踪概览    App quality    Android Developers.md",
+    "md/systrace/systrace.md",
+    "md/systrace/系统跟踪",
+    "https%3A%2F%2Fxrefandroid.com%2Fandroid-12.0.0_r34%2Fxref%2Fframeworks%2Fbase%2Fcore%2Fjava%2Fandroid%2Fos%2FBinder.java.md",
+    "http%3A%2F%2Fxrefandroid.com%2Fandroid-12.0.0_r34%2Fxref%2Fframeworks%2Fbase%2Fcore%2Fjava%2Fandroid%2Fos%2FBinder.java.md",
     "md/binder/解析Binder框架 - 简书.md",
     "md/未命名 1",
     "md/个人/个人.md",
@@ -227,7 +229,6 @@
     "md/binder/图解/图解 Binder：系统调用 open以Android Binder的open()调用为例，解析系统调用open()从用 - 掘金.md",
     "md/binder/图解",
     "Pasted image 20250522134438.png",
-    "md/binder/binder_mmap.md",
     "md/AdvancedAndroid/bitmap/Fresco源码分析/picture/BitmapMemoryCacheProducer工作流.png",
     "md/AdvancedAndroid/bitmap/Fresco源码分析/picture/图片加载之前的逻辑.png",
     "pic/Pasted image 20250428165626.png",
@@ -238,7 +239,6 @@
     "pdf/Android Framework 开发揭秘.pdf",
     "pdf/Effective+PyCharm+(大语言模型翻译中文版).pdf",
     "pdf",
-    "pdf/Android Framework精编内核解析（1）.pdf",
     "Excalidraw/未命名.canvas",
     "Excalidraw/未命名 1.canvas"
   ]
