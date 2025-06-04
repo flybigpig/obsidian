@@ -193,6 +193,7 @@
   },
   "active": "191f14d7d684f132",
   "lastOpenFiles": [
+    "md/systrace/perf_traces.zip",
     "md/systrace/系统跟踪/在命令行上捕获系统跟踪记录    App quality    Android Developers.md",
     "md/systrace/systrace.md",
     "md/systrace/浏览 Systrace 报告    App quality    Android Developers.md",
@@ -226,7 +227,6 @@
     "md/binder/图解/图解 Binder：线程池本文主要介绍 Binder 线程、Binder 工作队列，还有 Binder 线程池的启动流程 - 掘金.md",
     "md/binder/图解/图解 Binder：事务Binder 事务是 Android IPC（进程间通信）机制的基本单元。它是基于 CS 架构 - 掘金.md",
     "md/binder/图解/图解 Binder：初始化本文主要分两部分： 1. binder_init()的解析 2. 内核对binder_init - 掘金.md",
-    "md/binder/图解/图解 Binder：概述本系列 Binder 文章，会从内核层到 Framework 层，再到应用层，深入浅出，介绍整个 - 掘金.md",
     "md/binder/图解",
     "Pasted image 20250522134438.png",
     "md/AdvancedAndroid/bitmap/Fresco源码分析/picture/BitmapMemoryCacheProducer工作流.png",
