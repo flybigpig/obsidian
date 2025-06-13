@@ -136,3 +136,31 @@ Android 系统通过 **分层协作** 提升启动性能：
 这些机制共同作用，确保应用启动时间从早期 Android 的 **数秒级** 优化至现代设备的 **毫秒级**，显著提升用户体验。
 
 
+
+
+---
+
+
+以下是一些 Android 系统启动优化的实际案例：
+
+### 某电商 APP 启动优化1
+
+- **优化背景**：该电商 APP 冷启动在低端机型耗时 3.2 秒，主线程阻塞占比超 60%，存在类加载与初始化耗时、资源加载竞争、第三方 SDK 初始化阻塞等问题。
+- **优化策略**：
+    - **编译期优化**：采用 Dex 分包策略，将核心启动类保留在主 Dex，非核心类拆分至二级 Dex，主 Dex 文件缩小 42%，类加载耗时减少 180ms；启用 R8 代码压缩，移除未使用的类、方法与字段，启动阶段内存占用下降 8%。
+    - **资源加载优化**：将资源加载逻辑从 AsyncTask 迁移至 Kotlin 协程，通过`Dispatchers.IO`指定 IO 线程池，避免 UI 线程竞争；在 SplashActivity 中预加载高频资源，利用`ContentResolver.openInputStream()`实现零拷贝加载，首帧渲染时间缩短 15%。
+    - **第三方 SDK 治理**：将非关键 SDK 的初始化操作移至后台线程，通过`HandlerThread.postDelayed()`设置 500ms 延迟；某地图 SDK 初始化时同步读取`/data`目录文件，改为使用`Context.getExternalFilesDir()`获取应用私有目录，避免磁盘 IO 阻塞。
+    - **系统级调优**：在启动阶段临时提升 CPU 大核频率，通过`cpufreq - set`命令将频率上限从 1.8GHz 提升至 2.3GHz；将应用数据目录的 I/O 优先级设置为`IONICE_CLASS_RT`；针对高频用户，在系统层实现应用进程预加载。
+- **优化效果**：冷启动时间从 3.2 秒压缩至 1.8 秒（低端机），主线程阻塞率从 62% 降至 28%，首帧渲染缩短至 800ms 内，ANR 率下降 73%，用户投诉量减少 58%，启动阶段峰值内存从 420MB 降至 310MB。
+
+### 抖音 BoostMultiDex 优化2
+
+- **优化背景**：Android 4.x 及以下机型在应用安装或更新后的首次启动时，因 MultiDex.install 对非首个 dex 进行优化耗时漫长，导致首次启动慢。
+- **优化策略**：通过挖掘 Dalvik 虚拟机底层系统机制，重新设计 DEX 相关处理逻辑。具体为从 APK 中解压获取原始的非首个 dex 文件字节码，调用`Dalvik_dalvik_system_DexFile_openDexFile_bytearray`加载，将 DexFile 添加到 APP 的`PathClassLoader`的`DexPathList`里，延后异步对非首个 dex 进行 odex 优化。
+- **优化效果**：在 Android 低版本设备上，可减少 80% 以上的黑屏等待时间，有效提升了低版本用户的升级安装体验。
+
+### 抖音 ContentProvider 优化2
+
+- **优化背景**：ContentProvider 在启动阶段会自动实例化并执行相关生命周期，当用于初始化的 ContentProvider 较多时，其创建、生命周期执行等会耗时较长。
+- **优化策略**：对于耗时较少的如官方 Lifecycle 组件的初始化，通过 JetPack 提供的 Startup 将多个初始化的 ContentProvider 聚合成一个来优化；对于自己的 ContentProvider，如果初始化耗时，则通过重构的方式将自动初始化改为按需初始化。
+- **优化效果**：减少了 ContentProvider 初始化带来的耗时，优化了启动流程。
