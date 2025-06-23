@@ -20,8 +20,19 @@
               "icon": "lucide-file",
               "title": "Android 平台开机时间分析与优化"
             }
+          },
+          {
+            "id": "af4b6d427cf08781",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "新标签页"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -191,10 +202,10 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "b5068ba295b0af84",
+  "active": "af4b6d427cf08781",
   "lastOpenFiles": [
-    "yto/侧滑.md",
     "md/个人/Android 平台开机时间分析与优化.md",
+    "yto/侧滑.md",
     "md/wms/android session.md",
     "().md",
     "md/wms/wms/WindowManager窗口管理.md",
