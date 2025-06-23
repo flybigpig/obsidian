@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/wms/wms/WindowManagerService对窗口的管理过程.md",
+                "file": "md/wms/android session.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "WindowManagerService对窗口的管理过程"
+              "title": "android session"
             }
           }
         ]
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "md/wms/wms/WindowManagerService对窗口的管理过程.md",
+                "file": "md/wms/android session.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "WindowManagerService对窗口的管理过程 的大纲"
+              "title": "android session 的大纲"
             }
           },
           {
