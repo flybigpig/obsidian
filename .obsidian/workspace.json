@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/aosp16/分屏模式.md",
+                "file": "md/init/未命名.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "分屏模式"
+              "title": "未命名"
             }
           }
         ]
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "md/aosp16/分屏模式.md",
+                "file": "md/init/未命名.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "分屏模式 的大纲"
+              "title": "未命名 的大纲"
             }
           },
           {
@@ -191,10 +191,11 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "f84ce6d2fe2622cd",
+  "active": "b5068ba295b0af84",
   "lastOpenFiles": [
-    "md/aosp16/freedom.md",
     "md/aosp16/分屏模式.md",
+    "md/init/未命名.md",
+    "md/aosp16/freedom.md",
     "md/个人/Glide.md",
     "md/aosp16",
     "md/个人/Handler-sendMessageAtTime.md",
@@ -223,7 +224,6 @@
     "md/systrace/systrace_check_url.md",
     "md/systrace/systrace.md",
     "md/systrace/perf_traces.zip",
-    "md/systrace/系统跟踪/在命令行上捕获系统跟踪记录    App quality    Android Developers.md",
     "md/systrace/系统跟踪",
     "md/未命名 1",
     "pic/Pasted image 20250528145236.png",
