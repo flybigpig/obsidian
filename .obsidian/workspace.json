@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/wms/android session.md",
-                "mode": "source",
+                "file": "yto/侧滑.md",
+                "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "android session"
+              "title": "侧滑"
             }
           }
         ]
@@ -193,8 +193,8 @@
   },
   "active": "b5068ba295b0af84",
   "lastOpenFiles": [
-    "().md",
     "md/wms/android session.md",
+    "().md",
     "md/wms/wms/WindowManager窗口管理.md",
     "md/wms/wms/WindowManagerService对窗口的管理过程.md",
     "md/wms/wms/windowtoken.md",
