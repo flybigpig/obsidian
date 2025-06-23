@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/aosp16/freedom.md",
+                "file": "md/aosp16/分屏模式.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "freedom"
+              "title": "分屏模式"
             }
           }
         ]
@@ -193,8 +193,9 @@
   },
   "active": "b5068ba295b0af84",
   "lastOpenFiles": [
-    "md/个人/Glide.md",
     "md/aosp16/freedom.md",
+    "md/aosp16/分屏模式.md",
+    "md/个人/Glide.md",
     "md/aosp16",
     "md/个人/Handler-sendMessageAtTime.md",
     "md/个人/service_manager.md",
@@ -223,7 +224,6 @@
     "md/systrace/systrace.md",
     "md/systrace/perf_traces.zip",
     "md/systrace/系统跟踪/在命令行上捕获系统跟踪记录    App quality    Android Developers.md",
-    "md/systrace/浏览 Systrace 报告    App quality    Android Developers.md",
     "md/systrace/系统跟踪",
     "md/未命名 1",
     "pic/Pasted image 20250528145236.png",
