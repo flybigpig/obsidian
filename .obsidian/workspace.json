@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/init/未命名.md",
+                "file": "md/wms/wms/未命名.md",
                 "mode": "source",
                 "source": false
               },
@@ -142,7 +142,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "md/init/未命名.md",
+                "file": "md/wms/wms/未命名.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -191,10 +191,13 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "f84ce6d2fe2622cd",
+  "active": "b5068ba295b0af84",
   "lastOpenFiles": [
-    "md/aosp16/分屏模式.md",
     "md/init/未命名.md",
+    "md/wms/wms/未命名.md",
+    "md/wms/wms",
+    "md/未命名",
+    "md/aosp16/分屏模式.md",
     "md/aosp16/freedom.md",
     "md/个人/Glide.md",
     "md/aosp16",
@@ -222,7 +225,6 @@
     "else/Git无法上传删除 Commit里面有大文件_git移出commit的大文件-CSDN博客.md",
     "().md",
     "md/systrace/systrace_check_url.md",
-    "md/systrace/systrace.md",
     "md/systrace/perf_traces.zip",
     "md/systrace/系统跟踪",
     "md/未命名 1",
@@ -237,8 +239,6 @@
     "md/AdvancedAndroid/bitmap/Fresco源码分析/picture/BitmapMemoryCacheProducer工作流.png",
     "md/framework基础",
     "md/mk_bp",
-    "md/ims",
-    "md/binder",
     "Excalidraw/未命名.canvas",
     "Excalidraw/未命名 1.canvas"
   ]
