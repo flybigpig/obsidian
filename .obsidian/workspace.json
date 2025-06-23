@@ -187,11 +187,14 @@
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
       "markdown-importer:打开 Markdown 格式转换器": false,
-      "obsidian-git:Open Git source control": false
+      "obsidian-git:Open Git source control": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
   "active": "b5068ba295b0af84",
   "lastOpenFiles": [
+    "().md",
+    "md/wms/android session.md",
     "md/wms/wms/WindowManager窗口管理.md",
     "md/wms/wms/WindowManagerService对窗口的管理过程.md",
     "md/wms/wms/windowtoken.md",
@@ -221,8 +224,6 @@
     "md/个人/inputstage.md",
     "pic/Pasted image 20250609165842.png",
     "md/binder/binder机制/Android Binder机制(二) Binder中的数据结构  skywang.md",
-    "md/binder/binder机制/Android Binder机制(一) Binder的设计和框架  skywang.md",
-    "md/个人/Android Binder 驱动框架设计与分析  Android Framework.md",
     "md/binder/binder机制",
     "md/systrace/perf_traces.zip",
     "md/systrace/系统跟踪",
