@@ -140,7 +140,7 @@ MessageQueue
 
 [[SurfaceFlinger：mFlinger]]
 
-[[Looper]]:mLooper
+[[Native Looper]]:mLooper
 
 [[EventThreadConnection]]:mEvents
 
