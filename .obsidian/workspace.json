@@ -191,10 +191,11 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "f84ce6d2fe2622cd",
+  "active": "6d080dc4cbb0b64f",
   "lastOpenFiles": [
-    "yto/kotlin.md",
+    "pic/Pasted image 20250627100407.png",
     "md/属性服务/属性服务.md",
+    "yto/kotlin.md",
     "md/属性服务",
     "md/linux/Native Looper 工作流程详解.md",
     "md/linux/Native Looper.md",
@@ -222,7 +223,6 @@
     "md/md/framework.md",
     "md/md/glide.md",
     "md/个人/揭秘Activity“重生”的面纱---Activity管理系列.md",
-    "md/个人/某公司面试题汇总.md",
     "pic/Pasted image 20250617105908.png",
     "pic/Pasted image 20250609165842.png",
     "md/binder/binder机制",
@@ -236,7 +236,6 @@
     "pic/Pasted image 20250528144525.png",
     "md/binder/图解",
     "Pasted image 20250522134438.png",
-    "md/AdvancedAndroid/bitmap/Fresco源码分析/picture/BitmapMemoryCacheProducer工作流.png",
     "md/framework基础",
     "md/mk_bp",
     "Excalidraw/未命名.canvas",
