@@ -78,7 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 333.5
+    "width": 277.5
   },
   "right": {
     "id": "9529d323d9cfa4b3",
@@ -191,7 +191,7 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "6d080dc4cbb0b64f",
+  "active": "f84ce6d2fe2622cd",
   "lastOpenFiles": [
     "yto/kotlin.md",
     "md/属性服务/属性服务.md",
