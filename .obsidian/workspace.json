@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/个人/未命名 1.md",
+                "file": "md/Activity/Activity管理与返回栈.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "未命名 1"
+              "title": "Activity管理与返回栈"
             }
           }
         ]
@@ -187,13 +187,16 @@
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
       "markdown-importer:打开 Markdown 格式转换器": false,
-      "obsidian-git:Open Git source control": false
+      "obsidian-git:Open Git source control": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
   "active": "6d080dc4cbb0b64f",
   "lastOpenFiles": [
-    "md/个人/未命名.md",
     "md/个人/未命名 1.md",
+    "md/Activity/Activity管理与返回栈.md",
+    "md/Activity",
+    "md/个人/未命名.md",
     "md/个人/IdleHanlder 原理与使用本文摘自写给应用开发的 Android Framework 教程，完整教程请查阅.md",
     "md/个人/IdleHandler.md",
     "md/个人/IdleHanlder.md",
@@ -222,7 +225,6 @@
     "md/个人/Glide.md",
     "md/aosp16",
     "md/个人/Handler-sendMessageAtTime.md",
-    "md/个人/service_manager.md",
     "pic/Pasted image 20250617105908.png",
     "pic/Pasted image 20250609165842.png",
     "md/binder/binder机制",
@@ -237,7 +239,6 @@
     "md/binder/图解",
     "Pasted image 20250522134438.png",
     "md/framework基础",
-    "md/mk_bp",
     "Excalidraw/未命名.canvas",
     "Excalidraw/未命名 1.canvas"
   ]
