@@ -103,11 +103,15 @@ class TaskRecord extends ConfigurationContainer {
 
 ```
 
-当我们在 Launcher 页面第一次打开一个 App 时，系统会创建一个新 TaskRecord 对象，同时创建 App 主 Activity 对应的 ActivityRecord 对象，并将其插入 TaskRecord 内部的栈。
+>当我们在 Launcher 页面第一次打开一个 App 时，系统会创建一个新 TaskRecord 对象，同时创建 App 主 Activity 对应的 ActivityRecord 对象，并将其插入 TaskRecord 内部的栈。
 
 ![[pic/Pasted image 20250701141113.png]]
 
 
-我们在主 Activity 中启动当前应用中的另一个 Activity 时（这个 Activity 没有设置 taskAffinity），系统会把新 Activity 对应的 ActivityRecord 插入到栈顶并获得焦点。前一个 ActivityRecord 仍保留在栈中，但对应的 Activity 会被停止，所谓停止就是回调 Activity 的 onPause onStop 回调方法。
+>我们在主 Activity 中启动当前应用中的另一个 Activity 时（这个 Activity 没有设置 taskAffinity），系统会把新 Activity 对应的 ActivityRecord 插入到栈顶并获得焦点。前一个 ActivityRecord 仍保留在栈中，但对应的 Activity 会被停止，所谓停止就是回调 Activity 的 onPause onStop 回调方法。
 
-  
+
+>当用户执行返回操作时，当前的 Activity 对应的 ActivityRecord 会从栈顶部弹出并销毁。前一个 ActivityRecord 恢复到栈顶，对应的 Activity 将恢复，恢复到之前的状态，这里的恢复就是执行其 onRestart onStart onResume 回调。
+
+
+>一般情况下，同一时间，系统中会存在多个 Task，当前显示的 Activity 所在的 Task，我们称之为前台 Task（前台 Task 的栈顶成员会显示在屏幕上），其余均为后台 Task
