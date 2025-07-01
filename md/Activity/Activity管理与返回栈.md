@@ -203,3 +203,7 @@ class RootActivityContainer extends ConfigurationContainer implements DisplayMan
 ActivityStackSupervisor 内部有一个 RootActivityContainer 成员，其内部有一个 `ArrayList<ActivityDisplay>` 成员，用于管理多个显示设备，从而管理 ActivityStack，间接地管理着 TaskRecord。
 
   ![[pic/Pasted image 20250701143308.png]]
+
+
+可以理解为一个屏幕上（大多数情况只有一个屏幕），会有很多个 APP 在运行，每个 APP 进程对应一个 ActivityStack，ActivityStack 内部又保存着多个 Activity 栈 TaskRecord，每个 TaskRecord 中包含着若干个 ActivityRecord。
+
