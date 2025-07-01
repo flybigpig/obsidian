@@ -207,3 +207,85 @@ ActivityStackSupervisor 内部有一个 RootActivityContainer 成员，其内部
 
 可以理解为一个屏幕上（大多数情况只有一个屏幕），会有很多个 APP 在运行，每个 APP 进程对应一个 ActivityStack，ActivityStack 内部又保存着多个 Activity 栈 TaskRecord，每个 TaskRecord 中包含着若干个 ActivityRecord。
 
+---
+
+
+### Launcher 解析
+
+```
+adb shell dumpsys activity
+```
+
+```
+ACTIVITY MANAGER ACTIVITIES (dumpsys activity activities)
+# 代表手机主屏幕
+Display #0 (activities from top to bottom):
+  # Launcher App 对应的 ActivityStack
+  Stack #0: type=home mode=fullscreen
+  isSleeping=false
+  mBounds=Rect(0, 0 - 0, 0)
+    Task id #2
+    mBounds=Rect(0, 0 - 0, 0)
+    mMinWidth=-1
+    mMinHeight=-1
+    mLastNonFullscreenBounds=null
+    # Launcher 中的 TaskRecord
+    * TaskRecord{720a8a4 #2 I=com.android.launcher3/.Launcher U=0 StackId=0 sz=1}
+      userId=0 effectiveUid=u0a81 mCallingUid=0 mUserSetupComplete=true mCallingPackage=null
+      intent={act=android.intent.action.MAIN cat=[android.intent.category.HOME] flg=0x10000100 cmp=com.android.launcher3/.Launcher}
+      mActivityComponent=com.android.launcher3/.Launcher
+      autoRemoveRecents=false isPersistable=true numFullscreen=1 activityType=2
+      rootWasReset=false mNeverRelinquishIdentity=true mReuseTask=false mLockTaskAuth=LOCK_TASK_AUTH_PINNABLE
+      # Stack 管理的 Activity 们
+      Activities=[ActivityRecord{6f00b94 u0 com.android.launcher3/.Launcher t2}]
+      askedCompatMode=false inRecents=true isAvailable=true
+      mRootProcess=ProcessRecord{9134f8 2266:com.android.launcher3/u0a81}
+      stackId=0
+      hasBeenVisible=true mResizeMode=RESIZE_MODE_RESIZEABLE mSupportsPictureInPicture=false isResizeable=true lastActiveTime=15681 (inactive for 314s)
+        Hist #0: ActivityRecord{6f00b94 u0 com.android.launcher3/.Launcher t2}
+          Intent { act=android.intent.action.MAIN cat=[android.intent.category.HOME] flg=0x10000100 cmp=com.android.launcher3/.Launcher }
+          ProcessRecord{9134f8 2266:com.android.launcher3/u0a81}
+    # ActivityRecord 信息
+    Running activities (most recent first):
+      TaskRecord{720a8a4 #2 I=com.android.launcher3/.Launcher U=0 StackId=0 sz=1}
+        Run #0: ActivityRecord{6f00b94 u0 com.android.launcher3/.Launcher t2}
+
+    mResumedActivity: ActivityRecord{6f00b94 u0 com.android.launcher3/.Launcher t2}
+
+ ResumedActivity:ActivityRecord{6f00b94 u0 com.android.launcher3/.Launcher t2}
+
+  ResumedActivity: ActivityRecord{6f00b94 u0 com.android.launcher3/.Launcher t2}
+
+# ActivityStackSupervisor 相关信息
+ActivityStackSupervisor state:
+  topDisplayFocusedStack=ActivityStack{f11ab10 stackId=0 type=home mode=fullscreen visible=true translucent=false, 1 tasks}
+  displayId=0 stacks=1
+   mHomeStack=ActivityStack{f11ab10 stackId=0 type=home mode=fullscreen visible=true translucent=false, 1 tasks}
+   mPreferredTopFocusableStack=ActivityStack{f11ab10 stackId=0 type=home mode=fullscreen visible=true translucent=false, 1 tasks}
+   mLastFocusedStack=ActivityStack{f11ab10 stackId=0 type=home mode=fullscreen visible=true translucent=false, 1 tasks}
+  mCurTaskIdForUser={0=5}
+  mUserStackInFront={}
+  isHomeRecentsComponent=true  KeyguardController:
+    mKeyguardShowing=false
+    mAodShowing=false
+    mKeyguardGoingAway=false
+    Occluded=false DismissingKeyguardActivity=null at display=0
+    mDismissalRequested=false
+    mVisibilityTransactionDepth=0
+  LockTaskController
+    mLockTaskModeState=NONE
+    mLockTaskModeTasks=
+    mLockTaskPackages (userId:packages)=
+      u0:[]
+
+
+```
+
+从打印的信息中可以分析出：
+
+- Display #0：当前处于 0 号显示器中
+- Stack #0：0 号显示器中有一个 0 号 ActivityStack
+- Task id #2： 0 号 ActivityStack 中有一个 2 号 TaskRecord
+- Activities=[ActivityRecord{6f00b94 u0 com.android.launcher3/.Launcher t2}]：2 号 TaskRecord 中又有一个一个 ActivityRecord，对应的 Activity 是 `com.android.launcher3` 包下的 Launcher。
+
+![[pic/Pasted image 20250701143431.png]]
