@@ -78,8 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 277.5,
-    "collapsed": true
+    "width": 277.5
   },
   "right": {
     "id": "9529d323d9cfa4b3",
@@ -194,6 +193,7 @@
   },
   "active": "6d080dc4cbb0b64f",
   "lastOpenFiles": [
+    "Pasted image 20250701141113.png",
     "md/个人/未命名 1.md",
     "md/Activity/Activity管理与返回栈.md",
     "md/Activity",
@@ -225,7 +225,6 @@
     "md/aosp16/freedom.md",
     "md/个人/Glide.md",
     "md/aosp16",
-    "md/个人/Handler-sendMessageAtTime.md",
     "pic/Pasted image 20250617105908.png",
     "pic/Pasted image 20250609165842.png",
     "md/binder/binder机制",
