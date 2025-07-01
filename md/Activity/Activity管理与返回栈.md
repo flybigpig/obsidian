@@ -1,4 +1,16 @@
 
+ActivityRecord 对象中主要记录了四类信息：
+
+- 配置信息：这些配置信息大多来自应用中的 `AndroidManifest.xml`,比如：属于哪个 Package，所在的进程名称、任务名、组件类名、logo、主题等等，这些信息基本上是固定的
+
+- 启动时基本信息：启动 Activity 时，才确定的信息，在每次启动时可能会不同，如 launchedFromPid、task、launchedFromPackage、processName 等
+
+- 运行状态信息：记录 activity 当前状态的信息，比如 mState、idle、stopped、finishing 等
+
+- 管理对象：管理当前 ActivityRecord 的对象
+
+
+
 
 ```
 final class ActivityRecord extends ConfigurationContainer {
