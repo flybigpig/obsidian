@@ -106,3 +106,8 @@ class TaskRecord extends ConfigurationContainer {
 当我们在 Launcher 页面第一次打开一个 App 时，系统会创建一个新 TaskRecord 对象，同时创建 App 主 Activity 对应的 ActivityRecord 对象，并将其插入 TaskRecord 内部的栈。
 
 ![[pic/Pasted image 20250701141113.png]]
+
+
+我们在主 Activity 中启动当前应用中的另一个 Activity 时（这个 Activity 没有设置 taskAffinity），系统会把新 Activity 对应的 ActivityRecord 插入到栈顶并获得焦点。前一个 ActivityRecord 仍保留在栈中，但对应的 Activity 会被停止，所谓停止就是回调 Activity 的 onPause onStop 回调方法。
+
+  
