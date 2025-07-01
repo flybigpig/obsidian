@@ -84,13 +84,6 @@ TaskRecord 中有一个 ActivityRecord 的集合 mActivities，它是以 Stack �
 
 系统启动的最后阶段会启动 Launcher App，Launcher App 在打开主 Activity 的过程中会创建一个新 TaskRecord 对象，同时创建主 Activity 对应的 ActivityRecord 对象，并将其插入 TaskRecord 内部的栈。
 
-  
-
-作者：阿豪讲Framework  
-链接：https://juejin.cn/post/7322754558276141068  
-来源：稀土掘金  
-著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
-
 ```
 class TaskRecord extends ConfigurationContainer {
 
