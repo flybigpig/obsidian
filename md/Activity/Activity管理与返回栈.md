@@ -291,7 +291,7 @@ ActivityStackSupervisor state:
 ![[pic/Pasted image 20250701143431.png]]
 
 
-#### Launcher启动App
+#### Launcher启动拨号 App
 
 ```
 adb shell dumpsys activity
