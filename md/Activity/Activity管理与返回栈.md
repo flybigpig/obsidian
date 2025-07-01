@@ -132,3 +132,29 @@ TaskRecord 中的第一个 ActivityRecord 对象被称为`根 Activity`，TaskRe
 >需要注意的是，在应用中使用 FLAG_ACTIVITY_NEW_TASK 标志去启动一个本应用中的一个 Activity，也不会创建一个新的 Task，除非这个 Activity 额外指定了不同的 taskAffinity 属性值。
 
   
+#### ActivityStack
+
+ActivityStack 很容易与任务栈/返回栈混淆，实际的任务栈/返回栈是上面介绍的 TaskRecord。系统中可能同时有多个 TaskRecord，一般前台有一个 TaskRecord 和用户进行交互，而后台中可能有多个 TaskRecord 存在，前后台的 TaskRecord 可以进行切换，为了方便的管理这些 TaskRecord 而引入了 ActivityStack。
+
+```
+class ActivityStack extends ConfigurationContainer {
+    // ......
+    private final ArrayList<TaskRecord> mTaskHistory = new ArrayList<>();
+
+    private final ArrayList<ActivityRecord> mLRUActivities = new ArrayList<>();
+
+    final ArrayList<ActivityRecord> mNoAnimActivities = new ArrayList<>();
+    //......
+}
+
+```
+
+ActivityStack 用于管理 TaskRecord，ActivityStack 中维护了很多 ArrayList：
+
+- ArrayList mTaskHistory：用于存储 TaskRecord，以栈的方式管理 TaskRecord
+- ArrayList mLRUActivities：正在运行的 Activity，列表中的第一个条目是最近最少使用的元素
+- ArrayList mNoAnimActivities：不考虑转换动画的 Activity
+
+  
+
+一般来说，一个 APP 对应一个 ActivityStack。

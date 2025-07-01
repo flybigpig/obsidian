@@ -143,13 +143,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "md/linux/Native Looper 工作流程详解.md",
+                "file": "md/Activity/Activity管理与返回栈.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Native Looper 工作流程详解 的大纲"
+              "title": "Activity管理与返回栈 的大纲"
             }
           },
           {
@@ -177,7 +177,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 297.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -192,7 +192,7 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "6d080dc4cbb0b64f",
+  "active": "f84ce6d2fe2622cd",
   "lastOpenFiles": [
     "pic/Pasted image 20250701141113.png",
     "md/个人/未命名 1.md",
