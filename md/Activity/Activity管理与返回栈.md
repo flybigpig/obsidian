@@ -176,4 +176,6 @@ class ActivityDisplay extends ConfigurationContainer<ActivityStack>
 
 ActivityDisplay 表示一个屏幕，Android 支持三种屏幕，主屏幕，外接屏幕，虚拟屏幕（投屏），一般在手机上只有主屏幕。 其内部成员 `ArrayList<ActivityStack> mStacks` 用于保存当前显示屏可能会显示的所有 ActivityStack，同样以栈的方式管理这些 ActivityStack。
 
+
+#### ActivityStackSupervisor
   
