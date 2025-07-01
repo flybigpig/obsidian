@@ -127,3 +127,8 @@ Android 系统只支持一个处于前台的 Task，用户可以一次将整个 
 
 TaskRecord 中的第一个 ActivityRecord 对象被称为`根 Activity`，TaskRecord 有一个 taskAffinity 属性，可以理解为 TaskRecord 的名字，这个属性值来自根 Activity 的 taskAffinity 属性值，Activity 可以通过 `AndroidManifest.xml` 中的 Activity 标签的 `android:taskAffinity=“xxx”` 属性来指定其 Affinity 属性值。如果没有指定，Activity 的 taskAffinity 缺省使用包名。所以，同一个应用中所有的 Activity 的 taskAffinity 属性值默认都是相同的，都是包名。
 
+>假设一个 Activity 单独指定了 taskAffinity 值 `xxx`，当启动这个 Activity 时，系统会寻找一个 taskAffinity 值为 `xxx` 的 TaskRecord，并将 Activity 对应的 ActivityRecord 对象插入栈顶。如果没有 taskAffinity 值为 `xxx` 的 TaskRecord，则创建一个新的 TaskRecord
+
+>需要注意的是，在应用中使用 FLAG_ACTIVITY_NEW_TASK 标志去启动一个本应用中的一个 Activity，也不会创建一个新的 Task，除非这个 Activity 额外指定了不同的 taskAffinity 属性值。
+
+  
