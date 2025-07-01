@@ -289,3 +289,100 @@ ActivityStackSupervisor state:
 - Activities=[ActivityRecord{6f00b94 u0 com.android.launcher3/.Launcher t2}]：2 号 TaskRecord 中又有一个一个 ActivityRecord，对应的 Activity 是 `com.android.launcher3` 包下的 Launcher。
 
 ![[pic/Pasted image 20250701143431.png]]
+
+
+#### Launcher启动App
+
+```
+adb shell dumpsys activity
+
+```
+
+```
+ACTIVITY MANAGER ACTIVITIES (dumpsys activity activities)
+Display #0 (activities from top to bottom):
+
+  Stack #1: type=standard mode=fullscreen
+  isSleeping=false
+  mBounds=Rect(0, 0 - 0, 0)
+    Task id #3
+    mBounds=Rect(0, 0 - 0, 0)
+    mMinWidth=-1
+    mMinHeight=-1
+    mLastNonFullscreenBounds=null
+    * TaskRecord{fffb022 #3 A=com.android.dialer U=0 StackId=1 sz=1}
+      userId=0 effectiveUid=u0a85 mCallingUid=u0a81 mUserSetupComplete=true mCallingPackage=com.android.launcher3
+      affinity=com.android.dialer
+      intent={act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10200000 pkg=com.android.dialer cmp=com.android.dialer/.main.impl.MainActivity}
+      mActivityComponent=com.android.dialer/.main.impl.MainActivity
+      autoRemoveRecents=false isPersistable=true numFullscreen=1 activityType=1
+      rootWasReset=true mNeverRelinquishIdentity=true mReuseTask=false mLockTaskAuth=LOCK_TASK_AUTH_PINNABLE
+      Activities=[ActivityRecord{93ecfba u0 com.android.dialer/.main.impl.MainActivity t3}]
+      askedCompatMode=false inRecents=true isAvailable=true
+      mRootProcess=ProcessRecord{6468658 2372:com.android.dialer/u0a85}
+      stackId=1
+      hasBeenVisible=true mResizeMode=RESIZE_MODE_RESIZEABLE mSupportsPictureInPicture=false isResizeable=true lastActiveTime=190729 (inactive for 2s)
+        Hist #0: ActivityRecord{93ecfba u0 com.android.dialer/.main.impl.MainActivity t3}
+          Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10200000 pkg=com.android.dialer cmp=com.android.dialer/.main.impl.MainActivity bnds=[20,602][130,725] }
+          ProcessRecord{6468658 2372:com.android.dialer/u0a85}
+
+    Running activities (most recent first):
+      TaskRecord{fffb022 #3 A=com.android.dialer U=0 StackId=1 sz=1}
+        Run #0: ActivityRecord{93ecfba u0 com.android.dialer/.main.impl.MainActivity t3}
+
+    mResumedActivity: ActivityRecord{93ecfba u0 com.android.dialer/.main.impl.MainActivity t3}
+
+  Stack #0: type=home mode=fullscreen
+  isSleeping=false
+  mBounds=Rect(0, 0 - 0, 0)
+
+    Task id #2
+    mBounds=Rect(0, 0 - 0, 0)
+    mMinWidth=-1
+    mMinHeight=-1
+    mLastNonFullscreenBounds=null
+    * TaskRecord{3d48ab3 #2 I=com.android.launcher3/.Launcher U=0 StackId=0 sz=1}
+      userId=0 effectiveUid=u0a81 mCallingUid=0 mUserSetupComplete=true mCallingPackage=null
+      intent={act=android.intent.action.MAIN cat=[android.intent.category.HOME] flg=0x10000100 cmp=com.android.launcher3/.Launcher}
+      mActivityComponent=com.android.launcher3/.Launcher
+      autoRemoveRecents=false isPersistable=true numFullscreen=1 activityType=2
+      rootWasReset=false mNeverRelinquishIdentity=true mReuseTask=false mLockTaskAuth=LOCK_TASK_AUTH_PINNABLE
+      Activities=[ActivityRecord{4f321d u0 com.android.launcher3/.Launcher t2}]
+      askedCompatMode=false inRecents=true isAvailable=true
+      mRootProcess=ProcessRecord{74a2096 2234:com.android.launcher3/u0a81}
+      stackId=0
+      hasBeenVisible=true mResizeMode=RESIZE_MODE_RESIZEABLE mSupportsPictureInPicture=false isResizeable=true lastActiveTime=190617 (inactive for 2s)
+        Hist #0: ActivityRecord{4f321d u0 com.android.launcher3/.Launcher t2}
+          Intent { act=android.intent.action.MAIN cat=[android.intent.category.HOME] flg=0x10000100 cmp=com.android.launcher3/.Launcher }
+          ProcessRecord{74a2096 2234:com.android.launcher3/u0a81}
+
+    Running activities (most recent first):
+      TaskRecord{3d48ab3 #2 I=com.android.launcher3/.Launcher U=0 StackId=0 sz=1}
+        Run #0: ActivityRecord{4f321d u0 com.android.launcher3/.Launcher t2}
+
+ ResumedActivity:ActivityRecord{93ecfba u0 com.android.dialer/.main.impl.MainActivity t3}
+
+  ResumedActivity: ActivityRecord{93ecfba u0 com.android.dialer/.main.impl.MainActivity t3}
+
+ActivityStackSupervisor state:
+  topDisplayFocusedStack=ActivityStack{2831f0f stackId=1 type=standard mode=fullscreen visible=true translucent=false, 1 tasks}
+  displayId=0 stacks=2
+   mHomeStack=ActivityStack{9e4fb9c stackId=0 type=home mode=fullscreen visible=false translucent=true, 1 tasks}
+   mPreferredTopFocusableStack=ActivityStack{2831f0f stackId=1 type=standard mode=fullscreen visible=true translucent=false, 1 tasks}
+   mLastFocusedStack=ActivityStack{2831f0f stackId=1 type=standard mode=fullscreen visible=true translucent=false, 1 tasks}
+  mCurTaskIdForUser={0=3}
+  mUserStackInFront={}
+  isHomeRecentsComponent=true  KeyguardController:
+    mKeyguardShowing=false
+    mAodShowing=false
+    mKeyguardGoingAway=false
+    Occluded=false DismissingKeyguardActivity=null at display=0
+    mDismissalRequested=false
+    mVisibilityTransactionDepth=0
+  LockTaskController
+    mLockTaskModeState=NONE
+    mLockTaskModeTasks=
+    mLockTaskPackages (userId:packages)=
+      u0:[]
+
+```
