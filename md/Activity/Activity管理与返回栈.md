@@ -178,4 +178,28 @@ ActivityDisplay 表示一个屏幕，Android 支持三种屏幕，主屏幕，�
 
 
 #### ActivityStackSupervisor
-  
+
+```
+public class ActivityStackSupervisor implements RecentTasks.Callbacks {
+        // .......
+
+        RootActivityContainer mRootActivityContainer;
+        
+        // ......
+}
+
+class RootActivityContainer extends ConfigurationContainer implements DisplayManager.DisplayListener {
+    // ......
+
+    private final ArrayList<ActivityDisplay> mActivityDisplays = new ArrayList<>();
+    
+    // .....
+}
+
+
+```
+
+
+ActivityStackSupervisor 内部有一个 RootActivityContainer 成员，其内部有一个 `ArrayList<ActivityDisplay>` 成员，用于管理多个显示设备，从而管理 ActivityStack，间接地管理着 TaskRecord。
+
+  ![[pic/Pasted image 20250701143308.png]]

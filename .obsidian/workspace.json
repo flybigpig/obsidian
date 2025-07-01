@@ -78,8 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200.5,
-    "collapsed": true
+    "width": 200.5
   },
   "right": {
     "id": "9529d323d9cfa4b3",
@@ -192,8 +191,9 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "f84ce6d2fe2622cd",
+  "active": "fa4657deb406b728",
   "lastOpenFiles": [
+    "pic/Pasted image 20250701143308.png",
     "pic/Pasted image 20250701141113.png",
     "md/个人/未命名 1.md",
     "md/Activity/Activity管理与返回栈.md",
@@ -238,7 +238,6 @@
     "pic/Pasted image 20250528144702.png",
     "pic/Pasted image 20250528144525.png",
     "md/binder/图解",
-    "Pasted image 20250522134438.png",
     "md/framework基础",
     "Excalidraw/未命名.canvas",
     "Excalidraw/未命名 1.canvas"
