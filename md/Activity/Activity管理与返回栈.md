@@ -1,3 +1,4 @@
+#### ActivityRecord
 
 ActivityRecord 对象中主要记录了四类信息：
 
@@ -65,8 +66,46 @@ final class ActivityRecord extends ConfigurationContainer {
 
     // .....
 }
+```
 
+#### TaskRecord
+
+使用 TaskRecord 对象来描述一个任务（Task）
+
+TaskRecord 主要成员有：
+
+- taskid：任务的 id
+- ArrayList mActivities：mActivities 用于存储和管理 task 中的 Activity。
+- private ActivityStack mStack：表示当前 TaskRecord 所属的 ActivityStack。系统运行过程中有很多 TaskRecord，ActivityStack 类用于管理组织这些 TaskRecord。
+- String affinity：Activity 在 `AndroidManifest.xml` 文件中有一个 `android:taskAffinity=“xxx”` 属性
+
+
+TaskRecord 中有一个 ActivityRecord 的集合 mActivities，它是以 Stack 的方式来管理其中的 ActivityRecord 的，先启动的 Activity 放到栈底，后启动的 Activity 作为栈顶成员。Android 开发中常说的返回栈就是 TaskRecord 对象。
+
+系统启动的最后阶段会启动 Launcher App，Launcher App 在打开主 Activity 的过程中会创建一个新 TaskRecord 对象，同时创建主 Activity 对应的 ActivityRecord 对象，并将其插入 TaskRecord 内部的栈。
 
   
+
+作者：阿豪讲Framework  
+链接：https://juejin.cn/post/7322754558276141068  
+来源：稀土掘金  
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+
+```
+class TaskRecord extends ConfigurationContainer {
+
+    // ......
+
+    final int taskId;       // Unique identifier for this task.
+    String affinity;        // The affinity name for this task, or null; may change identity.
+
+    /** List of all activities in the task arranged in history order */
+    final ArrayList<ActivityRecord> mActivities;
+
+    /** Current stack. Setter must always be used to update the value. */
+    private ActivityStack mStack;
+
+    // ......
+}
 
 ```
