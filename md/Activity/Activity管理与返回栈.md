@@ -102,3 +102,5 @@ class TaskRecord extends ConfigurationContainer {
 }
 
 ```
+
+当我们在 Launcher 页面第一次打开一个 App 时，系统会创建一个新 TaskRecord 对象，同时创建 App 主 Activity 对应的 ActivityRecord 对象，并将其插入 TaskRecord 内部的栈。
