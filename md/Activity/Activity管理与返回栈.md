@@ -158,3 +158,22 @@ ActivityStack 用于管理 TaskRecord，ActivityStack 中维护了很多 ArrayLi
   
 
 一般来说，一个 APP 对应一个 ActivityStack。
+
+
+####  ActivityDisplay
+
+
+```
+class ActivityDisplay extends ConfigurationContainer<ActivityStack>
+        implements WindowContainerListener {
+    int mDisplayId;
+    Display mDisplay;
+    private final ArrayList<ActivityStack> mStacks = new ArrayList<>();
+}
+
+```
+
+
+ActivityDisplay 表示一个屏幕，Android 支持三种屏幕，主屏幕，外接屏幕，虚拟屏幕（投屏），一般在手机上只有主屏幕。 其内部成员 `ArrayList<ActivityStack> mStacks` 用于保存当前显示屏可能会显示的所有 ActivityStack，同样以栈的方式管理这些 ActivityStack。
+
+  
