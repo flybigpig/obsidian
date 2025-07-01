@@ -115,3 +115,15 @@ class TaskRecord extends ConfigurationContainer {
 
 
 >一般情况下，同一时间，系统中会存在多个 Task，当前显示的 Activity 所在的 Task，我们称之为前台 Task（前台 Task 的栈顶成员会显示在屏幕上），其余均为后台 Task
+
+Android 系统只支持一个处于前台的 Task，用户可以一次将整个 Task 挪到后台或置为前台，在前后台转换的过程中，Task 内部 Activity 保持顺序不变。常见的转换场景有：
+
+- 当用户在 Launcher 页面上点击了一个 App 的图标时，这个应用对应的 TaskRecord 就会被转移到前台。
+- 如果用户一直地按 Back 键，这样返回栈中的 Activity 会一个个地被移除，直到最终返回到主屏幕，Launcher 中的 TaskRecord 会被转移到前台。当返回栈中所有的 ActivityRecord 都被移除掉的时候，对应的 TaskRecord 也就不存在了。
+- 用过 Android 手机的同学应该知道，按键最近任务键（或者是对应的上划手势），系统会弹出近期 Task 列表，使用户能快速在多个 Task 间切换。
+
+
+如果用户长时间离开任务，系统会清除任务中除根 Activity 之外的所有 Activity。当用户返回任务时，仅恢复根 Activity。系统基于这样以下假设：在长时间过后，用户放弃了之前执行的操作，并返回任务开始执行新的操作
+
+TaskRecord 中的第一个 ActivityRecord 对象被称为`根 Activity`，TaskRecord 有一个 taskAffinity 属性，可以理解为 TaskRecord 的名字，这个属性值来自根 Activity 的 taskAffinity 属性值，Activity 可以通过 `AndroidManifest.xml` 中的 Activity 标签的 `android:taskAffinity=“xxx”` 属性来指定其 Affinity 属性值。如果没有指定，Activity 的 taskAffinity 缺省使用包名。所以，同一个应用中所有的 Activity 的 taskAffinity 属性值默认都是相同的，都是包名。
+
