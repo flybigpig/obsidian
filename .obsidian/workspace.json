@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/binder/AndroidQ Binder通信原理(二)-Binder入门篇 - 知乎.md",
+                "file": "md/binder/linux源码解读（二十六）：android binder原理和实现方式 - 第七子007 - 博客园.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "AndroidQ Binder通信原理(二)-Binder入门篇 - 知乎"
+              "title": "linux源码解读（二十六）：android binder原理和实现方式 - 第七子007 - 博客园"
             }
           }
         ]
@@ -193,6 +193,7 @@
   },
   "active": "6d080dc4cbb0b64f",
   "lastOpenFiles": [
+    "md/binder/AndroidQ Binder通信原理(二)-Binder入门篇 - 知乎.md",
     "md/androidSource/8 Zygote进程启动流程.md",
     "md/binder/linux源码解读（二十六）：android binder原理和实现方式 - 第七子007 - 博客园.md",
     "md/androidSource/7 android之LruCache.md",
@@ -226,7 +227,6 @@
     "pic/Pasted image 20250627100407.png",
     "yto/kotlin.md",
     "md/属性服务",
-    "md/linux/Native Looper 工作流程详解.md",
     "md/wms/wms",
     "md/未命名",
     "md/aosp16",
