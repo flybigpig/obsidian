@@ -6,11 +6,11 @@
     "emojiStyle": "native",
     "iconColor": null,
     "recentlyUsedIcons": [
-      "LiAccessibility",
-      "LiAtSign",
-      "LiActivitySquare",
-      "LiAnchor",
-      "LiBadgeInfo"
+      "LiBackpack",
+      "LiAsteriskSquare",
+      "LiAreaChart",
+      "LiAlignHorizontalDistributeCenter",
+      "LiAccessibility"
     ],
     "recentlyUsedIconsSize": 5,
     "rules": [],
@@ -34,10 +34,7 @@
     "debugMode": false,
     "useInternalPlugins": false
   },
-  "md": {
-    "iconName": "LiAnchor",
-    "iconColor": "#f90b0b"
-  },
+  "md": "LiBackpack",
   "pdf": {
     "iconName": "LiAtSign",
     "iconColor": "#2ed6ac"
@@ -45,5 +42,7 @@
   "hm": {
     "iconName": "LiAccessibility",
     "iconColor": "#26c939"
-  }
+  },
+  "算法刷题": "LiAlignHorizontalDistributeCenter",
+  "Excalidraw": "LiAsteriskSquare"
 }
