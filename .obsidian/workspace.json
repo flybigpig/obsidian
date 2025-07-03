@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/个人/《10分钟剖析》系统启动1——从内核到用户Android系统总体是围绕着Linux内核而建立的。从加电到系统启动，大 - 掘金.md",
-                "mode": "source",
+                "file": "md/个人/第四章：View的工作原理-CSDN博客.md",
+                "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "《10分钟剖析》系统启动1——从内核到用户Android系统总体是围绕着Linux内核而建立的。从加电到系统启动，大 - 掘金"
+              "title": "第四章：View的工作原理-CSDN博客"
             }
           }
         ]
@@ -193,6 +193,7 @@
   },
   "active": "b9509410b60268c6",
   "lastOpenFiles": [
+    "md/个人/《10分钟剖析》系统启动1——从内核到用户Android系统总体是围绕着Linux内核而建立的。从加电到系统启动，大 - 掘金.md",
     "hm/9.鸿蒙面试真题.md",
     "pdf/Android Framework 开发揭秘.pdf",
     "算法刷题/创意匹配.md",
@@ -226,7 +227,6 @@
     "md/个人/未命名.md",
     "md/个人/IdleHanlder 原理与使用本文摘自写给应用开发的 Android Framework 教程，完整教程请查阅.md",
     "md/个人/IdleHandler.md",
-    "md/个人/IdleHanlder.md",
     "pic/Pasted image 20250627100407.png",
     "md/属性服务",
     "md/wms/wms",
