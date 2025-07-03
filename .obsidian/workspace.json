@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "算法刷题/徒步旅行补给问题.md",
-                "mode": "source",
+                "file": "算法刷题/创意匹配.md",
+                "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "徒步旅行补给问题"
+              "title": "创意匹配"
             }
           }
         ]
@@ -191,10 +191,11 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "6d080dc4cbb0b64f",
+  "active": "f84ce6d2fe2622cd",
   "lastOpenFiles": [
-    "md/binder/linux源码解读（二十六）：android binder原理和实现方式 - 第七子007 - 博客园.md",
     "算法刷题/徒步旅行补给问题.md",
+    "算法刷题/创意匹配.md",
+    "md/binder/linux源码解读（二十六）：android binder原理和实现方式 - 第七子007 - 博客园.md",
     "算法刷题",
     "md/binder/AndroidQ Binder通信原理(二)-Binder入门篇 - 知乎.md",
     "md/androidSource/8 Zygote进程启动流程.md",
@@ -225,7 +226,6 @@
     "md/个人/IdleHandler.md",
     "md/个人/IdleHanlder.md",
     "md/个人/inputstage.md",
-    "md/属性服务/属性服务.md",
     "pic/Pasted image 20250627100407.png",
     "md/属性服务",
     "md/wms/wms",
