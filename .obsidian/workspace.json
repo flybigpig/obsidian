@@ -11,14 +11,12 @@
             "id": "6d080dc4cbb0b64f",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "pdf",
               "state": {
-                "file": "算法刷题/创意匹配.md",
-                "mode": "preview",
-                "source": false
+                "file": "pdf/Android Framework 开发揭秘.pdf"
               },
-              "icon": "lucide-file",
-              "title": "创意匹配"
+              "icon": "lucide-file-text",
+              "title": "Android Framework 开发揭秘"
             }
           }
         ]
@@ -191,10 +189,10 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "f84ce6d2fe2622cd",
+  "active": "6d080dc4cbb0b64f",
   "lastOpenFiles": [
-    "算法刷题/徒步旅行补给问题.md",
     "算法刷题/创意匹配.md",
+    "算法刷题/徒步旅行补给问题.md",
     "md/binder/linux源码解读（二十六）：android binder原理和实现方式 - 第七子007 - 博客园.md",
     "算法刷题",
     "md/binder/AndroidQ Binder通信原理(二)-Binder入门篇 - 知乎.md",
