@@ -4,19 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "3c40f50ca56b7673",
+        "id": "180959dfb3bb60fc",
         "type": "tabs",
         "children": [
           {
-            "id": "6d080dc4cbb0b64f",
+            "id": "b9509410b60268c6",
             "type": "leaf",
             "state": {
-              "type": "pdf",
+              "type": "markdown",
               "state": {
-                "file": "pdf/Android Framework 开发揭秘.pdf"
+                "file": "hm/9.鸿蒙面试真题.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-file-text",
-              "title": "Android Framework 开发揭秘"
+              "icon": "lucide-file",
+              "title": "9.鸿蒙面试真题"
             }
           }
         ]
@@ -189,8 +191,9 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "6d080dc4cbb0b64f",
+  "active": "b9509410b60268c6",
   "lastOpenFiles": [
+    "pdf/Android Framework 开发揭秘.pdf",
     "算法刷题/创意匹配.md",
     "算法刷题/徒步旅行补给问题.md",
     "md/binder/linux源码解读（二十六）：android binder原理和实现方式 - 第七子007 - 博客园.md",
@@ -223,7 +226,6 @@
     "md/个人/IdleHanlder 原理与使用本文摘自写给应用开发的 Android Framework 教程，完整教程请查阅.md",
     "md/个人/IdleHandler.md",
     "md/个人/IdleHanlder.md",
-    "md/个人/inputstage.md",
     "pic/Pasted image 20250627100407.png",
     "md/属性服务",
     "md/wms/wms",
