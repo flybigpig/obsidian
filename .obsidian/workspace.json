@@ -14,7 +14,7 @@
               "type": "markdown",
               "state": {
                 "file": "md/HAL/ahao/传统 Hal 开发指南2 —— 传统 HAL 整体架构  Android Framework.md",
-                "mode": "source",
+                "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
@@ -193,8 +193,10 @@
   },
   "active": "b9509410b60268c6",
   "lastOpenFiles": [
-    "md/HAL/cmake.md",
+    "md/HAL/ahao/未命名.md",
     "md/HAL/ahao/传统 Hal 开发指南2 —— 传统 HAL 整体架构  Android Framework.md",
+    "pic/Pasted image 20250709100529.png",
+    "md/HAL/cmake.md",
     "md/HAL/ahao",
     "md/HAL/JNI.md",
     "md/HAL/4AndroidQ 打通应用层到HAL层---(应用层实现)_android 应用层到hal 例子-CSDN博客.md",
@@ -220,8 +222,6 @@
     "md/AndroidFrameworkTutorial/4.Hal与硬件服务/4. Hal 层接口之直通模式.md",
     "md/AndroidFrameworkTutorial/4.Hal与硬件服务/3.Hal 层添加访问 linux 驱动的接口.md",
     "md/AndroidFrameworkTutorial/4.Hal与硬件服务/2.Linux驱动开发入门.md",
-    "md/AndroidFrameworkTutorial/4.Hal与硬件服务/1.Kernel 下载与编译.md",
-    "md/AndroidFrameworkTutorial/3.学穿Binder篇/003. Binder 服务注册过程情景分析之C语言篇.md",
     "pic/Pasted image 20250701143557.png",
     "pic/Pasted image 20250701143519.png",
     "pic/Pasted image 20250701143431.png",
@@ -238,7 +238,6 @@
     "md/binder/binder机制",
     "md/systrace/perf_traces.zip",
     "pic/Pasted image 20250528145236.png",
-    "pic/Pasted image 20250528145213.png",
     "Excalidraw/未命名.canvas",
     "Excalidraw/未命名 1.canvas"
   ]

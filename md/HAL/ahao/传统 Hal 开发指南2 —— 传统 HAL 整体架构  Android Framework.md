@@ -9,7 +9,7 @@ author:
 *阿豪* *3/19/2024*
 
 本文基于 aosp android-7.0.0\_r1 版本源码讲解。
-
+![[pic/Pasted image 20250709100529.png]]
 ![20240419103259](https://cdn.jsdelivr.net/gh/stingerzou/MyImages@main/images20240419103259.png)
 
 这里以振动器（Vibrator）为例，传统 HAL 的工作流程如下：
@@ -857,3 +857,5 @@ typedef struct vibrator_device {
 ## [#](#参考资料) 参考资料
 
 +   [Android硬件抽象层HAL总结 (opens new window)](https://www.jianshu.com/p/0d155f267589)
+
+
