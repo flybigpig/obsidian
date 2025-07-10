@@ -172,7 +172,7 @@
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
@@ -191,7 +191,7 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "b9509410b60268c6",
+  "active": "9c3898f8c049b5d3",
   "lastOpenFiles": [
     "md/HAL/ahao/传统 HAL 整体架构  Android Framework.md",
     "md/framework实战/Perfetto 快速入门：在 Android 上记录跟踪.md",
