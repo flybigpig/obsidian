@@ -1,4 +1,6 @@
 
+
+
 ![[pic/Pasted image 20250710094523.png]]
 
 Google 在 Android11 觉得 HIDL 那一套有点多余，把 HIDL HAL 弃用了。并提供了新的 AIDL HAL。
