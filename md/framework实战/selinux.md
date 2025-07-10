@@ -1,5 +1,40 @@
 
+## Android Selinux 学习1
 
+
+
+本文介绍了如何处理Android系统中SELinux权限问题，通过分析logcat日志，找到avc:denied打印，确定需要添加权限的源类型和目标类型，并在相应的.te文件中添加allow规则，例如在system\_server.te中添加对tty\_device的读写权限。
+
+摘要生成于 [C知道](https://ai.csdn.net/?utm_source=cknow_pc_ai_abstract) ，由 DeepSeek-R1 满血版支持， [前往体验 >](https://ai.csdn.net/?utm_source=cknow_pc_ai_abstract)
+
+### \[Android Framework\] selinux 添加之公式
+
+* * *
+
+> 2021-8-12  
+> zhuhongxi
+
+```shell
+#1. 从logcat |grep avc中找到下面格式的打印：
+avc: denied  { 操作权限 }  for pid=7201 comm=“进程名”  scontext=u:r:源类型:s0  tcontext=u:r:目标类型:s0  tclass=访问类别  permissive=0
+
+#2. 找到添加权限的地方 一般在下面的路径，找到相应的找相应的“源类型.te ”文件，不同的芯片方案可能放的位置不一样，仅供参考
+in /device/xxx/sepolicy/common
+# 文件名如下
+[scontext].te
+
+#3. 添加的格式
+allow [scontext] [tcontext-object_r]:[tclass] [denied{}];
+
+#4. 举个例子
+avc: denied { open } for path="/dev/ttyMT0" dev="tmpfs" ino=10322 scontext=u:r:system_app:s0 tcontext=u:object_r:tty_device:s0 tclass=chr_file permissive=0
+
+# in /device/xxx/sepolicy/common目录下，一般都是在[scontext].te, 如果不存在可以grep一下有没有别人加过，都没有可以自己创建这个te文件，我这里system_app在下面这个te文件中：
+system_server.te
+
+#按照打印的各个信息添加：
+allow system_app tty_device:chr_file { read write };
+```
 
 
 ## Selinux学习二
