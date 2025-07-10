@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/framework实战/用Android Studio开发系统App---搭建开发环境.md",
+                "file": "md/SurfaceFlinger/未命名.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "用Android Studio开发系统App---搭建开发环境"
+              "title": "未命名"
             }
           }
         ]
@@ -193,8 +193,9 @@
   },
   "active": "b9509410b60268c6",
   "lastOpenFiles": [
-    "md/systrace/systrace.md",
     "md/framework实战/用Android Studio开发系统App---搭建开发环境.md",
+    "md/SurfaceFlinger/未命名.md",
+    "md/systrace/systrace.md",
     "md/framework实战/Perfetto 快速入门：在 Android 上记录跟踪.md",
     "md/HAL/ahao/传统 HAL 整体架构  Android Framework.md",
     "md/AdvancedAndroid/framework/Android视图层源码分析/Android Choreographer 源码分析 - 简书.md",
@@ -218,7 +219,6 @@
     "md/framework实战/Android 13-Input系列--InputFlinger的启动.md",
     "md/framework实战/Android 13-Binder系列--获取服务.md",
     "md/framework实战/Android 13- 获取ServiceManager.md",
-    "md/framework实战/Android 13-ServiceManager的启动.md",
     "md/framework实战",
     "pic/Pasted image 20250710094523.png",
     "pic/Pasted image 20250709100529.png",
