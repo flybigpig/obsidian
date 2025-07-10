@@ -193,8 +193,9 @@
   },
   "active": "b9509410b60268c6",
   "lastOpenFiles": [
-    "md/framework实战/Android 13- 获取ServiceManager.md",
+    "md/framework实战/Android 13-Binder系列--获取服务.md",
     "md/framework实战/未命名.md",
+    "md/framework实战/Android 13- 获取ServiceManager.md",
     "md/framework实战/Android 13-ServiceManager的启动.md",
     "md/framework实战/Android 13-Binder系列--注册服务.md",
     "md/framework实战/Android 13-自编译ROM网络连接受限.md",
@@ -220,7 +221,6 @@
     "md/framework实战",
     "md/HAL/ahao/Android 11 以后的 AIDL for Hal.md",
     "pic/Pasted image 20250710094523.png",
-    "md/HAL/ahao/Stable AIDL HAL 实战.md",
     "pic/Pasted image 20250709100529.png",
     "md/HAL/ahao",
     "pdf/Android Framework 开发揭秘.pdf",
