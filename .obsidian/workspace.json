@@ -193,8 +193,9 @@
   },
   "active": "b9509410b60268c6",
   "lastOpenFiles": [
-    "md/framework实战/VS Code android源码.md",
+    "md/framework实战/Android 源码制作jks签名文件.md",
     "md/framework实战/未命名.md",
+    "md/framework实战/VS Code android源码.md",
     "md/HAL/ahao/传统 HAL 整体架构  Android Framework.md",
     "md/framework实战",
     "md/HAL/ahao/Android 11 以后的 AIDL for Hal.md",
@@ -224,7 +225,6 @@
     "md/androidSource/6 android之Log日志.md",
     "md/androidSource/2 android异步消息机制.md",
     "md/androidSource/1  android项目构建流程.md",
-    "md/AndroidFrameworkTutorial/4.Hal与硬件服务/4. Hal 层接口之直通模式.md",
     "pic/Pasted image 20250701143557.png",
     "pic/Pasted image 20250701143519.png",
     "pic/Pasted image 20250701143431.png",
