@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/framework实战/未命名.md",
+                "file": "md/framework实战/开机动画.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "未命名"
+              "title": "开机动画"
             }
           }
         ]
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "md/Activity/Activity启动过程.md",
+                "file": "md/framework实战/开机动画.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Activity启动过程 的大纲"
+              "title": "开机动画 的大纲"
             }
           },
           {
@@ -176,7 +176,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 263.5
+    "width": 278.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -191,10 +191,10 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "b9509410b60268c6",
+  "active": "f84ce6d2fe2622cd",
   "lastOpenFiles": [
     "md/framework实战/PMS-PowerManagerService.md",
-    "md/framework实战/未命名.md",
+    "md/framework实战/开机动画.md",
     "md/framework实战/Input系统触摸事件分.md",
     "md/framework实战/Input系统触摸事件.md",
     "md/framework实战/Android 12添加系统服务.md",
