@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/framework实战/Android怎么开发Input系统触摸事件分发.md",
+                "file": "md/framework实战/Input系统触摸事件.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Android怎么开发Input系统触摸事件分发"
+              "title": "Input系统触摸事件"
             }
           }
         ]
@@ -191,10 +191,10 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "b9509410b60268c6",
+  "active": "f84ce6d2fe2622cd",
   "lastOpenFiles": [
-    "md/framework实战/Input系统触摸事件分发.md",
-    "md/framework实战/Android怎么开发Input系统触摸事件分发.md",
+    "md/framework实战/Input系统触摸事件分.md",
+    "md/framework实战/Input系统触摸事件.md",
     "md/framework实战/Android 12添加系统服务.md",
     "md/framework实战/Android Input事件在应用中的传递.md",
     "md/framework实战/Stable AIDL HAL 实战.md",
