@@ -455,6 +455,7 @@ AI代码助手
 
 #### 2.1 寻找触摸的窗口
 
+```
 InputEventInjectionResult InputDispatcher::findTouchedWindowTargetsLocked(
         nsecs_t currentTime, const MotionEntry& entry, std::vector<InputTarget>& inputTargets,
         nsecs_t* nextWakeupTime, bool* outConflictingPointerActions) {
@@ -587,6 +588,7 @@ Failed:
     } 
     return injectionResult;
 }
+```
 
 AI代码助手
 
@@ -619,6 +621,7 @@ gesture monitor 是为了实现手势功能而添加的一个窗口。什么是�
 当分析的代码量很大的时候，我们需要有一个整体的观念。为触摸事件寻找触摸窗口，最终的结果就是把找到的窗口保存到参数 inputTargets 中，后面会把事件分发给 inputTargets 保存的窗口。
 
 ##### 2.1.1 根据坐标找到触摸窗口
+```
 
 // addOutsideTargets 在第一个手指按下是为 true
 // addPortalWindows 值为 true
@@ -685,6 +688,7 @@ sp<InputWindowHandle> InputDispatcher::findTouchedWindowAtLocked(int32_t displ
     }
     return nullptr;
 }
+```
 
 AI代码助手
 
@@ -709,8 +713,8 @@ AI代码助手
     
 
 ##### 2.1.2 保存窗口
-
-// InputDispatcher 保存触摸窗口
+```
+/ InputDispatcher 保存触摸窗口
 void InputDispatcher::addWindowTargetLocked(const sp<InputWindowHandle>& windowHandle,
                                             int32_t targetFlags, BitSet32 pointerIds,
                                             std::vector<InputTarget>& inputTargets) {
@@ -756,6 +760,7 @@ void InputDispatcher::addMonitoringTargetLocked(const Monitor& monitor, floa
     target.setDefaultPointerTransform(t);
     inputTargets.push_back(target);
 }
+```
 
 AI代码助手
 
