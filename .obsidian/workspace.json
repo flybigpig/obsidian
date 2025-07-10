@@ -193,8 +193,9 @@
   },
   "active": "b9509410b60268c6",
   "lastOpenFiles": [
-    "md/framework实战/Android 13-Binder系列--获取服务.md",
+    "md/framework实战/Android 13-Input系列--InputFlinger的启动.md",
     "md/framework实战/未命名.md",
+    "md/framework实战/Android 13-Binder系列--获取服务.md",
     "md/framework实战/Android 13- 获取ServiceManager.md",
     "md/framework实战/Android 13-ServiceManager的启动.md",
     "md/framework实战/Android 13-Binder系列--注册服务.md",
@@ -219,7 +220,6 @@
     "md/framework实战/Android 调试之dumpsys收集.md",
     "md/HAL/ahao/传统 HAL 整体架构  Android Framework.md",
     "md/framework实战",
-    "md/HAL/ahao/Android 11 以后的 AIDL for Hal.md",
     "pic/Pasted image 20250710094523.png",
     "pic/Pasted image 20250709100529.png",
     "md/HAL/ahao",
