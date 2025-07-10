@@ -138,9 +138,7 @@ AsSystemApp
 └── app.apk
 ```
 
-1  
-2  
-3  
+
 
 其中 app.apk 是我们用 Android Studio 打包好的 apk 安装包。Android.mk 的内容如下(Android10 下，Android.bp 貌似还不支持引入 apk，实测 Android13 是没问题的，这里就使用 Android.mk 了)：
 
