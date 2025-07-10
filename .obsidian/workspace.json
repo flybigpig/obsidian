@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/framework实战/Input系列–获取触摸窗口.md",
-                "mode": "preview",
+                "file": "md/framework实战/Input系统触摸事件分发.md",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Input系列–获取触摸窗口"
+              "title": "Input系统触摸事件分发"
             }
           }
         ]
@@ -194,7 +194,7 @@
   "active": "b9509410b60268c6",
   "lastOpenFiles": [
     "md/framework实战/Android 12添加系统服务.md",
-    "md/framework实战/Input系列–获取触摸窗口.md",
+    "md/framework实战/Input系统触摸事件分发.md",
     "md/framework实战/Android Input事件在应用中的传递.md",
     "md/framework实战/Stable AIDL HAL 实战.md",
     "md/framework实战/VS Code android源码.md",
