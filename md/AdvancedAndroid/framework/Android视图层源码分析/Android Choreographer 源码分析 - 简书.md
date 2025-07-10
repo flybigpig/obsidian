@@ -28,7 +28,10 @@ Choreographer接收显示系统的时间脉冲(垂直同步信号-VSync信号)�
 Choreographer中文翻译过来是**"舞蹈指挥"**，字面上的意思就是优雅地指挥以上三个UI操作一起跳一支舞。这个词可以概括这个类的工作，如果android系统是一场芭蕾舞，他就是Android UI显示这出精彩舞剧的编舞，指挥台上的演员们相互合作，精彩演出。Google的工程师看来挺喜欢舞蹈的！  
 好了废话不多说，下面让我们来看看剧本是怎么设计的，Let's Read the fucking source code!  
 Choreographer的源码位于android.view这个pakage中，是view层框架的一部分，Android studio里面搜一下就可以看到源码了。  
-首先看看头部的一些说明，大体了解一下这个类是干嘛的，有助于我们理解接下来的源码。 和官网的文档是一样的，应该就是用这个生成的，和上面一部分相比介绍了Choreographer的使用接口。开发者可以使用Choreographer#postFrameCallback设置自己的callback与Choreographer交互，你设置的callCack会在下一个frame被渲染时触发。Callback有4种类型，Input、Animation、Draw，还有一种是用来解决动画启动问题的，将在下文介绍。这四种操作都是这么触发的。  
+首先看看头部的一些说明，大体了解一下这个类是干嘛的，有助于我们理解接下来的源码。 和官网的文档是一样的，应该就是用这个生成的，和上面一部分相比介绍了Choreographer的使用接口。                                                                                                                                                                              
+
+开发者可以使用Choreographer#postFrameCallback设置自己的callback与Choreographer交互，你设置的callCack会在下一个frame被渲染时触发。Callback有4种类型，Input、Animation、Draw，还有一种是用来解决动画启动问题的，将在下文介绍。这四种操作都是这么触发的。
+
 如下图：  
 
 ![](https://upload-images.jianshu.io/upload_images/1688934-c016950ceaa989df.png?imageMogr2/auto-orient/strip|imageView2/2/w/821/format/webp)
