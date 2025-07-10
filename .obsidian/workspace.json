@@ -14,7 +14,7 @@
               "type": "markdown",
               "state": {
                 "file": "md/HAL/ahao/传统 HAL 整体架构  Android Framework.md",
-                "mode": "preview",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
@@ -191,7 +191,7 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "f84ce6d2fe2622cd",
+  "active": "b9509410b60268c6",
   "lastOpenFiles": [
     "md/HAL/ahao/Android 11 以后的 AIDL for Hal.md",
     "pic/Pasted image 20250710094523.png",

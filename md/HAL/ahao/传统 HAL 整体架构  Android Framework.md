@@ -12,6 +12,7 @@ author:
 ![[pic/Pasted image 20250709100529.png]]
 ![20240419103259](https://cdn.jsdelivr.net/gh/stingerzou/MyImages@main/images20240419103259.png)
 
+
 这里以振动器（Vibrator）为例，传统 HAL 的工作流程如下：
 
 +   SystemServer 启动时，注册 Binder 服务 VibratorService
