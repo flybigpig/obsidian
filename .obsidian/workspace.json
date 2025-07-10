@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/HAL/ahao/Android 11 以后的 AIDL for Hal.md",
+                "file": "md/HAL/ahao/传统 HAL 整体架构  Android Framework.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Android 11 以后的 AIDL for Hal"
+              "title": "传统 HAL 整体架构  Android Framework"
             }
           }
         ]
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "md/HAL/ahao/Android 11 以后的 AIDL for Hal.md",
+                "file": "md/HAL/ahao/传统 HAL 整体架构  Android Framework.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Android 11 以后的 AIDL for Hal 的大纲"
+              "title": "传统 HAL 整体架构  Android Framework 的大纲"
             }
           },
           {
@@ -193,12 +193,12 @@
   },
   "active": "b9509410b60268c6",
   "lastOpenFiles": [
-    "md/HAL/ahao/Stable AIDL HAL 实战.md",
     "md/HAL/ahao/Android 11 以后的 AIDL for Hal.md",
+    "md/HAL/ahao/传统 HAL 整体架构  Android Framework.md",
+    "md/HAL/ahao/Stable AIDL HAL 实战.md",
     "md/zygote/Android系统启动——5 zyogte进程(Java篇)-腾讯云开发者社区-腾讯云.md",
     "md/zygote/父子进程的故事：解读Linux中的fork机制-腾讯云开发者社区-腾讯云.md",
     "conflict-files-obsidian-git.md",
-    "md/HAL/ahao/传统 HAL 整体架构  Android Framework.md",
     "md/framework实战/Android 13-Input系列--InputReader事件处理.md",
     "md/framework实战/SELinux for Android的基本知识和实战_selinux权限里面type什么意思android-CSDN博客.md",
     "md/framework实战/开机日志分析积累_timingstraceandslog-CSDN博客.md",
