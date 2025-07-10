@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/HAL/ahao/传统 HAL 整体架构  Android Framework.md",
+                "file": "md/framework实战/Perfetto 快速入门：在 Android 上记录跟踪.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "传统 HAL 整体架构  Android Framework"
+              "title": "Perfetto 快速入门：在 Android 上记录跟踪"
             }
           }
         ]
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "md/HAL/ahao/传统 HAL 整体架构  Android Framework.md",
+                "file": "md/framework实战/Perfetto 快速入门：在 Android 上记录跟踪.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "传统 HAL 整体架构  Android Framework 的大纲"
+              "title": "Perfetto 快速入门：在 Android 上记录跟踪 的大纲"
             }
           },
           {
@@ -191,11 +191,12 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "fa4657deb406b728",
+  "active": "b9509410b60268c6",
   "lastOpenFiles": [
+    "md/HAL/ahao/传统 HAL 整体架构  Android Framework.md",
+    "md/framework实战/Perfetto 快速入门：在 Android 上记录跟踪.md",
     "md/AdvancedAndroid/framework/Android视图层源码分析/Android Choreographer 源码分析 - 简书.md",
     "md/HAL/ahao/Android 11 以后的 AIDL for Hal.md",
-    "md/HAL/ahao/传统 HAL 整体架构  Android Framework.md",
     "md/HAL/ahao/Stable AIDL HAL 实战.md",
     "md/zygote/Android系统启动——5 zyogte进程(Java篇)-腾讯云开发者社区-腾讯云.md",
     "md/zygote/父子进程的故事：解读Linux中的fork机制-腾讯云开发者社区-腾讯云.md",
@@ -218,7 +219,6 @@
     "md/framework实战/Android 13-ServiceManager的启动.md",
     "md/framework实战/Android 13-Binder系列--注册服务.md",
     "md/framework实战/Android 13-自编译ROM网络连接受限.md",
-    "md/framework实战/Android 13-开机动画.md",
     "md/framework实战",
     "pic/Pasted image 20250710094523.png",
     "pic/Pasted image 20250709100529.png",
