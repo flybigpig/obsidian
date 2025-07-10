@@ -1,7 +1,6 @@
 
-![](https://img-home.csdnimg.cn/images/20240711042549.png) 本文介绍了如何在Android Studio中控制应用程序在debug和release模式下日志的打印。通过检查BuildConfig.DEBUG的值，可以在debug模式下打印Log，并利用Log.isLoggable方法结合adb shell命令设置特定tag的日志级别，从而在release环境中抑制不必要的日志输出。示例代码展示了如何在日志级别达到VERBOSE时打印特定tag的日志，并提供了adb命令来开启或关闭特定tag的日志打印。
+本文介绍了如何在Android Studio中控制应用程序在debug和release模式下日志的打印。通过检查BuildConfig.DEBUG的值，可以在debug模式下打印Log，并利用Log.isLoggable方法结合adb shell命令设置特定tag的日志级别，从而在release环境中抑制不必要的日志输出。示例代码展示了如何在日志级别达到VERBOSE时打印特定tag的日志，并提供了adb命令来开启或关闭特定tag的日志打印。
 
-摘要生成于 [C知道](https://ai.csdn.net/?utm_source=cknow_pc_ai_abstract) ，由 DeepSeek-R1 满血版支持， [前往体验 >](https://ai.csdn.net/?utm_source=cknow_pc_ai_abstract)
 
 AndroidStudio中：
 
