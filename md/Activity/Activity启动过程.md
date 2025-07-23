@@ -106,4 +106,16 @@ ATMS 内部代码非常繁琐，涉及多种情景的处理，直接分析代码
 
 Activity 启动是一个 RPC 过程，涉及到 App 进程和 SystemServer 进程，本节我们主要关心 App 进程（客户端）中的流程。
 
-  
+
+情景一：从Launcher页面点击App图标启动一个全新的App（冷启动）
+冷启动是指应用进程尚未启动的情况下，用户点击Launcher图标启动应用的过程。此时，Android系统需要创建一个新的应用进程，并启动目标Activity。
+
+启动过程：
+
+用户点击App图标后，Launcher通过startActivity发起一个Intent。
+这个Intent会传递到ActivityTaskManagerService (ATMS) 处理。ATMS负责管理和调度所有应用的Activity栈。
+ATMS检查应用进程是否存在。在冷启动情况下，应用进程不存在，因此ATMS需要创建一个新的应用进程。
+应用进程创建：
+
+ATMS调用ActivityManagerService（AMS）的startProcess方法，通过Zygote进程孵化一个新的应用进程。
+新的应用进程启动后，ActivityThread类接管控制，并调用handle
