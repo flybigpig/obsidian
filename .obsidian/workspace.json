@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "drives/Ubuntu编写简单驱动测试程序.md",
+                "file": "drives/未命名.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Ubuntu编写简单驱动测试程序"
+              "title": "未命名"
             }
           }
         ]
@@ -193,6 +193,8 @@
   },
   "active": "b9509410b60268c6",
   "lastOpenFiles": [
+    "drives/Ubuntu编写简单驱动测试程序.md",
+    "drives/未命名.md",
     "md/个人/未命名 2.md",
     "else/Ubuntu22.04安装、配置、美化、软件安装、配置开发环境_ubuntu安装星火应用商店-CSDN博客.md",
     "else/Ubuntu20.04换源教程、解决主机与虚拟机之间进行文本复制粘贴问题_ubuntu 换源-CSDN博客.md",
@@ -217,8 +219,6 @@
     "md/framework实战/Android调试之ADB基本指令收集-CSDN博客.md",
     "md/framework实战/OTA之流式更新及shell实现_流式升级-CSDN博客.md",
     "md/framework实战/Input系统触摸事件分.md",
-    "md/framework实战/Android Log模块学习.md",
-    "md/framework实战/android 11 移除桌面搜索栏.md",
     "md/framework实战",
     "pic/Pasted image 20250710094523.png",
     "pic/Pasted image 20250709100529.png",
