@@ -76,8 +76,12 @@ ATMS 通过 AIDL 实现，相关类的类图如下：
 
 在 App 进程启动的过程中，会初始化一个匿名 Java Binder 服务 ApplicationThread，ATMS 可以通过调用 ApplicationThread 的 Binder 客户端对象提供的接口，远程调用到 App 端，更新 Activity 的状态：
 
-```cobol
-bindApplicationscheduleTransactionscheduleLowMemoryscheduleSleeping//......
+```
+bindApplication
+scheduleTransaction
+scheduleLowMemory
+scheduleSleeping
+//......
 ```
 
 ![228438728be18bc8271685387b79f58c.png](https://img-blog.csdnimg.cn/img_convert/228438728be18bc8271685387b79f58c.png)
