@@ -20,19 +20,32 @@
     当构造 ProcessState 并打开 binder 驱动之时，会调用到驱动层的 binder_open () 函数，而 binder_proc 就是在 binder_open () 函数中创建的。新创建的 binder_proc 会作为一个节点，插入一个总链表（binder_procs）中。
 ```
 
-```
-
-```
-
-```
 具体代码可参考 
-```
 
 ```
-kernel/drivers/staging/android/Binder.c。驱动层的 binder_open () 的代码如下：
+kernel/drivers/staging/android/Binder.c。
 ```
 
-`static int binder_open(struct inode *nodp, struct file *filp)   {       struct binder_proc *proc;           . . . . . .       proc = kzalloc(sizeof(*proc), GFP_KERNEL);             get_task_struct(current);       proc->tsk = current;       . . . . . .       hlist_add_head(&proc->proc_node, &binder_procs);       proc->pid = current->group_leader->pid;       . . . . . .       filp->private_data = proc;       . . . . . .   }   `
+驱动层的 binder_open () 的代码如下：
+
+```
+static int binder_open(struct inode *nodp, struct file *filp)  
+{  
+    struct binder_proc *proc;  
+   
+    . . . . . .  
+    proc = kzalloc(sizeof(*proc), GFP_KERNEL);  
+     
+    get_task_struct(current);  
+    proc->tsk = current;  
+    . . . . . .  
+    hlist_add_head(&proc->proc_node, &binder_procs);  
+    proc->pid = current->group_leader->pid;  
+    . . . . . .  
+    filp->private_data = proc;  
+    . . . . . .  
+}
+```
 
 注意，新创建的 binder_proc 会被记录在参数 filp 的 private_data 域中，以后每次执行 binder_ioctl ()，都会从 filp->private_data 域重新读取 binder_proc 的。
 
@@ -58,7 +71,19 @@ binder_procs 总表的定义如下：
 
 binder_proc 里含有很多重要内容，不过目前我们只需关心其中的几个域：
 
-`struct binder_proc   {       struct hlist_node proc_node;       struct rb_root threads;       struct rb_root nodes;       struct rb_root refs_by_desc;       struct rb_root refs_by_node;       int pid;       . . . . . .       . . . . . .   };   `
+```
+struct binder_proc  
+{  
+    struct hlist_node proc_node;  
+    struct rb_root threads;  
+    struct rb_root nodes;  
+    struct rb_root refs_by_desc;  
+    struct rb_root refs_by_node;  
+    int pid;  
+    . . . . . .  
+    . . . . . .  
+};
+```
 
 注意其中的那 4 个 rb_root 域，“rb” 的意思是 “red black”，可见 binder_proc 里搞出了 4 个红黑树。![在这里插入图片描述](https://mmbiz.qpic.cn/sz_mmbiz_png/DYicOkJDdA2qlA9kz6Nictkr1gbmkQS25E12aqzwq40LUqTGRdO9icSIx9cuEe4n6IGm32sfskrRC4YeUKJTDaJ5w/640?wx_fmt=png&from=appmsg&randomid=if3rbidk&watermark=1&tp=webp&wxfrom=5&wx_lazy=1)
 
@@ -78,17 +103,71 @@ binder_proc 里含有很多重要内容，不过目前我们只需关心其中�
 
 rb_node 和 rb_root 的定义如下：
 
-`struct rb_node   {       unsigned long  rb_parent_color;   #define RB_RED      0   #define RB_BLACK    1       struct rb_node *rb_right;       struct rb_node *rb_left;   } __attribute__((aligned(sizeof(long))));       /* The alignment might seem pointless, but allegedly CRIS needs it */       struct rb_root   {       struct rb_node *rb_node;   };   `
+```
+struct rb_node  
+{  
+    unsigned long  rb_parent_color;  
+#define RB_RED      0  
+#define RB_BLACK    1  
+    struct rb_node *rb_right;  
+    struct rb_node *rb_left;  
+} __attribute__((aligned(sizeof(long))));  
+    /* The alignment might seem pointless, but allegedly CRIS needs it */  
+   
+struct rb_root  
+{  
+    struct rb_node *rb_node;  
+};
+```
 
 binder_node 的定义如下：
 
-`struct binder_node   {       int debug_id;       struct binder_work work;       union {           struct rb_node rb_node;           struct hlist_node dead_node;       };       struct binder_proc *proc;       struct hlist_head refs;       int internal_strong_refs;       int local_weak_refs;       int local_strong_refs;       void __user *ptr;       // 注意这个域！       void __user *cookie;    // 注意这个域！       unsigned has_strong_ref:1;       unsigned pending_strong_ref:1;       unsigned has_weak_ref:1;       unsigned pending_weak_ref:1;       unsigned has_async_transaction:1;       unsigned accept_fds:1;       unsigned min_priority:8;       struct list_head async_todo;   };   `
+```
+struct binder_node  
+{  
+    int debug_id;  
+    struct binder_work work;  
+    union {  
+        struct rb_node rb_node;  
+        struct hlist_node dead_node;  
+    };  
+    struct binder_proc *proc;  
+    struct hlist_head refs;  
+    int internal_strong_refs;  
+    int local_weak_refs;  
+    int local_strong_refs;  
+    void __user *ptr;       // 注意这个域！  
+    void __user *cookie;    // 注意这个域！  
+    unsigned has_strong_ref:1;  
+    unsigned pending_strong_ref:1;  
+    unsigned has_weak_ref:1;  
+    unsigned pending_weak_ref:1;  
+    unsigned has_async_transaction:1;  
+    unsigned accept_fds:1;  
+    unsigned min_priority:8;  
+    struct list_head async_todo;  
+};
+```
 
 我们前文已经说过，nodes 树是用于记录 binder 实体的，所以 nodes 树中的每个 binder_node 节点，必须能够记录下相应 binder 实体的信息。因此请大家注意 binder_node 的 ptr 域和 cookie 域。
 
 另一方面，refs_by_desc 树和 refs_by_node 树的每个 binder_ref 节点则和上层的一个 BpBinder 对应，而且更重要的是，它必须具有和 “目标 binder 实体的 binder_node” 进行关联的信息。binder_ref 的定义如下：
 
-`struct binder_ref   {       int debug_id;       struct rb_node rb_node_desc;       struct rb_node rb_node_node;       struct hlist_node node_entry;       struct binder_proc *proc;       struct binder_node *node;   // 注意这个node域       uint32_t desc;       int strong;       int weak;       struct binder_ref_death *death;   };   `
+```
+struct binder_ref  
+{  
+    int debug_id;  
+    struct rb_node rb_node_desc;  
+    struct rb_node rb_node_node;  
+    struct hlist_node node_entry;  
+    struct binder_proc *proc;  
+    struct binder_node *node;   // 注意这个node域  
+    uint32_t desc;  
+    int strong;  
+    int weak;  
+    struct binder_ref_death *death;  
+};
+```
 
 请注意那个 node 域，它负责和 binder_node 关联。另外，binder_ref 中有两个类型为 rb_node 的域：rb_node_desc 域和 rb_node_node 域，它们分别用于连接 refs_by_desc 树和 refs_by_node。也就是说虽然 binder_proc 中有两棵引用树，但这两棵树用到的具体 binder_ref 节点其实是复用的。
 
@@ -118,31 +197,170 @@ OK，现在我们可以更深入地说明 binder 句柄的作用了，比如进�
 
 每当我们利用 BpBinder 的 transact () 函数发起一次跨进程事务时，其内部其实是调用 IPCThreadState 对象的 transact ()。BpBinder 的 transact () 代码如下：
 
-`status_t BpBinder::transact(uint32_t code, const Parcel& data,   Parcel* reply, uint32_t flags)   {       // Once a binder has died, it will never come back to life.       if (mAlive)       {           status_t status = IPCThreadState::self()->transact(mHandle, code, data, reply, flags);           if (status == DEAD_OBJECT) mAlive = 0;           return status;       }           return DEAD_OBJECT;   }   `
+```
+status_t BpBinder::transact(uint32_t code, const Parcel& data,  
+Parcel* reply, uint32_t flags)  
+{  
+    // Once a binder has died, it will never come back to life.  
+    if (mAlive)  
+    {  
+        status_t status = IPCThreadState::self()->transact(mHandle, code, data, reply, flags);  
+        if (status == DEAD_OBJECT) mAlive = 0;  
+        return status;  
+    }  
+   
+    return DEAD_OBJECT;  
+}
+```
 
 当然，进程中的一个 BpBinder 有可能被多个线程使用，所以发起传输的 IPCThreadState 对象可能并不是同一个对象，但这没有关系，因为这些 IPCThreadState 对象最终使用的是同一个 ProcessState 对象。
 
 #### 2.1.1 调用 IPCThreadState 的 transact ()
 
-`status_t IPCThreadState::transact(int32_t handle,                                     uint32_t code, const Parcel& data,                                     Parcel* reply, uint32_t flags)   {       . . . . . .           // 把data数据整理进内部的mOut包中           err = writeTransactionData(BC_TRANSACTION, flags, handle, code, data, NULL);       . . . . . .             if ((flags & TF_ONE_WAY) == 0)       {           . . . . . .           if (reply)           {               err = waitForResponse(reply);           }           else           {               Parcel fakeReply;               err = waitForResponse(&fakeReply);           }           . . . . . .       }       else       {           err = waitForResponse(NULL, NULL);       }             return err;   }   `
+```
+status_t IPCThreadState::transact(int32_t handle,  
+                                  uint32_t code, const Parcel& data,  
+                                  Parcel* reply, uint32_t flags)  
+{  
+    . . . . . .  
+        // 把data数据整理进内部的mOut包中  
+        err = writeTransactionData(BC_TRANSACTION, flags, handle, code, data, NULL);  
+    . . . . . .  
+     
+    if ((flags & TF_ONE_WAY) == 0)  
+    {  
+        . . . . . .  
+        if (reply)  
+        {  
+            err = waitForResponse(reply);  
+        }  
+        else  
+        {  
+            Parcel fakeReply;  
+            err = waitForResponse(&fakeReply);  
+        }  
+        . . . . . .  
+    }  
+    else  
+    {  
+        err = waitForResponse(NULL, NULL);  
+    }  
+     
+    return err;  
+}
+```
 
 IPCThreadState::transact () 会先调用 writeTransactionData () 函数将 data 数据整理进内部的 mOut 包中，这个函数的代码如下：
 
-`status_t IPCThreadState::writeTransactionData(int32_t cmd, uint32_t binderFlags,                                                 int32_t handle, uint32_t code,                                                 const Parcel& data, status_t* statusBuffer)   {       binder_transaction_data tr;           tr.target.handle = handle;       tr.code = code;       tr.flags = binderFlags;       tr.cookie = 0;       tr.sender_pid = 0;       tr.sender_euid = 0;             . . . . . .           tr.data_size = data.ipcDataSize();           tr.data.ptr.buffer = data.ipcData();           tr.offsets_size = data.ipcObjectsCount()*sizeof(size_t);           tr.data.ptr.offsets = data.ipcObjects();       . . . . . .             mOut.writeInt32(cmd);       mOut.write(&tr, sizeof(tr));             return NO_ERROR;   }   `
+```
+status_t IPCThreadState::writeTransactionData(int32_t cmd, uint32_t binderFlags,  
+                                              int32_t handle, uint32_t code,  
+                                              const Parcel& data, status_t* statusBuffer)  
+{  
+    binder_transaction_data tr;  
+   
+    tr.target.handle = handle;  
+    tr.code = code;  
+    tr.flags = binderFlags;  
+    tr.cookie = 0;  
+    tr.sender_pid = 0;  
+    tr.sender_euid = 0;  
+     
+    . . . . . .  
+        tr.data_size = data.ipcDataSize();  
+        tr.data.ptr.buffer = data.ipcData();  
+        tr.offsets_size = data.ipcObjectsCount()*sizeof(size_t);  
+        tr.data.ptr.offsets = data.ipcObjects();  
+    . . . . . .  
+     
+    mOut.writeInt32(cmd);  
+    mOut.write(&tr, sizeof(tr));  
+     
+    return NO_ERROR;  
+}
+```
 
 接着 IPCThreadState::transact () 会考虑本次发起的事务是否需要回复。“不需要等待回复的” 事务，在其 flag 标志中会含有 TF_ONE_WAY，表示一去不回头。而 “需要等待回复的”，则需要在传递时提供记录回复信息的 Parcel 对象，一般发起 transact () 的用户会提供这个 Parcel 对象，如果不提供，transact () 函数内部会临时构造一个假的 Parcel 对象。
 
 上面代码中，实际完成跨进程事务的是 waitForResponse () 函数，这个函数的命名不太好，但我们也不必太在意，反正 Android 中写得不好的代码多了去了，又不只多这一处。waitForResponse () 的代码截选如下：
 
-`status_t IPCThreadState::waitForResponse(Parcel *reply, status_t *acquireResult)   {       int32_t cmd;       int32_t err;           while (1)       {           // talkWithDriver()内部会完成跨进程事务           if ((err = talkWithDriver()) < NO_ERROR)               break;                     // 事务的回复信息被记录在mIn中，所以需要进一步分析这个回复           . . . . . .           cmd = mIn.readInt32();           . . . . . .           switch (cmd)           {           case BR_TRANSACTION_COMPLETE:               if (!reply && !acquireResult) goto finish;               break;                     case BR_DEAD_REPLY:               err = DEAD_OBJECT;               goto finish;               case BR_FAILED_REPLY:               err = FAILED_TRANSACTION;               goto finish;           . . . . . .           . . . . . .           default:               // 注意这个executeCommand()噢，它会处理BR_TRANSACTION的。               err = executeCommand(cmd);               if (err != NO_ERROR) goto finish;               break;           }       }       finish:       . . . . . .       return err;   }   `
-
+```
+status_t IPCThreadState::waitForResponse(Parcel *reply, status_t *acquireResult)  
+{  
+    int32_t cmd;  
+    int32_t err;  
+   
+    while (1)  
+    {  
+        // talkWithDriver()内部会完成跨进程事务  
+        if ((err = talkWithDriver()) < NO_ERROR)  
+            break;  
+         
+        // 事务的回复信息被记录在mIn中，所以需要进一步分析这个回复  
+        . . . . . .  
+        cmd = mIn.readInt32();  
+        . . . . . .  
+        switch (cmd)  
+        {  
+        case BR_TRANSACTION_COMPLETE:  
+            if (!reply && !acquireResult) goto finish;  
+            break;  
+         
+        case BR_DEAD_REPLY:  
+            err = DEAD_OBJECT;  
+            goto finish;  
+   
+        case BR_FAILED_REPLY:  
+            err = FAILED_TRANSACTION;  
+            goto finish;  
+        . . . . . .  
+        . . . . . .  
+        default:  
+            // 注意这个executeCommand()噢，它会处理BR_TRANSACTION的。  
+            err = executeCommand(cmd);  
+            if (err != NO_ERROR) goto finish;  
+            break;  
+        }  
+    }  
+   
+finish:  
+    . . . . . .  
+    return err;  
+}
+```
 #### 2.1.2 talkWithDriver()
 
 waitForResponse () 中是通过调用 talkWithDriver () 来和 binder 驱动打交道的，说到底会调用 ioctl () 函数。因为 ioctl () 函数在传递 BINDER_WRITE_READ 语义时，既会使用 “输入 buffer”，也会使用 “输出 buffer”，所以 IPCThreadState 专门搞了两个 Parcel 类型的成员变量：mIn 和 mOut。总之就是，mOut 中的内容发出去，发送后的回复写进 mIn。
 
 talkWithDriver () 的代码截选如下：
 
-`status_t IPCThreadState::talkWithDriver(bool doReceive)   {       . . . . . .       binder_write_read bwr;             . . . . . .       bwr.write_size = outAvail;       bwr.write_buffer = (long unsigned int)mOut.data();       . . . . . .           bwr.read_size = mIn.dataCapacity();           bwr.read_buffer = (long unsigned int)mIn.data();       . . . . . .       . . . . . .       do       {           . . . . . .           if (ioctl(mProcess->mDriverFD, BINDER_WRITE_READ, &bwr) >= 0)               err = NO_ERROR;           . . . . . .       } while (err == -EINTR);           . . . . . .       . . . . . .       return err;   }   `
+```
+status_t IPCThreadState::talkWithDriver(bool doReceive)  
+{  
+    . . . . . .  
+    binder_write_read bwr;  
+     
+    . . . . . .  
+    bwr.write_size = outAvail;  
+    bwr.write_buffer = (long unsigned int)mOut.data();  
+    . . . . . .  
+        bwr.read_size = mIn.dataCapacity();  
+        bwr.read_buffer = (long unsigned int)mIn.data();  
+    . . . . . .  
+    . . . . . .  
+    do  
+    {  
+        . . . . . .  
+        if (ioctl(mProcess->mDriverFD, BINDER_WRITE_READ, &bwr) >= 0)  
+            err = NO_ERROR;  
+        . . . . . .  
+    } while (err == -EINTR);  
+   
+    . . . . . .  
+    . . . . . .  
+    return err;  
+}
+```
 
 看到了吗？mIn 和 mOut 的 data 会先整理进一个 binder_write_read 结构，然后再传给 ioctl () 函数。而最关键的一句，当然就是那句 ioctl () 了。此时使用的文件描述符就是前文我们说的 ProcessState 中记录的 mDriverFD，说明是向 binder 驱动传递语义。BINDER_WRITE_READ 表示我们希望读写一些数据。
 
