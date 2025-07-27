@@ -11,14 +11,12 @@
             "id": "b9509410b60268c6",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "image",
               "state": {
-                "file": "else/六勤.md",
-                "mode": "source",
-                "source": false
+                "file": "pic/liuqin.jpg"
               },
-              "icon": "lucide-file",
-              "title": "六勤"
+              "icon": "lucide-image",
+              "title": "liuqin"
             }
           }
         ]
@@ -142,13 +140,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "else/六勤.md",
+                "file": "pic/liuqin.jpg",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "六勤 的大纲"
+              "title": "liuqin 的大纲"
             }
           },
           {
@@ -191,10 +189,21 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "b9509410b60268c6",
+  "active": "fa4657deb406b728",
   "lastOpenFiles": [
-    "else/曾国藩的“六戒五勤”（收藏）.md",
+    "else/曾国藩.md",
+    "pic/liuqin.jpg",
+    "!pic/liuqin.png.md",
+    "!pic",
+    "else/未命名 1.md",
+    "else/could not read Username for ‘httpse.coding.net‘ No such file or directory-CSDN博客.md",
+    "else/csdn保存.md",
+    "pic/6b5710bda24ee1fd270ddd2da769d63.png",
+    "pic/e1fe8d3703d5038b2bd15153c1bf7c7.png",
+    "Pasted image 20250727082727.png",
+    "Pasted image 20250727082725.png",
     "else/六勤.md",
+    "else/曾国藩的“六戒五勤”（收藏）.md",
     "md/framework实战/随笔-HAL回调接口.md",
     "md/framework实战/手机主流Framework工作业务部门.md",
     "md/framework实战/Android Framework 开发经验.md",
@@ -206,7 +215,6 @@
     "else/Ubuntu20.04换源教程、解决主机与虚拟机之间进行文本复制粘贴问题_ubuntu 换源-CSDN博客.md",
     "else/Git无法上传删除 Commit里面有大文件_git移出commit的大文件-CSDN博客.md",
     "else/git 报错.md",
-    "else/未命名 1.md",
     "md/framework实战/Android10 全量编译  增量编译.md",
     "md/SurfaceFlinger/SurfaceFlinger 的核心作用.md",
     "md/framework实战/用Android Studio开发系统App---搭建开发环境.md",
@@ -214,11 +222,6 @@
     "md/framework实战/Perfetto 快速入门：在 Android 上记录跟踪.md",
     "md/HAL/ahao/传统 HAL 整体架构  Android Framework.md",
     "md/AdvancedAndroid/framework/Android视图层源码分析/Android Choreographer 源码分析 - 简书.md",
-    "md/HAL/ahao/Android 11 以后的 AIDL for Hal.md",
-    "md/HAL/ahao/Stable AIDL HAL 实战.md",
-    "md/zygote/Android系统启动——5 zyogte进程(Java篇)-腾讯云开发者社区-腾讯云.md",
-    "md/zygote/父子进程的故事：解读Linux中的fork机制-腾讯云开发者社区-腾讯云.md",
-    "conflict-files-obsidian-git.md",
     "md/framework实战",
     "pic/Pasted image 20250710094523.png",
     "pic/Pasted image 20250709100529.png",
@@ -228,17 +231,11 @@
     "pic/Pasted image 20250701143557.png",
     "pic/Pasted image 20250701143519.png",
     "pic/Pasted image 20250701143431.png",
-    "pic/Pasted image 20250701143308.png",
-    "pic/Pasted image 20250701141113.png",
     "md/Activity",
-    "pic/Pasted image 20250627100407.png",
     "md/属性服务",
     "md/wms/wms",
     "md/未命名",
     "md/aosp16",
-    "pic/Pasted image 20250617105908.png",
-    "pic/Pasted image 20250609165842.png",
-    "md/binder/binder机制",
     "Excalidraw/未命名.canvas",
     "Excalidraw/未命名 1.canvas"
   ]
