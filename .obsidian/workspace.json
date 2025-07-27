@@ -11,10 +11,14 @@
             "id": "5dc996d55425e032",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "else/曾国藩.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "新标签页"
+              "title": "曾国藩"
             }
           }
         ]
@@ -138,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Pasted image 20250727082725.png",
+                "file": "else/曾国藩.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Pasted image 20250727082725 的大纲"
+              "title": "曾国藩 的大纲"
             }
           },
           {
@@ -187,14 +191,15 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "fa4657deb406b728",
+  "active": "5dc996d55425e032",
   "lastOpenFiles": [
-    "Pasted image 20250727082727.png",
-    "Pasted image 20250727082725.png",
-    "pic/e46f70f2112adce67a01d081c522f2a8.png",
+    "else/曾国藩的“六戒五勤”（收藏）.md",
     "else/曾国藩.md",
-    "pic/liuqin.jpg",
     "!pic/liuqin.png.md",
+    "Pasted image 20250727082725.png",
+    "Pasted image 20250727082727.png",
+    "pic/e46f70f2112adce67a01d081c522f2a8.png",
+    "pic/liuqin.jpg",
     "!pic",
     "else/未命名 1.md",
     "else/could not read Username for ‘httpse.coding.net‘ No such file or directory-CSDN博客.md",
@@ -202,7 +207,6 @@
     "pic/6b5710bda24ee1fd270ddd2da769d63.png",
     "pic/e1fe8d3703d5038b2bd15153c1bf7c7.png",
     "else/六勤.md",
-    "else/曾国藩的“六戒五勤”（收藏）.md",
     "md/framework实战/随笔-HAL回调接口.md",
     "md/framework实战/手机主流Framework工作业务部门.md",
     "md/framework实战/Android Framework 开发经验.md",
