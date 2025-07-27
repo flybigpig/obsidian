@@ -4,19 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "180959dfb3bb60fc",
+        "id": "95c7559be86e9c2f",
         "type": "tabs",
         "children": [
           {
-            "id": "b9509410b60268c6",
+            "id": "5dc996d55425e032",
             "type": "leaf",
             "state": {
-              "type": "image",
-              "state": {
-                "file": "pic/liuqin.jpg"
-              },
-              "icon": "lucide-image",
-              "title": "liuqin"
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "新标签页"
             }
           }
         ]
@@ -140,13 +138,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "pic/liuqin.jpg",
+                "file": "Pasted image 20250727082725.png",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "liuqin 的大纲"
+              "title": "Pasted image 20250727082725 的大纲"
             }
           },
           {
@@ -191,6 +189,9 @@
   },
   "active": "fa4657deb406b728",
   "lastOpenFiles": [
+    "Pasted image 20250727082727.png",
+    "Pasted image 20250727082725.png",
+    "pic/e46f70f2112adce67a01d081c522f2a8.png",
     "else/曾国藩.md",
     "pic/liuqin.jpg",
     "!pic/liuqin.png.md",
@@ -200,8 +201,6 @@
     "else/csdn保存.md",
     "pic/6b5710bda24ee1fd270ddd2da769d63.png",
     "pic/e1fe8d3703d5038b2bd15153c1bf7c7.png",
-    "Pasted image 20250727082727.png",
-    "Pasted image 20250727082725.png",
     "else/六勤.md",
     "else/曾国藩的“六戒五勤”（收藏）.md",
     "md/framework实战/随笔-HAL回调接口.md",
@@ -230,7 +229,6 @@
     "算法刷题",
     "pic/Pasted image 20250701143557.png",
     "pic/Pasted image 20250701143519.png",
-    "pic/Pasted image 20250701143431.png",
     "md/Activity",
     "md/属性服务",
     "md/wms/wms",
