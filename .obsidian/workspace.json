@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "else/曾国藩.md",
-                "mode": "source",
+                "file": "md/千里马/binder深入研究-传输机制篇_上.md",
+                "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "曾国藩"
+              "title": "binder深入研究-传输机制篇_上"
             }
           }
         ]
@@ -191,11 +191,11 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "fa4657deb406b728",
+  "active": "5dc996d55425e032",
   "lastOpenFiles": [
+    "else/曾国藩.md",
     "md/千里马/binder深入研究-传输机制篇_上.md",
     "else/曾国藩的“六戒五勤”（收藏）.md",
-    "else/曾国藩.md",
     "!pic/liuqin.png.md",
     "Pasted image 20250727082725.png",
     "Pasted image 20250727082727.png",
