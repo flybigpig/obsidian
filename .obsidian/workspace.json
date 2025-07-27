@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "md/systrace/systrace.md",
+                "file": "else/曾国藩的“六戒五勤”（收藏）.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "systrace 的大纲"
+              "title": "曾国藩的“六戒五勤”（收藏） 的大纲"
             }
           },
           {
@@ -191,7 +191,7 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "b9509410b60268c6",
+  "active": "f84ce6d2fe2622cd",
   "lastOpenFiles": [
     "md/framework实战/随笔-HAL回调接口.md",
     "else/曾国藩的“六戒五勤”（收藏）.md",
