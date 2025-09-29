@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/千里马/face.md",
+                "file": "md/千里马/面试.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "face"
+              "title": "面试"
             }
           }
         ]
@@ -194,6 +194,7 @@
   },
   "active": "b9509410b60268c6",
   "lastOpenFiles": [
+    "md/千里马/face.md",
     "md/千里马/binder深入研究-传输机制篇_上1.md",
     "md/个人/RecyclerView复用.md",
     "md/个人/Recycleview滑动到item置顶位置.md",
@@ -221,7 +222,6 @@
     "conflict-files-obsidian-git.md",
     "pic/liuqin.jpg",
     "pic/e46f70f2112adce67a01d081c522f2a8.png",
-    "md/千里马/face.md",
     "md/framework实战",
     "pic/Pasted image 20250710094523.png",
     "pic/Pasted image 20250709100529.png",
