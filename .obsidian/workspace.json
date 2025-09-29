@@ -180,6 +180,7 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "bases:创建新数据库": false,
       "switcher:打开快速切换": false,
       "graph:查看关系图谱": false,
       "canvas:新建白板": false,
@@ -191,8 +192,10 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "b9509410b60268c6",
+  "active": "f84ce6d2fe2622cd",
   "lastOpenFiles": [
+    "Excalidraw/Drawing 2025-08-27 14.08.22.excalidraw.md",
+    "md/framework实战/随笔-HAL回调接口.md",
     "md/framework实战/手机主流Framework工作业务部门.md",
     "md/framework实战/Android Framework 开发经验.md",
     "md/Activity/Activity启动过程.md",
@@ -217,8 +220,6 @@
     "md/zygote/父子进程的故事：解读Linux中的fork机制-腾讯云开发者社区-腾讯云.md",
     "conflict-files-obsidian-git.md",
     "md/framework实战/Android 13-Input系列--InputReader事件处理.md",
-    "md/framework实战/SELinux for Android的基本知识和实战_selinux权限里面type什么意思android-CSDN博客.md",
-    "md/framework实战/开机日志分析积累_timingstraceandslog-CSDN博客.md",
     "md/framework实战",
     "pic/Pasted image 20250710094523.png",
     "pic/Pasted image 20250709100529.png",
