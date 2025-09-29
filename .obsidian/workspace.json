@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "else/杂谈.md",
+                "file": "md/千里马/面试.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "杂谈"
+              "title": "面试"
             }
           }
         ]
@@ -194,9 +194,10 @@
   },
   "active": "b9509410b60268c6",
   "lastOpenFiles": [
+    "else/杂谈.md",
+    "md/千里马/面试.md",
     "else/未命名 1.md",
     "else/未命名.md",
-    "else/杂谈.md",
     "else/曾国藩的“六戒五勤”（收藏）.md",
     "else/金瓶梅.md",
     "else/曾国藩.md",
@@ -221,7 +222,6 @@
     "else/Git无法上传删除 Commit里面有大文件_git移出commit的大文件-CSDN博客.md",
     "md/framework实战/Android10 全量编译  增量编译.md",
     "md/SurfaceFlinger/SurfaceFlinger 的核心作用.md",
-    "md/framework实战/用Android Studio开发系统App---搭建开发环境.md",
     "md/framework实战",
     "pic/Pasted image 20250710094523.png",
     "pic/Pasted image 20250709100529.png",
