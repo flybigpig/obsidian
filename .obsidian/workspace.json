@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "else/think.md",
+                "file": "else/未命名 1.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "think"
+              "title": "未命名 1"
             }
           }
         ]
@@ -194,8 +194,12 @@
   },
   "active": "b9509410b60268c6",
   "lastOpenFiles": [
-    "else/Ubuntu22.04安装、配置、美化、软件安装、配置开发环境_ubuntu安装星火应用商店-CSDN博客.md",
+    "else/杂谈.md",
+    "else/曾国藩的“六戒五勤”（收藏）.md",
+    "else/金瓶梅.md",
+    "else/曾国藩.md",
     "else/think.md",
+    "else/Ubuntu22.04安装、配置、美化、软件安装、配置开发环境_ubuntu安装星火应用商店-CSDN博客.md",
     "else/git 报错.md",
     "md/framework实战/随笔-HAL回调接口.md",
     "conflict-files-obsidian-git.md",
@@ -203,8 +207,6 @@
     "pic/e46f70f2112adce67a01d081c522f2a8.png",
     "md/千里马/face.md",
     "md/千里马/binder深入研究-传输机制篇_上1.md",
-    "else/曾国藩的“六戒五勤”（收藏）.md",
-    "else/曾国藩.md",
     "else/六勤.md",
     "Excalidraw/Drawing 2025-08-27 14.08.22.excalidraw.md",
     "md/framework实战/手机主流Framework工作业务部门.md",
@@ -220,8 +222,6 @@
     "md/SurfaceFlinger/SurfaceFlinger 的核心作用.md",
     "md/framework实战/用Android Studio开发系统App---搭建开发环境.md",
     "md/systrace/systrace.md",
-    "md/framework实战/Perfetto 快速入门：在 Android 上记录跟踪.md",
-    "md/HAL/ahao/传统 HAL 整体架构  Android Framework.md",
     "md/framework实战",
     "pic/Pasted image 20250710094523.png",
     "pic/Pasted image 20250709100529.png",
