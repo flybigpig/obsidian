@@ -11,10 +11,14 @@
             "id": "3f7446fbe0166b09",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "md/C++/未命名.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "新标签页"
+              "title": "未命名"
             }
           }
         ]
@@ -190,6 +194,7 @@
   },
   "active": "3f7446fbe0166b09",
   "lastOpenFiles": [
+    "md/C++/未命名.md",
     "md/个人/如何学framework？优秀学员学习和找工作经验分享.md",
     "md/个人/Android系统源码深入解析与情景分析-CSDN博客.md",
     "md/千里马/面试.md",
@@ -215,7 +220,6 @@
     "else/曾国藩.md",
     "else/think.md",
     "else/Ubuntu22.04安装、配置、美化、软件安装、配置开发环境_ubuntu安装星火应用商店-CSDN博客.md",
-    "else/git 报错.md",
     "pic/liuqin.jpg",
     "pic/e46f70f2112adce67a01d081c522f2a8.png",
     "md/framework实战",
