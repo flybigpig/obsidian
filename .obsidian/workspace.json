@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/C++/未命名.md",
+                "file": "md/C++/类型.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "未命名"
+              "title": "类型"
             }
           }
         ]
@@ -194,7 +194,7 @@
   },
   "active": "3f7446fbe0166b09",
   "lastOpenFiles": [
-    "md/C++/未命名.md",
+    "md/C++/类型.md",
     "md/个人/如何学framework？优秀学员学习和找工作经验分享.md",
     "md/个人/Android系统源码深入解析与情景分析-CSDN博客.md",
     "md/千里马/面试.md",
