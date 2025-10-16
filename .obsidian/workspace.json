@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "3e9247a3f00f9133",
+        "id": "d808078308f0f150",
         "type": "tabs",
         "children": [
           {
-            "id": "3f7446fbe0166b09",
+            "id": "a5ec867d552ab1d0",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/aosp16/freedom.md",
+                "file": "算法刷题/创意匹配.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "freedom"
+              "title": "创意匹配"
             }
           }
         ]
@@ -192,8 +192,9 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "3f7446fbe0166b09",
+  "active": "a5ec867d552ab1d0",
   "lastOpenFiles": [
+    "md/aosp16/freedom.md",
     "md/aosp16/分屏模式.md",
     "md/binder/face.md",
     "md/SurfaceFlinger/SurfaceFlinger-android10.md",
@@ -219,7 +220,6 @@
     "else/未命名 1.md",
     "else/未命名.md",
     "else/曾国藩的“六戒五勤”（收藏）.md",
-    "else/金瓶梅.md",
     "pic/liuqin.jpg",
     "pic/e46f70f2112adce67a01d081c522f2a8.png",
     "md/framework实战",
