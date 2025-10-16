@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/binder/face.md",
+                "file": "md/aosp16/freedom.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "face"
+              "title": "freedom"
             }
           }
         ]
@@ -194,8 +194,9 @@
   },
   "active": "3f7446fbe0166b09",
   "lastOpenFiles": [
-    "md/SurfaceFlinger/SurfaceFlinger-android10.md",
+    "md/aosp16/分屏模式.md",
     "md/binder/face.md",
+    "md/SurfaceFlinger/SurfaceFlinger-android10.md",
     "md/C++/类型.md",
     "md/个人/如何学framework？优秀学员学习和找工作经验分享.md",
     "md/个人/Android系统源码深入解析与情景分析-CSDN博客.md",
@@ -219,7 +220,6 @@
     "else/未命名.md",
     "else/曾国藩的“六戒五勤”（收藏）.md",
     "else/金瓶梅.md",
-    "else/曾国藩.md",
     "pic/liuqin.jpg",
     "pic/e46f70f2112adce67a01d081c522f2a8.png",
     "md/framework实战",
