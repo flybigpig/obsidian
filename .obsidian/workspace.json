@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "md/systrace/systrace.md",
+                "file": "md/千里马/Framework核心面试题精讲（含小白入门与实战案例）.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "systrace 的大纲"
+              "title": "Framework核心面试题精讲（含小白入门与实战案例） 的大纲"
             }
           },
           {
@@ -176,7 +176,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 352.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -192,7 +192,7 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "a5ec867d552ab1d0",
+  "active": "f84ce6d2fe2622cd",
   "lastOpenFiles": [
     "md/千里马/面试1.md",
     "md/千里马/Framework核心面试题精讲（含小白入门与实战案例）.md",
