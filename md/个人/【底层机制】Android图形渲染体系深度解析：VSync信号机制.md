@@ -1,4 +1,7 @@
-![图片](https://mmbiz.qpic.cn/sz_mmbiz_png/aWmSnoh63WeUayjvicrgicjI2dS38cIy9lD6Xb2DVibt5W9tHdicGsRDzlkhkcRDibfQRibjp9ic7NJk2PkuPCPeCOa5g/640?wx_fmt=png&from=appmsg&watermark=1&tp=webp&wxfrom=5&wx_lazy=1#imgIndex=0)
+
+
+![图片](pic/640.webp)
+
 
 在Android图形渲染体系中，VSync（Vertical Synchronization，垂直同步）是贯穿CPU、GPU与显示器协同工作的核心机制。它不仅解决了画面撕裂、卡顿等关键问题，更定义了Android渲染的"时间节拍"。本文将从底层原理、Android实现架构、关键细节到开发实践，系统拆解VSync信号机制的核心逻辑。
 

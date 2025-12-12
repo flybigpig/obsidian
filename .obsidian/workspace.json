@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "d808078308f0f150",
+        "id": "c65482ba6595c70b",
         "type": "tabs",
         "children": [
           {
-            "id": "a5ec867d552ab1d0",
+            "id": "cc33dd625467a50d",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -192,10 +192,13 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "a5ec867d552ab1d0",
+  "active": "cc33dd625467a50d",
   "lastOpenFiles": [
-    "md/个人/《10分钟剖析》系统启动2——启动zygotezygote作为App开发者所熟知的孵化器进程，在App界的地位是绝对的龙 - 掘金.md",
+    "().md",
     "md/个人/【底层机制】Android图形渲染体系深度解析：VSync信号机制.md",
+    "pic/640.webp",
+    "pic/liuqin.jpg",
+    "md/个人/《10分钟剖析》系统启动2——启动zygotezygote作为App开发者所熟知的孵化器进程，在App界的地位是绝对的龙 - 掘金.md",
     "md/个人/《10分钟剖析》系统启动1——从内核到用户Android系统总体是围绕着Linux内核而建立的。从加电到系统启动，大 - 掘金.md",
     "md/个人/synchronized.md",
     "md/个人/Looper.md",
@@ -219,8 +222,6 @@
     "md/个人/Recycleview滑动到item置顶位置.md",
     "md/个人/Binder.md",
     "md/个人/App快速启动.md",
-    "md/个人/androidStart.md",
-    "pic/liuqin.jpg",
     "pic/e46f70f2112adce67a01d081c522f2a8.png",
     "md/framework实战",
     "pic/Pasted image 20250710094523.png",
@@ -234,7 +235,6 @@
     "pic/Pasted image 20250701143308.png",
     "pic/Pasted image 20250701141113.png",
     "md/Activity",
-    "pic/Pasted image 20250627100407.png",
     "md/属性服务",
     "md/wms/wms",
     "md/未命名",
