@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/个人/View的所有子 View统一添加点击事件.md",
+                "file": "md/个人/usap.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "View的所有子 View统一添加点击事件"
+              "title": "usap"
             }
           }
         ]
@@ -192,10 +192,10 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "cc33dd625467a50d",
+  "active": "fa4657deb406b728",
   "lastOpenFiles": [
-    "md/个人/【底层机制】Android图形渲染体系深度解析：VSync信号机制.md",
     "md/个人/View的所有子 View统一添加点击事件.md",
+    "md/个人/【底层机制】Android图形渲染体系深度解析：VSync信号机制.md",
     "md/个人/Android启动过程分析(图+文)-腾讯云开发者社区-腾讯云.md",
     "md/个人/Android跨进程通信：图文详解 Binder机制 原理-腾讯云开发者社区-腾讯云.md",
     "md/个人/Android开发之漫漫长途 IX——彻底掌握Binder-腾讯云开发者社区-腾讯云.md",
