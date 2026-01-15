@@ -11,10 +11,14 @@
             "id": "19b39db5e013f027",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "else/【拒绝岁月史书】胖猫谭竹事件最全解析+存档记录 - 知乎.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "新标签页"
+              "title": "【拒绝岁月史书】胖猫谭竹事件最全解析+存档记录 - 知乎"
             }
           }
         ]
@@ -191,6 +195,7 @@
   },
   "active": "19b39db5e013f027",
   "lastOpenFiles": [
+    "else/（保姆级教程） Typora+PicGo+gitee搭建博客写作环境（超详细） 同步解决：PicGo插件安装失败问题_picgo+typora+gitee-CSDN博客.md",
     "Markwhen/Markwhen 1-15-2026 17.33.11.mw",
     "Markwhen/Markwhen 1-15-2026 17.33.10.mw",
     "Markwhen/Markwhen 1-15-2026 17.29.38.mw",
@@ -231,7 +236,6 @@
     "md/framework实战",
     "pic/Pasted image 20250710094523.png",
     "pic/Pasted image 20250709100529.png",
-    "md/HAL/ahao",
     "pic/Pasted image 20250701143557.png",
     "pic/Pasted image 20250701143519.png",
     "pic/Pasted image 20250701143431.png",
