@@ -11,17 +11,28 @@
             "id": "19b39db5e013f027",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "excalidraw",
               "state": {
-                "file": "else/【拒绝岁月史书】胖猫谭竹事件最全解析+存档记录 - 知乎.md",
-                "mode": "source",
-                "source": false
+                "file": "Excalidraw/Drawing 2025-08-27 14.08.22.excalidraw.md"
               },
-              "icon": "lucide-file",
-              "title": "【拒绝岁月史书】胖猫谭竹事件最全解析+存档记录 - 知乎"
+              "icon": "excalidraw-icon",
+              "title": "Drawing 2025-08-27 14.08.22.excalidraw"
+            }
+          },
+          {
+            "id": "da1485604219153a",
+            "type": "leaf",
+            "state": {
+              "type": "excalidraw",
+              "state": {
+                "file": "Excalidraw/Drawing 2026-01-15 19.32.01.excalidraw.md"
+              },
+              "icon": "excalidraw-icon",
+              "title": "Drawing 2026-01-15 19.32.01.excalidraw"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -192,8 +203,12 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "19b39db5e013f027",
+  "active": "da1485604219153a",
   "lastOpenFiles": [
+    "Excalidraw/Drawing 2025-08-27 14.08.22.excalidraw.md",
+    "Excalidraw/Drawing 2026-01-15 19.32.01.excalidraw.md",
+    "Excalidraw/未命名.canvas",
+    "else/【拒绝岁月史书】胖猫谭竹事件最全解析+存档记录 - 知乎.md",
     "else/（保姆级教程） Typora+PicGo+gitee搭建博客写作环境（超详细） 同步解决：PicGo插件安装失败问题_picgo+typora+gitee-CSDN博客.md",
     "Markwhen/Markwhen 1-15-2026 17.33.11.mw",
     "Markwhen/Markwhen 1-15-2026 17.33.10.mw",
@@ -220,7 +235,6 @@
     "md/个人/synchronized.md",
     "md/个人/Looper.md",
     "md/千里马/需求.md",
-    "Excalidraw/Drawing 2025-08-27 14.08.22.excalidraw.md",
     "md/千里马/未知面试题.md",
     "md/千里马/未命名面试题.md",
     "md/千里马/Framework核心面试题精讲（含小白入门与实战案例）.md",
@@ -229,8 +243,6 @@
     "算法刷题/创意匹配.md",
     "md/aosp16/freedom.md",
     "md/aosp16/分屏模式.md",
-    "md/binder/face.md",
-    "md/SurfaceFlinger/SurfaceFlinger-android10.md",
     "pic/e46f70f2112adce67a01d081c522f2a8.png",
     "md/framework实战",
     "pic/Pasted image 20250710094523.png",
@@ -240,7 +252,6 @@
     "pic/Pasted image 20250701143431.png",
     "pic/Pasted image 20250701143308.png",
     "pic/Pasted image 20250701141113.png",
-    "Excalidraw/未命名.canvas",
     "Excalidraw/未命名 1.canvas"
   ]
 }
