@@ -20,8 +20,21 @@
               "icon": "lucide-file",
               "title": "Android 12 Native Binder 代码变迁 - Solo's Blog"
             }
+          },
+          {
+            "id": "0f3a5497f816a0fe",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.11.4"
+              },
+              "icon": "lucide-book-up",
+              "title": "版本说明 1.11.4"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -180,7 +193,7 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "bases:创建新数据库": false,
+      "bases:新建数据库": false,
       "switcher:打开快速切换": false,
       "graph:查看关系图谱": false,
       "canvas:新建白板": false,
@@ -192,7 +205,7 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "cc33dd625467a50d",
+  "active": "0f3a5497f816a0fe",
   "lastOpenFiles": [
     "md/个人/usap.md",
     "md/个人/Android 12 Native Binder 代码变迁 - Solo's Blog.md",
