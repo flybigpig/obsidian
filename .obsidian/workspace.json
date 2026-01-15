@@ -188,11 +188,13 @@
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
       "markdown-importer:打开 Markdown 格式转换器": false,
-      "obsidian-git:Open Git source control": false
+      "obsidian-git:Open Git source control": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "fa4657deb406b728",
+  "active": "f84ce6d2fe2622cd",
   "lastOpenFiles": [
+    "md/个人/Android 12 Native Binder 代码变迁 - Solo's Blog.md",
     "md/个人/View的所有子 View统一添加点击事件.md",
     "md/个人/【底层机制】Android图形渲染体系深度解析：VSync信号机制.md",
     "md/个人/Android启动过程分析(图+文)-腾讯云开发者社区-腾讯云.md",
@@ -220,7 +222,6 @@
     "md/SurfaceFlinger/SurfaceFlinger-android10.md",
     "md/C++/类型.md",
     "md/个人/如何学framework？优秀学员学习和找工作经验分享.md",
-    "md/个人/Android系统源码深入解析与情景分析-CSDN博客.md",
     "pic/e46f70f2112adce67a01d081c522f2a8.png",
     "md/framework实战",
     "pic/Pasted image 20250710094523.png",
