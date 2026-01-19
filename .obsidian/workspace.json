@@ -4,35 +4,24 @@
     "type": "split",
     "children": [
       {
-        "id": "e661bbe54d290d21",
+        "id": "48906dababb58e82",
         "type": "tabs",
         "children": [
           {
-            "id": "19b39db5e013f027",
+            "id": "49693c79906749df",
             "type": "leaf",
             "state": {
-              "type": "excalidraw",
+              "type": "markdown",
               "state": {
-                "file": "Excalidraw/Drawing 2025-08-27 14.08.22.excalidraw.md"
+                "file": "md/个人/系统开发面试经验：安卓framework简历指导面试题面试官经验分享.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "excalidraw-icon",
-              "title": "Drawing 2025-08-27 14.08.22.excalidraw"
-            }
-          },
-          {
-            "id": "da1485604219153a",
-            "type": "leaf",
-            "state": {
-              "type": "excalidraw",
-              "state": {
-                "file": "Excalidraw/Drawing 2026-01-15 19.32.01.excalidraw.md"
-              },
-              "icon": "excalidraw-icon",
-              "title": "Drawing 2026-01-15 19.32.01.excalidraw"
+              "icon": "lucide-file",
+              "title": "系统开发面试经验：安卓framework简历指导面试题面试官经验分享"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -203,10 +192,14 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "da1485604219153a",
+  "active": "49693c79906749df",
   "lastOpenFiles": [
-    "Excalidraw/Drawing 2026-01-15 19.32.01.excalidraw.md",
+    "md/个人/未命名 2.md",
+    "md/个人/未命名 1.md",
+    "md/个人/系统开发面试经验：安卓framework简历指导面试题面试官经验分享.md",
+    "md/个人/简历.md",
     "Excalidraw/Drawing 2025-08-27 14.08.22.excalidraw.md",
+    "Excalidraw/Drawing 2026-01-15 19.32.01.excalidraw.md",
     "Excalidraw/未命名.canvas",
     "else/【拒绝岁月史书】胖猫谭竹事件最全解析+存档记录 - 知乎.md",
     "else/（保姆级教程） Typora+PicGo+gitee搭建博客写作环境（超详细） 同步解决：PicGo插件安装失败问题_picgo+typora+gitee-CSDN博客.md",
@@ -239,10 +232,6 @@
     "md/千里马/未命名面试题.md",
     "md/千里马/Framework核心面试题精讲（含小白入门与实战案例）.md",
     "md/千里马/面试1.md",
-    "md/千里马/面试.md",
-    "算法刷题/创意匹配.md",
-    "md/aosp16/freedom.md",
-    "md/aosp16/分屏模式.md",
     "pic/e46f70f2112adce67a01d081c522f2a8.png",
     "md/framework实战",
     "pic/Pasted image 20250710094523.png",
