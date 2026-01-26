@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/ims/input.md",
+                "file": "md/ims/Android 输入系统核心链路：.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "input"
+              "title": "Android 输入系统核心链路："
             }
           }
         ]
@@ -194,8 +194,9 @@
   },
   "active": "49693c79906749df",
   "lastOpenFiles": [
-    "md/ims/input1.md.md",
     "md/ims/input.md",
+    "md/ims/Android 输入系统核心链路：.md",
+    "md/ims/input1.md.md",
     "md/ims/深入剖析 Android Input 输入事件处理全流程.md",
     "md/个人/系统开发面试经验：安卓framework简历指导面试题面试官经验分享.md",
     "md/个人/未命名 2.md",
@@ -231,7 +232,6 @@
     "md/个人/synchronized.md",
     "md/个人/Looper.md",
     "md/千里马/需求.md",
-    "md/千里马/未知面试题.md",
     "pic/e46f70f2112adce67a01d081c522f2a8.png",
     "md/framework实战",
     "pic/Pasted image 20250710094523.png",
