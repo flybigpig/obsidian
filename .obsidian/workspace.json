@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/ims/input1.md.md",
+                "file": "md/ims/input.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "input1.md"
+              "title": "input"
             }
           }
         ]
@@ -194,8 +194,8 @@
   },
   "active": "49693c79906749df",
   "lastOpenFiles": [
-    "md/ims/input.md",
     "md/ims/input1.md.md",
+    "md/ims/input.md",
     "md/ims/深入剖析 Android Input 输入事件处理全流程.md",
     "md/个人/系统开发面试经验：安卓framework简历指导面试题面试官经验分享.md",
     "md/个人/未命名 2.md",
