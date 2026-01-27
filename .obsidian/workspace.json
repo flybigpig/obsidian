@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/ams/Android 中 ATMS 与 AMS 深度解析（关系+分工+流转+面试核心）.md",
+                "file": "md/DeepSeek/ATMS-AMS.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Android 中 ATMS 与 AMS 深度解析（关系+分工+流转+面试核心）"
+              "title": "ATMS-AMS"
             }
           }
         ]
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "md/ams/Android 中 ATMS 与 AMS 深度解析（关系+分工+流转+面试核心）.md",
+                "file": "md/DeepSeek/ATMS-AMS.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Android 中 ATMS 与 AMS 深度解析（关系+分工+流转+面试核心） 的大纲"
+              "title": "ATMS-AMS 的大纲"
             }
           },
           {
@@ -194,8 +194,9 @@
   },
   "active": "49693c79906749df",
   "lastOpenFiles": [
-    "md/ams/AMS-ATMS2.md",
     "md/ams/Android 中 ATMS 与 AMS 深度解析（关系+分工+流转+面试核心）.md",
+    "md/DeepSeek/ATMS-AMS.md",
+    "md/ams/AMS-ATMS2.md",
     "md/ams/AMS-ATMS.md",
     "md/ims/输入通道静态动态流转图解析.md",
     "md/ims/输入通道静态动态流转图解析 1.docx",
@@ -230,7 +231,6 @@
     "md/个人/Android启动过程分析(图+文)-腾讯云开发者社区-腾讯云.md",
     "md/个人/Android跨进程通信：图文详解 Binder机制 原理-腾讯云开发者社区-腾讯云.md",
     "md/个人/Android开发之漫漫长途 IX——彻底掌握Binder-腾讯云开发者社区-腾讯云.md",
-    "md/个人/Linux 进程剖析：深入内核源码，揭开进程运作机制-腾讯云开发者社区-腾讯云.md",
     "pic/640.webp",
     "pic/liuqin.jpg",
     "pic/e46f70f2112adce67a01d081c522f2a8.png",
