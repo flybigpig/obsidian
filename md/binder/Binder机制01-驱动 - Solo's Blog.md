@@ -21,14 +21,14 @@ Binder驱动中，还有一类结构体是仅仅Binder驱动内部实现过程�
 binder的读写结构， 记录了binder中读和写的数据信息：
 
 ```
-<span></span><code id="code-lang-cpp">struct binder_write_read {
+struct binder_write_read {
    binder_size_t       write_size;     //要写入的字节数,write_buffer的总字节数
    binder_size_t       write_consumed; //驱动程序占用的字节数,write_buffer已消费的字节数
    binder_uintptr_t    write_buffer;   //写缓冲数据的指针
    binder_size_t       read_size;      //要读的字节数,read_buffer的总字节数
    binder_size_t       read_consumed;  //驱动程序占用的字节数,read_buffer已消费的字节数
    binder_uintptr_t    read_buffer;    //读缓存数据的指针
-};</code>
+};
 ```
 
 用户空间程序和Binder驱动程序交互基本都是通过BINDER\_WRITE\_READ命令，来进行数据的读写操作。
@@ -44,7 +44,7 @@ write\_buffer和read\_buffer都是包含Binder协议命令和binder\_transaction
 ### **binder\_transaction\_data**[¶](https://i-rtfsc.github.io/android/binder/driver/#binder_transaction_data "Permanent link")
 
 ```
-<span></span><code id="code-lang-cpp">struct binder_transaction_data {
+struct binder_transaction_data {
     union {
         __u32    handle;                 //binder_ref（即handle）
         binder_uintptr_t ptr;            //Binder_node的内存地址
@@ -65,7 +65,7 @@ write\_buffer和read\_buffer都是包含Binder协议命令和binder\_transaction
         } ptr;
        __u8    buf[8];
     } data;                              //RPC数据
-};</code>
+};
 ```
 
 当BINDER\_WRITE\_READ命令的目标是本地Binder node时，target使用ptr，否则使用handle。只有当这是Binder node时，cookie才有意义，表示附加数据，由进程自己解释。
@@ -185,7 +185,7 @@ struct binder_node {
     };
     bool has_async_transaction;
     struct list_head async_todo;        //异步todo队列
-};</code>
+};
 ```
 
 结构struct binder\_node表示一个binder实体。rb\_node和dead\_node组成一个联合体。如果这个Binder实体还在正常使用，则使用rb\_node来连入proc->nodes所表示的红黑树的节点，这棵红黑树用来组织属于这个进程的所有Binder实体。如果这个Binder实体所属的进程已经销毁，而这个Binder实体又被其它进程所引用，则这个Binder实体通过dead\_node进入到一个哈希表中去存放。proc成员变量就是表示这个Binder实例所属于进程了。refs成员变量把所有引用了该Binder实体的Binder引用连接起来构成一个链表。internal\_strong\_refs、local\_weak\_refs和local\_strong\_refs表示这个Binder实体的引用计数。ptr和cookie成员变量分别表示这个Binder实体在用户空间的地址以及附加数据。
@@ -235,7 +235,7 @@ struct binder_ref {
     struct binder_proc *proc;           //binder进程
     struct binder_node *node;           //binder节点
     struct binder_ref_death *death;     //如果不为空，则client想获知binder的死亡
-};</code>
+};
 ```
 
 binder\_ref 描述了每个对服务对象的引用，对应与Client端。如上图所示，每个Ref通过node指向binder\_node. 一个进程所有的binder\_ref通过两个红黑树（RbTree)进行管理，通过binder\_get\_ref() 和 binder\_get\_ref\_for\_node快速查找。
@@ -324,7 +324,7 @@ struct binder_proc {
     spinlock_t inner_lock;
     spinlock_t outer_lock;
     struct dentry *binderfs_entry;
-};</code>
+};
 ```
 
 一个进程既包含的Service对象，也可能包含对其他Service对象的引用. 如果作为Service对象进程，它可能会存在多个Binder\_Thread。这些信息都在binder\_proc结构体进行管理。
@@ -369,7 +369,7 @@ struct binder_buffer {
     size_t extra_buffers_size;
     void __user *user_data;                     //用户数据
     int    pid;
-};</code>
+};
 ```
 
 进程间通信除了命令，还有参数和返回值的交换，要将数据从一个进程的地址空间，传到另外一个进程的地址空间，通常需要两次拷贝，进程A -> 内核 -> 进程B。binder\_buffer 就是内核里存放交换数据的空间（这些数据是以Parcel的形式存在）。为了提高效率，Android 的 binder 只需要一次拷贝，因为binder 进程通过mmap将内核空间地址映射到用户空间，从而可以直接访问binder\_buffer的内容而无需一次额外拷贝。binder\_buffer由内核在每次发起的binder调用创建，并赋给binder\_transaction->buffer.binder driver 根据binder\_transaction 生产 transaction\_data（包含buffer的指针而非内容）, 并将其复制到用户空间。
@@ -431,7 +431,7 @@ struct binder_thread {
     atomic_t tmp_ref;
     bool is_dead;
     struct task_struct *task;
-};</code>
+};
 ```
 
 binder\_proc里的threads 红黑树存放着指向binder\_thread对象的指针。这里的binder\_thread 不仅仅包括service的binder thread，也包括访问其他service的调用thread。 也就是说所有与binder相关的线程都会在binder\_proc的threads红黑树里留下记录。binder\_thread里最重要的两个成员变量是 transaction\_stack 和 wait。
@@ -455,7 +455,7 @@ Binder协议可以分为控制协议和驱动协议两类。
 控制协议是进程通过ioctl(“/dev/binder”) 与Binder设备进行通讯的协议，该协议包含以下几种命令：
 
 ```
-<span></span><code id="code-lang-cpp">#define BINDER_WRITE_READ       _IOWR('b', 1, struct binder_write_read)
+#define BINDER_WRITE_READ       _IOWR('b', 1, struct binder_write_read)
 #define BINDER_SET_IDLE_TIMEOUT     _IOW('b', 3, __s64)
 #define BINDER_SET_MAX_THREADS      _IOW('b', 5, __u32)
 #define BINDER_SET_IDLE_PRIORITY    _IOW('b', 6, __s32)
@@ -464,7 +464,7 @@ Binder协议可以分为控制协议和驱动协议两类。
 #define BINDER_VERSION          _IOWR('b', 9, struct binder_version)
 #define BINDER_GET_NODE_DEBUG_INFO  _IOWR('b', 11, struct binder_node_debug_info)
 #define BINDER_GET_NODE_INFO_FOR_REF    _IOWR('b', 12, struct binder_node_info_for_ref)
-#define BINDER_SET_CONTEXT_MGR_EXT  _IOW('b', 13, struct flat_binder_object)</code>
+#define BINDER_SET_CONTEXT_MGR_EXT  _IOW('b', 13, struct flat_binder_object)
 ```
 
 这些Binder IOCTL码的作用如下：
@@ -507,7 +507,7 @@ BR码的作用如下：
 内核初始化时，会调用到device\_initcall()进行初始化，从而启动binder\_init。binder\_init()主要负责注册misc设备,通过调用misc\_register()来实现。
 
 ```
-<span></span><code id="code-lang-cpp">static int __init binder_init(void)
+static int __init binder_init(void)
 {
     int ret;
     char *device_name, *device_tmp;
@@ -605,7 +605,7 @@ err_alloc_device_names_failed:
     debugfs_remove_recursive(binder_debugfs_dir_entry_root);
 
     return ret;
-}</code>
+}
 ```
 
 其实binder\_init()中最重要的是创建设备文件的函数misc\_register(&device->miscdev); 也就是将device->miscdev注册为misc设备。
@@ -679,7 +679,7 @@ static int __init init_binder_device(const char *name)
     hlist_add_head(&amp;binder_device-&gt;hlist, &amp;binder_devices);
 
     return ret;
-}</code>
+}
 ```
 
 binder\_device结构体包含了一个哈希链表、一个misc设备结构、一个binder context等
@@ -793,7 +793,7 @@ miscdevice结构体我们主要关注name，fops；其中name就是设备名如/
     }
 
     return 0;
-}</code>
+}
 ```
 
 \*\*binder\_open()\*\*职责如下：
@@ -930,7 +930,7 @@ err_already_mapped:
                alloc-&gt;pid, vma-&gt;vm_start, vma-&gt;vm_end,
                failure_string, ret);
     return ret;
-}</code>
+}
 ```
 
 首先在内核虚拟地址空间，申请一块与用户虚拟内存相同大小的内存；然后再申请page物理内存，再将同一块物理内存分别映射到内核虚拟地址空间和用户虚拟内存空间，从而实现了用户空间的Buffer和内核空间的Buffer同步操作的功能。
@@ -958,7 +958,7 @@ binder\_mmap这个函数中，会申请一块物理内存，然后在用户空�
 对Binder驱动而言，不管是ServiceManager还是Service和Client，都为客户端。客户端调用Binder驱动ioctl()进行数据交换的方法如：
 
 ```
-<span></span><code id="code-lang-scss">ioctl(mProcess-&gt;mDriverFD, BINDER_WRITE_READ, &amp;bwr)</code>
+<span></span><code id="code-lang-scss">ioctl(mProcess-&gt;mDriverFD, BINDER_WRITE_READ, &amp;bwr)
 ```
 
 -   mProcess->mDriverFD：对应了打开Binder设备时的fd。
@@ -970,7 +970,7 @@ binder\_write\_read其实是一个相对外层的数据结构，其内部会包�
 ![](https://i-rtfsc.github.io/Android/binder/res/binder_01_transaction_data.png)
 
 ```
-<span></span><code id="code-lang-cpp">static long binder_ioctl(struct file *filp, unsigned int cmd, unsigned long arg)
+static long binder_ioctl(struct file *filp, unsigned int cmd, unsigned long arg)
 {
     int ret;
     //filp-&gt;private_data 在open()binder驱动时，保存了一个创建的binder_proc，即是此时调用进程的binder_proc
@@ -1178,7 +1178,7 @@ static int binder_ioctl_write_read(struct file *filp,
     }
 out:
     return ret;
-}</code>
+}
 ```
 
 binder\_ioctl函数对应了ioctl系统调用的处理。这个函数的逻辑比较简单，就是根据ioctl的命令来确定进一步处理的逻辑，具体如下:
@@ -1202,7 +1202,7 @@ binder\_ioctl函数对应了ioctl系统调用的处理。这个函数的逻辑�
 binder\_thread\_write()的实现相对来说就比较简单，只是通过解析binder\_ioctl()得到的BC\_\*命令，然后再根据命令作出处理。
 
 ```
-<span></span><code id="code-lang-cpp">static int binder_thread_write(struct binder_proc *proc,
+static int binder_thread_write(struct binder_proc *proc,
             struct binder_thread *thread,
             binder_uintptr_t binder_buffer, size_t size,
             binder_size_t *consumed)
@@ -1252,7 +1252,7 @@ binder\_thread\_write()的实现相对来说就比较简单，只是通过解析
         *consumed = ptr - buffer;
     }
     return 0;
-}</code>
+}
 ```
 
 BC\_系列命令的定义是在枚举型binder\_driver\_command\_protocol中，对于其他的BC\_系列命令，处理只是直接完成即可，但对于附带数据的BC\_TRANASACTION和BC\_REPLY，因为有可能涉及到复杂数据结构的解析以及数据拷贝，于是会通过binder\_transaction()来进行传输。
@@ -1604,7 +1604,7 @@ BC\_系列命令的定义是在枚举型binder\_driver\_command\_protocol中，�
     return;
 
     ...
-}</code>
+}
 ```
 
 -   同样是BC\_命令，BC\_TRANSACTION与BC\_REPLY是不一样的，对于BC\_REPLY，一般会是基于某个BR\_TRANSACTION处理之后的结果，前面处理的transaction也会被保存到binder\_thread的transaction\_stack里。于是，对于BC\_REPLY的处理，就会是通过transaction\_stack，再基于它处理BC\_REPLY请求。首先会设置进程优先级，返回值传输时的优先级总会由发送时来决定，于是这里会重设优先级。然后把transaction\_stack弹出一级（之所有叫stack，会记录transaction的栈式关系），相当于函数调用上已经退出了，然后回退一次栈。最后会设置好target\_thread和target\_proc，为后续操作作好准备。
@@ -1824,7 +1824,7 @@ done:
     } else
         binder_inner_proc_unlock(proc);
     return 0;
-}</code>
+}
 ```
 
 -   binder\_driver首先确定当前线程是否有未处理完成的工作，如果没有，那么就让本线程去处理发给进程的工作（即不限定由那个线程完成的工作）。
