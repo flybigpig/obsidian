@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/ims/输入通道静态动态流转图解析.md",
+                "file": "md/ams/Android 中 ATMS 与 AMS 深度解析（关系+分工+流转+面试核心）.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "输入通道静态动态流转图解析"
+              "title": "Android 中 ATMS 与 AMS 深度解析（关系+分工+流转+面试核心）"
             }
           }
         ]
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "md/ims/输入通道静态动态流转图解析.md",
+                "file": "md/ams/Android 中 ATMS 与 AMS 深度解析（关系+分工+流转+面试核心）.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "输入通道静态动态流转图解析 的大纲"
+              "title": "Android 中 ATMS 与 AMS 深度解析（关系+分工+流转+面试核心） 的大纲"
             }
           },
           {
@@ -194,6 +194,8 @@
   },
   "active": "49693c79906749df",
   "lastOpenFiles": [
+    "md/ams/AMS-ATMS2.md",
+    "md/ams/Android 中 ATMS 与 AMS 深度解析（关系+分工+流转+面试核心）.md",
     "md/ams/AMS-ATMS.md",
     "md/ims/输入通道静态动态流转图解析.md",
     "md/ims/输入通道静态动态流转图解析 1.docx",
@@ -231,8 +233,6 @@
     "md/个人/Linux 进程剖析：深入内核源码，揭开进程运作机制-腾讯云开发者社区-腾讯云.md",
     "pic/640.webp",
     "pic/liuqin.jpg",
-    "md/个人/《10分钟剖析》系统启动2——启动zygotezygote作为App开发者所熟知的孵化器进程，在App界的地位是绝对的龙 - 掘金.md",
-    "md/个人/《10分钟剖析》系统启动1——从内核到用户Android系统总体是围绕着Linux内核而建立的。从加电到系统启动，大 - 掘金.md",
     "pic/e46f70f2112adce67a01d081c522f2a8.png",
     "pic/Pasted image 20250710094523.png",
     "pic/Pasted image 20250709100529.png",
