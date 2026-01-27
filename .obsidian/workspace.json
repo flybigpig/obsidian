@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/DeepSeek/ATMS-AMS.md",
+                "file": "md/ams/ATMS-AMS.md",
                 "mode": "source",
                 "source": false
               },
@@ -142,7 +142,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "md/DeepSeek/ATMS-AMS.md",
+                "file": "md/ams/ATMS-AMS.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -192,10 +192,10 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "49693c79906749df",
+  "active": "fa4657deb406b728",
   "lastOpenFiles": [
     "md/ams/Android 中 ATMS 与 AMS 深度解析（关系+分工+流转+面试核心）.md",
-    "md/DeepSeek/ATMS-AMS.md",
+    "md/ams/ATMS-AMS.md",
     "md/ams/AMS-ATMS2.md",
     "md/ams/AMS-ATMS.md",
     "md/ims/输入通道静态动态流转图解析.md",
