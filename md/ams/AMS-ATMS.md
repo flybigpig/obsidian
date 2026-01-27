@@ -1,7 +1,9 @@
 我来为您详细解释 Android 框架中的两个核心系统服务：ATMS (ActivityTaskManagerService) 与 AMS (ActivityManagerService)。
 ## 一、历史背景：从 AMS 到 ATMS + AMS 的拆分
 
-Android 10（API 29）是系统服务架构的重要分水岭。在此之前，**AMS 是一个"超级服务"**，几乎包揽了应用管理的所有职责。随着系统复杂度增加，Google 在 Android 10 进行了**职责分离**：
+### Android 10（API 29）是系统服务架构的重要分水岭。
+
+在此之前，**AMS 是一个"超级服务"**，几乎包揽了应用管理的所有职责。随着系统复杂度增加，Google 在 Android 10 进行了**职责分离**：
 
 ```
 Android 9 及之前：
