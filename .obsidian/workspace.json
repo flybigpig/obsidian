@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/binder/Binder机制01-驱动 - Solo's Blog.md",
+                "file": "md/ams/交互模式.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Binder机制01-驱动 - Solo's Blog"
+              "title": "交互模式"
             }
           }
         ]
@@ -192,10 +192,11 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "fa4657deb406b728",
+  "active": "f84ce6d2fe2622cd",
   "lastOpenFiles": [
-    "md/ims/Android 输入系统核心.md",
     "md/binder/Binder机制01-驱动 - Solo's Blog.md",
+    "md/ams/交互模式.md",
+    "md/ims/Android 输入系统核心.md",
     "md/ams/ATMS-AMS.md",
     "md/ams/Android 中 ATMS 与 AMS 深度解析（关系+分工+流转+面试核心）.md",
     "md/ams/AMS-ATMS2.md",
@@ -230,7 +231,6 @@
     "md/个人/usap.md",
     "md/个人/View的所有子 View统一添加点击事件.md",
     "md/个人/【底层机制】Android图形渲染体系深度解析：VSync信号机制.md",
-    "md/个人/Android启动过程分析(图+文)-腾讯云开发者社区-腾讯云.md",
     "pic/640.webp",
     "pic/liuqin.jpg",
     "pic/e46f70f2112adce67a01d081c522f2a8.png",
@@ -241,6 +241,4 @@
     "pic/Pasted image 20250701143431.png",
     "pic/Pasted image 20250701143308.png",
     "pic/Pasted image 20250701141113.png",
-    "Excalidraw/未命名 1.canvas"
-  ]
-}
+    "Excalidraw/未命名 1.canv
