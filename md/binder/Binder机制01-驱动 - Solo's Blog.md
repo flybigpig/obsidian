@@ -84,7 +84,7 @@ write\_buffer和read\_buffer都是包含Binder协议命令和binder\_transaction
 ### binder\_node[¶](https://i-rtfsc.github.io/android/binder/driver/#binder_node "Permanent link")
 
 ```
-<span></span><code id="code-lang-php">/**
+/**
  * struct binder_node - binder node bookkeeping
  * @debug_id:             unique ID for debugging
  *                        (invariant after initialized)
@@ -243,7 +243,7 @@ binder\_ref 描述了每个对服务对象的引用，对应与Client端。如�
 ### binder\_proc[¶](https://i-rtfsc.github.io/android/binder/driver/#binder_proc "Permanent link")
 
 ```
-<span></span><code id="code-lang-php">/**
+/**
  * struct binder_proc - binder process bookkeeping
  * @proc_node:            element for binder_procs list
  * @threads:              rbtree of binder_threads in this proc
@@ -332,7 +332,7 @@ struct binder_proc {
 ### binder\_buffer[¶](https://i-rtfsc.github.io/android/binder/driver/#binder_buffer "Permanent link")
 
 ```
-<span></span><code id="code-lang-php">/**
+/**
  * struct binder_buffer - buffer used for binder transactions
  * @entry:              entry alloc-&gt;buffers
  * @rb_node:            node for allocated_buffers/free_buffers rb trees
@@ -377,7 +377,7 @@ struct binder_buffer {
 ### binder\_thread[¶](https://i-rtfsc.github.io/android/binder/driver/#binder_thread "Permanent link")
 
 ```
-<span></span><code id="code-lang-php">/**
+/**
  * struct binder_thread - binder thread bookkeeping
  * @proc:                 binder process for this thread
  *                        (invariant after initialization)
