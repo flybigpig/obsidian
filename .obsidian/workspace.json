@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/ams/伪代码1.md",
+                "file": "md/ams/伪代码2.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "伪代码1"
+              "title": "伪代码2"
             }
           }
         ]
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "md/binder/Binder机制01-驱动 - Solo's Blog.md",
+                "file": "md/ams/伪代码2.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Binder机制01-驱动 - Solo's Blog 的大纲"
+              "title": "伪代码2 的大纲"
             }
           },
           {
@@ -176,7 +176,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 352.5
+    "width": 284.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -192,10 +192,11 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "49693c79906749df",
+  "active": "f84ce6d2fe2622cd",
   "lastOpenFiles": [
-    "md/ams/Android 中 ATMS 与 AMS 深度解析（关系+分工+流转+面试核心）.md",
     "md/ams/伪代码1.md",
+    "md/ams/伪代码2.md",
+    "md/ams/Android 中 ATMS 与 AMS 深度解析（关系+分工+流转+面试核心）.md",
     "md/ams/AMS-ATMS.md",
     "md/ams/ATMS-AMS.md",
     "md/ams/伪代码.md",
@@ -230,7 +231,6 @@
     "Markwhen/Markwhen 1-15-2026 17.29.05.mw",
     "Markwhen/Markwhen 1-15-2026 17.29.01.mw",
     "md/个人/Android 12 Native Binder 代码变迁 - Solo's Blog.md",
-    "md/个人/usap.md",
     "pic/640.webp",
     "pic/liuqin.jpg",
     "pic/e46f70f2112adce67a01d081c522f2a8.png",
