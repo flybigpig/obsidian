@@ -51,7 +51,18 @@
 
 InputChannel 由 **WMS（WindowManagerService）** 创建，绑定到窗口，最终交给 InputDispatcher 管理，完整流程：
 
-暂时无法在豆包文档外展示此内容
+
+```mermaid 
+graph TD  
+    A[应用进程创建Window] --> B[ViewRootImpl调用 WMS.addWindow]  
+    B --> C[WMS创建WindowState，调用InputManagerService.createInputChannel]  
+    C --> D[InputManagerService通过JNI调用native层，创建InputChannel]  
+    D --> E[InputChannel拆分为「服务端fd」+「客户端fd」]  
+    E --> F[服务端fd交给InputDispatcher管理]  
+    E --> G[客户端fd通过Binder传给应用进程的ViewRootImpl]  
+    G --> H[ViewRootImpl初始化InputChannel，监听读事件]
+```
+
 
 #### 关键源码（简化版）
 
