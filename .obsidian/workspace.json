@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/ams/AMS-ATMS.md",
+                "file": "md/ims/输入通道静态动态流转图解析.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "AMS-ATMS"
+              "title": "输入通道静态动态流转图解析"
             }
           }
         ]
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "md/ams/AMS-ATMS.md",
+                "file": "md/ims/输入通道静态动态流转图解析.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "AMS-ATMS 的大纲"
+              "title": "输入通道静态动态流转图解析 的大纲"
             }
           },
           {
@@ -192,13 +192,14 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "fa4657deb406b728",
+  "active": "49693c79906749df",
   "lastOpenFiles": [
+    "md/ams/AMS-ATMS.md",
+    "md/ims/输入通道静态动态流转图解析.md",
     "md/ims/输入通道静态动态流转图解析 1.docx",
     "md/ims/输入通道静态动态流转图解析.docx",
     "md/ims/input1.md",
     "md/ims/Android 输入系统核心链路：.md",
-    "md/ams/AMS-ATMS.md",
     "md/ams",
     "md/ims/input.md",
     "md/ims/input1.md.md",
@@ -221,7 +222,6 @@
     "Markwhen/Markwhen 1-15-2026 17.29.05.mw",
     "Markwhen/Markwhen 1-15-2026 17.29.01.mw",
     "md/个人/Android 12 Native Binder 代码变迁 - Solo's Blog.md",
-    "Markwhen/Markwhen 1-15-2026 17.29.06.mw",
     "md/个人/usap.md",
     "md/个人/View的所有子 View统一添加点击事件.md",
     "md/个人/【底层机制】Android图形渲染体系深度解析：VSync信号机制.md",
