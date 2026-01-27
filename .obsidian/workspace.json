@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/ams/伪代码2.md",
+                "file": "md/ams/伪代码.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "伪代码2"
+              "title": "伪代码"
             }
           }
         ]
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "md/ams/伪代码2.md",
+                "file": "md/ams/伪代码.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "伪代码2 的大纲"
+              "title": "伪代码 的大纲"
             }
           },
           {
@@ -194,8 +194,8 @@
   },
   "active": "49693c79906749df",
   "lastOpenFiles": [
-    "md/ams/伪代码1.md",
     "md/ams/伪代码2.md",
+    "md/ams/伪代码1.md",
     "md/ams/Android 中 ATMS 与 AMS 深度解析（关系+分工+流转+面试核心）.md",
     "md/ams/AMS-ATMS.md",
     "md/ams/ATMS-AMS.md",
