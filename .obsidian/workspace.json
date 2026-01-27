@@ -14,7 +14,7 @@
               "type": "markdown",
               "state": {
                 "file": "md/ams/伪代码2.md",
-                "mode": "source",
+                "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
@@ -192,7 +192,7 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "f84ce6d2fe2622cd",
+  "active": "49693c79906749df",
   "lastOpenFiles": [
     "md/ams/伪代码1.md",
     "md/ams/伪代码2.md",
