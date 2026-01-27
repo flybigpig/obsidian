@@ -1,4 +1,4 @@
-# Android 中 ATMS 与 AMS 深度解析（关系+分工+流转+面试核心）
+
 
 ATMS（**ActivityTaskManagerService**）和 AMS（**ActivityManagerService**）是 Android 系统中管理四大组件、进程、任务栈的**核心系统服务**，二者均运行在`system_server`进程，**ATMS 是 Android 10（API29）后从 AMS 中拆分出的核心服务**，原 AMS 保留进程/应用管理能力，ATMS 接管页面/任务栈核心管理，形成「ATMS 管页面，AMS 管进程」的核心分工，也是面试高频考点（常问拆分原因、二者分工、交互流程）。
 
