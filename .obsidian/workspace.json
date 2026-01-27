@@ -20,8 +20,21 @@
               "icon": "lucide-file",
               "title": "Android 输入系统核心链路："
             }
+          },
+          {
+            "id": "5b30e3ea97692f08",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.11.5"
+              },
+              "icon": "lucide-book-up",
+              "title": "版本说明 1.11.5"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -192,7 +205,7 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "49693c79906749df",
+  "active": "5b30e3ea97692f08",
   "lastOpenFiles": [
     "md/ims/input.md",
     "md/ims/Android 输入系统核心链路：.md",
