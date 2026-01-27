@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/ams/ATMS-AMS.md",
+                "file": "md/ims/未命名.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "ATMS-AMS"
+              "title": "未命名"
             }
           }
         ]
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "md/ams/ATMS-AMS.md",
+                "file": "md/ims/未命名.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "ATMS-AMS 的大纲"
+              "title": "未命名 的大纲"
             }
           },
           {
@@ -192,10 +192,10 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "fa4657deb406b728",
+  "active": "49693c79906749df",
   "lastOpenFiles": [
-    "md/ams/Android 中 ATMS 与 AMS 深度解析（关系+分工+流转+面试核心）.md",
     "md/ams/ATMS-AMS.md",
+    "md/ams/Android 中 ATMS 与 AMS 深度解析（关系+分工+流转+面试核心）.md",
     "md/ams/AMS-ATMS2.md",
     "md/ams/AMS-ATMS.md",
     "md/ims/输入通道静态动态流转图解析.md",
