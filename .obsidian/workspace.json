@@ -188,11 +188,14 @@
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
       "markdown-importer:打开 Markdown 格式转换器": false,
-      "obsidian-git:Open Git source control": false
+      "obsidian-git:Open Git source control": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "49693c79906749df",
+  "active": "fa4657deb406b728",
   "lastOpenFiles": [
+    "md/个人/安卓系统框架init.rc启动、Binder原理和binder调用framework层原理解析.md",
+    "md/个人/Binder机制详解与编程实例_binder调用实例-CSDN博客.md",
     "md/ams/交互模式.md",
     "md/ams/引用.md",
     "md/ams/AMS-ATMS.md",
@@ -221,13 +224,11 @@
     "Excalidraw/Drawing 2026-01-15 19.32.01.excalidraw.md",
     "Excalidraw/未命名.canvas",
     "else/【拒绝岁月史书】胖猫谭竹事件最全解析+存档记录 - 知乎.md",
-    "else/（保姆级教程） Typora+PicGo+gitee搭建博客写作环境（超详细） 同步解决：PicGo插件安装失败问题_picgo+typora+gitee-CSDN博客.md",
     "Markwhen/Markwhen 1-15-2026 17.33.11.mw",
     "Markwhen/Markwhen 1-15-2026 17.33.10.mw",
     "Markwhen/Markwhen 1-15-2026 17.29.38.mw",
     "Markwhen/Markwhen 1-15-2026 17.33.09.mw",
     "Markwhen/My Project.mw.mw",
-    "().md",
     "Markwhen/Markwhen 1-15-2026 17.29.05.mw",
     "Markwhen/Markwhen 1-15-2026 17.29.01.mw",
     "pic/640.webp",
