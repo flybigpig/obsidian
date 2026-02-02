@@ -311,15 +311,12 @@ public class ResumeActivityItem extends ClientTransactionItem {
 5. **执行原则**：所有事务**主线程执行、串行执行、状态校验、结果回传**，形成「ATMS 下发 - 客户端执行 - 结果回传」的完整闭环；
 6. **通信核心**：跨进程通信依赖 Binder，进程内线程调度依赖 Handler，保证了跨进程指令的安全、有序执行。
 
-<<<<<<< HEAD
-=======
-总结¶
->>>>>>> origin/main
+
 今后只要看到在 system_server 要通过 server transaction 来执行这些 item，可以不用一点点跟进其调用流程，直接跳转到 ActivityThread对应的 Handle方法 和 Perform方法 。
 
 关于执行 Activity 生命周期的相关 item 如下：
 
-<<<<<<< HEAD
+
 | 生命周期阶段     | 客户端事务项（ClientTransactionItem） | Handler 处理方法（ActivityThread.mH） | Perform 执行方法（ActivityThread） | 关键补充（是否有独立 Perform / 核心职责）                      |
 | ---------- | ----------------------------- | ------------------------------- | ---------------------------- | ----------------------------------------------- |
 | ON_CREATE  | LaunchActivityItem            | handleLaunchActivity            | performLaunchActivity        | 有独立 Perform，**Activity 实例创建 + onCreate 触发**核心方法 |
@@ -329,15 +326,6 @@ public class ResumeActivityItem extends ClientTransactionItem {
 | ON_STOP    | StopActivityItem              | handleStopActivity              | performStopActivityInner     | 有内部 Perform（Inner 后缀），**onStop 触发 + 资源释放**核心方法  |
 | ON_DESTROY | DestroyActivityItem           | handleDestroyActivity           | performDestroyActivity       | 有独立 Perform，**onDestroy 触发 + 实例销毁 + 资源回收**核心方法  |
 
-掌握 Activity 客户端事务管理，能从底层理解 Activity 生命周期的执行逻辑，也是理解「ATMS 与应用进程联动」的关键，更是 Android 系统层面试的高频考点！
-=======
-生命周期阶段	客户端事务项（ClientTransactionItem）	Handler 处理方法（ActivityThread.mH）	Perform 执行方法（ActivityThread）	关键补充（是否有独立 Perform / 核心职责）
-ON_CREATE	LaunchActivityItem	handleLaunchActivity	performLaunchActivity	有独立 Perform，Activity 实例创建 + onCreate 触发核心方法
-ON_START	StartActivityItem	handleStartActivity	无独立 Perform	直接在 handle 方法内完成 onStart 触发，无单独封装
-ON_RESUME	ResumeActivityItem	handleResumeActivity	performResumeActivity	有独立 Perform，onResume 触发 + 窗口显示核心方法
-ON_PAUSE	PauseActivityItem	handlePauseActivity	performPauseActivity	有独立 Perform，onPause 触发 + 窗口暂停核心方法
-ON_STOP	StopActivityItem	handleStopActivity	performStopActivityInner	有内部 Perform（Inner 后缀），onStop 触发 + 资源释放核心方法
-ON_DESTROY	DestroyActivityItem	handleDestroyActivity	performDestroyActivity	有独立 Perform，onDestroy 触发 + 实例销毁 + 资源回收核心方法
 
 
 掌握 Activity 客户端事务管理，能从底层理解 Activity 生命周期的执行逻辑，也是理解「ATMS 与应用进程联动」的关键，更是 Android 系统层面试的高频考点
