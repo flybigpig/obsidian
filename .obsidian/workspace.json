@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/Activity/Activity 客户端事务管理（Android 10+ 源码级解析）.md",
+                "file": "md/Activity/Activity 生命周期 - 事务项.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Activity 客户端事务管理（Android 10+ 源码级解析）"
+              "title": "Activity 生命周期 - 事务项"
             }
           }
         ],
@@ -209,8 +209,9 @@
   },
   "active": "50fcf6e6e0009033",
   "lastOpenFiles": [
-    "conflict-files-obsidian-git.md",
     "md/Activity/Activity 客户端事务管理（Android 10+ 源码级解析）.md",
+    "md/Activity/Activity 生命周期 - 事务项.md",
+    "conflict-files-obsidian-git.md",
     "md/Activity/scheduleTransaction.md",
     "md/Activity/Activity管理与返回栈.md",
     "md/Activity/Activity框架01-客户端事务管理 - Solo's Blog.md",
@@ -237,7 +238,6 @@
     "md/ims/input1.md",
     "md/ims/Android 输入系统核心链路：.md",
     "md/ams",
-    "md/ims/input.md",
     "Excalidraw/未命名.canvas",
     "Markwhen/Markwhen 1-15-2026 17.33.11.mw",
     "Markwhen/Markwhen 1-15-2026 17.33.10.mw",
