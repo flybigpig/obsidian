@@ -14,7 +14,7 @@
               "type": "markdown",
               "state": {
                 "file": "md/ams/引用.md",
-                "mode": "source",
+                "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
@@ -188,11 +188,10 @@
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
       "markdown-importer:打开 Markdown 格式转换器": false,
-      "obsidian-git:Open Git source control": false,
-      "obsidian-excalidraw-plugin:新建绘图文件": false
+      "obsidian-git:Open Git source control": false
     }
   },
-  "active": "f84ce6d2fe2622cd",
+  "active": "49693c79906749df",
   "lastOpenFiles": [
     "md/ams/交互模式.md",
     "md/ams/引用.md",
