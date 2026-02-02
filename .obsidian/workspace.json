@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/Activity/未命名.md",
+                "file": "md/Activity/scheduleTransaction.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "未命名"
+              "title": "scheduleTransaction"
             }
           }
         ]
@@ -195,7 +195,7 @@
   "active": "49693c79906749df",
   "lastOpenFiles": [
     "md/Activity/Activity 客户端事务管理（Android 10+ 源码级解析）.md",
-    "md/Activity/未命名.md",
+    "md/Activity/scheduleTransaction.md",
     "md/Activity/Activity管理与返回栈.md",
     "md/Activity/Activity框架01-客户端事务管理 - Solo's Blog.md",
     "md/Activity/事务.md",
