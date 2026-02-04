@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/Activity/Activity 生命周期 - 事务项.md",
+                "file": "else/听话的“穷人”家孩子，只有“死路”一条.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Activity 生命周期 - 事务项"
+              "title": "听话的“穷人”家孩子，只有“死路”一条"
             }
           }
         ],
@@ -203,13 +203,15 @@
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
       "markdown-importer:打开 Markdown 格式转换器": false,
-      "obsidian-git:Open Git source control": false
+      "obsidian-git:Open Git source control": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
   "active": "50fcf6e6e0009033",
   "lastOpenFiles": [
-    "md/Activity/Activity 客户端事务管理（Android 10+ 源码级解析）.md",
     "md/Activity/Activity 生命周期 - 事务项.md",
+    "else/听话的“穷人”家孩子，只有“死路”一条.md",
+    "md/Activity/Activity 客户端事务管理（Android 10+ 源码级解析）.md",
     "conflict-files-obsidian-git.md",
     "md/Activity/scheduleTransaction.md",
     "md/Activity/Activity管理与返回栈.md",
@@ -235,7 +237,6 @@
     "md/ims/输入通道静态动态流转图解析 1.docx",
     "md/ims/输入通道静态动态流转图解析.docx",
     "md/ims/input1.md",
-    "md/ims/Android 输入系统核心链路：.md",
     "md/ams",
     "Excalidraw/未命名.canvas",
     "Markwhen/Markwhen 1-15-2026 17.33.11.mw",
