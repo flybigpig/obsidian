@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/boot/bootanimation程序简介 - Solo's Blog.md",
+                "file": "md/boot/BootAnimation 线程 run 方法深度解析.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "bootanimation程序简介 - Solo's Blog"
+              "title": "BootAnimation 线程 run 方法深度解析"
             }
           }
         ],
@@ -209,8 +209,9 @@
   },
   "active": "50fcf6e6e0009033",
   "lastOpenFiles": [
-    "md/boot/BootAnimation 构造函数源码优化（带详细注释）.md",
     "md/boot/bootanimation程序简介 - Solo's Blog.md",
+    "md/boot/BootAnimation 线程 run 方法深度解析.md",
+    "md/boot/BootAnimation 构造函数源码优化（带详细注释）.md",
     "md/boot/BootAnimation.md",
     "md/binder/深度解析（Android Binder 核心）.md",
     "md/boot",
@@ -235,7 +236,6 @@
     "md/ams/伪代码.md",
     "md/ams/伪代码2.md",
     "md/ams/伪代码1.md",
-    "md/ams/Android 中 ATMS 与 AMS 深度解析（关系+分工+流转+面试核心）.md",
     "md/ims/输入通道静态动态流转图解析 1.docx",
     "md/ims/输入通道静态动态流转图解析.docx",
     "md/ams",
