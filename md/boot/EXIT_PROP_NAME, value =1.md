@@ -4,6 +4,7 @@
 
 ## 一、核心前提：明确关键变量与函数背景
 
+
 在 BootAnimation 源码中，该函数的调用依赖 Android Native 层两个核心基础，先明确避免歧义：
 
 1. **EXIT_PROP_NAME**：宏定义的「动画退出系统属性名」，BootAnimation 源码中标准定义如下（不同机型可能略有差异，但语义一致）： `#define EXIT_PROP_NAME "service.bootanim.exit"` 作用：系统级属性的key，用于标识「开机动画是否需要退出」，SystemServer、SurfaceFlinger 会监听该属性，判断动画状态。
