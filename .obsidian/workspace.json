@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/Activity/Android11 Activity启动流程.md",
+                "file": "md/md/apk体积优化.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Android11 Activity启动流程"
+              "title": "apk体积优化"
             }
           }
         ],
@@ -157,13 +157,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "md/Activity/Android11 Activity启动流程.md",
+                "file": "md/md/apk体积优化.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Android11 Activity启动流程 的大纲"
+              "title": "apk体积优化 的大纲"
             }
           },
           {
@@ -207,10 +207,11 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "f84ce6d2fe2622cd",
+  "active": "fa4657deb406b728",
   "lastOpenFiles": [
-    "md/JVM/Java并发编程（三）volatile域-CSDN博客.md",
+    "md/memory optimization‌",
     "md/Activity/Android11 Activity启动流程.md",
+    "md/JVM/Java并发编程（三）volatile域-CSDN博客.md",
     "md/Activity/ActivityRecord、ActivityStack、Task 等.md",
     "md/Activity/未命名.md",
     "md/Activity/Activity 客户端事务管理（Android 10+ 源码级解析）.md",
@@ -235,7 +236,6 @@
     "md/个人/【Android Framework系列】第8章 事件分发你真了解吗？_dispatcheventlocked-CSDN博客.md",
     "md/个人/安卓逆向基础知识之JNI开发与so层逆向基础.md",
     "md/ams/引用.md",
-    "md/个人/Binder机制详解与编程实例_binder调用实例-CSDN博客.md",
     "md/ims/输入通道静态动态流转图解析 1.docx",
     "md/ims/输入通道静态动态流转图解析.docx",
     "md/ams",
