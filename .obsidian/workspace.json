@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/md/apk体积优化.md",
+                "file": "md/memory optimization‌/内存优化.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "apk体积优化"
+              "title": "内存优化"
             }
           }
         ],
@@ -157,13 +157,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "md/md/apk体积优化.md",
+                "file": "md/memory optimization‌/内存优化.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "apk体积优化 的大纲"
+              "title": "内存优化 的大纲"
             }
           },
           {
@@ -207,8 +207,10 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "fa4657deb406b728",
+  "active": "50fcf6e6e0009033",
   "lastOpenFiles": [
+    "md/md/apk体积优化.md",
+    "md/memory optimization‌/内存优化.md",
     "md/memory optimization‌",
     "md/Activity/Android11 Activity启动流程.md",
     "md/JVM/Java并发编程（三）volatile域-CSDN博客.md",
@@ -235,7 +237,6 @@
     "md/个人/【底层机制】Android图形渲染体系深度解析：VSync信号机制.md",
     "md/个人/【Android Framework系列】第8章 事件分发你真了解吗？_dispatcheventlocked-CSDN博客.md",
     "md/个人/安卓逆向基础知识之JNI开发与so层逆向基础.md",
-    "md/ams/引用.md",
     "md/ims/输入通道静态动态流转图解析 1.docx",
     "md/ims/输入通道静态动态流转图解析.docx",
     "md/ams",
@@ -245,7 +246,6 @@
     "Markwhen/Markwhen 1-15-2026 17.29.38.mw",
     "Markwhen/Markwhen 1-15-2026 17.33.09.mw",
     "Markwhen/My Project.mw.mw",
-    "Markwhen/Markwhen 1-15-2026 17.29.05.mw",
     "pic/640.webp",
     "pic/liuqin.jpg",
     "pic/e46f70f2112adce67a01d081c522f2a8.png",
