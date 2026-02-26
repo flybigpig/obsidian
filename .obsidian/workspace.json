@@ -27,7 +27,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/Java并发编程（三）volatile域-CSDN博客.md",
+                "file": "md/JVM/Java并发编程（三）volatile域-CSDN博客.md",
                 "mode": "source",
                 "source": false
               },
@@ -207,10 +207,10 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "50fcf6e6e0009033",
+  "active": "fa4657deb406b728",
   "lastOpenFiles": [
     "md/Activity/ActivityRecord、ActivityStack、Task 等.md",
-    "md/Java并发编程（三）volatile域-CSDN博客.md",
+    "md/JVM/Java并发编程（三）volatile域-CSDN博客.md",
     "md/Activity/未命名.md",
     "md/Activity/Activity 客户端事务管理（Android 10+ 源码级解析）.md",
     "md/Activity/Activity 生命周期 - 事务项.md",
