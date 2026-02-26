@@ -209,6 +209,7 @@
   },
   "active": "fa4657deb406b728",
   "lastOpenFiles": [
+    "md/Activity/Android11 Activity启动流程 - Solo's Blog.md",
     "md/Activity/ActivityRecord、ActivityStack、Task 等.md",
     "md/JVM/Java并发编程（三）volatile域-CSDN博客.md",
     "md/Activity/未命名.md",
@@ -235,7 +236,6 @@
     "md/个人/安卓逆向基础知识之JNI开发与so层逆向基础.md",
     "md/ams/引用.md",
     "md/个人/Binder机制详解与编程实例_binder调用实例-CSDN博客.md",
-    "md/ams/交互模式.md",
     "md/ims/输入通道静态动态流转图解析 1.docx",
     "md/ims/输入通道静态动态流转图解析.docx",
     "md/ams",
