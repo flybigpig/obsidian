@@ -157,13 +157,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "md/boot/未命名.md",
+                "file": "md/Activity/Android11 Activity启动流程 - Solo's Blog.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "未命名 的大纲"
+              "title": "Android11 Activity启动流程 - Solo's Blog 的大纲"
             }
           },
           {
@@ -207,7 +207,7 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "50fcf6e6e0009033",
+  "active": "f84ce6d2fe2622cd",
   "lastOpenFiles": [
     "md/JVM/Java并发编程（三）volatile域-CSDN博客.md",
     "md/Activity/Android11 Activity启动流程 - Solo's Blog.md",

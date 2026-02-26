@@ -1,10 +1,10 @@
 Android AMS 启动流程
 
-[](https://github.com/i-rtfsc/note/edit/main/docs/Android/AMS/Android11%20Activity%E5%90%AF%E5%8A%A8%E6%B5%81%E7%A8%8B.md "编辑此页")
 
-## App进程启动Activity[¶](https://i-rtfsc.github.io/android/ams/android11-activity-start/#appactivity "Permanent link")
+来源Solo's Blog [¶](https://i-rtfsc.github.io/android/ams/android11-activity-start/#appactivity "Permanent link")
+## App进程启动Activity
 
-### Activity.startActivity()[¶](https://i-rtfsc.github.io/android/ams/android11-activity-start/#activitystartactivity "Permanent link")
+### Activity.startActivity()
 
 ```
 //http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/core/java/android/app/Activity.java
@@ -48,7 +48,7 @@ public void startActivityForResult(String who, Intent intent, int requestCode, @
 
 -   调用Instrumentation.execStartActivity
 
-### Instrumentation.execStartActivity()[¶](https://i-rtfsc.github.io/android/ams/android11-activity-start/#instrumentationexecstartactivity "Permanent link")
+### Instrumentation.execStartActivity()
 
 ```
 //http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/core/java/android/app/Instrumentation.java
@@ -76,11 +76,11 @@ public ActivityResult execStartActivity(
 
 这边都还是App进程，通过binder通信调用ActivityTaskManagerService(ATMS)服务。
 
-### 获取ATMS服务[¶](https://i-rtfsc.github.io/android/ams/android11-activity-start/#atms "Permanent link")
+### 获取ATMS服务
 
 上面明明看到的是调用ActivityTaskManager.getService().startActivity(），那为什么就可以肯定就是调用ActivityTaskManagerService了呢？这里也简单的贴出片段代码供分析。
 
-#### ActivityTaskManager[¶](https://i-rtfsc.github.io/android/ams/android11-activity-start/#activitytaskmanager "Permanent link")
+#### ActivityTaskManager
 
 ```
 //http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/core/java/android/app/ActivityTaskManager.java
@@ -119,7 +119,7 @@ public static final String ACTIVITY_TASK_SERVICE = "activity_task";</code>
 
 -   AIDL接口是IActivityTaskManager，在aospxref上是看到是[startActivity](//http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/core/java/android/app/IActivityTaskManager.aidl#87)有接口的
 
-#### ActivityTaskManagerService[¶](https://i-rtfsc.github.io/android/ams/android11-activity-start/#activitytaskmanagerservice "Permanent link")
+#### ActivityTaskManagerService
 
 ```
 public class ActivityTaskManagerService extends IActivityTaskManager.Stub {
@@ -163,7 +163,7 @@ public class ActivityTaskManagerService extends IActivityTaskManager.Stub {
 
 如果熟悉安卓启动流程，其实就知道是在SystemServer.startBootstrapServices启动服务。
 
-#### startBootstrapServices()[¶](https://i-rtfsc.github.io/android/ams/android11-activity-start/#startbootstrapservices "Permanent link")
+#### startBootstrapServices()
 
 ```
 //http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/services/java/com/android/server/SystemServer.java#765
@@ -236,13 +236,13 @@ mServices.add(service)
 
 service.onStart()也就是前面提到的ActivityTaskManagerService.Lifecycle.onStart()，也就是publishBinderService(Context.ACTIVITY\_TASK\_SERVICE, mService);
 
-### 流程[¶](https://i-rtfsc.github.io/android/ams/android11-activity-start/#_1 "Permanent link")
+### 流程
 
 根据上面的代码分析，我们发现在启动Activity的初始阶段很简单。就是启动Activity的进程A一步一步调用SystemServer的ATMS服务接口的过程。
 
-## SystemServer.ActivityTaskManagerService[¶](https://i-rtfsc.github.io/android/ams/android11-activity-start/#systemserveractivitytaskmanagerservice "Permanent link")
+## SystemServer.ActivityTaskManagerService
 
-### ATMS[¶](https://i-rtfsc.github.io/android/ams/android11-activity-start/#atms_1 "Permanent link")
+### ATMS
 
 ```
 //http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/services/core/java/com/android/server/wm/ActivityTaskManagerService.java#1005
@@ -298,7 +298,7 @@ ActivityStartController getActivityStartController() {
 }</code>
 ```
 
-### ActivityStarter.obtainStarter()[¶](https://i-rtfsc.github.io/android/ams/android11-activity-start/#activitystarterobtainstarter "Permanent link")
+### ActivityStarter.obtainStarter()
 
 ```
 //http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/services/core/java/com/android/server/wm/ActivityStartController.java#149
@@ -519,7 +519,7 @@ class ActivityStarter {
 
 当设置完成之后，我们直接看看execute方法。
 
-### ActivityStarter.execute()[¶](https://i-rtfsc.github.io/android/ams/android11-activity-start/#activitystarterexecute "Permanent link")
+### ActivityStarter.execute()
 
 ```
 //http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/services/core/java/com/android/server/wm/ActivityStarter.java
@@ -697,7 +697,7 @@ shouldAbortBackgroundActivityStart()里面主要处理是否允许后台启动ac
 -   new一个ActivityRecord，它就是要被启动的Activity
     
 
-### ActivityStarter.startActivityUnchecked()[¶](https://i-rtfsc.github.io/android/ams/android11-activity-start/#activitystarterstartactivityunchecked "Permanent link")
+### ActivityStarter.startActivityUnchecked()
 
 ```
 //http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/services/core/java/com/android/server/wm/ActivityStarter.java
@@ -732,7 +732,7 @@ private int startActivityUnchecked(final ActivityRecord r, ActivityRecord source
 
 继续看startActivityInner
 
-### ActivityStarter.startActivityInner()[¶](https://i-rtfsc.github.io/android/ams/android11-activity-start/#activitystarterstartactivityinner "Permanent link")
+### ActivityStarter.startActivityInner()
 
 ```
 //http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/services/core/java/com/android/server/wm/ActivityStarter.java
@@ -840,13 +840,13 @@ int startActivityInner(final ActivityRecord r, ActivityRecord sourceRecord,
 
 这个函数比较长，我们着重从以下9个方面进行分析。
 
-#### 例子[¶](https://i-rtfsc.github.io/android/ams/android11-activity-start/#_2 "Permanent link")
+#### 例子
 
 以下代码分析都以以ActivitA启动ActivityB为例，即：
 
 startActivity(new Intent(ActivityA.this,ActivityB.class))
 
-#### 1\. setInitialState()[¶](https://i-rtfsc.github.io/android/ams/android11-activity-start/#1-setinitialstate "Permanent link")
+#### 1\. setInitialState()
 
 ```
 //http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/services/core/java/com/android/server/wm/ActivityStarter.java
@@ -980,7 +980,7 @@ private void setInitialState(ActivityRecord r, ActivityOptions options, Task inT
 
 把整个参数赋值给ActivityStarter的全局变量，以供之后所有的流程使用。还有一些比如判断VR模式等等，跟启动activity关系不大，暂不展开阐述。
 
-#### 2\. computeSourceStack()[¶](https://i-rtfsc.github.io/android/ams/android11-activity-start/#2-computesourcestack "Permanent link")
+#### 2\. computeSourceStack()
 
 ```
 //http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/services/core/java/com/android/server/wm/ActivityStarter.java
@@ -1001,7 +1001,7 @@ private void computeSourceStack() {
 
 逻辑在“标记1”就return了。说明当前ActivityB的source Task就是sourceRecord的task，即ActivityA所在的task。
 
-#### 3\. getReusableTask[¶](https://i-rtfsc.github.io/android/ams/android11-activity-start/#3-getreusabletask "Permanent link")
+#### 3\. getReusableTask
 
 ```
 //http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/services/core/java/com/android/server/wm/ActivityStarter.java
@@ -1064,7 +1064,7 @@ private Task getReusableTask() {
 
 从注释其实就能看出来了，查找栈中是否已有可复用的activity，如果没有再看是否有对应合适的栈。根据我们例子代码可知，reusedTask为null。
 
-#### 4\. computeTargetTask[¶](https://i-rtfsc.github.io/android/ams/android11-activity-start/#4-computetargettask "Permanent link")
+#### 4\. computeTargetTask
 
 ```
 //http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/services/core/java/com/android/server/wm/ActivityStarter.java
@@ -1095,7 +1095,7 @@ private Task computeTargetTask() {
 
 根据前面分析resultTo不为null，mSourceRecord不为Null，因此会走到“标记2”的逻辑，即return sourceRecord的task，也就是说返回ActivitA的task. 即targetTask为ActivitA的task。
 
-#### 5\. computeLaunchParams[¶](https://i-rtfsc.github.io/android/ams/android11-activity-start/#5-computelaunchparams "Permanent link")
+#### 5\. computeLaunchParams
 
 ```
 //http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/services/core/java/com/android/server/wm/ActivityStarter.java
@@ -1157,7 +1157,7 @@ private void computeLaunchParams(ActivityRecord r, ActivityRecord sourceRecord,
 
 实际上在ActivityOptions的[setLaunchBounds](//http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/core/java/android/app/ActivityOptions.java#1078)中能够控制新建的Activity的窗体大小和位置。
 
-#### 6\. recycleTask[¶](https://i-rtfsc.github.io/android/ams/android11-activity-start/#6-recycletask "Permanent link")
+#### 6\. recycleTask
 
 ```
 //http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/services/core/java/com/android/server/wm/ActivityStarter.java
@@ -1182,7 +1182,7 @@ int recycleTask(Task targetTask, ActivityRecord targetTaskTop, Task reusedTask,
 -   通过函数setTargetStackIfNeeded设置targetStack，
 -   return START\_SUCCESS 即 mAddingToTask为true
 
-#### 7\. addOrReparentStartingActivity[¶](https://i-rtfsc.github.io/android/ams/android11-activity-start/#7-addorreparentstartingactivity "Permanent link")
+#### 7\. addOrReparentStartingActivity
 
 ```
 //http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/services/core/java/com/android/server/wm/ActivityStarter.java
@@ -1200,7 +1200,7 @@ private void addOrReparentStartingActivity(Task parent, String reason) {
 
 调用TaskRecord的addActivityToTop函数将待启动的Activity插入到TaskRecord中的mActivities的顶部。
 
-#### 8\. moveToFront[¶](https://i-rtfsc.github.io/android/ams/android11-activity-start/#8-movetofront "Permanent link")
+#### 8\. moveToFront
 
 在ActivityStarter.startActivityInner
 
@@ -1401,7 +1401,7 @@ void startActivityLocked(ActivityRecord r, @Nullable ActivityRecord focusedTopAc
 
 找到Activity所在的TaskRecord, 把Activity插入TaskRecord合适的位置。
 
-#### 小结[¶](https://i-rtfsc.github.io/android/ams/android11-activity-start/#_3 "Permanent link")
+#### 小结
 
 -   确定被启动Activity的Task
 -   确定被启动Activity的window mode
@@ -1409,7 +1409,7 @@ void startActivityLocked(ActivityRecord r, @Nullable ActivityRecord focusedTopAc
 -   把要启动的activity加到属于自己的task里
 -   把要启动的Activity所在的Task设置在显示区域和WindowContainer的最上层
 
-### RootWindowContainer.resumeFocusedStacksTopActivities()[¶](https://i-rtfsc.github.io/android/ams/android11-activity-start/#rootwindowcontainerresumefocusedstackstopactivities "Permanent link")
+### RootWindowContainer.resumeFocusedStacksTopActivities()
 
 ```
 //http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/services/core/java/com/android/server/wm/RootWindowContainer.java
@@ -1469,7 +1469,7 @@ boolean resumeFocusedStacksTopActivities(
 
 找到顶部ActivityStack，将activity显示在上面。
 
-### ActivityStack.resumeTopActivityUncheckedLocked()[¶](https://i-rtfsc.github.io/android/ams/android11-activity-start/#activitystackresumetopactivityuncheckedlocked "Permanent link")
+### ActivityStack.resumeTopActivityUncheckedLocked()
 
 ```
 //http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/services/core/java/com/android/server/wm/ActivityStack.java
@@ -1499,7 +1499,7 @@ boolean resumeTopActivityUncheckedLocked(ActivityRecord prev, ActivityOptions op
 
 这里很简单，我们继续看resumeTopActivityInnerLocked和topRunningActivity。
 
-### ActivityStack.resumeTopActivityInnerLocked()[¶](https://i-rtfsc.github.io/android/ams/android11-activity-start/#activitystackresumetopactivityinnerlocked "Permanent link")
+### ActivityStack.resumeTopActivityInnerLocked()
 
 ```
 //http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/services/core/java/com/android/server/wm/ActivityStack.java
@@ -1542,8 +1542,7 @@ private boolean resumeTopActivityInnerLocked(ActivityRecord prev, ActivityOption
 
 调用AcitivityB的onCreate方法
 
-### ActivityStack.startPausingLocked[¶](https://i-rtfsc.github.io/android/ams/android11-activity-start/#activitystackstartpausinglocked "Permanent link")
-
+### ActivityStack.startPausingLocked
 ```
 //http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/services/core/java/com/android/server/wm/ActivityStack.java
 
@@ -1576,7 +1575,7 @@ final boolean startPausingLocked(boolean userLeaving, boolean uiSleeping,
 
 重点是mAtmService.getLifecycleManager().scheduleTransaction()，先看看PauseActivityItem.obtain()都做哪些事情。
 
-#### PauseActivityItem.obtain()[¶](https://i-rtfsc.github.io/android/ams/android11-activity-start/#pauseactivityitemobtain "Permanent link")
+#### PauseActivityItem.obtain()
 
 ```
 //http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/core/java/android/app/servertransaction/PauseActivityItem.java#76
@@ -1612,12 +1611,9 @@ public static &lt;T extends ObjectPoolItem&gt; T obtain(Class&lt;T&gt; itemClass
 
 看到这段代码比较有意思，通过\*\*享元模式\*\*来进行处理的。
 
-关于享元模式，可以参考这两篇文档。
 
--   [简说设计模式——享元模式](https://www.cnblogs.com/adamjwh/p/9070107.html)
--   [享元模式](https://www.jianshu.com/p/a2aa75939766)
 
-#### ClientLifecycleManager.scheduleTransaction[¶](https://i-rtfsc.github.io/android/ams/android11-activity-start/#clientlifecyclemanagerscheduletransaction "Permanent link")
+#### ClientLifecycleManager.scheduleTransaction
 
 再回到mAtmService.getLifecycleManager().scheduleTransaction()
 
@@ -1718,9 +1714,9 @@ public final class ActivityThread extends ClientTransactionHandler {
 }</code>
 ```
 
-### 流程[¶](https://i-rtfsc.github.io/android/ams/android11-activity-start/#_4 "Permanent link")
+### 流程
 
-## App进程ActivityThread.scheduleTransaction()[¶](https://i-rtfsc.github.io/android/ams/android11-activity-start/#appactivitythreadscheduletransaction "Permanent link")
+## App进程ActivityThread.scheduleTransaction()
 
 ```
 //http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/core/java/android/app/ActivityThread.java
@@ -1755,7 +1751,7 @@ public abstract class ClientTransactionHandler {
 }</code>
 ```
 
-### ActivityThread.H.EXECUTE\_TRANSACTION[¶](https://i-rtfsc.github.io/android/ams/android11-activity-start/#activitythreadhexecute_transaction "Permanent link")
+### ActivityThread.H.EXECUTE\_TRANSACTION
 
 ```
 //http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/core/java/android/app/ActivityThread.java?fi=EXECUTE_TRANSACTION#2064
@@ -1775,7 +1771,7 @@ case EXECUTE_TRANSACTION:
     break;</code>
 ```
 
-### TransactionExecutor.execute()[¶](https://i-rtfsc.github.io/android/ams/android11-activity-start/#transactionexecutorexecute "Permanent link")
+### TransactionExecutor.execute()
 
 ```
 //http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/core/java/android/app/servertransaction/TransactionExecutor.java#69
@@ -1813,7 +1809,7 @@ private void executeLifecycleState(ClientTransaction transaction) {
 -   lifecycleItem就是前面说到的PauseActivityItem
 -   mTransactionHandler就是ActivityThread
 
-### PauseActivityItem.execute()[¶](https://i-rtfsc.github.io/android/ams/android11-activity-start/#pauseactivityitemexecute "Permanent link")
+### PauseActivityItem.execute()
 
 ```
 //http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/core/java/android/app/servertransaction/PauseActivityItem.java
@@ -1830,7 +1826,7 @@ public void execute(ClientTransactionHandler client, IBinder token,
 
 client是ActivityThread，如果我们一路往回看，其实就知道此时还是在App-A进程中。
 
-### ActivityThread.handlePauseActivity()[¶](https://i-rtfsc.github.io/android/ams/android11-activity-start/#activitythreadhandlepauseactivity "Permanent link")
+### ActivityThread.handlePauseActivity()
 
 ```
 //http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/core/java/android/app/ActivityThread.java
@@ -1849,7 +1845,7 @@ public void handlePauseActivity(IBinder token, boolean finished, boolean userLea
 }</code>
 ```
 
-### ActivityThread.performPauseActivity()[¶](https://i-rtfsc.github.io/android/ams/android11-activity-start/#activitythreadperformpauseactivity "Permanent link")
+### ActivityThread.performPauseActivity()
 
 ```
 //http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/core/java/android/app/ActivityThread.java
@@ -1863,7 +1859,7 @@ private Bundle performPauseActivity(ActivityClientRecord r, boolean finished, St
 }</code>
 ```
 
-### ActivityThread.performPauseActivityIfNeeded()[¶](https://i-rtfsc.github.io/android/ams/android11-activity-start/#activitythreadperformpauseactivityifneeded "Permanent link")
+### ActivityThread.performPauseActivityIfNeeded()
 
 ```
 //http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/core/java/android/app/ActivityThread.java
@@ -1880,7 +1876,7 @@ private void performPauseActivityIfNeeded(ActivityClientRecord r, String reason)
 }</code>
 ```
 
-### Instrumentation.callActivityOnPause()[¶](https://i-rtfsc.github.io/android/ams/android11-activity-start/#instrumentationcallactivityonpause "Permanent link")
+### Instrumentation.callActivityOnPause()
 
 ```
 //http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/core/java/android/app/Instrumentation.java
@@ -1890,7 +1886,7 @@ public void callActivityOnPause(Activity activity) {
 }</code>
 ```
 
-### Activity.performPause()[¶](https://i-rtfsc.github.io/android/ams/android11-activity-start/#activityperformpause "Permanent link")
+### Activity.performPause()
 
 ```
 //http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/core/java/android/app/Activity.java
@@ -1920,9 +1916,9 @@ final void performPause() {
 
 到这里为止，原来在我们面前展示的那个Activity调用了其\*\*onPause\*\*方法。之前在SystemServer进程的ActivityTaskManagerService服务中ActivityStack.resumeTopActivityInnerLocked()中的startPausingLocked()流程终于结束了，下来接着分析ActivityStack.resumeTopActivityInnerLocked()中的startSpecificActivity()流程，也就是Activity创建的过程。
 
-## SystemServer.ATMS[¶](https://i-rtfsc.github.io/android/ams/android11-activity-start/#systemserveratms "Permanent link")
+## SystemServer.ATMS
 
-### ActivityStackSupervisor.startSpecificActivity()[¶](https://i-rtfsc.github.io/android/ams/android11-activity-start/#activitystacksupervisorstartspecificactivity "Permanent link")
+### ActivityStackSupervisor.startSpecificActivity()
 
 ```
 //http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/services/core/java/com/android/server/wm/ActivityStackSupervisor.java
@@ -1958,7 +1954,7 @@ void startSpecificActivity(ActivityRecord r, boolean andResume, boolean checkCon
 -   根据uid和pid，获取activity对应的进行和线程信息，如果进程已经起来则调用realStartActivityLocked
 -   如果进程没起来，走到AMS服务，AMS服务跟zygote进程申请启动新的APP进程。（这文章越写越长，这个知识点后面再找个机会补充吧）
 
-### ActivityStackSupervisor.realStartActivityLocked()[¶](https://i-rtfsc.github.io/android/ams/android11-activity-start/#activitystacksupervisorrealstartactivitylocked "Permanent link")
+### ActivityStackSupervisor.realStartActivityLocked()
 
 ```
 //http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/services/core/java/com/android/server/wm/ActivityStackSupervisor.java
@@ -2050,7 +2046,7 @@ boolean realStartActivityLocked(ActivityRecord r, WindowProcessController proc,
 -   回调App进程，发起生命周期方法
     
 
-### ClientLifecycleManager.scheduleTransaction[¶](https://i-rtfsc.github.io/android/ams/android11-activity-start/#clientlifecyclemanagerscheduletransaction_1 "Permanent link")
+### ClientLifecycleManager.scheduleTransaction
 
 重点分析mService.getLifecycleManager().scheduleTransaction(clientTransaction);
 
@@ -2113,7 +2109,7 @@ public final class ActivityThread extends ClientTransactionHandler {
 }</code>
 ```
 
-## 新App进程ActivityThread.schedule[¶](https://i-rtfsc.github.io/android/ams/android11-activity-start/#appactivitythreadschedule "Permanent link")
+## 新App进程ActivityThread.schedule
 
 ```
 //http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/core/java/android/app/ActivityThread.java
@@ -2152,7 +2148,7 @@ public abstract class ClientTransactionHandler {
 
 接下来我们看一下ClientTransactionHandler中的scheduleTransaction方法。通过调用ActivityThread的sendMessage方法，给handler的子类H发了一个what为 EXECUTE\_TRANSACTION obj为ClientTransaction的消息。
 
-### ActivityThread.H.EXECUTE\_TRANSACTION[¶](https://i-rtfsc.github.io/android/ams/android11-activity-start/#activitythreadhexecute_transaction_1 "Permanent link")
+### ActivityThread.H.EXECUTE\_TRANSACTION
 
 ```
 //http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/core/java/android/app/ActivityThread.java?fi=EXECUTE_TRANSACTION#2064
@@ -2174,7 +2170,7 @@ case EXECUTE_TRANSACTION:
 
 H类的handleMessage方法中可以看到调用了TransactionExecutor事务执行器的execute()方法并把ClientTransaction 作为参数。
 
-### TransactionExecutor.execute()[¶](https://i-rtfsc.github.io/android/ams/android11-activity-start/#transactionexecutorexecute_1 "Permanent link")
+### TransactionExecutor.execute()
 
 ```
 //http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/core/java/android/app/servertransaction/TransactionExecutor.java#69
@@ -2189,7 +2185,7 @@ public void execute(ClientTransaction transaction) {
 }</code>
 ```
 
-#### TransactionExecutor.executeCallbacks()[¶](https://i-rtfsc.github.io/android/ams/android11-activity-start/#transactionexecutorexecutecallbacks "Permanent link")
+#### TransactionExecutor.executeCallbacks()
 
 ```
 //http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/core/java/android/app/servertransaction/TransactionExecutor.java
@@ -2211,7 +2207,7 @@ public void executeCallbacks(ClientTransaction transaction) {
 
 调用ClientTransactionItem的execute方法，我们发现这个类是一个抽象类，具体的实现类其实就是我们上面realStartActivityLocked中提到的LaunchActivityItem。
 
-### LaunchActivityItem.execute()[¶](https://i-rtfsc.github.io/android/ams/android11-activity-start/#launchactivityitemexecute "Permanent link")
+### LaunchActivityItem.execute()
 
 ```
 //http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/core/java/android/app/servertransaction/BaseClientRequest.java
@@ -2247,7 +2243,7 @@ public class LaunchActivityItem extends ClientTransactionItem {
 
 通过上面的分析我们可以知道这个client其实就是ActivityThread这个类，ActivityThread继承自ClientTransactionHandler。接下来我们看一下ActivityThread的handleLaunchActivity方法的具体实现。
 
-### ActivityThread.handleLaunchActivity()[¶](https://i-rtfsc.github.io/android/ams/android11-activity-start/#activitythreadhandlelaunchactivity "Permanent link")
+### ActivityThread.handleLaunchActivity()
 
 ```
 //http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/core/java/android/app/ActivityThread.java
@@ -2267,7 +2263,7 @@ public Activity handleLaunchActivity(ActivityClientRecord r,
 
 我们只关心启动activity的过程，所以接下来继续看performLaunchActivity方法。
 
-### ActivityThread.performLaunchActivity()[¶](https://i-rtfsc.github.io/android/ams/android11-activity-start/#activitythreadperformlaunchactivity "Permanent link")
+### ActivityThread.performLaunchActivity()
 
 ```
 //http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/core/java/android/app/ActivityThread.java
@@ -2329,8 +2325,7 @@ private Activity performLaunchActivity(ActivityClientRecord r, Intent customInte
 -   调用Activity的attach方法来绑定appContent
 -   Instrumentation的callActivityOnCreate()方法
 
-### Instrumentation.callActivityOnCreate()[¶](https://i-rtfsc.github.io/android/ams/android11-activity-start/#instrumentationcallactivityoncreate "Permanent link")
-
+### Instrumentation.callActivityOnCreate()
 ```
 //http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/core/java/android/app/Instrumentation.java
 
@@ -2343,7 +2338,7 @@ public void callActivityOnCreate(Activity activity, Bundle icicle) {
 
 调用了Activity的performCreate方法。
 
-### Activity.performCreate()[¶](https://i-rtfsc.github.io/android/ams/android11-activity-start/#activityperformcreate "Permanent link")
+### Activity.performCreate()
 
 ```
 //http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/core/java/android/app/Activity.java
@@ -2370,7 +2365,7 @@ final void performCreate(Bundle icicle, PersistableBundle persistentState) {
 -   Activity与Window关系
 -   待补充
 
-## 总结[¶](https://i-rtfsc.github.io/android/ams/android11-activity-start/#_5 "Permanent link")
+## 总结
 
 我们从进程间交互的角度总结activity的启动过程：
 
@@ -2385,7 +2380,7 @@ final void performCreate(Bundle icicle, PersistableBundle persistentState) {
 
 图片来源于[此处](https://www.jianshu.com/p/00b7bdfc281c)
 
-## 参考[¶](https://i-rtfsc.github.io/android/ams/android11-activity-start/#_6 "Permanent link")
+## 参考
 
 [Android10\_原理机制系列\_AMS(ATMS)之应用的第一次启动的过程](https://www.cnblogs.com/fanglongxiang/p/13670328.html)
 
