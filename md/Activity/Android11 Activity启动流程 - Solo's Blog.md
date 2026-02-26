@@ -7,7 +7,7 @@ Android AMS 启动流程
 ### Activity.startActivity()[¶](https://i-rtfsc.github.io/android/ams/android11-activity-start/#activitystartactivity "Permanent link")
 
 ```
-<span></span><code id="code-lang-typescript">http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/core/java/android/app/Activity.java
+//http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/core/java/android/app/Activity.java
 
 @Override
 public void startActivity(Intent intent) {
@@ -51,7 +51,7 @@ public void startActivityForResult(String who, Intent intent, int requestCode, @
 ### Instrumentation.execStartActivity()[¶](https://i-rtfsc.github.io/android/ams/android11-activity-start/#instrumentationexecstartactivity "Permanent link")
 
 ```
-<span></span><code id="code-lang-java">http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/core/java/android/app/Instrumentation.java
+//http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/core/java/android/app/Instrumentation.java
 
 @UnsupportedAppUsage
 public ActivityResult execStartActivity(
@@ -83,7 +83,7 @@ public ActivityResult execStartActivity(
 #### ActivityTaskManager[¶](https://i-rtfsc.github.io/android/ams/android11-activity-start/#activitytaskmanager "Permanent link")
 
 ```
-<span></span><code id="code-lang-java">http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/core/java/android/app/ActivityTaskManager.java
+//http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/core/java/android/app/ActivityTaskManager.java
 
  /** @hide */
 public static IActivityTaskManager getService() {
@@ -104,7 +104,7 @@ private static final Singleton&lt;IActivityTaskManager&gt; IActivityTaskManagerS
 -   获取这个服务ServiceManager.getService(Context.ACTIVITY\_TASK\_SERVICE)
 
 ```
-<span></span><code id="code-lang-java">http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/core/java/android/content/Context.java#3793
+//http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/core/java/android/content/Context.java#3793
 
 /**
 * Use with {@link #getSystemService(String)} to retrieve a
@@ -117,12 +117,12 @@ private static final Singleton&lt;IActivityTaskManager&gt; IActivityTaskManagerS
 public static final String ACTIVITY_TASK_SERVICE = "activity_task";</code>
 ```
 
--   AIDL接口是IActivityTaskManager，在aospxref上是看到是[startActivity](http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/core/java/android/app/IActivityTaskManager.aidl#87)有接口的
+-   AIDL接口是IActivityTaskManager，在aospxref上是看到是[startActivity](//http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/core/java/android/app/IActivityTaskManager.aidl#87)有接口的
 
 #### ActivityTaskManagerService[¶](https://i-rtfsc.github.io/android/ams/android11-activity-start/#activitytaskmanagerservice "Permanent link")
 
 ```
-<span></span><code id="code-lang-java">public class ActivityTaskManagerService extends IActivityTaskManager.Stub {
+public class ActivityTaskManagerService extends IActivityTaskManager.Stub {
 
      public static final class Lifecycle extends SystemService {
         private final ActivityTaskManagerService mService;
@@ -166,7 +166,7 @@ public static final String ACTIVITY_TASK_SERVICE = "activity_task";</code>
 #### startBootstrapServices()[¶](https://i-rtfsc.github.io/android/ams/android11-activity-start/#startbootstrapservices "Permanent link")
 
 ```
-<span></span><code id="code-lang-java">http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/services/java/com/android/server/SystemServer.java#765
+//http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/services/java/com/android/server/SystemServer.java#765
 
 private void startBootstrapServices(@NonNull TimingsTraceAndSlog t) {
 
@@ -197,7 +197,7 @@ mSystemServiceManager.startService(ActivityTaskManagerService.Lifecycle.class).g
 ActivityManagerService.Lifecycle.startService(mSystemServiceManager, atm)
 
 ```
-<span></span><code id="code-lang-java">public &lt;T extends SystemService&gt; T startService(Class&lt;T&gt; serviceClass) {
+public &lt;T extends SystemService&gt; T startService(Class&lt;T&gt; serviceClass) {
    try {
        final String name = serviceClass.getName();
 
@@ -245,7 +245,7 @@ service.onStart()也就是前面提到的ActivityTaskManagerService.Lifecycle.on
 ### ATMS[¶](https://i-rtfsc.github.io/android/ams/android11-activity-start/#atms_1 "Permanent link")
 
 ```
-<span></span><code id="code-lang-typescript">http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/services/core/java/com/android/server/wm/ActivityTaskManagerService.java#1005
+//http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/services/core/java/com/android/server/wm/ActivityTaskManagerService.java#1005
 
  @Override
 public final int startActivity(IApplicationThread caller, String callingPackage,
@@ -301,7 +301,7 @@ ActivityStartController getActivityStartController() {
 ### ActivityStarter.obtainStarter()[¶](https://i-rtfsc.github.io/android/ams/android11-activity-start/#activitystarterobtainstarter "Permanent link")
 
 ```
-<span></span><code id="code-lang-javascript">http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/services/core/java/com/android/server/wm/ActivityStartController.java#149
+//http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/services/core/java/com/android/server/wm/ActivityStartController.java#149
 
 ActivityStarter obtainStarter(Intent intent, String reason) {
     return mFactory.obtain().setIntent(intent).setReason(reason);
@@ -309,7 +309,7 @@ ActivityStarter obtainStarter(Intent intent, String reason) {
 ```
 
 ```
-<span></span><code id="code-lang-kotlin">http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/services/core/java/com/android/server/wm/ActivityStarter.java
+//http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/services/core/java/com/android/server/wm/ActivityStarter.java
 
 /**
  * Controller for interpreting how and then launching an activity.
@@ -522,7 +522,7 @@ class ActivityStarter {
 ### ActivityStarter.execute()[¶](https://i-rtfsc.github.io/android/ams/android11-activity-start/#activitystarterexecute "Permanent link")
 
 ```
-<span></span><code id="code-lang-java">http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/services/core/java/com/android/server/wm/ActivityStarter.java
+//http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/services/core/java/com/android/server/wm/ActivityStarter.java
 
 
 /**
@@ -700,7 +700,7 @@ shouldAbortBackgroundActivityStart()里面主要处理是否允许后台启动ac
 ### ActivityStarter.startActivityUnchecked()[¶](https://i-rtfsc.github.io/android/ams/android11-activity-start/#activitystarterstartactivityunchecked "Permanent link")
 
 ```
-<span></span><code id="code-lang-java">http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/services/core/java/com/android/server/wm/ActivityStarter.java
+//http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/services/core/java/com/android/server/wm/ActivityStarter.java
 
 private int startActivityUnchecked(final ActivityRecord r, ActivityRecord sourceRecord,
            IVoiceInteractionSession voiceSession, IVoiceInteractor voiceInteractor,
@@ -735,7 +735,7 @@ private int startActivityUnchecked(final ActivityRecord r, ActivityRecord source
 ### ActivityStarter.startActivityInner()[¶](https://i-rtfsc.github.io/android/ams/android11-activity-start/#activitystarterstartactivityinner "Permanent link")
 
 ```
-<span></span><code id="code-lang-java">http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/services/core/java/com/android/server/wm/ActivityStarter.java
+//http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/services/core/java/com/android/server/wm/ActivityStarter.java
 
 int startActivityInner(final ActivityRecord r, ActivityRecord sourceRecord,
         IVoiceInteractionSession voiceSession, IVoiceInteractor voiceInteractor,
@@ -849,7 +849,7 @@ startActivity(new Intent(ActivityA.this,ActivityB.class))
 #### 1\. setInitialState()[¶](https://i-rtfsc.github.io/android/ams/android11-activity-start/#1-setinitialstate "Permanent link")
 
 ```
-<span></span><code id="code-lang-java">http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/services/core/java/com/android/server/wm/ActivityStarter.java
+//http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/services/core/java/com/android/server/wm/ActivityStarter.java
 
 private void setInitialState(ActivityRecord r, ActivityOptions options, Task inTask,
        boolean doResume, int startFlags, ActivityRecord sourceRecord,
@@ -983,7 +983,7 @@ private void setInitialState(ActivityRecord r, ActivityOptions options, Task inT
 #### 2\. computeSourceStack()[¶](https://i-rtfsc.github.io/android/ams/android11-activity-start/#2-computesourcestack "Permanent link")
 
 ```
-<span></span><code id="code-lang-csharp">http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/services/core/java/com/android/server/wm/ActivityStarter.java
+//http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/services/core/java/com/android/server/wm/ActivityStarter.java
 
 private void computeSourceStack() {
    if (mSourceRecord == null) {
@@ -1004,7 +1004,7 @@ private void computeSourceStack() {
 #### 3\. getReusableTask[¶](https://i-rtfsc.github.io/android/ams/android11-activity-start/#3-getreusabletask "Permanent link")
 
 ```
-<span></span><code id="code-lang-java">http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/services/core/java/com/android/server/wm/ActivityStarter.java
+//http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/services/core/java/com/android/server/wm/ActivityStarter.java
 
 /**
 * Decide whether the new activity should be inserted into an existing task. Returns null
@@ -1067,7 +1067,7 @@ private Task getReusableTask() {
 #### 4\. computeTargetTask[¶](https://i-rtfsc.github.io/android/ams/android11-activity-start/#4-computetargettask "Permanent link")
 
 ```
-<span></span><code id="code-lang-kotlin">http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/services/core/java/com/android/server/wm/ActivityStarter.java
+//http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/services/core/java/com/android/server/wm/ActivityStarter.java
 
 private Task computeTargetTask() {
    if (mStartActivity.resultTo == null &amp;&amp; mInTask == null &amp;&amp; !mAddingToTask
@@ -1098,7 +1098,7 @@ private Task computeTargetTask() {
 #### 5\. computeLaunchParams[¶](https://i-rtfsc.github.io/android/ams/android11-activity-start/#5-computelaunchparams "Permanent link")
 
 ```
-<span></span><code id="code-lang-java">http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/services/core/java/com/android/server/wm/ActivityStarter.java
+//http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/services/core/java/com/android/server/wm/ActivityStarter.java
 
 private void computeLaunchParams(ActivityRecord r, ActivityRecord sourceRecord,
        Task targetTask) {
@@ -1142,25 +1142,25 @@ private void computeLaunchParams(ActivityRecord r, ActivityRecord sourceRecord,
     
 -   mSupervisor就是ActivityStackSupervisor
     
--   [getLaunchParamsController()](http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/services/core/java/com/android/server/wm/ActivityStackSupervisor.java)返回[LaunchParamsController](http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/services/core/java/com/android/server/wm/LaunchParamsController.java)
--   [calculate()](http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/services/core/java/com/android/server/wm/LaunchParamsController.java#77)
+-   [getLaunchParamsController()](//http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/services/core/java/com/android/server/wm/ActivityStackSupervisor.java)返回[LaunchParamsController](//http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/services/core/java/com/android/server/wm/LaunchParamsController.java)
+-   [calculate()](//http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/services/core/java/com/android/server/wm/LaunchParamsController.java#77)
 
 实际上获取注册在LaunchParamsController中LaunchParamsModifier进行计算其表现在屏幕上的区域。实际上最基础有两个LaunchParamsModifier。
 
--   [TaskLaunchParamsModifier](http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/services/core/java/com/android/server/wm/TaskLaunchParamsModifier.java#115)
+-   [TaskLaunchParamsModifier](//http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/services/core/java/com/android/server/wm/TaskLaunchParamsModifier.java#115)
 
 真正控制窗口大小变化(修改TaskRecord的Rect值，位置)
 
--   [LaunchParams](http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/services/core/java/com/android/server/wm/LaunchParamsController.java?fi=LaunchParams#189)
+-   [LaunchParams](//http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/services/core/java/com/android/server/wm/LaunchParamsController.java?fi=LaunchParams#189)
 
 将当前的区域大小
 
-实际上在ActivityOptions的[setLaunchBounds](http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/core/java/android/app/ActivityOptions.java#1078)中能够控制新建的Activity的窗体大小和位置。
+实际上在ActivityOptions的[setLaunchBounds](//http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/core/java/android/app/ActivityOptions.java#1078)中能够控制新建的Activity的窗体大小和位置。
 
 #### 6\. recycleTask[¶](https://i-rtfsc.github.io/android/ams/android11-activity-start/#6-recycletask "Permanent link")
 
 ```
-<span></span><code id="code-lang-cpp">http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/services/core/java/com/android/server/wm/ActivityStarter.java
+//http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/services/core/java/com/android/server/wm/ActivityStarter.java
 
 int recycleTask(Task targetTask, ActivityRecord targetTaskTop, Task reusedTask,
        NeededUriGrants intentGrants) {
@@ -1185,7 +1185,7 @@ int recycleTask(Task targetTask, ActivityRecord targetTaskTop, Task reusedTask,
 #### 7\. addOrReparentStartingActivity[¶](https://i-rtfsc.github.io/android/ams/android11-activity-start/#7-addorreparentstartingactivity "Permanent link")
 
 ```
-<span></span><code id="code-lang-typescript">http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/services/core/java/com/android/server/wm/ActivityStarter.java
+//http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/services/core/java/com/android/server/wm/ActivityStarter.java
 
 private void addOrReparentStartingActivity(Task parent, String reason) {
    //parent为上面创建的TaskRecord，这里由于未指定inTask，所以mStartActivity.getTask()返回null
@@ -1206,16 +1206,16 @@ private void addOrReparentStartingActivity(Task parent, String reason) {
 
 函数里调用了mTargetStack.getStack().moveToFront("reuseOrNewTask", targetTask);
 
-mTargetStack是[ActivityStack](http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/services/core/java/com/android/server/wm/ActivityStack.java)
+mTargetStack是[ActivityStack](//http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/services/core/java/com/android/server/wm/ActivityStack.java)
 
 ```
-<span></span><code id="code-lang-perl">http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/services/core/java/com/android/server/wm/ActivityStack.java
+//http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/services/core/java/com/android/server/wm/ActivityStack.java
 
 class ActivityStack extends Task {
 
 }
 
-http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/services/core/java/com/android/server/wm/Task.java#2614
+//http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/services/core/java/com/android/server/wm/Task.java#2614
 class Task extends WindowContainer&lt;WindowContainer&gt; {
      int getRootTaskId() {
           return getRootTask().mTaskId;
@@ -1226,7 +1226,7 @@ class Task extends WindowContainer&lt;WindowContainer&gt; {
 所以真正调用的是ActivityStack.moveToFront
 
 ```
-<span></span><code id="code-lang-javascript">http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/services/core/java/com/android/server/wm/ActivityStack.java
+//http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/services/core/java/com/android/server/wm/ActivityStack.java
 
 void moveToFront(String reason) {
    moveToFront(reason, null);
@@ -1263,7 +1263,7 @@ void moveToFront(String reason, Task task) {
 #### 9\. ActivityStack.startActivityLocked()[¶](https://i-rtfsc.github.io/android/ams/android11-activity-start/#9-activitystackstartactivitylocked "Permanent link")
 
 ```
-<span></span><code id="code-lang-java">http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/services/core/java/com/android/server/wm/ActivityStack.java
+//http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/services/core/java/com/android/server/wm/ActivityStack.java
 
 void startActivityLocked(ActivityRecord r, @Nullable ActivityRecord focusedTopActivity,
        boolean newTask, boolean keepCurTransition, ActivityOptions options) {
@@ -1412,7 +1412,7 @@ void startActivityLocked(ActivityRecord r, @Nullable ActivityRecord focusedTopAc
 ### RootWindowContainer.resumeFocusedStacksTopActivities()[¶](https://i-rtfsc.github.io/android/ams/android11-activity-start/#rootwindowcontainerresumefocusedstackstopactivities "Permanent link")
 
 ```
-<span></span><code id="code-lang-java">http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/services/core/java/com/android/server/wm/RootWindowContainer.java
+//http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/services/core/java/com/android/server/wm/RootWindowContainer.java
 
 boolean resumeFocusedStacksTopActivities(
         ActivityStack targetStack, ActivityRecord target, ActivityOptions targetOptions) {
@@ -1472,7 +1472,7 @@ boolean resumeFocusedStacksTopActivities(
 ### ActivityStack.resumeTopActivityUncheckedLocked()[¶](https://i-rtfsc.github.io/android/ams/android11-activity-start/#activitystackresumetopactivityuncheckedlocked "Permanent link")
 
 ```
-<span></span><code id="code-lang-java">http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/services/core/java/com/android/server/wm/ActivityStack.java
+//http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/services/core/java/com/android/server/wm/ActivityStack.java
 
 boolean resumeTopActivityUncheckedLocked(ActivityRecord prev, ActivityOptions options) {
     if (mInResumeTopActivity) {
@@ -1502,7 +1502,7 @@ boolean resumeTopActivityUncheckedLocked(ActivityRecord prev, ActivityOptions op
 ### ActivityStack.resumeTopActivityInnerLocked()[¶](https://i-rtfsc.github.io/android/ams/android11-activity-start/#activitystackresumetopactivityinnerlocked "Permanent link")
 
 ```
-<span></span><code id="code-lang-typescript">http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/services/core/java/com/android/server/wm/ActivityStack.java
+//http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/services/core/java/com/android/server/wm/ActivityStack.java
 
 @GuardedBy("mService")
 private boolean resumeTopActivityInnerLocked(ActivityRecord prev, ActivityOptions options) {
@@ -1545,7 +1545,7 @@ private boolean resumeTopActivityInnerLocked(ActivityRecord prev, ActivityOption
 ### ActivityStack.startPausingLocked[¶](https://i-rtfsc.github.io/android/ams/android11-activity-start/#activitystackstartpausinglocked "Permanent link")
 
 ```
-<span></span><code id="code-lang-java">http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/services/core/java/com/android/server/wm/ActivityStack.java
+//http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/services/core/java/com/android/server/wm/ActivityStack.java
 
 final boolean startPausingLocked(boolean userLeaving, boolean uiSleeping,
         ActivityRecord resuming) {
@@ -1579,7 +1579,7 @@ final boolean startPausingLocked(boolean userLeaving, boolean uiSleeping,
 #### PauseActivityItem.obtain()[¶](https://i-rtfsc.github.io/android/ams/android11-activity-start/#pauseactivityitemobtain "Permanent link")
 
 ```
-<span></span><code id="code-lang-java">http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/core/java/android/app/servertransaction/PauseActivityItem.java#76
+//http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/core/java/android/app/servertransaction/PauseActivityItem.java#76
 
 public static PauseActivityItem obtain(boolean finished, boolean userLeaving, int configChanges,
         boolean dontReport) {
@@ -1596,7 +1596,7 @@ public static PauseActivityItem obtain(boolean finished, boolean userLeaving, in
 }
 
 
-http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/core/java/android/app/servertransaction/ObjectPool.java#27
+//http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/core/java/android/app/servertransaction/ObjectPool.java#27
 
 public static &lt;T extends ObjectPoolItem&gt; T obtain(Class&lt;T&gt; itemClass) {
     synchronized (sPoolSync) {
@@ -1625,7 +1625,7 @@ public static &lt;T extends ObjectPoolItem&gt; T obtain(Class&lt;T&gt; itemClass
 -   getLifecycleManager()就是ClientLifecycleManager
 
 ```
-<span></span><code id="code-lang-csharp">http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/services/core/java/com/android/server/wm/ActivityTaskManagerService.java#938
+//http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/services/core/java/com/android/server/wm/ActivityTaskManagerService.java#938
 
 ClientLifecycleManager getLifecycleManager() {
     return mLifecycleManager;
@@ -1635,7 +1635,7 @@ ClientLifecycleManager getLifecycleManager() {
 所以现在明确了mAtmService.getLifecycleManager().scheduleTransaction()也就是ClientLifecycleManager.scheduleTransaction。
 
 ```
-<span></span><code id="code-lang-java">http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/services/core/java/com/android/server/wm/ClientLifecycleManager.java?fi=ClientLifecycleManager#96
+//http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/services/core/java/com/android/server/wm/ClientLifecycleManager.java?fi=ClientLifecycleManager#96
 
 void scheduleTransaction(@NonNull IApplicationThread client,
         @NonNull ClientTransactionItem callback) throws RemoteException {
@@ -1645,7 +1645,7 @@ void scheduleTransaction(@NonNull IApplicationThread client,
 }
 
 
-http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/core/java/android/app/servertransaction/ClientTransaction.java
+//http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/core/java/android/app/servertransaction/ClientTransaction.java
 
 private static ClientTransaction transactionWithCallback(@NonNull IApplicationThread client,
         IBinder activityToken, @NonNull ClientTransactionItem callback) {
@@ -1655,7 +1655,7 @@ private static ClientTransaction transactionWithCallback(@NonNull IApplicationTh
 }
 
 
-http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/services/core/java/com/android/server/wm/ClientLifecycleManager.java
+//http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/services/core/java/com/android/server/wm/ClientLifecycleManager.java
 
 void scheduleTransaction(ClientTransaction transaction) throws RemoteException {
     final IApplicationThread client = transaction.getClient();
@@ -1672,11 +1672,11 @@ void scheduleTransaction(ClientTransaction transaction) throws RemoteException {
 ClientLifecycleManager有几个scheduleTransaction方法，只有一个函数是传两个参数的。但第二个参数是ClientTransactionItem而不是上文看到的PauseActivityItem。看完以下代码其实就不难知道。
 
 ```
-<span></span><code id="code-lang-perl">http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/core/java/android/app/servertransaction/PauseActivityItem.java
+//http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/core/java/android/app/servertransaction/PauseActivityItem.java
 public class PauseActivityItem extends ActivityLifecycleItem {
 }
 
-http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/core/java/android/app/servertransaction/ActivityLifecycleItem.java
+//http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/core/java/android/app/servertransaction/ActivityLifecycleItem.java
 
 public abstract class ActivityLifecycleItem extends ClientTransactionItem {
 }</code>
@@ -1690,7 +1690,7 @@ ClientTransaction存在两种事务：
 回到主题，最终主要是调到ClientTransaction对象的\*\*schedule\*\*方法。
 
 ```
-<span></span><code id="code-lang-csharp">http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/core/java/android/app/servertransaction/ClientTransaction.java#135
+//http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/core/java/android/app/servertransaction/ClientTransaction.java#135
 
 public void schedule() throws RemoteException {
     mClient.scheduleTransaction(this);
@@ -1702,7 +1702,7 @@ mClient是一个IApplicationThread，还记得前面mAtmService.getLifecycleMana
 所以最终调用的是ApplicationThread的scheduleTransaction方法。
 
 ```
-<span></span><code id="code-lang-java">http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/core/java/android/app/ActivityThread.java
+//http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/core/java/android/app/ActivityThread.java
 
 public final class ActivityThread extends ClientTransactionHandler {
 
@@ -1723,7 +1723,7 @@ public final class ActivityThread extends ClientTransactionHandler {
 ## App进程ActivityThread.scheduleTransaction()[¶](https://i-rtfsc.github.io/android/ams/android11-activity-start/#appactivitythreadscheduletransaction "Permanent link")
 
 ```
-<span></span><code tabindex="0" id="code-lang-java">http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/core/java/android/app/ActivityThread.java
+//http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/core/java/android/app/ActivityThread.java
 
 public final class ActivityThread extends ClientTransactionHandler {
 
@@ -1743,7 +1743,7 @@ public final class ActivityThread extends ClientTransactionHandler {
     }
 }
 
-http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/core/java/android/app/ClientTransactionHandler.java?fi=ClientTransactionHandler#ClientTransactionHandler
+//http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/core/java/android/app/ClientTransactionHandler.java?fi=ClientTransactionHandler#ClientTransactionHandler
 
 public abstract class ClientTransactionHandler {
 
@@ -1758,7 +1758,7 @@ public abstract class ClientTransactionHandler {
 ### ActivityThread.H.EXECUTE\_TRANSACTION[¶](https://i-rtfsc.github.io/android/ams/android11-activity-start/#activitythreadhexecute_transaction "Permanent link")
 
 ```
-<span></span><code id="code-lang-java">http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/core/java/android/app/ActivityThread.java?fi=EXECUTE_TRANSACTION#2064
+//http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/core/java/android/app/ActivityThread.java?fi=EXECUTE_TRANSACTION#2064
 
 private final TransactionExecutor mTransactionExecutor = new TransactionExecutor(this);
 
@@ -1778,7 +1778,7 @@ case EXECUTE_TRANSACTION:
 ### TransactionExecutor.execute()[¶](https://i-rtfsc.github.io/android/ams/android11-activity-start/#transactionexecutorexecute "Permanent link")
 
 ```
-<span></span><code id="code-lang-scss">http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/core/java/android/app/servertransaction/TransactionExecutor.java#69
+//http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/core/java/android/app/servertransaction/TransactionExecutor.java#69
 
 public void execute(ClientTransaction transaction) {
     ...
@@ -1791,7 +1791,7 @@ public void execute(ClientTransaction transaction) {
 ```
 
 ```
-<span></span><code id="code-lang-java">http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/core/java/android/app/servertransaction/TransactionExecutor.java
+//http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/core/java/android/app/servertransaction/TransactionExecutor.java
 
 private void executeLifecycleState(ClientTransaction transaction) {
     //根据前面的例子，当前是ActivityA
@@ -1816,7 +1816,7 @@ private void executeLifecycleState(ClientTransaction transaction) {
 ### PauseActivityItem.execute()[¶](https://i-rtfsc.github.io/android/ams/android11-activity-start/#pauseactivityitemexecute "Permanent link")
 
 ```
-<span></span><code id="code-lang-typescript">http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/core/java/android/app/servertransaction/PauseActivityItem.java
+//http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/core/java/android/app/servertransaction/PauseActivityItem.java
 
 @Override
 public void execute(ClientTransactionHandler client, IBinder token,
@@ -1833,7 +1833,7 @@ client是ActivityThread，如果我们一路往回看，其实就知道此时还
 ### ActivityThread.handlePauseActivity()[¶](https://i-rtfsc.github.io/android/ams/android11-activity-start/#activitythreadhandlepauseactivity "Permanent link")
 
 ```
-<span></span><code id="code-lang-java">http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/core/java/android/app/ActivityThread.java
+//http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/core/java/android/app/ActivityThread.java
 
 @Override
 public void handlePauseActivity(IBinder token, boolean finished, boolean userLeaving,
@@ -1852,7 +1852,7 @@ public void handlePauseActivity(IBinder token, boolean finished, boolean userLea
 ### ActivityThread.performPauseActivity()[¶](https://i-rtfsc.github.io/android/ams/android11-activity-start/#activitythreadperformpauseactivity "Permanent link")
 
 ```
-<span></span><code id="code-lang-typescript">http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/core/java/android/app/ActivityThread.java
+//http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/core/java/android/app/ActivityThread.java
 
 private Bundle performPauseActivity(ActivityClientRecord r, boolean finished, String reason,
         PendingTransactionActions pendingActions) {
@@ -1866,7 +1866,7 @@ private Bundle performPauseActivity(ActivityClientRecord r, boolean finished, St
 ### ActivityThread.performPauseActivityIfNeeded()[¶](https://i-rtfsc.github.io/android/ams/android11-activity-start/#activitythreadperformpauseactivityifneeded "Permanent link")
 
 ```
-<span></span><code id="code-lang-typescript">http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/core/java/android/app/ActivityThread.java
+//http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/core/java/android/app/ActivityThread.java
 
 private void performPauseActivityIfNeeded(ActivityClientRecord r, String reason) {
     ...
@@ -1883,7 +1883,7 @@ private void performPauseActivityIfNeeded(ActivityClientRecord r, String reason)
 ### Instrumentation.callActivityOnPause()[¶](https://i-rtfsc.github.io/android/ams/android11-activity-start/#instrumentationcallactivityonpause "Permanent link")
 
 ```
-<span></span><code id="code-lang-typescript">http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/core/java/android/app/Instrumentation.java
+//http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/core/java/android/app/Instrumentation.java
 
 public void callActivityOnPause(Activity activity) {
     activity.performPause();
@@ -1893,7 +1893,7 @@ public void callActivityOnPause(Activity activity) {
 ### Activity.performPause()[¶](https://i-rtfsc.github.io/android/ams/android11-activity-start/#activityperformpause "Permanent link")
 
 ```
-<span></span><code id="code-lang-cpp">http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/core/java/android/app/Activity.java
+//http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/core/java/android/app/Activity.java
 
 final void performPause() {
     dispatchActivityPrePaused();
@@ -1925,7 +1925,7 @@ final void performPause() {
 ### ActivityStackSupervisor.startSpecificActivity()[¶](https://i-rtfsc.github.io/android/ams/android11-activity-start/#activitystacksupervisorstartspecificactivity "Permanent link")
 
 ```
-<span></span><code id="code-lang-java">http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/services/core/java/com/android/server/wm/ActivityStackSupervisor.java
+//http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/services/core/java/com/android/server/wm/ActivityStackSupervisor.java
 
 void startSpecificActivity(ActivityRecord r, boolean andResume, boolean checkConfig) {
     //根据uid和pid，获取activity对应的进行和线程信息
@@ -1961,7 +1961,7 @@ void startSpecificActivity(ActivityRecord r, boolean andResume, boolean checkCon
 ### ActivityStackSupervisor.realStartActivityLocked()[¶](https://i-rtfsc.github.io/android/ams/android11-activity-start/#activitystacksupervisorrealstartactivitylocked "Permanent link")
 
 ```
-<span></span><code id="code-lang-java">http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/services/core/java/com/android/server/wm/ActivityStackSupervisor.java
+//http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/services/core/java/com/android/server/wm/ActivityStackSupervisor.java
 
 boolean realStartActivityLocked(ActivityRecord r, WindowProcessController proc,
         boolean andResume, boolean checkConfig) throws RemoteException {
@@ -2058,7 +2058,7 @@ boolean realStartActivityLocked(ActivityRecord r, WindowProcessController proc,
 -   getLifecycleManager()就是ClientLifecycleManager
 
 ```
-<span></span><code id="code-lang-csharp">http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/services/core/java/com/android/server/wm/ActivityTaskManagerService.java#938
+//http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/services/core/java/com/android/server/wm/ActivityTaskManagerService.java#938
 
 ClientLifecycleManager getLifecycleManager() {
     return mLifecycleManager;
@@ -2068,7 +2068,7 @@ ClientLifecycleManager getLifecycleManager() {
 所以现在明确了mService.getLifecycleManager().scheduleTransaction()也就是ClientLifecycleManager.scheduleTransaction。
 
 ```
-<span></span><code id="code-lang-java">http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/services/core/java/com/android/server/wm/ClientLifecycleManager.java
+//http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/services/core/java/com/android/server/wm/ClientLifecycleManager.java
 
 void scheduleTransaction(ClientTransaction transaction) throws RemoteException {
     final IApplicationThread client = transaction.getClient();
@@ -2085,7 +2085,7 @@ void scheduleTransaction(ClientTransaction transaction) throws RemoteException {
 最终主要是调到ClientTransaction对象的\*\*schedule\*\*方法。
 
 ```
-<span></span><code id="code-lang-csharp">http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/core/java/android/app/servertransaction/ClientTransaction.java#135
+//http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/core/java/android/app/servertransaction/ClientTransaction.java#135
 
 public void schedule() throws RemoteException {
     mClient.scheduleTransaction(this);
@@ -2097,7 +2097,7 @@ mClient是一个IApplicationThread，稍微往回看不难知道mClient就是要
 所以最终调用的是ApplicationThread的scheduleTransaction方法。
 
 ```
-<span></span><code id="code-lang-java">http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/core/java/android/app/ActivityThread.java
+//http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/core/java/android/app/ActivityThread.java
 
 public final class ActivityThread extends ClientTransactionHandler {
 
@@ -2116,7 +2116,7 @@ public final class ActivityThread extends ClientTransactionHandler {
 ## 新App进程ActivityThread.schedule[¶](https://i-rtfsc.github.io/android/ams/android11-activity-start/#appactivitythreadschedule "Permanent link")
 
 ```
-<span></span><code tabindex="0" id="code-lang-java">http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/core/java/android/app/ActivityThread.java
+//http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/core/java/android/app/ActivityThread.java
 
 public final class ActivityThread extends ClientTransactionHandler {
 
@@ -2136,7 +2136,7 @@ public final class ActivityThread extends ClientTransactionHandler {
     }
 }
 
-http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/core/java/android/app/ClientTransactionHandler.java?fi=ClientTransactionHandler#ClientTransactionHandler
+//http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/core/java/android/app/ClientTransactionHandler.java?fi=ClientTransactionHandler#ClientTransactionHandler
 
 public abstract class ClientTransactionHandler {
 
@@ -2155,7 +2155,7 @@ public abstract class ClientTransactionHandler {
 ### ActivityThread.H.EXECUTE\_TRANSACTION[¶](https://i-rtfsc.github.io/android/ams/android11-activity-start/#activitythreadhexecute_transaction_1 "Permanent link")
 
 ```
-<span></span><code id="code-lang-java">http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/core/java/android/app/ActivityThread.java?fi=EXECUTE_TRANSACTION#2064
+//http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/core/java/android/app/ActivityThread.java?fi=EXECUTE_TRANSACTION#2064
 
 private final TransactionExecutor mTransactionExecutor = new TransactionExecutor(this);
 
@@ -2177,7 +2177,7 @@ H类的handleMessage方法中可以看到调用了TransactionExecutor事务执�
 ### TransactionExecutor.execute()[¶](https://i-rtfsc.github.io/android/ams/android11-activity-start/#transactionexecutorexecute_1 "Permanent link")
 
 ```
-<span></span><code id="code-lang-scss">http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/core/java/android/app/servertransaction/TransactionExecutor.java#69
+//http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/core/java/android/app/servertransaction/TransactionExecutor.java#69
 
 public void execute(ClientTransaction transaction) {
     ...
@@ -2192,7 +2192,7 @@ public void execute(ClientTransaction transaction) {
 #### TransactionExecutor.executeCallbacks()[¶](https://i-rtfsc.github.io/android/ams/android11-activity-start/#transactionexecutorexecutecallbacks "Permanent link")
 
 ```
-<span></span><code id="code-lang-java">http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/core/java/android/app/servertransaction/TransactionExecutor.java
+//http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/core/java/android/app/servertransaction/TransactionExecutor.java
 
 public void executeCallbacks(ClientTransaction transaction) {
     final List&lt;ClientTransactionItem&gt; callbacks = transaction.getCallbacks();
@@ -2214,7 +2214,7 @@ public void executeCallbacks(ClientTransaction transaction) {
 ### LaunchActivityItem.execute()[¶](https://i-rtfsc.github.io/android/ams/android11-activity-start/#launchactivityitemexecute "Permanent link")
 
 ```
-<span></span><code id="code-lang-java">http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/core/java/android/app/servertransaction/BaseClientRequest.java
+//http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/core/java/android/app/servertransaction/BaseClientRequest.java
 
 public interface BaseClientRequest extends ObjectPoolItem {
     void execute(ClientTransactionHandler client, IBinder token,
@@ -2222,13 +2222,13 @@ public interface BaseClientRequest extends ObjectPoolItem {
 }
 
 
-http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/core/java/android/app/servertransaction/ClientTransactionItem.java
+//http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/core/java/android/app/servertransaction/ClientTransactionItem.java
 
 public abstract class ClientTransactionItem implements BaseClientRequest, Parcelable {
 }
 
 
-http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/core/java/android/app/servertransaction/LaunchActivityItem.java#48
+//http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/core/java/android/app/servertransaction/LaunchActivityItem.java#48
 
 public class LaunchActivityItem extends ClientTransactionItem {
     @Override
@@ -2250,7 +2250,7 @@ public class LaunchActivityItem extends ClientTransactionItem {
 ### ActivityThread.handleLaunchActivity()[¶](https://i-rtfsc.github.io/android/ams/android11-activity-start/#activitythreadhandlelaunchactivity "Permanent link")
 
 ```
-<span></span><code id="code-lang-java">http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/core/java/android/app/ActivityThread.java
+//http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/core/java/android/app/ActivityThread.java
 
 @Override
 public Activity handleLaunchActivity(ActivityClientRecord r,
@@ -2270,7 +2270,7 @@ public Activity handleLaunchActivity(ActivityClientRecord r,
 ### ActivityThread.performLaunchActivity()[¶](https://i-rtfsc.github.io/android/ams/android11-activity-start/#activitythreadperformlaunchactivity "Permanent link")
 
 ```
-<span></span><code id="code-lang-java">http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/core/java/android/app/ActivityThread.java
+//http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/core/java/android/app/ActivityThread.java
 
 private Activity performLaunchActivity(ActivityClientRecord r, Intent customIntent) {
     ...
@@ -2332,7 +2332,7 @@ private Activity performLaunchActivity(ActivityClientRecord r, Intent customInte
 ### Instrumentation.callActivityOnCreate()[¶](https://i-rtfsc.github.io/android/ams/android11-activity-start/#instrumentationcallactivityoncreate "Permanent link")
 
 ```
-<span></span><code id="code-lang-scss">http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/core/java/android/app/Instrumentation.java
+//http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/core/java/android/app/Instrumentation.java
 
 public void callActivityOnCreate(Activity activity, Bundle icicle) {
     prePerformCreate(activity);
@@ -2346,7 +2346,7 @@ public void callActivityOnCreate(Activity activity, Bundle icicle) {
 ### Activity.performCreate()[¶](https://i-rtfsc.github.io/android/ams/android11-activity-start/#activityperformcreate "Permanent link")
 
 ```
-<span></span><code id="code-lang-java">http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/core/java/android/app/Activity.java
+//http://aospxref.com/android-11.0.0_r21/xref/frameworks/base/core/java/android/app/Activity.java
 
 @UnsupportedAppUsage
 final void performCreate(Bundle icicle, PersistableBundle persistentState) {
