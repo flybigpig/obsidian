@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/Activity/Android11 Activity启动流程 - Solo's Blog.md",
+                "file": "md/Activity/Android11 Activity启动流程.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Android11 Activity启动流程 - Solo's Blog"
+              "title": "Android11 Activity启动流程"
             }
           }
         ],
@@ -157,13 +157,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "md/Activity/Android11 Activity启动流程 - Solo's Blog.md",
+                "file": "md/Activity/Android11 Activity启动流程.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Android11 Activity启动流程 - Solo's Blog 的大纲"
+              "title": "Android11 Activity启动流程 的大纲"
             }
           },
           {
@@ -210,7 +210,7 @@
   "active": "f84ce6d2fe2622cd",
   "lastOpenFiles": [
     "md/JVM/Java并发编程（三）volatile域-CSDN博客.md",
-    "md/Activity/Android11 Activity启动流程 - Solo's Blog.md",
+    "md/Activity/Android11 Activity启动流程.md",
     "md/Activity/ActivityRecord、ActivityStack、Task 等.md",
     "md/Activity/未命名.md",
     "md/Activity/Activity 客户端事务管理（Android 10+ 源码级解析）.md",
