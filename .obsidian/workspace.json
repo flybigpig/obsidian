@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/launcher/Android AIDL 与 Android.bp 的结合使用.md",
+                "file": "md/binder/Android AIDL 与 Android.bp 的结合使用.md",
                 "mode": "source",
                 "source": false
               },
@@ -192,7 +192,7 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "49693c79906749df",
+  "active": "fa4657deb406b728",
   "lastOpenFiles": [
     "md/JVM/Java并发编程（三）volatile域-CSDN博客.md",
     "md/ams/伪代码.md",
