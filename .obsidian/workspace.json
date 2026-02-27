@@ -11,14 +11,10 @@
             "id": "49693c79906749df",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "README.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "README"
+              "title": "新标签页"
             }
           }
         ]
@@ -192,8 +188,11 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "49693c79906749df",
+  "active": "fa4657deb406b728",
   "lastOpenFiles": [
+    "Excalidraw/Drawing 2026-01-15 19.32.01.excalidraw.md",
+    "Excalidraw/Drawing 2025-08-27 14.08.22.excalidraw.md",
+    "README.md",
     "else/win10_kvm.md",
     "else/github 显示中文乱码.md",
     "algo/徒步旅行补给问题.md",
@@ -225,9 +224,6 @@
     "else/听话的“穷人”家孩子，只有“死路”一条.md",
     "else/王阳明.md",
     "conflict-files-obsidian-git.md",
-    "md/Activity/scheduleTransaction.md",
-    "md/Activity/Activity管理与返回栈.md",
-    "md/Activity/Activity框架01-客户端事务管理 - Solo's Blog.md",
     "md/ims/输入通道静态动态流转图解析 1.docx",
     "md/ims/输入通道静态动态流转图解析.docx",
     "Excalidraw/未命名.canvas",
