@@ -43,6 +43,6 @@
     "iconName": "LiAccessibility",
     "iconColor": "#26c939"
   },
-  "算法刷题": "LiAlignHorizontalDistributeCenter",
-  "Excalidraw": "LiAsteriskSquare"
+  "Excalidraw": "LiAsteriskSquare",
+  "algo": "LiAlignHorizontalDistributeCenter"
 }
