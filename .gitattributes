@@ -3,4 +3,4 @@
 
 # 特定类型（如 .md/.java）
 # *.md text working-tree-encoding=UTF-8
-*.java text working-tree-encoding=UTF-8
+# *.java text working-tree-encoding=UTF-8
