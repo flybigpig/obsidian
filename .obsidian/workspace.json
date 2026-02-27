@@ -11,10 +11,12 @@
             "id": "49693c79906749df",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "新标签页"
+              "type": "excalidraw",
+              "state": {
+                "file": "Excalidraw/Drawing 2026-01-15 19.32.01.excalidraw.md"
+              },
+              "icon": "excalidraw-icon",
+              "title": "Drawing 2026-01-15 19.32.01.excalidraw"
             }
           }
         ]
@@ -188,10 +190,10 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "fa4657deb406b728",
+  "active": "49693c79906749df",
   "lastOpenFiles": [
-    "Excalidraw/Drawing 2026-01-15 19.32.01.excalidraw.md",
     "Excalidraw/Drawing 2025-08-27 14.08.22.excalidraw.md",
+    "Excalidraw/Drawing 2026-01-15 19.32.01.excalidraw.md",
     "README.md",
     "else/win10_kvm.md",
     "else/github 显示中文乱码.md",
