@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/memory optimization‌/内存优化.md",
+                "file": "else/（保姆级教程） Typora+PicGo+gitee搭建博客写作环境（超详细） 同步解决：PicGo插件安装失败问题_picgo+typora+gitee-CSDN博客.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "内存优化"
+              "title": "（保姆级教程） Typora+PicGo+gitee搭建博客写作环境（超详细） 同步解决：PicGo插件安装失败问题_picgo+typora+gitee-CSDN博客"
             }
           }
         ],
@@ -207,10 +207,10 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "50fcf6e6e0009033",
+  "active": "fa4657deb406b728",
   "lastOpenFiles": [
-    "md/md/apk体积优化.md",
     "md/memory optimization‌/内存优化.md",
+    "md/md/apk体积优化.md",
     "md/memory optimization‌",
     "md/Activity/Android11 Activity启动流程.md",
     "md/JVM/Java并发编程（三）volatile域-CSDN博客.md",
