@@ -11,12 +11,14 @@
             "id": "49693c79906749df",
             "type": "leaf",
             "state": {
-              "type": "excalidraw",
+              "type": "markdown",
               "state": {
-                "file": "Excalidraw/Drawing 2026-01-15 19.32.01.excalidraw.md"
+                "file": "md/launcher/Android AIDL 与 Android.bp 的结合使用.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "excalidraw-icon",
-              "title": "Drawing 2026-01-15 19.32.01.excalidraw"
+              "icon": "lucide-file",
+              "title": "Android AIDL 与 Android.bp 的结合使用"
             }
           }
         ]
@@ -192,8 +194,11 @@
   },
   "active": "49693c79906749df",
   "lastOpenFiles": [
-    "Excalidraw/Drawing 2025-08-27 14.08.22.excalidraw.md",
+    "md/JVM/Java并发编程（三）volatile域-CSDN博客.md",
+    "md/ams/伪代码.md",
+    "md/ams/交互模式.md",
     "Excalidraw/Drawing 2026-01-15 19.32.01.excalidraw.md",
+    "Excalidraw/Drawing 2025-08-27 14.08.22.excalidraw.md",
     "README.md",
     "else/win10_kvm.md",
     "else/github 显示中文乱码.md",
@@ -210,7 +215,6 @@
     "md/md/apk体积优化.md",
     "md/memory optimization‌",
     "md/Activity/Android11 Activity启动流程.md",
-    "md/JVM/Java并发编程（三）volatile域-CSDN博客.md",
     "md/Activity/ActivityRecord、ActivityStack、Task 等.md",
     "md/Activity/未命名.md",
     "md/Activity/Activity 客户端事务管理（Android 10+ 源码级解析）.md",
@@ -224,8 +228,6 @@
     "md/binder/深度解析（Android Binder 核心）.md",
     "md/boot",
     "else/听话的“穷人”家孩子，只有“死路”一条.md",
-    "else/王阳明.md",
-    "conflict-files-obsidian-git.md",
     "md/ims/输入通道静态动态流转图解析 1.docx",
     "md/ims/输入通道静态动态流转图解析.docx",
     "Excalidraw/未命名.canvas",
