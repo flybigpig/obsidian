@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/boot/关闭开机动画的关键流程.md",
+                "file": "md/runtime/Android 35 ART：全面解析启动速度优化.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "关闭开机动画的关键流程"
+              "title": "Android 35 ART：全面解析启动速度优化"
             }
           }
         ]
@@ -194,6 +194,10 @@
   },
   "active": "49693c79906749df",
   "lastOpenFiles": [
+    "md/runtime/Android Runtime.md",
+    "md/runtime/Android 35 ART：全面解析启动速度优化.md",
+    "md/boot/关闭开机动画的关键流程.md",
+    "md/runtime",
     "md/JVM/Java虚拟机基础——3类加载机制-腾讯云开发者社区-腾讯云.md",
     "md/binder/Android AIDL 与 Android.bp 的结合使用.md",
     "md/JVM/Java并发编程（三）volatile域-CSDN博客.md",
@@ -221,15 +225,11 @@
     "md/Activity/未命名.md",
     "md/Activity/Activity 客户端事务管理（Android 10+ 源码级解析）.md",
     "md/Activity/Activity 生命周期 - 事务项.md",
-    "md/boot/关闭开机动画的关键流程.md",
     "md/boot/EXIT_PROP_NAME, value =1.md",
     "md/boot/BootAnimation 线程 run 方法深度解析.md",
     "md/boot/bootanimation程序简介 - Solo's Blog.md",
-    "md/boot/BootAnimation 构造函数源码优化（带详细注释）.md",
-    "md/boot/BootAnimation.md",
     "md/boot",
     "md/ims/输入通道静态动态流转图解析 1.docx",
-    "md/ims/输入通道静态动态流转图解析.docx",
     "Excalidraw/未命名.canvas",
     "pic/640.webp",
     "pic/liuqin.jpg",
