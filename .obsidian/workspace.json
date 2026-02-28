@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/runtime/Android 35 ART：全面解析启动速度优化.md",
+                "file": "md/runtime/Android Runtime.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Android 35 ART：全面解析启动速度优化"
+              "title": "Android Runtime"
             }
           }
         ]
@@ -194,8 +194,8 @@
   },
   "active": "49693c79906749df",
   "lastOpenFiles": [
-    "md/runtime/Android Runtime.md",
     "md/runtime/Android 35 ART：全面解析启动速度优化.md",
+    "md/runtime/Android Runtime.md",
     "md/boot/关闭开机动画的关键流程.md",
     "md/runtime",
     "md/JVM/Java虚拟机基础——3类加载机制-腾讯云开发者社区-腾讯云.md",
