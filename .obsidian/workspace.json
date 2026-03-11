@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/runtime/Android Runtime.md",
+                "file": "md/framework基础/基础.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Android Runtime"
+              "title": "基础"
             }
           }
         ]
@@ -192,10 +192,11 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "49693c79906749df",
+  "active": "f84ce6d2fe2622cd",
   "lastOpenFiles": [
-    "md/runtime/Android 35 ART：全面解析启动速度优化.md",
     "md/runtime/Android Runtime.md",
+    "md/framework基础/基础.md",
+    "md/runtime/Android 35 ART：全面解析启动速度优化.md",
     "md/boot/关闭开机动画的关键流程.md",
     "md/runtime",
     "md/JVM/Java虚拟机基础——3类加载机制-腾讯云开发者社区-腾讯云.md",
@@ -227,7 +228,6 @@
     "md/Activity/Activity 生命周期 - 事务项.md",
     "md/boot/EXIT_PROP_NAME, value =1.md",
     "md/boot/BootAnimation 线程 run 方法深度解析.md",
-    "md/boot/bootanimation程序简介 - Solo's Blog.md",
     "md/boot",
     "md/ims/输入通道静态动态流转图解析 1.docx",
     "Excalidraw/未命名.canvas",
