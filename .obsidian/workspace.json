@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "md/memory optimization‌/内存优化.md",
+                "file": "md/framework基础/基础.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "内存优化 的大纲"
+              "title": "基础 的大纲"
             }
           },
           {
