@@ -20,8 +20,21 @@
               "icon": "lucide-file",
               "title": "基础2"
             }
+          },
+          {
+            "id": "3ba539029a10c8f6",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.12.7"
+              },
+              "icon": "lucide-book-up",
+              "title": "版本说明 1.12.7"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -192,8 +205,9 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "49693c79906749df",
+  "active": "3ba539029a10c8f6",
   "lastOpenFiles": [
+    "else/openclaw_qwen.md",
     "md/个人/AOSP源码分析深度指南.docx",
     "md/framework基础/基础.md",
     "md/framework基础/基础2.md",
@@ -229,7 +243,6 @@
     "md/Activity/Activity 客户端事务管理（Android 10+ 源码级解析）.md",
     "md/Activity/Activity 生命周期 - 事务项.md",
     "md/boot",
-    "md/ims/输入通道静态动态流转图解析 1.docx",
     "Excalidraw/未命名.canvas",
     "pic/640.webp",
     "pic/liuqin.jpg",
