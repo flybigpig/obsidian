@@ -194,6 +194,7 @@
   },
   "active": "49693c79906749df",
   "lastOpenFiles": [
+    "md/个人/AOSP源码分析深度指南.docx",
     "md/framework基础/基础.md",
     "md/framework基础/基础2.md",
     "md/runtime/Android Runtime.md",
@@ -227,7 +228,6 @@
     "md/Activity/未命名.md",
     "md/Activity/Activity 客户端事务管理（Android 10+ 源码级解析）.md",
     "md/Activity/Activity 生命周期 - 事务项.md",
-    "md/boot/EXIT_PROP_NAME, value =1.md",
     "md/boot",
     "md/ims/输入通道静态动态流转图解析 1.docx",
     "Excalidraw/未命名.canvas",
