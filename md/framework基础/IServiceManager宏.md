@@ -1,5 +1,4 @@
 我来为您详细解析 Android Binder 机制中的 `DECLARE_META_INTERFACE` 和 `IMPLEMENT_META_INTERFACE` 宏，这是实现 C++ 层 Binder 接口的核心机制。
-我来为您详细解析 Android Binder 机制中的 `DECLARE_META_INTERFACE` 和 `IMPLEMENT_META_INTERFACE` 宏，这是实现 C++ 层 Binder 接口的核心机制。
 
 ---
 
