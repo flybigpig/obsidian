@@ -89,20 +89,3 @@ childProcess函数与UNIXProcess\_forkAndExec同属libcore/ojluni/src/main/nativ
 
 安卓App调用Runtime.exec()执行命令，看似简单，实则是一个跨Java层、Native层和系统服务的复杂流程，其中shell进程的用户身份是容易误解的关键点。核心逻辑可概括为：Java层负责参数封装和委托，Native层通过UNIXProcess\_forkAndExec创建子进程（继承App用户身份），通过childProcess完成准备工作并调用exec替换子进程为shell进程（用户与App一致），最终由该shell进程解析命令、启动input进程（用户仍与App一致），注入事件并完成执行。
 
-（投稿学员提示：本文部分观点有AI生成的部分）
-
-更多vip免费系统开发经典大厂面试题库获取，课程优惠购买成为vip学员进入vip群，积极讨论各种行业难点痛点疑难问题，答疑服务等。
-
-请联系马哥微信：
-
-![图片](https://mmbiz.qpic.cn/sz_mmbiz_png/DYicOkJDdA2psicybK2UNpjjHiagw9kwTgju4GQKtkwYAl5pAE7X6CJVVXDpAyAkSMvmNuUczgLk4n4xnYXkHGwMw/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=225d6c9c&tp=webp#imgIndex=12)
-
-目前所有专题课程如下：
-
-1、经典fw的入门到精通实战八件套专题
-
-![图片](https://mmbiz.qpic.cn/sz_mmbiz_png/DYicOkJDdA2osas0xlUuOGicHsjnhibC1f59PLibaT8XRca0vysZoleXmG6iaiaB6ppyBydjRIt28ibjj4y9t6Zg23JQA/640?wx_fmt=png&from=appmsg&wxfrom=5&wx_lazy=1&wx_co=1&tp=webp#imgIndex=3)
-
-详细课表：
-
-[Android Framework开发rom实战合集课表/车载车机手机高级系统开发工程必会技能](https://mp.weixin.qq.com/s?__biz=MzkzOTQ4NDUyNg==&mid=2247484186&idx=1&sn=328a6efaf16b78b1029b3595be03268b&scene=21#wechat_redirect)
