@@ -11,7 +11,33 @@
 安卓App调用Runtime.exec()执行命令的完整链路，全程对应AOSP真实源码，可精准概括为以下流程，每一步均为底层执行的关键环节，缺一不可：
 
 ```python
-App进程调用 Runtime.exec("input keyevent 26")    ↓Java层：Runtime.exec() → ProcessBuilder.start() → ProcessImpl.start()    ↓Java层：new UNIXProcess() → 调用Native层 UNIXProcess_forkAndExec    ↓Native层：UNIXProcess_forkAndExec        1. 解码Java参数，得到 argv = [/system/bin/sh, -c, input keyevent 26]        2. 创建4个管道（in[2]、out[2]、err[2]、fail[2]），用于父子通信与状态同步        3. 调用 startChild()，内部通过fork()系统调用创建子进程    ↓子进程执行 childProcess() 函数        1. 关闭父进程侧管道端口，避免文件描述符泄漏        2. 重定向子进程标准输入、输出、错误到对应管道，建立父子通信通道        3. 关闭子进程继承自App进程的所有无用文件描述符        4. （可选）若Java层指定工作目录，子进程切换至该目录        5. 调用 JDK_execvpe，内部最终调用execve系统调用，加载/system/bin/sh    ↓子进程被替换为shell进程（**用户与App进程一致**），解析并执行命令 "input keyevent 26"    ↓shell进程再次fork创建新子进程（用户仍与App进程一致），通过execve加载/system/bin/input，生成input进程    ↓input进程解析keyevent 26（对应电源键），通过Binder调用系统服务InputManagerService    ↓InputManagerService注入按键事件，PhoneWindowManager拦截并执行亮屏/灭屏逻辑    ↓命令执行完成，父子进程通过fail管道同步执行状态，回收相关资源
+App进程调用 Runtime.exec("input keyevent 26")
+    ↓
+Java层：Runtime.exec() → ProcessBuilder.start() → ProcessImpl.start()
+    ↓
+Java层：new UNIXProcess() → 调用Native层 UNIXProcess_forkAndExec
+    ↓
+Native层：UNIXProcess_forkAndExec
+        1. 解码Java参数，得到 argv = [/system/bin/sh, -c, input keyevent 26]
+        2. 创建4个管道（in[2]、out[2]、err[2]、fail[2]），用于父子通信与状态同步
+        3. 调用 startChild()，内部通过fork()系统调用创建子进程
+    ↓
+子进程执行 childProcess() 函数
+        1. 关闭父进程侧管道端口，避免文件描述符泄漏
+        2. 重定向子进程标准输入、输出、错误到对应管道，建立父子通信通道
+        3. 关闭子进程继承自App进程的所有无用文件描述符
+        4. （可选）若Java层指定工作目录，子进程切换至该目录
+        5. 调用 JDK_execvpe，内部最终调用execve系统调用，加载/system/bin/sh
+    ↓
+子进程被替换为shell进程（**用户与App进程一致**），解析并执行命令 "input keyevent 26"
+    ↓
+shell进程再次fork创建新子进程（用户仍与App进程一致），通过execve加载/system/bin/input，生成input进程
+    ↓
+input进程解析keyevent 26（对应电源键），通过Binder调用系统服务InputManagerService
+    ↓
+InputManagerService注入按键事件，PhoneWindowManager拦截并执行亮屏/灭屏逻辑
+    ↓
+命令执行完成，父子进程通过fail管道同步执行状态，回收相关资源
 ```
 
 ## 分步解析核心源码流程
