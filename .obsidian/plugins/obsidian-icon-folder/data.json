@@ -43,6 +43,5 @@
     "iconName": "LiAccessibility",
     "iconColor": "#26c939"
   },
-  "Excalidraw": "LiAsteriskSquare",
-  "algo": "LiAlignHorizontalDistributeCenter"
+  "Excalidraw": "LiAsteriskSquare"
 }
