@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/实践/《Android启动侦探团：追踪Launcher启动的“最后一公里”》-CSDN博客.md",
+                "file": "md/AndroidFrameworkTutorial/2.AOSP上手指南/001.AOSP 极速上手.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "《Android启动侦探团：追踪Launcher启动的“最后一公里”》-CSDN博客"
+              "title": "001.AOSP 极速上手"
             }
           }
         ]
@@ -192,8 +192,9 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "fa4657deb406b728",
+  "active": "49693c79906749df",
   "lastOpenFiles": [
+    "md/实践/《Android启动侦探团：追踪Launcher启动的“最后一公里”》-CSDN博客.md",
     "md/个人/Android 面试问题及答案.md",
     "md/千里马/Runtime.exec.md",
     "md/framework基础/基础2.md",
@@ -227,7 +228,6 @@
     "未命名 1.base",
     "else/（保姆级教程） Typora+PicGo+gitee搭建博客写作环境（超详细） 同步解决：PicGo插件安装失败问题_picgo+typora+gitee-CSDN博客.md",
     "md/memory optimization‌/内存优化.md",
-    "md/md/apk体积优化.md",
     "md/memory optimization‌",
     "md/boot",
     "Excalidraw/未命名.canvas",
