@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/C++/析构函数.md",
+                "file": "md/属性服务/属性服务.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "析构函数"
+              "title": "属性服务"
             }
           }
         ]
@@ -192,8 +192,9 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "3e170793714771e1",
+  "active": "fa4657deb406b728",
   "lastOpenFiles": [
+    "md/C++/析构函数.md",
     "md/C++/C++ 20.md",
     "md/mk_bp/Android Android.mk入门-CSDN博客.md",
     "md/mk_bp/Android.bp解析与使用看这篇就够了 - 知乎.md",
@@ -221,7 +222,6 @@
     "md/ams/交互模式.md",
     "Excalidraw/Drawing 2026-01-15 19.32.01.excalidraw.md",
     "Excalidraw/Drawing 2025-08-27 14.08.22.excalidraw.md",
-    "else/win10_kvm.md",
     "未命名.base",
     "未命名 5.base",
     "未命名 4.base",
