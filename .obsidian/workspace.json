@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/memory optimization‌/内存优化.md",
+                "file": "md/mk_bp/Android Android.mk入门-CSDN博客.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "内存优化"
+              "title": "Android Android.mk入门-CSDN博客"
             }
           }
         ]
@@ -194,6 +194,8 @@
   },
   "active": "3e170793714771e1",
   "lastOpenFiles": [
+    "md/mk_bp/Android.bp解析与使用看这篇就够了 - 知乎.md",
+    "md/memory optimization‌/内存优化.md",
     "md/AndroidFrameworkTutorial/2.AOSP上手指南/001.AOSP 极速上手.md",
     "md/实践/《Android启动侦探团：追踪Launcher启动的“最后一公里”》-CSDN博客.md",
     "md/个人/Android 面试问题及答案.md",
@@ -220,14 +222,12 @@
     "else/win10_kvm.md",
     "else/github 显示中文乱码.md",
     "algo/徒步旅行补给问题.md",
-    "algo/创意匹配.md",
     "未命名.base",
     "未命名 5.base",
     "未命名 4.base",
     "未命名 3.base",
     "未命名 2.base",
     "未命名 1.base",
-    "else/（保姆级教程） Typora+PicGo+gitee搭建博客写作环境（超详细） 同步解决：PicGo插件安装失败问题_picgo+typora+gitee-CSDN博客.md",
     "md/memory optimization‌",
     "md/boot",
     "Excalidraw/未命名.canvas",
