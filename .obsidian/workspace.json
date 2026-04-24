@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "ce7f1540561becee",
+        "id": "d66639a545fd20bb",
         "type": "tabs",
         "children": [
           {
-            "id": "95f5449447f92e4e",
+            "id": "50680c85df29f6f7",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -192,10 +192,19 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "95f5449447f92e4e",
+  "active": "50680c85df29f6f7",
   "lastOpenFiles": [
-    "2026-04-24.md",
+    "Excalidraw/Drawing 2026-01-15 19.32.01.excalidraw.md",
+    "hm/UI开发（ArkTS声明式开发范式）概述.md",
+    "hm/TitleBar.md",
+    "hm/9.鸿蒙面试真题.md",
+    "pic/e1fe8d3703d5038b2bd15153c1bf7c7.png",
+    "pic/Pasted image 20241219162312.png",
+    "pic/e46f70f2112adce67a01d081c522f2a8.png",
+    "pic/6b5710bda24ee1fd270ddd2da769d63.png",
+    "README.md",
     "date/2026-04-24.md",
+    "2026-04-24.md",
     "date",
     "md/ams/交互模式.md",
     "md/属性服务/属性服务.md",
@@ -210,7 +219,6 @@
     "md/千里马/Runtime.exec.md",
     "md/framework基础/基础2.md",
     "conflict-files-obsidian-git.md",
-    "README.md",
     "md/framework基础/IServiceManager宏.md",
     "md/framework基础/IServiceManager.md",
     "else/openclaw_qwen.md",
@@ -218,11 +226,7 @@
     "md/framework基础/基础.md",
     "md/runtime/Android Runtime.md",
     "md/runtime/Android 35 ART：全面解析启动速度优化.md",
-    "md/boot/关闭开机动画的关键流程.md",
     "md/runtime",
-    "md/JVM/Java虚拟机基础——3类加载机制-腾讯云开发者社区-腾讯云.md",
-    "md/binder/Android AIDL 与 Android.bp 的结合使用.md",
-    "md/JVM/Java并发编程（三）volatile域-CSDN博客.md",
     "未命名.base",
     "未命名 5.base",
     "未命名 4.base",
@@ -233,14 +237,10 @@
     "Excalidraw/未命名.canvas",
     "pic/640.webp",
     "pic/liuqin.jpg",
-    "pic/e46f70f2112adce67a01d081c522f2a8.png",
     "pic/Pasted image 20250710094523.png",
     "pic/Pasted image 20250709100529.png",
     "pic/Pasted image 20250701143557.png",
     "pic/Pasted image 20250701143519.png",
-    "pic/Pasted image 20250701143431.png",
-    "pic/Pasted image 20250701143308.png",
-    "pic/Pasted image 20250701141113.png",
     "Excalidraw/未命名 1.canvas"
   ]
 }
