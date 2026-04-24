@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "date/2026-04-24.md",
+                "file": "drives/Ubuntu编写简单驱动测试程序.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2026-04-24"
+              "title": "Ubuntu编写简单驱动测试程序"
             }
           }
         ]
@@ -194,6 +194,8 @@
   },
   "active": "57a48ec4e9df2780",
   "lastOpenFiles": [
+    "drives/gcc_12.md",
+    "drives/smodule.md",
     "date/2026-04-24.md",
     "Excalidraw/Drawing 2026-01-15 19.32.01.excalidraw.md",
     "hm/UI开发（ArkTS声明式开发范式）概述.md",
@@ -224,8 +226,6 @@
     "else/openclaw_qwen.md",
     "md/个人/AOSP源码分析深度指南.docx",
     "md/framework基础/基础.md",
-    "md/runtime/Android Runtime.md",
-    "md/runtime/Android 35 ART：全面解析启动速度优化.md",
     "md/runtime",
     "未命名.base",
     "未命名 5.base",
