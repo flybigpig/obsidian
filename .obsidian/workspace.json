@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/属性服务/属性服务.md",
+                "file": "md/ams/交互模式.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "属性服务"
+              "title": "交互模式"
             }
           }
         ]
@@ -192,8 +192,9 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "fa4657deb406b728",
+  "active": "3e170793714771e1",
   "lastOpenFiles": [
+    "md/属性服务/属性服务.md",
     "md/C++/析构函数.md",
     "md/C++/C++ 20.md",
     "md/mk_bp/Android Android.mk入门-CSDN博客.md",
@@ -221,7 +222,6 @@
     "md/ams/伪代码.md",
     "md/ams/交互模式.md",
     "Excalidraw/Drawing 2026-01-15 19.32.01.excalidraw.md",
-    "Excalidraw/Drawing 2025-08-27 14.08.22.excalidraw.md",
     "未命名.base",
     "未命名 5.base",
     "未命名 4.base",
