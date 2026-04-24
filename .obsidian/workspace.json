@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "drives/Ubuntu编写简单驱动测试程序.md",
+                "file": "date/2026-04-24.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Ubuntu编写简单驱动测试程序"
+              "title": "2026-04-24"
             }
           }
         ]
@@ -194,6 +194,8 @@
   },
   "active": "57a48ec4e9df2780",
   "lastOpenFiles": [
+    "else/（保姆级教程） Typora+PicGo+gitee搭建博客写作环境（超详细） 同步解决：PicGo插件安装失败问题_picgo+typora+gitee-CSDN博客.md",
+    "drives/Ubuntu编写简单驱动测试程序.md",
     "drives/gcc_12.md",
     "drives/smodule.md",
     "date/2026-04-24.md",
@@ -223,9 +225,7 @@
     "conflict-files-obsidian-git.md",
     "md/framework基础/IServiceManager宏.md",
     "md/framework基础/IServiceManager.md",
-    "else/openclaw_qwen.md",
     "md/个人/AOSP源码分析深度指南.docx",
-    "md/framework基础/基础.md",
     "md/runtime",
     "未命名.base",
     "未命名 5.base",
