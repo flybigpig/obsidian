@@ -194,8 +194,9 @@
   },
   "active": "aa75a36f27072691",
   "lastOpenFiles": [
-    "conflict-files-obsidian-git.md",
+    "md/binder/MediaServer服务添加过程.md",
     "md/binder/mmap.md",
+    "conflict-files-obsidian-git.md",
     "md/千里马/Runtime.exec.md",
     "md/个人/Android 面试问题及答案.md",
     "date/2026-04-24.md",
@@ -223,7 +224,6 @@
     "md/ams/伪代码.md",
     "md/ams/交互模式.md",
     "md/ams/ATMS-AMS.md",
-    "md/ams/Android 中 ATMS 与 AMS 深度解析（关系+分工+流转+面试核心）.md",
     "md/ams",
     "algo",
     "Excalidraw",
