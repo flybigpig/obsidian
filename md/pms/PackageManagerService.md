@@ -1,9 +1,7 @@
 
 
 
-![1](Pasted image 20260427151543.png)
-
-![Systrace 报告的屏幕截图](Pasted image 20260427151543.png)
+![](Pasted image 20260427151543.png)
 
 ## PackageManagerService (PMS) 详解
 
