@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/mk_bp/Android.bp详解+入门必备-CSDN博客.md",
+                "file": "md/JVM/Java虚拟机基础——1Java的内存模型-腾讯云开发者社区-腾讯云.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Android.bp详解+入门必备-CSDN博客"
+              "title": "Java虚拟机基础——1Java的内存模型-腾讯云开发者社区-腾讯云"
             }
           }
         ]
@@ -78,7 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 234.5
+    "width": 358.5
   },
   "right": {
     "id": "9529d323d9cfa4b3",
@@ -194,9 +194,10 @@
   },
   "active": "6c6968554276d3ab",
   "lastOpenFiles": [
+    "md/JVM/Java并发编程（三）volatile域-CSDN博客.md",
+    "md/mk_bp/Android.bp详解+入门必备-CSDN博客.md",
     "md/mk_bp/mk 使用.md",
     "md/mk_bp/Android.mk解析与使用看这篇就够了 - 知乎.md",
-    "md/mk_bp/Android.bp详解+入门必备-CSDN博客.md",
     "md/mk_bp/Android.bp解析与使用看这篇就够了 - 知乎.md",
     "md/mk_bp/Android Android.mk入门-CSDN博客.md",
     "md/pms/PackageManagerService/08.md",
@@ -222,7 +223,6 @@
     "conflict-files-obsidian-git.md",
     "md/binder/mmap.md",
     "md/个人/未命名 HashMap.md",
-    "md/个人/未命名 1 AMS.md",
     "pic/e1fe8d3703d5038b2bd15153c1bf7c7.png",
     "pic/Pasted image 20241219162312.png",
     "pic/e46f70f2112adce67a01d081c522f2a8.png",
