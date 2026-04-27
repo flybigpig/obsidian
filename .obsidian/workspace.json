@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "date/2026-04-27.md",
+                "file": "drives/uabntu驱动.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2026-04-27"
+              "title": "uabntu驱动"
             }
           }
         ]
@@ -192,10 +192,10 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "57a48ec4e9df2780",
+  "active": "fa4657deb406b728",
   "lastOpenFiles": [
-    "md/个人/InputEventReceiver.md",
     "date/2026-04-27.md",
+    "md/个人/InputEventReceiver.md",
     "md/个人/inputeventreceiver.finishInputEvent.md",
     "conflict-files-obsidian-git.md",
     "md/binder/mmap.md",
