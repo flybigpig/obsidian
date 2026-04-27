@@ -1,6 +1,6 @@
 
 
-![[../pic/Pasted image 20260427151543.png]]
+![[https://github.com/flybigpig/obsidian/blob/main/pic/Pasted%20image%2020260427151543.png]]
 ## PackageManagerService (PMS) 详解
 
 ### 基本信息
