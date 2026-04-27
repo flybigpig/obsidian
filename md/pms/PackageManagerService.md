@@ -2,11 +2,7 @@
 
 <<<<<<< HEAD
 ![[Pasted image 20260427151543.png]]
-=======
-![[/pic/Pasted image 20260427151543.png]]
 
-![图片](obsidian/pic/Pasted image 20260427151543.png)
->>>>>>> origin/main
 ## PackageManagerService (PMS) 详解
 
 ### 基本信息
