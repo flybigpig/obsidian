@@ -11,10 +11,14 @@
             "id": "6c6968554276d3ab",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "md/pms/PackageManagerService.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "新标签页"
+              "title": "PackageManagerService"
             }
           }
         ]
@@ -188,10 +192,12 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "f84ce6d2fe2622cd",
+  "active": "6c6968554276d3ab",
   "lastOpenFiles": [
-    "agent/agent.md",
+    "md/pms/PackageManagerService.md",
+    "md/pms",
     "README.md",
+    "agent/agent.md",
     "agent",
     "drives/uabntu驱动.md",
     "date/2026-04-27.md",
@@ -221,7 +227,6 @@
     "date",
     "md/ams/交互模式.md",
     "md/属性服务/属性服务.md",
-    "md/C++/析构函数.md",
     "md/个人/AOSP源码分析深度指南.docx",
     "md/runtime",
     "未命名.base",
@@ -229,7 +234,6 @@
     "未命名 4.base",
     "未命名 3.base",
     "未命名 2.base",
-    "未命名 1.base",
     "Excalidraw/未命名.canvas",
     "pic/640.webp",
     "pic/liuqin.jpg",
