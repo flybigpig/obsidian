@@ -1,6 +1,6 @@
 
 
-![[pic/Pasted image 20260427151543.png]]
+![[../pic/Pasted image 20260427151543.png]]
 ## PackageManagerService (PMS) 详解
 
 ### 基本信息
