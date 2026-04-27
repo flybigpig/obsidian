@@ -1,11 +1,6 @@
 
-PackageManagerService (PMS)，这是 Android 系统服务中非常重要的一个。让我搜索相关代码。
-找到了 PackageManagerService.java 文件，这是一个非常大的文件（1.16MB）。让我读取文件的开头部分来了解其基本结构。
-文件很大，让我继续搜索更多关键内容：类定义、构造函数、核心方法等。
-现在让我搜索更多关于 PMS 核心功能的代码，比如关键的数据结构和方法。
-让我继续搜索更多关于 PMS 核心方法的信息，如 installPackage、scanPackageTracedLI 等。
-现在让我读取构造函数中 BOOT_PROGRESS 相关的完整启动流程。
-现在我已经收集了足够的信息来为用户提供 PackageManagerService 的详解。
+
+![[Pasted image 20260427151543.png]]
 ## PackageManagerService (PMS) 详解
 
 ### 基本信息
