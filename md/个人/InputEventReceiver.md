@@ -1,5 +1,7 @@
 # InputEventReceiver
 
+
+
 根据你当前打开的文件 `android_view_InputEventReceiver.cpp`，我来详细解释 `consumeEvents` 函数。
 
 ## `consumeEvents` 函数详解
