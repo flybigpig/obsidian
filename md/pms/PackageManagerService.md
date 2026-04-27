@@ -2,7 +2,7 @@
 
 ![[/pic/Pasted image 20260427151543.png]]
 
-![图片](pic/Pasted image 20260427151543.png)
+![图片](obsidian/pic/Pasted image 20260427151543.png)
 ## PackageManagerService (PMS) 详解
 
 ### 基本信息
