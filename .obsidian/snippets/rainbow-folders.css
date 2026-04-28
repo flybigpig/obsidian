@@ -1,0 +1,25 @@
+/* 不同层级文件夹的彩虹配色，你可以根据喜好修改颜色 */
+:root {
+  --folder-level-1: #ff6b6b; /* 一级文件夹：红 */
+  --folder-level-2: #ffa94d; /* 二级：橙 */
+  --folder-level-3: #ffd43b; /* 三级：黄 */
+  --folder-level-4: #69db7c; /* 四级：绿 */
+  --folder-level-5: #74c0fc; /* 五级：蓝 */
+  --folder-level-6: #b197fc; /* 六级：紫 */
+}
+
+/* 应用到不同层级的文件夹 */
+.nav-folder-title[data-path-depth="1"] { color: var(--folder-level-1); }
+.nav-folder-title[data-path-depth="2"] { color: var(--folder-level-2); }
+.nav-folder-title[data-path-depth="3"] { color: var(--folder-level-3); }
+.nav-folder-title[data-path-depth="4"] { color: var(--folder-level-4); }
+.nav-folder-title[data-path-depth="5"] { color: var(--folder-level-5); }
+.nav-folder-title[data-path-depth="6"] { color: var(--folder-level-6); }
+
+/* 可选：同时修改文件夹图标颜色 */
+.nav-folder-icon[data-path-depth="1"] { color: var(--folder-level-1); }
+.nav-folder-icon[data-path-depth="2"] { color: var(--folder-level-2); }
+.nav-folder-icon[data-path-depth="3"] { color: var(--folder-level-3); }
+.nav-folder-icon[data-path-depth="4"] { color: var(--folder-level-4); }
+.nav-folder-icon[data-path-depth="5"] { color: var(--folder-level-5); }
+.nav-folder-icon[data-path-depth="6"] { color: var(--folder-level-6); }

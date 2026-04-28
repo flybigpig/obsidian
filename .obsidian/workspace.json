@@ -188,11 +188,11 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "f84ce6d2fe2622cd",
+  "active": "fa4657deb406b728",
   "lastOpenFiles": [
+    "md/pms/PackageManagerService.md",
     "md/pms/20260427151543.png",
     "conflict-files-obsidian-git.md",
-    "md/pms/PackageManagerService.md",
     "md/pms/Pasted image 20260427151543.png",
     "md/JVM/Java虚拟机基础——1Java的内存模型-腾讯云开发者社区-腾讯云.md",
     "md/JVM/Java并发编程（三）volatile域-CSDN博客.md",
@@ -236,7 +236,6 @@
     "pic/liuqin.jpg",
     "pic/Pasted image 20250710094523.png",
     "pic/Pasted image 20250709100529.png",
-    "pic/Pasted image 20250701143557.png",
     "Excalidraw/未命名 1.canvas"
   ]
 }
