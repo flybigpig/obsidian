@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "ac7eb7628cea84b6",
+        "id": "08478a8a61050532",
         "type": "tabs",
         "children": [
           {
-            "id": "46bf293c862e5d49",
+            "id": "c77062bf39ce11a2",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -180,16 +180,18 @@
       "switcher:打开快速切换": false,
       "graph:查看关系图谱": false,
       "canvas:新建白板": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false,
       "daily-notes:打开/创建今天的日记": false,
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
       "markdown-importer:打开 Markdown 格式转换器": false,
-      "obsidian-git:Open Git source control": false,
-      "obsidian-excalidraw-plugin:新建绘图文件": false
+      "obsidian-git:Open Git source control": false
     }
   },
-  "active": "fa4657deb406b728",
+  "active": "c77062bf39ce11a2",
   "lastOpenFiles": [
+    "Excalidraw/Drawing 2026-04-28 14.33.06.excalidraw.md",
+    "Excalidraw/未命名.canvas",
     "md/pms/PackageManagerService.md",
     "md/pms/20260427151543.png",
     "conflict-files-obsidian-git.md",
@@ -219,7 +221,6 @@
     "drives/uabntu驱动.md",
     "date/2026-04-27.md",
     "md/个人/InputEventReceiver.md",
-    "md/个人/inputeventreceiver.finishInputEvent.md",
     "pic/e1fe8d3703d5038b2bd15153c1bf7c7.png",
     "pic/Pasted image 20241219162312.png",
     "pic/e46f70f2112adce67a01d081c522f2a8.png",
@@ -231,7 +232,6 @@
     "未命名 5.base",
     "未命名 4.base",
     "未命名 3.base",
-    "Excalidraw/未命名.canvas",
     "pic/640.webp",
     "pic/liuqin.jpg",
     "pic/Pasted image 20250710094523.png",
