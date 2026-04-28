@@ -4,21 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "a2199205425b7810",
+        "id": "ac7eb7628cea84b6",
         "type": "tabs",
         "children": [
           {
-            "id": "75e7c018d982dc2a",
+            "id": "46bf293c862e5d49",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "md/pms/PackageManagerService.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "PackageManagerService"
+              "title": "新标签页"
             }
           }
         ]
