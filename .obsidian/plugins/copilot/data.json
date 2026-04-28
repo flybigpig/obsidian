@@ -12,9 +12,9 @@
   "azureOpenAIApiVersion": "",
   "azureOpenAIApiEmbeddingDeploymentName": "",
   "googleApiKey": "",
-  "openRouterAiApiKey": "",
+  "openRouterAiApiKey": "021b571b59064cbb869626bd01fa62f7.F6TKRmWjBMLCXTPx",
   "defaultChainType": "llm_chain",
-  "defaultModelKey": "google/gemini-2.5-flash|openrouterai",
+  "defaultModelKey": "zhipu|openrouterai",
   "embeddingModelKey": "text-embedding-3-small|openai",
   "temperature": 0.1,
   "maxTokens": 1000,
@@ -65,7 +65,7 @@
     {
       "name": "gpt-5.4",
       "provider": "openai",
-      "enabled": true,
+      "enabled": false,
       "isBuiltIn": true,
       "core": true,
       "capabilities": [
@@ -75,7 +75,7 @@
     {
       "name": "gpt-5-mini",
       "provider": "openai",
-      "enabled": true,
+      "enabled": false,
       "isBuiltIn": true,
       "core": true,
       "capabilities": [
@@ -85,7 +85,7 @@
     {
       "name": "gpt-4o",
       "provider": "openai",
-      "enabled": true,
+      "enabled": false,
       "isBuiltIn": true,
       "core": true,
       "capabilities": [
@@ -95,7 +95,7 @@
     {
       "name": "gpt-4o-mini",
       "provider": "openai",
-      "enabled": true,
+      "enabled": false,
       "isBuiltIn": true,
       "core": true,
       "capabilities": [
@@ -105,7 +105,7 @@
     {
       "name": "claude-3-5-sonnet-latest",
       "provider": "anthropic",
-      "enabled": true,
+      "enabled": false,
       "isBuiltIn": true,
       "core": true,
       "capabilities": [
@@ -115,44 +115,56 @@
     {
       "name": "gpt-4-turbo",
       "provider": "openai",
-      "enabled": true,
+      "enabled": false,
       "isBuiltIn": true
     },
     {
       "name": "claude-3-5-haiku-latest",
       "provider": "anthropic",
-      "enabled": true,
+      "enabled": false,
       "isBuiltIn": true
     },
     {
       "name": "command-r",
       "provider": "cohereai",
-      "enabled": true,
+      "enabled": false,
       "isBuiltIn": true
     },
     {
       "name": "command-r-plus",
       "provider": "cohereai",
-      "enabled": true,
+      "enabled": false,
       "isBuiltIn": true
     },
     {
       "name": "gemini-1.5-pro",
       "provider": "google",
-      "enabled": true,
+      "enabled": false,
       "isBuiltIn": true
     },
     {
       "name": "gemini-1.5-flash",
       "provider": "google",
-      "enabled": true,
+      "enabled": false,
       "isBuiltIn": true
     },
     {
       "name": "azure-openai",
       "provider": "azure openai",
-      "enabled": true,
+      "enabled": false,
       "isBuiltIn": true
+    },
+    {
+      "name": "zhipu",
+      "provider": "openrouterai",
+      "enabled": true,
+      "isBuiltIn": false,
+      "baseUrl": "https://open.bigmodel.cn/api/paas/v4/chat/completions",
+      "apiKey": "021b571b59064cbb869626bd01fa62f7.F6TKRmWjBMLCXTPx",
+      "isEmbeddingModel": false,
+      "capabilities": [],
+      "stream": true,
+      "displayName": "GLM"
     }
   ],
   "activeEmbeddingModels": [
