@@ -55,6 +55,7 @@ sequenceDiagram
 
 用户点击 APK 文件后，系统启动 `PackageInstallerActivity`。
 
+
 **1. 初始化与权限检查**
 
 ```66:100:d:\frameworks\cells-android10\frameworks\base\packages\PackageInstaller\src\com\android\packageinstaller\PackageInstallerActivity.java
