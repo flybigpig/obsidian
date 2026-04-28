@@ -23,10 +23,14 @@
   },
   "promptTemplates": [],
   "enableInternalLink": true,
+  "enableInternalLinkForAssistantMsg": false,
   "answerDelayInMilliseconds": 2000,
   "confirmRegenerate": true,
   "enableTagSuggest": true,
-  "tagSuggestMaxLineLength": 25,
+  "tagSuggestMaxLineLength": 20,
   "enableExportToJSONL": false,
-  "enableReplaceTag": false
+  "enableReplaceTag": false,
+  "enableDefaultSystemMsg": false,
+  "defaultSystemMsg": "",
+  "enableStreamLog": false
 }
