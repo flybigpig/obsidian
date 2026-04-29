@@ -1,0 +1,22 @@
+/* 兼容 Obsidian 1.4+ 的彩虹文件夹 CSS */
+:root {
+  --folder-1: #ff6b6b;
+  --folder-2: #ffa94d;
+  --folder-3: #ffd43b;
+  --folder-4: #69db7c;
+  --folder-5: #74c0fc;
+}
+
+/* 文件夹标题文字 */
+.nav-folder-title[data-path-depth="1"] { color: var(--folder-1) !important; }
+.nav-folder-title[data-path-depth="2"] { color: var(--folder-2) !important; }
+.nav-folder-title[data-path-depth="3"] { color: var(--folder-3) !important; }
+.nav-folder-title[data-path-depth="4"] { color: var(--folder-4) !important; }
+.nav-folder-title[data-path-depth="5"] { color: var(--folder-5) !important; }
+
+/* 文件夹图标 */
+.nav-folder-icon[data-path-depth="1"] { color: var(--folder-1) !important; }
+.nav-folder-icon[data-path-depth="2"] { color: var(--folder-2) !important; }
+.nav-folder-icon[data-path-depth="3"] { color: var(--folder-3) !important; }
+.nav-folder-icon[data-path-depth="4"] { color: var(--folder-4) !important; }
+.nav-folder-icon[data-path-depth="5"] { color: var(--folder-5) !important; }

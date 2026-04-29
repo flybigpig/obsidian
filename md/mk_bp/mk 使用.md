@@ -99,6 +99,7 @@ include $(BUILD_PACKAGE)
 - **`LOCAL_SRC_FILES`**：包含所有 Java 文件和 AIDL 文件。
 - **`BUILD_PACKAGE`**：用于生成 APK 文件。
 
+
 ### 6. 服务端配置
 
 确保服务端也正确配置了 AIDL 文件，并在 `Android.mk` 中声明。服务端的 `Android.mk` 文件可能如下：
