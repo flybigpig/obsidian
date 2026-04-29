@@ -423,7 +423,7 @@
     }
   ],
   "enableMultipleConfig": false,
-  "enableTopToolbar": false,
+  "enableTopToolbar": true,
   "enableFollowingToolbar": false,
   "enableFixedToolbar": false,
   "appendMethod": "workspace",
