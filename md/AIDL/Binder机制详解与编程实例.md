@@ -255,7 +255,6 @@ int main() {
     
     return 0;
 }
-
 ```
 
 #### 实例3：异步Binder调用
@@ -433,7 +432,6 @@ MyService::add called with 5 + 3
 BnMyService::onTransact code: 2
 Received echo request: Hello Binder!
 MyService::echo called with: Hello Binder!
-AI写代码1234567
 ```
 
 **客户端输出：**
@@ -446,7 +444,6 @@ BpMyService::add received result: 8
 BpMyService::echo sending: Hello Binder!
 BpMyService::echo received: Echo: Hello Binder!
 Echo result: Echo: Hello Binder!
-AI写代码1234567
 ```
 
 ### 关键概念总结
@@ -518,7 +515,6 @@ DECLARE_META_INTERFACE(HelloService);
 ```
 // 定义一个方法：sayHello
 virtual android::String8 sayHello() = 0; };
-AI写代码12
 ```
 
 ```
@@ -622,7 +618,8 @@ int main() {
     String8 str = service->sayHello();
     printf("从服务端收到的消息: %s\n", str.string());
     
-    return 0; } 
+    return 0; 
+  } 
 ```
 
 编译和运行 由于Binder服务通常需要系统权限，并且需要添加到系统的构建文件中，因此编译和运行需要Android源码环境。
