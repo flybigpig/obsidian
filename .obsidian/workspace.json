@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/pms/PackageManagerService/02.md",
+                "file": "md/AIDL/Binder机制详解与编程实例.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "02"
+              "title": "Binder机制详解与编程实例"
             }
           }
         ]
@@ -192,15 +192,16 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "f84ce6d2fe2622cd",
+  "active": "fa4657deb406b728",
   "lastOpenFiles": [
+    "md/AIDL/【Binder 机制】AIDL 分析 ( 创建 AIDL 文件  创建 Parcelable 类  AIDL 中使用 Parcelable 类  编译工程生成 AIDL 对应的Java源文件 )-腾讯云开发者社区-腾讯云.md",
+    "md/pms/PackageManagerService/02.md",
     "md/性能优化&排查方法论/Guide.md",
     "md/性能优化&排查方法论/Android 高级工程师面试参考答案：性能优化.md",
     "md/性能优化&排查方法论",
     "md/ims/PendingQueue.md",
     "md/ims/Framework.md",
     "md/DeepSeek/面.md",
-    "md/AIDL/【Binder 机制】AIDL 分析 ( 创建 AIDL 文件  创建 Parcelable 类  AIDL 中使用 Parcelable 类  编译工程生成 AIDL 对应的Java源文件 )-腾讯云开发者社区-腾讯云.md",
     "md/AIDL/SimpleAnalysis.md",
     "md/AIDL/IMyAidlInterfaceExplain.java",
     "md/AIDL/IMyAidlInterface.java",
@@ -224,7 +225,6 @@
     "md/pms/PackageManagerService/06.md",
     "md/pms/PackageManagerService/05.md",
     "md/pms/PackageManagerService/04.md",
-    "md/pms/PackageManagerService/02.md",
     "md/pms/PackageManagerService/03.md",
     "md/pms/PackageManagerService/01 PackageManagerService 概要.md",
     "md/pms/PackageManagerService",
