@@ -1,4 +1,3 @@
-用户问的是 "pengingQueue"，这应该是 "PendingQueue" 的拼写错误。在 Android Input 系统中，除了之前讲到的 IQ、OQ、WQ 之外，还有一个 PendingQueue。让我详细讲解这个队列的含义和作用。
 
 结合之前的对话上下文，用户是在问 Android Input 模块中的 PendingQueue（待处理队列）。
 你问的应该是 **PendingQueue**（拼写为 pending，不是 penging）——这是 Android Input 系统中的**第四个重要队列**，之前我们讲了 IQ、OQ、WQ，现在补全这个 **PQ**：
