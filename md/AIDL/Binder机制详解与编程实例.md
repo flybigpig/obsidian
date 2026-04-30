@@ -2,6 +2,7 @@
 
 ### Binder基本概念
 
+
 #### 什么是Binder？
 
 Binder是Android系统中最重要的进程间通信(IPC)机制，它具有以下特点：
