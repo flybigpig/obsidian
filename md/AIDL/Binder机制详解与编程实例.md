@@ -417,7 +417,6 @@ LOCAL_MODULE := myclient
 LOCAL_SRC_FILES := MyClient.cpp
 LOCAL_SHARED_LIBRARIES := libbinder libutils liblog
 include $(BUILD_EXECUTABLE)
-AI写代码makefile12345678910111213
 ```
 
 #### 预期运行结果
