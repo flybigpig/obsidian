@@ -1,3 +1,4 @@
+```
 // 编译后生成的 Stub 类核心方法
 public interface IMyService extends android.os.IInterface {
     // 服务端实现类
@@ -52,3 +53,5 @@ public interface IMyService extends android.os.IInterface {
         }
     }
 }
+
+```
