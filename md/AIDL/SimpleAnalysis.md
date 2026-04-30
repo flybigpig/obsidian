@@ -4,6 +4,7 @@ public interface IMyService extends android.os.IInterface {
     // 服务端实现类
     public abstract class Stub extends android.os.Binder implements IMyService {
         // ★ 关键：asInterface - 客户端获取代理对象
+        //    BpBinder
         public static IMyService asInterface(android.os.IBinder obj) {
             if ((obj == null)) { return null; }
             // 先查询本地缓存
@@ -15,6 +16,7 @@ public interface IMyService extends android.os.IInterface {
         }
         
         // ★ Proxy 内部类 - 客户端的代理
+        // BnBinder
         private static class Proxy implements IMyService {
             private android.os.IBinder mRemote;
             
