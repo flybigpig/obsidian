@@ -1,0 +1,7 @@
+{
+	"InstallScripts" : 
+	[
+		"/home/fly/work/project/build/cmake_install.cmake"
+	],
+	"Parallel" : false
+}
