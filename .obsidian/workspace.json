@@ -11,14 +11,10 @@
             "id": "64969b999ac0dd70",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "md/AIDL/Binder机制详解与编程实例.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "Binder机制详解与编程实例"
+              "title": "新标签页"
             }
           }
         ]
@@ -78,7 +74,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 404.5
   },
   "right": {
     "id": "9529d323d9cfa4b3",
@@ -194,6 +190,11 @@
   },
   "active": "fa4657deb406b728",
   "lastOpenFiles": [
+    "md/HAL/Linux hal/Pastedimage20260501215344.png",
+    "md/HAL/Linux hal/未命名.md",
+    "md/HAL/Linux hal/Pastedimage20260501215426.png",
+    "md/AIDL/Binder机制详解与编程实例.md",
+    "md/HAL/Linux hal",
     "project/make/makefile.md",
     "project/make/makefile",
     "project/make/hello.s",
@@ -204,7 +205,6 @@
     "project/make/a.out",
     "project/make",
     "project/hal/test/test_hal.c",
-    "project/hal/test/mock",
     "project/hal/hal.md",
     "project/driver/driver.md",
     "project/binder/binder.md",
@@ -216,7 +216,6 @@
     "md/ims/Framework.md",
     "md/DeepSeek/面.md",
     "md/AIDL/SimpleAnalysis.md",
-    "md/AIDL/Binder机制详解与编程实例.md",
     "date/2026-04-28.md",
     "conflict-files-obsidian-git.md",
     "md/some/替换布局.md",
@@ -229,8 +228,6 @@
     "md/some/kotlin - get.md",
     "md/pms/PackageManagerService/09.md",
     "md/pms/PackageManagerService/08.md",
-    "md/pms/PackageManagerService/07.md",
-    "md/pms/PackageManagerService/06.md",
     "md/pms/20260427151543.png",
     "Pasted image 20250727082725.png",
     "Pasted image 20250727082727.png",
@@ -238,8 +235,6 @@
     "pic/liuqin.jpg",
     "pic/6b5710bda24ee1fd270ddd2da769d63.png",
     "pic/e1fe8d3703d5038b2bd15153c1bf7c7.png",
-    "pic/Pasted image 20250710094523.png",
-    "pic/Pasted image 20250709100529.png",
     "Excalidraw/未命名.canvas",
     "Excalidraw/未命名 1.canvas"
   ]

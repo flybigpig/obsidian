@@ -1,3 +1,0 @@
-/home/fly/fly/project/cmake/build/CMakeFiles/hello.dir
-/home/fly/fly/project/cmake/build/CMakeFiles/edit_cache.dir
-/home/fly/fly/project/cmake/build/CMakeFiles/rebuild_cache.dir
