@@ -1,0 +1,48 @@
+# Android.bp for Binder Demo
+# 放在 Android.bp 同级目录下
+
+cc_library_shared {
+    name: "libmybinder",
+    vendor: true,
+
+    srcs: [
+        "IMyBinder.cpp",
+        "MyBinderService.cpp",
+        "MyBinderClient.cpp",
+    ],
+
+    shared_libs: [
+        "libbinder",
+        "libutils",
+        "liblog",
+    ],
+
+    cflags: [
+        "-Wall",
+        "-Werror",
+    ],
+}
+
+cc_binary {
+    name: "mybinder_service",
+    vendor: true,
+    srcs: ["service_main.cpp"],
+    shared_libs: [
+        "libmybinder",
+        "libbinder",
+        "libutils",
+        "liblog",
+    ],
+}
+
+cc_binary {
+    name: "mybinder_client",
+    vendor: true,
+    srcs: ["client_main.cpp"],
+    shared_libs: [
+        "libmybinder",
+        "libbinder",
+        "libutils",
+        "liblog",
+    ],
+}

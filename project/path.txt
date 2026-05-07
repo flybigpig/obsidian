@@ -1,0 +1,9 @@
+// files 
+afs  bin  dev  etc  home  init  lib  lib64  lost+found  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var
+
+
+// $ sudo dnf install -y dolphin konsole
+dolphin konsole
+
+
+\home\fly\work\binder_demo\app\src\main\aidl\com\example\binder\IMyBinderService.aidl
