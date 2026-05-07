@@ -3,6 +3,7 @@ The user is asking about how to compile a module into the Linux kernel (built-in
 
 将驱动从**可加载模块（`.ko`）**变为**内核内置**，需要在内核源码树中进行配置。以下是完整步骤：
 
+
 ---
 
 ### 一、核心概念

@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/systrace/systrace.md",
+                "file": "drives/将模块编译进内核（Built-in）.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "systrace"
+              "title": "将模块编译进内核（Built-in）"
             }
           }
         ]
@@ -192,8 +192,10 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "fa4657deb406b728",
+  "active": "27207572993b79b7",
   "lastOpenFiles": [
+    "drives/Ubuntu编写简单驱动测试程序.md",
+    "md/systrace/systrace.md",
     "md/systrace/perf_traces 1.zip",
     "md/systrace/DispSync.md",
     "md/systrace/浏览 Systrace 报告    App quality    Android Developers.md",
@@ -203,7 +205,6 @@
     "else/未命名.md",
     "else/王阳明.md",
     "else/通过Samba配置将虚拟机内存映射到主机盘符_在windows中 如何把samba服务器建立的共享目录,映射到一个分区盘上-CSDN博客.md",
-    "drives/Ubuntu编写简单驱动测试程序.md",
     "else/（保姆级教程） Typora+PicGo+gitee搭建博客写作环境（超详细） 同步解决：PicGo插件安装失败问题_picgo+typora+gitee-CSDN博客.md",
     "agent/agent.md",
     "else/win10_kvm.md",
@@ -213,7 +214,6 @@
     "else/openclaw_qwen.md",
     "else/csdn保存.md",
     "else/could not read Username for ‘httpse.coding.net‘ No such file or directory-CSDN博客.md",
-    "md/systrace/systrace.md",
     "md/systrace/systrace_check_url.md",
     "md/some/替换布局.md",
     "md/some/侧滑.md",
@@ -229,7 +229,6 @@
     "project/ipc/binder_demo/app/src/main/aidl/com/example/binder",
     "project/ipc/binder_demo/app/src/main/java/com/example/binder",
     "project/ipc/binder_demo/app/src/main/aidl/com/example",
-    "project/ipc/binder_demo/app/src/main/res/layout/activity_main.xml",
     "Excalidraw/未命名.canvas",
     "md/pms/20260427151543.png",
     "md/pms/Pasted image 20260427151543.png",
