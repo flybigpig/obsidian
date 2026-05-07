@@ -11,14 +11,12 @@
             "id": "feab64b669d68bf3",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "pdf",
               "state": {
-                "file": "md/个人/《10分钟剖析》系统启动1——从内核到用户Android系统总体是围绕着Linux内核而建立的。从加电到系统启动，大 - 掘金.md",
-                "mode": "source",
-                "source": false
+                "file": "pdf/Android Framework 开发揭秘.pdf"
               },
-              "icon": "lucide-file",
-              "title": "《10分钟剖析》系统启动1——从内核到用户Android系统总体是围绕着Linux内核而建立的。从加电到系统启动，大 - 掘金"
+              "icon": "lucide-file-text",
+              "title": "Android Framework 开发揭秘"
             }
           }
         ]
@@ -192,10 +190,10 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "fa4657deb406b728",
+  "active": "feab64b669d68bf3",
   "lastOpenFiles": [
-    "conflict-files-obsidian-git.md",
     "md/个人/《10分钟剖析》系统启动1——从内核到用户Android系统总体是围绕着Linux内核而建立的。从加电到系统启动，大 - 掘金.md",
+    "conflict-files-obsidian-git.md",
     "project/ipc/binder_demo/app/src/main/aidl/com/example/binder/IMyBinderService.md",
     "project/ipc/binder_demo/app/src/main/aidl/com/example/binder/IMyBinderService.aidl",
     "project/ipc/binder_demo/app/src/main/aidl/com/example/binder/IMyBinderService.java",
