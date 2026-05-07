@@ -16,6 +16,8 @@ bootloader，距离App开发者太远了，是厂商最为关心的东西。某�
 
 Let's go!
 
+gogogo
+
 
 ## Linux系统的启动
 
