@@ -4,21 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "498291b8ee2b8d12",
+        "id": "47b1eeaee70f172f",
         "type": "tabs",
         "children": [
           {
-            "id": "27207572993b79b7",
+            "id": "6bf5b554e6a867f0",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "drives/将模块编译进内核（Built-in）.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "将模块编译进内核（Built-in）"
+              "title": "新标签页"
             }
           }
         ]
@@ -167,8 +163,8 @@
             "state": {
               "type": "calendar",
               "state": {},
-              "icon": "calendar-with-checkmark",
-              "title": "Calendar"
+              "icon": "lucide-ghost",
+              "title": "calendar"
             }
           }
         ],
@@ -184,16 +180,17 @@
       "switcher:打开快速切换": false,
       "graph:查看关系图谱": false,
       "canvas:新建白板": false,
-      "obsidian-excalidraw-plugin:新建绘图文件": false,
       "daily-notes:打开/创建今天的日记": false,
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
       "markdown-importer:打开 Markdown 格式转换器": false,
-      "obsidian-git:Open Git source control": false
+      "obsidian-git:Open Git source control": false,
+      "obsidian-excalidraw-plugin:New drawing": false
     }
   },
-  "active": "27207572993b79b7",
+  "active": "6bf5b554e6a867f0",
   "lastOpenFiles": [
+    "drives/将模块编译进内核（Built-in）.md",
     "drives/Ubuntu编写简单驱动测试程序.md",
     "md/systrace/systrace.md",
     "md/systrace/perf_traces 1.zip",
