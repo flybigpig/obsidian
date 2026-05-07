@@ -1,5 +1,6 @@
         ![](https://lf-web-assets.juejin.cn/obj/juejin-web/xitu_juejin_web/img/banner.a5c9f88.jpg)
 
+
 ## 要看什么？
 
 Android系统总体是围绕着Linux内核而建立的。从加电到系统启动，大体上经过：

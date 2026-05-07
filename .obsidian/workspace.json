@@ -4,17 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "d09c289a50b59e89",
+        "id": "b32f95b8516e3c2c",
         "type": "tabs",
         "children": [
           {
-            "id": "e224b51783be6f81",
+            "id": "feab64b669d68bf3",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "md/个人/《10分钟剖析》系统启动1——从内核到用户Android系统总体是围绕着Linux内核而建立的。从加电到系统启动，大 - 掘金.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "新标签页"
+              "title": "《10分钟剖析》系统启动1——从内核到用户Android系统总体是围绕着Linux内核而建立的。从加电到系统启动，大 - 掘金"
             }
           }
         ]
@@ -188,8 +192,10 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "e224b51783be6f81",
+  "active": "feab64b669d68bf3",
   "lastOpenFiles": [
+    "未命名.base",
+    "写给应用开发的+Android+Framework+教程(1).pdf",
     "date/2026-04-28.md",
     "copilot-custom-prompts/Clip Web Page.md",
     "copilot-custom-prompts/Clip YouTube Transcript.md",
@@ -220,7 +226,6 @@
     "md/pms/Pasted image 20260427151543.png",
     "md/JVM/Java虚拟机基础——1Java的内存模型-腾讯云开发者社区-腾讯云.md",
     "md/JVM/Java并发编程（三）volatile域-CSDN博客.md",
-    "md/mk_bp/Android.bp详解+入门必备-CSDN博客.md",
     "md/pms/PackageManagerService",
     "md/pms",
     "agent",
@@ -231,7 +236,6 @@
     "date",
     "md/个人/AOSP源码分析深度指南.docx",
     "md/runtime",
-    "未命名.base",
     "未命名 5.base",
     "pic/640.webp",
     "pic/liuqin.jpg",
