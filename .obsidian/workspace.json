@@ -4,19 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "b32f95b8516e3c2c",
+        "id": "498291b8ee2b8d12",
         "type": "tabs",
         "children": [
           {
-            "id": "feab64b669d68bf3",
+            "id": "27207572993b79b7",
             "type": "leaf",
             "state": {
-              "type": "pdf",
+              "type": "markdown",
               "state": {
-                "file": "pdf/Android Framework 开发揭秘.pdf"
+                "file": "md/systrace/浏览 Systrace 报告    App quality    Android Developers.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-file-text",
-              "title": "Android Framework 开发揭秘"
+              "icon": "lucide-file",
+              "title": "浏览 Systrace 报告    App quality    Android Developers"
             }
           }
         ]
@@ -190,8 +192,15 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "feab64b669d68bf3",
+  "active": "27207572993b79b7",
   "lastOpenFiles": [
+    "md/some/替换布局.md",
+    "md/some/侧滑.md",
+    "md/md/androidStart.md",
+    "md/md/android_1.md",
+    "md/md/android.md",
+    "md/md/ActivityShow.md",
+    "pdf/Android Framework 开发揭秘.pdf",
     "md/个人/《10分钟剖析》系统启动1——从内核到用户Android系统总体是围绕着Linux内核而建立的。从加电到系统启动，大 - 掘金.md",
     "conflict-files-obsidian-git.md",
     "project/ipc/binder_demo/app/src/main/aidl/com/example/binder/IMyBinderService.md",
@@ -204,7 +213,6 @@
     "project/ipc/binder_demo/app/src/main/java/com/example/binder",
     "project/ipc/binder_demo/app/src/main/aidl/com/example",
     "project/ipc/binder_demo/app/src/main/res/layout/activity_main.xml",
-    "project/ipc/binder_demo/app/src/main/java/com/example",
     "project/ipc/_binder/binder.md",
     "project/halTest/hal/hal.md",
     "project/halTest/hal_update/hal_update.md",
@@ -222,12 +230,6 @@
     "md/DeepSeek/面.md",
     "md/AIDL/【Binder 机制】AIDL 分析 ( 创建 AIDL 文件  创建 Parcelable 类  AIDL 中使用 Parcelable 类  编译工程生成 AIDL 对应的Java源文件 )-腾讯云开发者社区-腾讯云.md",
     "md/AIDL/SimpleAnalysis.md",
-    "md/AIDL/Binder机制详解与编程实例.md",
-    "date/2026-04-28.md",
-    "copilot-custom-prompts/Clip Web Page.md",
-    "copilot-custom-prompts/Clip YouTube Transcript.md",
-    "copilot-custom-prompts/Rewrite as tweet thread.md",
-    "copilot-custom-prompts/Rewrite as tweet.md",
     "Excalidraw/未命名.canvas",
     "md/pms/20260427151543.png",
     "md/pms/Pasted image 20260427151543.png",
