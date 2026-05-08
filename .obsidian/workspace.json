@@ -11,10 +11,14 @@
             "id": "64969b999ac0dd70",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "date/2026-04-28.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "新标签页"
+              "title": "2026-04-28"
             }
           }
         ]
@@ -188,7 +192,7 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "fa4657deb406b728",
+  "active": "64969b999ac0dd70",
   "lastOpenFiles": [
     "project/path.txt",
     "project/ipc/_binder/src/binder.c",
