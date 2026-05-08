@@ -1,0 +1,1 @@
+robocopy "C:\wsl_work" "C:\D\otherproject\obsidian\project" /E /MT:8 /R:3 /W:5

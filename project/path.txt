@@ -37,3 +37,16 @@ ccccccccccccccccccccccccccccc:'.          Disk (/mnt/c): 143.04 GiB / 952.87 GiB
 // 执行软连接 AI 访问文件
 New-Item -ItemType SymbolicLink -Path "C:\wsl_work" -Target "\\wsl.localhost\Fedora\home\fly\work"
 
+//cmd  同步  
+robocopy "C:\wsl_work" "C:\D\otherproject\obsidian\project" /E /MT:8 /R:3 /W:5
+
+
+···
+
+参数	作用
+/E	复制所有子目录（包括空目录）
+/MT:8	8线程并行复制，加快速度
+/R:3	复制失败时重试3次
+/W:5	每次重试间隔5秒
+
+···
