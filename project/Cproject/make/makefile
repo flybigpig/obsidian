@@ -1,22 +1,25 @@
+# 编译器和标志
+CC = gcc
+CFLAGS = -Wall -Wextra -g -O2
+TARGET = hello
 
+# 默认目标
+all: $(TARGET)
 
-# 最终可执行文件hello，依赖于hello.o
-hello: hello.o
-	gcc hello.o -o hello          # ← Tab 开头，不是空格！
+# 链接
+$(TARGET): hello.o
+	$(CC) $^ -o $@
 
-# 目标文件hello.o，依赖于hello.s
-hello.o: hello.s
-	gcc -c hello.s -o hello.o      # ← Tab 开头
+# 编译：.o 依赖于 .c（跳过手动预处理和汇编步骤）
+hello.o: hello.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
-# 汇编文件hello.s，依赖于hello.i
-hello.s: hello.i
-	gcc -S hello.i -o hello.s      # ← Tab 开头
+# 或者更简单，让 make 自动推导
+# 只需保留以下规则即可：
+# $(TARGET): hello.o
+#     $(CC) $^ -o $@
 
-# 预处理文件hello.i，依赖于hello.c
-hello.i: hello.c
-	gcc -E hello.c -o hello.i      # ← Tab 开头
-
-
-.PHONY: clean
+# 清理
+.PHONY: all clean
 clean:
-	rm -f hello.i hello.s hello.o hello
+	rm -f *.i *.s *.o $(TARGET)

@@ -1,0 +1,39 @@
+# Build the native demo service
+
+aidl_interface {
+    name: "com.demo.nativeservice",
+    srcs: ["aidl/com/demo/nativeservice/*.aidl"],
+    unstable_api: true,
+}
+
+cc_binary {
+    name: "demo_service",
+    srcs: ["server/demo_service.cpp"],
+    shared_libs: [
+        "libbinder",
+        "libbinder_ndk",
+        "libutils",
+        "libcutils",
+        "libbase",
+        "com.demo.nativeservice-cpp",
+    ],
+    init_rc: ["rc/demo_service.rc"],
+    cflags: [
+        "-Wall",
+        "-Werror",
+        "-Wno-unused-parameter",
+    ],
+}
+
+# Client app (optional, can also be built separately)
+android_app {
+    name: "DemoServiceClient",
+    srcs: ["client/java/**/*.java"],
+    platform_apis: true,
+    certificate: "platform",
+    privileged: true,
+    required: ["demo_service"],
+    static_libs: [
+        "com.demo.nativeservice-java",
+    ],
+}

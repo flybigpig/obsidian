@@ -1,6 +1,8 @@
         ![](https://lf-web-assets.juejin.cn/obj/juejin-web/xitu_juejin_web/img/banner.a5c9f88.jpg)
 
+
 ## 要看什么？
+
 
 Android系统总体是围绕着Linux内核而建立的。从加电到系统启动，大体上经过：
 
@@ -13,6 +15,9 @@ bootloader，距离App开发者太远了，是厂商最为关心的东西。某�
 在系统启动系列文章中，所确立的主线是从加电启动到第一个app（也就是launcher）启动。所以，有过一定了解的朋友应该能够get到，核心是zygote。像binder会另辟系列文章加以剖析。
 
 Let's go!
+
+gogogo
+
 
 ## Linux系统的启动
 

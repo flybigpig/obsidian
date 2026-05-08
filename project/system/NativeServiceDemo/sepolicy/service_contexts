@@ -1,0 +1,2 @@
+# Service context for demo_service
+demo_service                            u:object_r:demo_service:s0

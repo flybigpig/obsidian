@@ -1,0 +1,2 @@
+# File context for demo_service binary
+/system/bin/demo_service    u:object_r:demo_service_exec:s0
