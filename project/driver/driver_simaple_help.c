@@ -1,4 +1,3 @@
-
 #include <linux/module.h>
 #include <linux/fs.h>
 #include <linux/errno.h>
@@ -20,21 +19,9 @@ static int major = 0;
 static char kernel_buf[1024];
 static struct class *hello_class;
 
-
 #define MIN(a, b) (a < b ? a : b)
 
-
-
-/* 2. 定义自己的file_operations结构体                                              */
-static struct file_operations hello_drv = {
-	.owner	 = THIS_MODULE,
-	.open    = hello_drv_open,
-	.read    = hello_drv_read,
-	.write   = hello_drv_write,
-	.release = hello_drv_close,
-};
-
-/* 3. 实现对应的open/read/write等函数，填入file_operations结构体                   */
+/* 2. 实现对应的open/read/write等函数，填入file_operations结构体                   */
 static ssize_t hello_drv_read (struct file *file, char __user *buf, size_t size, loff_t *offset)
 {
 	int err;
@@ -63,16 +50,22 @@ static int hello_drv_close (struct inode *node, struct file *file)
 	return 0;
 }
 
-
+/* 3. 定义自己的file_operations结构体                                              */
+static struct file_operations hello_drv = {
+	.owner	 = THIS_MODULE,
+	.open    = hello_drv_open,
+	.read    = hello_drv_read,
+	.write   = hello_drv_write,
+	.release = hello_drv_close,
+};
 
 /* 4. 把file_operations结构体告诉内核：注册驱动程序 */
-static void register_hello_drv(void)
+static int register_hello_drv(void)
 {
 	major = register_chrdev(0, "hello", &hello_drv);  /* /dev/hello */
+	return major;
 }
 
-
-*/
 /* 5. 谁来注册驱动程序啊？得有一个入口函数：安装驱动程序时，就会去调用这个入口函数 */
 static int __init hello_init(void)
 {
@@ -80,15 +73,18 @@ static int __init hello_init(void)
 
     printk("%s %s line %d\n", __FILE__, __FUNCTION__, __LINE__);
 
-    register_hello_drv();   /* 注册字符设备驱动 */
+    err = register_hello_drv();   /* 注册字符设备驱动 */
+    if (err < 0) {
+        printk("Failed to register char device, error: %d\n", err);
+        return err;
+    }
 
     // 提供设备信息，自动创建设备节点
     hello_class = class_create(THIS_MODULE, "hello_class");
-    err = PTR_ERR(hello_class);
     if (IS_ERR(hello_class)) {
         printk("%s %s line %d\n", __FILE__, __FUNCTION__, __LINE__);
         unregister_chrdev(major, "hello");
-        return -1;
+        return PTR_ERR(hello_class);
     }
 
     device_create(hello_class, NULL, MKDEV(major, 0), NULL, "hello");
@@ -103,7 +99,6 @@ static void __exit hello_exit(void)
 	class_destroy(hello_class);
 	unregister_chrdev(major, "hello");
 }
-
 
 /* 7. 其他完善：提供设备信息，自动创建设备节点                                     */
 

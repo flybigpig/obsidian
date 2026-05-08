@@ -1,0 +1,77 @@
+Android Native Service Demo
+============================
+A demo project for adding a native service in AOSP.
+
+Project Structure:
+  - aidl/          : AIDL interface definition
+  - server/        : Native C++ service implementation
+  - client/        : Java client app
+  - rc/            : Init rc file for auto-start
+  - sepolicy/      : SELinux policy files
+  - Android.bp     : Build configuration
+
+
+项目名称：`NativeServiceDemo`，包含：
+- 通过 `aidl` 定义服务接口
+- Native 层 (`C++`) 实现服务端
+- Java 层客户端调用
+- `Android.mk` / `Android.bp` 构建配置
+- `rc` 文件自动启动服务
+项目已创建完成。下面是项目结构和关键说明：
+
+## 项目结构
+
+```
+NativeServiceDemo/
+├── Android.bp                          # 构建配置
+├── aidl/
+│   └── com/demo/nativeservice/
+│       └── IDemoService.aidl           # AIDL 服务接口
+├── server/
+│   └── demo_service.cpp                # Native C++ 服务实现
+├── client/
+│   ├── AndroidManifest.xml
+│   └── java/com/demo/nativeservice/client/
+│       └── MainActivity.java           # Java 客户端
+├── rc/
+│   └── demo_service.rc                 # Init rc 自动启动
+└── sepolicy/
+    ├── demo_service.te                 # SELinux 域策略
+    ├── service_contexts                # 服务安全上下文
+    └── file_contexts                   # 文件安全上下文
+```
+
+## 核心组件说明
+
+| 组件 | 文件 | 作用 |
+|------|------|------|
+| **AIDL 接口** | `IDemoService.aidl` | 定义 `add()`, `getName()`, `setVerbose()` 三个方法 |
+| **Native 服务端** | `demo_service.cpp` | 继承 `BnDemoService`，注册为 `"demo_service"` 到 ServiceManager |
+| **Java 客户端** | `MainActivity.java` | 通过 `ServiceManager.getService("demo_service")` 获取代理并调用 |
+| **Init RC** | `demo_service.rc` | 开机自动启动，支持属性控制启停 |
+| **SELinux** | `demo_service.te` | 声明域、binder 权限、服务注册与查找权限 |
+
+## 集成到 AOSP 的步骤
+
+1. **复制项目**到 AOSP 源码目录，如 `system/extras/NativeServiceDemo/`
+2. **注册 AIDL 接口**：在 `build/make/target/product/` 的相关 mk 文件中添加 `com.demo.nativeservice`
+3. **注册二进制**：在产品的 `.mk` 中添加：
+   ```makefile
+   PRODUCT_PACKAGES += demo_service DemoServiceClient
+   ```
+4. **添加 SELinux 策略**：
+   - 将 `sepolicy/` 下文件合并到 `system/sepolicy/` 对应目录
+   - 在 `sepolicy` 的 `private/compat` 中引用
+5. **编译**：
+   ```bash
+   source build/envsetup.sh
+   lunch <target>
+   m com.demo.nativeservice demo_service DemoServiceClient
+   ```
+6. **验证**：
+   ```bash
+   # 启动服务
+   start demo_service
+   # 检查服务
+   service list | grep demo
+   ```

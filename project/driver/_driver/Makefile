@@ -1,3 +1,4 @@
+
 # ==================== 编译器配置 ====================
 CC       = gcc
 CFLAGS   = -Wall -Wextra -g -I./include
@@ -21,6 +22,7 @@ TEST_TARGET = test_runner   # 测试程序
 
 # ==================== 构建目标 ====================
 .PHONY: all test clean run_test help
+
 
 all: $(TARGET)
 
@@ -90,3 +92,105 @@ debug: clean all
 # 优化目标
 optimized: CFLAGS += -O3
 optimized: clean all
+
+
+# # ============================================================
+# # Linux Kernel Driver Module Makefile
+# # 生成 .ko 可加载内核驱动模块
+# # ============================================================
+
+# # ==================== 模块配置 ====================
+# MODULE_NAME := driver
+
+# # 声明为可加载内核模块 (生成 driver.ko)
+# obj-m += $(MODULE_NAME).o
+
+# # 如果有多个源文件, 取消注释并修改:
+# # driver-objs := src/main.o src/init.o src/io.o
+
+# # ==================== 内核构建环境 ====================
+# KDIR := /lib/modules/$(shell uname -r)/build
+# PWD  := $(shell pwd)
+
+# # ========================================
+# # 构建目标
+# # ========================================
+
+# .PHONY: all modules install clean load unload reload info log help
+
+# all: modules
+
+# # ----- 编译内核模块 -----
+# modules:
+# 	@echo "============================================="
+# 	@echo " Building kernel module: $(MODULE_NAME).ko"
+# 	@echo " Kernel version: $(shell uname -r)"
+# 	@echo "============================================="
+# 	$(MAKE) -C $(KDIR) M=$(PWD) modules
+
+# # ----- 安装到系统 -----
+# install:
+# 	$(MAKE) -C $(KDIR) M=$(PWD) modules_install
+# 	depmod -a
+# 	@echo "Module installed successfully!"
+# 	@echo "Run 'sudo modprobe $(MODULE_NAME)' to load."
+
+# # ----- 清理 -----
+# clean:
+# 	$(MAKE) -C $(KDIR) M=$(PWD) clean
+# 	@echo "[CLEAN] Done!"
+
+# # ----- 运行时操作 -----
+# load:
+# 	@if [ ! -f "$(MODULE_NAME).ko" ]; then \
+# 		echo "Module not found! Run 'make' first."; \
+# 		exit 1; \
+# 	fi
+# 	sudo insmod ./$(MODULE_NAME).ko
+# 	@echo "--- Kernel log (last 10 lines) ---"
+# 	dmesg | tail -10
+
+# unload:
+# 	sudo rmmod $(MODULE_NAME)
+# 	@echo "Module unloaded."
+# 	@echo "--- Kernel log (last 5 lines) ---"
+# 	dmesg | tail -5
+
+# reload: unload load
+
+# # ----- 查询/调试 -----
+# info:
+# 	modinfo ./$(MODULE_NAME).ko
+
+# log:
+# 	@echo "=== Last 30 lines of kernel log ==="
+# 	dmesg | tail -30
+
+# # ----- 帮助 -----
+# help:
+# 	@echo ""
+# 	@echo "============================================="
+# 	@echo "  Linux Kernel Module Build System"
+# 	@echo "  Module: $(MODULE_NAME).ko"
+# 	@echo "============================================="
+# 	@echo ""
+# 	@echo "Usage: make [target]"
+# 	@echo ""
+# 	@echo " BUILD:"
+# 	@echo "   make          - Build .ko module"
+# 	@echo "   make clean    - Remove build artifacts"
+# 	@echo "   make install  - Install to system (need root)"
+# 	@echo ""
+# 	@echo " RUNTIME:"
+# 	@echo "   make load     - insmod the module"
+# 	@echo "   make unload   - rmmod the module"
+# 	@echo "   make reload   - rmmod + insmod"
+# 	@echo "   make info     - modinfo output"
+# 	@echo "   make log      - show dmesg"
+# 	@echo ""
+# 	@echo " WORKFLOW:"
+# 	@echo "   make && make load     # build + load"
+# 	@echo "   make reload           # quick rebuild cycle"
+# 	@echo ""
+
+

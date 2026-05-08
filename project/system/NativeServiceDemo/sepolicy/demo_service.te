@@ -1,0 +1,20 @@
+# SELinux policy for demo_service
+
+# Type declarations
+type demo_service, domain;
+type demo_service_exec, exec_type, file_type;
+
+# Domain transition
+init_daemon_domain(demo_service)
+
+# Allow demo_service to use binder
+binder_use(demo_service)
+binder_service(demo_service)
+
+# Allow adding service to servicemanager
+allow demo_service demo_service:service_manager add;
+
+# Allow app to find the service
+allow untrusted_app demo_service:service_manager find;
+allow platform_app demo_service:service_manager find;
+allow system_app demo_service:service_manager find;

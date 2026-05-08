@@ -1,0 +1,11 @@
+service demo_service /system/bin/demo_service
+    class hal
+    user system
+    group system
+    oneshot
+
+on property:sys.demo_service.enable=1
+    start demo_service
+
+on property:sys.demo_service.enable=0
+    stop demo_service
