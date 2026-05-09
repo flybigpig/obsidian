@@ -207,10 +207,12 @@
       "obsidian-excalidraw-plugin:New drawing": false
     }
   },
-  "active": "f84ce6d2fe2622cd",
+  "active": "76d9d308b41016a1",
   "lastOpenFiles": [
-    "project/sync_doc.md",
+    "写给应用开发的+Android+Framework+教程(1).pdf",
     "Adding a Native Service.md",
+    "conflict-files-obsidian-git.md",
+    "project/sync_doc.md",
     "md/个人/《10分钟剖析》系统启动1——从内核到用户Android系统总体是围绕着Linux内核而建立的。从加电到系统启动，大 - 掘金.md",
     "pdf/Android Framework 开发揭秘.pdf",
     "drives/将模块编译进内核（Built-in）.md",
@@ -235,8 +237,6 @@
     "else/csdn保存.md",
     "else/could not read Username for ‘httpse.coding.net‘ No such file or directory-CSDN博客.md",
     "md/systrace/systrace_check_url.md",
-    "md/some/替换布局.md",
-    "md/some/侧滑.md",
     "project/ipc/binder_demo/app/src/main/aidl/com/example/binder/IMyBinderService.aidl",
     "project/ipc/binder_demo/app/src/main/aidl/com/example/binder/IMyBinderService.java",
     "project/ipc/binder_demo/app/src/main/java/com/example/binder/MainActivity.kt",
