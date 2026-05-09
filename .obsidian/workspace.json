@@ -187,7 +187,7 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
@@ -207,7 +207,7 @@
       "obsidian-excalidraw-plugin:New drawing": false
     }
   },
-  "active": "76d9d308b41016a1",
+  "active": "f84ce6d2fe2622cd",
   "lastOpenFiles": [
     "project/sync_doc.md",
     "Adding a Native Service.md",
