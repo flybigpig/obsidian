@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/个人/《10分钟剖析》系统启动1——从内核到用户Android系统总体是围绕着Linux内核而建立的。从加电到系统启动，大 - 掘金.md",
+                "file": "project/sync_doc.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "《10分钟剖析》系统启动1——从内核到用户Android系统总体是围绕着Linux内核而建立的。从加电到系统启动，大 - 掘金"
+              "title": "sync_doc"
             }
           }
         ]
@@ -194,6 +194,7 @@
   },
   "active": "6bf5b554e6a867f0",
   "lastOpenFiles": [
+    "md/个人/《10分钟剖析》系统启动1——从内核到用户Android系统总体是围绕着Linux内核而建立的。从加电到系统启动，大 - 掘金.md",
     "pdf/Android Framework 开发揭秘.pdf",
     "drives/将模块编译进内核（Built-in）.md",
     "drives/Ubuntu编写简单驱动测试程序.md",
