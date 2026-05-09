@@ -25,14 +25,12 @@
             "id": "76d9d308b41016a1",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "pdf",
               "state": {
-                "file": "Adding a Native Service.md",
-                "mode": "source",
-                "source": false
+                "file": "写给应用开发的+Android+Framework+教程(1).pdf"
               },
-              "icon": "lucide-file",
-              "title": "Adding a Native Service"
+              "icon": "lucide-file-text",
+              "title": "写给应用开发的+Android+Framework+教程(1)"
             }
           }
         ],
@@ -207,8 +205,9 @@
       "obsidian-excalidraw-plugin:New drawing": false
     }
   },
-  "active": "76d9d308b41016a1",
+  "active": "fa4657deb406b728",
   "lastOpenFiles": [
+    "md/framework实战/Adding a Native Service.md",
     "写给应用开发的+Android+Framework+教程(1).pdf",
     "Adding a Native Service.md",
     "conflict-files-obsidian-git.md",
@@ -244,7 +243,6 @@
     "project/ipc/binder_demo/app/src/main/java/com/example/binder/BinderClient.java",
     "project/ipc/binder_demo/app/src/main/aidl/com/example/binder",
     "project/ipc/binder_demo/app/src/main/java/com/example/binder",
-    "project/ipc/binder_demo/app/src/main/aidl/com/example",
     "Excalidraw/未命名.canvas",
     "md/pms/20260427151543.png",
     "md/pms/Pasted image 20260427151543.png",
