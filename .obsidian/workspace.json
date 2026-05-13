@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/ims/socket pair.md",
+                "file": "md/ims/InputManagerService的启动流程 代码详解.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "socket pair"
+              "title": "InputManagerService的启动流程 代码详解"
             }
           }
         ]
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "md/ims/socket pair.md",
+                "file": "md/ims/InputManagerService的启动流程 代码详解.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "socket pair 的大纲"
+              "title": "InputManagerService的启动流程 代码详解 的大纲"
             }
           },
           {
@@ -172,7 +172,7 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
@@ -194,15 +194,15 @@
   },
   "active": "6bf5b554e6a867f0",
   "lastOpenFiles": [
-    "md/ims/Linux Input.md",
+    "md/ims/InputManagerService的工作原理.md",
+    "md/ims/Framework.md",
     "md/ims/socket pair.md",
+    "md/ims/Linux Input.md",
     "md/ims/PendingQueue.md",
     "md/ims/InputManagerService的启动流程 代码详解.md",
-    "md/ims/InputManagerService的工作原理.md",
     "md/ims/input1.md",
     "md/ims/input.md",
     "md/ims/I-O 多路复用机制.md",
-    "md/ims/Framework.md",
     "md/ims/Android 输入系统核心链路：.md",
     "md/ims/Android 输入系统核心.md",
     "md/ims/详细介绍InputManagerService的事件分发机制.md",
