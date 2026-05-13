@@ -8,7 +8,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/fly/fly/project/cmake/hello.c" "CMakeFiles/hello.dir/hello.c.o" "gcc" "CMakeFiles/hello.dir/hello.c.o.d"
+  "/home/fly/work/Cproject/cmake/hello.c" "CMakeFiles/hello.dir/hello.c.o" "gcc" "CMakeFiles/hello.dir/hello.c.o.d"
+  "" "hello" "gcc" "CMakeFiles/hello.dir/link.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

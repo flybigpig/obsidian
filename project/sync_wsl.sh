@@ -7,8 +7,12 @@ DEST=$(wslpath -u "C:\\D\\otherproject\\obsidian\\project")
 echo "源: $SOURCE"
 echo "目标: $DEST"
 
-rsync -avh --progress --update --delete "$SOURCE/" "$DEST/"
-rsync -avh --progress --update  --delete "$DEST/" "$SOURCE/"
+# rsync -avh --progress --update --delete "$SOURCE/" "$DEST/"
+# rsync -avh --progress --update  --delete "$DEST/" "$SOURCE/"
+
+
+rsync -avh --progress --update  "$SOURCE/" "$DEST/"
+rsync -avh --progress --update  "$DEST/" "$SOURCE/"
 
 
 # chmod +x ~/work/sync_wsl.sh

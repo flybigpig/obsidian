@@ -1,1 +1,1 @@
-/usr/bin/cc CMakeFiles/hello.dir/hello.c.o -o hello 
+/usr/sbin/cc -Wl,--dependency-file=CMakeFiles/hello.dir/link.d CMakeFiles/hello.dir/hello.c.o -o hello

@@ -1,0 +1,74 @@
+// files 
+afs  bin  dev  etc  home  init  lib  lib64  lost+found  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var
+
+
+// $ sudo dnf install -y dolphin konsole
+dolphin konsole
+
+
+\home\fly\work\binder_demo\app\src\main\aidl\com\example\binder\IMyBinderService.aidl
+
+
+
+fly@DESKTOP-C5IO3O9:/home$ fastfetch
+             .',;::::;,'.                 fly@DESKTOP-C5IO3O9
+         .';:cccccccccccc:;,.             -------------------
+      .;cccccccccccccccccccccc;.          OS: Fedora Linux 44 (WSL) x86_64
+    .:cccccccccccccccccccccccccc:.        Host: Windows Subsystem for Linux - Fedora (2.6.3.0)
+  .;ccccccccccccc;.:dddl:.;ccccccc;.      Kernel: Linux 6.6.87.2-microsoft-standard-WSL2
+ .:ccccccccccccc;OWMKOOXMWd;ccccccc:.     Uptime: 13 mins
+.:ccccccccccccc;KMMc;cc;xMMc;ccccccc:.    Packages: 865 (rpm)
+,cccccccccccccc;MMM.;cc;;WW:;cccccccc,    Shell: bash 5.3.9
+:cccccccccccccc;MMM.;cccccccccccccccc:    Display (rdp-0): 2560x1440, 60 Hz
+:ccccccc;oxOOOo;MMM000k.;cccccccccccc:    WM: WSLg 1.0.71 (Wayland)
+cccccc;0MMKxdd:;MMMkddc.;cccccccccccc;    Terminal: xterm-256color
+ccccc;XMO';cccc;MMM.;cccccccccccccccc'    CPU: Intel(R) Core(TM) i5-14500 (20) @ 2.61 GHz
+ccccc;MMo;ccccc;MMW.;ccccccccccccccc;     GPU: Microsoft Basic Render Driver
+ccccc;0MNc.ccc.xMMd;ccccccccccccccc;      Memory: 1.16 GiB / 15.42 GiB (8%)
+cccccc;dNMWXXXWM0:;cccccccccccccc:,       Swap: 0 B / 4.00 GiB (0%)
+cccccccc;.:odl:.;cccccccccccccc:,.        Disk (/): 3.02 GiB / 1006.85 GiB (0%) - ext4
+ccccccccccccccccccccccccccccc:'.          Disk (/mnt/c): 143.04 GiB / 952.87 GiB (15%) - 9p
+:ccccccccccccccccccccccc:;,..             Local IP (eth0): 172.26.128.220/20
+ ':cccccccccccccccc::;,.                  Locale: en_US.UTF-8
+
+
+---------------------
+
+// 执行软连接 AI 访问文件
+New-Item -ItemType SymbolicLink -Path "C:\wsl_work" -Target "\\wsl.localhost\Fedora\home\fly\work"
+
+//cmd  同步  
+robocopy "C:\wsl_work" "C:\D\otherproject\obsidian\project" /E /MT:8 /R:3 /W:5
+
+
+···
+
+参数	作用
+/E	复制所有子目录（包括空目录）
+/MT:8	8线程并行复制，加快速度
+/R:3	复制失败时重试3次
+/W:5	每次重试间隔5秒
+
+···
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
