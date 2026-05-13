@@ -72,6 +72,4 @@ dispatchTouchEvent → View hierarchy
 | 事件焦点错乱 | `requestFocus()` 是否正确调用，`windowFocusChanged` 回调 |
 | 跨进程通信卡顿 | InputChannel socket buffer 满，可能涉及 ANR |
 
-## 5. 你在项目中是否遇到了具体的输入问题？
 
-你打开的 `MaterielRechargeSelectServiceActivity.java` 看起来是一个正常的 Activity，里面用到了 `startActivityForResult`、`RecyclerView` 和点击跳转逻辑。如果你是在这个 Activity 中遇到了点击不响应、触摸穿透、或输入事件处理异常的问题，请问具体的现象是什么？我可以帮你进一步定位。
