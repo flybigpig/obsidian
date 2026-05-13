@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/ims/InputChannel.md",
+                "file": "md/kernel/Linux 进程剖析：深入内核源码，揭开进程运作机制-腾讯云开发者社区-腾讯云.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "InputChannel"
+              "title": "Linux 进程剖析：深入内核源码，揭开进程运作机制-腾讯云开发者社区-腾讯云"
             }
           }
         ]
@@ -78,7 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 358.5
+    "width": 491.5
   },
   "right": {
     "id": "9529d323d9cfa4b3",
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "md/ims/InputChannel.md",
+                "file": "md/kernel/Linux 进程剖析：深入内核源码，揭开进程运作机制-腾讯云开发者社区-腾讯云.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "InputChannel 的大纲"
+              "title": "Linux 进程剖析：深入内核源码，揭开进程运作机制-腾讯云开发者社区-腾讯云 的大纲"
             }
           },
           {
@@ -194,11 +194,18 @@
   },
   "active": "6bf5b554e6a867f0",
   "lastOpenFiles": [
+    "md/JVM/Java虚拟机基础——1Java的内存模型-腾讯云开发者社区-腾讯云.md",
+    "md/IPC/Android跨进程通信IPC之3——关于JNI的那些事-腾讯云开发者社区-腾讯云.md",
+    "md/IPC/Android跨进程通信IPC之1——Linux基础-腾讯云开发者社区-腾讯云.md",
+    "md/init/Android10 Framework—Init进程-12.rc文件格式rc文件说明 早期的rc文件的内容都集中在in - 掘金.md",
+    "md/init/Android10 Framework—Init进程-11.客户端操作属性本章看看客户端是如何去操作属性的，这里主要分为 - 掘金.md",
+    "md/init/Android10 Framework—Init进程-8.服务端属性文件创建和mmap映射本章主要讲“属性文件创建和mm - 掘金.md",
+    "md/init/Android10 Framework—Init进程-1.init进程执行流程init进程是linux系统中用户空间的第 - 掘金.md",
+    "md/ims/InputChannel.md",
     "md/ims/Android 输入系统核心链路：.md",
     "md/ims/详细介绍InputManagerService的事件分发机制.md",
     "md/ims/输入通道静态动态流转图解析.md",
     "md/ims/socket pair.md",
-    "md/ims/InputChannel.md",
     "md/ims/InputManagerService的工作原理.md",
     "md/ims/Linux Input.md",
     "md/ims/InputManagerService的启动流程 代码详解.md",
@@ -214,15 +221,8 @@
     "写给应用开发的+Android+Framework+教程(1).pdf",
     "md/framework实战/Adding a Native Service.md",
     "Adding a Native Service.md",
-    "conflict-files-obsidian-git.md",
-    "md/个人/《10分钟剖析》系统启动1——从内核到用户Android系统总体是围绕着Linux内核而建立的。从加电到系统启动，大 - 掘金.md",
     "pdf/Android Framework 开发揭秘.pdf",
-    "drives/将模块编译进内核（Built-in）.md",
-    "drives/Ubuntu编写简单驱动测试程序.md",
-    "md/systrace/systrace.md",
     "md/systrace/perf_traces 1.zip",
-    "md/systrace/DispSync.md",
-    "md/systrace/浏览 Systrace 报告    App quality    Android Developers.md",
     "project/ipc/binder_demo/app/src/main/aidl/com/example/binder/IMyBinderService.aidl",
     "project/ipc/binder_demo/app/src/main/aidl/com/example/binder/IMyBinderService.java",
     "project/ipc/binder_demo/app/src/main/java/com/example/binder/MainActivity.kt",
