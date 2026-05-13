@@ -1,6 +1,0 @@
-# 所有文本文件用 UTF‑8，LF 换行
-# * text=auto working-tree-encoding=UTF-8 eol=lf
-
-# 特定类型（如 .md/.java）
-# *.md text working-tree-encoding=UTF-8
-# *.java text working-tree-encoding=UTF-8
