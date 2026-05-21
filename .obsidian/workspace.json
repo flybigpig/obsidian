@@ -192,8 +192,14 @@
       "obsidian-excalidraw-plugin:New drawing": false
     }
   },
-  "active": "6bf5b554e6a867f0",
+  "active": "f84ce6d2fe2622cd",
   "lastOpenFiles": [
+    "md/个人/service_call_java-native.md",
+    "md/个人/jni_GLM.md",
+    "md/framework实战/make_moudle.md",
+    "md/framework实战/add_system_app.md",
+    "md/framework实战/add_java_service.md",
+    "md/JVM/jvm_explain.md",
     "md/kernel/内核模块编译与加载.md",
     "md/wms/WMS-day1.md",
     "md/kernel/Linux 进程剖析：深入内核源码，揭开进程运作机制-腾讯云开发者社区-腾讯云.md",
@@ -214,12 +220,6 @@
     "md/ims/InputManagerService的启动流程 代码详解.md",
     "md/ims/Framework.md",
     "md/ims/PendingQueue.md",
-    "md/ims/input1.md",
-    "md/ims/input.md",
-    "md/ims/I-O 多路复用机制.md",
-    "md/ims/Android 输入系统核心.md",
-    "md/ims/深入剖析 Android Input 输入事件处理全流程.md",
-    "md/个人/未命名.md",
     "写给应用开发的+Android+Framework+教程(1).pdf",
     "pdf/Android Framework 开发揭秘.pdf",
     "md/systrace/perf_traces 1.zip",
