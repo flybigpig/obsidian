@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/kernel/内核模块编译与加载.md",
+                "file": "md/wms/WMS-day1.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "内核模块编译与加载"
+              "title": "WMS-day1"
             }
           }
         ]
@@ -194,8 +194,9 @@
   },
   "active": "6bf5b554e6a867f0",
   "lastOpenFiles": [
-    "md/kernel/Linux 进程剖析：深入内核源码，揭开进程运作机制-腾讯云开发者社区-腾讯云.md",
     "md/kernel/内核模块编译与加载.md",
+    "md/wms/WMS-day1.md",
+    "md/kernel/Linux 进程剖析：深入内核源码，揭开进程运作机制-腾讯云开发者社区-腾讯云.md",
     "md/JVM/Java虚拟机基础——1Java的内存模型-腾讯云开发者社区-腾讯云.md",
     "md/IPC/Android跨进程通信IPC之3——关于JNI的那些事-腾讯云开发者社区-腾讯云.md",
     "md/IPC/Android跨进程通信IPC之1——Linux基础-腾讯云开发者社区-腾讯云.md",
@@ -219,7 +220,6 @@
     "md/ims/Android 输入系统核心.md",
     "md/ims/深入剖析 Android Input 输入事件处理全流程.md",
     "md/个人/未命名.md",
-    "project/sync_doc.md",
     "写给应用开发的+Android+Framework+教程(1).pdf",
     "pdf/Android Framework 开发揭秘.pdf",
     "md/systrace/perf_traces 1.zip",
