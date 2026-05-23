@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "47b1eeaee70f172f",
+        "id": "bb73cf682a572214",
         "type": "tabs",
         "children": [
           {
-            "id": "6bf5b554e6a867f0",
+            "id": "64969b999ac0dd70",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/wms/WMS-day1.md",
+                "file": "date/2026-04-28.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "WMS-day1"
+              "title": "2026-04-28"
             }
           }
         ]
@@ -53,12 +53,12 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "IdleHanlder",
                 "matchingCase": true,
                 "explainSearch": false,
                 "collapseAll": false,
                 "extraContext": false,
-                "sortOrder": "byModifiedTime"
+                "sortOrder": "alphabetical"
               },
               "icon": "lucide-search",
               "title": "搜索"
@@ -78,7 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 491.5
+    "width": 404.5
   },
   "right": {
     "id": "9529d323d9cfa4b3",
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "md/kernel/内核模块编译与加载.md",
+                "file": "else/曾国藩.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "内核模块编译与加载 的大纲"
+              "title": "曾国藩 的大纲"
             }
           },
           {
@@ -167,8 +167,8 @@
             "state": {
               "type": "calendar",
               "state": {},
-              "icon": "lucide-ghost",
-              "title": "calendar"
+              "icon": "lucide-file",
+              "title": "插件不再活动"
             }
           }
         ],
@@ -176,7 +176,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 284.5
+    "width": 278.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -189,58 +189,58 @@
       "command-palette:打开命令面板": false,
       "markdown-importer:打开 Markdown 格式转换器": false,
       "obsidian-git:Open Git source control": false,
-      "obsidian-excalidraw-plugin:New drawing": false
+      "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
   "active": "f84ce6d2fe2622cd",
   "lastOpenFiles": [
+    "project/doc/sync_doc.md",
+    "project/doc/path.txt",
+    "project/doc/install_txt.md",
+    "project/doc",
+    "project/Typora/install.md",
+    "project/Typora/install-typora-1.13.4.sh",
+    "project/Typora",
+    "project/Cproject/cmake/build/CMakeFiles/4.3.0/CompilerIdC/CMakeCCompilerId.c",
+    "project/Cproject/cmake/build/CMakeFiles/4.3.0/CompilerIdC/a.out",
+    "project/Cproject/cmake/build/CMakeFiles/4.3.0/CompilerIdC",
+    "project/Cproject/cmake/build/CMakeFiles/4.3.0/CMakeSystem.cmake",
+    "project/Cproject/cmake/build/CMakeFiles/4.3.0/CMakeDetermineCompilerABI_C.bin",
+    "project/Cproject/cmake/build/CMakeFiles/4.3.0/CMakeCCompiler.cmake",
+    "md/个人/未命名.md",
     "md/个人/service_call_java-native.md",
     "md/个人/jni_GLM.md",
+    "md/wms/WMS-day1.md",
+    "md/kernel/内核模块编译与加载.md",
+    "md/ims/socket pair.md",
+    "md/ims/Linux Input.md",
+    "md/ims/InputChannel.md",
     "md/framework实战/make_moudle.md",
     "md/framework实战/add_system_app.md",
     "md/framework实战/add_java_service.md",
+    "md/framework实战/Adding a Native Service.md",
     "md/JVM/jvm_explain.md",
-    "md/kernel/内核模块编译与加载.md",
-    "md/wms/WMS-day1.md",
-    "md/kernel/Linux 进程剖析：深入内核源码，揭开进程运作机制-腾讯云开发者社区-腾讯云.md",
-    "md/JVM/Java虚拟机基础——1Java的内存模型-腾讯云开发者社区-腾讯云.md",
-    "md/IPC/Android跨进程通信IPC之3——关于JNI的那些事-腾讯云开发者社区-腾讯云.md",
-    "md/IPC/Android跨进程通信IPC之1——Linux基础-腾讯云开发者社区-腾讯云.md",
-    "md/init/Android10 Framework—Init进程-12.rc文件格式rc文件说明 早期的rc文件的内容都集中在in - 掘金.md",
-    "md/init/Android10 Framework—Init进程-11.客户端操作属性本章看看客户端是如何去操作属性的，这里主要分为 - 掘金.md",
-    "md/init/Android10 Framework—Init进程-8.服务端属性文件创建和mmap映射本章主要讲“属性文件创建和mm - 掘金.md",
-    "md/init/Android10 Framework—Init进程-1.init进程执行流程init进程是linux系统中用户空间的第 - 掘金.md",
-    "md/ims/InputChannel.md",
-    "md/ims/Android 输入系统核心链路：.md",
-    "md/ims/详细介绍InputManagerService的事件分发机制.md",
-    "md/ims/输入通道静态动态流转图解析.md",
-    "md/ims/socket pair.md",
-    "md/ims/InputManagerService的工作原理.md",
-    "md/ims/Linux Input.md",
-    "md/ims/InputManagerService的启动流程 代码详解.md",
-    "md/ims/Framework.md",
-    "md/ims/PendingQueue.md",
-    "写给应用开发的+Android+Framework+教程(1).pdf",
-    "pdf/Android Framework 开发揭秘.pdf",
-    "md/systrace/perf_traces 1.zip",
-    "project/ipc/binder_demo/app/src/main/aidl/com/example/binder/IMyBinderService.aidl",
-    "project/ipc/binder_demo/app/src/main/aidl/com/example/binder/IMyBinderService.java",
-    "project/ipc/binder_demo/app/src/main/java/com/example/binder/MainActivity.kt",
-    "project/ipc/binder_demo/app/src/main/java/com/example/binder/BinderService.java",
-    "project/ipc/binder_demo/app/src/main/java/com/example/binder/BinderClient.java",
-    "project/ipc/binder_demo/app/src/main/aidl/com/example/binder",
-    "project/ipc/binder_demo/app/src/main/java/com/example/binder",
-    "Excalidraw/未命名.canvas",
+    "conflict-files-obsidian-git.md",
+    "date/2026-04-28.md",
+    "md/个人/底层驱动编写步骤（Linux Kernel Driver）.md",
+    "drives/将模块编译进内核（Built-in）.md",
+    "project/ipc/_binder/binder.md",
+    "project/ipc/binder_demo/app/src/main/aidl/com/example/binder/IMyBinderService.md",
+    "project/ipc/binder/binder.md",
+    "project/halTest/hal_update/hal_update.md",
+    "project/halTest/hal/hal.md",
+    "project/driver/_driver/driver.md",
+    "md/HAL/Linux hal/Pastedimage20260501215344.png",
+    "md/HAL/Linux hal/Pastedimage20260501215426.png",
+    "md/some/Pasted image 20250325092704.png",
     "md/pms/20260427151543.png",
-    "md/pms/Pasted image 20260427151543.png",
-    "pic/e1fe8d3703d5038b2bd15153c1bf7c7.png",
-    "pic/Pasted image 20241219162312.png",
+    "Pasted image 20250727082725.png",
+    "Pasted image 20250727082727.png",
     "pic/e46f70f2112adce67a01d081c522f2a8.png",
-    "pic/6b5710bda24ee1fd270ddd2da769d63.png",
-    "pic/640.webp",
     "pic/liuqin.jpg",
-    "pic/Pasted image 20250710094523.png",
-    "pic/Pasted image 20250709100529.png",
+    "pic/6b5710bda24ee1fd270ddd2da769d63.png",
+    "pic/e1fe8d3703d5038b2bd15153c1bf7c7.png",
+    "Excalidraw/未命名.canvas",
     "Excalidraw/未命名 1.canvas"
   ]
 }
