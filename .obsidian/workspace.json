@@ -78,7 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 404.5,
+    "width": 270.5,
     "collapsed": true
   },
   "right": {
@@ -177,8 +177,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 278.5,
-    "collapsed": true
+    "width": 278.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -196,6 +195,8 @@
   },
   "active": "64969b999ac0dd70",
   "lastOpenFiles": [
+    "md/wms/WMS-day2.md",
+    "md/wms/WMS-day1.md",
     "md/wms/android session.md",
     "md/wms/wms/启动.md",
     "md/wms/wms/WindowManagerService对窗口的管理过程.md",
@@ -218,7 +219,6 @@
     "md/个人/未命名.md",
     "md/个人/service_call_java-native.md",
     "md/个人/jni_GLM.md",
-    "md/wms/WMS-day1.md",
     "md/kernel/内核模块编译与加载.md",
     "md/ims/socket pair.md",
     "md/ims/Linux Input.md",
@@ -231,7 +231,6 @@
     "conflict-files-obsidian-git.md",
     "md/个人/底层驱动编写步骤（Linux Kernel Driver）.md",
     "drives/将模块编译进内核（Built-in）.md",
-    "project/ipc/_binder/binder.md",
     "md/HAL/Linux hal/Pastedimage20260501215344.png",
     "md/HAL/Linux hal/Pastedimage20260501215426.png",
     "md/some/Pasted image 20250325092704.png",
