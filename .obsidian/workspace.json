@@ -78,8 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 270.5,
-    "collapsed": true
+    "width": 270.5
   },
   "right": {
     "id": "9529d323d9cfa4b3",
@@ -193,7 +192,7 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "64969b999ac0dd70",
+  "active": "f84ce6d2fe2622cd",
   "lastOpenFiles": [
     "md/wms/WMS-day2.md",
     "md/wms/WMS-day1.md",
