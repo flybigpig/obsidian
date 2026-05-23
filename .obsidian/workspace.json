@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "date/2026-04-28.md",
+                "file": "md/wms/WMS-day1.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2026-04-28"
+              "title": "WMS-day1"
             }
           }
         ]
@@ -78,7 +78,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 404.5
+    "width": 404.5,
+    "collapsed": true
   },
   "right": {
     "id": "9529d323d9cfa4b3",
@@ -176,7 +177,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 278.5
+    "width": 278.5,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -192,8 +194,14 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "f84ce6d2fe2622cd",
+  "active": "64969b999ac0dd70",
   "lastOpenFiles": [
+    "md/wms/android session.md",
+    "md/wms/wms/启动.md",
+    "md/wms/wms/WindowManagerService对窗口的管理过程.md",
+    "md/wms/wms/windowtoken.md",
+    "md/wms/wms/WindowManager窗口管理.md",
+    "date/2026-04-28.md",
     "project/doc/sync_doc.md",
     "project/doc/path.txt",
     "project/doc/install_txt.md",
@@ -221,15 +229,9 @@
     "md/framework实战/Adding a Native Service.md",
     "md/JVM/jvm_explain.md",
     "conflict-files-obsidian-git.md",
-    "date/2026-04-28.md",
     "md/个人/底层驱动编写步骤（Linux Kernel Driver）.md",
     "drives/将模块编译进内核（Built-in）.md",
     "project/ipc/_binder/binder.md",
-    "project/ipc/binder_demo/app/src/main/aidl/com/example/binder/IMyBinderService.md",
-    "project/ipc/binder/binder.md",
-    "project/halTest/hal_update/hal_update.md",
-    "project/halTest/hal/hal.md",
-    "project/driver/_driver/driver.md",
     "md/HAL/Linux hal/Pastedimage20260501215344.png",
     "md/HAL/Linux hal/Pastedimage20260501215426.png",
     "md/some/Pasted image 20250325092704.png",
