@@ -315,6 +315,7 @@ public static final int ACTION_OUTSIDE          = 4;   // 移出窗口边界
 public static final int ACTION_POINTER_DOWN     = 5;   // 第二个手指按下
 public static final int ACTION_POINTER_UP       = 6;   // 第二个手指抬起
 
+
 // 解析方法:
 int action = motionEvent.getAction();
 int actionMasked = action & ACTION_MASK;        // 取低8位 = 基础动作
