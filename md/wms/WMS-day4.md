@@ -362,27 +362,27 @@ matrix.mapPoints(point);           // 应用变换后的坐标
 │   内核 input_event              Android MotionEvent                          │
 │   ─────────────────             ──────────────────                          │
 │                                                                             │
-│   EV_SYN:                                                      │
-│     SYNC_REPORT          ──→    mEventTime = timestamp                             │
+│   EV_SYN:                                                                   │
+│     SYNC_REPORT          ──→    mEventTime = timestamp                      │      │
 │                                                                             │
-│   EV_KEY:                                                      │
+│   EV_KEY:                                                                   │
 │     BTN_TOUCH=1          ──→    ACTION_DOWN / ACTION_UP                            │
-│     BTN_TOOL_FINGER      ──→    mToolType = TOOL_TYPE_FINGER                     │
-│                                                                             │
-│   EV_ABS:                                                      │
-│     ABS_MT_POSITION_X    ──→    pointerCoords.x (经校准+映射)                     │
-│     ABS_MT_POSITION_Y    ──→    pointerCoords.y (经校准+映射)                     │
-│     ABS_MT_PRESSURE      ──→    pointerCoords.pressure (0.0~1.0)                 │
-│     ABS_MT_TOUCH_MAJOR   ──→    pointerCoords.size (触摸面积)                     │
-│     ABS_MT_TRACKING_ID=N ──→    新触点分配 pointerId                              │
-│     ABS_MT_TRACKING_ID=-1──→    触点释放 (ACTION_POINTER_UP)                     │
-│     ABS_MT_SLOT          ──→    切换当前操作的触点索引                            │
-│                                                                             │
-│   额外计算:                                                                  │
-│     显示旋转补偿          ──→    坐标系自动适配 (横竖屏)                           │
-│     DPI 缩放             ──→    像素 → dp 转换                                  │
+│     BTN_TOOL_FINGER      ──→    mToolType = TOOL_TYPE_FINGER                 │
+│                                                                              │
+│   EV_ABS:                                                                    │
+│     ABS_MT_POSITION_X    ──→    pointerCoords.x (经校准+映射)                  
+│     ABS_MT_POSITION_Y    ──→    pointerCoords.y (经校准+映射)                  │
+│     ABS_MT_PRESSURE      ──→    pointerCoords.pressure (0.0~1.0)             │
+│     ABS_MT_TOUCH_MAJOR   ──→    pointerCoords.size (触摸面积)                 │
+│     ABS_MT_TRACKING_ID=N ──→    新触点分配 pointerId                          │
+│     ABS_MT_TRACKING_ID=-1──→    触点释放 (ACTION_POINTER_UP)                  │
+│     ABS_MT_SLOT          ──→    切换当前操作的触点索引                          │
+│                                                                              │
+│   额外计算:                                                                   │
+│     显示旋转补偿          ──→    坐标系自动适配 (横竖屏)                          │
+│     DPI 缩放             ──→    像素 → dp 转换                                 │
 │     输入法偏移           ──→    IME 弹出时的坐标调整                             │
-│     多点触控追踪         ──→    pointerProperties[] 数组                         │
+│     多点触控追踪         ──→    pointerProperties[] 数组                       │
 │                                                                             │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
