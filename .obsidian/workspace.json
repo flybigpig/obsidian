@@ -194,6 +194,7 @@
   },
   "active": "fa4657deb406b728",
   "lastOpenFiles": [
+    "md/个人/公众号/Android Hook 技术面试指南 — 从原理到架构的全景思考.md",
     "md/个人/公众号/Handler 消息机制面试完全指南.md",
     "md/个人/公众号/单链表 — 从基础到 MessageQueue 实战.md",
     "md/个人/公众号/应用启动机制&优化 -面试完全指南.md",
@@ -220,7 +221,6 @@
     "md/IPC/Android跨进程通信IPC之1——Linux基础-腾讯云开发者社区-腾讯云.md",
     "md/init/Android10 Framework—Init进程-12.rc文件格式rc文件说明 早期的rc文件的内容都集中在in - 掘金.md",
     "md/init/Android10 Framework—Init进程-11.客户端操作属性本章看看客户端是如何去操作属性的，这里主要分为 - 掘金.md",
-    "md/init/Android10 Framework—Init进程-8.服务端属性文件创建和mmap映射本章主要讲“属性文件创建和mm - 掘金.md",
     "写给应用开发的+Android+Framework+教程(1).pdf",
     "pdf/Android Framework 开发揭秘.pdf",
     "md/systrace/perf_traces 1.zip",
