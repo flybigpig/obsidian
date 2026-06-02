@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "47b1eeaee70f172f",
+        "id": "10ca10888bec0110",
         "type": "tabs",
         "children": [
           {
-            "id": "6bf5b554e6a867f0",
+            "id": "1425aa2518309e7b",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -192,21 +192,23 @@
       "obsidian-excalidraw-plugin:New drawing": false
     }
   },
-  "active": "fa4657deb406b728",
+  "active": "1425aa2518309e7b",
   "lastOpenFiles": [
     "md/个人/公众号/RenderThread原理",
+    "md/个人/公众号/RenderThread原理。html",
+    "md/个人/公众号/RenderThread原理.html",
+    "md/个人/公众号/资深 Android + 移动 AI Agent 能力.md",
+    "md/个人/公众号/面试聊 Binder，答完一次拷贝只是及格——面试官真正想听的在后面三层.md",
+    "md/个人/公众号/RecyclerView 缓存机制与性能优化深度解析.md",
+    "md/个人/公众号/Handler 消息机制面试完全指南.md",
+    "md/个人/公众号/一文讲通Android 渲染机制与卡顿治理.md",
+    "md/个人/公众号/单链表 — 从基础到 MessageQueue 实战.md",
+    "md/个人/公众号/带你深入体验Android Performance Analyzer (APA)性能优化工具优缺点-CSDN博客.md",
     "md/个人/Ai_agent.md",
     "md/个人/公众号/RenderThread原理.md",
-    "md/个人/公众号/带你深入体验Android Performance Analyzer (APA)性能优化工具优缺点-CSDN博客.md",
     "md/wms/WMS-day4.md",
     "md/个人/公众号/Android Hook 技术面试指南 — 从原理到架构的全景思考.md",
-    "md/个人/公众号/Handler 消息机制面试完全指南.md",
-    "md/个人/公众号/单链表 — 从基础到 MessageQueue 实战.md",
     "md/个人/公众号/应用启动机制&优化 -面试完全指南.md",
-    "md/个人/公众号/资深 Android + 移动 AI Agent 能力.md",
-    "md/个人/公众号/一文讲通Android 渲染机制与卡顿治理.md",
-    "md/个人/公众号/RecyclerView 缓存机制与性能优化深度解析.md",
-    "md/个人/公众号/面试聊 Binder，答完一次拷贝只是及格——面试官真正想听的在后面三层.md",
     "md/个人/公众号",
     "md/wms/WMS-day3.md",
     "md/wms/WMS-day2.md",
@@ -228,8 +230,6 @@
     "project/ipc/binder_demo/app/src/main/aidl/com/example/binder/IMyBinderService.java",
     "project/ipc/binder_demo/app/src/main/java/com/example/binder/MainActivity.kt",
     "project/ipc/binder_demo/app/src/main/java/com/example/binder/BinderService.java",
-    "project/ipc/binder_demo/app/src/main/java/com/example/binder/BinderClient.java",
-    "project/ipc/binder_demo/app/src/main/aidl/com/example/binder",
     "Excalidraw/未命名.canvas",
     "md/pms/20260427151543.png",
     "md/pms/Pasted image 20260427151543.png",

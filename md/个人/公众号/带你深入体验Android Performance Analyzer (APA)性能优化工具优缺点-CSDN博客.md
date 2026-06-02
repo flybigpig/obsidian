@@ -8,6 +8,7 @@ Optimize your app or game with Android’s new profiler and performance analysis
 ### 使用APA体验感受
 
 
+
 这里针对APA的使用体验主要就是和Perfetto网页版本进行对比，因为除非我们APA相比Perfetto网页版本有更多的优点我们才可能选择APA。
 
 ##### 体验比Perfetto好的部分
