@@ -1268,7 +1268,7 @@ RenderThread                           GPU
     ▼
 (通知 SurfaceFlinger)
 ```
-##### GPU 渲染阶段关键点：
+#### GPU 渲染阶段关键点：
 
 1. swapBuffers
 	交换前后缓冲区
