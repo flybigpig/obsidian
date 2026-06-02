@@ -192,8 +192,9 @@
       "obsidian-excalidraw-plugin:New drawing": false
     }
   },
-  "active": "1425aa2518309e7b",
+  "active": "fa4657deb406b728",
   "lastOpenFiles": [
+    "md/个人/公众号/RenderThread原理",
     "md/个人/公众号/RenderThread原理.md",
     "README.md",
     "RenderThread原理.md",
@@ -202,7 +203,6 @@
     "RenderThread原理",
     "未命名.md",
     "md/个人/公众号/带你深入体验Android Performance Analyzer (APA)性能优化工具优缺点-CSDN博客.md",
-    "md/个人/公众号/RenderThread原理",
     "md/个人/公众号/RenderThread原理。html",
     "md/个人/公众号/RenderThread原理.html",
     "md/个人/公众号/资深 Android + 移动 AI Agent 能力.md",
@@ -224,7 +224,6 @@
     "md/framework实战/add_system_app.md",
     "md/framework实战/add_java_service.md",
     "md/JVM/jvm_explain.md",
-    "md/kernel/内核模块编译与加载.md",
     "写给应用开发的+Android+Framework+教程(1).pdf",
     "pdf/Android Framework 开发揭秘.pdf",
     "md/systrace/perf_traces 1.zip",
