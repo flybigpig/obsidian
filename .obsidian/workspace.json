@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/个人/公众号/带你深入体验Android Performance Analyzer (APA)性能优化工具优缺点-CSDN博客.md",
-                "mode": "source",
+                "file": "md/个人/公众号/RenderThread原理.md",
+                "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "带你深入体验Android Performance Analyzer (APA)性能优化工具优缺点-CSDN博客"
+              "title": "RenderThread原理"
             }
           }
         ]
@@ -194,6 +194,7 @@
   },
   "active": "6bf5b554e6a867f0",
   "lastOpenFiles": [
+    "md/个人/公众号/带你深入体验Android Performance Analyzer (APA)性能优化工具优缺点-CSDN博客.md",
     "md/个人/公众号/RenderThread原理.md",
     "md/wms/WMS-day4.md",
     "md/个人/公众号/Android Hook 技术面试指南 — 从原理到架构的全景思考.md",
@@ -203,7 +204,6 @@
     "md/个人/公众号/资深 Android + 移动 AI Agent 能力.md",
     "md/个人/公众号/一文讲通Android 渲染机制与卡顿治理.md",
     "md/个人/公众号/RecyclerView 缓存机制与性能优化深度解析.md",
-    "md/个人/公众号/带你深入体验Android Performance Analyzer (APA)性能优化工具优缺点-CSDN博客.md",
     "md/个人/公众号/面试聊 Binder，答完一次拷贝只是及格——面试官真正想听的在后面三层.md",
     "md/个人/公众号",
     "md/wms/WMS-day3.md",
