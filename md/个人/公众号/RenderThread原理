@@ -1,3 +1,4 @@
+RenderThread原理
 概述
 RenderThread 是 Android 5.0 (Lollipop) 引入的独立渲染线程，用于将渲染工作从 UI Thread 分离出来，提升应用流畅性。其核心流程为：sync → draw → GPU 渲染。
 
@@ -128,6 +129,7 @@ RenderThread 完整主线流程
 │                      SurfaceFlinger                              │
 │                   等待接收并合成 Buffer                           │
 └─────────────────────────────────────────────────────────────────┘
+
 DisplayList 构建流程详解
 什么是 DisplayList
 DisplayList（显示列表）是 Android 硬件加速渲染的核心机制，它是一个记录绘制指令的缓存数据结构，而不是立即执行绘制操作。当 View 需要重新绘制时，Android 会将绘制指令记录到 DisplayList 中，然后由 RenderThread 异步执行这些指令。
@@ -707,6 +709,7 @@ DisplayList 记录的绘制操作类型
 ┌─────────────────────────────────────────────────────────────────┐
 │              DisplayList 中的 Drawing Operations                 │
 └─────────────────────────────────────────────────────────────────┘
+
 
 基础图形绘制：
 ├─ DrawRectOp              绘制矩形
@@ -1337,3 +1340,20 @@ DRAW 阶段
 GPU 渲染阶段
 ：异步执行 GPU 渲染，通过 Fence 同步，提交给 SurfaceFlinger
 这三个阶段形成流水线，使得 UI Thread 可以提前准备下一帧，RenderThread 专注渲染，GPU 异步执行，最大化利用多核和 GPU 资源，实现高性能渲染
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
