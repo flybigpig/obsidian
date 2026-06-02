@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "md/kernel/内核模块编译与加载.md",
+                "file": "md/个人/公众号/RenderThread.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "内核模块编译与加载 的大纲"
+              "title": "RenderThread 的大纲"
             }
           },
           {
@@ -172,7 +172,7 @@
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
@@ -192,7 +192,7 @@
       "obsidian-excalidraw-plugin:New drawing": false
     }
   },
-  "active": "1425aa2518309e7b",
+  "active": "9c3898f8c049b5d3",
   "lastOpenFiles": [
     "README.md",
     "md/个人/公众号/RenderThread.md",
