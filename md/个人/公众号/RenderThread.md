@@ -1113,20 +1113,31 @@ UI Thread                          RenderThread
     ▼                                   ▼
 (可继续处理下一帧)              (进入 DRAW 阶段)
 ```
-##### SYNC 阶段关键点：
+**SYNC 阶段关键点：**
 
-1. 数据同步
-：将 UI Thread 的更改同步到 RenderThread
-2. DisplayList 传递
-：传递记录的绘制指令
-3. 属性更新
-：同步 View 的变换属性（位移、旋转、缩放、透明度）
-4. 动画状态
-：更新动画的当前状态
-5. RenderNode 更新
-：更新渲染节点树结构
-6. 线程解耦
-：UI Thread 可以继续准备下一帧，不阻塞
+1. **数据同步**
+    
+    ：将 UI Thread 的更改同步到 RenderThread
+    
+2. **DisplayList 传递**
+    
+    ：传递记录的绘制指令
+    
+3. **属性更新**
+    
+    ：同步 View 的变换属性（位移、旋转、缩放、透明度）
+    
+4. **动画状态**
+    
+    ：更新动画的当前状态
+    
+5. **RenderNode 更新**
+    
+    ：更新渲染节点树结构
+    
+6. **线程解耦**
+    
+    ：UI Thread 可以继续准备下一帧，不阻塞
 #### Phase 2: DRAW 阶段 (绘制阶段)
 ```
 
@@ -1186,24 +1197,47 @@ UI Thread                          RenderThread
                     (进入 GPU 渲染阶段)
 ```
 
-##### DRAW 阶段关键点：
+**DRAW 阶段关键点：**
 
-1. 树遍历
-	：深度优先遍历 RenderNode 树
-2. 裁剪优化
-	Clip rect：裁剪不可见区域
-	Frustum culling：视锥体剔除
-	Occlusion culling：遮挡剔除
-3. Layer 处理
-	Hardware Layer 缓存
-	Texture 复用
-	Layer 合并优化
-4. 绘制排序
-    按 Z-order 排序，减少 overdraw
-5. Batch 优化
-	合并相似渲染操作
-6. 指令转换
-	将高层绘制指令转换为 GPU API 调用
+1. **树遍历**
+    
+    ：深度优先遍历 RenderNode 树
+    
+2. **裁剪优化**
+    
+    ：
+    
+
+- Clip rect：裁剪不可见区域
+    
+- Frustum culling：视锥体剔除
+    
+- Occlusion culling：遮挡剔除
+    
+
+3. **Layer 处理**
+    
+    ：
+    
+
+- Hardware Layer 缓存
+    
+- Texture 复用
+    
+- Layer 合并优化
+    
+
+4. **绘制排序**
+    
+    ：按 Z-order 排序，减少 overdraw
+    
+5. **Batch 优化**
+    
+    ：合并相似渲染操作
+    
+6. **指令转换**
+    
+    ：将高层绘制指令转换为 GPU API 调用
 ### Phase 3: GPU 渲染阶段
 ```
                     

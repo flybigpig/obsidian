@@ -176,7 +176,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 284.5
+    "width": 286.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -192,7 +192,7 @@
       "obsidian-excalidraw-plugin:New drawing": false
     }
   },
-  "active": "f84ce6d2fe2622cd",
+  "active": "1425aa2518309e7b",
   "lastOpenFiles": [
     "README.md",
     "md/个人/公众号/RenderThread.md",
