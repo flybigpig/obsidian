@@ -1268,24 +1268,43 @@ RenderThread                           GPU
     ▼
 (通知 SurfaceFlinger)
 ```
-#### GPU 渲染阶段关键点：
+**GPU 渲染阶段关键点：**
 
-1. swapBuffers
-	交换前后缓冲区
-2. 命令提交
-	将 OpenGL/Vulkan 指令提交到 GPU
-3. GPU Pipeline
-	顶点着色器：处理顶点变换
-	片段着色器：处理像素着色
-	光栅化：将几何图形转换为像素
-	纹理采样：应用纹理
-	混合和深度测试
-4. 异步渲染
-	RenderThread 提交命令后可继续工作
-5. Fence 同步
-	GPU Fence 信号通知渲染完成
-6. Buffer 提交
-	queueBuffer 将渲染结果提交给 SurfaceFlinger
+1. **swapBuffers**
+    
+    ：交换前后缓冲区
+    
+2. **命令提交**
+    
+    ：将 OpenGL/Vulkan 指令提交到 GPU
+    
+3. **GPU Pipeline**
+    
+    ：
+    
+
+- 顶点着色器：处理顶点变换
+    
+- 片段着色器：处理像素着色
+    
+- 光栅化：将几何图形转换为像素
+    
+- 纹理采样：应用纹理
+    
+- 混合和深度测试
+    
+
+4. **异步渲染**
+    
+    ：RenderThread 提交命令后可继续工作
+    
+5. **Fence 同步**
+    
+    ：GPU Fence 信号通知渲染完成
+    
+6. **Buffer 提交**
+    
+    ：queueBuffer 将渲染结果提交给 SurfaceFlinger
 #### 时序图
 ```
 
