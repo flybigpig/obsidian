@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/个人/公众号/RenderThread原理.md",
+                "file": "README.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "RenderThread原理"
+              "title": "README"
             }
           }
         ]
@@ -194,12 +194,13 @@
   },
   "active": "1425aa2518309e7b",
   "lastOpenFiles": [
+    "RenderThread原理.md",
+    "README.md",
+    "md/个人/公众号/RenderThread原理.md",
     "md/个人/公众号/RecyclerView 缓存机制与性能优化深度解析.md",
     "md/个人/公众号/未命名.md",
-    "RenderThread原理.md",
     "RenderThread原理",
     "未命名.md",
-    "md/个人/公众号/RenderThread原理.md",
     "md/个人/公众号/带你深入体验Android Performance Analyzer (APA)性能优化工具优缺点-CSDN博客.md",
     "md/个人/公众号/RenderThread原理",
     "md/个人/公众号/RenderThread原理。html",
@@ -224,7 +225,6 @@
     "md/framework实战/add_java_service.md",
     "md/JVM/jvm_explain.md",
     "md/kernel/内核模块编译与加载.md",
-    "md/kernel/Linux 进程剖析：深入内核源码，揭开进程运作机制-腾讯云开发者社区-腾讯云.md",
     "写给应用开发的+Android+Framework+教程(1).pdf",
     "pdf/Android Framework 开发揭秘.pdf",
     "md/systrace/perf_traces 1.zip",
