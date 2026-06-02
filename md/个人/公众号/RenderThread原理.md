@@ -143,7 +143,7 @@ RenderThread 是 Android 5.0 (Lollipop) 引入的独立渲染线程，用于将�
 
 ### 2.1 什么是 DisplayList
 
-DisplayList（显示列表）是 Android 硬件加速渲染的核心机制，它是一个**记录绘制指令的缓存数据结构**，而不是立即执行绘制操作。当 View 需要重新绘制时，Android 会将绘制指令记录到 DisplayList 中，然后由 RenderThread 异步执行这些指令。
+DisplayList（显示列表）是 Android 硬件加速渲染的核心机制，它是一个**记录绘制指令的缓存数据结构**，而不是立即执行绘制操作。当 View 需要重新绘制时，Android 会将绘制指令记录到 DisplayList 中，然后由 RenderThread 异步执行这些指令。 
 
 **核心优势：**
 
