@@ -142,12 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
+                "file": "md/码上就好/Looper.cpp.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "大纲"
+              "title": "Looper.cpp 的大纲"
             }
           },
           {
@@ -175,7 +176,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 340.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -191,7 +192,7 @@
       "obsidian-excalidraw-plugin:New drawing": false
     }
   },
-  "active": "1425aa2518309e7b",
+  "active": "f84ce6d2fe2622cd",
   "lastOpenFiles": [
     "md/码上就好/Android 12 Framework epoll 机制深度解析.md",
     "md/码上就好/Looper.cpp.md",
