@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/launcher/Launcher3客制化记录（基于Android P）.md",
+                "file": "md/码上就好/Launcher3 结构剖析.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Launcher3客制化记录（基于Android P）"
+              "title": "Launcher3 结构剖析"
             }
           }
         ]
@@ -194,7 +194,10 @@
   },
   "active": "1425aa2518309e7b",
   "lastOpenFiles": [
+    "md/launcher/Launcher3 结构剖析.md",
+    "md/码上就好/Launcher3 结构剖析.md",
     "md/launcher/未命名.md",
+    "md/launcher/Launcher3客制化记录（基于Android P）.md",
     "md/码上就好/Looper.cpp注解.md",
     "md/码上就好/Looper.cpp 解析.md",
     "md/码上就好/Android 12 Framework epoll 机制深度解析.md",
@@ -222,9 +225,6 @@
     "md/个人/公众号/一文讲通Android 渲染机制与卡顿治理.md",
     "md/个人/公众号/单链表 — 从基础到 MessageQueue 实战.md",
     "md/个人/Ai_agent.md",
-    "md/wms/WMS-day4.md",
-    "md/个人/公众号/Android Hook 技术面试指南 — 从原理到架构的全景思考.md",
-    "md/个人/公众号/应用启动机制&优化 -面试完全指南.md",
     "md/个人/公众号",
     "写给应用开发的+Android+Framework+教程(1).pdf",
     "pdf/Android Framework 开发揭秘.pdf",
