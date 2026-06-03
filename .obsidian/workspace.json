@@ -78,7 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 265.5
+    "width": 237.5
   },
   "right": {
     "id": "9529d323d9cfa4b3",
@@ -175,7 +175,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 286.5
+    "width": 200
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -191,7 +191,7 @@
       "obsidian-excalidraw-plugin:New drawing": false
     }
   },
-  "active": "1425aa2518309e7b",
+  "active": "f84ce6d2fe2622cd",
   "lastOpenFiles": [
     "md/wms/码上就好/InputDispatcher 如何找到目标窗口.md",
     "md/wms/码上就好/InputMonitor 如何监听全局 Input 事件.md",
