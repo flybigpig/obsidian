@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/wms/InputDispatcher 如何找到目标窗口.md",
+                "file": "md/wms/码上就好/InputDispatcher 如何找到目标窗口.md",
                 "mode": "source",
                 "source": false
               },
@@ -193,8 +193,9 @@
   },
   "active": "1425aa2518309e7b",
   "lastOpenFiles": [
-    "md/wms/Spy window.md",
-    "md/wms/InputDispatcher 如何找到目标窗口.md",
+    "md/wms/码上就好/Spy window.md",
+    "md/wms/码上就好/InputDispatcher 如何找到目标窗口.md",
+    "md/wms/码上就好",
     "md/个人/公众号/Gerrit 代码审查系统深度解析 1.md",
     "md/个人/公众号/Gerrit 代码审查系统深度解析.md",
     "md/个人/公众号/开机动画流程.md",
@@ -223,12 +224,10 @@
     "md/wms/WMS-day2.md",
     "md/wms/WMS-day1.md",
     "md/个人/service_call_java-native.md",
-    "md/个人/jni_GLM.md",
     "写给应用开发的+Android+Framework+教程(1).pdf",
     "pdf/Android Framework 开发揭秘.pdf",
     "md/systrace/perf_traces 1.zip",
     "project/ipc/binder_demo/app/src/main/aidl/com/example/binder/IMyBinderService.aidl",
-    "project/ipc/binder_demo/app/src/main/aidl/com/example/binder/IMyBinderService.java",
     "Excalidraw/未命名.canvas",
     "md/pms/20260427151543.png",
     "md/pms/Pasted image 20260427151543.png",
