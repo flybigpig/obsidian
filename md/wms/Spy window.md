@@ -382,6 +382,7 @@ class GestureSpyService : Service() {
 
 #### 案例 1：PDA 扫码枪全局拦截
 
+
 ```kotlin
 /**
  * 场景：ERP PDA 扫码枪无需焦点即可捕获条码
