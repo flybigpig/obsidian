@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/码上就好/Looper.cpp.md",
+                "file": "md/码上就好/Looper.cpp注解.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Looper.cpp"
+              "title": "Looper.cpp注解"
             }
           }
         ]
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "md/码上就好/Looper.cpp.md",
+                "file": "md/码上就好/Looper.cpp注解.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Looper.cpp 的大纲"
+              "title": "Looper.cpp注解 的大纲"
             }
           },
           {
@@ -192,10 +192,11 @@
       "obsidian-excalidraw-plugin:New drawing": false
     }
   },
-  "active": "f84ce6d2fe2622cd",
+  "active": "1425aa2518309e7b",
   "lastOpenFiles": [
+    "md/码上就好/Looper.cpp 解析.md",
+    "md/码上就好/Looper.cpp注解.md",
     "md/码上就好/Android 12 Framework epoll 机制深度解析.md",
-    "md/码上就好/Looper.cpp.md",
     "md/码上就好/InputDispatcher 如何找到目标窗口.md",
     "md/码上就好/InputMonitor 如何监听全局 Input 事件.md",
     "md/码上就好/Spy window.md",
@@ -225,7 +226,6 @@
     "md/个人/公众号/应用启动机制&优化 -面试完全指南.md",
     "md/个人/公众号",
     "md/wms/WMS-day3.md",
-    "md/wms/WMS-day2.md",
     "写给应用开发的+Android+Framework+教程(1).pdf",
     "pdf/Android Framework 开发揭秘.pdf",
     "md/systrace/perf_traces 1.zip",
