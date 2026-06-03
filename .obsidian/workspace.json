@@ -11,10 +11,14 @@
             "id": "1425aa2518309e7b",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "md/wms/Spy window.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "新标签页"
+              "title": "Spy window"
             }
           }
         ]
@@ -187,8 +191,9 @@
       "obsidian-excalidraw-plugin:New drawing": false
     }
   },
-  "active": "f84ce6d2fe2622cd",
+  "active": "1425aa2518309e7b",
   "lastOpenFiles": [
+    "md/wms/Spy window.md",
     "md/个人/公众号/Gerrit 代码审查系统深度解析 1.md",
     "md/个人/公众号/Gerrit 代码审查系统深度解析.md",
     "md/个人/公众号/开机动画流程.md",
@@ -219,7 +224,6 @@
     "md/个人/service_call_java-native.md",
     "md/个人/jni_GLM.md",
     "md/framework实战/make_moudle.md",
-    "md/framework实战/add_system_app.md",
     "写给应用开发的+Android+Framework+教程(1).pdf",
     "pdf/Android Framework 开发揭秘.pdf",
     "md/systrace/perf_traces 1.zip",
