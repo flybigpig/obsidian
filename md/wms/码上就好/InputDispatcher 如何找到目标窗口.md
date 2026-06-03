@@ -1,23 +1,6 @@
 ## 焦点窗口路径（Key）与命中窗口路径（Touch）
 
-只记主线：**WMS 更新窗口信息/焦点** → **InputDispatcher 选目标窗口** → **InputChannel 派发** → **App 回执 finish**。
-
----
-
-## 目录
-
-- 一、核心原理
-- 二、完整流程图
-- 三、源码主线（Key）
-- 四、源码主线（Touch）
-- 五、新手实践步骤
-- 六、Framework 中的同类应用
-- 七、面试速记（6行）
-- 八、Key 时序图（函数级）
-- 九、本文小结
-
----
-
+只记主线：**WMS 更新窗口信息/焦点** → **InputDispatcher 选目标窗口** → **InputChannel 派发** → **App 回执 finish**
 ## 一、核心原理
 
 **Key 事件**：走 `findFocusedWindowTargetLocked()`，核心是"当前 display 的焦点窗口 token"。

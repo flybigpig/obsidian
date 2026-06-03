@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/wms/码上就好/InputMonitor 如何监听全局 Input 事件.md",
+                "file": "md/wms/码上就好/InputDispatcher 如何找到目标窗口.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "InputMonitor 如何监听全局 Input 事件"
+              "title": "InputDispatcher 如何找到目标窗口"
             }
           }
         ]
@@ -191,10 +191,10 @@
       "obsidian-excalidraw-plugin:New drawing": false
     }
   },
-  "active": "f84ce6d2fe2622cd",
+  "active": "1425aa2518309e7b",
   "lastOpenFiles": [
-    "md/wms/码上就好/InputDispatcher 如何找到目标窗口.md",
     "md/wms/码上就好/InputMonitor 如何监听全局 Input 事件.md",
+    "md/wms/码上就好/InputDispatcher 如何找到目标窗口.md",
     "md/wms/码上就好/Spy window.md",
     "md/wms/码上就好",
     "md/个人/公众号/Gerrit 代码审查系统深度解析 1.md",
