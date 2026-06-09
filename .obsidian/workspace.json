@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "assest/app源码/addSrc.md",
+                "file": "assest/addApk/read.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "addSrc"
+              "title": "read"
             }
           }
         ]
@@ -192,8 +192,11 @@
       "obsidian-excalidraw-plugin:New drawing": false
     }
   },
-  "active": "fa4657deb406b728",
+  "active": "1425aa2518309e7b",
   "lastOpenFiles": [
+    "assest/app源码/addSrc.md",
+    "assest/源码和APK区别.md",
+    "assest/区别.md",
     "assest/addApk/read.md",
     "assest/addApk",
     "md/hicar/概论/1.md",
@@ -223,9 +226,6 @@
     "md/framework实战/Framework实战.md",
     "md/framework实战/Android_Framework_实战开发指南.md",
     "md/launcher/Launcher3 结构剖析.md",
-    "md/launcher/未命名.md",
-    "md/launcher/Launcher3客制化记录（基于Android P）.md",
-    "md/码上就好/Looper.cpp注解.md",
     "md/码上就好",
     "md/个人/公众号/RenderThread原理",
     "RenderThread原理",
