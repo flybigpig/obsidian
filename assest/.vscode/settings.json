@@ -1,0 +1,23 @@
+{
+    // 关闭 C/C++ 代码错误检查（最关键）
+    "C_Cpp.errorSquiggles": "Disabled",
+    
+    // 关闭智能提示语法检查
+    "C_Cpp.intelliSenseEngine": "Disabled",
+
+    // 关闭所有语法校验
+    "problems.decorations.enabled": false,
+    
+    // 关闭文件保存时检查
+    "editor.codeActionsOnSave": {
+        "source.fixAll": "never"
+    },
+
+    // 关闭波浪线
+    "editor.showErrors": false,
+    "editor.showWarnings": false,
+    "editor.showInfos": false,
+
+    // 关闭 C/C++ 自动包含
+    "C_Cpp.autoAddFileAssociations": false
+}
