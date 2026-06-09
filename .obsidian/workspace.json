@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/framework实战/Android 12添加系统服务.md",
+                "file": "md/hicar/概论/1.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Android 12添加系统服务"
+              "title": "1"
             }
           }
         ]
@@ -192,8 +192,9 @@
       "obsidian-excalidraw-plugin:New drawing": false
     }
   },
-  "active": "fa4657deb406b728",
+  "active": "1425aa2518309e7b",
   "lastOpenFiles": [
+    "md/framework实战/Android 12添加系统服务.md",
     "assest",
     "md/码上就好/Launcher3 结构剖析.md",
     "md/hicar/概论/1.md",
@@ -229,7 +230,6 @@
     "RenderThread原理",
     "md/个人/公众号/RenderThread原理。html",
     "md/个人/公众号/RenderThread原理.html",
-    "md/个人/公众号",
     "Excalidraw/未命名.canvas",
     "md/pms/20260427151543.png",
     "md/pms/Pasted image 20260427151543.png",
