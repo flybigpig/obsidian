@@ -1,16 +1,27 @@
 android_app {
     name: "MySampleApp",
+
     srcs: ["src/**/*.java"],
+
     manifest: "AndroidManifest.xml",
+
     resource_dirs: ["res"],
 
     platform_apis: true,                       // 使用 platform.jar 中的 @hide API
+
     certificate: "platform",                   // 用 platform 签名,获得系统应用权限
+
     privileged: true,                          // 放到 /system/priv-app(可要权限)
+    
     installable: true,
 
     static_libs: [
         "androidx.core_core",                  // 按需引入
+
+        "androidx.appcompat_appcompat",
+
+        "com.google.android.material_material",
+        "androidx-constraintlayout_constraintlayout"
     ],
 
     // 如果要引用 framework 中的 @hide API,需要加这个
