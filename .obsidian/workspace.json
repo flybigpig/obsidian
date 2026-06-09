@@ -192,8 +192,10 @@
       "obsidian-excalidraw-plugin:New drawing": false
     }
   },
-  "active": "1425aa2518309e7b",
+  "active": "f84ce6d2fe2622cd",
   "lastOpenFiles": [
+    "assest/addApk/MyVendorApp/Android.mk",
+    "assest/addApk/MyVendorApp",
     "assest/app源码/addSrc.md",
     "assest/源码和APK区别.md",
     "assest/区别.md",
@@ -225,11 +227,9 @@
     "md/binder/binder",
     "md/framework实战/Framework实战.md",
     "md/framework实战/Android_Framework_实战开发指南.md",
-    "md/launcher/Launcher3 结构剖析.md",
     "md/码上就好",
     "md/个人/公众号/RenderThread原理",
     "RenderThread原理",
-    "md/个人/公众号/RenderThread原理。html",
     "Excalidraw/未命名.canvas",
     "md/pms/20260427151543.png",
     "md/pms/Pasted image 20260427151543.png",
