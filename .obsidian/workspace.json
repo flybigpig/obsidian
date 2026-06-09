@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/hicar/概论/1.md",
+                "file": "assest/app源码/addSrc.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "1"
+              "title": "addSrc"
             }
           }
         ]
@@ -192,12 +192,12 @@
       "obsidian-excalidraw-plugin:New drawing": false
     }
   },
-  "active": "1425aa2518309e7b",
+  "active": "fa4657deb406b728",
   "lastOpenFiles": [
+    "md/hicar/概论/1.md",
     "md/framework实战/Android 12添加系统服务.md",
     "assest",
     "md/码上就好/Launcher3 结构剖析.md",
-    "md/hicar/概论/1.md",
     "md/hicar/开发/1.md",
     "md/hicar/🚗 一、车机端鸿蒙 HiCar SDK 总体架构.md",
     "md/hicar/概论",
