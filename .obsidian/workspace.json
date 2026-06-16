@@ -13,10 +13,10 @@
             "state": {
               "type": "excalidraw",
               "state": {
-                "file": "Excalidraw/Drawing 2026-01-15 19.32.01.excalidraw.md"
+                "file": "Excalidraw/无标题-2026-06-16-1537.excalidraw"
               },
               "icon": "excalidraw-icon",
-              "title": "Drawing 2026-01-15 19.32.01.excalidraw"
+              "title": "无标题-2026-06-16-1537"
             }
           }
         ]
@@ -192,8 +192,9 @@
   },
   "active": "1425aa2518309e7b",
   "lastOpenFiles": [
-    "Excalidraw/Drawing 2026-04-28 14.33.06.excalidraw.md",
     "Excalidraw/Drawing 2026-01-15 19.32.01.excalidraw.md",
+    "Excalidraw/无标题-2026-06-16-1537.excalidraw",
+    "Excalidraw/Drawing 2026-04-28 14.33.06.excalidraw.md",
     "md/framework基础/Frameworks.md",
     "md/实践/fitsSystemWindows.md",
     "assest/源码和APK区别.md",
@@ -224,10 +225,8 @@
     "md/binder/binder/Android_Binder_ioctl_事务处理流程.md",
     "md/binder/binder/Android_Binder_ioctl_set_ctx_mgr与VMA数据结构.md",
     "md/binder/binder/Android_Binder_flat_binder_object_对象转换.md",
-    "md/binder/binder/Android_Binder_FD传递机制.md",
     "md/binder/binder",
     "md/码上就好",
-    "md/个人/公众号/RenderThread原理",
     "Excalidraw/未命名.canvas",
     "md/pms/20260427151543.png",
     "md/pms/Pasted image 20260427151543.png",
