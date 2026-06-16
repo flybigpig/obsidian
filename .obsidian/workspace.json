@@ -192,8 +192,9 @@
       "obsidian-excalidraw-plugin:New drawing": false
     }
   },
-  "active": "1425aa2518309e7b",
+  "active": "f84ce6d2fe2622cd",
   "lastOpenFiles": [
+    "md/实践/fitsSystemWindows.md",
     "assest/源码和APK区别.md",
     "md/framework基础/Frameworks.md",
     "assest/app源码/addSrc.md",
@@ -227,7 +228,6 @@
     "md/binder/binder/Android_Binder_alloc_内存管理.md",
     "md/binder/binder",
     "md/framework实战/Framework实战.md",
-    "md/framework实战/Android_Framework_实战开发指南.md",
     "md/码上就好",
     "md/个人/公众号/RenderThread原理",
     "Excalidraw/未命名.canvas",
