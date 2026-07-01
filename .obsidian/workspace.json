@@ -140,13 +140,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "md/launcher/Launcher3客制化记录（基于Android P）.md",
+                "file": "Excalidraw/无标题-2026-06-16-1537.excalidraw",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Launcher3客制化记录（基于Android P） 的大纲"
+              "title": "无标题-2026-06-16-1537 的大纲"
             }
           },
           {
@@ -190,7 +190,7 @@
       "obsidian-excalidraw-plugin:New drawing": false
     }
   },
-  "active": "fa4657deb406b728",
+  "active": "f84ce6d2fe2622cd",
   "lastOpenFiles": [
     "md/个人/SystemServiceRegistry解析.md",
     "Excalidraw/无标题-2026-06-16-1537.excalidraw",
