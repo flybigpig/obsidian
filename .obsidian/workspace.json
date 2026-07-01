@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/个人/SystemServiceRegistry解析.md",
+                "file": "assest/addservice/native_servie.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "SystemServiceRegistry解析"
+              "title": "native_servie"
             }
           }
         ]
@@ -192,10 +192,10 @@
       "obsidian-excalidraw-plugin:New drawing": false
     }
   },
-  "active": "fa4657deb406b728",
+  "active": "1425aa2518309e7b",
   "lastOpenFiles": [
-    "Excalidraw/无标题-2026-06-16-1537.excalidraw",
     "md/个人/SystemServiceRegistry解析.md",
+    "Excalidraw/无标题-2026-06-16-1537.excalidraw",
     "Excalidraw/Drawing 2026-01-15 19.32.01.excalidraw.md",
     "Excalidraw/Drawing 2026-04-28 14.33.06.excalidraw.md",
     "md/framework基础/Frameworks.md",
