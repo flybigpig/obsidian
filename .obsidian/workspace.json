@@ -11,12 +11,14 @@
             "id": "1425aa2518309e7b",
             "type": "leaf",
             "state": {
-              "type": "excalidraw",
+              "type": "markdown",
               "state": {
-                "file": "Excalidraw/无标题-2026-06-16-1537.excalidraw"
+                "file": "md/个人/SystemServiceRegistry解析.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "excalidraw-icon",
-              "title": "无标题-2026-06-16-1537"
+              "icon": "lucide-file",
+              "title": "SystemServiceRegistry解析"
             }
           }
         ]
@@ -140,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Excalidraw/无标题-2026-06-16-1537.excalidraw",
+                "file": "md/个人/SystemServiceRegistry解析.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "无标题-2026-06-16-1537 的大纲"
+              "title": "SystemServiceRegistry解析 的大纲"
             }
           },
           {
@@ -190,10 +192,10 @@
       "obsidian-excalidraw-plugin:New drawing": false
     }
   },
-  "active": "f84ce6d2fe2622cd",
+  "active": "fa4657deb406b728",
   "lastOpenFiles": [
-    "md/个人/SystemServiceRegistry解析.md",
     "Excalidraw/无标题-2026-06-16-1537.excalidraw",
+    "md/个人/SystemServiceRegistry解析.md",
     "Excalidraw/Drawing 2026-01-15 19.32.01.excalidraw.md",
     "Excalidraw/Drawing 2026-04-28 14.33.06.excalidraw.md",
     "md/framework基础/Frameworks.md",
@@ -225,7 +227,6 @@
     "md/binder/binder/Android_Binder_oneway_异步调用机制.md",
     "md/binder/binder/Android_Binder_ioctl_事务处理流程.md",
     "md/binder/binder/Android_Binder_ioctl_set_ctx_mgr与VMA数据结构.md",
-    "md/binder/binder/Android_Binder_flat_binder_object_对象转换.md",
     "md/binder/binder",
     "md/码上就好",
     "Excalidraw/未命名.canvas",
