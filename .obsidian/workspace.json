@@ -192,8 +192,9 @@
       "obsidian-excalidraw-plugin:New drawing": false
     }
   },
-  "active": "1425aa2518309e7b",
+  "active": "f84ce6d2fe2622cd",
   "lastOpenFiles": [
+    "md/systrace/system_analysis.md",
     "md/ams/ai/AMS_ATMS_源码解析.md",
     "md/ams/ai/AMS_ATMS_会话完整导出.md",
     "md/ams/ai/ActivityManagerService与ActivityTaskManagerService结构总结.md",
@@ -229,7 +230,6 @@
     "md/hicar/开发/1.md",
     "md/hicar/🚗 一、车机端鸿蒙 HiCar SDK 总体架构.md",
     "md/hicar/🚗 HiCar SDK 整体架构与联调流程.md",
-    "md/hicar/🔐 车机端 HUKS 集成 + 证书签发完整方案.md",
     "Excalidraw/未命名.canvas",
     "md/pms/20260427151543.png",
     "md/pms/Pasted image 20260427151543.png",
