@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/Ai_Guide/IMS_源码解析.md",
+                "file": "md/Ai_Guide/Input事件.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "IMS_源码解析"
+              "title": "Input事件"
             }
           }
         ]
@@ -194,6 +194,8 @@
   },
   "active": "1425aa2518309e7b",
   "lastOpenFiles": [
+    "md/Ai_Guide/Input管理.md",
+    "md/Ai_Guide/IMS_源码解析.md",
     "md/systrace/system_analysis.md",
     "md/ams/ai/AMS_ATMS_源码解析.md",
     "md/ams/ai/AMS_ATMS_会话完整导出.md",
@@ -228,8 +230,6 @@
     "md/framework实战/Android 12添加系统服务.md",
     "md/码上就好/Launcher3 结构剖析.md",
     "md/hicar/开发/1.md",
-    "md/hicar/🚗 一、车机端鸿蒙 HiCar SDK 总体架构.md",
-    "md/hicar/🚗 HiCar SDK 整体架构与联调流程.md",
     "Excalidraw/未命名.canvas",
     "md/pms/20260427151543.png",
     "md/pms/Pasted image 20260427151543.png",
