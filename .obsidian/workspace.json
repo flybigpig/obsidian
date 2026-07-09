@@ -192,8 +192,12 @@
       "obsidian-excalidraw-plugin:New drawing": false
     }
   },
-  "active": "1425aa2518309e7b",
+  "active": "f84ce6d2fe2622cd",
   "lastOpenFiles": [
+    "md/Ai_Guide/history_202607091438.md",
+    "md/Ai_Guide/Input_事件_树状图分析.md",
+    "md/Ai_Guide/EventHub_InputReader_解析.md",
+    "md/Ai_Guide/SurfaceControl_合成_解析.md",
     "md/Ai_Guide/WebView_BufferQueue_解析.md",
     "md/Ai_Guide/Input事件.md",
     "md/Ai_Guide/Input_RenderThread_解析.md",
@@ -226,10 +230,6 @@
     "Excalidraw/Drawing 2026-04-28 14.33.06.excalidraw.md",
     "md/framework基础/Frameworks.md",
     "md/实践/fitsSystemWindows.md",
-    "assest/源码和APK区别.md",
-    "assest/app源码/addSrc.md",
-    "assest/区别.md",
-    "md/hicar/概论/1.md",
     "Excalidraw/未命名.canvas",
     "md/pms/20260427151543.png",
     "md/pms/Pasted image 20260427151543.png",
