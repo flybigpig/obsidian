@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/Ai_Guide/Input事件.md",
+                "file": "md/Ai_Guide/SurfaceFlinger_源码解析.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Input事件"
+              "title": "SurfaceFlinger_源码解析"
             }
           }
         ]
@@ -192,10 +192,11 @@
       "obsidian-excalidraw-plugin:New drawing": false
     }
   },
-  "active": "f84ce6d2fe2622cd",
+  "active": "1425aa2518309e7b",
   "lastOpenFiles": [
-    "md/Ai_Guide/Input_RenderThread_解析.md",
     "md/Ai_Guide/WebView_BufferQueue_解析.md",
+    "md/Ai_Guide/Input事件.md",
+    "md/Ai_Guide/Input_RenderThread_解析.md",
     "md/Ai_Guide/Input管理.md",
     "md/Ai_Guide/IMS_源码解析.md",
     "md/systrace/system_analysis.md",
@@ -229,7 +230,6 @@
     "assest/app源码/addSrc.md",
     "assest/区别.md",
     "md/hicar/概论/1.md",
-    "md/framework实战/Android 12添加系统服务.md",
     "Excalidraw/未命名.canvas",
     "md/pms/20260427151543.png",
     "md/pms/Pasted image 20260427151543.png",
