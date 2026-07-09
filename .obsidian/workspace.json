@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "assest/addservice/native_servie.md",
+                "file": "md/个人/《10分钟剖析》系统启动1——从内核到用户Android系统总体是围绕着Linux内核而建立的。从加电到系统启动，大 - 掘金.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "native_servie"
+              "title": "《10分钟剖析》系统启动1——从内核到用户Android系统总体是围绕着Linux内核而建立的。从加电到系统启动，大 - 掘金"
             }
           }
         ]
@@ -192,8 +192,11 @@
       "obsidian-excalidraw-plugin:New drawing": false
     }
   },
-  "active": "1425aa2518309e7b",
+  "active": "fa4657deb406b728",
   "lastOpenFiles": [
+    "assest/addApk/read.md",
+    "assest/addservice/native_servie.md",
+    "assest/addservice/add_service.md",
     "md/个人/SystemServiceRegistry解析.md",
     "Excalidraw/无标题-2026-06-16-1537.excalidraw",
     "Excalidraw/Drawing 2026-01-15 19.32.01.excalidraw.md",
@@ -202,7 +205,6 @@
     "md/实践/fitsSystemWindows.md",
     "assest/源码和APK区别.md",
     "assest/app源码/addSrc.md",
-    "assest/addApk/read.md",
     "assest/addApk/MyVendorApp/Android.mk",
     "assest/addApk/MyVendorApp",
     "assest/区别.md",
@@ -226,7 +228,6 @@
     "md/binder/binder/Android_Binder_引用计数管理.md",
     "md/binder/binder/Android_Binder_oneway_异步调用机制.md",
     "md/binder/binder/Android_Binder_ioctl_事务处理流程.md",
-    "md/binder/binder/Android_Binder_ioctl_set_ctx_mgr与VMA数据结构.md",
     "md/binder/binder",
     "md/码上就好",
     "Excalidraw/未命名.canvas",
