@@ -11,10 +11,14 @@
             "id": "1425aa2518309e7b",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "md/Ai_Guide/IMS_源码解析.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "新标签页"
+              "title": "IMS_源码解析"
             }
           }
         ]
@@ -188,7 +192,7 @@
       "obsidian-excalidraw-plugin:New drawing": false
     }
   },
-  "active": "f84ce6d2fe2622cd",
+  "active": "1425aa2518309e7b",
   "lastOpenFiles": [
     "md/systrace/system_analysis.md",
     "md/ams/ai/AMS_ATMS_源码解析.md",
