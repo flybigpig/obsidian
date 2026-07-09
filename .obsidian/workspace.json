@@ -192,8 +192,11 @@
       "obsidian-excalidraw-plugin:New drawing": false
     }
   },
-  "active": "fa4657deb406b728",
+  "active": "f84ce6d2fe2622cd",
   "lastOpenFiles": [
+    "md/framework实战/android 13 hal aidl 实践.md",
+    "md/framework实战/android  12 Aidl hal.md",
+    "md/framework实战/Android 12+ AIDL HAL 模块.md",
     "assest/binder/Android 12 Binder数据结构流转深度解析.html",
     "assest/binder/Android 12 Binder数据结构流转深度解析_files/wxwork_hidden.mrc13utndebb1bea.css",
     "assest/binder/Android 12 Binder数据结构流转深度解析_files/wxopensdk.js",
@@ -204,7 +207,6 @@
     "assest/binder/Android 12 Binder数据结构流转深度解析_files/tap_highlight(1).mrc13utn21feed59.css",
     "assest/binder/Android 12 Binder数据结构流转深度解析_files/sec_performance.mrc13utnae94a0fa.css",
     "assest/binder/Android 12 Binder数据结构流转深度解析_files/search_fixed_bar.mrc13utn9d63199b.css",
-    "assest/binder/Android 12 Binder数据结构流转深度解析_files/reward_list_dialog.mrc13utn19e14573.css",
     "assest/addApk/read.md",
     "assest/addservice/native_servie.md",
     "assest/addservice/add_service.md",
@@ -228,8 +230,6 @@
     "md/binder/binder/Android_Binder_详解.md",
     "md/binder/binder/Android_Binder_线程池启动过程.md",
     "md/binder/binder/Android_Binder_死亡通知机制.md",
-    "md/binder/binder/Android_Binder_引用计数管理.md",
-    "md/binder/binder/Android_Binder_oneway_异步调用机制.md",
     "Excalidraw/未命名.canvas",
     "md/pms/20260427151543.png",
     "md/pms/Pasted image 20260427151543.png",
