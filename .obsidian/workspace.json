@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "md/个人/SystemServiceRegistry解析.md",
+                "file": "md/ims/Android_InputEvent_代码注解.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "SystemServiceRegistry解析 的大纲"
+              "title": "Android_InputEvent_代码注解 的大纲"
             }
           },
           {
@@ -192,7 +192,7 @@
       "obsidian-excalidraw-plugin:New drawing": false
     }
   },
-  "active": "1adfc97fdacbf14c",
+  "active": "f84ce6d2fe2622cd",
   "lastOpenFiles": [
     "md/Ai_Guide/ActivityManagerService.md",
     "md/ims/Android_InputEvent_代码注解.md",
