@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/Ai_Guide/ActivityManagerService.md",
+                "file": "md/ims/Android_InputEvent_代码注解.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "ActivityManagerService"
+              "title": "Android_InputEvent_代码注解"
             }
           }
         ]
@@ -194,8 +194,9 @@
   },
   "active": "1adfc97fdacbf14c",
   "lastOpenFiles": [
-    "md/Ai_Guide/ActivityManagerService与ActivityTaskManagerService结构总结.md",
     "md/Ai_Guide/ActivityManagerService.md",
+    "md/ims/Android_InputEvent_代码注解.md",
+    "md/Ai_Guide/ActivityManagerService与ActivityTaskManagerService结构总结.md",
     "md/Ai_Guide/面.md",
     "md/Ai_Guide/实战场景可以应用到 Android Framework.md",
     "assest/源码和APK区别.md",
@@ -229,7 +230,6 @@
     "assest/binder/Android 12 Binder数据结构流转深度解析_files/tap_highlight.mrc13utn21feed59.css",
     "assest/binder/Android 12 Binder数据结构流转深度解析_files/tap_highlight(1).mrc13utn21feed59.css",
     "assest/binder/Android 12 Binder数据结构流转深度解析_files/sec_performance.mrc13utnae94a0fa.css",
-    "assest/addApk/read.md",
     "Excalidraw/未命名.canvas",
     "md/pms/20260427151543.png",
     "md/pms/Pasted image 20260427151543.png",
