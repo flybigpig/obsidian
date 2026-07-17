@@ -192,8 +192,9 @@
       "obsidian-excalidraw-plugin:New drawing": false
     }
   },
-  "active": "f84ce6d2fe2622cd",
+  "active": "fa4657deb406b728",
   "lastOpenFiles": [
+    "else/执行硬回退.md",
     "md/Ai_Guide/ActivityManagerService.md",
     "md/ims/Android_InputEvent_代码注解.md",
     "md/Ai_Guide/ActivityManagerService与ActivityTaskManagerService结构总结.md",
@@ -220,7 +221,6 @@
     "md/ams/ai",
     "md/framework实战/android 13 hal aidl 实践.md",
     "md/framework实战/android  12 Aidl hal.md",
-    "md/framework实战/Android 12+ AIDL HAL 模块.md",
     "assest/binder/Android 12 Binder数据结构流转深度解析.html",
     "assest/binder/Android 12 Binder数据结构流转深度解析_files/wxwork_hidden.mrc13utndebb1bea.css",
     "assest/binder/Android 12 Binder数据结构流转深度解析_files/wxopensdk.js",
