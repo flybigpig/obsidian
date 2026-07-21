@@ -192,8 +192,10 @@
       "obsidian-excalidraw-plugin:New drawing": false
     }
   },
-  "active": "1adfc97fdacbf14c",
+  "active": "f84ce6d2fe2622cd",
   "lastOpenFiles": [
+    "md/build/AOSP linux环境配置及其编译方法_aosp 编译-CSDN博客 1.md",
+    "md/build/自己动手调试Android源码(超简单) - 简书.md",
     "md/build/Ubuntu下Android 14源码下载-编译-运行-打开_android14源码下载-CSDN博客.md",
     "md/aosp16/分屏模式.md",
     "md/build/ubuntu-22.04 Android系统源码TP1A(Android 13)下载及编译_android ubuntu 22.04 编译android 11源码-CSDN博客.md",
@@ -219,8 +221,6 @@
     "md/Ai_Guide/Input管理.md",
     "md/Ai_Guide/IMS_源码解析.md",
     "md/systrace/system_analysis.md",
-    "md/ams/ai/AMS_ATMS_源码解析.md",
-    "md/ams/ai/AMS_ATMS_会话完整导出.md",
     "md/ams/ai",
     "assest/binder/Android 12 Binder数据结构流转深度解析.html",
     "assest/binder/Android 12 Binder数据结构流转深度解析_files/wxwork_hidden.mrc13utndebb1bea.css",
