@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "else/执行硬回退.md",
+                "file": "else/git 报错.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "执行硬回退"
+              "title": "git 报错"
             }
           }
         ]
@@ -194,8 +194,8 @@
   },
   "active": "1adfc97fdacbf14c",
   "lastOpenFiles": [
-    "md/ims/Android_InputEvent_代码注解.md",
     "else/执行硬回退.md",
+    "md/ims/Android_InputEvent_代码注解.md",
     "md/Ai_Guide/ActivityManagerService.md",
     "md/Ai_Guide/ActivityManagerService与ActivityTaskManagerService结构总结.md",
     "md/Ai_Guide/面.md",
