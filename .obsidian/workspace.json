@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/build/Android 17 源码下载指南_android 17源码下载-CSDN博客.md",
+                "file": "APP开发者转Framework开发_破局指南.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Android 17 源码下载指南_android 17源码下载-CSDN博客"
+              "title": "APP开发者转Framework开发_破局指南"
             }
           }
         ]
@@ -192,8 +192,9 @@
       "obsidian-excalidraw-plugin:New drawing": false
     }
   },
-  "active": "fa4657deb406b728",
+  "active": "d6e0e0c18d06e14d",
   "lastOpenFiles": [
+    "md/build/Android 17 源码下载指南_android 17源码下载-CSDN博客.md",
     "APP开发者转Framework开发_破局指南.md",
     "md/build/自己动手调试Android源码(超简单) - 简书.md",
     "md/build/ubuntu-22.04 Android系统源码TP1A(Android 13)下载及编译_android ubuntu 22.04 编译android 11源码-CSDN博客.md",
@@ -220,7 +221,6 @@
     "md/Ai_Guide/Input事件.md",
     "md/Ai_Guide/Input_RenderThread_解析.md",
     "md/Ai_Guide/Input管理.md",
-    "md/Ai_Guide/IMS_源码解析.md",
     "md/ams/ai",
     "assest/binder/Android 12 Binder数据结构流转深度解析.html",
     "assest/binder/Android 12 Binder数据结构流转深度解析_files/wxwork_hidden.mrc13utndebb1bea.css",
