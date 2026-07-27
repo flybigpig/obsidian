@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "md/ams/未命名.md",
+                "file": "md/实践/Android_System_Development_Cookbook.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "未命名"
+              "title": "Android_System_Development_Cookbook"
             }
           }
         ]
@@ -194,8 +194,10 @@
   },
   "active": "d6e0e0c18d06e14d",
   "lastOpenFiles": [
-    "APP开发者转Framework开发_破局指南.md",
+    "md/实践/Android Framework 核心实战实例实现文档.md",
     "md/ams/未命名.md",
+    "md/实践/Android_System_Development_Cookbook.md",
+    "APP开发者转Framework开发_破局指南.md",
     "md/build/Android 17 源码下载指南_android 17源码下载-CSDN博客.md",
     "md/build/自己动手调试Android源码(超简单) - 简书.md",
     "md/build/ubuntu-22.04 Android系统源码TP1A(Android 13)下载及编译_android ubuntu 22.04 编译android 11源码-CSDN博客.md",
@@ -219,8 +221,6 @@
     "md/Ai_Guide/EventHub_InputReader_解析.md",
     "md/Ai_Guide/SurfaceControl_合成_解析.md",
     "md/Ai_Guide/WebView_BufferQueue_解析.md",
-    "md/Ai_Guide/Input事件.md",
-    "md/Ai_Guide/Input_RenderThread_解析.md",
     "md/ams/ai",
     "assest/binder/Android 12 Binder数据结构流转深度解析.html",
     "assest/binder/Android 12 Binder数据结构流转深度解析_files/wxwork_hidden.mrc13utndebb1bea.css",
