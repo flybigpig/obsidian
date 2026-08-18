@@ -154,87 +154,7 @@ mScheduler->initVsync(...);                // L3980
                                                                       │ Callback 反向 Binder 回 SF
 ```
 
-```
-<svg viewBox="0 0 920 560" xmlns="http://www.w3.org/2000/svg" font-family="ui-monospace, Menlo, Consolas, monospace">
-  <defs>
-    <marker id="arb" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
-      <path d="M0,0 L8,3 L0,6 Z" fill="var(--fg, #222)"/>
-    </marker>
-    <marker id="bdot" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
-      <path d="M0,0 L8,3 L0,6 Z" fill="#2563eb"/>
-    </marker>
-    <marker id="gdot" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
-      <path d="M0,0 L8,3 L0,6 Z" fill="#16a34a"/>
-    </marker>
-  </defs>
 
-  <style>
-    .box { fill: var(--bg, #fff); stroke: var(--fg, #333); stroke-width: 1.5; rx: 10; }
-    .t { fill: var(--fg, #222); font-size: 13px; font-weight: 700; }
-    .s { fill: #555; font-size: 11px; }
-    .lbl { fill: var(--fg, #222); font-size: 12px; font-weight: 600; }
-    .ipc { fill: #2563eb; font-size: 11px; font-weight: 700; }
-    .ipcg { fill: #16a34a; font-size: 11px; font-weight: 700; }
-    .cap { fill: #888; font-size: 10px; }
-  </style>
-
-  <!-- App process -->
-  <rect class="box" x="30" y="60" width="240" height="150" rx="10" fill="#eff6ff"/>
-  <text class="t" x="150" y="85" text-anchor="middle">App 进程</text>
-  <text class="s" x="150" y="103" text-anchor="middle">（每个应用独立进程）</text>
-  <text class="lbl" x="50" y="135">SurfaceComposerClient</text>
-  <text class="s" x="50" y="153">libs/gui/...cpp:97</text>
-  <text class="lbl" x="50" y="182">UI 渲染 → 填 buffer</text>
-
-  <!-- SF process -->
-  <rect class="box" x="340" y="30" width="280" height="220" rx="10" fill="#fef3c7"/>
-  <text class="t" x="480" y="55" text-anchor="middle">surfaceflinger 进程</text>
-  <text class="s" x="480" y="73" text-anchor="middle">（system，main_surfaceflinger.cpp 拉起）</text>
-  <text class="lbl" x="360" y="105">SurfaceFlinger::init()</text>
-  <text class="s" x="360" y="123">SurfaceFlinger.cpp:804</text>
-  <text class="lbl" x="360" y="150">· RenderEngine  (L827)</text>
-  <text class="lbl" x="360" y="172">· HWComposer HAL 客户端 (L838)</text>
-  <text class="lbl" x="360" y="194">· Scheduler+EventThread×2 (L3929)</text>
-  <text class="s" x="360" y="212">  (旧 MessageQueue 已并入)</text>
-
-  <!-- HWC vendor process -->
-  <rect class="box" x="700" y="120" width="190" height="170" rx="10" fill="#dcfce7"/>
-  <text class="t" x="795" y="145" text-anchor="middle">hwcomposer HAL</text>
-  <text class="s" x="795" y="163" text-anchor="middle">（vendor, Treble 隔离）</text>
-  <text class="lbl" x="715" y="192">IComposer (AIDL)</text>
-  <text class="s" x="715" y="210">实例 IComposer/default</text>
-  <text class="s" x="715" y="232">AidlComposerHal.cpp:230</text>
-  <text class="lbl" x="715" y="262">DRM/KMS → Panel</text>
-
-  <!-- App -> SF : Binder -->
-  <line x1="270" y1="135" x2="338" y2="135" stroke="#2563eb" stroke-width="2.5" marker-end="url(#bdot)"/>
-  <text class="ipc" x="304" y="125" text-anchor="middle">Binder</text>
-  <text class="s" x="304" y="118" text-anchor="middle" fill="#2563eb">ISurfaceComposer</text>
-
-  <!-- App -> SF graphics : shared mem (dotted) -->
-  <line x1="270" y1="185" x2="338" y2="160" stroke="#16a34a" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#gdot)"/>
-  <text class="ipcg" x="300" y="205" text-anchor="middle">共享内存</text>
-  <text class="s" x="300" y="218" text-anchor="middle" fill="#16a34a">BufferQueue: gralloc/dma-buf</text>
-
-  <!-- SF -> HWC : AIDL Binder -->
-  <line x1="620" y1="175" x2="698" y2="175" stroke="#2563eb" stroke-width="2.5" marker-end="url(#bdot)"/>
-  <text class="ipc" x="659" y="165" text-anchor="middle">AIDL Binder</text>
-  <text class="s" x="659" y="158" text-anchor="middle" fill="#2563eb">IComposer::present</text>
-
-  <!-- HWC -> SF callback : reverse Binder -->
-  <line x1="698" y1="215" x2="620" y2="215" stroke="#2563eb" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#bdot)"/>
-  <text class="s" x="659" y="238" text-anchor="middle" fill="#2563eb">BnComposerCallback: vsync/hotplug 反向</text>
-
-  <!-- bottom legend -->
-  <text class="cap" x="30" y="430">三段 = 三个进程：app / surfaceflinger / hwcomposer(vendor)。中间两段均为 Binder；图形像素走共享内存不拷贝。</text>
-  <text class="cap" x="30" y="450">init() 在 addService 之前（先连好 HWC、配好显示器，才允许 app 连接）。</text>
-
-  <!-- process band labels -->
-  <text class="cap" x="30" y="48">PROCESS 1</text>
-  <text class="cap" x="340" y="18">PROCESS 2</text>
-  <text class="cap" x="700" y="108">PROCESS 3</text>
-</svg>
-```
 
 ### 4.2 Mermaid（渲染版）
 ```mermaid
@@ -301,9 +221,234 @@ flowchart TB
 
 ---
 
+```
+int main(int, char **) {
+    // 启动其它系统服务的主循环（与 SF 并行运行的非图形类后台服务入口）
+    OtherSystemServiceLoopRun();
+
+    // 忽略 SIGPIPE 信号，避免向已关闭的对端写数据时被信号中断进程
+    signal(SIGPIPE, SIG_IGN);
+
+    // 配置 HIDL RPC 线程池：最多 1 个线程，且调用方（SF 主线程）不会主动 join
+    hardware::configureRpcThreadpool(1 /* maxThreads */,
+                                     false /* callerWillJoin */);
+
+    /**
+     * 分配硬件 服务
+     */
+    // 启动图形内存分配器（Graphics Allocator）HAL 服务，供后续分配图形缓冲区使用
+    startGraphicsAllocatorService();
+
+    // 当 SurfaceFlinger 作为独立进程启动时，将 binder 线程数上限限制为 4，避免资源浪费
+    ProcessState::self()->setThreadPoolMaxThreadCount(4);
+
+    // 启动 binder 线程池（懒启动工作线程，处理跨进程 binder 调用）
+    sp<ProcessState> ps(ProcessState::self());
+    ps->startThreadPool();
+
+    // 实例化 SurfaceFlinger 主体对象（此时尚未初始化）
+    sp<SurfaceFlinger> flinger = surfaceflinger::createSurfaceFlinger();
+
+    // 提升主线程调度优先级为紧急显示级别，确保渲染不被普通任务抢占
+    setpriority(PRIO_PROCESS, 0, PRIORITY_URGENT_DISPLAY);
+
+    // 将主线程调度策略设为前台（SP_FOREGROUND），保证交互响应及时
+    set_sched_policy(0, SP_FOREGROUND);
+
+    // 将多数 SurfaceFlinger 线程放入 system-background cpuset，
+    // 避免不必要地占用大核（big cores），节省功耗
+    // 注意：须在 binder 线程池初始化之后再设置
+    if (cpusets_enabled()) set_cpuset_policy(0, SP_SYSTEM);
+
+    // 在客户端连接前完成初始化（建立显示、合成器等内部状态）
+    flinger->init();
+
+    // 将 SurfaceFlinger 注册到 servicemanager，并标记为高优先级、可 dump 的关键服务
+    sp<IServiceManager> sm(defaultServiceManager());
+    sm->addService(String16(SurfaceFlinger::getServiceName()), flinger, false,
+                   IServiceManager::DUMP_FLAG_PRIORITY_CRITICAL | IServiceManager::DUMP_FLAG_PROTO);
+
+    // 启动 Display 服务，该服务依赖上面 SF 先完成注册
+    startDisplayService(); // dependency on SF getting registered above
+
+    // 为 SF 主线程设置 SCHED_FIFO 实时调度策略，优先级 2，保障合成时序稳定
+    struct sched_param param = {0};
+    param.sched_priority = 2;
+    if (sched_setscheduler(0, SCHED_FIFO, &param) != 0) {
+        ALOGE("Couldn't set SCHED_FIFO");
+    }
+
+    // 在当前主线程中运行 SurfaceFlinger 消息循环（永不返回，直到进程退出）
+    flinger->run();
+
+    return 0;
+}
+
+```
+
+
+```
+void SurfaceFlinger::init() {
+    ALOGI(  "SurfaceFlinger's main thread ready to run. "
+            "Initializing graphics H/W...");
+
+    ALOGI("Phase offset NS: %" PRId64 "", mPhaseOffsets->getCurrentAppOffset());
+
+    Mutex::Autolock _l(mStateLock);
+    // 启动调度器（Scheduler），并传入两个回调：
+    //   1) 开关主屏 VSYNC 使能
+    //   2) 刷新率配置对象（用于计算 VSYNC 周期）
+    mScheduler =
+            getFactory().createScheduler([this](bool enabled) { setPrimaryVsyncEnabled(enabled); },
+                                         mRefreshRateConfigs);
+    // 构造一个用于让 HWC 重新同步 VSYNC 周期的回调
+    auto resyncCallback =
+            mScheduler->makeResyncCallback(std::bind(&SurfaceFlinger::getVsyncPeriod, this));
+
+    // 为「应用端」创建一条 VSYNC 连接（app 偏移），用于驱动应用绘制节奏
+    mAppConnectionHandle =
+            mScheduler->createConnection("app", mVsyncModulator.getOffsets().app,
+                                         mPhaseOffsets->getOffsetThresholdForNextVsync(),
+                                         resyncCallback,
+                                         impl::EventThread::InterceptVSyncsCallback());
+    // 为「SF 自身」创建一条 VSYNC 连接（sf 偏移），用于驱动合成节奏，
+    // 并附带一个拦截回调，把 VSYNC 事件写入拦截器（用于录制/调试）
+    mSfConnectionHandle =
+            mScheduler->createConnection("sf", mVsyncModulator.getOffsets().sf,
+                                         mPhaseOffsets->getOffsetThresholdForNextVsync(),
+                                         resyncCallback, [this](nsecs_t timestamp) {
+                                             mInterceptor->saveVSyncEvent(timestamp);
+                                         });
+
+    // 注册 input 事件回调监听，过滤 vsync 事件（将 SF 的 VSYNC 连接挂到消息队列）
+    mEventQueue->setEventConnection(mScheduler->getEventConnection(mSfConnectionHandle));
+
+    // 把调度器及两条连接句柄交给 VSYNC 调制器，由其统一管理偏移策略
+    mVsyncModulator.setSchedulerAndHandles(mScheduler.get(), mAppConnectionHandle.get(),
+                                           mSfConnectionHandle.get());
+
+    // 启动区域采样线程（RegionSamplingThread），用于根据画面内容动态判断暗色区域等
+    mRegionSamplingThread =
+            new RegionSamplingThread(*this, *mScheduler,
+                                     RegionSamplingThread::EnvironmentTimingTunables());
+
+    // 创建渲染引擎（RenderEngine），按显示/配置选定，不会失败
+    // 先组装渲染特性开关：是否色彩管理、是否高优先级上下文、是否受保护内容上下文
+    int32_t renderEngineFeature = 0;
+    renderEngineFeature |= (useColorManagement ?
+                            renderengine::RenderEngine::USE_COLOR_MANAGEMENT : 0);
+    renderEngineFeature |= (useContextPriority ?
+                            renderengine::RenderEngine::USE_HIGH_PRIORITY_CONTEXT : 0);
+    renderEngineFeature |=
+            (enable_protected_contents(false) ? renderengine::RenderEngine::ENABLE_PROTECTED_CONTEXT
+                                              : 0);
+
+    // TODO(b/77156734): 后续应改用 HAL 类型，避免此处强制类型转换
+    // 把 cache 大小设为 maxFrameBufferAcquiredBuffers，该值针对单显示场景做了精细调优
+    mCompositionEngine->setRenderEngine(
+            renderengine::RenderEngine::create(static_cast<int32_t>(defaultCompositionPixelFormat),
+                                               renderEngineFeature, maxFrameBufferAcquiredBuffers));
+
+    // 不支持在 VR Flinger 已经激活的状态下启动，否则直接致命退出
+    LOG_ALWAYS_FATAL_IF(mVrFlingerRequestsDisplay,
+            "Starting with vr flinger active is not currently supported.");
+    // 创建 HWComposer 并向其注册回调（this 作为回调接收者）
+    mCompositionEngine->setHwComposer(getFactory().createHWComposer(getBE().mHwcServiceName));
+    mCompositionEngine->getHwComposer().registerCallback(this, getBE().mComposerSequenceId);
+    // 处理初始的热插拔（hotplug）事件及随之产生的显示变更
+    processDisplayHotplugEventsLocked();
+    const auto display = getDefaultDisplayDeviceLocked();
+    // 注册完 composer 回调后必须有内屏，否则致命退出
+    LOG_ALWAYS_FATAL_IF(!display, "Missing internal display after registering composer callback.");
+    // 内屏必须处于连接状态，否则致命退出
+    LOG_ALWAYS_FATAL_IF(!getHwComposer().isConnected(*display->getId()),
+                        "Internal display is disconnected.");
+
+    // 若启用 VR Flinger，则创建之；其请求显示模式的回调需通过主线程消息异步处理，避免死锁
+    if (useVrFlinger) {
+        auto vrFlingerRequestDisplayCallback = [this](bool requestDisplay) {
+            // 该回调来自 vr flinger 派发线程；直接调用 signalTransaction() 需持 mStateLock，
+            // 可能引发死锁（见 b/66916578），故改为向主线程投递消息异步处理
+            postMessageAsync(new LambdaMessage([=] {
+                ALOGE_IF(false, "VR request display mode: requestDisplay=%d", requestDisplay);
+                mVrFlingerRequestsDisplay = requestDisplay;
+                signalTransaction();
+            }));
+        };
+        mVrFlinger = dvr::VrFlinger::Create(getHwComposer().getComposer(),
+                                            getHwComposer()
+                                                    .fromPhysicalDisplayId(*display->getId())
+                                                    .value_or(0),
+                                            vrFlingerRequestDisplayCallback);
+        if (!mVrFlinger) {
+            ALOGE("Failed to start vrflinger");
+        }
+    }
+
+    // 初始化绘制状态：把当前状态复制为绘制状态
+    mDrawingState = mCurrentState;
+
+    // 设置初始显示条件（例如点亮/解除默认显示的 blank）
+    initializeDisplays();
+
+    // 预热渲染引擎缓存
+    getRenderEngine().primeCache();
+
+    // 告知 native 图形 API 当前是否支持 present 时间戳：
+    // 若 HWC 不具备「PresentFence 不可靠」能力，则 presentFence 是可靠的
+    const bool presentFenceReliable =
+            !getHwComposer().hasCapability(HWC2::Capability::PresentFenceIsNotReliable);
+    // 启动属性设置线程（负责在首帧前设置系统属性等），传入 presentFence 可靠性
+    mStartPropertySetThread = getFactory().createStartPropertySetThread(presentFenceReliable);
+
+    if (mStartPropertySetThread->Start() != NO_ERROR) {
+        ALOGE("Run StartPropertySetThread failed!");
+    }
+
+    // 回调监听：刷新率改变时，加锁后在主线程切换到目标刷新率
+    mScheduler->setChangeRefreshRateCallback(
+            [this](RefreshRateType type, Scheduler::ConfigEvent event) {
+                Mutex::Autolock lock(mStateLock);
+                setRefreshRateTo(type, event);
+            });
+    // 设置「获取当前刷新率类型」回调：根据默认显示的活动配置反查刷新率类型，缺失则回落默认
+    mScheduler->setGetCurrentRefreshRateTypeCallback([this] {
+        Mutex::Autolock lock(mStateLock);
+        const auto display = getDefaultDisplayDeviceLocked();
+        if (!display) {
+            // 没有默认显示时，回落到默认刷新率类型
+            return RefreshRateType::DEFAULT;
+        }
+
+        const int configId = display->getActiveConfig();
+        for (const auto& [type, refresh] : mRefreshRateConfigs.getRefreshRates()) {
+            if (refresh && refresh->configId == configId) {
+                return type;
+            }
+        }
+        // 理论上不会走到这里，但稳妥起见回落默认
+        return RefreshRateType::DEFAULT;
+    });
+    // 设置「获取 VSYNC 周期」回调
+    mScheduler->setGetVsyncPeriodCallback([this] {
+        Mutex::Autolock lock(mStateLock);
+        return getVsyncPeriod();
+    });
+
+    // 填充刷新率配置，并让刷新率统计模块记录当前配置模式
+    mRefreshRateConfigs.populate(getHwComposer().getConfigs(*display->getId()));
+    mRefreshRateStats.setConfigMode(getHwComposer().getActiveConfigIndex(*display->getId()));
+
+    ALOGV("Done initializing");
+}
+
+```
+
 ## 七、容易踩的坑（对照源码）
 
 1. **init 必须在 addService 之前**：`SurfaceFlinger.cpp:143` 的 `init()` 早于 `main_surfaceflinger.cpp:146` 的 `addService`。若反过来，app 可能连上后命中未就绪的 HWC/Display 状态。
 2. **binder 线程数限制**：`main_surfaceflinger.cpp:89` 把线程池上限设为 4，避免 SF 被并发 binder 请求打爆，同时主线程跑合成（实时性靠 `SCHED_FIFO` + `PRIORITY_URGENT_DISPLAY`）。
 3. **composer 是 AIDL 不是 HIDL**：本基线只有 `AidlComposerHal.cpp`（无 `HidlComposerHal`），`createClient` 失败会 FATAL。改 HAL 版本时注意 Treble 分区（HAL 在 vendor，SF 在 system，跨进程 AIDL）。
 4. **MessageQueue 已并入 Scheduler**：旧文档里的 `mQueue.init(this)` 在本版本不存在；白纸图里“SF 内部消息循环”对应 `mAppConnectionHandle` / `mSfConnectionHandle` 两条 EventThread 连接。
+
+
