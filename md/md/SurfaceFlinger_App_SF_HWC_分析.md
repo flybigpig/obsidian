@@ -156,6 +156,7 @@ mScheduler->initVsync(...);                // L3980
 
 ### 4.2 Mermaid（渲染版）
 ```mermaid
+
 flowchart TB
     subgraph APP["App 进程（每个应用）"]
         SC["SurfaceComposerClient\n(libs/gui/SurfaceComposerClient.cpp)"]
