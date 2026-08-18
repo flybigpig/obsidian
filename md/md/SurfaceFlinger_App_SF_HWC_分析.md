@@ -154,22 +154,104 @@ mScheduler->initVsync(...);                // L3980
                                                                       │ Callback 反向 Binder 回 SF
 ```
 
+```
+<svg viewBox="0 0 920 560" xmlns="http://www.w3.org/2000/svg" font-family="ui-monospace, Menlo, Consolas, monospace">
+  <defs>
+    <marker id="arb" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,3 L0,6 Z" fill="var(--fg, #222)"/>
+    </marker>
+    <marker id="bdot" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#2563eb"/>
+    </marker>
+    <marker id="gdot" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#16a34a"/>
+    </marker>
+  </defs>
+
+  <style>
+    .box { fill: var(--bg, #fff); stroke: var(--fg, #333); stroke-width: 1.5; rx: 10; }
+    .t { fill: var(--fg, #222); font-size: 13px; font-weight: 700; }
+    .s { fill: #555; font-size: 11px; }
+    .lbl { fill: var(--fg, #222); font-size: 12px; font-weight: 600; }
+    .ipc { fill: #2563eb; font-size: 11px; font-weight: 700; }
+    .ipcg { fill: #16a34a; font-size: 11px; font-weight: 700; }
+    .cap { fill: #888; font-size: 10px; }
+  </style>
+
+  <!-- App process -->
+  <rect class="box" x="30" y="60" width="240" height="150" rx="10" fill="#eff6ff"/>
+  <text class="t" x="150" y="85" text-anchor="middle">App 进程</text>
+  <text class="s" x="150" y="103" text-anchor="middle">（每个应用独立进程）</text>
+  <text class="lbl" x="50" y="135">SurfaceComposerClient</text>
+  <text class="s" x="50" y="153">libs/gui/...cpp:97</text>
+  <text class="lbl" x="50" y="182">UI 渲染 → 填 buffer</text>
+
+  <!-- SF process -->
+  <rect class="box" x="340" y="30" width="280" height="220" rx="10" fill="#fef3c7"/>
+  <text class="t" x="480" y="55" text-anchor="middle">surfaceflinger 进程</text>
+  <text class="s" x="480" y="73" text-anchor="middle">（system，main_surfaceflinger.cpp 拉起）</text>
+  <text class="lbl" x="360" y="105">SurfaceFlinger::init()</text>
+  <text class="s" x="360" y="123">SurfaceFlinger.cpp:804</text>
+  <text class="lbl" x="360" y="150">· RenderEngine  (L827)</text>
+  <text class="lbl" x="360" y="172">· HWComposer HAL 客户端 (L838)</text>
+  <text class="lbl" x="360" y="194">· Scheduler+EventThread×2 (L3929)</text>
+  <text class="s" x="360" y="212">  (旧 MessageQueue 已并入)</text>
+
+  <!-- HWC vendor process -->
+  <rect class="box" x="700" y="120" width="190" height="170" rx="10" fill="#dcfce7"/>
+  <text class="t" x="795" y="145" text-anchor="middle">hwcomposer HAL</text>
+  <text class="s" x="795" y="163" text-anchor="middle">（vendor, Treble 隔离）</text>
+  <text class="lbl" x="715" y="192">IComposer (AIDL)</text>
+  <text class="s" x="715" y="210">实例 IComposer/default</text>
+  <text class="s" x="715" y="232">AidlComposerHal.cpp:230</text>
+  <text class="lbl" x="715" y="262">DRM/KMS → Panel</text>
+
+  <!-- App -> SF : Binder -->
+  <line x1="270" y1="135" x2="338" y2="135" stroke="#2563eb" stroke-width="2.5" marker-end="url(#bdot)"/>
+  <text class="ipc" x="304" y="125" text-anchor="middle">Binder</text>
+  <text class="s" x="304" y="118" text-anchor="middle" fill="#2563eb">ISurfaceComposer</text>
+
+  <!-- App -> SF graphics : shared mem (dotted) -->
+  <line x1="270" y1="185" x2="338" y2="160" stroke="#16a34a" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#gdot)"/>
+  <text class="ipcg" x="300" y="205" text-anchor="middle">共享内存</text>
+  <text class="s" x="300" y="218" text-anchor="middle" fill="#16a34a">BufferQueue: gralloc/dma-buf</text>
+
+  <!-- SF -> HWC : AIDL Binder -->
+  <line x1="620" y1="175" x2="698" y2="175" stroke="#2563eb" stroke-width="2.5" marker-end="url(#bdot)"/>
+  <text class="ipc" x="659" y="165" text-anchor="middle">AIDL Binder</text>
+  <text class="s" x="659" y="158" text-anchor="middle" fill="#2563eb">IComposer::present</text>
+
+  <!-- HWC -> SF callback : reverse Binder -->
+  <line x1="698" y1="215" x2="620" y2="215" stroke="#2563eb" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#bdot)"/>
+  <text class="s" x="659" y="238" text-anchor="middle" fill="#2563eb">BnComposerCallback: vsync/hotplug 反向</text>
+
+  <!-- bottom legend -->
+  <text class="cap" x="30" y="430">三段 = 三个进程：app / surfaceflinger / hwcomposer(vendor)。中间两段均为 Binder；图形像素走共享内存不拷贝。</text>
+  <text class="cap" x="30" y="450">init() 在 addService 之前（先连好 HWC、配好显示器，才允许 app 连接）。</text>
+
+  <!-- process band labels -->
+  <text class="cap" x="30" y="48">PROCESS 1</text>
+  <text class="cap" x="340" y="18">PROCESS 2</text>
+  <text class="cap" x="700" y="108">PROCESS 3</text>
+</svg>
+```
+
 ### 4.2 Mermaid（渲染版）
 ```mermaid
 
 flowchart TB
     subgraph APP["App 进程（每个应用）"]
-        SC["SurfaceComposerClient\n(libs/gui/SurfaceComposerClient.cpp)"]
+        SC["SurfaceComposerClient<br/>(libs/gui/SurfaceComposerClient.cpp)"]
         UI["UI 渲染 → 填 GraphicBuffer"]
         SC --> UI
     end
 
     subgraph SF["surfaceflinger 进程（system）"]
-        MAIN["main() 主线程\nmain_surfaceflinger.cpp:79"]
-        INIT["SurfaceFlinger::init()\nSurfaceFlinger.cpp:804"]
-        RE["RenderEngine\n(SurfaceFlinger.cpp:827)"]
-        HWC["HWComposer (HAL 客户端)\nHWComposer.cpp:92 → AidlComposerHal.cpp:230"]
-        SCH["Scheduler + EventThread×2\n(SurfaceFlinger.cpp:3929)"]
+        MAIN["main() 主线程<br/>main_surfaceflinger.cpp:79"]
+        INIT["SurfaceFlinger::init()<br/>SurfaceFlinger.cpp:804"]
+        RE["RenderEngine<br/>(SurfaceFlinger.cpp:827)"]
+        HWC["HWComposer (HAL 客户端)<br/>HWComposer.cpp:92 → AidlComposerHal.cpp:230"]
+        SCH["Scheduler + EventThread×2<br/>(SurfaceFlinger.cpp:3929)"]
         MAIN --> INIT
         INIT --> RE
         INIT --> HWC
@@ -177,15 +259,15 @@ flowchart TB
     end
 
     subgraph HWC_PROC["hwcomposer HAL 进程（vendor, Treble）"]
-        HAL["IComposer (AIDL)\n实例 IComposer/default"]
+        HAL["IComposer (AIDL)<br/>实例 IComposer/default"]
         PANEL["DRM/KMS → Panel 送显"]
         HAL --> PANEL
     end
 
-    SC == "Binder: ISurfaceComposer\n\"SurfaceFlinger\" / \"SurfaceFlingerAIDL\"" ==> MAIN
-    UI -. "BufferQueue: 共享内存(gralloc/dma-buf)\nhandle 经 Binder 传 fd, 像素不拷贝" .-> HWC
-    HWC == "AIDL Binder\nIComposer::createLayer/present" ==> HAL
-    HAL == "BnComposerCallback\nvsync/hotplug 反向 Binder" ==> INIT
+    SC -->|"Binder: ISurfaceComposer (SurfaceFlinger / SurfaceFlingerAIDL)"| MAIN
+    UI -.->|"BufferQueue 共享内存: gralloc/dma-buf, handle 经 Binder 传 fd, 像素不拷贝"| HWC
+    HWC -->|"AIDL Binder: IComposer::createLayer / present"| HAL
+    HAL -.->|"BnComposerCallback: vsync / hotplug 反向 Binder"| INIT
 ```
 
 ---
