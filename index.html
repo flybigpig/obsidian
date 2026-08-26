@@ -16,6 +16,7 @@
     --accent3: #7ee787;
     --accent4: #ff7b72;
     --accent5: #d2a8ff;
+    --missing: #ffa657;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
@@ -164,6 +165,7 @@
   .tag-flow { background: rgba(126,231,135,0.12); color: var(--accent3); }
   .tag-hal { background: rgba(88,166,255,0.12); color: var(--accent); }
   .tag-new { background: rgba(240,198,116,0.16); color: var(--accent2); }
+  .tag-missing { background: rgba(255,166,87,0.16); color: var(--missing); }
 
   .hidden { display: none; }
   .code {
@@ -196,7 +198,7 @@
 
 <div class="header">
   <h1>AOSP Framework 核心知识点树状图</h1>
-  <div class="sub">基于 AOSP 13/14 · 分层架构 · 源码路径标注 · 手机系统 / 车载 / 工控定制视角 · 已对照资产文档补全</div>
+  <div class="sub">基于 AOSP 13/14 · 分层架构 · 源码路径标注 · 手机系统 / 车载 / 工控定制视角 · 已对照资产文档补全 · 已合并补漏模块 20-29</div>
   <div class="controls">
     <button onclick="expandAll()">全部展开</button>
     <button onclick="collapseAll()">全部折叠</button>
@@ -211,6 +213,7 @@
   <span><i style="background:var(--accent3)"></i>流程链路</span>
   <span><i style="background:var(--accent)"></i>HAL/接口</span>
   <span><i style="background:var(--accent2)"></i>本次新增/补全</span>
+  <span><i style="background:var(--missing)"></i>补漏模块 20-29</span>
 </div>
 
 <div class="tree-container">
@@ -247,6 +250,14 @@
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">主线程初始化</span><div class="desc">Looper.prepareMainLooper → 创建 SystemContext → 加载 framework-res</div></div></div></li>
   </ul>
   </li>
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">1.5 开机动画与 Logo 定制 (bootanimation) <span class="tag tag-new">补全</span> <span class="tag tag-src">frameworks/base/cmds/bootanimation/ · vendor 侧 logo 资源</span></span></div></div>
+  <ul class="hidden">
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">开机 Logo（Bootloader / Kernel）</span><div class="desc">lk/aboot 显示 logo（<span class="code">vendor</span> bootloader 工程定制，U-Boot logo 同理）；kernel 阶段 fbcon / DRM splash（<span class="code">drivers/video/logo/</span>）；车载/工控整机 logo 定制常改这两处 + <span class="code">splash screen</span> API</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">BootAnimation 机制</span><div class="desc"><span class="code">/system/bin/bootanimation</span> 进程由 SurfaceFlinger 触发（<span class="code">sys.boot_completed</span> 置位前循环播放）；zip 包结构：<span class="code">desc.txt + part0/part1 帧图</span>；<span class="code">bootanimation_main.cpp</span> 解析 desc.txt 驱动播放</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">定制要点</span><div class="desc">生成 <span class="code">bootanimation.zip</span>（分辨率按屏算，建议 1080p/720p 等比缩放）；desc.txt 参数：<span class="code">fps</span>（帧率）· <span class="code">p 1 0 part0</span>（循环次数 1=循环）· 分 part0 循环 + part1 收尾；<b>vendor 目录覆盖</b> <span class="code">/system/media/bootanimation.zip</span>；缩短动画时长提升开机 KPI</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">踩坑</span><div class="desc"><b>zip 必须 store 存储</b>（勿压缩，否则解压慢卡动画）；分辨率不匹配黑边/拉伸；循环次数设错卡在动画；user 版禁止改动画（system 分区只读）；logcat 查 <span class="code">BootAnimation</span> 播放状态</div></div></div></li>
+  </ul>
+  </li>
 </ul>
 </li>
 
@@ -257,7 +268,13 @@
   <li class="node lv2"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">2.2 startBootstrapServices()</span><div class="desc">引导服务：AMS、PowerMS、DisplayMS、PackageManagerService、SensorService</div></div></div></li>
   <li class="node lv2"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">2.3 startCoreServices()</span><div class="desc">核心服务：BatteryService、GpuStatsService 等</div></div></div></li>
   <li class="node lv2"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">2.4 startOtherServices()</span><div class="desc">其他服务：WMS、InputMS、NotificationMS、LocationMS、BluetoothService（耗时最长）</div></div></div></li>
-  <li class="node lv2"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">2.5 systemReady() <span class="tag tag-flow">流程</span></span><div class="desc">AMS.systemReady → 启动 Launcher → 进入 HOME → 发送启动完成广播</div></div></div></li>
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">2.5 systemReady() 流程 <span class="tag tag-flow">流程</span></span></div></div>
+  <ul class="hidden">
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">触发链</span><div class="desc">startOtherServices() 收尾 → <span class="code">mSystemServiceManager.startBootPhase(PHASE_SYSTEM_SERVICES_READY)</span> → <span class="code">AMS.systemReady()</span>；各服务在 systemReady 里做依赖初始化（WMS 恢复窗口、PMS 扫描完成）</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">systemReady 内部动作</span><div class="desc">恢复最近任务（Recents）· 拉起 <b>PERSISTENT 持久应用</b>（如 SystemUI/Telephony）· 发送 <span class="code">HOME Intent</span> 启动 Launcher（模块 4）· 发 <span class="code">BOOT_COMPLETED</span> 广播（分发给所有应用）</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">定制点</span><div class="desc">SystemUI 在 <span class="code">PHASE_BOOT_COMPLETED</span> 前就绪（桌面可见前 UI 就位）；车载预置应用通过 <span class="code">persistent</span> 或开机广播白名单按需拉起；<b>开机 KPI 优化</b>：延迟第三方广播、冷启动预加载（见模块 18.5）</div></div></div></li>
+  </ul>
+  </li>
   <li class="node lv2"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">2.6 startApexServices()</span><div class="desc">mainline 模块相关服务 (AOSP 11+)</div></div></div></li>
 </ul>
 </li>
@@ -318,7 +335,14 @@
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">⑤ 客户端调用</span><div class="desc"><span class="code">ServiceManager.getService()</span> → <span class="code">asInterface()</span>；验证 <span class="code">service list | grep</span> / <span class="code">dumpsys</span></div></div></div></li>
   </ul>
   </li>
-  <li class="node lv2"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">3.6 四大服务对照</span><div class="desc">AMS=组件/进程调度 · WMS=窗口/显示 · IMS=输入事件 · PMS=包管理；彼此通过 Binder 与直接引用协作（WMS↔IMS↔AMS）</div></div></div></li>
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">3.6 四大服务对照 <span class="tag tag-key">核心</span></span></div></div>
+  <ul class="hidden">
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">AMS 对照</span><div class="desc">管<b>组件与进程</b>：Activity/Service/Broadcast/Provider 生命周期、进程优先级 oom_adj、LMK 联动；依赖 PMS 解析 Intent、WMS 管理窗口、IMS 分发输入</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">WMS 对照</span><div class="desc">管<b>窗口与显示</b>：Z 序、焦点、转场动画、Surface 分配（SurfaceControl → SurfaceFlinger）；消费 AMS 的 Activity 状态，向 IMS 提供焦点窗口</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">IMS 对照</span><div class="desc">管<b>输入事件</b>：native inputflinger 读取 → 分发到焦点窗口（WMS 提供目标）→ 按键策略（POWER/HOME 等）；车载外设按键映射见模块 3.3</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">PMS 对照</span><div class="desc">管<b>包与权限</b>：APK 安装/扫描/权限授予；为 AMS 提供 resolveActivity 组件解析；<span class="code">dumpsys package</span> 查包；四个服务共用 <span class="code">dumpsys activity|window|input|package</span> 排查</div></div></div></li>
+  </ul>
+  </li>
 </ul>
 </li>
 
@@ -340,7 +364,13 @@
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">LauncherModel 数据加载 <span class="tag tag-new">补全</span></span><div class="desc">后台线程 loadAllApps/loadWorkspace → 生成 <span class="code">ItemInfo/AppInfo</span> 数据类 → IconCache 解码图标 → 回调主线程绑定；<span class="code">LauncherApps.Callback</span> 监听包增删改增量刷新桌面；Recents 数据走 Quickstep RecentsModel</div></div></div></li>
   </ul>
   </li>
-  <li class="node lv2"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">4.3 Recents/Overview</span><div class="desc">Recent 任务栈，Quickstep 模块 (AOSP 12+ 手势导航集成)</div></div></div></li>
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">4.3 Recents/Overview <span class="tag tag-src">packages/apps/Quickstep/</span></span></div></div>
+  <ul class="hidden">
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">Quickstep 模块</span><div class="desc">AOSP 12+ 手势导航集成（<span class="code">packages/apps/Quickstep</span>），Recents 由 Launcher3 的 <span class="code">RecentsView</span> 呈现；<span class="code">OverviewCommandHelper</span> 处理手势</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">TaskSnapshot</span><div class="desc">最近任务缩略图由 WMS 捕获（<span class="code">RecentsAnimationController</span> + <span class="code">TaskSnapshotCache</span>）；快照黑图/过期踩坑：查 <span class="code">dumpsys activity recents</span>、清 <span class="code">/data/system_ce/0/snapshots</span></div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">车载定制</span><div class="desc">车机一般<b>禁用 Recents</b>（单任务场景）：移除 Quickstep 手势、隐藏最近任务入口；<span class="code">config_recentsComponentName</span> 可指向自定义组件</div></div></div></li>
+  </ul>
+  </li>
 </ul>
 </li>
 
@@ -362,7 +392,14 @@
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">GC 与内存</span><div class="desc">Concurrent Mark-Sweep、Region-based (AOSP 14)</div></div></div></li>
   </ul>
   </li>
-  <li class="node lv2"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">5.3 消息机制</span><div class="desc">Handler/Looper/MessageQueue · main 线程 Looper · 消息分发</div></div></div></li>
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">5.3 消息机制 (Handler/Looper)</span></div></div>
+  <ul class="hidden">
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">Looper / Handler / MessageQueue</span><div class="desc">主线程 <span class="code">Looper.prepareMainLooper()</span> 建立队列；Handler 构造绑定当前线程 Looper；<span class="code">Looper.loop()</span> 死循环取消息 → <span class="code">dispatchMessage</span> 分发；主线程卡顿即队列积压（ANR 前置信号，见模块 18.3）</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">同步屏障 (Sync Barrier)</span><div class="desc"><span class="code">postSyncBarrier()</span> 后同步消息全部挂起，仅放行<b>异步消息</b>（Choreographer 的 VSync 回调、输入事件用异步消息保证帧不阻塞）；<span class="code">removeSyncBarrier()</span> 恢复；系统动画/绘制专用</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">IdleHandler 与空闲优化</span><div class="desc">队列空闲时执行 <span class="code">IdleHandler</span>（延迟初始化/预加载，如 Zygote 预加载策略）；<b>禁止在 IdleHandler 中做耗时任务</b>（阻塞下一帧）；车载开机优化常用：把非关键初始化塞 idle 期</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">ThreadLocal 模型</span><div class="desc">每个线程独立 Looper（ThreadLocal 存储）；子线程需 <span class="code">Looper.prepare() + loop()</span> 才有消息循环（HandlerThread 即此封装）；Handler 跨线程发消息由 MessageQueue 加锁入队（<span class="code">enqueueMessage</span>）</div></div></div></li>
+  </ul>
+  </li>
 </ul>
 </li>
 
@@ -442,7 +479,14 @@
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">Stable AIDL <span class="tag tag-hal">HAL</span></span><div class="desc">AOSP 11+ 稳定 AIDL，支持版本化、用于 HAL，<span class="code">aidl_interface</span> 模块</div></div></div></li>
   </ul>
   </li>
-  <li class="node lv2"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">7.4 调试手段</span><div class="desc"><span class="code">dumpsys -l</span> · <span class="code">service list</span> · <span class="code">cat /sys/kernel/debug/binder/stats</span> · Binder 事务溢出 (TransactionTooLargeException)</div></div></div></li>
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">7.4 调试手段 <span class="tag tag-key">核心</span></span></div></div>
+  <ul class="hidden">
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">服务与代理</span><div class="desc"><span class="code">service list</span> / <span class="code">dumpsys -l</span> 列出全部 Binder 服务；<span class="code">ServiceManager.getService()</span> 返回 null = 服务未注册或崩溃；客户端 asInterface 失败常见于 AIDL 版本不一致</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">Binder 统计与事务日志</span><div class="desc"><span class="code">dumpsys binder</span>（内核 proc/thread/node/ref 统计，见模块 8.6）；<span class="code">/sys/kernel/debug/binder/transaction_log</span> 看最近事务；binder 线程池状态看 <span class="code">dumpsys activity binder</span></div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">泄漏与溢出排查</span><div class="desc">BinderProxy 泄漏：<span class="code">dumpsys activity processes</span> 看 binder 代理数持续上涨；<span class="code">/proc/&lt;pid&gt;/fd</span> 查 <span class="code">/dev/binder</span> 句柄；<b>TransactionTooLargeException</b> = 事务超 1MB 上限（Binder 缓冲区，见模块 8.3），大数据改走文件/ContentProvider</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">卡死定位</span><div class="desc">binder 线程全忙 → 服务端 ANR 前兆；<span class="code">debuggerd -b &lt;pid&gt;</span> 抓 native 栈看 binder_thread_read；<span class="code">/proc/&lt;pid&gt;/stack</span> 内核栈；配合 <span class="code">StrictMode</span>（detectCustomSlowCalls）抓慢调用</div></div></div></li>
+  </ul>
+  </li>
 </ul>
 </li>
 
@@ -583,7 +627,13 @@
   </li>
   <li class="node lv2"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">11.4 DecorView 与 View 树</span><div class="desc">DecorView 为窗口根 View；PhoneWindow 持有，经 ViewRootImpl 关联 WMS（见模块 3.2）</div></div></div></li>
   <li class="node lv2"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">11.5 Surface / Canvas / 硬件加速</span><div class="desc">View 绘制到 Surface（BufferQueue 缓冲）；HWUI(Skia/GL/Vulkan) 硬件加速，与模块 12 渲染管线衔接</div></div></div></li>
-  <li class="node lv2"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">11.6 绘制性能红线 <span class="tag tag-new">补全</span></span><div class="desc">onDraw 零对象分配（避免 GC 抖动）；requestLayout 代价 ≫ invalidate，只改外观勿触发 measure/layout；自定义 ViewGroup 自绘需 <span class="code">setWillNotDraw(false)</span></div></div></div></li>
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">11.6 绘制性能红线 <span class="tag tag-new">补全</span></span></div></div>
+  <ul class="hidden">
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">过度绘制 (Overdraw)</span><div class="desc">GPU 每帧实际绘制层数 &gt; 1 即过度绘制；<span class="code">adb shell setprop debug.hwui.overdraw show</span> 可视化分级（蓝/绿/浅红/深红）；背景色与子 View 背景双重绘制是最大来源，<b>窗口级背景可在主题里设，子 View 勿重复设背景</b></div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">失效 vs 重排代价</span><div class="desc"><span class="code">invalidate()</span> 只把区域加入脏区（ViewRootImpl.mDirty）下次 VSync 重绘；<span class="code">requestLayout()</span> 触发 measure/layout 全树遍历（代价高一个量级）；<b>只改外观勿触 layout</b>；同帧多次 invalidate 由 Choreographer 合并为一次</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">绘制阶段红线</span><div class="desc">onDraw 内<b>禁止 new 对象</b>（GC 抖动即 Jank）；避免绘制超出 ClipRect；硬件加速下慎用 <span class="code">saveLayer()</span>（离屏缓冲）；首帧优化用 ViewStub 懒加载；<span class="code">Profile GPU Rendering</span> 看 bar 超 16.6ms(60Hz)/8.3ms(120Hz) 即掉帧</div></div></div></li>
+  </ul>
+  </li>
 </ul>
 </li>
 
@@ -598,12 +648,24 @@
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">Layer 合成与 BufferQueue <span class="tag tag-new">补全</span></span><div class="desc">Layer 树（RootLayer）→ 合成到 DisplayDevice；BufferQueue 生产者/消费者 + <span class="code">fence</span> 同步；<b>三缓冲</b> 缓解掉帧；客户端 <span class="code">Surface/GraphicBuffer</span> 申请显存</div></div></div></li>
   </ul>
   </li>
-  <li class="node lv2"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">12.2 HWUI</span><div class="desc">Skia → OpenGL ES / Vulkan 硬件加速 2D 渲染</div></div></div></li>
-  <li class="node lv2"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">12.3 显示服务联动</span><div class="desc">DisplayMS 管理物理屏 → WMS 分配窗口 Surface → SurfaceFlinger 合成；IMS 处理触摸坐标映射</div></div></div></li>
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">12.2 HWUI <span class="tag tag-src">frameworks/base/libs/hwui/</span></span></div></div>
+  <ul class="hidden">
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">渲染管线</span><div class="desc">View 绘制录制为 <span class="code">RenderNode / DisplayList</span>（record 阶段）→ Skia 渲染（OpenGL ES / Vulkan）→ 提交 SurfaceFlinger（见模块 12.1）；<span class="code">ThreadedRenderer</span> 驱动 RenderThread 与主线程并行</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">缓存机制</span><div class="desc">Layer 缓存（离屏）· 文本/字体缓存 · 路径缓存（PathCache）· shader 缓存；主题切换/字体变化清缓存可致首帧变慢；<span class="code">getDrawStats</span> 看缓存命中</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">开关与调试</span><div class="desc"><span class="code">setprop debug.hwui.renderer opengl|vulkan</span> 切换后端（AOSP 13+ 可选 Vulkan）；<span class="code">dumpsys gfxinfo &lt;pkg&gt;</span> 帧统计（janky frames）；<span class="code">adb shell cmd gpu</span> 看 GPU 信息；关闭硬件加速：<span class="code">android:hardwareAccelerated="false"</span></div></div></div></li>
+  </ul>
+  </li>
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">12.3 显示服务联动 <span class="tag tag-key">核心</span></span></div></div>
+  <ul class="hidden">
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">DisplayManagerService</span><div class="desc">管理物理屏（<span class="code">DisplayDevice</span>，LocalDisplayAdapter 读 <span class="code">/sys/class/drm</span>）与虚拟屏（<span class="code">VirtualDisplay</span>）；<span class="code">DisplayManager.createDisplay()</span> 创建车载第二屏/仪表屏</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">DisplayContent 与 DisplayArea</span><div class="desc">WMS 内每个 Display 对应 <span class="code">DisplayContent</span>；<span class="code">DisplayArea</span> 树挂载系统窗口（状态栏/输入法/Toast）；<b>多屏独立挂载</b> → 车载主驾/副驾/仪表各自 SystemUI（见模块 28.3）</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">一帧完整链路</span><div class="desc">App RenderThread 绘制 → BufferQueue 入队 → SurfaceFlinger 合成 → HWComposer 提交 → DRM/KMS 出屏；触摸坐标反向映射由 IMS（模块 3.3）+ DisplayContent 坐标系换算；<span class="code">dumpsys display</span> 看物理/虚拟屏列表</div></div></div></li>
+  </ul>
+  </li>
 </ul>
 </li>
 
-<!-- ===== 13. SystemUI 与 Launcher 定制（原 13 前移） ===== -->
+<!-- ===== 13. SystemUI 与 Launcher 定制 ===== -->
 <li class="node lv1"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">13. SystemUI 与 Launcher 定制 <span class="tag tag-src">packages/apps/SystemUI/ · packages/apps/Launcher3/</span></span><div class="desc">车载/工控整机 UI 定制核心，状态栏、导航栏、通知面板、车机桌面</div></div></div>
 <ul class="hidden">
   <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">13.1 SystemUI 启动 <span class="tag tag-flow">流程</span></span></div></div>
@@ -636,7 +698,13 @@
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">图标/包名屏蔽</span><div class="desc">隐藏非车机应用、定制 IconProvider，避免桌面图标泄漏到车机</div></div></div></li>
   </ul>
   </li>
-  <li class="node lv2"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">13.5 调试</span><div class="desc"><span class="code">dumpsys activity services SystemUI</span> · <span class="code">kill &lt;systemui_pid&gt;</span> 重启 UI · <span class="code">make SystemUI</span> 增量</div></div></div></li>
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">13.5 调试 <span class="tag tag-flow">流程</span></span></div></div>
+  <ul class="hidden">
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">重启 SystemUI</span><div class="desc"><span class="code">kill &lt;systemui_pid&gt;</span>（自动重启）· <span class="code">adb shell am crash com.android.systemui</span> 触发崩溃复现；<span class="code">adb shell cmd statusbar collapse</span> 收起通知栏</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">状态查看</span><div class="desc"><span class="code">dumpsys activity services SystemUI</span>（服务状态）· <span class="code">dumpsys statusbar</span>（状态栏/通知面板状态）· <span class="code">dumpsys notification</span>（通知投递）· <span class="code">dumpsys window windows | grep systemui</span>（窗口层级）</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">编译与 overlay 验证</span><div class="desc"><span class="code">make SystemUI</span> 单模块编译；资源定制用 RRO overlay 验证（<span class="code">adb install</span> overlay apk 即时生效）；logcat 过滤 <span class="code">SystemUI</span> 看启动异常；车载多屏 SystemUI 各 Display 实例单独验证</div></div></div></li>
+  </ul>
+  </li>
 </ul>
 </li>
 
@@ -651,8 +719,20 @@
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">直通式 vs 绑定式</span><div class="desc">Passthrough (同进程) / Binderized (独立进程 hwservicemanager)</div></div></div></li>
   </ul>
   </li>
-  <li class="node lv2"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">14.3 hwservicemanager</span><div class="desc">vendor 域 Binder 注册中心</div></div></div></li>
-  <li class="node lv2"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">14.4 VINTF</span><div class="desc">Vendor Interface Compatibility Matrix，兼容性检查 manifest.xml</div></div></div></li>
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">14.3 hwservicemanager <span class="tag tag-key">核心</span> <span class="tag tag-src">system/hwservicemanager/</span></span></div></div>
+  <ul class="hidden">
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">职责与隔离</span><div class="desc">vendor 域 Binder（<span class="code">/dev/hwbinder</span>）注册中心，服务名 → IBinder；与 system 域 <span class="code">servicemanager</span>（/dev/binder）<b>物理隔离</b>，保障 Treble 边界（见模块 14.1）；AIDL HAL 也经其注册（<span class="code">android.hardware.&lt;name&gt;</span> 命名空间）</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">注册与获取</span><div class="desc">HIDL：<span class="code">defaultServiceManager()->registerAsService()</span>；AIDL HAL：<span class="code">BinderService&lt;T&gt;::registerAsService</span>；客户端 <span class="code">getService</span> 拿代理；<span class="code">lshal list</span> 列出已注册 HAL</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">崩溃与重启</span><div class="desc">HAL 进程崩溃 → hwservicemanager 触发死亡回调（linkToDeath）；恢复由 <span class="code">init.rc</span> 拉起（<span class="code">oneshot</span> 服务 + respawn）；<span class="code">lshal --neat</span> 查注册状态，服务缺失先看 HAL 进程是否存活</div></div></div></li>
+  </ul>
+  </li>
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">14.4 VINTF <span class="tag tag-key">核心</span> <span class="tag tag-src">hardware/interfaces/compatibility_matrices/ · device/&lt;oem&gt;/&lt;board&gt;/manifest.xml</span></span></div></div>
+  <ul class="hidden">
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">manifest.xml</span><div class="desc"><span class="code">/vendor/etc/vintf/manifest.xml</span> 声明厂商实现的所有 HAL（包名/版本/实例）；device manifest + framework manifest 合并；新增 HAL 必须在此声明（见模块 14.5）</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">compatibility_matrix.xml</span><div class="desc">Framework/平台侧声明<b>所需</b>的 HAL 版本区间；运行期 VINTF 校验设备是否满足；版本不满足 → 服务获取失败或系统不完整（cts/vts 会查）</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">校验命令</span><div class="desc"><span class="code">lshal --types</span>（HAL 类型/版本）· <span class="code">vintf_f</span>（VINTF 工具）· <span class="code">lshal --neat</span>；FCM version（compatibility matrix 的 <span class="code">&lt;version&gt;</span>）约束 vendor 实现版本下限</div></div></div></li>
+  </ul>
+  </li>
   <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">14.5 新增 HAL 实战 <span class="tag tag-new">补全</span></span></div></div>
   <ul class="hidden">
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">AIDL HAL 实现链路</span><div class="desc">定义 aidl_interface → 实现 impl (extends Stub) → rc 启动 hal 进程 → hwservicemanager 注册 → 客户端 getService</div></div></div></li>
@@ -660,7 +740,13 @@
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">App→HAL 通路</span><div class="desc">app 经 SystemService → Framework → AIDL/HIDL HAL → 厂商实现 (见模块 3.5 新增系统服务)</div></div></div></li>
   </ul>
   </li>
-  <li class="node lv2"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">14.6 车载相关 HAL</span><div class="desc">automotive.vehicle VHAL · CarAudio · CarPowerManager · 车身信号 VehicleProperty</div></div></div></li>
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">14.6 车载相关 HAL <span class="tag tag-hal">HAL</span></span></div></div>
+  <ul class="hidden">
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">Vehicle HAL (VHAL)</span><div class="desc">整车信号抽象（车速/档位/空调/车门），见模块 28.2；AIDL 实现 <span class="code">android.hardware.automotive.vehicle</span></div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">GNSS / Sensor / Radio HAL</span><div class="desc">GNSS：<span class="code">hardware/interfaces/gnss/aidl/</span>（车载导航定位，LocationManagerService 依赖）；Sensor：<span class="code">hardware/interfaces/sensors/aidl/</span>（姿态/碰撞检测）；Radio：T-Box 蜂窝（RIL 侧）</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">Audio / Thermal / Health 联动</span><div class="desc">CarAudio HAL（多音区，见模块 27.2）· Thermal HAL（温控，见模块 20.7）· Health HAL（电池，见模块 20.5）· Camera（多摄，见模块 21.6）；车载 HAL 以 AIDL 化为趋势，全部走 hwservicemanager + VINTF</div></div></div></li>
+  </ul>
+  </li>
 </ul>
 </li>
 
@@ -681,8 +767,23 @@
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">property_contexts / seapp_contexts</span><div class="desc">系统属性 → type；app 进程 → domain</div></div></div></li>
   </ul>
   </li>
-  <li class="node lv2"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">15.4 新增服务 SELinux 步骤 <span class="tag tag-new">补全</span></span><div class="desc">file_contexts 打 label → 新建 <span class="code">myservice.te</span> (domain/exec_type + init_daemon_domain + binder_service) → allow 规则 → make sepolicy</div></div></div></li>
-  <li class="node lv2"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">15.5 调试 <span class="tag tag-flow">踩坑</span></span><div class="desc">logcat -b all | grep avc · audit2allow（仅调试参考）· userdebug 可 <span class="code">setenforce 0</span> 临时验证</div></div></div></li>
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">15.4 新增服务 SELinux 步骤 <span class="tag tag-new">补全</span></span></div></div>
+  <ul class="hidden">
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">① 定义 domain</span><div class="desc">新建 <span class="code">system/sepolicy/public/myservice.te</span>：<span class="code">type myservice, domain;</span> <span class="code">type myservice_exec, exec_type, file_type, vendor_file_type;</span>（vendor 侧服务放 device/&lt;oem&gt;/sepolicy/ 用 BOARD_SEPOLICY_DIRS）</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">② 拉入 init 与 binder</span><div class="desc"><span class="code">init_daemon_domain(myservice)</span> 授权 init 拉起；<span class="code">binder_use(myservice)</span> + <span class="code">binder_call(myservice, system_server)</span>（system_server 域同理反向）；app 访问需 <span class="code">binder_call(appdomain, myservice)</span></div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">③ 上下文文件</span><div class="desc"><span class="code">file_contexts</span>：<span class="code">/system/bin/myservice u:object_r:myservice_exec:s0</span>；<span class="code">service_contexts</span>：<span class="code">myservice u:object_r:myservice:s0</span>；属性 <span class="code">property_contexts</span> 同理</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">④ allow 规则与编译</span><div class="desc"><span class="code">allow myservice system_file:file { read execute };</span> 等最小化授权；<span class="code">make sepolicy</span> 单独编译（或 mmm）；<b>neverallow 冲突</b>处理见模块 25.5</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">⑤ 验证</span><div class="desc">开机后 <span class="code">getenforce</span>（须 Enforcing）· <span class="code">ps -AZ | grep myservice</span> 看进程 domain · <span class="code">ls -Z /system/bin/myservice</span> 看文件 label · <span class="code">logcat -b all | grep avc</span> 无 denied</div></div></div></li>
+  </ul>
+  </li>
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">15.5 调试 <span class="tag tag-flow">踩坑</span></span></div></div>
+  <ul class="hidden">
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">avc 日志定位</span><div class="desc"><span class="code">logcat -b all | grep "avc: denied"</span>；解析关键字段 <span class="code">scontext</span>(源域)/<span class="code">tcontext</span>(目标)/<span class="code">tclass</span>(对象类)/<span class="code">comm</span>(进程)；车载常见 denied：vendor 分区读写、binder_transfer、property set</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">audit2allow 生成建议</span><div class="desc"><span class="code">adb pull /sys/fs/selinux/policy</span> → <span class="code">audit2allow -p policy &lt; avc.txt</span>；生成规则<b>仅调试参考</b>，须人工 review 最小化授权，禁止整段照搬</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">临时开关与量产</span><div class="desc">userdebug 可 <span class="code">setenforce 0</span> 临时验证（重启失效）；量产 <b>必须 enforcing</b>；permissive 域排查：<span class="code">setenforce 0</span> 下仍被拒说明是<b>属性写入</b>或<b>capability</b>类拒绝而非普通 avc</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">高频踩坑</span><div class="desc">sepolicy 增量编译慢 → <span class="code">m sepolicy</span> 单编；vendor 策略引用 system 类型受限（neverallow 保护）；<span class="code">seapp_contexts</span> 未配导致 app 域错乱（uid 映射）；改完策略不生效先查 <span class="code">prebuilts/api/&lt;ver&gt;/</span> 版本快照是否同步</div></div></div></li>
+  </ul>
+  </li>
 </ul>
 </li>
 
@@ -696,7 +797,14 @@
   </ul>
   </li>
   <li class="node lv2"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">16.2 系统裁剪</span><div class="desc">隐藏/移除预装应用、精简设置项、禁用不用功能；overlay 覆盖资源与配置</div></div></div></li>
-  <li class="node lv2"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">16.3 车载定制要点 <span class="tag tag-new">补全</span></span><div class="desc">默认配置固化（亮度/音量/休眠）、隐藏开发者选项/多用户、定制 Settings 入口与车控页</div></div></div></li>
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">16.3 车载定制要点 <span class="tag tag-new">补全</span></span></div></div>
+  <ul class="hidden">
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">默认配置固化</span><div class="desc">改 <span class="code">SettingsProvider/res/values/defaults.xml</span> 固化默认亮度/音量/休眠超时/时区（首次开机即生效，无闪变）；批量下发用 <span class="code">settings put global/secure/system</span> 三表</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">隐藏与裁剪</span><div class="desc">隐藏开发者选项（<span class="code">config_show_development_settings</span> + Global.DEVELOPMENT_SETTINGS_ENABLED）；裁剪多用户/无障碍/安全菜单；settings 包 overlay 覆盖 <span class="code">config.xml</span> 控制各入口显隐</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">车控入口定制</span><div class="desc">Settings 首页插入车辆信息/车控卡片（Intent 跳 CarActivity）；隐藏蓝牙配对/位置等非车机项；音频/显示/存储保留；车载常用 <span class="code">ACTION_SETTINGS_EMBED_DEEP_LINK</span> 做嵌入式设置页</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">权限预授权</span><div class="desc">预置应用 <span class="code">privapp-permissions</span> 白名单（<span class="code">frameworks/base/data/etc/privapp-permissions-platform.xml</span> + device 专属文件）；system app 预授权避免首启运行时弹窗；缺失白名单直接开机不授予权限（logcat 有 PackageManager 警告）</div></div></div></li>
+  </ul>
+  </li>
 </ul>
 </li>
 
@@ -773,7 +881,14 @@
 <ul class="hidden">
   <li class="node lv2"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">19.1 Soong</span><div class="desc">Android.bp 描述，替代 Android.mk，Blueprint 引擎</div></div></div></li>
   <li class="node lv2"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">19.2 Ninja</span><div class="desc">构建执行引擎，build.ninja 依赖图</div></div></div></li>
-  <li class="node lv2"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">19.3 标准编译命令</span><div class="desc"><span class="code">source build/envsetup.sh &amp;&amp; lunch xxx-eng &amp;&amp; make -j32</span> (E5-2697A v4 64G 单路)</div></div></div></li>
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">19.3 标准编译命令 <span class="tag tag-flow">流程</span></span></div></div>
+  <ul class="hidden">
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">环境初始化</span><div class="desc"><span class="code">source build/envsetup.sh</span> → <span class="code">lunch aosp_&lt;board&gt;-userdebug</span>（产品-变体，变体见下）；<span class="code">lunch</span> 列产品；<span class="code">get_build_var TARGET_PRODUCT</span> 确认</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">编译命令</span><div class="desc"><span class="code">make -j32</span> 全量（E5-2697A v4 64G 标配 -j32，见模块 19.6 内存约束）；<span class="code">m SystemUI</span> 单模块；<span class="code">mmm packages/apps/SystemUI</span> 目录编译；<span class="code">mm</span> 当前目录；产物 <span class="code">out/target/product/&lt;device&gt;/</span></div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">增量与缓存</span><div class="desc">ccache：<span class="code">export USE_CCACHE=1</span> + <span class="code">ccache -M 50G</span>；ninja 自动增量；全清 <span class="code">make clean</span>（或 rm -rf out）；改产品配置后需重新 lunch</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">变体差异</span><div class="desc"><span class="code">eng</span>（开发，root+全部调试）· <span class="code">userdebug</span>（接近量产+root+调试）· <span class="code">user</span>（量产，无 root、只读分区）；<b>车载量产必须 user</b>；功能验证阶段用 userdebug</div></div></div></li>
+  </ul>
+  </li>
   <li class="node lv2"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">19.4 分区产物</span><div class="desc">boot.img · system.img · vendor.img · product.img · odm.img · super.img (动态分区)</div></div></div></li>
   <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">19.5 烧录/刷机 <span class="tag tag-new">补全</span></span></div></div>
   <ul class="hidden">
@@ -783,6 +898,454 @@
   </ul>
   </li>
   <li class="node lv2"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">19.6 常见报错</span><div class="desc">OOM → 降 j 数；Ninja 线程 → ninja: fatal；缺依赖 → mmm 单模块验证</div></div></div></li>
+</ul>
+</li>
+
+<!-- ===== 20. PowerManager 电源管理 ===== -->
+<li class="node lv1"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">20. 电源管理系统 (PowerManager) <span class="tag tag-missing">P0 补漏</span> <span class="tag tag-src">frameworks/base/services/core/java/com/android/server/power/ · hardware/interfaces/power/</span></span><div class="desc">功耗优化是所有嵌入式/车载产品的关键，从 WakeLock 到深度休眠的完整链路</div></div></div>
+<ul class="hidden">
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">20.1 PowerManagerService (PMS) <span class="tag tag-src">services/core/java/com/android/server/power/PowerManagerService.java</span></span></div></div>
+  <ul class="hidden">
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">职责</span><div class="desc">系统电源状态机管理（唤醒/休眠/Doze）、WakeLock 托管、充电状态监听、屏幕亮度/超时策略</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">电源状态机</span><div class="desc">Awake → Dream → Doze → Suspend；<span class="code">updatePowerStateLocked()</span> 核心调度循环，聚合所有 WakeLock/Display/Proximity 状态</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">系统超时策略 <span class="tag tag-new">补全</span></span><div class="desc"><span class="code">ScreenOffTimeout</span> / <span class="code">SleepTimeout</span> / <span class="code">DreamTimeout</span>；车载常配为永不休眠或长超时</div></div></div></li>
+  </ul>
+  </li>
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">20.2 WakeLock 机制 <span class="tag tag-key">核心</span></span></div></div>
+  <ul class="hidden">
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">WakeLock 类型</span><div class="desc"><span class="code">PARTIAL_WAKE_LOCK</span>（CPU 保持唤醒）· <span class="code">SCREEN_DIM</span> / <span class="code">SCREEN_BRIGHT</span> / <span class="code">FULL_WAKE_LOCK</span>（屏幕亮）· <span class="code">PROXIMITY_SCREEN_OFF_WAKE_LOCK</span>（通话传感器）</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">超时锁与计数锁 <span class="tag tag-new">补全</span></span><div class="desc">超时锁（<span class="code">acquire(timeout)</span>）到期自动释放，防泄漏；计数锁可重入，内部维护 mCount 计数器；<span class="code">WakeLock.acquire</span> → Binder 到 PMS → <span class="code">mWakeLocks.add()</span></div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">调试手段</span><div class="desc"><span class="code">dumpsys power</span> 查看所有 WakeLock 持有者 · <span class="code">adb shell dumpsys power | grep LOCK</span> · 泄漏排查：<span class="code">WakeLock.acquire</span> 无对应 release、logcat 查 PowerManager 告警</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">车载注意事项</span><div class="desc">长期 PARTIAL_WAKE_LOCK 导致功耗高 → 改用定时唤醒 + Doze 模式；车载 ACC on/off 对应 PowerManager 策略</div></div></div></li>
+  </ul>
+  </li>
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">20.3 Doze / Deep Idle <span class="tag tag-src">services/core/java/com/android/server/DeviceIdleController.java</span></span></div></div>
+  <ul class="hidden">
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">Doze 状态机</span><div class="desc">ACTIVE → INACTIVE → IDLE_PENDING → SENSING → LOCATING → IDLE → IDLE_MAINTENANCE；由 <span class="code">DeviceIdleController</span> 驱动</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">IDLE 维护窗口</span><div class="desc">周期唤醒进入 IDLE_MAINTENANCE（约 1min）→ 放行网络/闹钟/JobScheduler → 回到 IDLE</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">Doze 对 App 影响</span><div class="desc">网络访问受限；<span class="code">setAlarmClock()</span> 可穿透 Doze、JobScheduler 维护窗口执行、FCM 高优先级透传</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">车载定制</span><div class="desc">车载常禁用 Doze 或缩短 IDLE 时间；<span class="code">config_enableAutoPowerModes</span> / <span class="code">device_idle_constants.xml</span> 配置</div></div></div></li>
+  </ul>
+  </li>
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">20.4 Suspend / Resume <span class="tag tag-hal">HAL</span></span></div></div>
+  <ul class="hidden">
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">内核 Suspend 流程</span><div class="desc"><span class="code">PM_SUSPEND_MEM</span>（Suspend-to-RAM）/ <span class="code">PM_SUSPEND_STANDBY</span>（浅休眠）；Android 触发路径：</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">autosleep</span><div class="desc">PMS → <span class="code">NativePowerManager</span> → <span class="code">/sys/power/autosleep</span> → kernel <span class="code">__pm_stay_awake</span> / <span class="code">__pm_relax</span></div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">唤醒源 (Wakeup Source)</span><div class="desc"><span class="code">/sys/kernel/debug/wakeup_sources</span> 统计；RTC / 按键 / USB / 网络唤醒；车载常配 CAN 远程唤醒、ACC 信号</div></div></div></li>
+  </ul>
+  </li>
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">20.5 BatteryService 与充电 <span class="tag tag-src">services/core/java/com/android/server/BatteryService.java</span></span></div></div>
+  <ul class="hidden">
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">数据源</span><div class="desc">读取 <span class="code">/sys/class/power_supply/*</span> 下的 capacity/status/voltage_now/temperature 等属性</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">广播事件</span><div class="desc">BATTERY_CHANGED（粘性）→ 通知 UI / 低电量阈值 → 降频/关后台/强制 Doze</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">Health HAL</span><div class="desc"><span class="code">hardware/interfaces/health/</span>：AIDL Health HAL 提供电池信息；<span class="code">healthd</span> 守护进程（旧）</div></div></div></li>
+  </ul>
+  </li>
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">20.6 功耗分析工具 <span class="tag tag-key">核心</span></span></div></div>
+  <ul class="hidden">
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">batterystats</span><div class="desc"><span class="code">dumpsys batterystats</span>（分进程耗电/唤醒锁/网络统计）；<span class="code">dumpsys batterystats --reset</span> 清零后复测问题场景；车载重点关注 <span class="code">wakelock</span> 与 <span class="code">sensor</span> 项</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">历史曲线</span><div class="desc">bugreport 导入 battery-historian 看充放电曲线；Perfetto <span class="code">power.rails</span> 功耗轨（硬件 PMIC 数据）；<span class="code">dumpsys power</span> 看 Display/WakeLock 状态</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">内核层面</span><div class="desc"><span class="code">cat /sys/class/power_supply/*/voltage_now|current_now</span>（实时电压电流）；<span class="code">/sys/kernel/debug/suspend_stats</span>（suspend 时长统计）；<span class="code">/sys/kernel/debug/wakeup_sources</span>（唤醒源，见模块 20.4）；车载待机电流超标先查 CAN 唤醒源与 RTC</div></div></div></li>
+  </ul>
+  </li>
+
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">20.7 热管理 (Thermal) <span class="tag tag-new">补全</span> <span class="tag tag-hal">HAL</span> <span class="tag tag-src">frameworks/base/services/core/java/com/android/server/thermal/ · hardware/interfaces/thermal/aidl/</span></span></div></div>
+  <ul class="hidden">
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">架构分层</span><div class="desc">ThermalManagerService（system_server，Binder 入口 <span class="code">IThermalService</span>）→ Thermal HAL（<span class="code">IThermal</span>，AIDL，vendor 实现）→ 内核 thermal 框架（<span class="code">thermal_zone</span> / <span class="code">cooling_device</span>）；App 侧 <span class="code">PowerManager.getThermalHeadroom()</span> 查询温控余量</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">温控动作</span><div class="desc">内核 thermal governor 执行 <b>throttling</b>（cpufreq 降频/关核）、冷却设备联动（IPA 功耗分配）；用户态厂商方案（thermal-engine/thermal.conf）与 AOSP Thermal HAL 并存；极端温度触发 <b>关机保护</b>（PowerManager.shutdown）</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">车载场景</span><div class="desc">座舱暴晒高温 → 提前降频保护屏幕/电池/座舱域控；<span class="code">VHAL</span> 上报车内外温度（属性 <span class="code">ENV_OUTSIDE_TEMP / HVAC 温度</span>）联动空调降载；工控整机：无风扇被动散热需更保守温控阈值</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">调试</span><div class="desc"><span class="code">dumpsys thermalservice</span>（温度/阈值/动作）· <span class="code">cat /sys/class/thermal/thermal_zone*/temp</span>（内核原始温度）· <span class="code">dumpsys thermalservice --override-temperature 45.0</span>（userdebug 模拟）· logcat 查 <span class="code">ThermalService</span> 温控日志</div></div></div></li>
+  </ul>
+  </li>
+</ul>
+</li>
+
+<!-- ===== 21. Camera 相机系统 ===== -->
+<li class="node lv1"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">21. Camera 相机系统 <span class="tag tag-missing">P0 补漏</span> <span class="tag tag-src">frameworks/av/camera/ · hardware/interfaces/camera/ · packages/apps/Camera2/</span></span><div class="desc">手机/车载/工控核心感知子系统，Camera2 API + Camera HAL3/4 架构</div></div></div>
+<ul class="hidden">
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">21.1 架构分层</span></div></div>
+  <ul class="hidden">
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">应用层</span><div class="desc"><span class="code">Camera2</span> API 包 · <span class="code">CameraManager</span>（枚举/打开）· <span class="code">CameraDevice</span>（会话管理）· <span class="code">CameraCaptureSession</span>（拍照/预览）· <span class="code">CameraMetadata</span></div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">Service 层 <span class="tag tag-src">frameworks/av/camera/cameraserver/</span></span><div class="desc"><span class="code">CameraService</span>（独立 cameraserver 进程）→ Binder 接口 <span class="code">ICameraService</span>；管理 CameraProvider 实例</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">Provider 层 <span class="tag tag-src">hardware/interfaces/camera/provider/</span></span><div class="desc"><span class="code">CameraProvider</span> HAL（AIDL/HIDL）枚举设备、返回 <span class="code">ICameraDevice</span>；每个 Provider 运行在独立进程</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">HAL 层 <span class="tag tag-hal">HAL</span></span><div class="desc">Camera HAL 3.x / 4.x 实现，<span class="code">ICameraDeviceSession</span> → <span class="code">processCaptureRequest()</span> 单帧请求模型</div></div></div></li>
+  </ul>
+  </li>
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">21.2 Camera HAL3 核心模型 <span class="tag tag-key">核心</span></span></div></div>
+  <ul class="hidden">
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">Capture Request / Result</span><div class="desc">App 提交 <span class="code">CaptureRequest</span>（含 5 个输出 Surface）→ HAL 处理 → 返回 <span class="code">CaptureResult</span>（metadata + buffer）；每个 Request 独立编号（FrameNumber）</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">Pipeline 深度</span><div class="desc"><span class="code">android.request.pipelineDepth</span> 表示请求处理延迟（帧数）；浅管程低延迟、深管程高吞吐</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">同步机制 (Fence)</span><div class="desc">HAL3 用 <span class="code">ACquireFence</span> / <span class="code">ReleaseFence</span> 同步 GPU/Display/ISP 对 buffer 的访问</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">Stream Configuration</span><div class="desc"><span class="code">configureStreams()</span> 创建输出流（YUV/JPEG/RAW/HEIC）+ 可选输入流（回显）；Stream 绑定到 Surface/ANativeWindow</div></div></div></li>
+  </ul>
+  </li>
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">21.3 Camera HAL4 (AIDL) <span class="tag tag-new">补全</span></span></div></div>
+  <ul class="hidden">
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">HAL3 → HAL4 演进</span><div class="desc">HAL4 是 AIDL 版本化 Camera HAL，接口从 HIDL 迁移到 AIDL（<span class="code">hardware/interfaces/camera/aidl/</span>）</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">关键 AIDL 接口</span><div class="desc"><span class="code">ICameraDevice</span> · <span class="code">ICameraDeviceSession</span> · <span class="code">ICameraProvider</span> · <span class="code">ICameraProviderCallback</span></div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">HAL4 新特性</span><div class="desc">支持物理相机（MultiCamera）· Deep integration with Multi-camera（逻辑/物理设备映射）· 更灵活的 session 参数</div></div></div></li>
+  </ul>
+  </li>
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">21.4 Cameraserver 启动 <span class="tag tag-flow">流程</span></span></div></div>
+  <ul class="hidden">
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">Init 启动</span><div class="desc"><span class="code">init.rc</span> 中 <span class="code">service cameraserver /system/bin/cameraserver</span> → main_cameraserver.cpp 入口</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">CameraService 初始化</span><div class="desc">创建 <span class="code">CameraService</span> 实例 → 注册 Binder 服务 <span class="code">ICameraService</span> → 扫描 HAL Provider（<span class="code">waitForService("camera_provider")</span>）</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">Provider 热插拔</span><span class="tag tag-new">补全</span><div class="desc"><span class="code">ICameraProviderCallback</span> 监听设备拔出/插入 → 通知 CameraService 更新设备列表</div></div></div></li>
+  </ul>
+  </li>
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">21.5 拍照流程 <span class="tag tag-flow">流程</span></span></div></div>
+  <ul class="hidden">
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">1. 获取 CameraManager</span><div class="desc"><span class="code">Context.getSystemService(CAMERA_SERVICE)</span> → 内部查询 CameraService</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">2. 打开相机</span><div class="desc"><span class="code">CameraManager.openCamera(cameraId, callback, handler)</span> → CameraService.createDevice → HAL openDevice</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">3. 创建会话</span><div class="desc"><span class="code">CameraDevice.createCaptureSession(outputs, callback, handler)</span> → configureStreams</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">4. 提交请求</span><div class="desc"><span class="code">CameraCaptureSession.capture(request, callback, handler)</span> → HAL processCaptureRequest → 返回 ImageReader 或 PreviewSurface</div></div></div></li>
+  </ul>
+  </li>
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">21.6 车载多摄像头 <span class="tag tag-new">补全</span></span></div></div>
+  <ul class="hidden">
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">多 Provider 架构</span><div class="desc">前视 ADAS / 环视 AVM / 驾驶员监控 DMS 各独立 <span class="code">CameraProvider</span> 注册（lshal 可查）；App 按 <span class="code">cameraId</span> 打开；<span class="code">CameraManager.getCameraIdList()</span> 枚举</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">逻辑相机 (MultiCamera)</span><div class="desc">逻辑相机 = 物理相机组合（广角+长焦/双目）；HAL4 支持 <span class="code">logicalCameraType</span> 映射；AVM 环视拼接（多路鱼眼 → GPU 后处理出鸟瞰图）在中间件/应用层实现</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">外设与链路</span><div class="desc">USB Camera（<span class="code">uvcvideo</span> → <span class="code">/dev/video*</span>）与 GMSL/FPD-Link 车载相机（串行器/解串器，vendor 驱动）；车载相机常需<b>电源/复位联动</b>（VHAL 属性控制供电）；调试：<span class="code">dumpsys media.camera</span> · logcat CameraService</div></div></div></li>
+  </ul>
+  </li>
+</ul>
+</li>
+
+<!-- ===== 22. 存储系统 (Storage/Vold) ===== -->
+<li class="node lv1"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">22. 存储系统 (Storage/Vold/FBE) <span class="tag tag-missing">P0 补漏</span> <span class="tag tag-src">system/vold/ · frameworks/base/services/core/java/com/android/server/storage/</span></span><div class="desc">FBE 加密、Scoped Storage、动态分区、sdcardfs，量产设备必知</div></div></div>
+<ul class="hidden">
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">22.1 vold 存储守护进程 <span class="tag tag-src">system/vold/</span></span></div></div>
+  <ul class="hidden">
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">职责</span><div class="desc">卷管理（挂载/卸载/格式化）、磁盘加密（FBE/FDE）、存储设备热插拔（USB OTG/SD 卡）、分区检查（fsck）</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">架构</span><div class="desc">独立 Native 进程（<span class="code">/system/bin/vold</span>），经 Binder 暴露 <span class="code">IVolumeManager</span>；Disk 发现 → Volume 创建 → Filesystem 挂载</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">Volume 类型</span><div class="desc">Private（内部存储）· Public（可插拔）· Emulated（FUSE/存储空间模拟）· OBB（APK 扩展）</div></div></div></li>
+  </ul>
+  </li>
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">22.2 FBE (File-Based Encryption) <span class="tag tag-key">核心</span></span></div></div>
+  <ul class="hidden">
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">FBE vs FDE</span><div class="desc">FDE 全盘加密（Android 5-9，已弃用）；FBE 按文件加密（Android 7+，当前标准），不同用户/不同文件使用不同密钥</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">密钥层级 <span class="tag tag-key">核心</span></span><div class="desc">硬件密钥（KeyMint）→ 设备加密密钥（DEK）→ 凭证加密密钥（CEK）；DE 密钥早于锁屏可用，CE 密钥需用户解锁</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">加密目录分区</span><div class="desc"><span class="code">/data/data/</span>（CE：解锁后挂载）· <span class="code">/data/user_de/0/</span>（DE：直接可用）· <span class="code">/data/misc_ce/</span> · <span class="code">/data/misc_de/</span></div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">fscrypt 内核支持</span><div class="desc">内核 <span class="code">CONFIG_FS_ENCRYPTION</span>，ext4/f2fs 原生支持；多密钥策略，目录级加密</div></div></div></li>
+  </ul>
+  </li>
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">22.3 Scoped Storage <span class="tag tag-src">frameworks/base/core/java/android/os/storage/</span></span></div></div>
+  <ul class="hidden">
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">存储沙箱</span><div class="desc">App 私有目录 <span class="code">/data/data/&lt;pkg&gt;</span>（内部存储）· <span class="code">/sdcard/Android/data/&lt;pkg&gt;</span>（外部存储沙箱）</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">共享媒体集合</span><div class="desc"><span class="code">MediaStore</span>（Images/Videos/Audio/Downloads）→ 提供 <span class="code">ContentResolver</span> 接口；无需权限访问自己插入的文件</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">SAF (Storage Access Framework)</span><div class="desc"><span class="code">Intent.ACTION_OPEN_DOCUMENT</span> → 用户选择文件 → 返回 content URI；更细粒度访问控制</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">MANAGE_EXTERNAL_STORAGE</span><div class="desc">特殊权限（Android 11+），仅文件管理类应用可申请；Play Store 审核严格</div></div></div></li>
+  </ul>
+  </li>
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">22.4 sdcardfs / FUSE</span></div></div>
+  <ul class="hidden">
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">sdcardfs</span><div class="desc">内核多用户/多设备绑定挂载实现（<span class="code">fs/sdcardfs/</span>），按 <span class="code">/storage/emulated/&lt;user&gt;/</span> 隔离</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">FUSE 替代 sdcardfs</span><div class="desc">Android 12+ 逐步切换到 <span class="code">ExternalStorageProvider</span>（FUSE daemon）提供更灵活权限管控</div></div></div></li>
+  </ul>
+  </li>
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">22.5 动态分区 <span class="tag tag-src">system/core/fs_mgr/ · system/core/dynamic_partitions/</span></span></div></div>
+  <ul class="hidden">
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">super.img <span class="tag tag-key">核心</span></span><div class="desc">Android 10+ <span class="code">super.img</span> 包含 system/vendor/product 等逻辑分区；<span class="code">lpdump</span> 查看布局、<span class="code">lpmake</span> 打包</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">逻辑分区管理</span><div class="desc"><span class="code">fs_mgr</span> 负责解析 <span class="code">/system/etc/fstab.&lt;device&gt;</span> → 通过 <span class="code">dm-linear</span> / <span class="code">dm-verity</span> 映射到 <span class="code">/dev/block/by-name/</span></div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">超级分区 resize</span><div class="desc"><span class="code">lpresize</span> / <span class="code">lpdump --slot 0</span> ⽤于 OTA 后调整分区空间</div></div></div></li>
+  </ul>
+  </li>
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">22.6 存储调试 <span class="tag tag-flow">流程</span></span></div></div>
+  <ul class="hidden">
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">vold 卷管理</span><div class="desc"><span class="code">sm list-volumes</span>（卷状态）· <span class="code">sm mount/unmount &lt;vol&gt;</span> · <span class="code">dumpsys mount</span>（MountService 状态）；SD/USB 挂载失败查 <span class="code">dmesg</span> + <span class="code">fsck</span> 日志</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">空间与加密</span><div class="desc"><span class="code">df /data</span> · <span class="code">ls -la /storage/emulated/0</span>（用户视角）；<span class="code">getprop ro.crypto.state</span>（encrypted/unencrypted）；<span class="code">sm set-force-adoptable</span>（强制可采纳存储，仅测试）</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">问题排查</span><div class="desc">FBE 时序坑：user 0 解锁前（<span class="code">ACTION_USER_UNLOCKED</span> 前）App 拿不到 CE 数据（见模块 22.2）；<span class="code">vdc fstrim</span> 手动 trim；存储满导致系统异常 → 清理 <span class="code">/data/log</span>、dropbox；<span class="code">getprop vold.decrypt</span> 看解密进度</div></div></div></li>
+  </ul>
+  </li>
+</ul>
+</li>
+
+<!-- ===== 23. WiFi / Bluetooth / Connectivity ===== -->
+<li class="node lv1"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">23. 连接系统 (WiFi / BT / Connectivity) <span class="tag tag-missing">P1 补漏</span> <span class="tag tag-src">frameworks/opt/net/wifi/ · packages/apps/Bluetooth/ · system/connectivity/</span></span><div class="desc">无线通信是移动/车载设备的核心能力</div></div></div>
+<ul class="hidden">
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">23.1 ConnectivityService <span class="tag tag-src">services/core/java/com/android/server/ConnectivityService.java</span></span></div></div>
+  <ul class="hidden">
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">职责</span><div class="desc">网络连接仲裁：WiFi / 蜂窝 / Ethernet / VPN 的排序、切换、评分；<span class="code">NetworkAgent</span> 注册上下行统计</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">网络评分机制 <span class="tag tag-key">核心</span></span><div class="desc">NetworkAgent 报告 <span class="code">NetworkScore</span>（信号强度/链路质量）；ConnectivityService 选最高分作为<span class="code">默认网络</span></div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">NetworkFactory / NetworkOffer</span><div class="desc">AOSP 11+ 新增的声明式网络匹配模型，替代原有的 NetworkFactory 手动打分数模式</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">网络功能开关</span><div class="desc"><span class="code">settings put global airplane_mode_on 1</span> · <span class="code">svc wifi enable/disable</span> · <span class="code">svc data enable/disable</span></div></div></div></li>
+  </ul>
+  </li>
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">23.2 WiFi 子系统 <span class="tag tag-src">frameworks/opt/net/wifi/ · hardware/interfaces/wifi/</span></span></div></div>
+  <ul class="hidden">
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">服务层级</span><div class="desc"><span class="code">WifiService</span>（system_server，Binder 入口）→ <span class="code">WifiController</span>（状态机）→ <span class="code">WifiNative</span>（JNI→wificond 或 Wifi HAL）→ <span class="code">wificond</span>（Native 进程）→ nl80211 → 内核 cfg80211</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">扫描流程 <span class="tag tag-flow">流程</span></span><div class="desc"><span class="code">WifiManager.startScan()</span> → WifiServiceImpl → WifiScannerImpl → WifiNative.scan() → nl80211 <span class="code">NL80211_CMD_TRIGGER_SCAN</span> → 内核扫描 → 结果回调→ ScanResults</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">Wifi HAL <span class="tag tag-hal">HAL</span></span><div class="desc"><span class="code">hardware/interfaces/wifi/</span> AIDL HAL；<span class="code">IWifi</span> · <span class="code">IWifiChip</span> · <span class="code">IWifiStaIface</span>（STA）/ <span class="code">IWifiApIface</span>（AP）/ <span class="code">IWifiRttController</span></div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">状态机关键状态</span><div class="desc"><span class="code">WifiStateMachine</span>：ConnectModeState / DisconnectedState / L2ConnectedState / RoamingState</div></div></div></li>
+  </ul>
+  </li>
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">23.3 Bluetooth 子系统 <span class="tag tag-src">packages/apps/Bluetooth/ · system/bt/ · hardware/interfaces/bluetooth/</span></span></div></div>
+  <ul class="hidden">
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">架构</span><div class="desc"><span class="code">BluetoothService</span>（system_server）→ <span class="code">BluetoothManagerService</span> → <span class="code">AdapterService</span>（独立 com.android.bluetooth 进程）→ <span class="code">Bluetooth HAL</span> → 内核 HCI UART/USB</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">Profile 管理 <span class="tag tag-key">核心</span></span><div class="desc">A2DP（音频）· HFP（通话）· GATT（BLE）· HID（键鼠）· MAP（消息）· PBAP（联系人）· PAN（热点）；每个 Profile 独立 <span class="code">StateMachine</span></div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">GATT 流程 <span class="tag tag-flow">流程</span></span><div class="desc"><span class="code">BluetoothGatt.connect()</span> → GATT 连接 → <span class="code">onConnectionStateChange</span> → <span class="code">discoverServices()</span> → <span class="code">onServicesDiscovered</span> → <span class="code">readCharacteristic()/writeCharacteristic()/setNotify</span></div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">Floss 与 Gabeldorsche <span class="tag tag-new">补全</span></span><div class="desc">Android 13+ 的蓝牙栈迁移：新架构 Gabeldorsche（GD）替代旧 Bluez/Bluedroid 栈，以 Rust 重写核心 HCI 层</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">BT HAL <span class="tag tag-hal">HAL</span></span><div class="desc"><span class="code">hardware/interfaces/bluetooth/aidl/</span> <span class="code">IBluetoothHci</span> / <span class="code">IBluetoothHciVendor</span>；亦可 PASSTHROUGH 模式</div></div></div></li>
+  </ul>
+  </li>
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">23.4 Ethernet <span class="tag tag-src">frameworks/base/services/core/java/com/android/server/ethernet/</span></span></div></div>
+  <ul class="hidden">
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">EthernetManager</span><div class="desc"><span class="code">EthernetServiceImpl</span> 管理有线网络接口；<span class="code">IpClient</span>（DHCP/静态IP/ICMP 探测）· <span class="code">NetworkInterfaceState</span></div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">车载以太网</span><div class="desc">车载常使用 Ethernet + VLAN 作中央网关；<span class="code">ip link add link eth0 name can.100 type vlan id 100</span>；通过 Ethernet 承载 DoIP 诊断</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">车载多网卡策略</span><div class="desc">Ethernet 作为出厂默认网络，WiFi（热点）备选，蜂窝（T-Box）补充；网络切换策略需定制 NetworkOffer</div></div></div></li>
+  </ul>
+  </li>
+  <li class="node lv2"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">23.5 VPN 与网络隔离</span><div class="desc"><span class="code">VpnService</span>（App API）· <span class="code">ConnectivityManager.setVpnPackageAuthorization</span> · NetworkStack 隔离 · 车载常配：Ethernet+WiFi 网关 + VPN 隧道</div></div></div></li>
+
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">23.6 USB / ADB / 串口 <span class="tag tag-new">补全</span> <span class="tag tag-src">frameworks/base/services/usb/ · hardware/interfaces/usb/ · kernel drivers/usb/</span></span></div></div>
+  <ul class="hidden">
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">USB 架构</span><div class="desc">UsbService（system_server）分 <span class="code">UsbHostManager</span>（host：枚举外设）与 <span class="code">UsbDeviceManager</span>（gadget：本机角色）；USB HAL（<span class="code">IUsb</span> AIDL）操作内核；host 外设经 UsbHostManager 广播 <span class="code">UsbDevice.ACTION_ATTACHED</span> 给 App</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">USB Gadget (configfs)</span><div class="desc">角色切换在 <span class="code">/sys/kernel/config/usb_gadget/</span> 配置：<span class="code">adb / mass_storage / rndis / ecm / ncm</span>；手机模式（mtp/ptp）由 UsbDeviceManager 管理；<b>工控常用 RNDIS/ECM</b> 做 USB 网卡，或 USB 转串口（ftdi_sio/ch341 内核驱动 → <span class="code">/dev/ttyUSB*</span>）</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">ADB 定制</span><div class="desc">userdebug/user 版本 adb 策略（<span class="code">ro.adb.secure</span> 授权白名单）；<span class="code">adb tcpip 5555</span> 无线调试；量产车载/工控建议<b>关闭 adb</b>（user 版默认关）或仅工程模式开放；解锁 bootloader 才可 root（见模块 25.2）</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">调试</span><div class="desc"><span class="code">lsusb</span> · <span class="code">dmesg | grep -i usb</span> · <span class="code">adb devices</span> · <span class="code">cat /sys/kernel/config/usb_gadget/g1/UDC</span>（gadget 状态）；USB Camera（uvcvideo）接入看 <span class="code">/dev/video*</span> + <span class="code">dumpsys usb</span>；USB 供电异常优先查 D+/D- 走线与 VBUS</div></div></div></li>
+  </ul>
+  </li>
+</ul>
+</li>
+
+<!-- ===== 24. OTA 更新与 AB 分区 ===== -->
+<li class="node lv1"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">24. OTA 更新与 AB 分区 <span class="tag tag-missing">P0 补漏</span> <span class="tag tag-src">bootable/recovery/ · system/update_engine/ · system/core/fs_mgr/ · system/core/otautil/</span></span><div class="desc">量产设备必配，AB 分区是车载/嵌入式刚需</div></div></div>
+<ul class="hidden">
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">24.1 AB 分区机制 <span class="tag tag-key">核心</span></span></div></div>
+  <ul class="hidden">
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">原理</span><div class="desc">system_a / system_b、boot_a / boot_b 等两组分区；当前 slot（_a）运行 → 写更新到非活跃 slot（_b）→ 重试期满后切换 slot（_a ↔ _b）</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">优点</span><div class="desc">更新失败可回滚前一个 slot，避免变砖；用户无需等待漫长安装（后台静默更新）；开机瞬间切换 slot</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">插槽管理</span><div class="desc"><span class="code">/system/update_engine/slot_suffix</span> 或 <code>/proc/cmdline</code> 中 androidboot.slot_suffix=_a/_b；<span class="code">getprop ro.boot.slot_suffix</span></div></div></div></li>
+  </ul>
+  </li>
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">24.2 update_engine <span class="tag tag-src">system/update_engine/</span></span></div></div>
+  <ul class="hidden">
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">流程 <span class="tag tag-flow">流程</span></span><div class="desc">1. 下载 OTA 包（payload.bin）→ 2. 校验签名（payload_properties.txt）→ 3. <span class="code">UpdateAttempterAndroid</span> 写入非活跃 slot → 4. <span class="code">update_verifier</span> 验证 DM-Verity → 5. 设置 <span class="code">slot-unbootable</span> 旧 slot → 6. reboot</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">payload 格式</span><div class="desc">Google Omaha 格式（protobuf 描述）；<span class="code">delta</span> 增量 / <span class="code">full</span> 全量；<span class="code">bsdiff</span> 用于二进制差分</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">AB OTA 调试</span><div class="desc"><span class="code">update_engine_client --payload file:///data/ota/full_ota.zip --update</span>；<span class="code">getprop ro.build.ab_update</span>；<span class="code">dumpsys update_engine</span></div></div></div></li>
+  </ul>
+  </li>
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">24.3 Recovery 模式 <span class="tag tag-src">bootable/recovery/</span></span></div></div>
+  <ul class="hidden">
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">启动方式</span><div class="desc">fastboot boot recovery 或 <span class="code">BCB</span>（Bootloader Control Block）→ <span class="code">/misc</span> 分区写入 recovery 命令</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">非 AB 更新流程</span><div class="desc">old-only：/cache/recovery/command → 重启到 recovery → apply_patch → 重新挂载 system → 重启</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">OTA 包结构</span><div class="desc"><span class="code">META-INF/com/android/metadata</span> · <span class="code">payload.bin</span> · <span class="code">payload_properties.txt</span> · <span class="code">care_map.pb</span>（逻辑分区映射）</div></div></div></li>
+  </ul>
+  </li>
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">24.4 整车 OTA (AAOS) <span class="tag tag-new">补全</span></span></div></div>
+  <ul class="hidden">
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">多 ECU 更新</span><div class="desc">不限于 Android 系统更新，还涉及 MCU/CAN/网关 等固件升级；<span class="code">Vehicle HAL</span> 通过 VHAL 属性传递 OTA 状态</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">回滚保护</span><div class="desc"><span class="code">rollback protection</span> + <span class="code">version rollback prevention</span>；AB slot 计数器 + 内核防护回滚到不安全版本</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">更新策略定制</span><div class="desc">驻车条件、电池电量 > 70%、ACU 温度、ACC 上电信号；<span class="code">UpdateEngine</span> API 可编程控制</div></div></div></li>
+  </ul>
+  </li>
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">24.5 非 AB OTA（传统 Recovery OTA） <span class="tag tag-flow">流程</span></span></div></div>
+  <ul class="hidden">
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">流程</span><div class="desc">OTA 包写入 <span class="code">/cache/recovery/command</span> → 重启 BCB 引导 recovery → <span class="code">update-binary</span> 挂载 system → <span class="code">apply_patch</span> 增量更新 → 重启；失败可重试（cache 保留包）</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">特点与风险</span><div class="desc"><b>需停机安装</b>（recovery 阶段无法使用）、耗时随包大小增长；无 AB 回滚机制，中断/断电可能变砖（靠 <span class="code">apply_patch</span> 校验 + 备份头）；OTA 包较大时建议 full 镜像</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">与 AB 对比及改造</span><div class="desc">AB OTA 优势：后台静默+原子切换+回滚（见模块 24.1）；车载改造非 AB 设备：<b>必须加回滚保障</b>（recovery 双保险/断电保护）、缩短升级窗口（驻车+电量校验，见模块 24.4）；<span class="code">update_engine</span> 仅 AB 设备可用</div></div></div></li>
+  </ul>
+  </li>
+</ul>
+</li>
+
+<!-- ===== 25. 安全系统 (Security) ===== -->
+<li class="node lv1"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">25. 安全系统 (Security / KeyMint / AVB) <span class="tag tag-missing">P1 补漏</span> <span class="tag tag-src">system/security/ · hardware/interfaces/security/ · external/avb/</span></span><div class="desc">量产锁 bootloader 必须理解的安全栈</div></div></div>
+<ul class="hidden">
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">25.1 KeyStore / KeyMint <span class="tag tag-src">system/security/keystore/ · hardware/interfaces/keymaster/</span></span></div></div>
+  <ul class="hidden">
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">KeyStore 2.0 (Android 12+)</span><div class="desc"><span class="code">system/security/keystore2/</span> Rust 重写；Binder 接口 <span class="code">IKeystoreSecurity/keymint</span>；新架构隔离密钥类型/操作</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">KeyMint HAL <span class="tag tag-hal">HAL</span></span><div class="desc"><span class="code">hardware/interfaces/keymaster/aidl/</span> AIDL HAL；KeyMint 替代 Keymaster HAL；支持 TEE 安全存储、密钥认证（Attestation）、批量操作</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">密钥用途</span><div class="desc">FBE 设备密钥 · 应用 <span class="code">AndroidKeyStore</span> API · 签名验证（APK / OTA）· <span class="code">KeyGenParameterSpec</span> （生物识别绑定）</div></div></div></li>
+  </ul>
+  </li>
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">25.2 AVB (Android Verified Boot) <span class="tag tag-src">external/avb/</span></span></div></div>
+  <ul class="hidden">
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">启动链验证</span><div class="desc">Boot ROM → Bootloader → VBoot（AVB）→ Boot/Vendor/System → Chain of Trust；每个阶段验证下一阶段签名</div></div></div></li>
+    <li class="node lv3"><div class="row"><div class="label"><span class="title">vbmeta 分区 <span class="tag tag-key">核心</span></span><div class="desc">描述 boot/system/vendor 等分区的哈希/签名；<span class="code">vbmeta.img</span> 包含公钥哈希 + 分区描述符 + <span class="code">AVB_HASH_TYPE</span></div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">dm-verity <span class="tag tag-key">核心</span></span><div class="desc">内核设备映射器，在块设备上提供 <span class="code">Verified Boot</span>；启动后持续校验读入的每个块数据完整性；<span class="code">veritysetup</span> 管理</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">锁状态</span><div class="desc"><span class="code">fastboot flashing lock/unlock</span>；锁 bootloader → 强制验证链完整；解锁可刷机但清除用户数据；量产锁 bootloader 必须 AVB</div></div></div></li>
+  </ul>
+  </li>
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">25.3 TEE / TrustZone</span></div></div>
+  <ul class="hidden">
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">TEE (Trusted Execution Environment)</span><div class="desc">ARM TrustZone 硬件隔离的安全世界（Secure World）；运行可信应用（TA）；通过 <span class="code">libteec</span> / <span class="code">QSEECom</span> 与 REE 通信</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">TEE 用途</span><div class="desc">密钥存储（KeyMint）· DRM Widevine L1 · 生物识别（指纹/人脸模板）· 支付安全 · 安全启动信任根</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">TEE 与 AOSP 集成</span><div class="desc"><span class="code">hardware/interfaces/security/</span> · <span class="code">keymint</span> 依赖 TEE · <span class="code">authsecret</span> 管理生物解锁密钥</div></div></div></li>
+  </ul>
+  </li>
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">25.4 App Sandbox / 权限</span></div></div>
+  <ul class="hidden">
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">UID/GID 隔离</span><div class="desc">每个 App 安装时分配唯一 UID（<span class="code">app_&lt;id&gt;</span>），Passwd 文件管理；内核级隔离（process 无法访问其他 UID 进程）</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">SELinux App Domain</span><div class="desc"><span class="code">seapp_contexts</span> 根据 seinfo/username 映射到 domain（如 untrusted_app / platform_app）；neverallow 约束禁止 App 访问系统数据</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">权限模型演进</span><div class="desc">安装时（旧）→ 运行时（Android 6+）→ 位置/麦克风后台限制（11+）→ 精确/粗略位置分离 · 一次性权限 · 新权限审批面板</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">APK 签名</span><div class="desc">v1 (JAR) / v2 (Block) / v3 (Key Rotation) / v4 (增量) 签名方案；<span class="code">apksigner verify / sign</span>；预置应用 platform 签名</div></div></div></li>
+  </ul>
+  </li>
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">25.5 SELinux neverallow 约束 <span class="tag tag-flow">踩坑</span></span></div></div>
+  <ul class="hidden">
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">编译期静态校验</span><div class="desc">neverallow 在 sepolicy 编译期检查（checkpolicy），<b>违反直接编译失败</b>并打印违反的规则与文件；<span class="code">make sepolicy</span> 快速复现；量产分支禁止用 <span class="code">permissive</span> 域绕过</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">高频冲突场景</span><div class="desc"><b>system_app 访问 vendor 分区</b>（Treble 隔离，见模块 14.1）；<span class="code">su</span> 域滥用；属性 set 白名单（<span class="code">property_set</span> 只放行系统属性）；binder_transfer 跨域传递 Binder 对象</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">合规解法</span><div class="desc">改挂允许域（如服务放 <span class="code">system_app</span> → <span class="code">platform_app</span>）；拆 domain 细化授权；厂商能力走 <span class="code">vendor_app</span>/<span class="code">vendor_init</span> 域；确实需要可向 AOSP 提交 exclude 但禁止私自放宽公共策略</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">检查与回退</span><div class="desc">板端 <span class="code">logcat -b all | grep avc</span> 收集 → <span class="code">audit2allow</span> 生成（模块 15.5）；预编译检查：<span class="code">m sepolicy</span> 输出 androidpolicy 通过即 OK；回退方案：保留 vendor sepolicy 独立目录，平台升级不冲突</div></div></div></li>
+  </ul>
+  </li>
+</ul>
+</li>
+
+<!-- ===== 26. Mainline / APEX 模块化 ===== -->
+<li class="node lv1"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">26. Mainline / APEX 模块化 <span class="tag tag-missing">P1 补漏</span> <span class="tag tag-src">system/apex/ · system/module-common/ · packages/modules/</span></span><div class="desc">Android 10+ 核心演进，系统模块通过 Google Play 独立更新</div></div></div>
+<ul class="hidden">
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">26.1 APEX 容器 <span class="tag tag-key">核心</span></span></div></div>
+  <ul class="hidden">
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">APEX 格式</span><div class="desc">类似 APK 的容器格式（<span class="code">.apex</span>），包含 native lib / Java JAR / 配置文件 / SELinux；loopback 挂载到 <span class="code">/apex/&lt;name&gt;@&lt;ver&gt;/</span></div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">激活机制</span><div class="desc"><span class="code">apexd</span>（<span class="code">system/apex/apexd/</span>）在 init 阶段挂载 APEX 容器；安装新版本后重启生效（overlay 切换）</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">关键 Mainline 模块</span><div class="desc">MediaProvider · NetworkStack · CellBroadcast · DocumentsUI · PermissionController · ExtServices · Wi-Fi · Bluetooth · Tethering · Statsd</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">构建 APEX</span><div class="desc"><span class="code">prebuilts/apex/</span> 预编译；<span class="code">apex_manifest.json</span> 声明包名/版本；<span class="code">Android.bp</span> apex { } 模块类型</div></div></div></li>
+  </ul>
+  </li>
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">26.2 APK-in-APEX</span></div></div>
+  <ul class="hidden">
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">预置系统应用</span><div class="desc">原本 <span class="code">/system/priv-app/</span> 中的应用打包进 APEX；APEX 可独立更新应用版本</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">SELinux 整合</span><div class="desc">APEX 包可携带 <span class="code">pub/sec/</span> 目录下发 SELinux 策略，扩展 <span class="code">system/sepolicy/</span></div></div></div></li>
+  </ul>
+  </li>
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">26.3 SDK 扩展 (ExtServices)</span></div></div>
+  <ul class="hidden">
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">SDK Extension Level</span><div class="desc"><span class="code">Build.VERSION.SDK_INT</span> + <span class="code">Build.VERSION.MEDIA_PERFORMANCE_CLASS</span>；Mainline 模块可通过 <span class="code">sdk_extensions</span> 新增 API</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">ExtServices</span><div class="desc">提供额外系统服务接口扩展，不修改 <span class="code">frameworks/base</span> 即可新增系统功能</div></div></div></li>
+  </ul>
+  </li>
+</ul>
+</li>
+
+<!-- ===== 27. Audio 音频系统深化 ===== -->
+<li class="node lv1"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">27. 音视频系统 (Audio / MediaCodec / DRM) <span class="tag tag-missing">P2 补漏</span> <span class="tag tag-src">frameworks/av/services/audioflinger/ · frameworks/av/media/libaaudio/ · hardware/interfaces/audio/</span></span><div class="desc">音频 HAL 通路、混音、低延迟 AAudio</div></div></div>
+<ul class="hidden">
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">27.1 音频架构分层</span></div></div>
+  <ul class="hidden">
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">App 层</span><div class="desc"><span class="code">MediaPlayer</span> · <span class="code">AudioTrack</span> · <span class="code">SoundPool</span> · <span class="code">AAudio</span>（低延迟）· <span class="code">Oboe</span>（游戏引擎）</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">Framework 层 <span class="tag tag-src">frameworks/base/media/java/android/media/</span></span><div class="desc"><span class="code">AudioService</span>（system_server，策略/焦点/路由）· <span class="code">AudioSystem</span>（策略接口）· <span class="code">AudioManager</span>（App API）</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">Native 层 <span class="tag tag-src">frameworks/av/services/audioflinger/</span></span><div class="desc"><span class="code">AudioFlinger</span>（混音/硬件抽象）· <span class="code">AudioPolicyService</span>（策略/路由决策）</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">HAL 层 <span class="tag tag-hal">HAL</span></span><div class="desc"><span class="code">hardware/interfaces/audio/</span> AIDL HAL：<span class="code">IDevice</span>（声卡）· <span class="code">IStreamIn</span>（录音）· <span class="code">IStreamOut</span>（播放）· <span class="code">IPrimaryDevice</span>（电话模式）</div></div></div></li>
+  </ul>
+  </li>
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">27.2 AudioPolicy <span class="tag tag-key">核心</span></span></div></div>
+  <ul class="hidden">
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">路由策略</span><div class="desc">根据音频源（media/导航/通话/铃声）自动选择输出设备（扬声器/耳机/A2DP/USB）；<span class="code">audio_policy_configuration.xml</span> 配置</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">音频焦点</span><div class="desc"><span class="code">AudioManager.requestAudioFocus()</span> 协同多 App 同时播放（导航播报时压低音乐）；<span class="code">OnAudioFocusChangeListener</span></div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">车载多区音效</span><div class="desc">CarAudioService 多音区控制（主驾/副驾/后排独立声道）；audio_policy_configuration 中定义 bus device</div></div></div></li>
+  </ul>
+  </li>
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">27.3 AudioFlinger 混音 <span class="tag tag-src">av/services/audioflinger/</span></span></div></div>
+  <ul class="hidden">
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">混音线程</span><div class="desc"><span class="code">MixerThread</span>（播放混音）· <span class="code">RecordThread</span>（录音）· <span class="code">OffloadThread</span>（硬件直通）· <span class="code">DuplicatingThread</span>（分流输出）</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">Resampler 与效果器</span><div class="desc">libresample 重采样 · 均衡器（Equalizer）· 环绕声（Virtualizer）· 降噪（NoiseSuppression）统一经 <span class="code">EffectChain</span> 串接</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">AAudio / Oboe <span class="tag tag-new">补全</span></span><div class="desc">AAudio API（Native）面向低延迟场景（<span class="code">MMAP/NOIRQ</span> 直通模式，绕过 AudioFlinger 混音）；Oboe 是 C++ 封装库兼容旧版</div></div></div></li>
+  </ul>
+  </li>
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">27.4 音频调试 <span class="tag tag-flow">流程</span></span></div></div>
+  <ul class="hidden">
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">路由与焦点</span><div class="desc"><span class="code">dumpsys audio</span>（当前路由/焦点持有者/设备列表）· <span class="code">dumpsys media.audio_policy</span>（策略路由）；无声先查焦点抢占（车载导航压低音乐场景）</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">混音线程</span><div class="desc"><span class="code">dumpsys media.audio_flinger</span>（MixerThread/RecordThread/OffloadThread 状态与缓冲）· <span class="code">logcat -b audio</span>（audio service 日志）· <span class="code">logcat -b main | grep AudioFlinger</span></div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">底层 ALSA</span><div class="desc"><span class="code">tinymix</span>（寄存器通路）· <span class="code">tinyplay / tinycap</span>（播放/录音直测）· <span class="code">cat /proc/asound/cards</span>（声卡枚举）· <span class="code">tinypcminfo</span>（格式/采样率支持）；车载多区验证：分路播放在不同 <span class="code">bus</span>（见模块 27.2）</div></div></div></li>
+  </ul>
+  </li>
+
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">27.5 媒体编解码 (MediaCodec / Codec2 / DRM) <span class="tag tag-new">补全</span> <span class="tag tag-src">frameworks/av/media/codec2/ · hardware/interfaces/media/codec2/ · frameworks/av/media/drm/</span></span></div></div>
+  <ul class="hidden">
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">MediaCodec 架构</span><div class="desc">App → <span class="code">MediaCodec</span>（C2 框架，<span class="code">frameworks/av/media/codec2/</span>）→ Codec2 HAL（<span class="code">ICodec</span> AIDL/HIDL）→ 厂商编解码实现（v4l2/硬件块）；服务端 <span class="code">media.codec</span>（MediaCodecService）管理实例；软编解码走 libstagefright 内置组件</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">编解码流程</span><div class="desc"><span class="code">createCodecByType → configure(MediaFormat) → start → queueInputBuffer → dequeueOutputBuffer</span>（同步/异步回调模式）；关键参数：<span class="code">color-format / bitrate / frame-rate / i-frame-interval</span>；硬解不生效先查 <span class="code">MediaCodecList</span> 能力（<span class="code">dumpsys media.player</span>）</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">DRM 与播放</span><div class="desc"><span class="code">MediaDrm</span> + Widevine L1（密钥在 TEE，见模块 25.3）/ L3（软件）；ClearKey 测试用例；播放器集成 ExoPlayer/Media3（<span class="code">C2</span> 与 <span class="code">MediaExtractor</span> 解封装）；车载视频源：HDMI-IN/USB 播放/车机本地媒体库</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">调试</span><div class="desc"><span class="code">dumpsys media.codec</span>（codec 实例/状态）· <span class="code">dumpsys media.drm</span>（DRM 会话）· logcat 过滤 <span class="code">MediaCodec/C2</span> 看编解码时序 · <span class="code">adb shell cmd media.codec --help</span>；掉帧先分：解封装 → 解码 → 渲染 三段各自耗时</div></div></div></li>
+  </ul>
+  </li>
+</ul>
+</li>
+
+<!-- ===== 28. 车载 AAOS 深化 ===== -->
+<li class="node lv1"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">28. 车载 AAOS 框架深化 <span class="tag tag-missing">P2 补漏</span> <span class="tag tag-src">packages/services/Car/ · hardware/interfaces/automotive/ · platform/packages/apps/Car/</span></span><div class="desc">Vehicle HAL、CarService、车载多屏、投影、VHAL 属性系统</div></div></div>
+<ul class="hidden">
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">28.1 CarService 体系 <span class="tag tag-src">packages/services/Car/</span></span></div></div>
+  <ul class="hidden">
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">CarService</span><div class="desc">运行在 system_server 的 Java 服务，管理所有车载子服务；<span class="code">ICar</span> Binder 接口暴露给 Car App</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">车载子服务清单</span><div class="desc"><span class="code">CarPropertyService</span>（VHAL 属性读写）· <span class="code">CarAudioService</span>（音区管理）· <span class="code">CarPowerManagementService</span>（整车电源）· <span class="code">CarDrivingStateService</span>（驾驶状态）· <span class="code">CarInputService</span>（方向盘按键）· <span class="code">CarProjectionService</span>（手机投屏）</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">Car API 库</span><div class="desc"><span class="code">android.car.*</span> API：<span class="code">Car.createCar()</span> → <span class="code">getCarManager()</span> → <span class="code">CarPropertyManager</span> 等；仅系统签名应用可用</div></div></div></li>
+  </ul>
+  </li>
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">28.2 Vehicle HAL (VHAL) <span class="tag tag-key">核心</span> <span class="tag tag-hal">HAL</span> <span class="tag tag-src">hardware/interfaces/automotive/vehicle/aidl/</span></span></div></div>
+  <ul class="hidden">
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">VHAL 属性模型</span><div class="desc">车辆信号统一抽象为 <span class="code">VehicleProperty</span>（int32/float/string/int64[]/bytes）；每属性有 <span class="code">VehicleArea</span>（全局/引擎/车轮）· <span class="code">VehiclePropertyType</span></div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">关键属性</span><div class="desc"><span class="code">PERF_VEHICLE_SPEED</span>（车速）· <span class="code">GEAR_SELECTION</span>（档位）· <span class="code">HVAC_TEMPERATURE_SET</span>（空调温度）· <span class="code">DRIVING_STATUS</span>（驾驶状态）· <span class="code">FUEL_LEVEL</span>（油量）· <span class="code">VEHICLE_MAP_SERVICE</span>（导航绑定）</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">VHAL 接口 <span class="tag tag-flow">流程</span></span><div class="desc"><span class="code">IVehicle.getProperty()</span> / <span class="code">setProperty()</span> / <span class="code">subscribe()</span>/<span class="code">unsubscribe()</span>（按属性订阅变化通知）；<span class="code">VehiclePropValue</span> 包含 value + timestamp + areaId</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">VHAL 实现</span><div class="desc">运行在 vendor 侧独立进程（<span class="code">android.hardware.automotive.vehicle-service</span>）；binderized AIDL HAL；通过 CAN/以太网/LIN 与 ECU 通信</div></div></div></li>
+  </ul>
+  </li>
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">28.3 车载多屏 <span class="tag tag-src">frameworks/base/services/core/java/com/android/server/wm/</span></span></div></div>
+  <ul class="hidden">
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">DisplayArea / DisplayPolicy</span><div class="desc">WMS 中的 <span class="code">DisplayArea</span> 管理多物理屏；<span class="code">DisplayPolicy</span> 控制各屏系统窗口（状态栏只能出现在主屏）</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">多屏 SystemUI</span><div class="desc">每个 Display 可启动独立 SystemUI 实例（极简状态栏）；<span class="code">DisplayManager.createDisplay()</span> + <span class="code">Presentation</span> API 创建副屏 Activity</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">仪表屏 (Instrument Cluster)</span><div class="desc">独立 Display 运行 Cluster 应用（全屏不可被 Home 覆盖）；<span class="code">FLAG_PRIVATE</span>/<span class="code">FLAG_SHOW_WALLPAPER</span> 控制</div></div></div></li>
+  </ul>
+  </li>
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">28.4 车载电源管理 <span class="tag tag-src">packages/services/Car/service/src/com/android/car/power/</span></span></div></div>
+  <ul class="hidden">
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">CarPowerManagementService</span><div class="desc">管理整车电源状态（ACC on/off、休眠、深度休眠）；监听 VHAL 的 <span class="code">AP_POWER_STATE_REQ</span> 属性</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">电源状态机</span><div class="desc"><span class="code">ON</span>（全功能）→ <span class="code">SHUTDOWN_PREPARE</span>（静置保活）→ <span class="code">SLEEP</span>（浅休眠/快速唤醒）→ <span class="code">SHUTDOWN</span>（深度休眠/关机）</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">Ordered Shutdown</span><div class="desc">ACC off 后先通知 CarService（保存状态）→ 通知 App（<span class="code">CarPowerManager.onSleepEntry</span>）→ 拉起定时器 → 进入休眠</div></div></div></li>
+  </ul>
+  </li>
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">28.5 AAOS OEM 定制项 <span class="tag tag-new">补全</span></span></div></div>
+  <ul class="hidden">
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">CarService 子服务开关</span><div class="desc"><span class="code">packages/services/Car/service/res/values/config.xml</span> 控制各子服务启停（CarAudioService/CarPropertyService 等）；禁用无关服务降低系统负载</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">自定义属性与 VHAL</span><div class="desc">vendor 段自定义 <span class="code">VehicleProperty</span>（0x1E00-0x3FFF 厂商段）承载整车私有信号（座椅记忆/氛围灯）；VHAL 实现 + CarPropertyManager 读取（见模块 28.2）</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">CarSystemUI / 车载 Launcher</span><div class="desc">覆盖 <span class="code">packages/apps/Car/SystemUI</span> 组件（状态栏/通知）；车载 Launcher 预置车控/导航卡片（模块 13.4）；<span class="code">CarUiLib</span> 基础组件库统一车机 UI 风格</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">权限与签名</span><div class="desc"><span class="code">android.car.permission.*</span> 权限白名单；车载系统应用 <span class="code">platform</span> 签名；<span class="code">CarService</span> 仅对签名应用开放 <span class="code">android.car</span> API（模块 28.1）</div></div></div></li>
+  </ul>
+  </li>
+</ul>
+</li>
+
+<!-- ===== 29. Soong 编译系统深化 ===== -->
+<li class="node lv1"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">29. Soong / Android.bp 构建系统深化 <span class="tag tag-missing">P1 补漏</span> <span class="tag tag-src">build/soong/ · external/blueprint/ · build/make/core/</span></span><div class="desc">实际开发中编译效率问题的高频踩坑区</div></div></div>
+<ul class="hidden">
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">29.1 Android.bp 核心模块类型 <span class="tag tag-src">build/soong/cc/ · build/soong/java/ · build/soong/genrule/</span></span></div></div>
+  <ul class="hidden">
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">C/C++ 模块</span><div class="desc"><span class="code">cc_binary</span>（可执行）· <span class="code">cc_library_shared/static</span>（动/静态库）· <span class="code">cc_library_headers</span>（头文件）· <span class="code">cc_library</span>（根据依赖自动选择 so/a）</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">Java 模块</span><div class="desc"><span class="code">java_library</span>（JAR）· <span class="code">java_sdk_library</span>（SDK 库）· <span class="code">java_platform_library</span>（platform api）· <span class="code">android_app</span>（APK）</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">AIDL 模块</span><div class="desc"><span class="code">aidl_interface</span>（NDK/Java/C++ 三端生成）· <span class="code">aidl_library</span>（旧）</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">特殊模块</span><div class="desc"><span class="code">genrule</span>（自定义命令）· <span class="code">prebuilt_etc</span>（预编译二进制）· <span class="code">overlay</span>（RRO）· <span class="code">soc_specific](vendor 等级) · <span class="code">vndk_ext</span></span></div></div></div></li>
+  </ul>
+  </li>
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">29.2 Soong 变量与条件编译 <span class="tag tag-new">补全</span></span></div></div>
+  <ul class="hidden">
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">变量定义</span><div class="desc"><span class="code">soong_namespace / soong_config / soong_variable</span>；<span class="code">board_soong_config</span> 跨 BoardConfig 传递</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">条件编译</span><div class="desc"><span class="code">arch: { arm: { ... }, x86: { ... } }</span>（架构）· <span class="code">apex_available</span>（APEX 可用）· <span class="code">product_variables</span>（产品变体）</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">编译标签</span><div class="desc"><span class="code">tags: ["optional", "tests"]</span> · <span class="code">compile_multilib: "both"</span>（32/64 位）· <span class="code">min_sdk_version</span></div></div></div></li>
+  </ul>
+  </li>
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">29.3 ninja 与缓存</span></div></div>
+  <ul class="hidden">
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">Ninja 构建文件</span><div class="desc"><span class="code">out/build-<product>.ninja</span>；<span class="code">ninja -f out/build-<product>.ninja</span> 直接运行；<span class="code">ninja -j N</span> 控制并行度</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">增量编译</span><div class="desc"><span class="code">ccache</span>（C/C++ 缓存）· <span class="code">CXX=ccache g++</span>；<span class="code">make -j$(nproc)</span> 并行上限</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">单模块加速</span><div class="desc"><span class="code">m SystemUI</span>（make）· <span class="code">mm</span>（当前目录）· <span class="code">mmm packages/apps/SystemUI</span>（指定目录）· 避免每次全编译</div></div></div></li>
+  </ul>
+  </li>
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">29.4 分区与镜像配置</span></div></div>
+  <ul class="hidden">
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">BoardConfig.mk 规划</span><div class="desc"><span class="code">TARGET_NO_BOOTLOADER</span> · <span class="code">BOARD_*_IMAGE_PARTITION_SIZE</span> · <span class="code">BOARD_DYNAMIC_PARTITIONS_ENABLE</span>（动态分区）</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">产品继承链</span><div class="desc">aosp_arm64.mk → device.mk → product.mk 按层级继承；<span class="code">PRODUCT_PACKAGES</span> 添加预装应用</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">Selinux 编译</span><div class="desc"><span class="code">BOARD_SEPOLICY_DIRS</span> 添加厂商策略目录；<span class="code">make sepolicy</span> 单独编译 SELinux 策略</div></div></div></li>
+  </ul>
+  </li>
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">29.5 常见编译报错 <span class="tag tag-flow">踩坑</span></span></div></div>
+  <ul class="hidden">
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">OOM / 资源不足</span><div class="desc">ninja 并行过高内存溢出 → 降 <span class="code">-j16</span>（E5-2697A v4 64G 用 -j32，见模块 19.3）；ccache 未开导致重复编译慢；out 分区磁盘满（<span class="code">df -h out</span>）</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">模块与依赖</span><div class="desc"><span class="code">Duplicate module name</span>（模块名冲突）· <span class="code">missing dependency</span>（Android.bp deps 缺项）· <span class="code">undefined reference</span>（link 库缺失，cc_library 加 shared_libs/static_libs）· <span class="code">has no module type</span>（类型拼写错误）</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">SELinux / VINTF 编译失败</span><div class="desc">neverallow 违反 → 编译中断（见模块 25.5）；<span class="code">BOARD_SEPOLICY_DIRS</span> 路径错误；VINTF 校验失败（manifest 声明与实现不符，见模块 14.4）；改 vendor 策略后 <span class="code">m sepolicy</span> 单编验证</div></div></div></li>
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">资源与工具链</span><div class="desc">aapt2 资源编译错误（资源名冲突/格式错）；D8/R8 混淆问题；Java 版本不匹配（AOSP 13+ 用 openjdk-17）；<span class="code">ninja: fatal</span> 多为磁盘/权限问题，先清理 <span class="code">out/.ninja_log</span> 重试</div></div></div></li>
+  </ul>
+  </li>
 </ul>
 </li>
 
