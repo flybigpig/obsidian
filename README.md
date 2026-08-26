@@ -3,6 +3,8 @@
 #### 介绍
 个人文档资料
 
+
+这是一个链接 [菜鸟教程](https://flybigpig.github.io/obsidian)
 #### 软件架构
 软件架构说明
 
