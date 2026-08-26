@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-<meta charset="UTF-8">
+<!-- saved from url=(0131)file:///C:/Users/YTO-02~1/AppData/Local/Temp/workbuddy-artifacts/0781c928-8803-424f-8579-63d8e24c5c7d/framework_knowledge_tree.html -->
+<html lang="zh-CN"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AOSP Framework 核心知识点树状图</title>
 <style>
@@ -217,32 +217,32 @@
 <ul class="tree" id="tree">
 
 <!-- ===== 1. 系统启动流程 ===== -->
-<li class="node lv1"><div class="row"><span class="toggle" onclick="toggleNode(this)">▼</span><div class="label"><span class="title">1. 系统启动流程 (Boot Flow) <span class="tag tag-src">system/core/init/ · frameworks/base/core/java/com/android/internal/os/ZygoteInit.java · frameworks/base/services/java/com/android/server/SystemServer.java</span></span><div class="desc">从 init 到系统服务就绪的完整链路，车载定制必读</div></div></div>
-<ul>
-  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▼</span><div class="label"><span class="title">1.1 Bootloader & Kernel 阶段</span></div></div>
-  <ul>
+<li class="node lv1"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">1. 系统启动流程 (Boot Flow) <span class="tag tag-src">system/core/init/ · frameworks/base/core/java/com/android/internal/os/ZygoteInit.java · frameworks/base/services/java/com/android/server/SystemServer.java</span></span><div class="desc">从 init 到系统服务就绪的完整链路，车载定制必读</div></div></div>
+<ul class="hidden">
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">1.1 Bootloader &amp; Kernel 阶段</span></div></div>
+  <ul class="hidden">
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">Bootloader (aboot/lk)</span><div class="desc">初始化硬件、加载 boot.img，传递 cmdline</div></div></div></li>
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">Kernel 启动</span><div class="desc">start_kernel → 初始化驱动模型、挂载 tmpfs、启动 init 进程 (PID 1)</div></div></div></li>
   </ul>
   </li>
-  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▼</span><div class="label"><span class="title">1.2 init 进程 <span class="tag tag-src">system/core/init</span></span></div></div>
-  <ul>
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">1.2 init 进程 <span class="tag tag-src">system/core/init</span></span></div></div>
+  <ul class="hidden">
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">First Stage Init</span><div class="desc">挂载 /system、/vendor 等分区，SELinux 编译策略加载</div></div></div></li>
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">Second Stage Init</span><div class="desc">解析 <span class="code">*.rc</span> 文件、启动属性服务、触发 <span class="code">on early-init / init / post-fs / boot</span></div></div></div></li>
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">关键 rc 文件</span><div class="desc"><span class="code">init.rc</span> · <span class="code">init.**.rc</span> · <span class="code">ueventd.rc</span> · <span class="code">vendor/odm</span> 自定义 rc</div></div></div></li>
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">服务启动 (Service)</span><div class="desc"><span class="code">service zygote / system/bin/app_process</span> · <span class="code">servicemanager</span> · <span class="code">surfaceflinger</span> · <span class="code">audioserver</span></div></div></div></li>
   </ul>
   </li>
-  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▼</span><div class="label"><span class="title">1.3 Zygote 孵化器 <span class="tag tag-src">frameworks/base/core/java/com/android/internal/os/ZygoteInit.java</span></span></div></div>
-  <ul>
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">1.3 Zygote 孵化器 <span class="tag tag-src">frameworks/base/core/java/com/android/internal/os/ZygoteInit.java</span></span></div></div>
+  <ul class="hidden">
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">ZygoteInit.main()</span><div class="desc">preloadClasses / preloadResources / preloadDrawables → 预加载公共资源</div></div></div></li>
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">forkSystemServer()</span><div class="desc">fork 出 SystemServer 进程，Zygote 自身进入 <span class="code">runSelectLoop()</span> 等待 fork 请求</div></div></div></li>
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">Zygote Fork 模型 <span class="tag tag-key">核心</span></span><div class="desc">App 进程通过 Socket 请求 Zygote fork，子进程继承预加载资源，避免每个 App 重复加载 → 启动加速</div></div></div></li>
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">Zygote Socket 通信 <span class="tag tag-new">补全</span></span><div class="desc">App 侧 <span class="code">ZygoteProcess.openZygoteSocketIfNeeded()</span> 建 LocalSocket → 传输 fork 参数（pid/uid/gids/capabilities/class）→ Zygote 侧 <span class="code">ZygoteConnection.runOnce()</span> 解析并 forkAndSpecialize</div></div></div></li>
   </ul>
   </li>
-  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▼</span><div class="label"><span class="title">1.4 SystemServer 进程入口 <span class="tag tag-src">frameworks/base/services/java/com/android/server/SystemServer.java</span></span></div></div>
-  <ul>
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">1.4 SystemServer 进程入口 <span class="tag tag-src">frameworks/base/services/java/com/android/server/SystemServer.java</span></span></div></div>
+  <ul class="hidden">
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">Zygote fork 后</span><div class="desc">ZygoteConnection → forkAndSpecialize → SystemServer.main()</div></div></div></li>
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">主线程初始化</span><div class="desc">Looper.prepareMainLooper → 创建 SystemContext → 加载 framework-res</div></div></div></li>
   </ul>
@@ -251,8 +251,8 @@
 </li>
 
 <!-- ===== 2. SystemServer 启动阶段 ===== -->
-<li class="node lv1"><div class="row"><span class="toggle" onclick="toggleNode(this)">▼</span><div class="label"><span class="title">2. SystemServer 启动阶段 <span class="tag tag-src">frameworks/base/services/java/com/android/server/SystemServer.java</span></span><div class="desc">SystemServer 服务注册与启动时序，决定核心服务何时就绪</div></div></div>
-<ul>
+<li class="node lv1"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">2. SystemServer 启动阶段 <span class="tag tag-src">frameworks/base/services/java/com/android/server/SystemServer.java</span></span><div class="desc">SystemServer 服务注册与启动时序，决定核心服务何时就绪</div></div></div>
+<ul class="hidden">
   <li class="node lv2"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">2.1 run() 入口</span><div class="desc">初始化 VM、加载库、创建 SystemContext、调用 startBootstrapServices 等</div></div></div></li>
   <li class="node lv2"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">2.2 startBootstrapServices()</span><div class="desc">引导服务：AMS、PowerMS、DisplayMS、PackageManagerService、SensorService</div></div></div></li>
   <li class="node lv2"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">2.3 startCoreServices()</span><div class="desc">核心服务：BatteryService、GpuStatsService 等</div></div></div></li>
@@ -263,11 +263,11 @@
 </li>
 
 <!-- ===== 3. AMS/ATMS/WMS/IMS/PMS 等 ===== -->
-<li class="node lv1"><div class="row"><span class="toggle" onclick="toggleNode(this)">▼</span><div class="label"><span class="title">3. AMS / ATMS / WMS / IMS / PMS 等核心服务 <span class="tag tag-key">核心</span> <span class="tag tag-src">frameworks/base/services/core/java/com/android/server/{am,wm,input,pm}/</span></span><div class="desc">Framework 四大支柱服务，均运行在 system_server 进程，全部基于 Binder 对外暴露</div></div></div>
-<ul>
+<li class="node lv1"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">3. AMS / ATMS / WMS / IMS / PMS 等核心服务 <span class="tag tag-key">核心</span> <span class="tag tag-src">frameworks/base/services/core/java/com/android/server/{am,wm,input,pm}/</span></span><div class="desc">Framework 四大支柱服务，均运行在 system_server 进程，全部基于 Binder 对外暴露</div></div></div>
+<ul class="hidden">
   <!-- AMS -->
-  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▼</span><div class="label"><span class="title">3.1 ActivityManagerService (AMS) <span class="tag tag-src">services/core/java/com/android/server/am/</span></span></div></div>
-  <ul>
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">3.1 ActivityManagerService (AMS) <span class="tag tag-src">services/core/java/com/android/server/am/</span></span></div></div>
+  <ul class="hidden">
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">职责</span><div class="desc">四大组件生命周期、进程调度、权限管理、内存回收 (LMK 联动)</div></div></div></li>
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">进程优先级 (oom_adj)</span><div class="desc">前台/可见/服务/缓存进程，配合 Low Memory Killer 回收</div></div></div></li>
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">Activity 启动流程 <span class="tag tag-flow">流程</span></span><div class="desc">startActivity → Instrumentation.execStartActivity → AMS.startActivity → ActivityStarter → ActivityStackSupervisor → Zygote fork → ActivityThread</div></div></div></li>
@@ -277,8 +277,8 @@
   </ul>
   </li>
   <!-- WMS -->
-  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▼</span><div class="label"><span class="title">3.2 WindowManagerService (WMS) <span class="tag tag-src">services/core/java/com/android/server/wm/</span></span></div></div>
-  <ul>
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">3.2 WindowManagerService (WMS) <span class="tag tag-src">services/core/java/com/android/server/wm/</span></span></div></div>
+  <ul class="hidden">
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">职责</span><div class="desc">窗口管理、Z 轴层级、焦点管理、动画、Surface 分配</div></div></div></li>
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">窗口核心方法</span><div class="desc"><span class="code">addWindow()</span> / <span class="code">relayoutWindow()</span> / <span class="code">removeWindow()</span> / <span class="code">performLayoutAndPlaceSurfacesLocked()</span></div></div></div></li>
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">窗口体系</span><div class="desc">WindowState → DisplayContent → <span class="code">Task.java</span> (<b>原 ActivityStack</b>，Android 11 重命名) → ActivityRecord → Token</div></div></div></li>
@@ -288,8 +288,8 @@
   </ul>
   </li>
   <!-- IMS -->
-  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▼</span><div class="label"><span class="title">3.3 InputManagerService (IMS) <span class="tag tag-src">services/core/java/com/android/server/input/</span></span></div></div>
-  <ul>
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">3.3 InputManagerService (IMS) <span class="tag tag-src">services/core/java/com/android/server/input/</span></span></div></div>
+  <ul class="hidden">
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">职责</span><div class="desc">输入设备监听、事件读取与分发、输入法窗口管理、按键策略</div></div></div></li>
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">native 层 <span class="tag tag-src">frameworks/native/services/inputflinger/</span></span><div class="desc">InputManager → EventHub (设备枚举) → InputReader (读/映射) → InputDispatcher (派发)</div></div></div></li>
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">事件分发流程 <span class="tag tag-flow">流程</span></span><div class="desc">驱动 /dev/input/eventX → EventHub → InputReader → InputDispatcher → 焦点 WindowState → View 树分发</div></div></div></li>
@@ -300,8 +300,8 @@
   </ul>
   </li>
   <!-- PMS -->
-  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▼</span><div class="label"><span class="title">3.4 PackageManagerService (PMS) <span class="tag tag-src">services/core/java/com/android/server/pm/</span></span></div></div>
-  <ul>
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">3.4 PackageManagerService (PMS) <span class="tag tag-src">services/core/java/com/android/server/pm/</span></span></div></div>
+  <ul class="hidden">
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">职责</span><div class="desc">APK 安装/卸载、包扫描、权限授予、组件解析</div></div></div></li>
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">安装流程 <span class="tag tag-flow">流程</span></span><div class="desc">PackageInstaller → PMS.installPackage → PackageManagerServiceUtils → dex2oat → 写入 /data/app</div></div></div></li>
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">扫描</span><div class="desc">开机扫描 /system/app、/data/app、/vendor/app，构建 PackageInfo 缓存</div></div></div></li>
@@ -309,8 +309,8 @@
   </ul>
   </li>
   <!-- 新增系统服务 -->
-  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▼</span><div class="label"><span class="title">3.5 新增系统服务（AIDL 实战） <span class="tag tag-new">新增</span> <span class="tag tag-src">services/core/java/com/android/server/</span></span></div></div>
-  <ul>
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">3.5 新增系统服务（AIDL 实战） <span class="tag tag-new">新增</span> <span class="tag tag-src">services/core/java/com/android/server/</span></span></div></div>
+  <ul class="hidden">
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">① 定义 AIDL</span><div class="desc"><span class="code">core/java/android/os/IMyService.aidl</span>，加 <span class="code">@hide</span>；公开 SDK 需去掉并 <span class="code">make update-api</span></div></div></div></li>
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">② 实现 Stub</span><div class="desc"><span class="code">MyService extends SystemService</span>，内部 <span class="code">IMyService.Stub</span> 实现；<span class="code">onStart()</span> 调 <span class="code">publishBinderService()</span></div></div></div></li>
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">③ 注册</span><div class="desc">SystemServer <span class="code">addService(Context.MY_SERVICE, mBinder)</span>；Context 加常量，ContextImpl 封装 manager</div></div></div></li>
@@ -323,16 +323,16 @@
 </li>
 
 <!-- ===== 4. Launcher 桌面系统 ===== -->
-<li class="node lv1"><div class="row"><span class="toggle" onclick="toggleNode(this)">▼</span><div class="label"><span class="title">4. Launcher 桌面系统 <span class="tag tag-src">packages/apps/Launcher3/</span></span><div class="desc">车载桌面定制重点</div></div></div>
-<ul>
-  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▼</span><div class="label"><span class="title">4.1 启动</span></div></div>
-  <ul>
+<li class="node lv1"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">4. Launcher 桌面系统 <span class="tag tag-src">packages/apps/Launcher3/</span></span><div class="desc">车载桌面定制重点</div></div></div>
+<ul class="hidden">
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">4.1 启动</span></div></div>
+  <ul class="hidden">
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">HOME Intent</span><div class="desc">AMS systemReady 后发送 CATEGORY_HOME Intent，匹配 Launcher Activity</div></div></div></li>
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">Launcher Application</span><div class="desc">LauncherApp extends BaseRuntimeApplication</div></div></div></li>
   </ul>
   </li>
-  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▼</span><div class="label"><span class="title">4.2 图标加载流程 <span class="tag tag-key">核心</span> <span class="tag tag-flow">流程</span></span></div></div>
-  <ul>
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">4.2 图标加载流程 <span class="tag tag-key">核心</span> <span class="tag tag-flow">流程</span></span></div></div>
+  <ul class="hidden">
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">LauncherAppsService</span><div class="desc">SystemUI 侧服务，按用户/Profile 返回已安装应用</div></div></div></li>
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">IconCache</span><div class="desc">缓存图标 + 标题，避免重复 Bitmap 解码</div></div></div></li>
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">Workspace/CellLayout</span><div class="desc">桌面格子布局，AllApps 列表，Hotseat</div></div></div></li>
@@ -345,10 +345,10 @@
 </li>
 
 <!-- ===== 5. 应用启动与运行时 ===== -->
-<li class="node lv1"><div class="row"><span class="toggle" onclick="toggleNode(this)">▼</span><div class="label"><span class="title">5. 应用启动与运行时 <span class="tag tag-src">frameworks/base/core/java/android/app/ActivityThread.java · art/ · frameworks/base/core/java/android/os/Handler.java</span></span></div></div>
-<ul>
-  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▼</span><div class="label"><span class="title">5.1 App 启动流程 <span class="tag tag-flow">流程</span></span></div></div>
-  <ul>
+<li class="node lv1"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">5. 应用启动与运行时 <span class="tag tag-src">frameworks/base/core/java/android/app/ActivityThread.java · art/ · frameworks/base/core/java/android/os/Handler.java</span></span></div></div>
+<ul class="hidden">
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">5.1 App 启动流程 <span class="tag tag-flow">流程</span></span></div></div>
+  <ul class="hidden">
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">阶段1: 请求</span><div class="desc">Context.startActivity → Instrumentation.execStartActivity → ActivityManager.getService().startActivity</div></div></div></li>
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">阶段2: AMS 处理</span><div class="desc">权限检查 → ActivityStarter → ActivityStackSupervisor → 创建 ActivityRecord</div></div></div></li>
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">阶段3: 进程创建</span><div class="desc">若进程不存在 → Process.start → ZygoteProcess.startViaZygote → Zygote fork</div></div></div></li>
@@ -356,8 +356,8 @@
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">阶段5: Activity 创建</span><div class="desc">LoadedApk.getClassLoader → Activity → onCreate → onResume</div></div></div></li>
   </ul>
   </li>
-  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▼</span><div class="label"><span class="title">5.2 ART 运行时 <span class="tag tag-src">art/</span></span></div></div>
-  <ul>
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">5.2 ART 运行时 <span class="tag tag-src">art/</span></span></div></div>
+  <ul class="hidden">
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">AOT/JIT 混合编译</span><div class="desc">dex2oat 预编译 + 运行时 JIT，profile 引导 (PGO)</div></div></div></li>
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">GC 与内存</span><div class="desc">Concurrent Mark-Sweep、Region-based (AOSP 14)</div></div></div></li>
   </ul>
@@ -367,48 +367,48 @@
 </li>
 
 <!-- ===== 6. 四大组件与核心类 ===== -->
-<li class="node lv1"><div class="row"><span class="toggle" onclick="toggleNode(this)">▼</span><div class="label"><span class="title">6. 四大组件与核心类 <span class="tag tag-key">核心</span> <span class="tag tag-src">frameworks/base/core/java/android/app/ · android/content/ · services/core/java/com/android/server/am/</span></span><div class="desc">Activity / Service / BroadcastReceiver / ContentProvider：客户端类 + 服务端记录对象 + 调用链路，全部由 AMS 统一调度</div></div></div>
-<ul>
-  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▼</span><div class="label"><span class="title">6.1 组件总览与进程模型 <span class="tag tag-new">补全</span></span></div></div>
-  <ul>
+<li class="node lv1"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">6. 四大组件与核心类 <span class="tag tag-key">核心</span> <span class="tag tag-src">frameworks/base/core/java/android/app/ · android/content/ · services/core/java/com/android/server/am/</span></span><div class="desc">Activity / Service / BroadcastReceiver / ContentProvider：客户端类 + 服务端记录对象 + 调用链路，全部由 AMS 统一调度</div></div></div>
+<ul class="hidden">
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">6.1 组件总览与进程模型 <span class="tag tag-new">补全</span></span></div></div>
+  <ul class="hidden">
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">Intent 解析</span><div class="desc">显式（ComponentName）/ 隐式（action/data/category，经 PMS resolveActivity 匹配）；跨进程调用全部走 Binder（见模块 7）</div></div></div></li>
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">进程模型</span><div class="desc">组件默认跑在宿主进程（<span class="code">android:process</span> 可拆分）；Provider 所在进程由 AMS 按需拉起并<b>强引用保活</b>；同 uid 可共享进程（sharedUserId 已弃用）</div></div></div></li>
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">调度中枢</span><div class="desc">四大组件生命周期均由 AMS/ATMS 统一调度（见模块 3），客户端经 ActivityThread 主线程回调</div></div></div></li>
   </ul>
   </li>
-  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▼</span><div class="label"><span class="title">6.2 Activity <span class="tag tag-src">frameworks/base/core/java/android/app/</span></span></div></div>
-  <ul>
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">6.2 Activity <span class="tag tag-src">frameworks/base/core/java/android/app/</span></span></div></div>
+  <ul class="hidden">
     <li class="node lv4"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">客户端核心类</span><div class="desc"><span class="code">Activity</span>（生命周期壳） · <span class="code">ActivityThread</span>（主线程，performLaunchActivity） · <span class="code">Instrumentation</span>（启动/监控入口） · <span class="code">ContextThemeWrapper</span> · <span class="code">ActivityClientRecord</span>（ActivityRecord 客户端镜像）</div></div></div></li>
     <li class="node lv4"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">服务端核心类 <span class="tag tag-src">services/core/java/com/android/server/wm/</span></span><div class="desc"><span class="code">ActivityRecord</span>（服务端镜像） · <span class="code">Task</span>（原 ActivityStack） · <span class="code">ActivityTaskManagerService(ATMS)</span> · <span class="code">ActivityStarter</span>（启动决策） · <span class="code">ActivityStackSupervisor</span></div></div></div></li>
     <li class="node lv4"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">生命周期状态机 <span class="tag tag-new">补全</span></span><div class="desc">onPause/onStop/onDestroy 由 AMS 经 <span class="code">H.PAUSE_ACTIVITY</span> 等消息驱动；<b>配置变更/旋转</b> → ActivityClientRecord 保存 NonConfigurationInstances；onSaveInstanceState 在 onStop 前调用；「不可见即停止」策略下后台 Activity 尽早 onStop</div></div></div></li>
     <li class="node lv4"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">关键链路 <span class="tag tag-flow">流程</span></span><div class="desc">startActivity → ATMS.startActivity → ActivityStarter → ActivityRecord/Task → <span class="code">H.LAUNCH_ACTIVITY</span> → ActivityThread.performLaunchActivity → onCreate</div></div></div></li>
   </ul>
   </li>
-  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▼</span><div class="label"><span class="title">6.3 Service <span class="tag tag-src">frameworks/base/core/java/android/app/ · services/core/java/com/android/server/am/</span></span></div></div>
-  <ul>
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">6.3 Service <span class="tag tag-src">frameworks/base/core/java/android/app/ · services/core/java/com/android/server/am/</span></span></div></div>
+  <ul class="hidden">
     <li class="node lv4"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">客户端核心类</span><div class="desc"><span class="code">Service</span> · <span class="code">ServiceConnection</span>（onServiceConnected 回调） · <span class="code">ContextImpl.bindService()</span> · <span class="code">LoadedApk.ServiceDispatcher</span></div></div></div></li>
     <li class="node lv4"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">服务端核心类</span><div class="desc"><span class="code">ActiveServices</span>（服务生命周期管理者） · <span class="code">ServiceRecord</span>（服务端镜像） · <span class="code">ConnectionRecord</span>（绑定记录） · <span class="code">ProcessRecord</span></div></div></div></li>
     <li class="node lv4"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">前台服务 <span class="tag tag-new">补全</span></span><div class="desc"><span class="code">startForeground()</span> + FGS 通知；<b>Android 12+ 前台服务启动限制</b>（后台不可随意启 FGS）、Android 14 前台服务类型（dataSync/connectedDevice 等）与运行时权限要求</div></div></div></li>
     <li class="node lv4"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">关键链路 <span class="tag tag-flow">流程</span></span><div class="desc">startService → AMS.startService → ActiveServices.startServiceLocked → <span class="code">H.CREATE_SERVICE</span> → Service.onCreate；bind 走 ConnectionRecord，Service 与调用者同进程/同优先级</div></div></div></li>
   </ul>
   </li>
-  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▼</span><div class="label"><span class="title">6.4 BroadcastReceiver <span class="tag tag-src">frameworks/base/core/java/android/content/ · services/core/java/com/android/server/am/</span></span></div></div>
-  <ul>
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">6.4 BroadcastReceiver <span class="tag tag-src">frameworks/base/core/java/android/content/ · services/core/java/com/android/server/am/</span></span></div></div>
+  <ul class="hidden">
     <li class="node lv4"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">客户端核心类</span><div class="desc"><span class="code">BroadcastReceiver</span> · <span class="code">ContextImpl.registerReceiver()</span> · <span class="code">InnerReceiver</span>（动态注册的 Binder 回调） · <span class="code">IntentReceiver</span></div></div></div></li>
     <li class="node lv4"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">服务端核心类</span><div class="desc"><span class="code">BroadcastQueue</span>（fifo/background 两队列） · <span class="code">BroadcastRecord</span> · <span class="code">ReceiverList</span> · <span class="code">AMS.broadcastIntentLocked()</span></div></div></div></li>
     <li class="node lv4"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">注册与分发</span><div class="desc">动态（registerReceiver）/ 静态（Manifest 由 PMS 解析）；有序广播串行、无序并发投递；<b>10s 超时 ANR</b>（onReceive 主线程勿耗时）</div></div></div></li>
     <li class="node lv4"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">版本限制 <span class="tag tag-new">补全</span></span><div class="desc">Android 8+ 隐式广播静态注册受限（白名单外须动态注册）；后台执行限制（setBackgroundExecutionPolicy）；车载场景用动态注册监听开机/网络/电源广播</div></div></div></li>
   </ul>
   </li>
-  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▼</span><div class="label"><span class="title">6.5 ContentProvider <span class="tag tag-src">frameworks/base/core/java/android/content/ · services/core/java/com/android/server/am/</span></span></div></div>
-  <ul>
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">6.5 ContentProvider <span class="tag tag-src">frameworks/base/core/java/android/content/ · services/core/java/com/android/server/am/</span></span></div></div>
+  <ul class="hidden">
     <li class="node lv4"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">客户端核心类</span><div class="desc"><span class="code">ContentProvider</span> · <span class="code">ContentResolver</span>（query/insert/update/delete） · <span class="code">IContentProvider</span>（Binder 接口） · <span class="code">ContentProviderClient</span></div></div></div></li>
     <li class="node lv4"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">服务端核心类</span><div class="desc"><span class="code">ContentProviderRecord</span> · <span class="code">ProviderMap</span>（AMS 按 authority 索引） · <span class="code">ContentProviderConnection</span>（引用计数/进程保活）</div></div></div></li>
     <li class="node lv4"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">关键链路 <span class="tag tag-flow">流程</span></span><div class="desc">App 进程启动 → ActivityThread.<span class="code">installContentProviders()</span> → AMS.publishContentProviders → acquireProvider/getContentProvider → CRUD；provider 所在进程被强引用保活</div></div></div></li>
   </ul>
   </li>
-  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▼</span><div class="label"><span class="title">6.6 组件间协作模式 <span class="tag tag-new">补全</span></span></div></div>
-  <ul>
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">6.6 组件间协作模式 <span class="tag tag-new">补全</span></span></div></div>
+  <ul class="hidden">
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">常用协作</span><div class="desc">显式/隐式 Intent · bindService 返回 IBinder（AIDL 接口）· Provider CRUD 共享数据 · 系统广播（开机完成/网络变化/电量）监听</div></div></div></li>
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">车载定制场景</span><div class="desc">跨进程 Service + AIDL 封装车控能力；Provider 承载车辆状态数据；注意广播过多 → 用队列合并或 LiveData/Flow 替代</div></div></div></li>
   </ul>
@@ -416,18 +416,18 @@
 </ul>
 </li>
 <!-- ===== 7. Binder IPC ===== -->
-<li class="node lv1"><div class="row"><span class="toggle" onclick="toggleNode(this)">▼</span><div class="label"><span class="title">7. Binder IPC 机制 <span class="tag tag-key">核心</span> <span class="tag tag-src">frameworks/base/core/java/android/os/Binder.java · frameworks/native/libs/binder/ · drivers/android/binder.c · frameworks/native/cmds/servicemanager/</span></span><div class="desc">Android 全系统进程通信基石，WMS/AMS/PMS 全部基于 Binder</div></div></div>
-<ul>
-  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▼</span><div class="label"><span class="title">7.1 Binder 架构分层 <span class="tag tag-flow">分层</span></span></div></div>
-  <ul>
+<li class="node lv1"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">7. Binder IPC 机制 <span class="tag tag-key">核心</span> <span class="tag tag-src">frameworks/base/core/java/android/os/Binder.java · frameworks/native/libs/binder/ · drivers/android/binder.c · frameworks/native/cmds/servicemanager/</span></span><div class="desc">Android 全系统进程通信基石，WMS/AMS/PMS 全部基于 Binder</div></div></div>
+<ul class="hidden">
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">7.1 Binder 架构分层 <span class="tag tag-flow">分层</span></span></div></div>
+  <ul class="hidden">
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">应用层</span><div class="desc">AIDL/Stub/Proxy 自动生成，面向业务</div></div></div></li>
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">Framework 层 <span class="tag tag-src">frameworks/base/core/java/android/os/Binder.java / IBinder</span></span><div class="desc">Java 层 Binder 封装</div></div></div></li>
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">Lib 层 <span class="tag tag-src">frameworks/native/libs/binder</span></span><div class="desc">C++ Binder 运行库 (BpBinder/Binder)</div></div></div></li>
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">内核驱动 <span class="tag tag-src">drivers/android/binder.c</span></span><div class="desc">/dev/binder 字符设备，内核态完成数据拷贝</div></div></div></li>
   </ul>
   </li>
-  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▼</span><div class="label"><span class="title">7.2 Binder 通信原理 <span class="tag tag-key">核心</span></span></div></div>
-  <ul>
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">7.2 Binder 通信原理 <span class="tag tag-key">核心</span></span></div></div>
+  <ul class="hidden">
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">一次拷贝</span><div class="desc">binder_open → mmap 映射内核空间与用户空间共享内存，数据只需一次 copy_from_user</div></div></div></li>
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">ServiceManager (servicemanager)</span><div class="desc">Context Manager (句柄 0)，服务注册/查询中枢 <span class="code">frameworks/native/cmds/servicemanager</span></div></div></div></li>
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">通信流程 <span class="tag tag-flow">流程</span></span><div class="desc">Client → ioctl(BINDER_WRITE_READ) → 内核 binder_thread → 拷贝到目标 mmap 区 → 目标进程唤醒处理</div></div></div></li>
@@ -436,8 +436,8 @@
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">oneway 与事务上限 <span class="tag tag-new">补全</span> <span class="tag tag-flow">踩坑</span></span><div class="desc">oneway 异步调用不阻塞（driver 队列），不保证顺序；<b>单事务上限 ~1MB</b>，超限抛 <span class="code">TransactionTooLargeException</span>（车载传大图/长列表高频踩坑 → 改 file/socket 或分片）</div></div></div></li>
   </ul>
   </li>
-  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▼</span><div class="label"><span class="title">7.3 AIDL 接口</span></div></div>
-  <ul>
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">7.3 AIDL 接口</span></div></div>
+  <ul class="hidden">
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">AIDL 文件</span><div class="desc">.aidl 定义 → 编译生成 Stub/Proxy，Stub.onTransact + Proxy 调用</div></div></div></li>
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">Stable AIDL <span class="tag tag-hal">HAL</span></span><div class="desc">AOSP 11+ 稳定 AIDL，支持版本化、用于 HAL，<span class="code">aidl_interface</span> 模块</div></div></div></li>
   </ul>
@@ -447,45 +447,45 @@
 </li>
 
 <!-- ===== 8. Linux Kernel Binder 驱动 (binder.c) ===== -->
-<li class="node lv1"><div class="row"><span class="toggle" onclick="toggleNode(this)">▼</span><div class="label"><span class="title">8. Linux Kernel Binder 驱动 (binder.c) <span class="tag tag-key">核心</span> <span class="tag tag-src">drivers/android/binder.c · binder_alloc.c</span></span><div class="desc">Binder IPC 的内核实现：一次拷贝、事务协议、节点/引用/死亡通知（与模块 7 框架层互补）</div></div></div>
-<ul>
-  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▼</span><div class="label"><span class="title">8.1 驱动架构</span></div></div>
-  <ul>
+<li class="node lv1"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">8. Linux Kernel Binder 驱动 (binder.c) <span class="tag tag-key">核心</span> <span class="tag tag-src">drivers/android/binder.c · binder_alloc.c</span></span><div class="desc">Binder IPC 的内核实现：一次拷贝、事务协议、节点/引用/死亡通知（与模块 7 框架层互补）</div></div></div>
+<ul class="hidden">
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">8.1 驱动架构</span></div></div>
+  <ul class="hidden">
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">源码布局</span><div class="desc"><span class="code">drivers/android/binder.c</span>（核心）· <span class="code">binder_alloc.c</span>（mmap 内存管理）· <span class="code">binderfs</span>（binderfs 设备节点，AOSP 12+）</div></div></div></li>
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">多设备节点</span><div class="desc"><span class="code">/dev/binder</span>（system 域）· <span class="code">/dev/hwbinder</span>（HAL）· <span class="code">/dev/vndbinder</span>（vendor），同一驱动多实例，selinux 按节点隔离（见模块 15）</div></div></div></li>
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">职责</span><div class="desc">跨进程数据拷贝、进程/线程记账、节点引用管理、死亡通知；内核态无锁热路径 binder_thread_lock</div></div></div></li>
   </ul>
   </li>
-  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▼</span><div class="label"><span class="title">8.2 核心数据结构 <span class="tag tag-src">include/uapi/linux/android/binder.h</span></span></div></div>
-  <ul>
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">8.2 核心数据结构 <span class="tag tag-src">include/uapi/linux/android/binder.h</span></span></div></div>
+  <ul class="hidden">
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">进程/线程</span><div class="desc"><span class="code">binder_proc</span>（进程对象，含 mmap 区与节点表）· <span class="code">binder_thread</span>（线程事务上下文 + todo 队列）</div></div></div></li>
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">实体/引用</span><div class="desc"><span class="code">binder_node</span>（服务端实体，含强弱引用）· <span class="code">binder_ref</span>（客户端引用，含 handle）· <span class="code">binder_object</span>/<span class="code">flat_binder_object</span>（事务内对象编解码）</div></div></div></li>
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">事务/缓冲</span><div class="desc"><span class="code">binder_transaction</span>（事务记录）· <span class="code">binder_buffer</span>（mmap 缓冲块分配）· <span class="code">binder_transaction_log</span>（调试日志）</div></div></div></li>
   </ul>
   </li>
-  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▼</span><div class="label"><span class="title">8.3 mmap 与一次拷贝 <span class="tag tag-key">核心</span> <span class="tag tag-flow">原理</span></span></div></div>
-  <ul>
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">8.3 mmap 与一次拷贝 <span class="tag tag-key">核心</span> <span class="tag tag-flow">原理</span></span></div></div>
+  <ul class="hidden">
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">binder_mmap</span><div class="desc">服务进程 mmap 一段虚拟区，内核映射到同一物理页（默认 8 页起步、事务区上限约 1MB）→ 发送方仅一次 copy_from_user 写入，接收方直接读取，无需二次拷贝</div></div></div></li>
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">缓冲区分配</span><div class="desc"><span class="code">binder_alloc_new_buf</span> 从 mmap 区分配，最佳适配/首次适配策略；<span class="code">/proc/binder</span>（旧）/ <span class="code">/sys/kernel/debug/binder</span>（新）看统计</div></div></div></li>
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">大小限制</span><div class="desc">单事务数据上限 ~1MB（BINDER_MAX_TRANSACTION_SIZE）；超限抛 TransactionTooLargeException（见模块 7）</div></div></div></li>
   </ul>
   </li>
-  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▼</span><div class="label"><span class="title">8.4 通信流程与协议码 <span class="tag tag-flow">流程</span></span></div></div>
-  <ul>
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">8.4 通信流程与协议码 <span class="tag tag-flow">流程</span></span></div></div>
+  <ul class="hidden">
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">ioctl 入口</span><div class="desc"><span class="code">BINDER_WRITE_READ</span> 双向读写（主要入口）· BINDER_SET_CONTEXT_MGR（servicemanager 注册）· BINDER_SET_MAX_THREADS · BINDER_VERSION</div></div></div></li>
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">BC/BR 协议</span><div class="desc">客户端下发 <span class="code">BC_TRANSACTION / BC_REPLY / BC_FREE_BUFFER / BC_ACQUIRE</span>；服务端收到 <span class="code">BR_TRANSACTION / BR_REPLY / BR_DEAD_BINDER</span>；<span class="code">binder_thread_read</span> 阻塞等待 todo</div></div></div></li>
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">oneway 与递归</span><div class="desc">oneway 事务入队即返回（不等待回复）；同步调用递归/重入由内核按线程栈约束（binder 事务深度限制）</div></div></div></li>
   </ul>
   </li>
-  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▼</span><div class="label"><span class="title">8.5 节点/引用/死亡通知</span></div></div>
-  <ul>
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">8.5 节点/引用/死亡通知</span></div></div>
+  <ul class="hidden">
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">引用计数</span><div class="desc">binder_node 强弱引用（BC_INCREFS/BC_ACQUIRE），binder_ref 对应客户端 handle 生命周期</div></div></div></li>
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">死亡通知</span><div class="desc"><span class="code">BC_REQUEST_DEATH_NOTIFICATION</span> 注册 → 服务进程死亡时内核发 <span class="code">BR_DEAD_BINDER</span> 回调（linkToDeath），App 据此感知远端崩溃</div></div></div></li>
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">进程退出清理</span><div class="desc"><span class="code">binder_release</span> 遍历节点/引用释放，通知所有死亡监听者；孤儿事务清理</div></div></div></li>
   </ul>
   </li>
-  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▼</span><div class="label"><span class="title">8.6 调试与安全</span></div></div>
-  <ul>
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">8.6 调试与安全</span></div></div>
+  <ul class="hidden">
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">内核调试</span><div class="desc"><span class="code">/sys/kernel/debug/binder/stats</span>（proc/thread/node/ref 统计）· <span class="code">transaction_log/failed_transaction_log</span> · <span class="code">dmesg | grep binder</span></div></div></div></li>
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">安全</span><div class="desc">selinux 对 binder 调用的域许可（binder_call/binder_transfer）；neverallow 约束跨域通信（见模块 15）；Android 内核配置 CONFIG_ANDROID_BINDER_IPC / CONFIG_BINDERFS</div></div></div></li>
   </ul>
@@ -493,23 +493,23 @@
 </ul>
 </li>
 <!-- ===== 9. native 系统服务（C++ 侧） ===== -->
-<li class="node lv1"><div class="row"><span class="toggle" onclick="toggleNode(this)">▼</span><div class="label"><span class="title">9. native 系统服务（C++ 侧） <span class="tag tag-src">frameworks/native/services/ · system/core/ · system/vold/ · system/netd/</span></span><div class="desc">独立进程的 C++ 系统服务，经 libbinder 注册到 servicemanager，承载文件/网络/媒体/内存等底层能力</div></div></div>
-<ul>
-  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▼</span><div class="label"><span class="title">9.1 服务形态与启动</span></div></div>
-  <ul>
+<li class="node lv1"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">9. native 系统服务（C++ 侧） <span class="tag tag-src">frameworks/native/services/ · system/core/ · system/vold/ · system/netd/</span></span><div class="desc">独立进程的 C++ 系统服务，经 libbinder 注册到 servicemanager，承载文件/网络/媒体/内存等底层能力</div></div></div>
+<ul class="hidden">
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">9.1 服务形态与启动</span></div></div>
+  <ul class="hidden">
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">独立进程</span><div class="desc">运行在各自进程（非 system_server），由 init.rc <span class="code">service</span> 定义拉起，native Binder (libbinder) 对外</div></div></div></li>
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">典型服务清单</span><div class="desc"><span class="code">servicemanager</span> · <span class="code">surfaceflinger</span> · <span class="code">audioserver</span> · <span class="code">mediaserver/media</span> · <span class="code">vold</span> · <span class="code">installd</span> · <span class="code">netd</span> · <span class="code">lmkd</span> · <span class="code">logd</span> · <span class="code">ueventd</span></div></div></div></li>
   </ul>
   </li>
-  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▼</span><div class="label"><span class="title">9.2 注册与通信 <span class="tag tag-key">核心</span></span></div></div>
-  <ul>
-    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">注册</span><div class="desc"><span class="code">defaultServiceManager()->addService()</span>（IServiceManager），经 servicemanager 分发（见模块 7）</div></div></div></li>
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">9.2 注册与通信 <span class="tag tag-key">核心</span></span></div></div>
+  <ul class="hidden">
+    <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">注册</span><div class="desc"><span class="code">defaultServiceManager()-&gt;addService()</span>（IServiceManager），经 servicemanager 分发（见模块 7）</div></div></div></li>
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">libbinder 封装</span><div class="desc"><span class="code">ProcessState::self()</span> 打开 /dev/binder + mmap 一次拷贝；<span class="code">IPCThreadState</span> 驱动收发；<span class="code">BinderService&lt;T&gt;</span> 模板统一注册模式</div></div></div></li>
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">AIDL C++ 侧</span><div class="desc">aidl_interface 生成 C++ Proxy/Stub，native 服务间通信与 Java 层同构</div></div></div></li>
   </ul>
   </li>
-  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▼</span><div class="label"><span class="title">9.3 关键服务职责</span></div></div>
-  <ul>
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">9.3 关键服务职责</span></div></div>
+  <ul class="hidden">
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">vold</span><div class="desc">卷/存储挂载与加密（FBE / metadata），PMS 安装 APK 依赖其挂载态</div></div></div></li>
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">installd</span><div class="desc">APK 安装/删除、dex2oat、App 数据目录的<b>实际执行者</b>：system_server 无权限直改 /data，经 Binder 委派</div></div></div></li>
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">lmkd</span><div class="desc">Low Memory Killer 守护进程，消费 AMS 下发的 oom_adj 内存阈值，触发杀进程（见模块 3）</div></div></div></li>
@@ -522,36 +522,36 @@
 </ul>
 </li>
 <!-- ===== 10. java 系统服务（system_server） ===== -->
-<li class="node lv1"><div class="row"><span class="toggle" onclick="toggleNode(this)">▼</span><div class="label"><span class="title">10. java 系统服务（system_server） <span class="tag tag-src">frameworks/base/services/core/java/com/android/server/</span></span><div class="desc">运行在 system_server 的 Java 服务体系：注册机制、生命周期、阶段回调</div></div></div>
-<ul>
-  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▼</span><div class="label"><span class="title">10.1 体系总览</span></div></div>
-  <ul>
+<li class="node lv1"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">10. java 系统服务（system_server） <span class="tag tag-src">frameworks/base/services/core/java/com/android/server/</span></span><div class="desc">运行在 system_server 的 Java 服务体系：注册机制、生命周期、阶段回调</div></div></div>
+<ul class="hidden">
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">10.1 体系总览</span></div></div>
+  <ul class="hidden">
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">单进程多服务</span><div class="desc">全部运行于 system_server，SystemServer.java 按 bootstrap/core/other 三阶段注册（见模块 2）</div></div></div></li>
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">核心服务</span><div class="desc">AMS / ATMS / WMS / IMS / PMS 等组件管理服务（见模块 3）</div></div></div></li>
   </ul>
   </li>
-  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▼</span><div class="label"><span class="title">10.2 注册与获取 <span class="tag tag-flow">流程</span></span></div></div>
-  <ul>
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">10.2 注册与获取 <span class="tag tag-flow">流程</span></span></div></div>
+  <ul class="hidden">
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">服务端注册</span><div class="desc"><span class="code">ServiceManager.addService(name, binder)</span> 或 SystemService.<span class="code">publishBinderService()</span></div></div></div></li>
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">客户端获取</span><div class="desc"><span class="code">Context.getSystemService()</span> → <span class="code">ServiceManager.getService()</span> → <span class="code">asInterface()</span>（见模块 7）</div></div></div></li>
   </ul>
   </li>
-  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▼</span><div class="label"><span class="title">10.3 SystemService 生命周期 <span class="tag tag-key">核心</span></span></div></div>
-  <ul>
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">10.3 SystemService 生命周期 <span class="tag tag-key">核心</span></span></div></div>
+  <ul class="hidden">
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">抽象方法</span><div class="desc"><span class="code">onStart()</span> 注册 · <span class="code">onBootPhase(int)</span> 阶段回调 · <span class="code">onUserStarting/onUserUnlocking</span></div></div></div></li>
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">BOOT_PHASE 枚举</span><div class="desc"><span class="code">PHASE_WAIT_FOR_DEFAULT_DISPLAY</span> → <span class="code">PHASE_LOCK_SETTINGS_READY</span> → <span class="code">PHASE_SYSTEM_SERVICES_READY</span> → <span class="code">PHASE_ACTIVITY_MANAGER_READY</span> → <span class="code">PHASE_BOOT_COMPLETED</span></div></div></div></li>
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">时序价值</span><div class="desc">跨服务依赖必须挂在对应 Phase：如 WMS 依赖 Display 就绪、SystemUI 等 PHASE_BOOT_COMPLETED</div></div></div></li>
   </ul>
   </li>
-  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▼</span><div class="label"><span class="title">10.4 服务分类</span></div></div>
-  <ul>
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">10.4 服务分类</span></div></div>
+  <ul class="hidden">
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">组件管理类</span><div class="desc">AMS / ATMS / WMS / IMS / PMS / NMS（见模块 3）</div></div></div></li>
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">功能服务类</span><div class="desc">ConnectivityService · BatteryService · NotificationManagerService · AudioService · LocationManagerService · UsbService · PowerManagerService</div></div></div></li>
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">系统安全类</span><div class="desc">MountService（vold 的 Java 侧）· DevicePolicyManagerService · UserManagerService · DeviceIdleController</div></div></div></li>
   </ul>
   </li>
-  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▼</span><div class="label"><span class="title">10.5 定制与排障 <span class="tag tag-flow">踩坑</span></span></div></div>
-  <ul>
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">10.5 定制与排障 <span class="tag tag-flow">踩坑</span></span></div></div>
+  <ul class="hidden">
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">新增 Java 服务</span><div class="desc">五步链路见模块 3.5；onBootPhase 时序错乱是定制高频坑（服务间互相等不到）</div></div></div></li>
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">Watchdog</span><div class="desc">system_server 主线程/关键线程超时（默认 60s）→ Watchdog 杀 system_server 触发重启，logcat 查 <span class="code">WATCHDOG KILLING SYSTEM PROCESS</span></div></div></div></li>
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">状态查看</span><div class="desc"><span class="code">dumpsys -l</span> 列全部服务 · <span class="code">dumpsys activity</span> 看服务注册 · binder 代理泄漏（oom_adj 高但内存持续涨）</div></div></div></li>
@@ -560,23 +560,23 @@
 </ul>
 </li>
 <!-- ===== 11. 自定义 View 与绘制体系 ===== -->
-<li class="node lv1"><div class="row"><span class="toggle" onclick="toggleNode(this)">▼</span><div class="label"><span class="title">11. 自定义 View 与绘制体系 <span class="tag tag-new">新增</span> <span class="tag tag-src">frameworks/base/core/java/android/view/</span></span><div class="desc">UI 渲染栈核心：measure/layout/draw 三部曲与帧调度</div></div></div>
-<ul>
-  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▼</span><div class="label"><span class="title">11.1 绘制三部曲</span></div></div>
-  <ul>
+<li class="node lv1"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">11. 自定义 View 与绘制体系 <span class="tag tag-new">新增</span> <span class="tag tag-src">frameworks/base/core/java/android/view/</span></span><div class="desc">UI 渲染栈核心：measure/layout/draw 三部曲与帧调度</div></div></div>
+<ul class="hidden">
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">11.1 绘制三部曲</span></div></div>
+  <ul class="hidden">
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">onMeasure()</span><div class="desc">确定大小；<b>只有 ViewGroup 需要 onLayout</b>，普通 View 只做首尾两步</div></div></div></li>
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">onLayout()</span><div class="desc">确定子 View 位置（仅 ViewGroup）</div></div></div></li>
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">onDraw()</span><div class="desc">用 Canvas + Paint 绘制内容；Hardware Layer / 软件绘制切换</div></div></div></li>
   </ul>
   </li>
-  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▼</span><div class="label"><span class="title">11.2 驱动入口与帧调度 <span class="tag tag-key">核心</span></span></div></div>
-  <ul>
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">11.2 驱动入口与帧调度 <span class="tag tag-key">核心</span></span></div></div>
+  <ul class="hidden">
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">ViewRootImpl.performTraversals()</span><div class="desc">requestLayout()/invalidate() 最终汇聚于此，统一触发 measure/layout/draw</div></div></div></li>
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">Choreographer + VSync</span><div class="desc">下一个 vsync 信号触发遍历，受 <b>16.6ms (60Hz)</b> 帧预算约束</div></div></div></li>
   </ul>
   </li>
-  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▼</span><div class="label"><span class="title">11.3 MeasureSpec 契约</span></div></div>
-  <ul>
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">11.3 MeasureSpec 契约</span></div></div>
+  <ul class="hidden">
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">mode(2bit)+size(30bit)</span><div class="desc">打包成 int；子 View 的 Spec 由「父 Spec + 自身 LayoutParams」经 <span class="code">getChildMeasureSpec()</span> 推导</div></div></div></li>
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">三种 mode</span><div class="desc">EXACTLY (确定) / AT_MOST (wrap) / UNSPECIFIED (滚动容器)；wrap_content 必须自行处理</div></div></div></li>
   </ul>
@@ -588,10 +588,10 @@
 </li>
 
 <!-- ===== 12. 显示与图形系统 ===== -->
-<li class="node lv1"><div class="row"><span class="toggle" onclick="toggleNode(this)">▼</span><div class="label"><span class="title">12. 显示与图形系统 <span class="tag tag-src">frameworks/native/services/surfaceflinger/ · frameworks/base/graphics/java/android/graphics/</span></span></div></div>
-<ul>
-  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▼</span><div class="label"><span class="title">12.1 SurfaceFlinger <span class="tag tag-src">frameworks/native/services/surfaceflinger/</span></span></div></div>
-  <ul>
+<li class="node lv1"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">12. 显示与图形系统 <span class="tag tag-src">frameworks/native/services/surfaceflinger/ · frameworks/base/graphics/java/android/graphics/</span></span></div></div>
+<ul class="hidden">
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">12.1 SurfaceFlinger <span class="tag tag-src">frameworks/native/services/surfaceflinger/</span></span></div></div>
+  <ul class="hidden">
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">职责</span><div class="desc">合成各 Layer → 输出到屏幕，BufferQueue 生产者/消费者模型</div></div></div></li>
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">VSYNC</span><div class="desc">垂直同步信号驱动绘制/合成/显示三阶段 (Choreographer)</div></div></div></li>
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">HWComposer 与掉帧排查 <span class="tag tag-new">补全</span> <span class="tag tag-flow">踩坑</span></span><div class="desc">HWC2 决策（GPU 合成 vs 硬件合成）；<span class="code">dumpsys SurfaceFlinger</span> 看帧率/掉帧/jank 统计；SF 主线程卡顿会触发 dumpsys 超时（车载踩坑：dumpsys SurfaceFlinger 卡住 → 查 VSYNC/合成负载/内存）</div></div></div></li>
@@ -604,17 +604,17 @@
 </li>
 
 <!-- ===== 13. SystemUI 与 Launcher 定制（原 13 前移） ===== -->
-<li class="node lv1"><div class="row"><span class="toggle" onclick="toggleNode(this)">▼</span><div class="label"><span class="title">13. SystemUI 与 Launcher 定制 <span class="tag tag-src">packages/apps/SystemUI/ · packages/apps/Launcher3/</span></span><div class="desc">车载/工控整机 UI 定制核心，状态栏、导航栏、通知面板、车机桌面</div></div></div>
-<ul>
-  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▼</span><div class="label"><span class="title">13.1 SystemUI 启动 <span class="tag tag-flow">流程</span></span></div></div>
-  <ul>
+<li class="node lv1"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">13. SystemUI 与 Launcher 定制 <span class="tag tag-src">packages/apps/SystemUI/ · packages/apps/Launcher3/</span></span><div class="desc">车载/工控整机 UI 定制核心，状态栏、导航栏、通知面板、车机桌面</div></div></div>
+<ul class="hidden">
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">13.1 SystemUI 启动 <span class="tag tag-flow">流程</span></span></div></div>
+  <ul class="hidden">
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">SystemUIService</span><div class="desc">由 AMS/systemReady 拉起，onCreate → startServicesIfNeeded() 反射加载各组件</div></div></div></li>
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">CoreStartable <span class="tag tag-new">补全</span></span><div class="desc">AOSP 12+ 启动抽象，各组件实现 CoreStartable，依赖注入统一启动</div></div></div></li>
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">车载 CarSystemUI</span><div class="desc"><span class="code">packages/apps/Car/SystemUI</span>，继承 SystemUI，叠加车机专属组件</div></div></div></li>
   </ul>
   </li>
-  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▼</span><div class="label"><span class="title">13.2 关键组件</span></div></div>
-  <ul>
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">13.2 关键组件</span></div></div>
+  <ul class="hidden">
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">CentralSurfaces <span class="tag tag-new">补全</span></span><div class="desc">状态栏实现类，<b>Android 12+ 由 StatusBar 重命名为 CentralSurfacesImpl</b></div></div></div></li>
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">NavigationBar / QSPanel</span><div class="desc">导航栏 (NavigationBarController) · 通知面板 · 快捷设置 (QSTileHost)</div></div></div></li>
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">Keyguard / 锁屏</span><div class="desc">KeyguardService/Bouncer，车载常定制为无锁或一键解锁</div></div></div></li>
@@ -622,15 +622,15 @@
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">NotificationManagerService 联动</span><div class="desc">SystemUI 作为通知前端，NMS 经 Binder 推送通知给 SystemUI</div></div></div></li>
   </ul>
   </li>
-  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▼</span><div class="label"><span class="title">13.3 车载定制要点</span></div></div>
-  <ul>
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">13.3 车载定制要点</span></div></div>
+  <ul class="hidden">
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">多屏 / 分屏</span><div class="desc">主驾屏 / 副驾屏 / 仪表屏，Display 区分屏显示 SystemUI 实例</div></div></div></li>
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">车辆快捷集成</span><div class="desc">QS 磁贴接入 CarPowerManager / HVAC / 车辆设置，调用 VHAL 属性</div></div></div></li>
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">资源覆盖</span><div class="desc">overlay (RRO) 或 device 目录 overlay 定制状态栏高度、图标、布局</div></div></div></li>
   </ul>
   </li>
-  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▼</span><div class="label"><span class="title">13.4 Launcher3 定制</span></div></div>
-  <ul>
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">13.4 Launcher3 定制</span></div></div>
+  <ul class="hidden">
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">布局定制</span><div class="desc">Workspace/CellLayout 行列数、Hotseat、AllApps、默认桌面 Widget</div></div></div></li>
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">车载首页</span><div class="desc">默认预置车控、导航、音乐卡片；开机自启 HOME Activity（参见模块 4 启动流程）</div></div></div></li>
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">图标/包名屏蔽</span><div class="desc">隐藏非车机应用、定制 IconProvider，避免桌面图标泄漏到车机</div></div></div></li>
@@ -641,11 +641,11 @@
 </li>
 
 <!-- ===== 14. HAL / Treble ===== -->
-<li class="node lv1"><div class="row"><span class="toggle" onclick="toggleNode(this)">▼</span><div class="label"><span class="title">14. HAL 与 Treble 架构 <span class="tag tag-hal">HAL</span> <span class="tag tag-src">hardware/interfaces/ · system/libvintf/ · hardware/interfaces/automotive/vehicle/</span></span></div></div>
-<ul>
+<li class="node lv1"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">14. HAL 与 Treble 架构 <span class="tag tag-hal">HAL</span> <span class="tag tag-src">hardware/interfaces/ · system/libvintf/ · hardware/interfaces/automotive/vehicle/</span></span></div></div>
+<ul class="hidden">
   <li class="node lv2"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">14.1 Treble 隔离</span><div class="desc">system / vendor 分区隔离，Framework 可独立升级，VNDK 版本化</div></div></div></li>
-  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▼</span><div class="label"><span class="title">14.2 HAL 类型</span></div></div>
-  <ul>
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">14.2 HAL 类型</span></div></div>
+  <ul class="hidden">
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">HIDL (legacy)</span><div class="desc">AOSP 8-12，.hal 文件 + hidl-gen</div></div></div></li>
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">AIDL HAL <span class="tag tag-key">推荐</span></span><div class="desc">AOSP 11+ 稳定 AIDL，支持版本化，新版 HAL 默认方式</div></div></div></li>
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">直通式 vs 绑定式</span><div class="desc">Passthrough (同进程) / Binderized (独立进程 hwservicemanager)</div></div></div></li>
@@ -653,8 +653,8 @@
   </li>
   <li class="node lv2"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">14.3 hwservicemanager</span><div class="desc">vendor 域 Binder 注册中心</div></div></div></li>
   <li class="node lv2"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">14.4 VINTF</span><div class="desc">Vendor Interface Compatibility Matrix，兼容性检查 manifest.xml</div></div></div></li>
-  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▼</span><div class="label"><span class="title">14.5 新增 HAL 实战 <span class="tag tag-new">补全</span></span></div></div>
-  <ul>
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">14.5 新增 HAL 实战 <span class="tag tag-new">补全</span></span></div></div>
+  <ul class="hidden">
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">AIDL HAL 实现链路</span><div class="desc">定义 aidl_interface → 实现 impl (extends Stub) → rc 启动 hal 进程 → hwservicemanager 注册 → 客户端 getService</div></div></div></li>
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">调用链实例：Vibrator HAL</span><div class="desc">VibratorManager → VibratorService → AIDL HAL → kernel timed_output/vibrator 驱动</div></div></div></li>
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">App→HAL 通路</span><div class="desc">app 经 SystemService → Framework → AIDL/HIDL HAL → 厂商实现 (见模块 3.5 新增系统服务)</div></div></div></li>
@@ -665,17 +665,17 @@
 </li>
 
 <!-- ===== 15. SELinux ===== -->
-<li class="node lv1"><div class="row"><span class="toggle" onclick="toggleNode(this)">▼</span><div class="label"><span class="title">15. SELinux 权限系统 <span class="tag tag-src">system/sepolicy/ · external/selinux/</span></span></div></div>
-<ul>
+<li class="node lv1"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">15. SELinux 权限系统 <span class="tag tag-src">system/sepolicy/ · external/selinux/</span></span></div></div>
+<ul class="hidden">
   <li class="node lv2"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">15.1 模式</span><div class="desc">Permissive / Enforcing / Disabled，车载量产需 Enforcing</div></div></div></li>
-  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▼</span><div class="label"><span class="title">15.2 策略目录 <span class="tag tag-src">system/sepolicy/</span> <span class="tag tag-new">补全</span></span></div></div>
-  <ul>
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">15.2 策略目录 <span class="tag tag-src">system/sepolicy/</span> <span class="tag tag-new">补全</span></span></div></div>
+  <ul class="hidden">
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">public/</span><div class="desc">跨版本稳定的类型/属性</div></div></div></li>
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">private/ · vendor/ · prebuilts/api/&lt;ver&gt;/</span><div class="desc">平台私有 · 厂商 · 版本快照</div></div></div></li>
   </ul>
   </li>
-  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▼</span><div class="label"><span class="title">15.3 上下文文件 <span class="tag tag-new">补全</span></span></div></div>
-  <ul>
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">15.3 上下文文件 <span class="tag tag-new">补全</span></span></div></div>
+  <ul class="hidden">
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">file_contexts</span><div class="desc">文件 → type（如 /system/bin/myservice）</div></div></div></li>
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">service_contexts / hwservice_contexts</span><div class="desc">binder / hwbinder 服务名 → domain（新增系统服务必改）</div></div></div></li>
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">property_contexts / seapp_contexts</span><div class="desc">系统属性 → type；app 进程 → domain</div></div></div></li>
@@ -687,10 +687,10 @@
 </li>
 
 <!-- ===== 16. Settings 与系统裁剪 ===== -->
-<li class="node lv1"><div class="row"><span class="toggle" onclick="toggleNode(this)">▼</span><div class="label"><span class="title">16. Settings 与系统裁剪 <span class="tag tag-new">新增</span> <span class="tag tag-src">packages/apps/Settings / frameworks/base/packages/SettingsProvider</span></span><div class="desc">车载整机设置定制与系统能力裁剪</div></div></div>
-<ul>
-  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▼</span><div class="label"><span class="title">16.1 SettingsProvider 与默认值</span></div></div>
-  <ul>
+<li class="node lv1"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">16. Settings 与系统裁剪 <span class="tag tag-new">新增</span> <span class="tag tag-src">packages/apps/Settings / frameworks/base/packages/SettingsProvider</span></span><div class="desc">车载整机设置定制与系统能力裁剪</div></div></div>
+<ul class="hidden">
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">16.1 SettingsProvider 与默认值</span></div></div>
+  <ul class="hidden">
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">默认值来源</span><div class="desc"><span class="code">SettingsProvider/res/values/defaults.xml</span>：<span class="code">def_screen_brightness</span> 等；改默认亮度/音量/时区</div></div></div></li>
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">查询/设置</span><div class="desc"><span class="code">settings get/put system screen_brightness</span>；global/secure/system 三表</div></div></div></li>
   </ul>
@@ -701,26 +701,26 @@
 </li>
 
 <!-- ===== 17. 驱动开发（内核 / DTS / SocketCAN） ===== -->
-<li class="node lv1"><div class="row"><span class="toggle" onclick="toggleNode(this)">▼</span><div class="label"><span class="title">17. 驱动开发（内核 / DTS / SocketCAN） <span class="tag tag-hal">内核</span> <span class="tag tag-src">kernel/ · hardware/ · device/</span></span><div class="desc">车载/工控底层核心：DTS 设备树、字符驱动、CAN 控制器驱动与 SocketCAN 协议栈</div></div></div>
-<ul>
-  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▼</span><div class="label"><span class="title">17.1 驱动模型与字符设备 <span class="tag tag-src">drivers/ · include/linux/</span></span></div></div>
-  <ul>
+<li class="node lv1"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">17. 驱动开发（内核 / DTS / SocketCAN） <span class="tag tag-hal">内核</span> <span class="tag tag-src">kernel/ · hardware/ · device/</span></span><div class="desc">车载/工控底层核心：DTS 设备树、字符驱动、CAN 控制器驱动与 SocketCAN 协议栈</div></div></div>
+<ul class="hidden">
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">17.1 驱动模型与字符设备 <span class="tag tag-src">drivers/ · include/linux/</span></span></div></div>
+  <ul class="hidden">
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">platform 总线模型</span><div class="desc">platform_driver / platform_device，<span class="code">probe()</span> 由 DTS compatible 匹配触发（非设备树场景可注册同名 platform_device）</div></div></div></li>
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">file_operations</span><div class="desc"><span class="code">.open/.read/.write/.ioctl</span>，<span class="code">copy_to_user()/copy_from_user()</span> 与用户态交换数据</div></div></div></li>
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">设备节点注册</span><div class="desc"><span class="code">misc_register()</span> / <span class="code">alloc_chrdev_region()</span>；/dev 节点权限由 <span class="code">ueventd.rc</span> + <span class="code">file_contexts</span> 管控（见模块 15）</div></div></div></li>
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">内核模块</span><div class="desc">Kbuild Makefile（<span class="code">obj-m</span>）、<span class="code">insmod/modprobe/lsmod/rmmod</span>、模块依赖与签名</div></div></div></li>
   </ul>
   </li>
-  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▼</span><div class="label"><span class="title">17.2 DTS 设备树 <span class="tag tag-src">arch/arm64/boot/dts/ · arch/arm/boot/dts/</span></span></div></div>
-  <ul>
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">17.2 DTS 设备树 <span class="tag tag-src">arch/arm64/boot/dts/ · arch/arm/boot/dts/</span></span></div></div>
+  <ul class="hidden">
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">节点与属性</span><div class="desc"><span class="code">compatible</span>（匹配驱动）/ <span class="code">reg</span>（寄存器/地址）/ <span class="code">interrupts</span> / <span class="code">pinctrl-0</span>（引脚复用）</div></div></div></li>
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">驱动侧解析</span><div class="desc"><span class="code">of_match_table</span> 匹配；<span class="code">of_property_read_u32()</span> / <span class="code">of_iomap()</span> / <span class="code">platform_get_resource()</span></div></div></div></li>
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">GPIO / 中断</span><div class="desc"><span class="code">gpio-controller / interrupt-controller</span> 节点、<span class="code">gpiod_get()</span>、<span class="code">request_irq()</span></div></div></div></li>
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">车载典型改动</span><div class="desc">CAN 控制器使能（M_CAN / SPI-CAN 如 mcp2515）、UART 调试口、I2C/SPI 外设挂载；<b>dtsi 放 vendor 分区、Treble 隔离</b></div></div></div></li>
   </ul>
   </li>
-  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▼</span><div class="label"><span class="title">17.3 Linux SocketCAN <span class="tag tag-key">核心</span> <span class="tag tag-src">net/can/</span></span></div></div>
-  <ul>
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">17.3 Linux SocketCAN <span class="tag tag-key">核心</span> <span class="tag tag-src">net/can/</span></span></div></div>
+  <ul class="hidden">
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">CAN 协议栈</span><div class="desc"><span class="code">af_can.c</span> 核心 + 协议族：<span class="code">can-raw</span> / <span class="code">can-bcm</span>（周期广播）/ <span class="code">can-gw</span>（路由网关）/ <span class="code">can-j1939</span>（车载 SAE J1939）</div></div></div></li>
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">Socket 编程</span><div class="desc"><span class="code">socket(AF_CAN, SOCK_RAW, CAN_RAW)</span> → <span class="code">bind(ifindex)</span> → <span class="code">struct can_frame</span> 收发；canfd 用 <span class="code">CAN_RAW_FD_FRAMES</span></div></div></div></li>
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">canutils 工具</span><div class="desc"><span class="code">cansend / candump / cangen / cansniffer / canbusload</span>；回车载量产验证标准命令</div></div></div></li>
@@ -728,22 +728,22 @@
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">错误处理</span><div class="desc">Bus-Off 自动恢复（bus-off 状态机）、错误计数器/中断日志、<span class="code">ip -details link show can0</span>、/proc 统计</div></div></div></li>
   </ul>
   </li>
-  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▼</span><div class="label"><span class="title">17.4 中断 / 并发 / DMA <span class="tag tag-src">kernel/irq/ · kernel/locking/</span></span></div></div>
-  <ul>
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">17.4 中断 / 并发 / DMA <span class="tag tag-src">kernel/irq/ · kernel/locking/</span></span></div></div>
+  <ul class="hidden">
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">中断底半部</span><div class="desc">tasklet / workqueue / threaded irq（<span class="code">request_threaded_irq()</span>）；中断里禁睡眠</div></div></div></li>
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">并发原语</span><div class="desc">spinlock（原子上下文）/ mutex（进程上下文）/ 原子操作，避免竞态与死锁</div></div></div></li>
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">DMA 缓冲</span><div class="desc"><span class="code">dma_alloc_coherent()</span> / <span class="code">dma_map_single()</span>、环形缓冲（Ring Buffer）处理高速数据（如 CAN-FD 大流量）</div></div></div></li>
   </ul>
   </li>
-  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▼</span><div class="label"><span class="title">17.5 内核编译与打包 <span class="tag tag-src">kernel/ · out/</span></span></div></div>
-  <ul>
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">17.5 内核编译与打包 <span class="tag tag-src">kernel/ · out/</span></span></div></div>
+  <ul class="hidden">
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">defconfig / menuconfig</span><div class="desc">开启 <span class="code">CONFIG_CAN / CONFIG_CAN_RAW / CONFIG_CAN_MCP251X</span> 等宏；<span class="code">savedefconfig</span> 回写</div></div></div></li>
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">编译产物</span><div class="desc">Image/zImage、dtb（设备树编译）、.ko 模块；Android 侧经 <span class="code">mkbootimg</span> 打 boot.img / vendor_boot / dtbo</div></div></div></li>
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">烧录与验证</span><div class="desc"><span class="code">fastboot flash boot</span>；<span class="code">adb shell dmesg | grep</span> 确认驱动 probe；SELinux 设备节点权限联动（见模块 15）</div></div></div></li>
   </ul>
   </li>
-  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▼</span><div class="label"><span class="title">17.6 调试验证 <span class="tag tag-flow">踩坑</span></span></div></div>
-  <ul>
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">17.6 调试验证 <span class="tag tag-flow">踩坑</span></span></div></div>
+  <ul class="hidden">
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">内核侧</span><div class="desc"><span class="code">dmesg | grep -i can</span> · <span class="code">cat /proc/interrupts</span> · <span class="code">lsmod</span> · <span class="code">/sys/class/net/can0</span></div></div></div></li>
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">CAN 收发验证</span><div class="desc">回环测试（loopback）：<span class="code">cansend can0 123#DEADBEEF</span> ↔ <span class="code">candump can0</span>；双机对测（CAN-H/CAN-L 120Ω 终端电阻）</div></div></div></li>
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">常见踩坑</span><div class="desc">GPIO 复用冲突（pinctrl 重复占用）、波特率不匹配、Bus-Off 频繁、中断风暴、SELinux avc 拒绝（<span class="code">logcat -b all | grep avc</span>）</div></div></div></li>
@@ -752,12 +752,12 @@
 </ul>
 </li>
 <!-- ===== 18. 调试与性能 ===== -->
-<li class="node lv1"><div class="row"><span class="toggle" onclick="toggleNode(this)">▼</span><div class="label"><span class="title">18. 调试与性能 <span class="tag tag-src">system/core/logcat/ · external/perfetto/ · frameworks/native/cmds/atrace/ · system/core/debuggerd/</span></span></div></div>
-<ul>
+<li class="node lv1"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">18. 调试与性能 <span class="tag tag-src">system/core/logcat/ · external/perfetto/ · frameworks/native/cmds/atrace/ · system/core/debuggerd/</span></span></div></div>
+<ul class="hidden">
   <li class="node lv2"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">18.1 日志</span><div class="desc">logcat -b main/system/events/crash · dmesg · dropbox · bugreport</div></div></div></li>
   <li class="node lv2"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">18.2 服务状态</span><div class="desc"><span class="code">dumpsys &lt;service&gt;</span> · <span class="code">dumpsys SurfaceFlinger</span> · <span class="code">dumpsys activity</span> · <span class="code">dumpsys input</span> · <span class="code">dumpsys window</span></div></div></div></li>
-  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▼</span><div class="label"><span class="title">18.3 Perfetto / ANR 排障 <span class="tag tag-new">补全</span> <span class="tag tag-flow">踩坑</span></span></div></div>
-  <ul>
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">18.3 Perfetto / ANR 排障 <span class="tag tag-new">补全</span> <span class="tag tag-flow">踩坑</span></span></div></div>
+  <ul class="hidden">
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">Perfetto 抓 trace</span><div class="desc"><span class="code">perfetto -o trace.pftrace -t 10s sched freq idle am wm gfx view binder</span> → ui.perfetto.dev 分析</div></div></div></li>
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">ANR 分析</span><div class="desc"><span class="code">ls /data/anr/</span> → anr_&lt;pid&gt;_时间戳；<span class="code">kill -3 &lt;pid&gt;</span> 触发 Java 线程栈 dump；主线程阻塞定位</div></div></div></li>
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">systrace (已弃用)</span><div class="desc">frameworks/native/cmds/atrace，优先用 Perfetto</div></div></div></li>
@@ -769,14 +769,14 @@
 </li>
 
 <!-- ===== 19. 编译与烧录系统 ===== -->
-<li class="node lv1"><div class="row"><span class="toggle" onclick="toggleNode(this)">▼</span><div class="label"><span class="title">19. 编译与烧录系统 (Soong/Blueprint) <span class="tag tag-src">build/soong/ · build/make/ · external/blueprint/</span></span></div></div>
-<ul>
+<li class="node lv1"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">19. 编译与烧录系统 (Soong/Blueprint) <span class="tag tag-src">build/soong/ · build/make/ · external/blueprint/</span></span></div></div>
+<ul class="hidden">
   <li class="node lv2"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">19.1 Soong</span><div class="desc">Android.bp 描述，替代 Android.mk，Blueprint 引擎</div></div></div></li>
   <li class="node lv2"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">19.2 Ninja</span><div class="desc">构建执行引擎，build.ninja 依赖图</div></div></div></li>
-  <li class="node lv2"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">19.3 标准编译命令</span><div class="desc"><span class="code">source build/envsetup.sh && lunch xxx-eng && make -j32</span> (E5-2697A v4 64G 单路)</div></div></div></li>
+  <li class="node lv2"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">19.3 标准编译命令</span><div class="desc"><span class="code">source build/envsetup.sh &amp;&amp; lunch xxx-eng &amp;&amp; make -j32</span> (E5-2697A v4 64G 单路)</div></div></div></li>
   <li class="node lv2"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">19.4 分区产物</span><div class="desc">boot.img · system.img · vendor.img · product.img · odm.img · super.img (动态分区)</div></div></div></li>
-  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▼</span><div class="label"><span class="title">19.5 烧录/刷机 <span class="tag tag-new">补全</span></span></div></div>
-  <ul>
+  <li class="node lv2"><div class="row"><span class="toggle" onclick="toggleNode(this)">▶</span><div class="label"><span class="title">19.5 烧录/刷机 <span class="tag tag-new">补全</span></span></div></div>
+  <ul class="hidden">
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">fastboot</span><div class="desc"><span class="code">fastboot flash system vendor boot</span> · <span class="code">fastboot reboot</span>；动态分区用 <span class="code">fastboot flash super</span></div></div></div></li>
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">车载烧录注意</span><div class="desc">Treble 分区规范（vendor/odm 不随意改动）、校验 vbmeta/avb、防变砖（保留 bootloader 解锁/回退）</div></div></div></li>
     <li class="node lv3"><div class="row"><span class="toggle leaf">·</span><div class="label"><span class="title">单模块/单服务编译</span><div class="desc"><span class="code">mmm packages/apps/SystemUI</span> 或 <span class="code">make SystemUI</span>；改 SELinux 用 <span class="code">make sepolicy</span></div></div></div></li>
@@ -824,5 +824,6 @@ function toggleLevel(maxLevel) {
 }
 toggleLevel(2);
 </script>
-</body>
-</html>
+
+
+</body></html>
