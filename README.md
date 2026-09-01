@@ -1,7 +1,9 @@
+
+
 # obsidian
 
 #### 介绍
-个人文档资料
+个人文档资料（本仓库可作为 Obsidian 笔记库打开）
 
 
 这是一个链接 [菜鸟教程](https://flybigpig.github.io/obsidian)
@@ -27,5 +29,3 @@
 2.  新建 Feat_xxx 分支
 3.  提交代码
 4.  新建 Pull Request
-
-
